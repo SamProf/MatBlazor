@@ -1,0 +1,32 @@
+﻿@page "/"
+@using MatBlazor.Components.MatButton
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+
+<h1>@test</h1>
+
+<MatButton OnClick="@Run" ref="@but1" >@test</MatButton>
+
+
+@functions
+{
+
+    string test = "TEst";
+    MatButton but1;
+
+
+    void Run(UIMouseEventArgs ev)
+    {
+        test = DateTime.Now.ToString();
+        but1.ButtonType = (MatButtonType)(((int)but1.ButtonType + 1) % 2);
+        but1.Disabled = !but1.Disabled;
+
+
+
+        StateHasChanged();
+    }
+
+}

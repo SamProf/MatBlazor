@@ -1,0 +1,19 @@
+﻿@page "/"
+
+<h1 >@test</h1>
+
+<MatButton OnClick="@Run">@test</MatButton>
+
+
+@functions
+{
+
+    string test = "TEst";
+
+    void Run(UIMouseEventArgs ev)
+    {
+        test = DateTime.Now.ToString();
+        StateHasChanged();
+    }
+
+}
