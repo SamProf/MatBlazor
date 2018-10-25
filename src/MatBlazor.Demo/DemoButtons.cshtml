@@ -1,7 +1,21 @@
 ﻿@using MatBlazor.Components.MatButton
 @addTagHelper *,MatBlazor
 
+<h1>MatButton</h1>
+<h3>ButtonType</h3>
 <MatButton ButtonType="@MatButtonType.Text">Text</MatButton>
 <MatButton ButtonType="@MatButtonType.Raised">Raised</MatButton>
 <MatButton ButtonType="@MatButtonType.Unelevated">Unelevated</MatButton>
 <MatButton ButtonType="@MatButtonType.Outlined">Outlined</MatButton>
+
+<h3>Disabled</h3>
+<MatButton ButtonType="@MatButtonType.Text" Disabled="true">Text</MatButton>
+<MatButton ButtonType="@MatButtonType.Raised" Disabled="true">Raised</MatButton>
+<MatButton ButtonType="@MatButtonType.Unelevated" Disabled="true">Unelevated</MatButton>
+<MatButton ButtonType="@MatButtonType.Outlined" Disabled="true">Outlined</MatButton>
+
+
+
+<br/>
+<MatButton ButtonType="@MatButtonType.Text" >Text</MatButton>
+<MatButton ButtonType="@MatButtonType.Text" Class="mdc-button--dense">Outlined</MatButton>

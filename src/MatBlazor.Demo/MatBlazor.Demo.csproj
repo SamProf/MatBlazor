@@ -24,4 +24,8 @@
     <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="content\" />
+  </ItemGroup>
+
 </Project>

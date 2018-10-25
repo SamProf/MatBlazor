@@ -18,9 +18,21 @@ namespace MatBlazor.Helpers
             return this;
         }
 
+        public ClassBuilder<T> Get(Func<T, string> func)
+        {
+            Rules.Add(new ClassBuilderRuleGet<T>(func));
+            return this;
+        }
+
         public ClassBuilder<T> Class(string className)
         {
             Rules.Add(new ClassBuilderRuleClass<T>(className));
+            return this;
+        }
+
+        public ClassBuilder<T> Dictionary<TK>(Func<T, TK> func, IDictionary<TK, string> dictionary)
+        {
+            Rules.Add(new ClassBuilderRuleDictionary<T, TK>(func, dictionary));
             return this;
         }
 
@@ -30,50 +42,6 @@ namespace MatBlazor.Helpers
         public string GetClasses(T data)
         {
             return string.Join(" ", Rules.Select(i => i.GetClass(data)).Where(i => i != null));
-        }
-    }
-
-
-    public abstract class ClassBuilderRule<T>
-    {
-        public abstract string GetClass(T data);
-    }
-
-    public class ClassBuilderRuleClass<T> : ClassBuilderRule<T>
-    {
-        public string ClassName { get; set; }
-
-
-        public ClassBuilderRuleClass(string className)
-        {
-            ClassName = className;
-        }
-
-        public override string GetClass(T data)
-        {
-            return ClassName;
-        }
-    }
-
-    public class ClassBuilderRuleIf<T> : ClassBuilderRule<T>
-    {
-        public string ClassName { get; set; }
-        public Func<T, bool> Func { get; set; }
-
-        public ClassBuilderRuleIf(string className, Func<T, bool> func)
-        {
-            ClassName = className;
-            Func = func;
-        }
-
-        public override string GetClass(T data)
-        {
-            if (Func(data))
-            {
-                return ClassName;
-            }
-
-            return null;
         }
     }
 }

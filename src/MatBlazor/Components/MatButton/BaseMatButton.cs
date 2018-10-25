@@ -13,8 +13,20 @@ namespace MatBlazor.Components.MatButton
     {
         public string ClassNames { get; private set; }
 
-        [Parameter] protected Action<UIMouseEventArgs> OnClick { get; set; }
+        [Parameter]
+        protected Action<UIMouseEventArgs> OnClick { get; set; }
 
+
+        [Parameter]
+        public string Class
+        {
+            get => _class;
+            set
+            {
+                _class = value;
+                UpdateClass();
+            }
+        }
 
         [Parameter]
         public MatButtonType ButtonType
@@ -60,13 +72,13 @@ namespace MatBlazor.Components.MatButton
             }
         }
 
-        [Parameter] protected RenderFragment ChildContent { get; set; }
+        [Parameter]
+        protected RenderFragment ChildContent { get; set; }
 
         protected override void OnInit()
         {
             base.OnInit();
             UpdateClass();
-
         }
 
         private void UpdateClass()
@@ -78,13 +90,18 @@ namespace MatBlazor.Components.MatButton
         private bool _isIconButton;
         private bool _isRoundButton;
         private MatButtonType _buttonType;
+        private string _class;
 
 
         private static ClassBuilder<BaseMatButton> classBuilder = ClassBuilder<BaseMatButton>.Create()
+            .Get(b => b.Class)
             .Class("mdc-button")
-            .If("mdc-button--raised", b => b.ButtonType == MatButtonType.Raised)
-            .If("mdc-button--unelevated", b => b.ButtonType == MatButtonType.Unelevated)
-            .If("mdc-button--outlined", b => b.ButtonType == MatButtonType.Outlined);
+            .Dictionary(b => b.ButtonType, new Dictionary<MatButtonType, string>()
+            {
+                {MatButtonType.Raised, "mdc-button--raised"},
+                {MatButtonType.Unelevated, "mdc-button--unelevated"},
+                {MatButtonType.Outlined, "mdc-button--outlined"},
+            });
     }
 
     public enum MatButtonType
