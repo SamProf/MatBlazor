@@ -1,0 +1,12 @@
+{
+  "name": "MatBlazor.Web",
+  "version": "1.0.0",
+  "dependencies": {
+    "@material/button": "^0.40.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.9.4"
+  }
+}
