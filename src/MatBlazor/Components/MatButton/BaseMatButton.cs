@@ -11,22 +11,11 @@ namespace MatBlazor.Components.MatButton
 {
     public class BaseMatButton : BaseMatComponent
     {
-        public string ClassNames { get; private set; }
+        
 
         [Parameter]
         protected Action<UIMouseEventArgs> OnClick { get; set; }
 
-
-        [Parameter]
-        public string Class
-        {
-            get => _class;
-            set
-            {
-                _class = value;
-                UpdateComponent();
-            }
-        }
 
         [Parameter]
         public bool Raised
@@ -69,8 +58,6 @@ namespace MatBlazor.Components.MatButton
             {
                 _dense = value;
                 UpdateComponent();
-
-
             }
         }
 
@@ -112,19 +99,14 @@ namespace MatBlazor.Components.MatButton
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 
-        protected override void OnInit()
+       
+        public override void UpdateComponent()
         {
-            base.OnInit();
-            UpdateComponent();
-        }
-
-        private void UpdateComponent()
-        {
-            ClassNames = classBuilder.GetClasses(this);
+            ClassNames = ClassBuilder.GetClasses(this);
         }
 
 
-        private static ClassBuilder<BaseMatButton> classBuilder = ClassBuilder<BaseMatButton>.Create()
+        public static ClassBuilder<BaseMatButton> ClassBuilder = ClassBuilder<BaseMatButton>.Create()
             .Get(b => b.Class)
             .Class("mdc-button")
             .If("mdc-button--raised", b => b.Raised)
@@ -132,7 +114,7 @@ namespace MatBlazor.Components.MatButton
             .If("mdc-button--outlined", b => b.Outlined)
             .If("mdc-button--dense", b => b.Dense);
 
-        private string _class;
+
         private bool _raised;
         private bool _unelevated;
         private bool _outlined;

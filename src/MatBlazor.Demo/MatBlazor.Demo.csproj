@@ -28,4 +28,10 @@
     <Folder Include="content\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="DemoMatCard.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>
