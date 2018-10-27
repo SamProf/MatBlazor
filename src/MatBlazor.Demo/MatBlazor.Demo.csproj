@@ -29,6 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="DemoMatCheckbox.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="DemoMatCard.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

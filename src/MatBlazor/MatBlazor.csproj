@@ -36,6 +36,9 @@
     <Content Update="Components\MatCard\MatCard.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Components\MatCheckbox\MatCheckbox.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>
