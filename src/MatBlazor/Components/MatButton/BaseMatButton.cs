@@ -24,18 +24,53 @@ namespace MatBlazor.Components.MatButton
             set
             {
                 _class = value;
-                UpdateClass();
+                UpdateComponent();
             }
         }
 
         [Parameter]
-        public MatButtonType ButtonType
+        public bool Raised
         {
-            get => _buttonType;
+            get => _raised;
             set
             {
-                _buttonType = value;
-                UpdateClass();
+                _raised = value;
+                UpdateComponent();
+            }
+        }
+
+        [Parameter]
+        public bool Unelevated
+        {
+            get => _unelevated;
+            set
+            {
+                _unelevated = value;
+                UpdateComponent();
+            }
+        }
+
+        [Parameter]
+        public bool Outlined
+        {
+            get => _outlined;
+            set
+            {
+                _outlined = value;
+                UpdateComponent();
+            }
+        }
+
+        [Parameter]
+        public bool Dense
+        {
+            get => _dense;
+            set
+            {
+                _dense = value;
+                UpdateComponent();
+
+
             }
         }
 
@@ -46,31 +81,33 @@ namespace MatBlazor.Components.MatButton
             set
             {
                 _disabled = value;
-                UpdateClass();
+                UpdateComponent();
+            }
+        }
+
+
+        [Parameter]
+        public string Icon
+        {
+            get => _icon;
+            set
+            {
+                _icon = value;
+                UpdateComponent();
             }
         }
 
         [Parameter]
-        public bool IsIconButton
+        public string Label
         {
-            get => _isIconButton;
+            get => _label;
             set
             {
-                _isIconButton = value;
-                UpdateClass();
+                _label = value;
+                UpdateComponent();
             }
         }
 
-        [Parameter]
-        public bool IsRoundButton
-        {
-            get => _isRoundButton;
-            set
-            {
-                _isRoundButton = value;
-                UpdateClass();
-            }
-        }
 
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
@@ -78,37 +115,38 @@ namespace MatBlazor.Components.MatButton
         protected override void OnInit()
         {
             base.OnInit();
-            UpdateClass();
+            UpdateComponent();
         }
 
-        private void UpdateClass()
+        private void UpdateComponent()
         {
             ClassNames = classBuilder.GetClasses(this);
         }
-
-        private bool _disabled;
-        private bool _isIconButton;
-        private bool _isRoundButton;
-        private MatButtonType _buttonType;
-        private string _class;
 
 
         private static ClassBuilder<BaseMatButton> classBuilder = ClassBuilder<BaseMatButton>.Create()
             .Get(b => b.Class)
             .Class("mdc-button")
-            .Dictionary(b => b.ButtonType, new Dictionary<MatButtonType, string>()
-            {
-                {MatButtonType.Raised, "mdc-button--raised"},
-                {MatButtonType.Unelevated, "mdc-button--unelevated"},
-                {MatButtonType.Outlined, "mdc-button--outlined"},
-            });
+            .If("mdc-button--raised", b => b.Raised)
+            .If("mdc-button--unelevated", b => b.Unelevated)
+            .If("mdc-button--outlined", b => b.Outlined)
+            .If("mdc-button--dense", b => b.Dense);
+
+        private string _class;
+        private bool _raised;
+        private bool _unelevated;
+        private bool _outlined;
+        private bool _dense;
+        private bool _disabled;
+        private string _icon;
+        private string _label;
     }
 
-    public enum MatButtonType
-    {
-        Text = 0,
-        Raised = 1,
-        Unelevated = 2,
-        Outlined = 3
-    }
+//    public enum MatButtonType
+//    {
+//        Text = 0,
+//        Raised = 1,
+//        Unelevated = 2,
+//        Outlined = 3
+//    }
 }

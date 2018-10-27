@@ -7,7 +7,9 @@ sass.compiler = require('node-sass');
 
 gulp.task('sass', function () {
     return gulp.src('./sass/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({
+            includePaths: ['scss']
+        }).on('error', sass.logError))
         .pipe(gulp.dest('./../MatBlazor/content'));
 });
 

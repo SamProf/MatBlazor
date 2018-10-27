@@ -1,13 +1,13 @@
 ﻿@inherits BaseMatButton
 
-<button class="@ClassNames" onclick="@OnClick" disabled=@Disabled test="1111">
+<button class="@ClassNames" onclick="@OnClick" disabled=@Disabled aria-label="@(Label ?? Icon)">
+    @if (Icon != null)
+    {
+        <span class="material-icons mdc-button__icon">@Icon</span>
+    }
+    @if (Label != null)
+    {
+        @Label
+    }
     @ChildContent
 </button>
-
-@functions
-{
-
-    
-    
-
-}
