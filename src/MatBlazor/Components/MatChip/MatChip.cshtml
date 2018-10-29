@@ -1,0 +1,13 @@
+﻿@inherits BaseMatChip
+
+<div class="@ClassNames">
+    @if (LeadingIcon != null)
+    {
+        <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">@LeadingIcon</i>
+    }
+    <div class="mdc-chip__text">@Label</div>
+    @if (TrailingIcon != null)
+    {
+        <i class="material-icons mdc-chip__icon mdc-chip__icon--trailing">@TrailingIcon</i>
+    }
+</div>

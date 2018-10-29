@@ -2,4 +2,37 @@
 
 <h1>MatCheckbox</h1>
 
-<MatCheckbox></MatCheckbox>
+<div>
+    <MatCheckbox Checked="@Checked1" CheckedChanged="UpdateChecked1"></MatCheckbox> <b>@Checked1</b>
+</div>
+<div>
+    <MatCheckbox Checked="@Checked2" CheckedChanged="UpdateChecked2"></MatCheckbox> <b>@Checked2</b>
+</div>
+
+<div>
+    <MatCheckbox Disabled="true"></MatCheckbox> <b>Disabled</b>
+</div>
+@* <div> *@
+@*     <MatCheckbox Indeterminate="true"></MatCheckbox> <b>Indeterminate</b> *@
+@* </div> *@
+
+
+@functions
+{
+    public bool Checked1 { get; set; } = true;
+    public bool Checked2 { get; set; } = false;
+
+    public void UpdateChecked1(bool v)
+    {
+        this.Checked1 = v;
+        this.StateHasChanged();
+
+    }
+
+    public void UpdateChecked2(bool v)
+    {
+        this.Checked2 = v;
+        this.StateHasChanged();
+
+    }
+}

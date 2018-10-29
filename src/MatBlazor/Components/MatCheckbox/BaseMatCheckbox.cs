@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MatBlazor.Components.Base;
+using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Blazor.Components;
 
 namespace MatBlazor.Components.MatCheckbox
@@ -17,7 +18,10 @@ namespace MatBlazor.Components.MatCheckbox
         public bool Checked { get; set; }
 
         [Parameter]
-        public bool Indeterminate { get; set; }
+        public Action<bool> CheckedChanged { get; set; }
+//
+//        [Parameter]
+//        public bool Indeterminate { get; set; }
 
         [Parameter]
         public bool Disabled { get; set; }
@@ -25,8 +29,10 @@ namespace MatBlazor.Components.MatCheckbox
         [Parameter]
         public string Value { get; set; }
 
-        public void ChangeHandler(object a)
+        public void ChangeHandler(UIChangeEventArgs e)
         {
+            Checked = (bool) e.Value;
+            CheckedChanged?.Invoke(this.Checked);
         }
     }
 }
