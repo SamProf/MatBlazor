@@ -23,6 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Pages\DemoMatTextFieldPage.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\DemoMatChipPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

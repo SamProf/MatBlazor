@@ -1,13 +1,37 @@
 ﻿@inherits BaseMatTextField
 
 <div class="@ClassMapper.Class">
-    @* ${!fullWidth && icon ? html`<i class="material-icons mdc-text-field__icon" tabindex="0">${icon}</i>` : ''} *@
+    @if (!FullWidth && Icon != null)
+    {
+        <i class="material-icons mdc-text-field__icon" tabindex="0">@Icon</i>
+    }
+
     @* ${this._renderInput({value, required, type, placeHolder, label})} *@
-    @* ${!fullWidth && label ? html`<label class="mdc-floating-label ${value ? 'mdc-floating-label--float-above' : ''}" for="text-field">${label}</label>` : ''} *@
-    @* ${!fullWidth && outlined ? html`<div class="mdc-notched-outline"> *@
-    @*     <svg><path class="mdc-notched-outline__path"/></svg> *@
-    @* </div> *@
-    @* <div class="mdc-notched-outline__idle"></div>` : *@
-    @* html`<div class="mdc-line-ripple"></div>`} *@
+
+    <input type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="text-field" value="@Value" aria-label="@Label">
+
+
+    @if (!FullWidth && Label != null)
+    {
+        <label class="@LabelClassMapper.Class" for="text-field">@Label</label>
+    }
+
+
+    @if (!FullWidth && Outlined)
+    {
+        <div class="mdc-notched-outline">
+            <svg>
+                <path class="mdc-notched-outline__path"/>
+            </svg>
+        </div>
+        <div class="mdc-notched-outline__idle"></div>
+    }
+    else
+    {
+        <div ifass="mdc-line-ripple"></div>
+    }
 </div>
-@* ${helperText ? html`<p class="mdc-text-field-helper-text" aria-hidden="true">${helperText}</p>` : ''} *@
+@if (HelperText != null)
+{
+}
+<p class="mdc-text-field-helper-text" aria-hidden="true">@HelperText</p>
