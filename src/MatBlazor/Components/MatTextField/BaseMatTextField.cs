@@ -46,21 +46,17 @@ namespace MatBlazor.Components.MatTextField
         [Parameter]
         public string Type { get; set; }
 
-        public override void UpdateComponent()
+        public BaseMatTextField()
         {
-            ClassNames = ClassBuilder.GetClasses(this);
+            ClassMapper
+                .Add("mdc-text-field")
+                .Add("mdc-text-field--upgraded")
+                .If("mdc-text-field--with-leading-icon", () => this.Icon != null && !this.IconTrailing)
+                .If("mdc-text-field--with-trailing-icon", () => this.Icon != null && this.IconTrailing)
+                .If("mdc-text-field--box", () => !this.FullWidth && this.Box)
+                .If("mdc-text-field--outlined", () => !this.FullWidth && this.Outlined)
+                .If("mdc-text-field--disabled", () => this.Disabled)
+                .If("mdc-text-field--fullwidth", () => this.FullWidth);
         }
-
-
-        public static ClassBuilder<BaseMatTextField> ClassBuilder = ClassBuilder<BaseMatTextField>.Create()
-            .Get(b => b.Class)
-            .Class("mdc-text-field")
-            .Class("mdc-text-field--upgraded")
-            .If("mdc-text-field--with-leading-icon", b => b.Icon != null && !b.IconTrailing)
-            .If("mdc-text-field--with-trailing-icon", b => b.Icon != null && b.IconTrailing)
-            .If("mdc-text-field--box", b => !b.FullWidth && b.Box)
-            .If("mdc-text-field--outlined", b => !b.FullWidth && b.Outlined)
-            .If("mdc-text-field--disabled", b => b.Disabled)
-            .If("mdc-text-field--fullwidth", b => b.FullWidth);
     }
 }

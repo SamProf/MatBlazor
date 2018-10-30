@@ -11,6 +11,13 @@ namespace MatBlazor.Components.MatCard
 {
     public class BaseMatCard : BaseMatComponent
     {
+        public BaseMatCard()
+        {
+            ClassMapper
+                .Add("mdc-card")
+                .If("mdc-card--stroked", () => this.Stroke);
+        }
+
         [Parameter]
         protected bool Stroke
         {
@@ -18,23 +25,14 @@ namespace MatBlazor.Components.MatCard
             set
             {
                 _stroke = value;
-                UpdateComponent();
+                ClassMapper.MakeDirty();
             }
         }
 
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 
-        public static ClassBuilder<BaseMatCard> ClassBuilder = ClassBuilder<BaseMatCard>.Create()
-            .Get(b => b.Class)
-            .Class("mdc-card")
-            .If("mdc-card--stroked", b => b.Stroke);
 
         private bool _stroke;
-
-        public override void UpdateComponent()
-        {
-            ClassNames = ClassBuilder.GetClasses(this);
-        }
     }
 }

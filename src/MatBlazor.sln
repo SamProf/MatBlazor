@@ -7,13 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.TestApp", "MatBla
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor", "MatBlazor\MatBlazor.csproj", "{A85977AA-74E8-4B65-8D0B-E8C5EB1AD749}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1.Server", "WebApplication1.Server\WebApplication1.Server.csproj", "{89D94B6B-9200-435F-AE72-F4644F9B46C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.Demo.Server", "MatBlazor.Demo.Server\MatBlazor.Demo.Server.csproj", "{30DE15CD-FD2E-4237-A225-017CDED89AD2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1.App", "WebApplication1.App\WebApplication1.App.csproj", "{FF181850-CAC0-4B90-B46D-1DC9E9DF7271}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatBlazor.Demo.Server", "MatBlazor.Demo.Server\MatBlazor.Demo.Server.csproj", "{30DE15CD-FD2E-4237-A225-017CDED89AD2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatBlazor.Demo.App", "MatBlazor.Demo.App\MatBlazor.Demo.App.csproj", "{B3EFE132-D466-4669-9152-E3CFE19C4D8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.Demo.App", "MatBlazor.Demo.App\MatBlazor.Demo.App.csproj", "{B3EFE132-D466-4669-9152-E3CFE19C4D8C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.Demo", "MatBlazor.Demo\MatBlazor.Demo.csproj", "{8458A4F5-D663-41F8-AB6B-80D594C428B2}"
 EndProject
@@ -31,14 +27,6 @@ Global
 		{A85977AA-74E8-4B65-8D0B-E8C5EB1AD749}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A85977AA-74E8-4B65-8D0B-E8C5EB1AD749}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A85977AA-74E8-4B65-8D0B-E8C5EB1AD749}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89D94B6B-9200-435F-AE72-F4644F9B46C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89D94B6B-9200-435F-AE72-F4644F9B46C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89D94B6B-9200-435F-AE72-F4644F9B46C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89D94B6B-9200-435F-AE72-F4644F9B46C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF181850-CAC0-4B90-B46D-1DC9E9DF7271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF181850-CAC0-4B90-B46D-1DC9E9DF7271}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF181850-CAC0-4B90-B46D-1DC9E9DF7271}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF181850-CAC0-4B90-B46D-1DC9E9DF7271}.Release|Any CPU.Build.0 = Release|Any CPU
 		{30DE15CD-FD2E-4237-A225-017CDED89AD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{30DE15CD-FD2E-4237-A225-017CDED89AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30DE15CD-FD2E-4237-A225-017CDED89AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU

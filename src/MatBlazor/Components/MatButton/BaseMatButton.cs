@@ -11,7 +11,15 @@ namespace MatBlazor.Components.MatButton
 {
     public class BaseMatButton : BaseMatComponent
     {
-        
+        public BaseMatButton()
+        {
+            ClassMapper
+                .Add("mdc-button")
+                .If("mdc-button--raised", () => this.Raised)
+                .If("mdc-button--unelevated", () => this.Unelevated)
+                .If("mdc-button--outlined", () => this.Outlined)
+                .If("mdc-button--dense", () => this.Dense);
+        }
 
         [Parameter]
         protected Action<UIMouseEventArgs> OnClick { get; set; }
@@ -24,7 +32,7 @@ namespace MatBlazor.Components.MatButton
             set
             {
                 _raised = value;
-                UpdateComponent();
+                ClassMapper.MakeDirty();
             }
         }
 
@@ -35,7 +43,7 @@ namespace MatBlazor.Components.MatButton
             set
             {
                 _unelevated = value;
-                UpdateComponent();
+                ClassMapper.MakeDirty();
             }
         }
 
@@ -46,7 +54,7 @@ namespace MatBlazor.Components.MatButton
             set
             {
                 _outlined = value;
-                UpdateComponent();
+                ClassMapper.MakeDirty();
             }
         }
 
@@ -57,7 +65,7 @@ namespace MatBlazor.Components.MatButton
             set
             {
                 _dense = value;
-                UpdateComponent();
+                ClassMapper.MakeDirty();
             }
         }
 
@@ -68,7 +76,7 @@ namespace MatBlazor.Components.MatButton
             set
             {
                 _disabled = value;
-                UpdateComponent();
+                ClassMapper.MakeDirty();
             }
         }
 
@@ -80,7 +88,7 @@ namespace MatBlazor.Components.MatButton
             set
             {
                 _icon = value;
-                UpdateComponent();
+                ClassMapper.MakeDirty();
             }
         }
 
@@ -91,28 +99,13 @@ namespace MatBlazor.Components.MatButton
             set
             {
                 _label = value;
-                UpdateComponent();
+                ClassMapper.MakeDirty();
             }
         }
 
 
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
-
-       
-        public override void UpdateComponent()
-        {
-            ClassNames = ClassBuilder.GetClasses(this);
-        }
-
-
-        public static ClassBuilder<BaseMatButton> ClassBuilder = ClassBuilder<BaseMatButton>.Create()
-            .Get(b => b.Class)
-            .Class("mdc-button")
-            .If("mdc-button--raised", b => b.Raised)
-            .If("mdc-button--unelevated", b => b.Unelevated)
-            .If("mdc-button--outlined", b => b.Outlined)
-            .If("mdc-button--dense", b => b.Dense);
 
 
         private bool _raised;

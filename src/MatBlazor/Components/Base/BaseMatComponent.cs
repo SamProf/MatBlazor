@@ -10,12 +10,12 @@ namespace MatBlazor.Components.Base
 {
     public abstract class BaseMatComponent : BlazorComponent
     {
-        public string ClassNames { get; internal set; }
+        public ClassMapper ClassMapper { get; } = new ClassMapper();
 
-
-        public static ClassBuilder<BaseMatComponent> ClassBuilder = ClassBuilder<BaseMatComponent>.Create()
-            .Get(b => b.Class);
-
+        protected BaseMatComponent()
+        {
+            ClassMapper.Get(() => this.Class);
+        }
 
         [Parameter]
         public string Class
@@ -24,19 +24,10 @@ namespace MatBlazor.Components.Base
             set
             {
                 _class = value;
-                UpdateComponent();
+                ClassMapper.MakeDirty();
             }
         }
 
         private string _class;
-
-
-        public abstract void UpdateComponent();
-
-        protected override void OnInit()
-        {
-            base.OnInit();
-            UpdateComponent();
-        }
     }
 }

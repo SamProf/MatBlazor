@@ -10,10 +10,11 @@ namespace MatBlazor.Components.MatCheckbox
 {
     public class BaseMatCheckbox : BaseMatComponent
     {
-        public override void UpdateComponent()
+        public BaseMatCheckbox()
         {
+            ClassMapper.Add("mdc-checkbox");
         }
-        
+
         [Parameter]
         public bool Checked { get; set; }
 

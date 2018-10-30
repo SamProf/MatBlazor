@@ -1,6 +1,6 @@
 ﻿@inherits BaseMatTextField
 
-<div class="@ClassNames">
+<div class="@ClassMapper.Class">
     @* ${!fullWidth && icon ? html`<i class="material-icons mdc-text-field__icon" tabindex="0">${icon}</i>` : ''} *@
     @* ${this._renderInput({value, required, type, placeHolder, label})} *@
     @* ${!fullWidth && label ? html`<label class="mdc-floating-label ${value ? 'mdc-floating-label--float-above' : ''}" for="text-field">${label}</label>` : ''} *@

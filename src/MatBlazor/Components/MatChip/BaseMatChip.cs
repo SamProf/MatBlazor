@@ -23,15 +23,11 @@ namespace MatBlazor.Components.MatChip
         public bool Active { get; set; } = false;
 
 
-        public override void UpdateComponent()
+        public BaseMatChip()
         {
-            ClassNames = ClassBuilder.GetClasses(this);
+            ClassMapper
+                .Add("mdc-chip")
+                .If("mdc-chip--activated", () => this.Active);
         }
-
-
-        public static ClassBuilder<BaseMatChip> ClassBuilder = ClassBuilder<BaseMatChip>.Create()
-            .Get(b => b.Class)
-            .Class("mdc-chip")
-            .If("mdc-chip--activated", b => b.Active);
     }
 }
