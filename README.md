@@ -42,3 +42,4 @@ dotnet add package MatBlazor
 - MatCheckbox
 - MatChip
 - MatTextField
+- MatTab in progress
