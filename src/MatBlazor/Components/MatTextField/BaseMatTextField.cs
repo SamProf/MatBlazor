@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MatBlazor.Components.Base;
 using MatBlazor.Helpers;
+using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Blazor.Components;
 
 namespace MatBlazor.Components.MatTextField
@@ -16,10 +17,18 @@ namespace MatBlazor.Components.MatTextField
             get => _value;
             set
             {
-                _value = value;
-                LabelClassMapper.MakeDirty();
+                if (value != _value)
+                {
+                    _value = value;
+                    LabelClassMapper.MakeDirty();
+                    InputClassMapper.MakeDirty();
+                    ValueChanged?.Invoke(value);
+                }
             }
         }
+
+        [Parameter]
+        public Action<string> ValueChanged { get; set; }
 
         [Parameter]
         public string Label { get; set; }
@@ -52,11 +61,18 @@ namespace MatBlazor.Components.MatTextField
         public string PlaceHolder { get; set; }
 
         [Parameter]
-        public string Type { get; set; }
+        public string Type { get; set; } = "text";
 
 
         public ClassMapper LabelClassMapper = new ClassMapper();
         public ClassMapper InputClassMapper = new ClassMapper();
+
+
+        public void OnChangeHandler(UIChangeEventArgs ev)
+        {
+            Value = (string)ev.Value;
+        }
+
         private string _value;
 
         public BaseMatTextField()
@@ -77,7 +93,13 @@ namespace MatBlazor.Components.MatTextField
 
             InputClassMapper
                 .Add("mdc-text-field__input")
-                .If("mdc-text-field--upgraded", ()=>!string.IsNullOrEmpty(Value));
+                .If("mdc-text-field--upgraded", () => !string.IsNullOrEmpty(Value));
+        }
+
+        protected async override Task OnAfterRenderAsync()
+        {
+            await InteropHelper.StartAsync();
+            await base.OnAfterRenderAsync();
         }
     }
 }

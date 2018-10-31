@@ -4,4 +4,24 @@
 
 Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<p>
+    <h4>Bind Test: @MyString</h4>
+    <MatTextField bind-Value="@MyString" Label="Label Test"></MatTextField>
+</p>
+
+@functions
+{
+
+    public string MyString
+    {
+        get => _myString;
+        set
+        {
+            _myString = value;
+            this.StateHasChanged();
+        }
+    }
+
+
+    private string _myString = "Test";
+}

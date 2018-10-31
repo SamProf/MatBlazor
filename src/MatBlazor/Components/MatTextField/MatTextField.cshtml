@@ -8,7 +8,7 @@
 
     @* ${this._renderInput({value, required, type, placeHolder, label})} *@
 
-    <input type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="text-field" value="@Value" aria-label="@Label">
+    <input type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="text-field" value="@Value" aria-label="@Label" onchange="@OnChangeHandler" />
 
 
     @if (!FullWidth && Label != null)
@@ -28,7 +28,7 @@
     }
     else
     {
-        <div ifass="mdc-line-ripple"></div>
+        <div class="mdc-line-ripple"></div>
     }
 </div>
 @if (HelperText != null)
