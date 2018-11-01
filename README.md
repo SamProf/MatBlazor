@@ -44,4 +44,5 @@ dotnet add package MatBlazor
 - MatTextField
 - MatRadioButton
 - MatSelect
+- MatSlider
 

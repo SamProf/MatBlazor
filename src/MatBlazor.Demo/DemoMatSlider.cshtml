@@ -3,8 +3,28 @@
 <h1>MatSlider</h1>
 
 <p>
-    <h4>Normal: @Val</h4>
+    <h4>Continuous Slider: @Val</h4>
     <MatSlider bind-Value="@Val"></MatSlider>
+</p>
+
+<p>
+    <h4>Initializing the slider with custom ranges/values: @Val2</h4>
+    <MatSlider bind-Value="@Val2" ValueMin="-10" ValueMax="20" ></MatSlider>
+</p>
+
+<p>
+    <h4>Discrete Slider: @Val3</h4>
+    <MatSlider bind-Value="@Val3" Discrete="true"></MatSlider>
+</p>
+
+<p>
+    <h4>Using a step value: @Val4</h4>
+    <MatSlider bind-Value="@Val4" Step="5"></MatSlider>
+</p>
+
+<p>
+    <h4>Disabled sliders</h4>
+    <MatSlider Disabled="true" Value="55"></MatSlider>
 </p>
 
 
@@ -21,5 +41,42 @@
         }
     }
 
-    private decimal _val = 10;
+    private decimal _val = 0;
+
+
+    public decimal Val2
+    {
+        get => _val2;
+        set
+        {
+            _val2 = value;
+            this.StateHasChanged();
+        }
+    }
+
+    private decimal _val2 = 5;
+
+    public decimal Val3
+    {
+        get => _val3;
+        set
+        {
+            _val3 = value;
+            this.StateHasChanged();
+        }
+    }
+
+    private decimal _val3 = 5;
+
+    public decimal Val4
+    {
+        get => _val4;
+        set
+        {
+            _val4 = value;
+            this.StateHasChanged();
+        }
+    }
+
+    private decimal _val4 = 10;
 }

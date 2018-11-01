@@ -15,7 +15,6 @@ namespace MatBlazor.Components.MatSlider
 
         protected JsHelper jsHelper;
 
-//        protected DotNetObjectRef jsHelperRef;
         private decimal _value;
 
         protected async override Task OnFirstAfterRenderAsync()
@@ -27,7 +26,10 @@ namespace MatBlazor.Components.MatSlider
         public BaseMatSlider()
         {
             jsHelper = new JsHelper(this);
-//            jsHelperRef = new DotNetObjectRef(jsHelper);
+            ClassMapper
+                .Add("mdc-slider")
+                .If("mdc-slider--discrete", () => Discrete)
+                ;
         }
 
 
@@ -38,7 +40,16 @@ namespace MatBlazor.Components.MatSlider
         public decimal ValueMax { get; set; } = 100;
 
         [Parameter]
-        public string Label { get; set; };
+        public string Label { get; set; }
+
+        [Parameter]
+        public bool Discrete { get; set; }
+
+        [Parameter]
+        public decimal Step { get; set; }
+
+        [Parameter]
+        public bool Disabled { get; set; }
 
 
         [Parameter]
