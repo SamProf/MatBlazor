@@ -26,6 +26,9 @@
     <Content Update="Pages\DemoMatRadioButtonPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Pages\DemoMatSelectPage.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\DemoMatTextFieldPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
