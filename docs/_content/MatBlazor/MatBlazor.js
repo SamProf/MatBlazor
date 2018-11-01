@@ -1,8 +1,10 @@
 ﻿var matBlazor =
 {
-    start: function () {
-        debugger;
-//        new window.mdc.lineRipple.MDCLineRipple(document.querySelector('.mdc-line-ripple'));
-        new window.mdc.textField.MDCTextField(document.querySelector('.mdc-text-field'))
+    matRadioButton: {
+        init: function (mdcRadioRef, mdcFormFieldRef) {
+            var radio = new window.mdc.radio.MDCRadio(mdcRadioRef);
+            var formField = new window.mdc.formField.MDCFormField(mdcFormFieldRef);
+            formField.input = radio;
+        },
     },
 };
