@@ -18,11 +18,11 @@
         },
     },
     matSlider: {
-        init: function (mdcSliderRef, jsHelper) {
+        init: function(mdcSliderRef, jsHelper) {
             try {
                 var slider = new window.mdc.slider.MDCSlider(mdcSliderRef);
                 slider.listen('MDCSlider:change',
-                    function () {
+                    function() {
 //                        debugger;
                         try {
                             jsHelper.invokeMethodAsync('OnChangeHandler', slider.value)
@@ -37,6 +37,25 @@
                 debugger;
                 throw e;
             }
+        },
+    },
+
+    matMenu: {
+        init: function(mdcMenu) {
+            try {
+                var menu = new window.mdc.menu.MDCMenu(mdcMenu);
+                menu.hoistMenuToBody(); 
+                mdcMenu.matBlazorRef = menu;
+            } catch (e) {
+                debugger;
+                throw e;
+            }
+        },
+        open: function (mdcMenu, anchorElement) {
+            debugger;
+            var menu = mdcMenu.matBlazorRef;
+            menu.setAnchorElement(anchorElement);
+            menu.open = true;
         },
     },
 };

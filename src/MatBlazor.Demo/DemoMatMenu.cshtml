@@ -1,0 +1,26 @@
+﻿@using MatBlazor.Components.MatButton
+@using MatBlazor.Components.MatMenu
+@addTagHelper *,MatBlazor
+
+<h1>MatMenu</h1>
+
+<h4>Basic Usage</h4>
+<p>
+    <MatButton Label="Menu" OnClick="@OnClick" ref="Button"></MatButton>
+    <MatMenu ref="Menu"></MatMenu>
+</p>
+
+
+@functions
+{
+
+    BaseMatButton Button;
+    BaseMatMenu Menu;
+
+
+    public void OnClick(UIMouseEventArgs e)
+    {
+        this.Menu.OpenAsync(Button.Ref);
+    }
+
+}
