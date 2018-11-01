@@ -29,6 +29,9 @@
     <Content Update="Pages\DemoMatSelectPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Pages\DemoMatSliderPage.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\DemoMatTextFieldPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

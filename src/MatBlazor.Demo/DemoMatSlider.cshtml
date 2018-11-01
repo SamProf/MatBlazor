@@ -1,0 +1,25 @@
+﻿@addTagHelper *,MatBlazor
+
+<h1>MatSlider</h1>
+
+<p>
+    <h4>Normal: @Val</h4>
+    <MatSlider bind-Value="@Val"></MatSlider>
+</p>
+
+
+@functions
+{
+
+    public decimal Val
+    {
+        get => _val;
+        set
+        {
+            _val = value;
+            this.StateHasChanged();
+        }
+    }
+
+    private decimal _val = 10;
+}

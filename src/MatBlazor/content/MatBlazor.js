@@ -1,22 +1,42 @@
 ﻿var matBlazor =
 {
     matRadioButton: {
-        init: function (mdcRadioRef, mdcFormFieldRef) {
+        init: function(mdcRadioRef, mdcFormFieldRef) {
             var radio = new window.mdc.radio.MDCRadio(mdcRadioRef);
             var formField = new window.mdc.formField.MDCFormField(mdcFormFieldRef);
             formField.input = radio;
         },
     },
     matSelect: {
-        init: function (mdcSelectRef) {
-            
+        init: function(mdcSelectRef) {
             try {
                 var select = new window.mdc.select.MDCSelect(mdcSelectRef);
             } catch (e) {
                 debugger;
+                throw e;
             }
+        },
+    },
+    matSlider: {
+        init: function (mdcSliderRef, jsHelper) {
+            try {
+                var slider = new window.mdc.slider.MDCSlider(mdcSliderRef);
+                slider.listen('MDCSlider:change',
+                    function () {
+//                        debugger;
+                        try {
+                            jsHelper.invokeMethodAsync('OnChangeHandler', slider.value)
+                                .then(r => console.log(r));
+                        } catch (e) {
+                            debugger;
+                            throw e;
+                        }
 
-            
+                    });
+            } catch (e) {
+                debugger;
+                throw e;
+            }
         },
     },
 };
