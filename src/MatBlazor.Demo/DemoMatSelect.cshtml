@@ -5,11 +5,27 @@
 
 <p>
     <h4>Simple</h4>
-    <MatSelect Label="Select">
-            <MatOption>Test 1</MatOption>
-            <MatOption Disabled="true">Test 2</MatOption>
-            <MatOption>Test 3</MatOption>
-            <MatOption>Test 4</MatOption>
+    <div>Value: @Val</div>
+    <MatSelect Label="Select" bind-Value="@Val">
+        <MatOption Value="1">Test 1</MatOption>
+        <MatOption Disabled="true" Value="2">Test 2</MatOption>
+        <MatOption Value="3">Test 3</MatOption>
+        <MatOption Value="4">Test 4</MatOption>
     </MatSelect>
 </p>
 
+@functions
+{
+
+    public string Val
+    {
+        get => _val;
+        set
+        {
+            _val = value;
+            this.StateHasChanged();
+        }
+    }
+
+    private string _val = "1";
+}

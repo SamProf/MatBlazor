@@ -2,7 +2,7 @@
 
 <div class="@ClassMapper.Class" ref="MdcSelectRef">
     <i class="mdc-select__dropdown-icon"></i>
-    <select class="mdc-select__native-control">
+    <select class="mdc-select__native-control" value="@Value" onchange="@OnChangeHandler">
         @ChildContent
     </select>
     @if (Label != null)

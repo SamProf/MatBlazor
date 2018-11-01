@@ -10,8 +10,8 @@ namespace MatBlazor.Components.MatSelect
 {
     public class BaseMatSelect : BaseMatComponent
     {
-
         protected ElementRef MdcSelectRef;
+        private string _value;
 
         public BaseMatSelect()
         {
@@ -24,6 +24,27 @@ namespace MatBlazor.Components.MatSelect
         [Parameter]
         protected string Label { get; set; }
 
+        [Parameter]
+        protected string Value
+        {
+            get => _value;
+            set
+            {
+                if (value != _value)
+                {
+                    _value = value;
+                    ValueChanged?.Invoke(value);
+                }
+            }
+        }
+
+        [Parameter]
+        protected Action<string> ValueChanged { get; set; }
+
+        public void OnChangeHandler(UIChangeEventArgs e)
+        {
+            Value = (string) e.Value;
+        }
 
         protected async override Task OnFirstAfterRenderAsync()
         {
