@@ -1,14 +1,54 @@
 ﻿@inherits BaseMatSelect
 
 <div class="@ClassMapper.Class" ref="MdcSelectRef">
+    @if (Enhanced)
+    {
+        <input type="hidden" name="enhanced-select">
+    }
     <i class="mdc-select__dropdown-icon"></i>
-    <select class="mdc-select__native-control" value="@Value" onchange="@OnChangeHandler">
-        @ChildContent
-    </select>
+
+    @if (Enhanced)
+    {
+        <div class="mdc-select__selected-text"></div>
+
+        <div class="mdc-select__menu mdc-menu mdc-menu-surface" style="width: 400px;">
+            <ul class="mdc-list">
+                <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+                <li class="mdc-list-item" data-value="grains">
+                    Bread, Cereal, Rice, and Pasta
+                </li>
+                <li class="mdc-list-item" data-value="vegetables">
+                    Vegetables
+                </li>
+                <li class="mdc-list-item" data-value="fruit">
+                    Fruit
+                </li>
+            </ul>
+        </div>
+    }
+    else
+    {
+        <select class="mdc-select__native-control" value="@Value" onchange="@OnChangeHandler" disabled=@Disabled>
+            @ChildContent
+        </select>
+    }
+
     @if (Label != null)
     {
         <label class="mdc-floating-label">@Label</label>
     }
+    
+    
+    @if (Outlined)
+    {
+        <div class="mdc-notched-outline">
+            <svg>
+                <path class="mdc-notched-outline__path"></path>
+            </svg>
+        </div>
+        <div class="mdc-notched-outline__idle"></div>
+    }
+
     <div class="mdc-line-ripple"></div>
 </div>
 

@@ -15,11 +15,23 @@ namespace MatBlazor.Components.MatSelect
 
         public BaseMatSelect()
         {
-            ClassMapper.Add("mdc-select");
+            ClassMapper
+                .Add("mdc-select")
+                .If("mdc-select--outlined", () => Outlined)
+                .If("mdc-select--disabled", () => Disabled);
         }
 
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
+
+//        [Parameter]
+        protected bool Enhanced { get; set; } = false;
+
+        [Parameter]
+        protected bool Outlined { get; set; }
+
+        [Parameter]
+        protected bool Disabled { get; set; }
 
         [Parameter]
         protected string Label { get; set; }
@@ -49,7 +61,7 @@ namespace MatBlazor.Components.MatSelect
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("mdc.select.MDCSelect.attachTo", MdcSelectRef);
+            await Js.InvokeAsync<object>("matBlazor.matSelect.init", MdcSelectRef);
         }
     }
 }

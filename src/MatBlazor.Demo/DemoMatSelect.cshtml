@@ -4,15 +4,46 @@
 <h1>MatSelect</h1>
 
 <p>
-    <h4>Simple</h4>
-    <div>Value: @Val</div>
-    <MatSelect Label="Select" bind-Value="@Val">
-        <MatOption Value="1">Test 1</MatOption>
-        <MatOption Disabled="true" Value="2">Test 2</MatOption>
-        <MatOption Value="3">Test 3</MatOption>
-        <MatOption Value="4">Test 4</MatOption>
+    <h4>Normal</h4>
+    <MatSelect Label="Pick a Food Group" bind-Value="@Val">
+        <MatOption Value=""></MatOption>
+        <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
+        <MatOption Value="vegetables">Vegetables</MatOption>
+        <MatOption Value="fruit">Fruit</MatOption>
     </MatSelect>
 </p>
+
+<p>
+    <h4>Outlined</h4>
+    <MatSelect Label="Pick a Food Group" Outlined="true">
+        <MatOption Value=""></MatOption>
+        <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
+        <MatOption Value="vegetables">Vegetables</MatOption>
+        <MatOption Value="fruit">Fruit</MatOption>
+    </MatSelect>
+</p>
+
+<p>
+    <h4>Disabled</h4>
+    <MatSelect Label="Pick a Food Group" Disabled="true">
+        <MatOption Value=""></MatOption>
+        <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
+        <MatOption Value="vegetables">Vegetables</MatOption>
+        <MatOption Value="fruit">Fruit</MatOption>
+    </MatSelect>
+</p>
+
+<p>
+    <h4>Disabled Option</h4>
+    <MatSelect Label="Pick a Food Group">
+        <MatOption Value=""></MatOption>
+        <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
+        <MatOption Value="vegetables" Disabled="true">Vegetables</MatOption>
+        <MatOption Value="fruit">Fruit</MatOption>
+    </MatSelect>
+</p>
+
+
 
 @functions
 {
@@ -27,5 +58,5 @@
         }
     }
 
-    private string _val = "1";
+    private string _val = "";
 }

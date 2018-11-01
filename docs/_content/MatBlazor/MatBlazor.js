@@ -7,4 +7,16 @@
             formField.input = radio;
         },
     },
+    matSelect: {
+        init: function (mdcSelectRef) {
+            
+            try {
+                var select = new window.mdc.select.MDCSelect(mdcSelectRef);
+            } catch (e) {
+                debugger;
+            }
+
+            
+        },
+    },
 };

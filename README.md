@@ -43,4 +43,5 @@ dotnet add package MatBlazor
 - MatChip
 - MatTextField
 - MatRadioButton
-- MatTab in progress
+- MatSelect
+
