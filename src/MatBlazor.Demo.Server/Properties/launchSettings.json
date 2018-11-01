@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:60976/MatSlideToggle",
+      "applicationUrl": "http://localhost:60976/MatTextField",
       "sslPort": 0
     }
   },

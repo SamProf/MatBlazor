@@ -6,14 +6,21 @@
         <i class="material-icons mdc-text-field__icon" tabindex="0">@Icon</i>
     }
 
-    @* ${this._renderInput({value, required, type, placeHolder, label})} *@
-
-    <input type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="text-field" value="@Value" aria-label="@Label" onchange="@OnChangeHandler" />
-
-
-    @if (!FullWidth && Label != null)
+    @if (TextArea)
     {
-        <label class="@LabelClassMapper.Class" for="text-field">@Label</label>
+        <textarea placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" value="@Value" aria-label="@Label" onchange="@OnChangeHandler" />
+    }
+    else
+    {
+        <input type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" value="@Value" aria-label="@Label" onchange="@OnChangeHandler"/>
+    }
+
+
+
+
+    @if (Label != null)
+    {
+        <label class="@LabelClassMapper.Class" for="@MatBlazorId">@Label</label>
     }
 
 
@@ -33,5 +40,5 @@
 </div>
 @if (HelperText != null)
 {
+    <p class="mdc-text-field-helper-text" aria-hidden="true">@HelperText</p>
 }
-<p class="mdc-text-field-helper-text" aria-hidden="true">@HelperText</p>

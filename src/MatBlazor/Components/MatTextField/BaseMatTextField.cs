@@ -45,6 +45,12 @@ namespace MatBlazor.Components.MatTextField
         public bool Box { get; set; }
 
         [Parameter]
+        public bool TextArea { get; set; }
+
+        [Parameter]
+        public bool Dense { get; set; }
+
+        [Parameter]
         public bool Outlined { get; set; }
 
         [Parameter]
@@ -81,13 +87,15 @@ namespace MatBlazor.Components.MatTextField
         {
             ClassMapper
                 .Add("mdc-text-field")
-                .Add("mdc-text-field--upgraded")
+                .Add("_mdc-text-field--upgraded")
                 .If("mdc-text-field--with-leading-icon", () => this.Icon != null && !this.IconTrailing)
                 .If("mdc-text-field--with-trailing-icon", () => this.Icon != null && this.IconTrailing)
                 .If("mdc-text-field--box", () => !this.FullWidth && this.Box)
+                .If("mdc-text-field--dense", () => Dense)
                 .If("mdc-text-field--outlined", () => !this.FullWidth && this.Outlined)
                 .If("mdc-text-field--disabled", () => this.Disabled)
-                .If("mdc-text-field--fullwidth", () => this.FullWidth);
+                .If("mdc-text-field--fullwidth", () => this.FullWidth)
+                .If("mdc-text-field--textarea", () => this.TextArea);
 
             LabelClassMapper
                 .Add("mdc-floating-label")
@@ -95,7 +103,7 @@ namespace MatBlazor.Components.MatTextField
 
             InputClassMapper
                 .Add("mdc-text-field__input")
-                .If("mdc-text-field--upgraded", () => !string.IsNullOrEmpty(Value));
+                .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(Value));
         }
 
         protected async override Task OnFirstAfterRenderAsync()

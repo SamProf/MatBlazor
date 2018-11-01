@@ -3,31 +3,119 @@
 
 <h1>MatTextField</h1>
 
-<p>
-    <h4>Simple</h4>
-    <MatTextField bind-Value="@MyString"></MatTextField>
-</p>
+<h4>Filled</h4>
+<div style="display: flex; justify-content: space-between;">
+    <MatTextField bind-Value="@MyString" Label="Standard"></MatTextField>
+    <MatTextField bind-Value="@MyString" Dense="true" Label="Dense"></MatTextField>
+    <div class="text-field-container">
+        <MatTextField bind-Value="@MyString" HelperText="Helper Text" Label="Helper Text"></MatTextField>
+    </div>
+</div>
 
-<p>
-    <h4>Label</h4>
-    <MatTextField Label="Test Label" bind-Value="@MyString"></MatTextField>
-</p>
+<h4>
+    Filled With Leading Icon
+</h4>
+<div style="display: flex; justify-content: space-between;">
+    <MatTextField bind-Value="@MyString" Label="Standard" Icon="favorite"></MatTextField>
+    <MatTextField bind-Value="@MyString" Dense="true" Label="Dense" Icon="favorite"></MatTextField>
+    <div class="text-field-container">
+        <MatTextField bind-Value="@MyString" HelperText="Helper Text" Label="Helper Text" Icon="favorite"></MatTextField>
+    </div>
+</div>
+
+<h4>
+    Filled With Trailing Icon
+</h4>
+<div style="display: flex; justify-content: space-between;">
+    <MatTextField bind-Value="@MyString" Label="Standard" Icon="favorite" IconTrailing="true"></MatTextField>
+    <MatTextField bind-Value="@MyString" Dense="true" Label="Dense" Icon="favorite" IconTrailing="true"></MatTextField>
+    <div class="text-field-container">
+        <MatTextField bind-Value="@MyString" HelperText="Helper Text" Label="Helper Text" Icon="favorite" IconTrailing="true"></MatTextField>
+    </div>
+</div>
+
+
+<h4>Outlined</h4>
+<div style="display: flex; justify-content: space-between;">
+    <MatTextField bind-Value="@MyString" Label="Standard" Outlined="true"></MatTextField>
+    <MatTextField bind-Value="@MyString" Dense="true" Label="Dense" Outlined="true"></MatTextField>
+    <div class="text-field-container">
+        <MatTextField bind-Value="@MyString" HelperText="Helper Text" Label="Helper Text" Outlined="true"></MatTextField>
+    </div>
+</div>
+
+<h4>
+    Outlined With Leading Icon
+</h4>
+<div style="display: flex; justify-content: space-between;">
+    <MatTextField bind-Value="@MyString" Label="Standard" Icon="favorite" Outlined="true"></MatTextField>
+    <MatTextField bind-Value="@MyString" Dense="true" Label="Dense" Icon="favorite" Outlined="true"></MatTextField>
+    <div class="text-field-container">
+        <MatTextField bind-Value="@MyString" HelperText="Helper Text" Label="Helper Text" Icon="favorite" Outlined="true"></MatTextField>
+    </div>
+</div>
+
+<h4>
+    Outlined With Trailing Icon
+</h4>
+<div style="display: flex; justify-content: space-between;">
+    <MatTextField bind-Value="@MyString" Label="Standard" Icon="favorite" IconTrailing="true" Outlined="true"></MatTextField>
+    <MatTextField bind-Value="@MyString" Dense="true" Label="Dense" Icon="favorite" IconTrailing="true" Outlined="true"></MatTextField>
+    <div class="text-field-container">
+        <MatTextField bind-Value="@MyString" HelperText="Helper Text" Label="Helper Text" Icon="favorite" IconTrailing="true" Outlined="true"></MatTextField>
+    </div>
+</div>
+
+<h4>Textarea</h4>
+<div style="display: flex; justify-content: space-between;">
+    <MatTextField bind-Value="@MyString" Label="Standard" TextArea="true"></MatTextField>
+    <MatTextField bind-Value="@MyString" Dense="true" Label="Dense" TextArea="true"></MatTextField>
+    <div class="text-field-container">
+        <MatTextField bind-Value="@MyString" HelperText="Helper Text" Label="Helper Text" TextArea="true"></MatTextField>
+    </div>
+</div>
+
+<h4>
+    Full Width
+</h4>
+<div style="">
+    <p>
+        <MatTextField bind-Value="@MyString" Label="Standard" FullWidth="true"></MatTextField>
+    </p>
+    <p>
+        <MatTextField bind-Value="@MyString" Dense="true" Label="Dense" FullWidth="true"></MatTextField>
+    </p>
+    <p>
+        <div class="text-field-container">
+            <MatTextField bind-Value="@MyString" HelperText="Helper Text" Label="Helper Text" FullWidth="true"></MatTextField>
+        </div>
+    </p>
+</div>
+
+<h4>
+    Full Width Textarea
+</h4>
+<div style="">
+    <p>
+        <MatTextField bind-Value="@MyString" Label="Standard" TextArea="true" FullWidth="true"></MatTextField>
+    </p>
+    <p>
+        <MatTextField bind-Value="@MyString" Dense="true" Label="Dense" TextArea="true" FullWidth="true"></MatTextField>
+    </p>
+    <p>
+        <div class="text-field-container">
+            <MatTextField bind-Value="@MyString" HelperText="Helper Text" Label="Helper Text" TextArea="true" FullWidth="true"></MatTextField>
+        </div>
+    </p>
+</div>
 
 <p>
     <h4>PlaceHolder</h4>
     <MatTextField PlaceHolder="Test PlaceHolder" bind-Value="@MyString"></MatTextField>
 </p>
-
-
 <p>
     <h4>Required</h4>
     <MatTextField Required="true" bind-Value="@MyString"></MatTextField>
-</p>
-
-
-<p>
-    <h4>FullWidth</h4>
-    <MatTextField FullWidth="true" bind-Value="@MyString"></MatTextField>
 </p>
 
 
@@ -36,34 +124,20 @@
     <MatTextField Disabled="true" bind-Value="@MyString"></MatTextField>
 </p>
 
-<p>
-    <h4>Outlined</h4>
-    <MatTextField Outlined="true" bind-Value="@MyString"></MatTextField>
-</p>
-
-<p>
-    <h4>Icon</h4>
-    <MatTextField Icon="favorite" bind-Value="@MyString"></MatTextField>
-</p>
-
-<p>
-    <h4>Bind Test: @MyString</h4>
-    <MatTextField bind-Value="@MyString"></MatTextField>
-</p>
 
 @functions
 {
 
-    public string MyString
+public string MyString
+{
+    get => _myString;
+    set
     {
-        get => _myString;
-        set
-        {
-            _myString = value;
-            this.StateHasChanged();
-        }
+        _myString = value;
+        this.StateHasChanged();
     }
+}
 
 
-    private string _myString = "Test";
+private string _myString;
 }
