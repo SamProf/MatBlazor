@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:60976/MatTextField",
+      "applicationUrl": "http://localhost:60976/",
       "sslPort": 0
     }
   },

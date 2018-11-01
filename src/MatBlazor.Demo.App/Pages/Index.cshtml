@@ -1,27 +1,17 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<p>
-    <h4>Bind Test: @MyString</h4>
-    <MatTextField bind-Value="@MyString" Label="Label Test"></MatTextField>
-</p>
-
-@functions
-{
-
-    public string MyString
-    {
-        get => _myString;
-        set
-        {
-            _myString = value;
-            this.StateHasChanged();
-        }
-    }
+<h1>MatBlazor!</h1>
+<br/>
 
 
-    private string _myString = "Test";
-}
+<DemoMatTextField></DemoMatTextField>
+<DemoMatButton></DemoMatButton>
+<DemoMatCard></DemoMatCard>
+<DemoMatCheckbox></DemoMatCheckbox>
+<DemoMatChip></DemoMatChip>
+<DemoMatRadioButton></DemoMatRadioButton>
+<DemoMatSelect></DemoMatSelect>
+<DemoMatSlider></DemoMatSlider>
+<DemoMatSlideToggle></DemoMatSlideToggle>
+
+
