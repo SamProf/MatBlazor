@@ -11,6 +11,8 @@ namespace MatBlazor.Components.MatTextField
 {
     public class BaseMatTextField : BaseMatComponent
     {
+        protected ElementRef MdcTextFieldRef;
+
         [Parameter]
         public string Value
         {
@@ -64,11 +66,11 @@ namespace MatBlazor.Components.MatTextField
         public string Type { get; set; } = "text";
 
 
-        public ClassMapper LabelClassMapper = new ClassMapper();
-        public ClassMapper InputClassMapper = new ClassMapper();
+        protected ClassMapper LabelClassMapper = new ClassMapper();
+        protected ClassMapper InputClassMapper = new ClassMapper();
 
 
-        public void OnChangeHandler(UIChangeEventArgs ev)
+        protected void OnChangeHandler(UIChangeEventArgs ev)
         {
             Value = (string)ev.Value;
         }
@@ -96,10 +98,10 @@ namespace MatBlazor.Components.MatTextField
                 .If("mdc-text-field--upgraded", () => !string.IsNullOrEmpty(Value));
         }
 
-        protected async override Task OnAfterRenderAsync()
+        protected async override Task OnFirstAfterRenderAsync()
         {
-            await InteropHelper.StartAsync();
-            await base.OnAfterRenderAsync();
+            await base.OnFirstAfterRenderAsync();
+            await Js.InvokeAsync<object>("mdc.textField.MDCTextField.attachTo", MdcTextFieldRef);
         }
     }
 }

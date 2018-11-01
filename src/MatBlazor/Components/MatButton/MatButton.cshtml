@@ -1,6 +1,6 @@
 ﻿@inherits BaseMatButton
 
-<button class="@ClassMapper.Class" onclick="@OnClick" disabled=@Disabled aria-label="@(Label ?? Icon)">
+<button class="@ClassMapper.Class" onclick="@OnClick" disabled=@Disabled aria-label="@(Label ?? Icon)" ref="Ref">
     @if (Icon != null)
     {
         <span class="material-icons mdc-button__icon">@Icon</span>

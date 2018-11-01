@@ -11,6 +11,14 @@ namespace MatBlazor.Components.MatButton
 {
     public class BaseMatButton : BaseMatComponent
     {
+        protected ElementRef Ref;
+
+        protected async override Task OnFirstAfterRenderAsync()
+        {
+            await base.OnFirstAfterRenderAsync();
+            await Js.InvokeAsync<object>("mdc.ripple.MDCRipple.attachTo", Ref);
+        }
+
         public BaseMatButton()
         {
             ClassMapper

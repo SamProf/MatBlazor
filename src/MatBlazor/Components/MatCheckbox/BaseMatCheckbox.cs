@@ -10,6 +10,10 @@ namespace MatBlazor.Components.MatCheckbox
 {
     public class BaseMatCheckbox : BaseMatComponent
     {
+
+        protected ElementRef MdcCheckBoxRef;
+        protected ElementRef MdcFormFieldRef;
+
         public BaseMatCheckbox()
         {
             ClassMapper.Add("mdc-checkbox");
@@ -17,6 +21,9 @@ namespace MatBlazor.Components.MatCheckbox
 
         [Parameter]
         public bool Checked { get; set; }
+
+        [Parameter]
+        public string Label { get; set; }
 
         [Parameter]
         public Action<bool> CheckedChanged { get; set; }
@@ -30,10 +37,17 @@ namespace MatBlazor.Components.MatCheckbox
         [Parameter]
         public string Value { get; set; }
 
-        public void ChangeHandler(UIChangeEventArgs e)
+        protected void ChangeHandler(UIChangeEventArgs e)
         {
             Checked = (bool) e.Value;
             CheckedChanged?.Invoke(this.Checked);
+        }
+
+        protected async override Task OnFirstAfterRenderAsync()
+        {
+            await base.OnFirstAfterRenderAsync();
+            await Js.InvokeAsync<object>("mdc.checkbox.MDCCheckbox.attachTo", MdcCheckBoxRef);
+            await Js.InvokeAsync<object>("mdc.formField.MDCFormField.attachTo", MdcFormFieldRef);
         }
     }
 }
