@@ -11,6 +11,15 @@ namespace MatBlazor.Components.MatSlideToggle
     public class BaseMatSlideToggle : BaseMatComponent
     {
         protected ElementRef MdcSwitch;
+
+        public BaseMatSlideToggle()
+        {
+            ClassMapper
+                .Add("mdc-switch")
+                .If("mdc-switch--disabled", () => Disabled)
+                .If("mdc-switch--checked", () => Checked);
+        }
+
         private bool _checked;
 
 
@@ -24,6 +33,9 @@ namespace MatBlazor.Components.MatSlideToggle
 
         [Parameter]
         public string Label { get; set; }
+
+        [Parameter]
+        public bool Disabled { get; set; }
 
         [Parameter]
         public bool Checked

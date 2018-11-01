@@ -45,4 +45,6 @@ dotnet add package MatBlazor
 - MatRadioButton
 - MatSelect
 - MatSlider
+- MatSlideToggle
+
 

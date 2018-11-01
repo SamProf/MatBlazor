@@ -2,7 +2,52 @@
 
 <h1>MatSlideToggle</h1>
 
+
+<h4>Basic Usage</h4>
 <p>
-    <h4>Basic Usage</h4>
-    <MatSlideToggle></MatSlideToggle>
+    <MatSlideToggle bind-Checked="@Val1"></MatSlideToggle> <span>@Val1</span>
 </p>
+
+<p>
+    <MatSlideToggle bind-Checked="@Val2"></MatSlideToggle> <span>@Val2</span>
+</p>
+
+<h4>Label</h4>
+<p>
+    <MatSlideToggle Label="off/on"></MatSlideToggle>
+</p>
+
+<h4>Disabled</h4>
+<p>
+    <MatSlideToggle Disabled="true"></MatSlideToggle>
+</p>
+
+
+
+@functions
+{
+
+public bool Val1
+{
+    get => _val1;
+    set
+    {
+        _val1 = value;
+        this.StateHasChanged();
+    }
+}
+
+private bool _val1;
+
+public bool Val2
+{
+    get => _val2;
+    set
+    {
+        _val2 = value;
+        this.StateHasChanged();
+    }
+}
+
+private bool _val2 = true;
+}
