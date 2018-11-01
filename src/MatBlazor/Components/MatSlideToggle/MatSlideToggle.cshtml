@@ -1,0 +1,14 @@
+﻿@inherits BaseMatSlideToggle
+
+<div class="mdc-switch" ref="MdcSwitch">
+    <div class="mdc-switch__track"></div>
+    <div class="mdc-switch__thumb-underlay">
+        <div class="mdc-switch__thumb">
+            <input type="checkbox" id="basic-switch" class="mdc-switch__native-control" role="switch" checked="@Checked" onchange="@OnChangedHandler"/>
+        </div>
+    </div>
+</div>
+@if (Label != null)
+{
+    <label for="basic-switch">@Label</label>
+}

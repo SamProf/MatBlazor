@@ -32,6 +32,9 @@
     <Content Update="DemoMatRadioButton.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="DemoMatSlideToggle.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="DemoMatSlider.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
