@@ -44,7 +44,7 @@ namespace DemoContentProcessor
             
             
             
-            return $"<pre>@((MarkupString) \"{s}\")</pre>";
+            return $"<div style=\"white-space: pre-wrap;\">@((MarkupString) \"{s}\")</div>";
         }
 
 

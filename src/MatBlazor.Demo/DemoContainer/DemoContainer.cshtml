@@ -1,8 +1,16 @@
 ﻿@using Microsoft.AspNetCore.Blazor.RenderTree
-<div style="display: flex; flex-direction: row;">
-    <div style="flex: 1">@Content</div>
-    <div style="flex: 1">@SourceContent</div>
+<div style="display: inline-block; width: 100%;">
+    <div style="padding: 5px; border: 1px solid white; display: inline-block; float: left; width: 50%;">
+        @Content
+    </div>
+    <div style="padding: 5px; border: 1px solid lightgray; background: aliceblue; font-family: monospace; overflow: auto; display: inline-block; width: 50%;">
+        <div>
+            @SourceContent
+        </div>
+    </div>
 </div>
+
+
 
 @functions
 {
