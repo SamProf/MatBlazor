@@ -1,4 +1,6 @@
-## MatBlazor
+## MatBlazor - Material Design components for Blazor
+
+MatBlazor comprises a range of components which implement common interaction patterns according to the Material Design specification.
 
 ```
 Note: Just as Blazor, this repo is also experimental.
