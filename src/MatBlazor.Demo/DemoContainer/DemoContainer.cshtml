@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Blazor.RenderTree
+<div style="display: flex; flex-direction: row;">
+    <div style="flex: 1">@Content</div>
+    <div style="flex: 1">@SourceContent</div>
+</div>
+
+@functions
+{
+
+    [Parameter]
+    RenderFragment Content { get; set; }
+
+    [Parameter]
+    RenderFragment SourceContent { get; set; }
+
+}

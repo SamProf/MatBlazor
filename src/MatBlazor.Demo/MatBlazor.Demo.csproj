@@ -29,31 +29,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="DemoMatRadioButton.cshtml">
+    <Content Update="Demo\DemoMatRadioButton.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="DemoMatMenu.cshtml">
+    <Content Update="Demo\DemoMatMenu.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="DemoMatSlideToggle.cshtml">
+    <Content Update="Demo\DemoMatSlideToggle.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="DemoMatSlider.cshtml">
+    <Content Update="Demo\DemoMatSlider.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="DemoMatSelect.cshtml">
+    <Content Update="Demo\DemoMatSelect.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="DemoMatTextField.cshtml">
+    <Content Update="Demo\DemoMatTextField.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="DemoMatChip.cshtml">
+    <Content Update="Demo\DemoMatChip.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="DemoMatCheckbox.cshtml">
+    <Content Update="Demo\DemoMatCheckbox.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="DemoMatCard.cshtml">
+    <Content Update="Demo\DemoMatCard.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>
