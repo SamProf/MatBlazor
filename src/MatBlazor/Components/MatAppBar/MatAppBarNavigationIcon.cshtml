@@ -1,0 +1,15 @@
+﻿<a class="material-icons mdc-top-app-bar__navigation-icon" onclick="OnClickHandler">menu</a>
+
+@functions
+{
+
+    [Parameter]
+    public Action<UIMouseEventArgs> OnClick { get; set; }
+
+
+    void OnClickHandler(UIMouseEventArgs e)
+    {
+        OnClick?.Invoke(e);
+    }
+
+}

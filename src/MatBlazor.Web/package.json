@@ -40,6 +40,7 @@
     "@material/slider": "^0.41.0",
     "@material/switch": "^0.41.0",
     "@material/textfield": "^0.41.0",
+    "@material/top-app-bar": "^0.41.0",
     "babel-polyfill": "^6.23.0"
   },
   "devDependencies": {

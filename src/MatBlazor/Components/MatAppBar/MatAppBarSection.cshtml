@@ -1,0 +1,27 @@
+﻿@inherits MatBlazor.Components.Base.BaseMatComponent
+
+@using MatBlazor.Helpers
+<section class="@ClassMapper.Class">
+    @ChildContent
+</section>
+
+@functions
+{
+
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    private MatAppBarSectionAlign Align { get; set; } = MatAppBarSectionAlign.Start;
+
+    protected override void OnInit()
+    {
+        base.OnInit();
+        ClassMapper
+            .Add("mdc-top-app-bar__section")
+            .If("mdc-top-app-bar__section--align-start", () => this.Align == MatAppBarSectionAlign.Start)
+            .If("mdc-top-app-bar__section--align-end", () => this.Align == MatAppBarSectionAlign.End);
+    }
+
+    protected ClassMapper ClassMapper { get; } = new ClassMapper();
+}

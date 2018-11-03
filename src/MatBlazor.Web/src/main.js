@@ -9,6 +9,7 @@ import * as matSlider from './matSlider/matSlider';
 import * as matSlideToggle from './matSlideToggle/matSlideToggle';
 import * as matCard from './matCard/matCard';
 import * as matChipSet from './matChipSet/matChipSet';
+import * as matAppBar from './matAppBar/matAppBar';
 
 
 window.matBlazor = {
@@ -21,6 +22,7 @@ window.matBlazor = {
   matSlideToggle,
   matCard,
   matChipSet,
+  matAppBar,
 
   matMenu: {
     init: function (mdcMenu) {
@@ -38,16 +40,6 @@ window.matBlazor = {
       var menu = mdcMenu.matBlazorRef;
       menu.setAnchorElement(anchorElement);
       menu.open = true;
-    }
-  },
-  matAppBar: {
-    init: function (ref) {
-      try {
-        var topAppBar = new window.mdc.topAppBar.MDCTopAppBar(ref);
-      } catch (e) {
-        debugger;
-        throw e;
-      }
     }
   }
 };

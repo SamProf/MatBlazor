@@ -37,6 +37,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Components\MatAppBar\MatAppBarNavigationIcon.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Components\MatAppBar\MatAppBarSection.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Components\MatAppBar\MatAppBarRow.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Components\MatCard\MatCard.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

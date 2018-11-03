@@ -1,15 +1,9 @@
-﻿@inherits BaseMatAppBar
-
-
-<header class="mdc-top-app-bar" ref="Ref">
+﻿<div class="mdc-top-app-bar__row">
     @ChildContent
-</header>
-
+</div>
 
 @functions
 {
-
     [Parameter]
     private RenderFragment ChildContent { get; set; }
-
 }
