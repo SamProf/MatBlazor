@@ -1,4 +1,5 @@
 ﻿@page "/MatAppBarFrame"
+@using MatBlazor.Components.MatAppBar
 @addTagHelper *,MatBlazor
 @addTagHelper *,MatBlazor.Demo
 
@@ -7,6 +8,16 @@
     <MatAppBarRow>
         <MatAppBarSection>
             <MatAppBarNavigationIcon></MatAppBarNavigationIcon>
+            <MatAppBarTitle>Test Application title</MatAppBarTitle>
+        </MatAppBarSection>
+        <MatAppBarSection Align="MatAppBarSectionAlign.End">
+            <MatAppBarAction Icon="file_download"></MatAppBarAction>
+            <MatAppBarAction Icon="print"></MatAppBarAction>
+            <MatAppBarAction Icon="bookmark"></MatAppBarAction>
         </MatAppBarSection>
     </MatAppBarRow>
 </MatAppBar>
+
+@functions
+{
+}

@@ -1,0 +1,26 @@
+﻿<a class="material-icons mdc-top-app-bar__action-item" aria-label="@Label" alt="@Label" onclick="@OnClickHandler">
+    @Icon
+</a>
+
+
+@functions
+{
+
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    private Action<UIMouseEventArgs> OnClick { get; set; }
+
+    [Parameter]
+    private string Icon { get; set; }
+
+    [Parameter]
+    public string Label { get; set; }
+
+    private void OnClickHandler(UIMouseEventArgs e)
+    {
+        OnClick?.Invoke(e);
+    }
+
+}
