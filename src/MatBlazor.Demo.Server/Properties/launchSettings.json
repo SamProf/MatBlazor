@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:60976/",
+      "applicationUrl": "http://localhost:60976/MatAppBar",
       "sslPort": 0
     }
   },

@@ -58,4 +58,14 @@
             menu.open = true;
         },
     },
+    matAppBar: {
+        init: function(ref) {
+            try {
+                var topAppBar = new window.mdc.topAppBar.MDCTopAppBar(ref);
+            } catch (e) {
+                debugger;
+                throw e;
+            }
+        },
+    },
 };
