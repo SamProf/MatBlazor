@@ -10,7 +10,7 @@ namespace MatBlazor.Components.MatChipSet
 {
     public class BaseMatChipSet : BaseMatComponent
     {
-        protected ElementRef MdcChipSetRef;
+        public ElementRef Ref;
 
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
@@ -18,7 +18,7 @@ namespace MatBlazor.Components.MatChipSet
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("mdc.chips.MDCChipSet.attachTo", MdcChipSetRef);
+            await Js.InvokeAsync<object>("matBlazor.matChipSet.init", Ref);
         }
     }
 }

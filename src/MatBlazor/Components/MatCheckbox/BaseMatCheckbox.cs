@@ -10,9 +10,8 @@ namespace MatBlazor.Components.MatCheckbox
 {
     public class BaseMatCheckbox : BaseMatComponent
     {
-
-        protected ElementRef MdcCheckBoxRef;
-        protected ElementRef MdcFormFieldRef;
+        public ElementRef Ref;
+        protected ElementRef FormFieldRef;
 
         public BaseMatCheckbox()
         {
@@ -46,8 +45,8 @@ namespace MatBlazor.Components.MatCheckbox
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("mdc.checkbox.MDCCheckbox.attachTo", MdcCheckBoxRef);
-            await Js.InvokeAsync<object>("mdc.formField.MDCFormField.attachTo", MdcFormFieldRef);
+            await Js.InvokeAsync<object>("matBlazor.matCheckbox.init", Ref, FormFieldRef);
+
         }
     }
 }

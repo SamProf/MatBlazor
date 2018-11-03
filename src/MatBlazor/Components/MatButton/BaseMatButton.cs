@@ -16,7 +16,7 @@ namespace MatBlazor.Components.MatButton
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("mdc.ripple.MDCRipple.attachTo", Ref);
+            await Js.InvokeAsync<object>("matBlazor.matButton.init", Ref);
         }
 
         public BaseMatButton()

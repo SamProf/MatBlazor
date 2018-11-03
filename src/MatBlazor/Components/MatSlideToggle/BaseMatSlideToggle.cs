@@ -10,7 +10,7 @@ namespace MatBlazor.Components.MatSlideToggle
 {
     public class BaseMatSlideToggle : BaseMatComponent
     {
-        protected ElementRef MdcSwitch;
+        public ElementRef Ref;
 
         public BaseMatSlideToggle()
         {
@@ -54,7 +54,7 @@ namespace MatBlazor.Components.MatSlideToggle
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("mdc.switchControl.MDCSwitch.attachTo", MdcSwitch);
+            await Js.InvokeAsync<object>("matBlazor.matSlideToggle.init", Ref);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace MatBlazor.Components.MatTextField
 {
     public class BaseMatTextField : BaseMatComponent
     {
-        protected ElementRef MdcTextFieldRef;
+        public ElementRef Ref;
 
         [Parameter]
         public string Value
@@ -109,7 +109,7 @@ namespace MatBlazor.Components.MatTextField
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("mdc.textField.MDCTextField.attachTo", MdcTextFieldRef);
+            await Js.InvokeAsync<object>("matBlazor.matTextField.init", Ref);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace MatBlazor.Components.MatSlider
 {
     public class BaseMatSlider : BaseMatComponent
     {
-        protected ElementRef MdcSliderRef;
+        public ElementRef Ref;
 
         protected JsHelper jsHelper;
 
@@ -20,7 +20,7 @@ namespace MatBlazor.Components.MatSlider
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("matBlazor.matSlider.init", MdcSliderRef, new DotNetObjectRef(jsHelper));
+            await Js.InvokeAsync<object>("matBlazor.matSlider.init", Ref, new DotNetObjectRef(jsHelper));
         }
 
         public BaseMatSlider()

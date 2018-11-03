@@ -11,6 +11,9 @@ namespace MatBlazor.Components.MatCard
 {
     public class BaseMatCard : BaseMatComponent
     {
+
+        public ElementRef Ref;
+
         public BaseMatCard()
         {
             ClassMapper

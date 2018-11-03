@@ -10,8 +10,8 @@ namespace MatBlazor.Components.MatRadioButton
 {
     public class BaseMatRadioButton : BaseMatComponent
     {
-        protected ElementRef MdcRadioRef;
-        protected ElementRef MdcFormFieldRef;
+        public ElementRef Ref;
+        protected ElementRef FormFieldRef;
 
         private bool _checked;
         private bool _disabled;
@@ -62,7 +62,7 @@ namespace MatBlazor.Components.MatRadioButton
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("matBlazor.matRadioButton.init", MdcRadioRef, MdcFormFieldRef);
+            await Js.InvokeAsync<object>("matBlazor.matRadioButton.init", Ref, FormFieldRef);
         }
 
         public BaseMatRadioButton()

@@ -26,7 +26,7 @@ namespace MatBlazor.Components.Base
                 await OnFirstAfterRenderAsync();
                 isRendered = true;
             }
-            await base.OnAfterRenderAsync();
+//            await base.OnAfterRenderAsync();
         }
 
         protected async virtual Task OnFirstAfterRenderAsync()
