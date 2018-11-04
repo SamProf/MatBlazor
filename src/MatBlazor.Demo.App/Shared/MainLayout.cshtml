@@ -1,12 +1,31 @@
 ﻿@inherits BlazorLayoutComponent
+@using MatBlazor.Components.MatAppBar
+@addTagHelper *,MatBlazor
+
+
+@* <MatAppBar> *@
+@*     <MatAppBarRow> *@
+@*         <MatAppBarSection> *@
+@*             <MatAppBarNavigationIcon></MatAppBarNavigationIcon> *@
+@*             <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle> *@
+@*         </MatAppBarSection> *@
+@*         <MatAppBarSection Align="MatAppBarSectionAlign.End"> *@
+@*             <MatAppBarAction Icon="file_download"></MatAppBarAction> *@
+@*             <MatAppBarAction Icon="print"></MatAppBarAction> *@
+@*             <MatAppBarAction Icon="bookmark"></MatAppBarAction> *@
+@*         </MatAppBarSection> *@
+@*     </MatAppBarRow> *@
+@* </MatAppBar> *@
+
 
 <div class="sidebar">
     <NavMenu />
 </div>
 
 <div class="main">
-    <div class="top-row px-4">
-        <a href="https://github.com/BlazorComponents/MatBlazor" target="_blank" class="ml-md-auto">Git</a>
+    <div class="top-row px-4" style="z-index: 1000;">
+        <a href="https://github.com/BlazorComponents/MatBlazor" target="_blank" class="">Git Repository</a>
+        <a href="https://samprof.com" target="_blank" style="padding-left: 20px;">&copy; SamProf</a>
     </div>
 
     <div class="content px-4">
