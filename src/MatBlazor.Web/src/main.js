@@ -10,6 +10,7 @@ import * as matSlideToggle from './matSlideToggle/matSlideToggle';
 import * as matCard from './matCard/matCard';
 import * as matChipSet from './matChipSet/matChipSet';
 import * as matAppBar from './matAppBar/matAppBar';
+import * as matIconButton from './MatIconButton/MatIconButton';
 
 
 window.matBlazor = {
@@ -23,6 +24,7 @@ window.matBlazor = {
   matCard,
   matChipSet,
   matAppBar,
+  matIconButton,
 
   matMenu: {
     init: function (mdcMenu) {

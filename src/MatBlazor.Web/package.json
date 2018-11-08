@@ -35,6 +35,7 @@
     "@material/checkbox": "^0.41.0",
     "@material/chips": "^0.41.0",
     "@material/form-field": "^0.41.0",
+    "@material/icon-button": "^0.41.0",
     "@material/radio": "^0.41.0",
     "@material/select": "^0.41.0",
     "@material/slider": "^0.41.0",
