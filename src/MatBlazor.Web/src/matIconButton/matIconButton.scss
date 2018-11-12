@@ -1,1 +1,14 @@
 @import "@material/icon-button/mdc-icon-button";
+
+
+.mat-icon-button
+{
+  line-height: 1;
+
+  &:hover
+  {
+    color: unset;
+    text-decoration: unset;
+
+  }
+}

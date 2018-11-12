@@ -4,20 +4,29 @@
 @addTagHelper *,MatBlazor.Demo
 
 
-<MatAppBar>
+<MatAppBar Fixed="true">
     <MatAppBarRow>
         <MatAppBarSection>
-            <MatAppBarNavigationIcon></MatAppBarNavigationIcon>
-            <MatAppBarTitle>Test Application title</MatAppBarTitle>
+            <MatIconButton Icon="menu"></MatIconButton>
+            <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
         </MatAppBarSection>
         <MatAppBarSection Align="MatAppBarSectionAlign.End">
-            <MatAppBarAction Icon="file_download"></MatAppBarAction>
-            <MatAppBarAction Icon="print"></MatAppBarAction>
-            <MatAppBarAction Icon="bookmark"></MatAppBarAction>
+            
+            <MatIconButton Icon="favorite" OnClick="@RunOnClick"></MatIconButton>
+
+            <MatIconButton HRef="https://github.com/BlazorComponents/MatBlazor" Title="MatBlazor GitHub">
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </MatIconButton>
+
         </MatAppBarSection>
     </MatAppBarRow>
 </MatAppBar>
 
 @functions
 {
+
+    void RunOnClick(UIMouseEventArgs e)
+    {
+        JSRuntime.Current.InvokeAsync<object>("window.alert", "Test");
+    }
 }

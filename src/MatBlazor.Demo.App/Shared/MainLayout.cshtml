@@ -1,35 +1,49 @@
 ﻿@inherits BlazorLayoutComponent
+
 @using MatBlazor.Components.MatAppBar
 @addTagHelper *,MatBlazor
 
 
-<MatAppBar Short="true">
+<MatAppBar Fixed="true">
     <MatAppBarRow>
         <MatAppBarSection>
-            <MatAppBarNavigationIcon></MatAppBarNavigationIcon>
-            @* <MatIconButton></MatIconButton> *@
+            <MatIconButton Icon="menu"></MatIconButton>
             <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
         </MatAppBarSection>
         <MatAppBarSection Align="MatAppBarSectionAlign.End">
-            <MatAppBarAction Icon="file_download"></MatAppBarAction>
-            <MatAppBarAction Icon="print"></MatAppBarAction>
-            <MatAppBarAction Icon="bookmark"></MatAppBarAction>
+            <MatIconButton HRef="http://samprof.com" Target="_blank" Title="Author SamProf">
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+            </MatIconButton>
+            <MatIconButton HRef="https://github.com/BlazorComponents/MatBlazor" Title="MatBlazor GitHub">
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </MatIconButton>
         </MatAppBarSection>
     </MatAppBarRow>
 </MatAppBar>
 
 
-<div class="sidebar">
-    <NavMenu />
+
+
+
+
+
+<div class="sidebar" style="padding-top: 64px;">
+    <NavMenu/>
 </div>
 
-<div class="main">
-    @* <div class="top-row px-4" style="z-index: 1000;"> *@
-    @*     <a href="https://github.com/BlazorComponents/MatBlazor" target="_blank" class="">Git Repository</a> *@
-    @*     <a href="https://samprof.com" target="_blank" style="padding-left: 20px;">&copy; SamProf</a> *@
-    @* </div> *@
+<div class="main" style="padding-top: 64px;">
 
     <div class="content px-4">
         @Body
     </div>
 </div>
+
+
+@functions {
+
+//    public void OnAuthorClick(UIMouseEventArgs e)
+//    {
+//        JSRuntime.Current.InvokeAsync<object>("window.open", "https://samprof.com", "_blank");
+//    }
+
+}

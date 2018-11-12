@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -60,7 +61,7 @@ namespace DemoContentProcessor
             var contentTag = ConfigurationManager.AppSettings["ContentTag"];
             var sourceContentTag = ConfigurationManager.AppSettings["SourceContentTag"];
 
-            var regex = new Regex($@"<{demoContainerTag}>(?<Tabs>[\s]+)<{contentTag}>(?<Content>[\s\S]*?)</{contentTag}>[\s\S]*?</{demoContainerTag}>");
+            var regex = new Regex($@"<{demoContainerTag}(?<Attrs>[+\S\s]*?)>(?<Tabs>[\s]+)<{contentTag}>(?<Content>[\s\S]*?)</{contentTag}>[\s\S]*?</{demoContainerTag}>");
 
 
             foreach (var fileInfo in files)
@@ -70,7 +71,31 @@ namespace DemoContentProcessor
                 var content = File.ReadAllText(fileInfo.FullName);
                 var content2 = regex.Replace(content, (m) =>
                 {
-                    return $"<{demoContainerTag}>{m.Groups["Tabs"]}<{contentTag}>{m.Groups["Content"]}</{contentTag}>{m.Groups["Tabs"]}<{sourceContentTag}>{m.Groups["Tabs"]}\t{EscapeString(m.Groups["Content"].Value)}{m.Groups["Tabs"]}</{sourceContentTag}>\r\n</{demoContainerTag}>";
+                    var doc = new XmlDocument();
+                    doc.LoadXml(m.Value);
+
+
+                    StringBuilder sb = new StringBuilder();
+                    XmlWriterSettings settings = new XmlWriterSettings
+                    {
+                        Indent = true,
+                        IndentChars = "  ",
+                        NewLineChars = "\r\n",
+                        NewLineHandling = NewLineHandling.Replace,
+                        OmitXmlDeclaration = true,
+                    };
+                    using (XmlWriter writer = XmlWriter.Create(sb, settings))
+                    {
+                        doc.Save(writer);
+                    }
+                    return sb.ToString();
+
+                    //                    if (!string.IsNullOrEmpty(m.Groups["Attrs"].Value))
+                    //                    {
+                    //                        Debug.WriteLine("TEst");
+                    //
+                    //                    }
+                    //                    return $"<{demoContainerTag}{m.Groups["Attrs"]}>{m.Groups["Tabs"]}<{contentTag}>{m.Groups["Content"]}</{contentTag}>{m.Groups["Tabs"]}<{sourceContentTag}>{m.Groups["Tabs"]}\t{EscapeString(m.Groups["Content"].Value)}{m.Groups["Tabs"]}</{sourceContentTag}>\r\n</{demoContainerTag}>";
                 });
 
                 if (content2 != content)

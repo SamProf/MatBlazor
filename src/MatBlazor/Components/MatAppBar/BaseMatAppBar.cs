@@ -15,11 +15,15 @@ namespace MatBlazor.Components.MatAppBar
         [Parameter]
         public bool Short { get; set; }
 
+        [Parameter]
+        public bool Fixed { get; set; }
+
         public BaseMatAppBar()
         {
             ClassMapper
                 .Add("mdc-top-app-bar")
-                .If("mdc-top-app-bar--short", () => Short);
+                .If("mdc-top-app-bar--short", () => Short)
+                .If("mdc-top-app-bar--fixed", () => Fixed);
         }
 
 
