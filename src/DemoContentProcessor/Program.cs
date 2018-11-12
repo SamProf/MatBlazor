@@ -16,11 +16,8 @@ namespace DemoContentProcessor
 {
     class Program
     {
-
         static string EscapeString(string s)
         {
-
-
 //            XmlDocument doc = new XmlDocument();
 //            XmlAttribute attr = doc.CreateAttribute("attr");
 //            attr.InnerText = s;
@@ -31,23 +28,21 @@ namespace DemoContentProcessor
 //            return $"<pre data=\"{s}\"></pre>";
 
 
-            s=  HttpUtility.HtmlEncode(s);
+            s = HttpUtility.HtmlEncode(s);
             var sb = new StringBuilder();
             if (s != null)
             {
                 foreach (var ch in s)
                 {
-                    sb.Append("\\u" + ((int)ch).ToString("X4"));
+                    sb.Append("\\u" + ((int) ch).ToString("X4"));
                 }
             }
-            
+
             s = sb.ToString();
-            
-            
-            
+
+
             return $"<div style=\"white-space: pre-wrap;\">@((MarkupString) \"{s}\")</div>";
         }
-
 
 
         static void Main(string[] args)
@@ -61,7 +56,8 @@ namespace DemoContentProcessor
             var contentTag = ConfigurationManager.AppSettings["ContentTag"];
             var sourceContentTag = ConfigurationManager.AppSettings["SourceContentTag"];
 
-            var regex = new Regex($@"<{demoContainerTag}(?<Attrs>[+\S\s]*?)>(?<Tabs>[\s]+)<{contentTag}>(?<Content>[\s\S]*?)</{contentTag}>[\s\S]*?</{demoContainerTag}>");
+            var regex = new Regex(
+                $@"<{demoContainerTag}(?<Attrs>[+\S\s]*?)>(?<Tabs>[\s]+)<{contentTag}>(?<Content>[\s\S]*?)</{contentTag}>[\s\S]*?</{demoContainerTag}>");
 
 
             foreach (var fileInfo in files)
@@ -72,41 +68,24 @@ namespace DemoContentProcessor
                 var content2 = regex.Replace(content, (m) =>
                 {
                     var doc = new XmlDocument();
-                    doc.LoadXml(m.Value);
+                    doc.LoadXml($"<demoContainerTag{m.Groups["Attrs"]}></demoContainerTag>");
+                    var sourceContent = m.Groups["Content"].Value;
 
-
-                    StringBuilder sb = new StringBuilder();
-                    XmlWriterSettings settings = new XmlWriterSettings
+                    if (doc.DocumentElement.Attributes!=null && doc.DocumentElement.Attributes["SourcePath"] != null)
                     {
-                        Indent = true,
-                        IndentChars = "  ",
-                        NewLineChars = "\r\n",
-                        NewLineHandling = NewLineHandling.Replace,
-                        OmitXmlDeclaration = true,
-                    };
-                    using (XmlWriter writer = XmlWriter.Create(sb, settings))
-                    {
-                        doc.Save(writer);
+                        
+                        var sourcePath = new Uri(new Uri(fileInfo.FullName), doc.DocumentElement.Attributes["SourcePath"].Value).AbsolutePath;
+                        sourceContent = System.IO.File.ReadAllText(sourcePath);
                     }
-                    return sb.ToString();
 
-                    //                    if (!string.IsNullOrEmpty(m.Groups["Attrs"].Value))
-                    //                    {
-                    //                        Debug.WriteLine("TEst");
-                    //
-                    //                    }
-                    //                    return $"<{demoContainerTag}{m.Groups["Attrs"]}>{m.Groups["Tabs"]}<{contentTag}>{m.Groups["Content"]}</{contentTag}>{m.Groups["Tabs"]}<{sourceContentTag}>{m.Groups["Tabs"]}\t{EscapeString(m.Groups["Content"].Value)}{m.Groups["Tabs"]}</{sourceContentTag}>\r\n</{demoContainerTag}>";
+                    return
+                        $"<{demoContainerTag}{m.Groups["Attrs"]}>{m.Groups["Tabs"]}<{contentTag}>{m.Groups["Content"]}</{contentTag}>{m.Groups["Tabs"]}<{sourceContentTag}>{m.Groups["Tabs"]}\t{EscapeString(sourceContent)}{m.Groups["Tabs"]}</{sourceContentTag}>\r\n</{demoContainerTag}>";
                 });
 
                 if (content2 != content)
                 {
                     File.WriteAllText(fileInfo.FullName, content2);
                 }
-
-
-
-
-
             }
         }
     }
