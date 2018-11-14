@@ -39,14 +39,19 @@ dotnet add package MatBlazor
 
 ## Components
 
-- MatButton
-- MatCard
 - MatCheckbox
-- MatChip
 - MatTextField
 - MatRadioButton
 - MatSelect
 - MatSlider
 - MatSlideToggle
 
+- MatAppBar
+- MatMenu
 
+- MatCard
+
+- MatButton
+- MatIconButton
+- MatIcon
+- MatChip
