@@ -1,9 +1,13 @@
-﻿<i class="material-icons">@Icon</i>
+﻿<i class="material-icons" ref="Ref">@Icon@ChildContent</i>
 
 @functions
 {
+    public ElementRef Ref { get; set; }
 
     [Parameter]
     public string Icon { get; set; }
 
+    
+    [Parameter]
+    protected RenderFragment ChildContent { get; set; }
 }

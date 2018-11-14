@@ -25,6 +25,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Demo\DemoMatIconButton.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Demo\DemoMatIcon.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Demo\DemoMatAppBar.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

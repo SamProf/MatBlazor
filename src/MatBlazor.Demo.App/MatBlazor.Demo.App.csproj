@@ -26,6 +26,12 @@
     <Content Update="Frames\MatAppBarPageFrame.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Pages\DemoMatIconButtonPage.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\DemoMatIconPage.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\DemoMatAppBarPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
