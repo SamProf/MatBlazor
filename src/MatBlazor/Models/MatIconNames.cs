@@ -2,7 +2,7 @@ namespace MatBlazor.Models
 {
 	public class MatIconNames
 	{
-		public static string I3d_rotation { get; }= "3d_rotation";
+		public static string _3d_rotation { get; }= "3d_rotation";
 		public static string Accessibility { get; }= "accessibility";
 		public static string Accessibility_new { get; }= "accessibility_new";
 		public static string Accessible { get; }= "accessible";
@@ -249,7 +249,7 @@ namespace MatBlazor.Models
 		public static string Error_outline { get; }= "error_outline";
 		public static string Notification_important { get; }= "notification_important";
 		public static string Warning { get; }= "warning";
-		public static string I4k { get; }= "4k";
+		public static string _4k { get; }= "4k";
 		public static string Add_to_queue { get; }= "add_to_queue";
 		public static string Airplay { get; }= "airplay";
 		public static string Album { get; }= "album";
@@ -822,7 +822,7 @@ namespace MatBlazor.Models
 		public static string Wb_incandescent { get; }= "wb_incandescent";
 		public static string Wb_iridescent { get; }= "wb_iridescent";
 		public static string Wb_sunny { get; }= "wb_sunny";
-		public static string I360 { get; }= "360";
+		public static string _360 { get; }= "360";
 		public static string Add_location { get; }= "add_location";
 		public static string Atm { get; }= "atm";
 		public static string Beenhere { get; }= "beenhere";
@@ -1061,7 +1061,7 @@ namespace MatBlazor.Models
 					{
 						Id = "3d_rotation",
 						Name = "3d_rotation",
-						PropName = "I3d_rotation",
+						PropName = "_3d_rotation",
 					},
 					new MatIconDataIcon()
 					{
@@ -2559,7 +2559,7 @@ namespace MatBlazor.Models
 					{
 						Id = "4k",
 						Name = "4k",
-						PropName = "I4k",
+						PropName = "_4k",
 					},
 					new MatIconDataIcon()
 					{
@@ -6061,7 +6061,7 @@ namespace MatBlazor.Models
 					{
 						Id = "360",
 						Name = "360",
-						PropName = "I360",
+						PropName = "_360",
 					},
 					new MatIconDataIcon()
 					{

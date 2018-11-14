@@ -91,7 +91,7 @@ namespace MatBlazor.DevUtils
             id = GetName(id);
             if (Char.IsDigit(id[0]))
             {
-                return 'I' + id;
+                return '_' + id;
             }
 
             return id;
