@@ -11,6 +11,8 @@ import * as matCard from './matCard/matCard';
 import * as matChipSet from './matChipSet/matChipSet';
 import * as matAppBar from './matAppBar/matAppBar';
 import * as matIconButton from './MatIconButton/MatIconButton';
+import * as matList from './matList/matList';
+import * as matDrawer from './matDrawer/matDrawer';
 
 
 window.matBlazor = {
@@ -25,6 +27,8 @@ window.matBlazor = {
   matChipSet,
   matAppBar,
   matIconButton,
+  matList,
+  matDrawer,
 
   matMenu: {
     init: function (mdcMenu) {

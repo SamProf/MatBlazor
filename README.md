@@ -50,6 +50,8 @@ dotnet add package MatBlazor
 - MatMenu
 
 - MatCard
+- MatDivider
+- MatList
 
 - MatButton
 - MatIconButton

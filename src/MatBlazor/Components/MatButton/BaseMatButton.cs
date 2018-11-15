@@ -11,8 +11,6 @@ namespace MatBlazor.Components.MatButton
 {
     public class BaseMatButton : BaseMatComponent
     {
-        public ElementRef Ref;
-
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();

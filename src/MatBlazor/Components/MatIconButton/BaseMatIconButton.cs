@@ -28,8 +28,6 @@ namespace MatBlazor.Components.MatIconButton
         [Parameter]
         public string Title { get; set; }
 
-        public ElementRef Ref { get; set; }
-
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();

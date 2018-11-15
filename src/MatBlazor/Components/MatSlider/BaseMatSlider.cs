@@ -11,8 +11,6 @@ namespace MatBlazor.Components.MatSlider
 {
     public class BaseMatSlider : BaseMatComponent
     {
-        public ElementRef Ref;
-
         protected JsHelper jsHelper;
 
         private decimal _value;

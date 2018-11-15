@@ -6,18 +6,18 @@
     <IsPackable>true</IsPackable>
     <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
     <LangVersion>7.3</LangVersion>
-    <Version>0.4.1</Version>
+    <Version>0.4.2</Version>
     <Description>Material Design components for Blazor</Description>
     <PackageProjectUrl>https://github.com/BlazorComponents/MatBlazor</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BlazorComponents/MatBlazor</RepositoryUrl>
     <PackageTags>blazor,mat,material, design</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <AssemblyVersion>0.4.1.0</AssemblyVersion>
+    <AssemblyVersion>0.4.2.0</AssemblyVersion>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl>https://github.com/BlazorComponents/MatBlazor/blob/master/LICENSE</PackageLicenseUrl>
     <Copyright>Vladimir Samoilenko</Copyright>
-    <FileVersion>0.4.1.0</FileVersion>
+    <FileVersion>0.4.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -63,6 +63,9 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Components\MatChip\MatChip.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Components\MatList\Helpers\MatListItemSecondaryText.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Components\MatTextField\MatTextField.cshtml">

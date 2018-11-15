@@ -4,6 +4,7 @@
 @addTagHelper *,MatBlazor
 
 
+
 <MatAppBar Fixed="true">
     <MatAppBarRow>
         <MatAppBarSection>
@@ -22,21 +23,32 @@
 </MatAppBar>
 
 
-
-
-
-
-
-<div class="sidebar" style="padding-top: 64px; overflow: auto">
-    <NavMenu/>
-</div>
-
-<div class="main" style="padding-top: 64px;">
-
-    <div class="content px-4">
-        @Body
+    <div class="sidebar" style="padding-top: 64px; overflow: auto">
+        <NavMenu />
     </div>
-</div>
+
+    <div class="main" style="padding-top: 64px">
+
+        
+        <div class="content">
+            @Body
+        </div>
+       
+
+        
+    </div>
+
+
+    @* </div> *@
+
+
+
+
+
+
+
+
+
 
 
 @functions {

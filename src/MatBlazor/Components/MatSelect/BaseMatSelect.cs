@@ -10,7 +10,6 @@ namespace MatBlazor.Components.MatSelect
 {
     public class BaseMatSelect : BaseMatComponent
     {
-        public ElementRef Ref;
         private string _value;
 
         public BaseMatSelect()

@@ -11,8 +11,6 @@ namespace MatBlazor.Components.MatTextField
 {
     public class BaseMatTextField : BaseMatComponent
     {
-        public ElementRef Ref;
-
         [Parameter]
         public string Value
         {

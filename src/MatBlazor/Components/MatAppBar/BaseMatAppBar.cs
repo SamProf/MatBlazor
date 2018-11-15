@@ -10,8 +10,6 @@ namespace MatBlazor.Components.MatAppBar
 {
     public class BaseMatAppBar : BaseMatComponent
     {
-        public ElementRef Ref { get; set; }
-
         [Parameter]
         public bool Short { get; set; }
 

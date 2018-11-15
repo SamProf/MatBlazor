@@ -6,17 +6,17 @@ using MatBlazor.Components.Base;
 using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Blazor.Components;
 
-namespace MatBlazor.Components.MatChipSet
+namespace MatBlazor.Components.MatListGroup
 {
-    public class BaseMatChipSet : BaseMatComponent
+    public class BaseMatListGroup : BaseMatComponent
     {
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 
-        protected async override Task OnFirstAfterRenderAsync()
+        public BaseMatListGroup()
         {
-            await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("matBlazor.matChipSet.init", Ref);
+            ClassMapper
+                .Add("mdc-list-group");
         }
     }
 }

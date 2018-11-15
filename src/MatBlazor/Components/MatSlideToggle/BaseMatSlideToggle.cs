@@ -10,8 +10,6 @@ namespace MatBlazor.Components.MatSlideToggle
 {
     public class BaseMatSlideToggle : BaseMatComponent
     {
-        public ElementRef Ref;
-
         public BaseMatSlideToggle()
         {
             ClassMapper

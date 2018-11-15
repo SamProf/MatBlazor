@@ -10,7 +10,6 @@ namespace MatBlazor.Components.MatCheckbox
 {
     public class BaseMatCheckbox : BaseMatComponent
     {
-        public ElementRef Ref;
         protected ElementRef FormFieldRef;
 
         public BaseMatCheckbox()

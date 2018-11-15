@@ -10,7 +10,6 @@ namespace MatBlazor.Components.MatRadioButton
 {
     public class BaseMatRadioButton : BaseMatComponent
     {
-        public ElementRef Ref;
         protected ElementRef FormFieldRef;
 
         private bool _checked;
