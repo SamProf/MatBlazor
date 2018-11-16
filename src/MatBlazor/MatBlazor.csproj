@@ -13,11 +13,13 @@
     <PackageTags>blazor,mat,material, design</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <AssemblyVersion>0.4.2.0</AssemblyVersion>
+    <AssemblyVersion>0.4.3.0</AssemblyVersion>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl>https://github.com/BlazorComponents/MatBlazor/blob/master/LICENSE</PackageLicenseUrl>
     <Copyright>Vladimir Samoilenko</Copyright>
-    <FileVersion>0.4.2.0</FileVersion>
+    <FileVersion>0.4.3.0</FileVersion>
+    <PackageReleaseNotes>- Upgrade to Blazor 0.7.0
+- MatDrawer in progress</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
