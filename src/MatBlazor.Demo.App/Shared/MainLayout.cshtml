@@ -4,42 +4,53 @@
 @addTagHelper *,MatBlazor
 
 
+<div class="mat-view-port">
+    <MatAppBar Fixed="true">
+        <MatAppBarRow>
+            <MatAppBarSection>
+                <MatIconButton Icon="menu"></MatIconButton>
+                <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
+            </MatAppBarSection>
+            <MatAppBarSection Align="MatAppBarSectionAlign.End">
+                <MatIconButton HRef="http://samprof.com" Target="_blank" Title="Author SamProf">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                </MatIconButton>
+                <MatIconButton HRef="https://github.com/BlazorComponents/MatBlazor" Title="MatBlazor GitHub">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </MatIconButton>
+            </MatAppBarSection>
+        </MatAppBarRow>
+    </MatAppBar>
 
-<MatAppBar Fixed="true">
-    <MatAppBarRow>
-        <MatAppBarSection>
-            <MatIconButton Icon="menu"></MatIconButton>
-            <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
-        </MatAppBarSection>
-        <MatAppBarSection Align="MatAppBarSectionAlign.End">
-            <MatIconButton HRef="http://samprof.com" Target="_blank" Title="Author SamProf">
-                <i class="fa fa-user-circle" aria-hidden="true"></i>
-            </MatIconButton>
-            <MatIconButton HRef="https://github.com/BlazorComponents/MatBlazor" Title="MatBlazor GitHub">
-                <i class="fa fa-github" aria-hidden="true"></i>
-            </MatIconButton>
-        </MatAppBarSection>
-    </MatAppBarRow>
-</MatAppBar>
-
-
-    <div class="sidebar" style="padding-top: 64px; overflow: auto">
+    <div style="width: 100%; height: 100%; padding-top: 64px; display: flex;">
         <NavMenu />
-    </div>
 
-    <div class="main" style="padding-top: 64px">
-
-        
-        <div class="content">
-            @Body
+        <div class="main" style="overflow: auto; flex: 1;">
+            <div class="content">
+                @Body
+            </div>
         </div>
-       
 
-        
     </div>
+</div>
+
+@* *@
+@* <div class="sidebar" style="padding-top: 64px; overflow: auto"> *@
+@*     <NavMenu/> *@
+@* </div> *@
+
+@* <div class="main" style="padding-top: 64px"> *@
+@* *@
+@* *@
+@*     <div class="content"> *@
+@*         @Body *@
+@*     </div> *@
+@* *@
+@* *@
+@* </div> *@
 
 
-    @* </div> *@
+@* </div> *@
 
 
 
@@ -53,9 +64,8 @@
 
 @functions {
 
-//    public void OnAuthorClick(UIMouseEventArgs e)
-//    {
-//        JSRuntime.Current.InvokeAsync<object>("window.open", "https://samprof.com", "_blank");
-//    }
-
+    //    public void OnAuthorClick(UIMouseEventArgs e)
+    //    {
+    //        JSRuntime.Current.InvokeAsync<object>("window.open", "https://samprof.com", "_blank");
+    //    }
 }

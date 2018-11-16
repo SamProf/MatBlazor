@@ -1,130 +1,126 @@
-﻿<div>
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match=NavLinkMatch.All>
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
+﻿@using MatBlazor.Models
+<MatDrawer>
 
 
-        <li class="nav-item px-3" style="color: white;">
-            <b>Form Controls</b>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="MatCheckbox">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> MatCheckbox
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="MatTextField">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> MatTextField
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="MatRadioButton">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> MatRadioButton
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="MatSelect">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> MatSelect
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="MatSlider">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> MatSlider
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="MatSlideToggle">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> MatSlideToggle
-            </NavLink>
-        </li>
+    <MatListGroup>
 
-        <li class="nav-item px-3" style="color: white;">
-            <b>Navigation</b>
-        </li>
-        <li class="nav-item px-3">
+        <MatList SingleSelection="true">
+            <MatListItem>
+                <NavLink href="" Match=NavLinkMatch.All>
+                    <MatIcon Icon="@MatIconNames.Home"></MatIcon> Home
+                </NavLink>
+            </MatListItem>
+        </MatList>
+
+        <MatDivider></MatDivider>
+
+        <MatListGroupSubHeader>
+            Form Controls
+        </MatListGroupSubHeader>
+
+        <MatList SingleSelection="true">
+            <MatListItem>
+                <NavLink class="nav-link" href="MatCheckbox">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatCheckbox
+                </NavLink>
+            </MatListItem>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatTextField">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatTextField
+                </NavLink>
+            </MatListItem>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatRadioButton">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatRadioButton
+                </NavLink>
+            </MatListItem>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatSelect">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatSelect
+                </NavLink>
+            </MatListItem>
+
+            <MatListItem>
+
+                <NavLink class="nav-link" href="MatSlider">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatSlider
+                </NavLink>
+
+            </MatListItem>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatSlideToggle">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatSlideToggle
+                </NavLink>
+            </MatListItem>
+        </MatList>
+    </MatListGroup>
+
+    <MatDivider></MatDivider>
+    <MatListGroupSubHeader>
+        Navigation
+    </MatListGroupSubHeader>
+
+    <MatList>
+        <MatListItem>
             <NavLink class="nav-link" href="MatAppBar">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> MatAppBar
             </NavLink>
-        </li>
-        <li class="nav-item px-3">
+        </MatListItem>
+        <MatListItem>
             <NavLink class="nav-link" href="MatMenu">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> MatMenu
             </NavLink>
-        </li>
-        
-        
+        </MatListItem>
+    </MatList>
 
-        <li class="nav-item px-3" style="color: white;">
-            <b>Layout</b>
-        </li>
-        <li class="nav-item px-3">
+    <MatDivider></MatDivider>
+    <MatListGroupSubHeader>
+        Layout
+    </MatListGroupSubHeader>
+
+    <MatList>
+        <MatListItem>
             <NavLink class="nav-link" href="MatCard">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> MatCard
             </NavLink>
-        </li>
-        
-        <li class="nav-item px-3">
+        </MatListItem>
+        <MatListItem>
             <NavLink class="nav-link" href="MatDivider">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> MatDivider
             </NavLink>
-        </li>
-        <li class="nav-item px-3">
+        </MatListItem>
+        <MatListItem>
             <NavLink class="nav-link" href="MatList">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> MatList
             </NavLink>
-        </li>
-        
-        
+        </MatListItem>
+    </MatList>
 
+    <MatDivider></MatDivider>
+    <MatListGroupSubHeader>
+        Buttons & Indicators
+    </MatListGroupSubHeader>
 
-        <li class="nav-item px-3" style="color: white;">
-            <b>Buttons & Indicators</b>
-        </li>
-
-
-        <li class="nav-item px-3">
+    <MatList>
+        <MatListItem>
             <NavLink class="nav-link" href="MatButton">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> MatButton
             </NavLink>
-        </li>
-        <li class="nav-item px-3">
+        </MatListItem>
+        <MatListItem>
             <NavLink class="nav-link" href="MatIconButton">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> MatIconButton
             </NavLink>
-        </li>
-        <li class="nav-item px-3">
+        </MatListItem>
+        <MatListItem>
             <NavLink class="nav-link" href="MatIcon">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> MatIcon
             </NavLink>
-        </li>
-        <li class="nav-item px-3">
+        </MatListItem>
+        <MatListItem>
             <NavLink class="nav-link" href="MatChip">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> MatChip
             </NavLink>
-        </li>
-
-
-        <li class="nav-item px-3" style="color: white;">
-            <b>Popups & Modals</b>
-        </li>
-
-        @* <li class="nav-item px-3" style="color: white;"> *@
-        @*     <b>Data table</b> *@
-        @* </li> *@
-
-
-    </ul>
-</div>
-
-@functions {
-    bool collapseNavMenu = true;
-
-    void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-
-}
+        </MatListItem>
+    </MatList>
+</MatDrawer>
