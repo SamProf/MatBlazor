@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml;
+using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace MatBlazor.DevUtils
@@ -15,6 +16,11 @@ namespace MatBlazor.DevUtils
         [Test]
         public void Generate()
         {
+
+            string filterFileName = null;
+
+
+
             var countAll = 0;
             var countChanged = 0;
             
@@ -35,6 +41,14 @@ namespace MatBlazor.DevUtils
 
             foreach (var fileInfo in files)
             {
+                if (filterFileName != null)
+                {
+                    if (!string.Equals(fileInfo.Name, filterFileName, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        continue;
+                    }
+                }
+
                 countAll++;
 //                Console.WriteLine(fileInfo.FullName);
 
@@ -53,7 +67,7 @@ namespace MatBlazor.DevUtils
                     }
 
                     return
-                        $"<{demoContainerTag}{m.Groups["Attrs"]}>{m.Groups["Tabs"]}<{contentTag}>{m.Groups["Content"]}</{contentTag}>{m.Groups["Tabs"]}<{sourceContentTag}>{m.Groups["Tabs"]}\t{EscapeString(sourceContent)}{m.Groups["Tabs"]}</{sourceContentTag}>\r\n</{demoContainerTag}>";
+                        $"<{demoContainerTag}{m.Groups["Attrs"]}>{m.Groups["Tabs"]}<{contentTag}>{m.Groups["Content"]}</{contentTag}>{m.Groups["Tabs"]}<{sourceContentTag}>{m.Groups["Tabs"]}\t{PrepareSourceCode(sourceContent)}{m.Groups["Tabs"]}</{sourceContentTag}>\r\n</{demoContainerTag}>";
                 });
 
 
@@ -72,7 +86,12 @@ namespace MatBlazor.DevUtils
         }
 
 
-        private string EscapeString(string s)
+        private string PrepareSourceCode(string s)
+        {
+            return $@"<BlazorFiddle Template=""MatBlazor"" Code=@(@""{s.Replace("\"", "\"\"")}"")></BlazorFiddle>";
+        }
+
+        private string EscapeString1(string s)
         {
             //            XmlDocument doc = new XmlDocument();
             //            XmlAttribute attr = doc.CreateAttribute("attr");
@@ -83,6 +102,8 @@ namespace MatBlazor.DevUtils
             //
             //            return $"<pre data=\"{s}\"></pre>";
 
+
+            var f = System.Uri.EscapeDataString(s);
 
             s = HttpUtility.HtmlEncode(s);
             var sb = new StringBuilder();
@@ -96,8 +117,9 @@ namespace MatBlazor.DevUtils
 
             s = sb.ToString();
 
+            
 
-            return $"<div style=\"white-space: pre-wrap;\">@((MarkupString) \"{s}\")</div>";
+            return $"<div style=\"white-space: pre-wrap;\">@((MarkupString) \"{s}\")</div><a href=\"https://localhost:44367/t-MatBlazor/?f={f}\">Test</a>";
         }
     }
 }

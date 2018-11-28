@@ -15,4 +15,10 @@
     <ProjectReference Include="..\MatBlazor.Demo.App\MatBlazor.Demo.App.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="BlazorFiddle.Blazor">
+      <HintPath>..\Externals\BlazorFiddle.Blazor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

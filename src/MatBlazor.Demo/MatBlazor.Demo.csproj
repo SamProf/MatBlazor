@@ -67,10 +67,20 @@
     <Content Update="Demo\DemoMatCard.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="content\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BlazorFiddle.Blazor">
+      <HintPath>..\Externals\BlazorFiddle.Blazor.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
   </ItemGroup>
 
 </Project>

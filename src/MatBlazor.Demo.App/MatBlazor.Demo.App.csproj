@@ -23,6 +23,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="BlazorFiddle.Blazor">
+      <HintPath>..\Externals\BlazorFiddle.Blazor.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="Frames\MatAppBarPageFrame.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
