@@ -11,20 +11,13 @@
             <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
         </MatAppBarSection>
         <MatAppBarSection Align="MatAppBarSectionAlign.End">
-            
             <MatIconButton Icon="favorite" OnClick="@RunOnClick"></MatIconButton>
-
-            <MatIconButton HRef="https://github.com/BlazorComponents/MatBlazor" Title="MatBlazor GitHub">
-                <i class="fa fa-github" aria-hidden="true"></i>
-            </MatIconButton>
-
         </MatAppBarSection>
     </MatAppBarRow>
 </MatAppBar>
 
 @functions
 {
-
     void RunOnClick(UIMouseEventArgs e)
     {
         JSRuntime.Current.InvokeAsync<object>("window.alert", "Test");

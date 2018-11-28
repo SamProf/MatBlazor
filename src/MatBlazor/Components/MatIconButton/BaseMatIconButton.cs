@@ -20,7 +20,7 @@ namespace MatBlazor.Components.MatIconButton
         public string Icon { get; set; }
 
         [Parameter]
-        public string HRef { get; set; }
+        public string Link { get; set; }
 
         [Parameter]
         public string Target { get; set; }
