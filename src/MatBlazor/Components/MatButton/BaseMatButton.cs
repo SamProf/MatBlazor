@@ -99,6 +99,9 @@ namespace MatBlazor.Components.MatButton
         }
 
         [Parameter]
+        public string TrailingIcon { get; set; }
+
+        [Parameter]
         public string Label
         {
             get => _label;

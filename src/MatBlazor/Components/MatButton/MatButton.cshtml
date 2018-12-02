@@ -10,4 +10,8 @@
         @Label
     }
     @ChildContent
+    @if (TrailingIcon != null)
+    {
+        <span class="material-icons mdc-button__icon mat-button__icon--trailing">@TrailingIcon</span>
+    }
 </button>

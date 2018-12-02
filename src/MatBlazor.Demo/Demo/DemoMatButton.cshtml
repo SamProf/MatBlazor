@@ -82,3 +82,23 @@
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
+
+<h3>Trailing Icons</h3>
+<DemoContainer>
+    <Content>
+        <MatButton TrailingIcon="favorite">Text</MatButton>
+        <MatButton Raised="true" TrailingIcon="favorite">Raised</MatButton>
+        <MatButton Unelevated="true" TrailingIcon="favorite">Unelevated</MatButton>
+        <MatButton Outlined="true" TrailingIcon="favorite">Outlined</MatButton>
+        <MatButton Dense="true" TrailingIcon="favorite">Dense</MatButton>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatButton TrailingIcon=""favorite"">Text</MatButton>
+        <MatButton Raised=""true"" TrailingIcon=""favorite"">Raised</MatButton>
+        <MatButton Unelevated=""true"" TrailingIcon=""favorite"">Unelevated</MatButton>
+        <MatButton Outlined=""true"" TrailingIcon=""favorite"">Outlined</MatButton>
+        <MatButton Dense=""true"" TrailingIcon=""favorite"">Dense</MatButton>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

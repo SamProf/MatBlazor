@@ -1,1 +1,5 @@
 @import "@material/button/mdc-button";
+
+.mat-button__icon--trailing {
+  margin: 0 -4px 0 4px !important;
+}
