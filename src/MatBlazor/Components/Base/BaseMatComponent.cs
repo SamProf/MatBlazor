@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using MatBlazor.Components.MatButton;
 using MatBlazor.Helpers;
 using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
 namespace MatBlazor.Components.Base
 {
-    public abstract class BaseMatComponent : BlazorComponent
+    public abstract class BaseMatComponent : ComponentBase
     {
         public ElementRef Ref { get; set; }
 
@@ -18,7 +18,8 @@ namespace MatBlazor.Components.Base
 
         protected ClassMapper ClassMapper { get; } = new ClassMapper();
 
-        protected IJSRuntime Js = JSRuntime.Current;
+        [Inject]
+        protected IJSRuntime Js { get; set; }
 
         private bool isRendered = false;
 

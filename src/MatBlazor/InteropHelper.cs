@@ -6,13 +6,13 @@ using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
-    public static class InteropHelper
-    {
-        public static async Task StartAsync()
-        {
-            await JSRuntime.Current.InvokeAsync<object>(
-                "matBlazor.start"
-            );
-        }
-    }
+//    public static class InteropHelper
+//    {
+//        public static async Task StartAsync()
+//        {
+//            await JSRuntime.Current.InvokeAsync<object>(
+//                "matBlazor.start"
+//            );
+//        }
+//    }
 }

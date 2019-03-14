@@ -1,5 +1,7 @@
 ﻿@page "/MatAppBarFrame"
+@inject IJSRuntime JsRuntime
 @using MatBlazor.Components.MatAppBar
+@using Microsoft.AspNetCore.Components
 @addTagHelper *,MatBlazor
 @addTagHelper *,MatBlazor.Demo
 
@@ -20,6 +22,6 @@
 {
     void RunOnClick(UIMouseEventArgs e)
     {
-        JSRuntime.Current.InvokeAsync<object>("window.alert", "Test");
+        JsRuntime.InvokeAsync<object>("window.alert", "Test");
     }
 }

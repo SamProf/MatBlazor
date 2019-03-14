@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using MatBlazor.Components.Base;
 using MatBlazor.Helpers;
 using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatTextField
 {

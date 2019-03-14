@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using MatBlazor.Components.Base;
 using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatOption
 {
-    public class BaseMatOption : BlazorComponent
+    public class BaseMatOption : ComponentBase
     {
         [Parameter]
         protected RenderFragment ChildContent { get; set; }

@@ -1,4 +1,4 @@
-﻿@inherits BlazorLayoutComponent
+﻿@inherits Microsoft.AspNetCore.Components.Layouts.LayoutComponentBase
 
 @using MatBlazor.Components.MatAppBar
 @addTagHelper *,MatBlazor
@@ -11,7 +11,7 @@
                 <MatIconButton Icon="menu"></MatIconButton>
                 <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
             </MatAppBarSection>
-            <MatAppBarSection Align="MatAppBarSectionAlign.End">
+            <MatAppBarSection Align="@MatAppBarSectionAlign.End">
                 <MatIconButton Link="http://samprof.com" Target="_blank" Title="Author SamProf">
                     <i class="fa fa-user-circle" aria-hidden="true"></i>
                 </MatIconButton>

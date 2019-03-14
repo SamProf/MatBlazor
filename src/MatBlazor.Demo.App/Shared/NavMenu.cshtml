@@ -1,4 +1,5 @@
 ﻿@using MatBlazor.Models
+@using Microsoft.AspNetCore.Components.Routing
 <MatDrawer>
 
 
@@ -6,7 +7,7 @@
 
         <MatList SingleSelection="true">
             <MatListItem>
-                <NavLink href="" Match=NavLinkMatch.All>
+                <NavLink href="" Match=@NavLinkMatch.All>
                     <MatIcon Icon="@MatIconNames.Home"></MatIcon> Home
                 </NavLink>
             </MatListItem>

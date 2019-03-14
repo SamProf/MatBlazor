@@ -88,6 +88,7 @@ namespace MatBlazor.DevUtils
 
         private string PrepareSourceCode(string s)
         {
+            return "";
             return $@"<BlazorFiddle Template=""MatBlazor"" Code=@(@""{s.Replace("\"", "\"\"")}"")></BlazorFiddle>";
         }
 

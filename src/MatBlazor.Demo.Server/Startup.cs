@@ -1,10 +1,10 @@
-using Microsoft.AspNetCore.Blazor.Server;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Net.Mime;
+using Microsoft.AspNetCore.Components.Server;
 
 namespace MatBlazor.Demo.Server
 {
@@ -15,15 +15,11 @@ namespace MatBlazor.Demo.Server
         public void ConfigureServices(IServiceCollection services)
         {
             // Adds the Server-Side Blazor services, and those registered by the app project's startup.
-            services.AddServerSideBlazor<App.Startup>();
-
-            services.AddResponseCompression(options =>
+            services.AddMvc().AddNewtonsoftJson();
+            services.AddResponseCompression(opts =>
             {
-                options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[]
-                {
-                    MediaTypeNames.Application.Octet,
-                    WasmMediaTypeNames.Application.Wasm,
-                });
+                opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+                    new[] { "application/octet-stream" });
             });
         }
 
@@ -35,10 +31,15 @@ namespace MatBlazor.Demo.Server
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseBlazorDebugging();
             }
 
-            // Use component registrations and static files from the app project.
-            app.UseServerSideBlazor<App.Startup>();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "default", template: "{controller}/{action}/{id?}");
+            });
+
+            app.UseBlazor<App.Startup>();
         }
     }
 }

@@ -3,31 +3,7 @@
         <iframe src="MatAppBarFrame" style="width: 100%; height: 50%;"></iframe>
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatAppBarFrame""
-@using MatBlazor.Components.MatAppBar
-@addTagHelper *,MatBlazor
-@addTagHelper *,MatBlazor.Demo
-
-
-<MatAppBar Fixed=""true"">
-    <MatAppBarRow>
-        <MatAppBarSection>
-            <MatIconButton Icon=""menu""></MatIconButton>
-            <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
-        </MatAppBarSection>
-        <MatAppBarSection Align=""MatAppBarSectionAlign.End"">
-            <MatIconButton Icon=""favorite"" OnClick=""@RunOnClick""></MatIconButton>
-        </MatAppBarSection>
-    </MatAppBarRow>
-</MatAppBar>
-
-@functions
-{
-    void RunOnClick(UIMouseEventArgs e)
-    {
-        JSRuntime.Current.InvokeAsync<object>(""window.alert"", ""Test"");
-    }
-}")></BlazorFiddle>
+    	
     </SourceContent>
 </DemoContainer>
 

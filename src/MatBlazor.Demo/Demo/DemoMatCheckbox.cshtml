@@ -44,47 +44,6 @@
         }
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <div>
-            <MatCheckbox bind-Checked=""@Checked1""></MatCheckbox> <b>@Checked1</b>
-        </div>
-        <div>
-            <MatCheckbox bind-Checked=""@Checked2""></MatCheckbox> <b>@Checked2</b>
-        </div>
-        <div>
-            <MatCheckbox Disabled=""true""></MatCheckbox> <b>Disabled</b>
-        </div>
-        <div>
-            <h5>Label</h5>
-            <MatCheckbox Label=""Label""></MatCheckbox>
-        </div>
-
-        @functions
-        {
-
-            public bool Checked1
-            {
-                get => _checked1;
-                set
-                {
-                    _checked1 = value;
-                    this.StateHasChanged();
-                }
-            }
-
-            public bool Checked2
-            {
-                get => _checked2;
-                set
-                {
-                    _checked2 = value;
-                    this.StateHasChanged();
-                }
-            }
-
-            private bool _checked1 = true;
-            private bool _checked2 = false;
-        }
-    ")></BlazorFiddle>
+    	
     </SourceContent>
 </DemoContainer>
