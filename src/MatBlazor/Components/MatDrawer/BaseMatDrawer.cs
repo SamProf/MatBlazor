@@ -17,7 +17,8 @@ namespace MatBlazor.Components.MatDrawer
         public BaseMatDrawer()
         {
             ClassMapper
-                .Add("mdc-drawer");
+                .Add("mdc-drawer")
+                .Add("mdc-drawer--dismissible");
         }
 
         protected async override Task OnFirstAfterRenderAsync()

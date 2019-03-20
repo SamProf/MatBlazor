@@ -6,19 +6,19 @@
     <IsPackable>true</IsPackable>
     <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
     <LangVersion>7.3</LangVersion>
-    <Version>0.4.5</Version>
+    <Version>0.5.0</Version>
     <Description>Material Design components for Blazor</Description>
     <PackageProjectUrl>https://github.com/BlazorComponents/MatBlazor</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BlazorComponents/MatBlazor</RepositoryUrl>
     <PackageTags>blazor,mat,material, design</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <AssemblyVersion>0.4.5.0</AssemblyVersion>
+    <AssemblyVersion>0.5.0.0</AssemblyVersion>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl>https://github.com/BlazorComponents/MatBlazor/blob/master/LICENSE</PackageLicenseUrl>
     <Copyright>Vladimir Samoilenko</Copyright>
-    <FileVersion>0.4.5.0</FileVersion>
-    <PackageReleaseNotes>- TrailingIcon in MatButton</PackageReleaseNotes>
+    <FileVersion>0.5.0.0</FileVersion>
+    <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
