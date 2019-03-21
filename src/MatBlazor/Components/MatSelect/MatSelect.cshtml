@@ -33,20 +33,25 @@
         </select>
     }
 
-    @if (Label != null)
-    {
-        <label class="mdc-floating-label">@Label</label>
-    }
-    
-    
+
+
+
     @if (Outlined)
     {
         <div class="mdc-notched-outline">
-            <svg>
-                <path class="mdc-notched-outline__path"></path>
-            </svg>
+            <div class="mdc-notched-outline__leading"></div>
+            @if (Label != null)
+            {
+                <div class="mdc-notched-outline__notch">
+                    <label class="mdc-floating-label">@Label</label>
+                </div>
+            }
+            <div class="mdc-notched-outline__trailing"></div>
         </div>
-        <div class="mdc-notched-outline__idle"></div>
+    }
+    else if (Label != null)
+    {
+        <label class="mdc-floating-label">@Label</label>
     }
 
     <div class="mdc-line-ripple"></div>

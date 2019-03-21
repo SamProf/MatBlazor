@@ -117,9 +117,11 @@ module.exports = webpackMerge(webpackCommon, {
     }),
     new ExtractTextPlugin('[name].min.css'),
     new UglifyJsPlugin({
+
       // beautify: true,
       // mangle : false,
-      // compress : false
+      // compress : false,
+
       compressor: {
         screw_ie8: true,
         warnings: false

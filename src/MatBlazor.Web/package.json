@@ -1,22 +1,16 @@
 {
-  "name": "es6-webpack2-starter",
-  "version": "3.0.0",
-  "description": "A template project for es6/7, webpack2/3, sass and postcss",
+  "name": "matblazor-web",
+  "version": "1.0.0",
+  "description": "MatBlazor web stuff",
   "scripts": {
     "start": "webpack --config webpack/prod.config.js --watch",
     "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --color",
     "precommit": "eslint src"
   },
   "keywords": [
-    "es6",
-    "es7",
-    "webpack2",
-    "webpack3",
-    "starter",
-    "template",
-    "postcss",
-    "sass",
-    "css module"
+    "matblazor",
+    "blazor",
+    "material design"
   ],
   "author": "Micooz",
   "license": "MIT",
@@ -36,7 +30,8 @@
     "@material/switch": "^1.0.1",
     "@material/textfield": "^1.0.1",
     "@material/top-app-bar": "^1.0.1",
-    "babel-polyfill": "^6.23.0"
+    "babel-polyfill": "^6.23.0",
+    "@material/menu": "^1.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

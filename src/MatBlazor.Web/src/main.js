@@ -13,6 +13,7 @@ import * as matAppBar from './matAppBar/matAppBar';
 import * as matIconButton from './MatIconButton/MatIconButton';
 import * as matList from './matList/matList';
 import * as matDrawer from './matDrawer/matDrawer';
+import * as matMenu from './matMenu/matMenu';
 
 
 
@@ -30,25 +31,9 @@ window.matBlazor = {
   matIconButton,
   matList,
   matDrawer,
+  matMenu,
 
-  matMenu: {
-    init: function (mdcMenu) {
-      try {
-        var menu = new window.mdc.menu.MDCMenu(mdcMenu);
-        menu.hoistMenuToBody();
-        mdcMenu.matBlazorRef = menu;
-      } catch (e) {
-        debugger;
-        throw e;
-      }
-    },
-    open: function (mdcMenu, anchorElement) {
-      debugger;
-      var menu = mdcMenu.matBlazorRef;
-      menu.setAnchorElement(anchorElement);
-      menu.open = true;
-    }
-  }
+
 };
 
 

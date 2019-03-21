@@ -14,7 +14,7 @@ namespace MatBlazor.Components.Base
     {
         public ElementRef Ref { get; set; }
 
-        protected string MatBlazorId = "matBlazorId_" + Guid.NewGuid();
+        public string MatBlazorId = "matBlazorId_" + Guid.NewGuid();
 
         protected ClassMapper ClassMapper { get; } = new ClassMapper();
 

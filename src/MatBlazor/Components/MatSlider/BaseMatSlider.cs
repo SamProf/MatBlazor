@@ -44,6 +44,7 @@ namespace MatBlazor.Components.MatSlider
         public bool Discrete { get; set; }
 
         [Parameter]
+        [Obsolete("Freezed while bug in Blazor")]
         public decimal Step { get; set; }
 
         [Parameter]
