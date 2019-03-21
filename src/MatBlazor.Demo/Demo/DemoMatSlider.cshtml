@@ -24,7 +24,26 @@
 
         </Content>
         <SourceContent>
-        	
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <MatSlider bind-Value=""@Val""></MatSlider>
+
+            @functions
+            {
+
+                public decimal Val
+                {
+                    get => _val;
+                    set
+                    {
+                        _val = value;
+                        this.StateHasChanged();
+                    }
+                }
+
+                private decimal _val = 0;
+            }
+
+        ")></BlazorFiddle>
         </SourceContent>
 </DemoContainer>
 </p>
@@ -54,7 +73,26 @@
 
         </Content>
         <SourceContent>
-        	
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <MatSlider bind-Value=""@Val2"" ValueMin=""-10"" ValueMax=""20""></MatSlider>
+
+            @functions
+            {
+
+                public decimal Val2
+                {
+                    get => _val2;
+                    set
+                    {
+                        _val2 = value;
+                        this.StateHasChanged();
+                    }
+                }
+
+                private decimal _val2 = 0;
+            }
+
+        ")></BlazorFiddle>
         </SourceContent>
 </DemoContainer>
 
@@ -84,7 +122,26 @@
 
         </Content>
         <SourceContent>
-        	
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <MatSlider bind-Value=""@Val3"" Discrete=""true""></MatSlider>
+
+            @functions
+            {
+
+                public decimal Val3
+                {
+                    get => _val3;
+                    set
+                    {
+                        _val3 = value;
+                        this.StateHasChanged();
+                    }
+                }
+
+                private decimal _val3 = 0;
+            }
+
+        ")></BlazorFiddle>
         </SourceContent>
 </DemoContainer>
 </p>
@@ -116,9 +173,28 @@
 
         </Content>
         <SourceContent>
-        	
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <MatSlider bind-Value=""@Val4"" Step=""5""></MatSlider>
+
+            @functions
+            {
+
+                public decimal Val4
+                {
+                    get => _val4;
+                    set
+                    {
+                        _val4 = value;
+                        this.StateHasChanged();
+                    }
+                }
+
+                private decimal _val4 = 0;
+            }
+
+        ")></BlazorFiddle>
         </SourceContent>
-    </DemoContainer>
+</DemoContainer>
     *@
 </p>
 
@@ -129,7 +205,9 @@
             <MatSlider Disabled="true" Value="55"></MatSlider>
         </Content>
         <SourceContent>
-        	
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <MatSlider Disabled=""true"" Value=""55""></MatSlider>
+        ")></BlazorFiddle>
         </SourceContent>
-    </DemoContainer>
+</DemoContainer>
 </p>

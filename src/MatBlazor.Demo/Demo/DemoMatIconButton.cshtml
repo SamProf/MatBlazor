@@ -32,6 +32,34 @@
 
     </Content>
     <SourceContent>
-    	
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        @using MatBlazor.Models
+@using Microsoft.AspNetCore.Components
+        @using Microsoft.JSInterop
+        
+        <h5>Simple use</h5>
+        <MatIconButton Icon=""favorite"" OnClick=""@RunOnClick""></MatIconButton>
+
+        <h5>With Font-Awsome Icons</h5>
+        <MatIconButton>
+            <i class=""fa fa-github"" aria-hidden=""true""></i>
+        </MatIconButton>
+
+        <h5>With href and title</h5>
+        <MatIconButton Link=""https://github.com/BlazorComponents/MatBlazor"" Title=""MatBlazor GitHub"" Target=""_blank"">
+            <MatIcon>@MatIconNames.Touch_app</MatIcon>
+        </MatIconButton>
+
+        @functions
+        {
+
+            public void RunOnClick(UIMouseEventArgs e)
+            {
+                JsRuntime.InvokeAsync<object>(""window.alert"", ""Test"");
+            }
+
+        }
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

@@ -23,6 +23,25 @@
         }
     </Content>
     <SourceContent>
-    	
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        @using MatBlazor.Components.MatButton
+        @using MatBlazor.Components.MatMenu
+
+        <p>
+            <MatButton Label=""Menu"" OnClick=""@OnClick"" ref=""Button""></MatButton>
+            <MatMenu ref=""Menu""></MatMenu>
+        </p>
+
+        @functions
+        {
+            BaseMatButton Button;
+            BaseMatMenu Menu;
+
+            public void OnClick(UIMouseEventArgs e)
+            {
+                this.Menu.OpenAsync(Button.Ref);
+            }
+        }
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

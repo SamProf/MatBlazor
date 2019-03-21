@@ -31,7 +31,34 @@
 
     </Content>
     <SourceContent>
-    	
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatTextField bind-Value=""@MyString"" Label=""Standard""></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-Value=""@MyString"" Dense=""true"" Label=""Dense""></MatTextField>
+        </p>
+        <div class=""text-field-container"">
+            <MatTextField bind-Value=""@MyString"" HelperText=""Helper Text"" Label=""Helper Text""></MatTextField>
+        </div>
+
+        @functions
+        {
+
+            public string MyString
+            {
+                get => _myString;
+                set
+                {
+                    _myString = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private string _myString;
+        }
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -69,7 +96,35 @@
 
     </Content>
     <SourceContent>
-    	
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+
+        <p>
+            <MatTextField bind-Value=""@MyString2"" Label=""Standard"" Icon=""favorite""></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-Value=""@MyString2"" Dense=""true"" Label=""Dense"" Icon=""favorite""></MatTextField>
+        </p>
+        <div class=""text-field-container"">
+            <MatTextField bind-Value=""@MyString2"" HelperText=""Helper Text"" Label=""Helper Text"" Icon=""favorite""></MatTextField>
+        </div>
+
+        @functions
+        {
+
+            public string MyString2
+            {
+                get => _myString2;
+                set
+                {
+                    _myString2 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private string _myString2;
+        }
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -107,7 +162,34 @@
 
     </Content>
     <SourceContent>
-    	
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatTextField bind-Value=""@MyString3"" Label=""Standard"" Icon=""favorite"" IconTrailing=""true""></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-Value=""@MyString3"" Dense=""true"" Label=""Dense"" Icon=""favorite"" IconTrailing=""true""></MatTextField>
+        </p>
+        <div class=""text-field-container"">
+            <MatTextField bind-Value=""@MyString3"" HelperText=""Helper Text"" Label=""Helper Text"" Icon=""favorite"" IconTrailing=""true""></MatTextField>
+        </div>
+
+        @functions
+        {
+
+            public string MyString3
+            {
+                get => _myString3;
+                set
+                {
+                    _myString3 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private string _myString3;
+        }
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -145,7 +227,34 @@
 
     </Content>
     <SourceContent>
-    	
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatTextField bind-Value=""@MyString4"" Label=""Standard"" Outlined=""true""></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-Value=""@MyString4"" Dense=""true"" Label=""Dense"" Outlined=""true""></MatTextField>
+        </p>
+        <div class=""text-field-container"">
+            <MatTextField bind-Value=""@MyString4"" HelperText=""Helper Text"" Label=""Helper Text"" Outlined=""true""></MatTextField>
+        </div>
+
+        @functions
+        {
+
+            public string MyString4
+            {
+                get => _myString4;
+                set
+                {
+                    _myString4 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private string _myString4;
+        }
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -182,7 +291,34 @@
 
     </Content>
     <SourceContent>
-    	
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatTextField bind-Value=""@MyString5"" Label=""Standard"" Icon=""favorite"" Outlined=""true""></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-Value=""@MyString5"" Dense=""true"" Label=""Dense"" Icon=""favorite"" Outlined=""true""></MatTextField>
+        </p>
+        <div class=""text-field-container"">
+            <MatTextField bind-Value=""@MyString5"" HelperText=""Helper Text"" Label=""Helper Text"" Icon=""favorite"" Outlined=""true""></MatTextField>
+        </div>
+
+        @functions
+        {
+
+            public string MyString5
+            {
+                get => _myString5;
+                set
+                {
+                    _myString5 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private string _myString5;
+        }
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -219,7 +355,34 @@
 
     </Content>
     <SourceContent>
-    	
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatTextField bind-Value=""@MyString6"" Label=""Standard"" Icon=""favorite"" IconTrailing=""true"" Outlined=""true""></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-Value=""@MyString6"" Dense=""true"" Label=""Dense"" Icon=""favorite"" IconTrailing=""true"" Outlined=""true""></MatTextField>
+        </p>
+        <div class=""text-field-container"">
+            <MatTextField bind-Value=""@MyString6"" HelperText=""Helper Text"" Label=""Helper Text"" Icon=""favorite"" IconTrailing=""true"" Outlined=""true""></MatTextField>
+        </div>
+
+        @functions
+        {
+
+            public string MyString6
+            {
+                get => _myString6;
+                set
+                {
+                    _myString6 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private string _myString6;
+        }
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -254,7 +417,34 @@
 
     </Content>
     <SourceContent>
-    	
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatTextField bind-Value=""@MyString7"" Label=""Standard"" TextArea=""true""></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-Value=""@MyString7"" Dense=""true"" Label=""Dense"" TextArea=""true""></MatTextField>
+        </p>
+        <div class=""text-field-container"">
+            <MatTextField bind-Value=""@MyString7"" HelperText=""Helper Text"" Label=""Helper Text"" TextArea=""true""></MatTextField>
+        </div>
+
+        @functions
+        {
+
+            public string MyString7
+            {
+                get => _myString7;
+                set
+                {
+                    _myString7 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private string _myString7;
+        }
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -293,7 +483,36 @@
 
     </Content>
     <SourceContent>
-    	
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatTextField bind-Value=""@MyString8"" Label=""Standard"" FullWidth=""true""></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-Value=""@MyString8"" Dense=""true"" Label=""Dense"" FullWidth=""true""></MatTextField>
+        </p>
+        <p>
+            <div class=""text-field-container"">
+                <MatTextField bind-Value=""@MyString8"" HelperText=""Helper Text"" Label=""Helper Text"" FullWidth=""true""></MatTextField>
+            </div>
+        </p>
+
+        @functions
+        {
+
+            public string MyString8
+            {
+                get => _myString8;
+                set
+                {
+                    _myString8 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private string _myString8;
+        }
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -332,7 +551,36 @@
 
     </Content>
     <SourceContent>
-    	
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatTextField bind-Value=""@MyString9"" Label=""Standard"" TextArea=""true"" FullWidth=""true""></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-Value=""@MyString9"" Dense=""true"" Label=""Dense"" TextArea=""true"" FullWidth=""true""></MatTextField>
+        </p>
+        <p>
+            <div class=""text-field-container"">
+                <MatTextField bind-Value=""@MyString9"" HelperText=""Helper Text"" Label=""Helper Text"" TextArea=""true"" FullWidth=""true""></MatTextField>
+            </div>
+        </p>
+
+        @functions
+        {
+
+            public string MyString9
+            {
+                get => _myString9;
+                set
+                {
+                    _myString9 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private string _myString9;
+        }
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -343,7 +591,9 @@
             <MatTextField PlaceHolder="Test PlaceHolder"></MatTextField>
         </Content>
         <SourceContent>
-        	
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <MatTextField PlaceHolder=""Test PlaceHolder""></MatTextField>
+        ")></BlazorFiddle>
         </SourceContent>
 </DemoContainer>
 </p>
@@ -355,7 +605,9 @@
             <MatTextField Required="true"></MatTextField>
         </Content>
         <SourceContent>
-        	
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <MatTextField Required=""true""></MatTextField>
+        ")></BlazorFiddle>
         </SourceContent>
 </DemoContainer>
 </p>
@@ -369,7 +621,9 @@
             <MatTextField Disabled="true"></MatTextField>
         </Content>
         <SourceContent>
-        	
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <MatTextField Disabled=""true""></MatTextField>
+        ")></BlazorFiddle>
         </SourceContent>
 </DemoContainer>
 </p>

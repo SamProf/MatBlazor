@@ -47,9 +47,51 @@
 
         </Content>
         <SourceContent>
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <h3>@Val1</h3>
+            <MatButton OnClick=""((e)=>{ this.Val1 = 1.ToString(); })"">Set 1</MatButton>
+            <MatRadioGroup bind-Value=""@Val1"">
+                <MatRadioButton Value=""1""></MatRadioButton>
+                <MatRadioButton Value=""2""></MatRadioButton>
+                <MatRadioButton Value=""3""></MatRadioButton>
+            </MatRadioGroup>
+            <h3>@Val2</h3>
+            <MatRadioGroup bind-Value=""@Val2"">
+                <MatRadioButton Value=""4""></MatRadioButton>
+                <MatRadioButton Value=""5""></MatRadioButton>
+            </MatRadioGroup>
 
+
+            @functions
+            {
+
+                protected string Val1
+                {
+                    get => _val1;
+                    set
+                    {
+                        _val1 = value;
+                        this.StateHasChanged();
+                    }
+                }
+
+                protected string Val2
+                {
+                    get => _val2;
+                    set
+                    {
+                        _val2 = value;
+                        this.StateHasChanged();
+                    }
+                }
+
+                private string _val1;
+                private string _val2;
+            }
+
+        ")></BlazorFiddle>
         </SourceContent>
-    </DemoContainer>
+</DemoContainer>
 </p>
 
 <p>
@@ -64,9 +106,16 @@
             </MatRadioGroup>
         </Content>
         <SourceContent>
-
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <MatRadioGroup>
+                <MatRadioButton></MatRadioButton>
+                <MatRadioButton Disabled=""true""></MatRadioButton>
+                <MatRadioButton></MatRadioButton>
+                <MatRadioButton></MatRadioButton>
+            </MatRadioGroup>
+        ")></BlazorFiddle>
         </SourceContent>
-    </DemoContainer>
+</DemoContainer>
 
 </p>
 
@@ -83,7 +132,14 @@
             </MatRadioGroup>
         </Content>
         <SourceContent>
-
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <MatRadioGroup>
+                <MatRadioButton Label=""Label1""></MatRadioButton>
+                <MatRadioButton Label=""Label2""></MatRadioButton>
+                <MatRadioButton Label=""Label3""></MatRadioButton>
+                <MatRadioButton Label=""Label4""></MatRadioButton>
+            </MatRadioGroup>
+        ")></BlazorFiddle>
         </SourceContent>
-    </DemoContainer>
+</DemoContainer>
 </p>
