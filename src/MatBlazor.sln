@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2041
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28711.60
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.TestApp", "MatBlazor.TestApp\MatBlazor.TestApp.csproj", "{C80A32C8-84CC-4B0E-B383-9BE407C5BB91}"
 EndProject
@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.Demo.App", "MatBl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.Demo", "MatBlazor.Demo\MatBlazor.Demo.csproj", "{8458A4F5-D663-41F8-AB6B-80D594C428B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatBlazor.DevUtils", "MatBlazor.DevUtils\MatBlazor.DevUtils.csproj", "{B871BC4C-48DD-48E7-86F5-58FEAF217130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.DevUtils", "MatBlazor.DevUtils\MatBlazor.DevUtils.csproj", "{B871BC4C-48DD-48E7-86F5-58FEAF217130}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatBlazor.RazorComponentsDemoApp", "MatBlazor.RazorComponentsDemoApp\MatBlazor.RazorComponentsDemoApp.csproj", "{032C35E5-C367-4766-98C0-CBA13E1CF3A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{B871BC4C-48DD-48E7-86F5-58FEAF217130}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B871BC4C-48DD-48E7-86F5-58FEAF217130}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B871BC4C-48DD-48E7-86F5-58FEAF217130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{032C35E5-C367-4766-98C0-CBA13E1CF3A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{032C35E5-C367-4766-98C0-CBA13E1CF3A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{032C35E5-C367-4766-98C0-CBA13E1CF3A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{032C35E5-C367-4766-98C0-CBA13E1CF3A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
