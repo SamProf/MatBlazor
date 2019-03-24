@@ -1,10 +1,6 @@
-## MatBlazor - Material Design components for Blazor
+## MatBlazor - Material Design components for Blazor and Razor Components
 
 MatBlazor comprises a range of components which implement common interaction patterns according to the Material Design specification.
-
-```
-Note: Just as Blazor, this repo is also experimental.
-```
 
 If you like the idea of this repo leave your feedback as an issue or star the repo or let me know on.
 
@@ -16,11 +12,12 @@ https://blazorcomponents.github.io/MatBlazor/
 
 Don't know what Blazor is? Read [here](https://github.com/aspnet/Blazor)
 
-Complete all Blazor dependencies.
+Complete all Blazor 0.9  dependencies.
 
-1. Visual Studio 2017 (15.8 or later)
-2. DotNetCore 2.1 (2.1.402 or later).
-
+- .NET Core 3.0 Preview 3 SDK (3.0.100-preview3-010431)
+- Visual Studio 2019 (Preview 4 or later) with the ASP.NET and web development workload selected.
+- The latest Blazor extension from the Visual Studio Marketplace.
+- The Blazor templates on the command-line: dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.9.0-preview3-19154-02
 
 ## Installation 
 
@@ -35,6 +32,12 @@ Install-Package MatBlazor
 or 
 ```
 dotnet add package MatBlazor
+```
+
+## MatBlazor components for Razor Components
+At the beginning of the your application, usually in MainLayout.cshtml please add MatBlazorInstall component
+```
+<MatBlazorInstall />
 ```
 
 ## Components
