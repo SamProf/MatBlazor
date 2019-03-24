@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.Demo", "MatBlazor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.DevUtils", "MatBlazor.DevUtils\MatBlazor.DevUtils.csproj", "{B871BC4C-48DD-48E7-86F5-58FEAF217130}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatBlazor.RazorComponentsDemoApp", "MatBlazor.RazorComponentsDemoApp\MatBlazor.RazorComponentsDemoApp.csproj", "{032C35E5-C367-4766-98C0-CBA13E1CF3A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.RazorComponentsDemoApp", "MatBlazor.RazorComponentsDemoApp\MatBlazor.RazorComponentsDemoApp.csproj", "{032C35E5-C367-4766-98C0-CBA13E1CF3A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

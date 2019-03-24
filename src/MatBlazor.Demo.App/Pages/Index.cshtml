@@ -3,7 +3,7 @@
 
 <div class="jumbotron">
     <h1 class="display-1">MatBlazor</h1>
-    <p class="lead">Material Design components for Blazor.</p>
+    <p class="lead">Material Design components for Blazor and Blazor Components.</p>
 </div>
 
 <div class="row marketing">
@@ -49,17 +49,28 @@
             <div class="card-body">
 
                 <div class="card-text">
-                    
+
                     <p>
                         MatBlazor components are self-supporting.
                     </p>
 
                     <p>
-                        <BlazorFiddle Template="MatBlazor" Code=@(@"@addTagHelper *,MatBlazor <MatButton>Test</MatButton>")>
+                        <BlazorFiddle Template="MatBlazor" Code=@(@"@addTagHelper *,MatBlazor
+<MatButton>Test</MatButton>")>
                         </BlazorFiddle>
-                        
                     </p>
-                   
+
+
+                    <p>
+                        <b>MatBlazor components for Razor Components</b>
+                    </p>
+
+                    <p>
+                        At the beginning of the your application, usually in MainLayout.cshtml please add MatBlazorInstall component
+                        <BlazorFiddle Template="MatBlazor" Code=@(@"<MatBlazorInstall />")>
+                        </BlazorFiddle>
+                    </p>
+
 
                 </div>
             </div>
