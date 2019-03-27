@@ -3,75 +3,37 @@
 @addTagHelper *,MatBlazor
 
 
-<MatBlazorInstall />
+<MatBlazorInstall/>
 
-<div style="height: 100vh; display: flex; width: 100%;">
-
-        <NavMenu />
-
-        
-        <div class="mdc-drawer-app-content" style="width: 100%">
-            <MatAppBar Fixed="false">
-                <MatAppBarRow>
-                    <MatAppBarSection>
-                        <MatIconButton Icon="menu"></MatIconButton>
-                        <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
-                    </MatAppBarSection>
-                    <MatAppBarSection Align="@MatAppBarSectionAlign.End">
-                        <MatIconButton Link="http://samprof.com" Target="_blank" Title="Author SamProf">
-                            <i class="fa fa-user-circle" aria-hidden="true"></i>
-                        </MatIconButton>
-                        <MatIconButton Link="https://github.com/BlazorComponents/MatBlazor" Title="MatBlazor GitHub">
-                            <i class="fa fa-github" aria-hidden="true"></i>
-                        </MatIconButton>
-                    </MatAppBarSection>
-                </MatAppBarRow>
-            </MatAppBar>
-            
-            <div class="drawer-main-content">
-
-                <div class="mdc-top-app-bar--fixed-adjust"></div>
-                @Body
-            </div>
-
-        </div>
-        
-
-        
-    </div>
-
-@* *@
-@* <div class="sidebar" style="padding-top: 64px; overflow: auto"> *@
-@*     <NavMenu/> *@
-@* </div> *@
-
-@* <div class="main" style="padding-top: 64px"> *@
-@* *@
-@* *@
-@*     <div class="content"> *@
-@*         @Body *@
-@*     </div> *@
-@* *@
-@* *@
-@* </div> *@
+<MatDrawerContainer Style="width: 100vw; height: 100vh;">
+    <NavMenu/>
+    <MatDrawerContent>
+        <MatAppBar Fixed="false">
+            <MatAppBarRow>
+                <MatAppBarSection>
+                    <MatIconButton Icon="menu"></MatIconButton>
+                    <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
+                </MatAppBarSection>
+                <MatAppBarSection Align="@MatAppBarSectionAlign.End">
+                    <MatIconButton Link="http://samprof.com" Target="_blank" Title="Author SamProf">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                    </MatIconButton>
+                    <MatIconButton Link="https://github.com/BlazorComponents/MatBlazor" Title="MatBlazor GitHub">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </MatIconButton>
+                </MatAppBarSection>
+            </MatAppBarRow>
+        </MatAppBar>
 
 
-@* </div> *@
+        <div class="mdc-top-app-bar--fixed-adjust"></div>
+        @Body
 
 
+    </MatDrawerContent>
 
-
-
-
-
-
-
+</MatDrawerContainer>
 
 
 @functions {
-
-    //    public void OnAuthorClick(UIMouseEventArgs e)
-    //    {
-    //        JSRuntime.Current.InvokeAsync<object>("window.open", "https://samprof.com", "_blank");
-    //    }
 }

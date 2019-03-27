@@ -30,6 +30,7 @@ namespace MatBlazor.Components.Base
                 await OnFirstAfterRenderAsync();
                 isRendered = true;
             }
+
 //            await base.OnAfterRenderAsync();
         }
 
@@ -53,6 +54,19 @@ namespace MatBlazor.Components.Base
             }
         }
 
+
+        [Parameter]
+        public string Style
+        {
+            get => _style;
+            set
+            {
+                _style = value;
+                this.StateHasChanged();
+            }
+        }
+
         private string _class;
+        private string _style;
     }
 }

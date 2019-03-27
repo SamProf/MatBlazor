@@ -1,7 +1,7 @@
 ﻿@inherits BaseMatRadioButton
 
 <div class="mdc-form-field" ref="FormFieldRef">
-    <div class="@ClassMapper.Class" ref="Ref">
+    <div class="@ClassMapper.Class" style="@Style" ref="Ref">
         <input class="mdc-radio__native-control" type="radio" name="@Group.MatBlazorId" checked="@Checked" value="@MatBlazorId"
                onchange="@((e)=>OnChangeHandler(e))" id="@MatBlazorId" disabled=@Disabled />
         <div class="mdc-radio__background">
