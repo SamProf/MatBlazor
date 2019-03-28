@@ -28,6 +28,13 @@ namespace MatBlazor.Components.MatIconButton
         [Parameter]
         public string Title { get; set; }
 
+        public BaseMatIconButton()
+        {
+            ClassMapper
+                .Add("mdc-icon-button")
+                .Add("mat-icon-button");
+        }
+
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();

@@ -1,14 +1,3 @@
-﻿@using Microsoft.AspNetCore.Components
-<i class="material-icons" ref="Ref">@Icon@ChildContent</i>
-
-@functions
-{
-    public ElementRef Ref { get; set; }
-
-    [Parameter]
-    public string Icon { get; set; }
-
-    
-    [Parameter]
-    protected RenderFragment ChildContent { get; set; }
-}
+﻿@inherits BaseMatIcon
+@using Microsoft.AspNetCore.Components
+<i class="@ClassMapper.Class" style="@Style" ref="Ref">@Icon@ChildContent</i>

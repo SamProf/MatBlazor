@@ -26,6 +26,9 @@
     <Content Update="Frames\MatAppBarPageFrame.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Pages\DemoBaseMatComponentPage.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\DemoMatListPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
