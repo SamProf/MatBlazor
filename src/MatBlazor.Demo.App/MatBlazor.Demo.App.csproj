@@ -23,10 +23,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Frames\MatDrawerModalPageFrame.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Frames\MatDrawerPageFrame.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Frames\MatAppBarPageFrame.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Pages\DemoBaseMatComponentPage.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\DemoMatDrawerPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Pages\DemoMatListPage.cshtml">

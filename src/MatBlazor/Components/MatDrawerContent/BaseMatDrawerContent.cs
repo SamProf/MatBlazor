@@ -14,7 +14,9 @@ namespace MatBlazor.Components.MatDrawerContent
 
         public BaseMatDrawerContent()
         {
-            ClassMapper.Add("mdc-drawer-app-content");
+            ClassMapper
+                .Add("mdc-drawer-app-content")
+                .Add("mat-drawer-app-content");
         }
     }
 }

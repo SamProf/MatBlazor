@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using MatBlazor.Components.MatButton;
 using MatBlazor.Helpers;
@@ -21,7 +22,20 @@ namespace MatBlazor.Components.Base
         [Inject]
         protected IJSRuntime Js { get; set; }
 
+        private List<Func<Task>> afterRenderCallStack = new List<Func<Task>>();
+
         private bool isRendered = false;
+
+
+        protected void CallAfterRender(Action action)
+        {
+            afterRenderCallStack.Add(() => { return Task.Run(action); });
+        }
+
+        protected void CallAfterRender(Func<Task> action)
+        {
+            afterRenderCallStack.Add(action);
+        }
 
         protected async override Task OnAfterRenderAsync()
         {
@@ -31,6 +45,12 @@ namespace MatBlazor.Components.Base
                 isRendered = true;
             }
 
+            foreach (var action in afterRenderCallStack)
+            {
+                await action();
+            }
+
+            afterRenderCallStack.Clear();
 //            await base.OnAfterRenderAsync();
         }
 

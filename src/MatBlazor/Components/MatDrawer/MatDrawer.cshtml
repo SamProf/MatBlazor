@@ -1,7 +1,12 @@
 ﻿@inherits BaseMatDrawer
 
 <aside class="@ClassMapper.Class" style="@Style" ref="Ref">
-    <div class="mdc-drawer__content">
+    <div class="mdc-drawer__content" tabindex="@ContentTabIndex">
         @ChildContent
     </div>
 </aside>
+
+@if (Mode == MatDrawerMode.Modal)
+{
+    <div class="mdc-drawer-scrim"></div>
+}

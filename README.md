@@ -49,6 +49,7 @@ At the beginning of the your application, usually in MainLayout.cshtml please ad
 - MatSlider
 - MatSlideToggle
 
+- MatDrawer
 - MatAppBar
 - MatMenu
 

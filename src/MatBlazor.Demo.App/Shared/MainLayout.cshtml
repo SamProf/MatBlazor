@@ -1,18 +1,158 @@
 ﻿@inherits Microsoft.AspNetCore.Components.Layouts.LayoutComponentBase
 @using MatBlazor.Components.MatAppBar
+@using MatBlazor.Components.MatDrawer
+@using MatBlazor.Models
 @addTagHelper *,MatBlazor
 
 
 <MatBlazorInstall/>
 
 <MatDrawerContainer Style="width: 100vw; height: 100vh;">
-    <NavMenu/>
+
+
+    <MatDrawer bind-Opened="@_navMenuOpened">
+        <MatListGroup>
+            <MatList SingleSelection="true">
+                <MatListItem>
+                    <NavLink href="" Match=@NavLinkMatch.All>
+                        <MatIcon Icon="@MatIconNames.Home"></MatIcon> Home
+                    </NavLink>
+                </MatListItem>
+            </MatList>
+            <MatDivider></MatDivider>
+            <MatListGroupSubHeader>
+                Base
+            </MatListGroupSubHeader>
+            <MatList SingleSelection="true">
+                <MatListItem>
+                    <NavLink class="nav-link" href="BaseMatComponent">
+                        <span class="oi oi-list-rich" aria-hidden="true"></span> BaseMatComponent
+                    </NavLink>
+                </MatListItem>
+            </MatList>
+            <MatDivider></MatDivider>
+            <MatListGroupSubHeader>
+                Form Controls
+            </MatListGroupSubHeader>
+            <MatList SingleSelection="true">
+                <MatListItem>
+                    <NavLink class="nav-link" href="MatCheckbox">
+                        <span class="oi oi-list-rich" aria-hidden="true"></span> MatCheckbox
+                    </NavLink>
+                </MatListItem>
+                <MatListItem>
+                    <NavLink class="nav-link" href="MatTextField">
+                        <span class="oi oi-list-rich" aria-hidden="true"></span> MatTextField
+                    </NavLink>
+                </MatListItem>
+                <MatListItem>
+                    <NavLink class="nav-link" href="MatRadioButton">
+                        <span class="oi oi-list-rich" aria-hidden="true"></span> MatRadioButton
+                    </NavLink>
+                </MatListItem>
+                <MatListItem>
+                    <NavLink class="nav-link" href="MatSelect">
+                        <span class="oi oi-list-rich" aria-hidden="true"></span> MatSelect
+                    </NavLink>
+                </MatListItem>
+
+                <MatListItem>
+
+                    <NavLink class="nav-link" href="MatSlider">
+                        <span class="oi oi-list-rich" aria-hidden="true"></span> MatSlider
+                    </NavLink>
+
+                </MatListItem>
+                <MatListItem>
+                    <NavLink class="nav-link" href="MatSlideToggle">
+                        <span class="oi oi-list-rich" aria-hidden="true"></span> MatSlideToggle
+                    </NavLink>
+                </MatListItem>
+            </MatList>
+        </MatListGroup>
+
+        <MatDivider></MatDivider>
+        <MatListGroupSubHeader>
+            Navigation
+        </MatListGroupSubHeader>
+
+        <MatList>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatDrawer">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatDrawer
+                </NavLink>
+            </MatListItem>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatAppBar">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatAppBar
+                </NavLink>
+            </MatListItem>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatMenu">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatMenu
+                </NavLink>
+            </MatListItem>
+        </MatList>
+
+        <MatDivider></MatDivider>
+        <MatListGroupSubHeader>
+            Layout
+        </MatListGroupSubHeader>
+
+        <MatList>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatCard">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatCard
+                </NavLink>
+            </MatListItem>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatDivider">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatDivider
+                </NavLink>
+            </MatListItem>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatList">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatList
+                </NavLink>
+            </MatListItem>
+        </MatList>
+
+        <MatDivider></MatDivider>
+        <MatListGroupSubHeader>
+            Buttons & Indicators
+        </MatListGroupSubHeader>
+
+        <MatList>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatButton">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatButton
+                </NavLink>
+            </MatListItem>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatIconButton">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatIconButton
+                </NavLink>
+            </MatListItem>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatIcon">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatIcon
+                </NavLink>
+            </MatListItem>
+            <MatListItem>
+                <NavLink class="nav-link" href="MatChip">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> MatChip
+                </NavLink>
+            </MatListItem>
+        </MatList>
+    </MatDrawer>
+
+
     <MatDrawerContent>
         <MatAppBar Fixed="false">
             <MatAppBarRow>
                 <MatAppBarSection>
-                    <MatIconButton Icon="menu"></MatIconButton>
-                    <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
+                    <MatIconButton Icon="menu" OnClick="@((e) => MenuButtonClicked())"></MatIconButton>
+                    <MatAppBarTitle>MatBlazor - Material Design components for Blazor and Razor Components</MatAppBarTitle>
                 </MatAppBarSection>
                 <MatAppBarSection Align="@MatAppBarSectionAlign.End">
                     <MatIconButton Link="http://samprof.com" Target="_blank" Title="Author SamProf">
@@ -25,8 +165,6 @@
             </MatAppBarRow>
         </MatAppBar>
 
-
-        <div class="mdc-top-app-bar--fixed-adjust"></div>
         @Body
 
 
@@ -36,4 +174,11 @@
 
 
 @functions {
+    bool _navMenuOpened = true;
+
+    void MenuButtonClicked()
+    {
+        _navMenuOpened = !_navMenuOpened;
+        this.StateHasChanged();
+    }
 }

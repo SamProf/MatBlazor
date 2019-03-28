@@ -1,0 +1,101 @@
+<h1>MatDrawer</h1>
+
+
+<h3>Opened</h3>
+<DemoContainer SourcePath=".\..\..\MatBlazor.Demo.App\Frames\MatDrawerPageFrame.cshtml">
+    <Content>
+        <iframe src="MatDrawerFrame" style="width: 100%; height: 50%;"></iframe>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerFrame""
+@addTagHelper *,MatBlazor
+@addTagHelper *,MatBlazor.Demo
+
+
+<MatDrawerContainer Style=""width: 100vw; height: 100vh;"">
+    <MatDrawer bind-Opened=""@Opened"">
+        Drawer Content
+    </MatDrawer>
+    <MatDrawerContent>
+
+        <div>
+            <MatButton OnClick=""@((e) => ButtonClicked())"">
+                @if (Opened)
+                {
+                    <span>Hide Menu</span>
+                }
+                else
+                {
+                    <span>Open Menu</span>
+                }
+            </MatButton>
+        </div>
+        <p>Page Content</p>
+
+    </MatDrawerContent>
+</MatDrawerContainer>
+
+
+@functions
+{
+
+
+    bool Opened = true;
+
+    void ButtonClicked()
+    {
+        Opened = !Opened;
+        this.StateHasChanged();
+    }
+
+}")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+
+<h3>Modal</h3>
+<DemoContainer SourcePath=".\..\..\MatBlazor.Demo.App\Frames\MatDrawerModalPageFrame.cshtml">
+    <Content>
+        <iframe src="MatDrawerModalFrame" style="width: 100%; height: 50%;"></iframe>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerModalFrame""
+@using MatBlazor.Components.MatDrawer
+@addTagHelper *,MatBlazor
+@addTagHelper *,MatBlazor.Demo
+
+
+<MatDrawerContainer Style=""width: 100vw; height: 100vh;"">
+    <MatDrawer bind-Opened=""@Opened"" Mode=""@MatDrawerMode.Modal"">
+        Drawer Content
+    </MatDrawer>
+    <MatDrawerContent>
+        <div>
+            <MatButton OnClick=""@((e) => ButtonClicked())"">Open Menu</MatButton>
+        </div>
+        <p>Page Content</p>
+
+    </MatDrawerContent>
+</MatDrawerContainer>
+
+
+@functions
+{
+
+
+    bool Opened = true;
+
+    void ButtonClicked()
+    {
+        Opened = !Opened;
+        this.StateHasChanged();
+    }
+
+}")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+
+
