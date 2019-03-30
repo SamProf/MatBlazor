@@ -12,6 +12,9 @@ namespace MatBlazor.Components.MatMenu
     {
         private bool _opened;
 
+        [Parameter]
+        protected RenderFragment ChildContent { get; set; }
+
 
         public async Task OpenAsync(ElementRef anchorElement)
         {

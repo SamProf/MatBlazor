@@ -1,0 +1,19 @@
+@using MatBlazor.Components.MatButton
+@using Microsoft.AspNetCore.Components
+<h1>MatTooltip</h1>
+
+
+
+<MatTooltip>
+    <h1>Test tooltip content</h1>
+</MatTooltip>
+
+@functions
+{
+    BaseMatButton buttonRef;
+
+    protected void Click1()
+    {
+        this.StateHasChanged();
+    }
+}
