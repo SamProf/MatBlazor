@@ -1,12 +1,25 @@
 ﻿@using Microsoft.AspNetCore.Components
-<li class="mdc-list-item">
-    @ChildContent
-</li>
+
+@if (Href == null)
+{
+    <li class="mdc-list-item">
+        @ChildContent
+    </li>
+}
+else
+{
+    <a class="mdc-list-item" href="@Href">
+        @ChildContent
+    </a>
+}
 
 @functions
 {
 
     [Parameter]
     protected RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    protected string Href { get; set; }
 
 }

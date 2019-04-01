@@ -1,0 +1,58 @@
+@import "@material/typography/mdc-typography";
+
+.mat {
+  @extend .mdc-typography;
+}
+
+
+.mat-headline1, .mat-h1 {
+  @extend .mdc-typography--headline1;
+}
+
+.mat-headline2, .mat-h2 {
+  @extend .mdc-typography--headline2;
+}
+
+.mat-headline3, .mat-h3 {
+  @extend .mdc-typography--headline3;
+}
+
+.mat-headline4, .mat-h4 {
+  @extend .mdc-typography--headline4;
+}
+
+.mat-headline5, .mat-h5 {
+  @extend .mdc-typography--headline5;
+}
+
+.mat-headline6, .mat-h6 {
+  @extend .mdc-typography--headline6;
+}
+
+.mat-subtitle1 {
+  @extend .mdc-typography--subtitle1;
+}
+
+.mat-subtitle2 {
+  @extend .mdc-typography--subtitle2;
+}
+
+.mat-body1 {
+  @extend .mdc-typography--body1;
+}
+
+.mat-body2 {
+  @extend .mdc-typography--body2;
+}
+
+.mat-caption {
+  @extend .mdc-typography--caption;
+}
+
+.mat-button {
+  @extend .mdc-typography--button;
+}
+
+.mat-overline {
+  @extend .mdc-typography--overline;
+}

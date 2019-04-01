@@ -1,3 +1,4 @@
+@using Microsoft.AspNetCore.Components.Services
 <h1>MatList</h1>
 
 <h3>
@@ -208,6 +209,36 @@
             <MatListDivider></MatListDivider>
             <MatListItem>
                 line item
+            </MatListItem>
+        </MatList>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h3>
+    MatListItem Href
+</h3>
+<DemoContainer>
+    <Content>
+        @inject IUriHelper Url
+        <MatList>
+            <MatListItem Href="http://google.com">
+                Google
+            </MatListItem>
+            <MatListItem Href="@Url.ToAbsoluteUri("MatTextField").AbsoluteUri">
+                MatTextField
+            </MatListItem>
+        </MatList>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        @inject IUriHelper Url
+        <MatList>
+            <MatListItem Href=""http://google.com"">
+                Google
+            </MatListItem>
+            <MatListItem Href=""@Url.ToAbsoluteUri(""MatTextField"").AbsoluteUri"">
+                MatTextField
             </MatListItem>
         </MatList>
     ")></BlazorFiddle>
