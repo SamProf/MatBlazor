@@ -31,6 +31,24 @@ namespace MatBlazor.Components.MatTextField
         public Action<string> ValueChanged { get; set; }
 
         [Parameter]
+        public Action GotFocus { get; set; }
+
+        [Parameter]
+        public Action LostFocus { get; set; }
+
+        [Parameter]
+        public Action<UIKeyboardEventArgs> OnKeyPress { get; set; }
+
+        [Parameter]
+        public Action<UIKeyboardEventArgs> OnKeyDown { get; set; }
+
+        [Parameter]
+        public Action<UIKeyboardEventArgs> OnKeyUp { get; set; }
+
+        [Parameter]
+        public Action<UIChangeEventArgs> OnInput { get; set; }
+
+        [Parameter]
         public string Label { get; set; }
 
         [Parameter]
@@ -69,15 +87,8 @@ namespace MatBlazor.Components.MatTextField
         [Parameter]
         public string Type { get; set; } = "text";
 
-
         protected ClassMapper LabelClassMapper = new ClassMapper();
         protected ClassMapper InputClassMapper = new ClassMapper();
-
-
-        protected void OnChangeHandler(UIChangeEventArgs ev)
-        {
-            Value = (string)ev.Value;
-        }
 
         private string _value;
 
