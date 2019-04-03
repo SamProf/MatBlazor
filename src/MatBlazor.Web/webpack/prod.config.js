@@ -45,7 +45,7 @@ module.exports = webpackMerge(webpackCommon, {
               loader: 'css-loader',
               options: {
                 // modules: true,
-                // minimize: true,
+                minimize: true,
                 sourceMap: false,
                 // importLoaders: 2,
                 include: [

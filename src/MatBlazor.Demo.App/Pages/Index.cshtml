@@ -1,82 +1,51 @@
 @page "/"
 
 
-<div class="jumbotron">
-    <h1 class="display-1">MatBlazor</h1>
-    <p class="lead">Material Design components for Blazor and Blazor Components.</p>
-</div>
+<h1 class="mat-h1">MatBlazor</h1>
+<h4 class="mat-h4">Material Design components for Blazor and Blazor Components.</h4>
 
-<div class="marketing">
+<h5 class="mat-h5">Installation</h5>
+
+<p>
+    Install MatBlazor library via nuget.
+</p>
+
+<p>
+    <code>
+        Install-Package MatBlazor
+    </code>
+</p>
+<p>
+    or
+</p>
+<p>
+    <code>
+        dotnet add package MatBlazor
+    </code>
+</p>
 
 
-    <div class="col-lg-6">
-        <div class="card ">
-            <div class="card-header">
-                Installation
-            </div>
-            <div class="card-body">
+<h5 class="mat-h5">Usage</h5>
 
-                <div class="card-text">
-                    
-                    <p>
-                        Install MatBlazor library via nuget.
-                    </p>
 
-                    <p>
-                        <code>
-                            Install-Package MatBlazor
-                        </code>
-                    </p>
-                    <p>
-                        or
-                    </p>
-                    <p>
-                        <code>
-                            dotnet add package MatBlazor
-                        </code>
-                    </p>
+<p>
+    MatBlazor components are self-supporting.
+</p>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-6">
-        <div class="card ">
-            <div class="card-header">
-                Usage
-            </div>
-            <div class="card-body">
-
-                <div class="card-text">
-
-                    <p>
-                        MatBlazor components are self-supporting.
-                    </p>
-
-                    <p>
-                        <BlazorFiddle Template="MatBlazor" Code=@(@"@addTagHelper *,MatBlazor
+<p>
+    <BlazorFiddle Template="MatBlazor" Code=@(@"@addTagHelper *,MatBlazor
 <MatButton>Test</MatButton>")>
-                        </BlazorFiddle>
-                    </p>
+    </BlazorFiddle>
+</p>
+
+<h5 class="mat-h5">MatBlazor components for Razor Components</h5>
 
 
-                    <p>
-                        <b>MatBlazor components for Razor Components</b>
-                    </p>
-
-                    <p>
-                        At the beginning of the your application, usually in MainLayout.cshtml please add MatBlazorInstall component
-                        <BlazorFiddle Template="MatBlazor" Code=@(@"<MatBlazorInstall />")>
-                        </BlazorFiddle>
-                    </p>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<p>
+    At the beginning of the your application, usually in MainLayout.cshtml please add MatBlazorInstall component
+    <BlazorFiddle Template="MatBlazor" Code=@(@"<MatBlazorInstall />")>
+    </BlazorFiddle>
+</p>
 
 
 <div class="">

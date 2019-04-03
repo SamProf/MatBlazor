@@ -10,7 +10,7 @@
 <MatBlazorInstall/>
 
 
-<MatAppBar Style="z-index: 100;">
+<MatAppBar Style="z-index: 100;" Class="mat">
     <MatAppBarRow>
         <MatAppBarSection>
             <MatIconButton Icon="menu" OnClick="@((e) => MenuButtonClicked())"></MatIconButton>
@@ -27,7 +27,7 @@
     </MatAppBarRow>
 </MatAppBar>
 
-<MatDrawerContainer Style="width: 100vw; height: 100vh;">
+<MatDrawerContainer Style="width: 100vw; height: 100vh;" Class="mat">
     <MatDrawer bind-Opened="@_navMenuOpened">
         <MatAppBarAdjust></MatAppBarAdjust>
         <MatListGroup>
@@ -94,12 +94,15 @@
                 <MatListItem Href="@Url.ToAbsoluteUri("MatChip").AbsoluteUri">
                     MatChip
                 </MatListItem>
+                <MatListItem Href="@Url.ToAbsoluteUri("Typography").AbsoluteUri">
+                    Typography
+                </MatListItem>
             </MatList>
         </MatListGroup>
     </MatDrawer>
 
 
-    <MatDrawerContent>
+    <MatDrawerContent Style="padding-left: 5px; padding-right: 5px;">
         <MatAppBarAdjust></MatAppBarAdjust>
         @Body
     </MatDrawerContent>
