@@ -63,4 +63,57 @@ At the beginning of the your application, usually in MainLayout.cshtml please ad
 - MatChip
 
 
-{% include_relative NEWS.md %}
+## News
+
+### MatBlazor 0.6.7
+- Added Typography styles
+
+
+### MatBlazor 0.6.6
+- Added Href parameter to MatListItem component
+
+
+### MatBlazor 0.6.5
+- MatTextField - fixed label
+
+
+### MatBlazor 0.6.4
+- MatMenu - first working implementation
+
+### MatBlazor 0.6.3
+- New MatDrawer
+- Fix MatAppBar (fixed-adjust div)
+
+### MatBlazor 0.6.2
+- Added Style Parameter for all components
+- Added BaseMatComponent Docs
+- MatDrawer in progress
+
+### MatBlazor 0.6.1
+-Introduce Razor Components support (MatBlazorInstall component)
+
+### MatBlazor 0.6.0
+- Upgrade Blazor 0.9 complete
+- Upgrade to new Material Components
+- MatTextField Outlined fixed
+- MatRadioGroup and MatRadioButton enhancements
+- MatSelect Outlined fixed
+- MatSlider Step problem founded
+- Fixed main page of the demo project MatDrawer
+- MatMenu (prepared for development in next release)
+- MatDrawer (prepared for development in next release)
+- BlazorFiddle integration fixed
+
+### MatBlazor 0.5.0
+- Upgrade to Blazor 0.9.0 (Part 1)
+
+### MatBlazor 0.4.5 (Minor)
+- TrailingIcon in MatButton
+
+### MatBlazor 0.4.4
+- Added integration with BlazorFiddle.com
+- MatIconButton - Href bacame Link
+
+### MatBlazor 0.4.3
+- Upgrade to Blazor 0.7.0
+- MatDrawer in progress
