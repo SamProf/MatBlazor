@@ -1,7 +1,7 @@
 ﻿@inherits BaseMatTextField
 
 <div class="@ClassMapper.Class" style="@Style" ref="Ref">
-    @if (!FullWidth && Icon != null)
+    @if (Icon != null)
     {
         <i class="material-icons mdc-text-field__icon" tabindex="0">@Icon</i>
     }
