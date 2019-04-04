@@ -61,3 +61,6 @@ At the beginning of the your application, usually in MainLayout.cshtml please ad
 - MatIconButton
 - MatIcon
 - MatChip
+
+
+{% include_relative NEWS.md %}
