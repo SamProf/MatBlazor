@@ -15,10 +15,12 @@ import * as matList from './matList/matList';
 import * as matDrawer from './matDrawer/matDrawer';
 import * as matMenu from './matMenu/matMenu';
 import * as matTypography from './matTypography/matTypography';
+import * as matAutocomplete from './matAutocomplete/matAutocomplete';
 
 
 
 window.matBlazor = {
+  matAutocomplete,
   matButton,
   matCheckbox,
   matTextField,

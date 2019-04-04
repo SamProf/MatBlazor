@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using MatBlazor.Components.Base;
 using MatBlazor.Helpers;
 using Microsoft.AspNetCore.Blazor;
@@ -30,6 +31,11 @@ namespace MatBlazor.Components.MatButton
         [Parameter]
         protected Action<UIMouseEventArgs> OnClick { get; set; }
 
+        [Parameter]
+        protected ICommand Command { get; set; }
+
+        [Parameter]
+        protected object CommandParameter { get; set; }
 
         [Parameter]
         public bool Raised
@@ -116,6 +122,14 @@ namespace MatBlazor.Components.MatButton
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 
+        protected void OnClickHandler(UIMouseEventArgs ev)
+        {
+            OnClick?.Invoke(ev);
+            if(Command?.CanExecute(CommandParameter) ?? false)
+            {
+                Command.Execute(CommandParameter);
+            }
+        }
 
         private bool _raised;
         private bool _unelevated;

@@ -8,13 +8,15 @@
 }
 else
 {
-    <a class="mdc-list-item" href="@Href">
+    <a class="mdc-list-item" href="@Href" onmousedown="@OnMouseDown">
         @ChildContent
     </a>
 }
 
 @functions
 {
+    [Parameter]
+    protected Action<UIMouseEventArgs> OnMouseDown { get; set; }
 
     [Parameter]
     protected RenderFragment ChildContent { get; set; }
