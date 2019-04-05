@@ -2,23 +2,19 @@
 @using System.Collections;
 
 
-    <div class="mdc-autocomplete-wrapper">
+    <div class="mat-autocomplete-wrapper">
         <MatTextField Icon="@Icon" GotFocus="@OpenPopup" LostFocus="@ClosePopup" Label="@Label" Value=@StringValue OnInput=@OnValueChanged Outlined="true"></MatTextField>
         @if (ShowClearButton)
         {
-            <div class="mdc-autocomplete-clearbutton">
-                <MatIconButton Icon="clear" OnClick="ClearText"></MatIconButton>
+            <div class="mat-autocomplete-clearbutton">
+                <MatIconButton Icon="clear"  OnClick="ClearText"></MatIconButton>
             </div>
         }
         @if (Collection != null && IsOpened)
         {
             <div class="mat-autocomplete-popup">
                 <MatList SingleSelection="true">
-                    @foreach (var obj in Collection.Cast<object>()
-                      .Select(x => x.ToString())
-                      .Where(x => x != null &&
-                      (string.IsNullOrEmpty(StringValue) || x.ToLowerInvariant().Contains(StringValue.ToLowerInvariant())))
-                      .Take(ElementsPerPage))
+                    @foreach (var obj in FilteredCollection)
                     {
                         <MatListItem OnMouseDown="@((e) => ItemClicked(obj))">
                             <MatListItemText>@obj</MatListItemText>

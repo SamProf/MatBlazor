@@ -3,6 +3,7 @@ using MatBlazor.Helpers;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MatBlazor.Components.MatAutocomplete
@@ -11,9 +12,21 @@ namespace MatBlazor.Components.MatAutocomplete
     public class BaseMatAutocomplete : BaseMatComponent
     {
 
-        protected const int ElementsPerPage = 10;
+        protected const int DefaultsElementsInPopup = 10;
         private bool isOpened;
         private string stringValue;
+
+        protected IEnumerable FilteredCollection
+        {
+            get
+            {
+                return Collection.Cast<object>()
+                      .Select(x => x.ToString())
+                      .Where(x => x != null &&
+                      (string.IsNullOrEmpty(StringValue) || x.ToLowerInvariant().Contains(StringValue.ToLowerInvariant())))
+                      .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup);
+            }
+        }
 
         public bool IsOpened
         {
@@ -24,13 +37,13 @@ namespace MatBlazor.Components.MatAutocomplete
             set
             {
                 isOpened = value;
-                Console.WriteLine($"Opened{isOpened}");
                 OnOpenedChanged?.Invoke(value);
                 this.StateHasChanged();
             }
         }
+
         [Parameter]
-        protected bool HasPopup { get; set; }
+        protected int? NumberOfElementsInPopup { get; set; }
 
         [Parameter]
         protected string Label { get; set; }
@@ -61,6 +74,7 @@ namespace MatBlazor.Components.MatAutocomplete
         [Parameter]
         protected IEnumerable Collection { get; set; }
 
+
         [Parameter]
         protected Action<bool> OnOpenedChanged { get; set; }
 
@@ -75,18 +89,11 @@ namespace MatBlazor.Components.MatAutocomplete
 
         protected void OpenPopup()
         {
-            if(HasPopup)
-            {
-                IsOpened = true;
-            }
+            IsOpened = true;
         }
 
         protected void ClosePopup()
         {
-            if(HasPopup)
-            {
-                IsOpened = false;
-            }
         }
 
         public void OnValueChanged(UIChangeEventArgs ev)
@@ -97,6 +104,7 @@ namespace MatBlazor.Components.MatAutocomplete
 
         public void ItemClicked(object selectedObject)
         {
+            Console.WriteLine("An item is clicked: " + selectedObject);
             Value = selectedObject;
             StringValue = Value.ToString();
             OnChange.Invoke(selectedObject);
@@ -105,6 +113,7 @@ namespace MatBlazor.Components.MatAutocomplete
 
         public void ClearText(UIMouseEventArgs e)
         {
+            Console.WriteLine("Clear text started");
             StringValue = "";
             Value = null;
             StateHasChanged();

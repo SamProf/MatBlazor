@@ -4,6 +4,12 @@
     display: inline-block;
 }
 
+/* Hide clear button from edge */
+.mat-autocomplete-wrapper::-ms-clear
+{
+    display: none;
+}
+
 .mat-autocomplete-clearbutton
 {
     position: absolute;
