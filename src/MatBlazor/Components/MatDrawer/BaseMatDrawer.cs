@@ -40,14 +40,14 @@ namespace MatBlazor.Components.MatDrawer
                         await this.Js.InvokeAsync<object>("matBlazor.matDrawer.setOpened", Ref, _opened);
                     });
 
-                    OpenedChanged?.Invoke(value);
+                    OpenedChanged.InvokeAsync(value);
                 }
             }
         }
 
 
         [Parameter]
-        public Action<bool> OpenedChanged { get; set; }
+        public EventCallback<bool> OpenedChanged { get; set; }
 
         public BaseMatDrawer()
         {
@@ -71,7 +71,7 @@ namespace MatBlazor.Components.MatDrawer
         {
             this.StateHasChanged();
             this._opened = false;
-            OpenedChanged?.Invoke(false);
+            OpenedChanged.InvokeAsync(false);
         }
 
     }

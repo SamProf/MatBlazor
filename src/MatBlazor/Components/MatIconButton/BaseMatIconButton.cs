@@ -14,7 +14,7 @@ namespace MatBlazor.Components.MatIconButton
         public RenderFragment ChildContent { get; set; }
 
         [Parameter]
-        public Action<UIMouseEventArgs> OnClick { get; set; }
+        public EventCallback<UIMouseEventArgs> OnClick { get; set; }
 
         [Parameter]
         public string Icon { get; set; }
@@ -43,7 +43,7 @@ namespace MatBlazor.Components.MatIconButton
 
         protected void OnClickHandler(UIMouseEventArgs e)
         {
-            OnClick?.Invoke(e);
+            OnClick.InvokeAsync(e);
         }
     }
 }

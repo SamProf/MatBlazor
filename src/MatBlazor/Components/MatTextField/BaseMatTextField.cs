@@ -22,31 +22,31 @@ namespace MatBlazor.Components.MatTextField
                     _value = value;
                     LabelClassMapper.MakeDirty();
                     InputClassMapper.MakeDirty();
-                    ValueChanged?.Invoke(value);
+                    ValueChanged.InvokeAsync(value);
                 }
             }
         }
 
         [Parameter]
-        public Action<string> ValueChanged { get; set; }
+        public EventCallback<string> ValueChanged { get; set; }
 
         [Parameter]
-        public Action<UIFocusEventArgs> OnFocus { get; set; }
+        public EventCallback<UIFocusEventArgs> OnFocus { get; set; }
 
         [Parameter]
-        public Action<UIFocusEventArgs> OnFocusOut { get; set; }
+        public EventCallback<UIFocusEventArgs> OnFocusOut { get; set; }
 
         [Parameter]
-        public Action<UIKeyboardEventArgs> OnKeyPress { get; set; }
+        public EventCallback<UIKeyboardEventArgs> OnKeyPress { get; set; }
 
         [Parameter]
-        public Action<UIKeyboardEventArgs> OnKeyDown { get; set; }
+        public EventCallback<UIKeyboardEventArgs> OnKeyDown { get; set; }
 
         [Parameter]
-        public Action<UIKeyboardEventArgs> OnKeyUp { get; set; }
+        public EventCallback<UIKeyboardEventArgs> OnKeyUp { get; set; }
 
         [Parameter]
-        public Action<UIChangeEventArgs> OnInput { get; set; }
+        public EventCallback<UIChangeEventArgs> OnInput { get; set; }
 
         [Parameter]
         public string Label { get; set; }

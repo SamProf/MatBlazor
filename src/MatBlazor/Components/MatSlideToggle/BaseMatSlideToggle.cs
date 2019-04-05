@@ -27,7 +27,7 @@ namespace MatBlazor.Components.MatSlideToggle
         }
 
         [Parameter]
-        public Action<bool> CheckedChanged { get; set; }
+        public EventCallback<bool> CheckedChanged { get; set; }
 
         [Parameter]
         public string Label { get; set; }
@@ -44,7 +44,7 @@ namespace MatBlazor.Components.MatSlideToggle
                 if (_checked != value)
                 {
                     _checked = value;
-                    CheckedChanged?.Invoke(value);
+                    CheckedChanged.InvokeAsync(value);
                 }
             }
         }

@@ -6,18 +6,18 @@
     <IsPackable>true</IsPackable>
     <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
     <LangVersion>7.3</LangVersion>
-    <Version>0.6.8</Version>
+    <Version>0.6.9</Version>
     <Description>Material Design components for Blazor and Razor Components</Description>
     <PackageProjectUrl>https://github.com/BlazorComponents/MatBlazor</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BlazorComponents/MatBlazor</RepositoryUrl>
     <PackageTags>blazor,mat,material, design, razor, components</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <AssemblyVersion>0.6.8.0</AssemblyVersion>
+    <AssemblyVersion>0.6.9.0</AssemblyVersion>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl></PackageLicenseUrl>
     <Copyright>Vladimir Samoilenko</Copyright>
-    <FileVersion>0.6.8.0</FileVersion>
+    <FileVersion>0.6.9.0</FileVersion>
     <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 

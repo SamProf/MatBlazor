@@ -24,13 +24,13 @@ namespace MatBlazor.Components.MatRadioGroup
                 if (value != _value)
                 {
                     _value = value;
-                    ValueChanged?.Invoke(value);
+                    ValueChanged.InvokeAsync(value);
                 }
             }
         }
 
 
         [Parameter]
-        public Action<string> ValueChanged { get; set; }
+        public EventCallback<string> ValueChanged { get; set; }
     }
 }

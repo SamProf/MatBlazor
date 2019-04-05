@@ -60,13 +60,13 @@ namespace MatBlazor.Components.MatSlider
                 if (value != _value)
                 {
                     _value = value;
-                    ValueChanged?.Invoke(value);
+                    ValueChanged.InvokeAsync(value);
                 }
             }
         }
 
         [Parameter]
-        public Action<decimal> ValueChanged { get; set; }
+        public EventCallback<decimal> ValueChanged { get; set; }
 
         public class JsHelper
         {

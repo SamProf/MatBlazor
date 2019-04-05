@@ -44,13 +44,13 @@ namespace MatBlazor.Components.MatSelect
                 if (value != _value)
                 {
                     _value = value;
-                    ValueChanged?.Invoke(value);
+                    ValueChanged.InvokeAsync(value);
                 }
             }
         }
 
         [Parameter]
-        protected Action<string> ValueChanged { get; set; }
+        protected EventCallback<string> ValueChanged { get; set; }
 
         public void OnChangeHandler(UIChangeEventArgs e)
         {

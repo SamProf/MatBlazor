@@ -6,12 +6,12 @@
 {
 
 [Parameter]
-public Action<UIMouseEventArgs> OnClick { get; set; }
+public EventCallback<UIMouseEventArgs> OnClick { get; set; }
 
 
 void OnClickHandler(UIMouseEventArgs e)
 {
-    OnClick?.Invoke(e);
+    OnClick.InvokeAsync(e);
 }
 
 }
