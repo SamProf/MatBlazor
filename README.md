@@ -65,17 +65,25 @@ At the beginning of the your application, usually in MainLayout.cshtml please ad
 
 ## News
 
+### MatBlazor 0.6.10
+- Added Elevation
+- License of used packages added to js boundle
+
+### MatBlazor 0.6.9
+- Changed all events to EventCallback
+- Show Icons when MatTextField has FullWidth (enkodellc)
+
+### MatBlazor 0.6.8
+- Improved events for MatTextField (sandrohanea + SamProf)
+
 ### MatBlazor 0.6.7
 - Added Typography styles
-
 
 ### MatBlazor 0.6.6
 - Added Href parameter to MatListItem component
 
-
 ### MatBlazor 0.6.5
 - MatTextField - fixed label
-
 
 ### MatBlazor 0.6.4
 - MatMenu - first working implementation
@@ -90,7 +98,7 @@ At the beginning of the your application, usually in MainLayout.cshtml please ad
 - MatDrawer in progress
 
 ### MatBlazor 0.6.1
--Introduce Razor Components support (MatBlazorInstall component)
+- Introduce Razor Components support (MatBlazorInstall component)
 
 ### MatBlazor 0.6.0
 - Upgrade Blazor 0.9 complete

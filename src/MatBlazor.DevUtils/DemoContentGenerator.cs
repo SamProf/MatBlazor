@@ -18,14 +18,32 @@ namespace MatBlazor.DevUtils
         public void GenerateNews()
         {
             var config = Config.GetConfig();
-            var text = File.ReadAllLines(Path.Combine(config.RepositoryPath, "README.md"));
+            var lines = File.ReadAllLines(Path.Combine(config.RepositoryPath, "README.md"));
 
-            text = text.SkipWhile(i => !i.Trim().Equals("## News", StringComparison.InvariantCultureIgnoreCase))
+            lines = lines.SkipWhile(i => !i.Trim().Equals("## News", StringComparison.InvariantCultureIgnoreCase))
                 .ToArray();
 
-            text = text.TakeWhile((i, index) => !(i.Trim().StartsWith("## ") && index > 0)).ToArray();
+            lines = lines.TakeWhile((i, index) => !(i.Trim().StartsWith("## ") && index > 0)).ToArray();
 
-            
+            var text = string.Join("\r\n", lines);
+
+            Console.WriteLine(text);
+
+            var result = CommonMark.CommonMarkConverter.Convert(text);
+
+            Console.WriteLine(result);
+
+            var newsFile = Path.Combine(config.Path, "MatBlazor.Demo.App", "Shared", "News.cshtml");
+
+            if (!File.Exists(newsFile))
+            {
+                throw new Exception("News file not exists");
+            }
+
+            result = "<!-- THIS IS AUTO GENERATED FILE!!! -->\r\n\r\n" + result;
+
+
+            File.WriteAllText(newsFile, result);
         }
 
 
