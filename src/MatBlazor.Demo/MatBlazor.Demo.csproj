@@ -29,6 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Demo\DemoProgressBar.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Demo\DemoMatList.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

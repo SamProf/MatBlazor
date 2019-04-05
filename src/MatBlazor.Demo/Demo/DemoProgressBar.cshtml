@@ -1,0 +1,46 @@
+<h2 class="mat-h2">MatProgressBar</h2>
+
+<DemoContainer>
+    <Content>
+        <h3 class="mat-subtitle1">Progress</h3>
+        <MatProgressBar Progress="0.6"></MatProgressBar>
+        
+        <h3 class="mat-subtitle1">Buffer</h3>
+        <MatProgressBar Progress="0.35" Buffer="0.7"></MatProgressBar>
+        
+        <h3 class="mat-subtitle1">Indeterminate</h3>
+        <MatProgressBar Indeterminate="true"></MatProgressBar>
+        
+        <h3 class="mat-subtitle1">Reversed</h3>
+        <MatProgressBar Indeterminate="true" Reversed="true"></MatProgressBar>
+        
+        <h3 class="mat-subtitle1">Reversed Buffered</h3>
+        <MatProgressBar Progress="0.35" Buffer="0.7" Reversed="true"></MatProgressBar>
+
+        <h3 class="mat-subtitle1">Closed</h3>
+        <MatProgressBar Progress="0.35" Closed="true"></MatProgressBar>
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <h3 class=""mat-subtitle1"">Progress</h3>
+        <MatProgressBar Progress=""0.6""></MatProgressBar>
+        
+        <h3 class=""mat-subtitle1"">Buffer</h3>
+        <MatProgressBar Progress=""0.35"" Buffer=""0.7""></MatProgressBar>
+        
+        <h3 class=""mat-subtitle1"">Indeterminate</h3>
+        <MatProgressBar Indeterminate=""true""></MatProgressBar>
+        
+        <h3 class=""mat-subtitle1"">Reversed</h3>
+        <MatProgressBar Indeterminate=""true"" Reversed=""true""></MatProgressBar>
+        
+        <h3 class=""mat-subtitle1"">Reversed Buffered</h3>
+        <MatProgressBar Progress=""0.35"" Buffer=""0.7"" Reversed=""true""></MatProgressBar>
+
+        <h3 class=""mat-subtitle1"">Closed</h3>
+        <MatProgressBar Progress=""0.35"" Closed=""true""></MatProgressBar>
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

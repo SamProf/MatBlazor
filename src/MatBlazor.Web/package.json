@@ -4,8 +4,7 @@
   "description": "MatBlazor.Web",
   "scripts": {
     "start": "webpack --config webpack/prod.config.js --watch",
-    "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --color",
-
+    "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --color"
   },
   "keywords": [
     "matblazor",
@@ -24,6 +23,7 @@
     "@material/elevation": "^1.1.0",
     "@material/form-field": "^1.0.1",
     "@material/icon-button": "^1.0.1",
+    "@material/linear-progress": "^1.1.0",
     "@material/list": "^1.0.1",
     "@material/menu": "^1.0.1",
     "@material/radio": "^1.0.1",
@@ -33,9 +33,11 @@
     "@material/textfield": "^1.0.1",
     "@material/top-app-bar": "^1.0.1",
     "@material/typography": "^1.0.0",
-    "babel-polyfill": "^6.23.0"
+    "babel-polyfill": "^6.23.0",
+    "install": "^0.12.2",
+    "npm": "^6.9.0"
   },
-    "devDependencies": {
+  "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",

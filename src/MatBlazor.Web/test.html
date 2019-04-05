@@ -10,42 +10,26 @@
 <body>
 
 
-
-
-<aside class="mdc-drawer mdc-drawer--dismissible" id="cmp">
-    <div class="mdc-drawer__content">
-        <nav class="mdc-list">
-            <a class="mdc-list-item mdc-list-item--activated" href="#" aria-selected="true">
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-                <span class="mdc-list-item__text">Inbox</span>
-            </a>
-            <a class="mdc-list-item" href="#">
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-                <span class="mdc-list-item__text">Outgoing</span>
-            </a>
-            <a class="mdc-list-item" href="#">
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-                <span class="mdc-list-item__text">Drafts</span>
-            </a>
-        </nav>
+<div role="progressbar" class="mdc-linear-progress mdc-linear-progress--reversed" id="ref">
+    <div class="mdc-linear-progress__buffering-dots"></div>
+    <div class="mdc-linear-progress__buffer"></div>
+    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+        <span class="mdc-linear-progress__bar-inner"></span>
     </div>
-</aside>
-
-
-
-
-
+    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+        <span class="mdc-linear-progress__bar-inner"></span>
+    </div>
+</div>
 
 
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 
 
 <script type="text/javascript">
-  var ref = document.getElementById('cmp');
-  var cmp = new mdc.drawer.MDCDrawer(ref);
-  cmp.open = true;
-
-
+  var ref = document.getElementById('ref');
+  var cmp = new mdc.linearProgress.MDCLinearProgress(ref);
+  cmp.progress = 0.5;
+  // cmp.buffer = 0.7;
 
 </script>
 
