@@ -28,9 +28,8 @@ namespace MatBlazor.Components.MatButton
         }
 
         [Parameter]
-        protected Action<UIMouseEventArgs> OnClick { get; set; }
-
-
+        protected EventCallback<UIMouseEventArgs> OnClick { get; set; }
+               
         [Parameter]
         public bool Raised
         {
