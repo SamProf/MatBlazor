@@ -7,6 +7,7 @@ using System.Web;
 using System.Xml;
 using Newtonsoft.Json;
 using NUnit.Framework;
+using System.Linq;
 
 namespace MatBlazor.DevUtils
 {
@@ -14,16 +15,29 @@ namespace MatBlazor.DevUtils
     public class DemoContentGenerator
     {
         [Test]
+        public void GenerateNews()
+        {
+            var config = Config.GetConfig();
+            var text = File.ReadAllLines(Path.Combine(config.RepositoryPath, "README.md"));
+
+            text = text.SkipWhile(i => !i.Trim().Equals("## News", StringComparison.InvariantCultureIgnoreCase))
+                .ToArray();
+
+            text = text.TakeWhile((i, index) => !(i.Trim().StartsWith("## ") && index > 0)).ToArray();
+
+            
+        }
+
+
+        [Test]
         public void Generate()
         {
-
             string filterFileName = null;
-
 
 
             var countAll = 0;
             var countChanged = 0;
-            
+
 
             var config = Config.GetConfig();
             var dirInfo = new DirectoryInfo(config.Path);
@@ -71,8 +85,6 @@ namespace MatBlazor.DevUtils
                 });
 
 
-                
-
                 if (content2 != content)
                 {
                     File.WriteAllText(fileInfo.FullName, content2);
@@ -117,9 +129,9 @@ namespace MatBlazor.DevUtils
 
             s = sb.ToString();
 
-            
 
-            return $"<div style=\"white-space: pre-wrap;\">@((MarkupString) \"{s}\")</div><a href=\"https://localhost:44367/t-MatBlazor/?f={f}\">Test</a>";
+            return
+                $"<div style=\"white-space: pre-wrap;\">@((MarkupString) \"{s}\")</div><a href=\"https://localhost:44367/t-MatBlazor/?f={f}\">Test</a>";
         }
     }
 }

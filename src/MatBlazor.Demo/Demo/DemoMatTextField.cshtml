@@ -1,6 +1,7 @@
-<h1>MatTextField</h1>
+@using Microsoft.AspNetCore.Components
+<h1 class="mat-h1">MatTextField</h1>
 
-<h4>Filled</h4>
+<h4 class="mat-h4">Filled</h4>
 <DemoContainer>
     <Content>
         <p>
@@ -62,7 +63,7 @@
     </SourceContent>
 </DemoContainer>
 
-<h4>
+<h4 class="mat-h4">
     Filled With Leading Icon
 </h4>
 <DemoContainer>
@@ -129,7 +130,7 @@
 </DemoContainer>
 
 
-<h4>
+<h4 class="mat-h4">
     Filled With Trailing Icon
 </h4>
 <DemoContainer>
@@ -194,7 +195,7 @@
 </DemoContainer>
 
 
-<h4>
+<h4 class="mat-h4">
     Outlined
 </h4>
 <DemoContainer>
@@ -258,7 +259,7 @@
     </SourceContent>
 </DemoContainer>
 
-<h4>
+<h4 class="mat-h4">
     Outlined With Leading Icon
 </h4>
 <DemoContainer>
@@ -322,7 +323,7 @@
     </SourceContent>
 </DemoContainer>
 
-<h4>
+<h4 class="mat-h4">
     Outlined With Trailing Icon
 </h4>
 <DemoContainer>
@@ -386,7 +387,7 @@
     </SourceContent>
 </DemoContainer>
 
-<h4>Textarea</h4>
+<h4 class="mat-h4">Textarea</h4>
 <DemoContainer>
     <Content>
         <p>
@@ -448,7 +449,7 @@
     </SourceContent>
 </DemoContainer>
 
-<h4>
+<h4 class="mat-h4">
     Full Width
 </h4>
 <DemoContainer>
@@ -516,7 +517,7 @@
     </SourceContent>
 </DemoContainer>
 
-<h4>
+<h4 class="mat-h4">
     Full Width Textarea
 </h4>
 <DemoContainer>
@@ -585,7 +586,7 @@
 </DemoContainer>
 
 <p>
-    <h4>PlaceHolder</h4>
+    <h4 class="mat-h4">PlaceHolder</h4>
     <DemoContainer>
         <Content>
             <MatTextField PlaceHolder="Test PlaceHolder"></MatTextField>
@@ -598,7 +599,7 @@
 </DemoContainer>
 </p>
 <p>
-    <h4>Required</h4>
+    <h4 class="mat-h4">Required</h4>
 
     <DemoContainer>
         <Content>
@@ -614,7 +615,7 @@
 
 
 <p>
-    <h4>Disabled</h4>
+    <h4 class="mat-h4">Disabled</h4>
 
     <DemoContainer>
         <Content>
@@ -623,6 +624,117 @@
         <SourceContent>
         	<BlazorFiddle Template="MatBlazor" Code=@(@"
             <MatTextField Disabled=""true""></MatTextField>
+        ")></BlazorFiddle>
+        </SourceContent>
+</DemoContainer>
+</p>
+
+<p>
+    <h4 class="mat-h4">Events</h4>
+
+    <DemoContainer>
+        <Content>
+            <MatTextField OnFocus="@OnFocusHandler" OnFocusOut="OnFocusOutHandler" OnKeyPress="@OnKeyPressHandler" OnKeyDown="@OnKeyDownHandler" OnKeyUp="@OnKeyUpHandler" OnInput="@OnInputHandler"></MatTextField>
+
+            <div>@eventLog</div>
+
+
+            @functions
+            {
+
+                string eventLog = "";
+
+                void AddLog(string line)
+                {
+                    eventLog += "\r\n" + line;
+                    this.StateHasChanged();
+                }
+
+                void OnFocusHandler(UIFocusEventArgs e)
+                {
+                    this.AddLog("OnFocus");
+                }
+
+                void OnFocusOutHandler(UIFocusEventArgs e)
+                {
+                    this.AddLog("OnFocusOut");
+                }
+
+                void OnKeyPressHandler(UIKeyboardEventArgs e)
+                {
+                    this.AddLog("OnKeyPress " + e.Key);
+                }
+
+                void OnKeyDownHandler(UIKeyboardEventArgs e)
+                {
+                    this.AddLog("OnKeyDown " + e.Key);
+                }
+
+                void OnKeyUpHandler(UIKeyboardEventArgs e)
+                {
+                    this.AddLog("OnKeyUp " + e.Key);
+                }
+
+                void OnInputHandler(UIChangeEventArgs e)
+                {
+                    this.AddLog("OnInput");
+                }
+
+            }
+
+
+        </Content>
+        <SourceContent>
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <MatTextField OnFocus=""@OnFocusHandler"" OnFocusOut=""OnFocusOutHandler"" OnKeyPress=""@OnKeyPressHandler"" OnKeyDown=""@OnKeyDownHandler"" OnKeyUp=""@OnKeyUpHandler"" OnInput=""@OnInputHandler""></MatTextField>
+
+            <div>@eventLog</div>
+
+
+            @functions
+            {
+
+                string eventLog = """";
+
+                void AddLog(string line)
+                {
+                    eventLog += ""\r\n"" + line;
+                    this.StateHasChanged();
+                }
+
+                void OnFocusHandler(UIFocusEventArgs e)
+                {
+                    this.AddLog(""OnFocus"");
+                }
+
+                void OnFocusOutHandler(UIFocusEventArgs e)
+                {
+                    this.AddLog(""OnFocusOut"");
+                }
+
+                void OnKeyPressHandler(UIKeyboardEventArgs e)
+                {
+                    this.AddLog(""OnKeyPress "" + e.Key);
+                }
+
+                void OnKeyDownHandler(UIKeyboardEventArgs e)
+                {
+                    this.AddLog(""OnKeyDown "" + e.Key);
+                }
+
+                void OnKeyUpHandler(UIKeyboardEventArgs e)
+                {
+                    this.AddLog(""OnKeyUp "" + e.Key);
+                }
+
+                void OnInputHandler(UIChangeEventArgs e)
+                {
+                    this.AddLog(""OnInput"");
+                }
+
+            }
+
+
         ")></BlazorFiddle>
         </SourceContent>
 </DemoContainer>

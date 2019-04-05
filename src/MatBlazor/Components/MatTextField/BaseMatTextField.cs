@@ -31,10 +31,10 @@ namespace MatBlazor.Components.MatTextField
         public Action<string> ValueChanged { get; set; }
 
         [Parameter]
-        public Action GotFocus { get; set; }
+        public Action<UIFocusEventArgs> OnFocus { get; set; }
 
         [Parameter]
-        public Action LostFocus { get; set; }
+        public Action<UIFocusEventArgs> OnFocusOut { get; set; }
 
         [Parameter]
         public Action<UIKeyboardEventArgs> OnKeyPress { get; set; }

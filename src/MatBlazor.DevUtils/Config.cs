@@ -12,7 +12,12 @@ namespace MatBlazor.DevUtils
         }
 
 
-        public string Path = "../../../../";
+        public string Path = "../../../..";
+
+        public string RepositoryPath
+        {
+            get { return System.IO.Path.GetDirectoryName(System.IO.Path.GetFullPath(Path)); }
+        }
         public string DemoContainerTag = "DemoContainer";
         public string ContentTag = "Content";
         public string SourceContentTag = "SourceContent";
