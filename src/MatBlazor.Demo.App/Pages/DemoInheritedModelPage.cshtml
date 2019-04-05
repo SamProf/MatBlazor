@@ -1,0 +1,8 @@
+﻿@page "/inheritedmodel"
+@inherits DemoInheritedModel
+
+<h2>Base class inheritance for a "code-behind" experience</h2>
+<p>Component files (.cshtml) mix HTML markup and C# processing code in the same file. The @@inherits directive can be used to provide Razor Components apps with a "code-behind" experience that separates component markup from processing code.</p>
+
+<MatCheckbox bind-Checked="@MyCheck" class="filled-in chk-col-blue"></MatCheckbox> <label>@MyCheck</label><br />
+<MatButton OnClick="@MyClick">MatButton</MatButton> <label>@MyString</label>
