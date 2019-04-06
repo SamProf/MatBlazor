@@ -1,0 +1,60 @@
+<h1 class="mat-h1">MatDialog</h1>
+
+<DemoContainer>
+    <Content>
+        <MatButton OnClick="ButtonClick">Open</MatButton>
+        <MatDialog IsOpen="@dialogIsOpen">
+            <MatDialogTitle>Test Dialog title</MatDialogTitle>
+            <MatDialogContent>
+                <h1>Test Content</h1>
+            </MatDialogContent>
+            <MatDialogActions>
+                <MatButton>Ok</MatButton>
+                <MatButton>Cancel</MatButton>
+            </MatDialogActions>
+        </MatDialog>
+        
+        @functions
+        {
+
+            bool dialogIsOpen = false;
+
+            void ButtonClick()
+            {
+                dialogIsOpen = true;
+                this.StateHasChanged();
+
+            }
+
+        }
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatButton OnClick=""ButtonClick"">Open</MatButton>
+        <MatDialog IsOpen=""@dialogIsOpen"">
+            <MatDialogTitle>Test Dialog title</MatDialogTitle>
+            <MatDialogContent>
+                <h1>Test Content</h1>
+            </MatDialogContent>
+            <MatDialogActions>
+                <MatButton>Ok</MatButton>
+                <MatButton>Cancel</MatButton>
+            </MatDialogActions>
+        </MatDialog>
+        
+        @functions
+        {
+
+            bool dialogIsOpen = false;
+
+            void ButtonClick()
+            {
+                dialogIsOpen = true;
+                this.StateHasChanged();
+
+            }
+
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

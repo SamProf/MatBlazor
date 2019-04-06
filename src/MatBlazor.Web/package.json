@@ -19,6 +19,7 @@
     "@material/card": "^1.0.1",
     "@material/checkbox": "^1.0.1",
     "@material/chips": "^1.0.1",
+    "@material/dialog": "^1.1.0",
     "@material/drawer": "^1.0.1",
     "@material/elevation": "^1.1.0",
     "@material/form-field": "^1.0.1",

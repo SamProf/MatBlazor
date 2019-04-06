@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Components
+@inherits MatBlazor.Components.Base.BaseMatComponent
+<h2 class="@ClassMapper.Class" style="@Style" ref="Ref" id="@MatBlazorId">
+    @ChildContent
+</h2>
+
+@functions
+{
+    [Parameter]
+    protected RenderFragment ChildContent { get; set; }
+
+    protected async override Task OnInitAsync()
+    {
+        await base.OnInitAsync();
+        ClassMapper.Add("mdc-dialog__title");
+    }
+}

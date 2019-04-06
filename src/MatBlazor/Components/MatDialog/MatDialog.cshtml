@@ -1,0 +1,16 @@
+﻿@inherits BaseMatDialog
+
+<div class="@ClassMapper.Class"
+     style="@Style"
+     ref="Ref"
+     role="alertdialog"
+     aria-modal="true"
+     aria-labelledby="my-dialog-title"
+     aria-describedby="my-dialog-content">
+    <div class="mdc-dialog__container">
+        <div class="mdc-dialog__surface">
+            @ChildContent
+        </div>
+    </div>
+    <div class="mdc-dialog__scrim"></div>
+</div>
