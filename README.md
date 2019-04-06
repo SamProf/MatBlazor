@@ -67,14 +67,15 @@ At the beginning of the your application, usually in MainLayout.cshtml please ad
 
 ## News
 
-### MatBlazor 0.6.12
+### MatBlazor 0.6.12 - in progress
+- New component MatDialog - in progress
 - MatCheckbox add inline label (enkodellc)
 
 ### MatBlazor 0.6.11
-- Added MatProgressBar component
+- New component MatProgressBar
 
 ### MatBlazor 0.6.10
-- Added Elevation
+- New styles Elevation
 - License of used packages added to js boundle
 
 ### MatBlazor 0.6.9

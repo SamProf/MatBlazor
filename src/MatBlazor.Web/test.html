@@ -9,16 +9,30 @@
 </head>
 <body>
 
-
-<div role="progressbar" class="mdc-linear-progress mdc-linear-progress--reversed" id="ref">
-    <div class="mdc-linear-progress__buffering-dots"></div>
-    <div class="mdc-linear-progress__buffer"></div>
-    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
-        <span class="mdc-linear-progress__bar-inner"></span>
+<div id="ref"
+     class="mdc-dialog"
+     role="alertdialog"
+     aria-modal="true"
+     aria-labelledby="my-dialog-title"
+     aria-describedby="my-dialog-content">
+    <div class="mdc-dialog__container">
+        <div class="mdc-dialog__surface">
+            <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+            <h2 class="mdc-dialog__title" id="my-dialog-title">g54rgrrgrregreg</h2>
+            <div class="mdc-dialog__content" id="my-dialog-content">
+                Dialog body text goes here.
+            </div>
+            <footer class="mdc-dialog__actions">
+                <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="no">
+                    <span class="mdc-button__label">No</span>
+                </button>
+                <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="yes">
+                    <span class="mdc-button__label">Yes</span>
+                </button>
+            </footer>
+        </div>
     </div>
-    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
-        <span class="mdc-linear-progress__bar-inner"></span>
-    </div>
+    <div class="mdc-dialog__scrim"></div>
 </div>
 
 
@@ -27,8 +41,10 @@
 
 <script type="text/javascript">
   var ref = document.getElementById('ref');
-  var cmp = new mdc.linearProgress.MDCLinearProgress(ref);
-  cmp.progress = 0.5;
+  const dialog = new mdc.dialog.MDCDialog(ref);
+  dialog.open();
+  // var cmp = new mdc.linearProgress.MDCLinearProgress(ref);
+  // cmp.progress = 0.5;
   // cmp.buffer = 0.7;
 
 </script>
