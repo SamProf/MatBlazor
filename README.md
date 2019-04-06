@@ -67,6 +67,9 @@ At the beginning of the your application, usually in MainLayout.cshtml please ad
 
 ## News
 
+### MatBlazor 0.6.12
+- MatCheckbox add inline label (enkodellc)
+
 ### MatBlazor 0.6.11
 - Added MatProgressBar component
 

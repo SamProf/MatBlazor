@@ -8,8 +8,7 @@
                checked="@Checked"
                disabled=@Disabled
                value="@Value"
-               id="@(MatBlazorId)"
-               />
+               id="@(MatBlazorId)"/>
         <div class="mdc-checkbox__background">
             <svg class="mdc-checkbox__checkmark"
                  viewBox="0 0 24 24">
@@ -20,9 +19,9 @@
             <div class="mdc-checkbox__mixedmark"></div>
         </div>
     </div>
-    @ChildContent
-    @if (Label != null)
+
+    @if (Label != null || ChildContent != null)
     {
-        <label for="@MatBlazorId">@Label</label>
+        <label for="@MatBlazorId">@Label@ChildContent</label>
     }
 </div>
