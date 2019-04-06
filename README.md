@@ -67,7 +67,7 @@ At the beginning of the your application, usually in MainLayout.cshtml please ad
 
 ## News
 
-### MatBlazor 0.6.12 - in progress
+### In progress
 - New component MatDialog - in progress
 - MatCheckbox add inline label (enkodellc)
 
