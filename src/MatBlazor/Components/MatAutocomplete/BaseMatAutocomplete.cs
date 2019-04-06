@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MatBlazor.Components.MatAutocomplete
 {
-    //TODO: Modify when generic components will be available in blazor
+    //TODO: Modify to generic class when generic components will be available in blazor
     public class BaseMatAutocomplete : BaseMatComponent
     {
 
@@ -74,6 +74,8 @@ namespace MatBlazor.Components.MatAutocomplete
         [Parameter]
         protected IEnumerable Collection { get; set; }
 
+        [Parameter]
+        protected bool Outlined { get; set; }
 
         [Parameter]
         protected Action<bool> OnOpenedChanged { get; set; }
@@ -94,6 +96,7 @@ namespace MatBlazor.Components.MatAutocomplete
 
         protected void ClosePopup()
         {
+            IsOpened = false;
         }
 
         public void OnValueChanged(UIChangeEventArgs ev)

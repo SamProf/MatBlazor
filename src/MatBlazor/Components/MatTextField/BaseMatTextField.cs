@@ -85,6 +85,9 @@ namespace MatBlazor.Components.MatTextField
         public string PlaceHolder { get; set; }
 
         [Parameter]
+        public bool HideClearButton { get; set; }
+
+        [Parameter]
         public string Type { get; set; } = "text";
 
         protected ClassMapper LabelClassMapper = new ClassMapper();
@@ -112,7 +115,8 @@ namespace MatBlazor.Components.MatTextField
 
             InputClassMapper
                 .Add("mdc-text-field__input")
-                .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(Value));
+                .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(Value))
+                .If("mat-hide-clearbutton", () => this.HideClearButton);
         }
 
         protected async override Task OnFirstAfterRenderAsync()

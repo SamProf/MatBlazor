@@ -17,6 +17,9 @@ namespace MatBlazor.Components.MatIconButton
         public Action<UIMouseEventArgs> OnClick { get; set; }
 
         [Parameter]
+        public Action<UIMouseEventArgs> OnMouseDown { get; set; }
+
+        [Parameter]
         public string Icon { get; set; }
 
         [Parameter]
@@ -41,9 +44,5 @@ namespace MatBlazor.Components.MatIconButton
             await Js.InvokeAsync<object>("matBlazor.matIconButton.init", Ref);
         }
 
-        protected void OnClickHandler(UIMouseEventArgs e)
-        {
-            OnClick?.Invoke(e);
-        }
     }
 }

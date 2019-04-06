@@ -3,11 +3,11 @@
 
 
     <div class="mat-autocomplete-wrapper">
-        <MatTextField Icon="@Icon" GotFocus="@OpenPopup" LostFocus="@ClosePopup" Label="@Label" Value=@StringValue OnInput=@OnValueChanged Outlined="true"></MatTextField>
+        <MatTextField Icon="@Icon" GotFocus="@OpenPopup" HideClearButton="true" LostFocus="@ClosePopup" Label="@Label" Value=@StringValue OnInput=@OnValueChanged Outlined="@Outlined"></MatTextField>
         @if (ShowClearButton)
         {
             <div class="mat-autocomplete-clearbutton">
-                <MatIconButton Icon="clear"  OnClick="ClearText"></MatIconButton>
+                <MatIconButton Icon="clear"  OnMouseDown="@ClearText"></MatIconButton>
             </div>
         }
         @if (Collection != null && IsOpened)
