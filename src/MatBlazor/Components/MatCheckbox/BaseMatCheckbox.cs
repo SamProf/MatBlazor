@@ -18,6 +18,9 @@ namespace MatBlazor.Components.MatCheckbox
         }
 
         [Parameter]
+        protected RenderFragment ChildContent { get; set; }
+
+        [Parameter]
         public bool Checked { get; set; }
 
         [Parameter]
