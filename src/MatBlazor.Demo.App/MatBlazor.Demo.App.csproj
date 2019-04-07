@@ -35,6 +35,9 @@
     <Content Update="Pages\DemoBaseMatComponentPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Pages\DemoLayoutGridPage.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\DemoElevationPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

@@ -1,0 +1,54 @@
+@import "@material/layout-grid/mdc-layout-grid";
+
+.mat-layout-grid {
+  @extend .mdc-layout-grid;
+}
+
+.mat-layout-grid-inner {
+  @extend .mdc-layout-grid__inner;
+}
+
+.mat-layout-grid-cell {
+  @extend .mdc-layout-grid__cell;
+}
+
+@for $col from 1 through 12 {
+  .mat-layout-grid-cell-span-#{$col} {
+    @extend .mdc-layout-grid__cell--span-#{$col};
+  }
+}
+
+
+@for $col from 1 through 12 {
+  @each $mode in map-keys($mdc-layout-grid-columns) {
+    .mat-layout-grid-cell-span-#{$col}-desktop {
+      @extend .mdc-layout-grid__cell--span-#{$col}-#{$mode};
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .mat-layout-grid-cell-order-#{$i} {
+    @extend .mdc-layout-grid__cell--order-#{$i};
+  }
+}
+
+.mat-layout-grid-cell-align-top {
+  @extend .mdc-layout-grid__cell--align-top;
+}
+
+.mat-layout-grid-cell-align-middle {
+  @extend .mdc-layout-grid__cell--align-middle;
+}
+
+.mat-layout-grid-cell-align-bottom {
+  @extend .mdc-layout-grid__cell--align-bottom;
+}
+
+$GRID_POSITION: (left right);
+
+@each $position in $GRID_POSITION {
+  .mat-layout-grid-align-#{$position} {
+    @extend .mdc-layout-grid--align-#{$position};
+  }
+}

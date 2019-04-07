@@ -1,4 +1,41 @@
-﻿html, body {
-    margin: 0px;
+﻿html, body { margin: 0px; }
+
+
+.article-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    display: inline-block;
+    overflow-x: auto;
+    margin: 8px 0 32px;
+    max-width: 100%;
+    border: 1px solid #eee;
 }
 
+
+.article-table th {
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    letter-spacing: .04em;
+    text-decoration: inherit;
+    text-transform: inherit;
+    background: rgba(60, 133, 248, .08);
+    border-top: none;
+    font-size: 1.143rem;
+    color: #202124;
+    text-align: left;
+    border: 1px solid #eee;
+    padding: 12px 12px 12px 24px;
+}
+
+.article-table td {
+    border: 1px solid #eee;
+    padding: 12px 12px 12px 24px;        
+}
+
+.article-table td:first-child { border-left: none; }
+.article-table td:last-child { border-right: none; }

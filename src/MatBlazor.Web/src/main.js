@@ -18,6 +18,7 @@ import * as matTypography from './matTypography/matTypography';
 import * as matElevation from './matElevation/matElevation';
 import * as matProgressBar from './matProgressBar/matProgressBar';
 import * as matDialog from './matDialog/matDialog';
+import * as matLayoutGrid from './matLayoutGrid/matLayoutGrid';
 
 
 
@@ -40,6 +41,7 @@ window.matBlazor = {
   matElevation,
   matProgressBar,
   matDialog,
+  matLayoutGrid,
 };
 
 

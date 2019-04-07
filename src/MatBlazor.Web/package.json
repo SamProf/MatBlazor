@@ -24,6 +24,7 @@
     "@material/elevation": "^1.1.0",
     "@material/form-field": "^1.0.1",
     "@material/icon-button": "^1.0.1",
+    "@material/layout-grid": "^0.41.0",
     "@material/linear-progress": "^1.1.0",
     "@material/list": "^1.0.1",
     "@material/menu": "^1.0.1",

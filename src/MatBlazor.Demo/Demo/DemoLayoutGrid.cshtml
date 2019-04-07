@@ -1,0 +1,284 @@
+<h3 class="mat-h3">Layout Grid</h3>
+
+<p class="mat-body1">Material design's responsive UI is based on a column-variate grid layout. It has 12 columns on desktop, 8 columns on tablet and 4 columns on phone.</p>
+
+
+<h5 class="mat-h5">
+    CSS Classes
+</h5>
+
+<table class="article-table">
+    <tr>
+        <th>CSS Class</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>mat-layout-grid</td>
+        <td>Mandatory, for the layout grid element</td>
+    </tr>
+    <tr>
+        <td>mat-layout-grid-inner</td>
+        <td>Mandatory, for wrapping grid cell</td>
+    </tr>
+    <tr>
+        <td>mat-layout-grid-cell</td>
+        <td>Mandatory, for the layout grid cell</td>
+    </tr>
+    <tr>
+        <td>mat-layout-grid-cell-span-$(NUMBER_OF_COLUMNS)</td>
+        <td>Optional, specifies the number of columns the cell spans. $(NUMBER_OF_COLUMNS): 1..12</td>
+    </tr>
+    <tr>
+        <td>mat-layout-grid-cell-span-$(NUMBER_OF_COLUMNS)-$(TYPE_OF_DEVICE)</td>
+        <td>Optional, specifies the number of columns the cell spans on a type of device. $(NUMBER_OF_COLUMNS): 1..12, $(TYPE_OF_DEVICE): (desktop, tablet, phone)</td>
+    </tr>
+    <tr>
+        <td>mat-layout-grid-cell-order-$(INDEX)</td>
+        <td>Optional, specifies the order of the cell. $(INDEX): 1..12</td>
+    </tr>
+    <tr>
+        <td>mat-layout-grid-cell-align-$(POSITION)</td>
+        <td>Optional, specifies the alignment of cell. $(POSITION): (top, middle, bottom)</td>
+    </tr>
+    <tr>
+        <td>mat-layout-grid-fixed-column-width</td>
+        <td>Optional, specifies the grid should have fixed column width</td>
+    </tr>
+    <tr>
+        <td>mat-layout-grid-align-$(GRID_POSITION)</td>
+        <td>Optional, specifies the alignment of the whole grid. $(GRID_POSITION): (left, right)</td>
+    </tr>
+</table>
+
+
+<style>
+    .demo-mat-layout-grid .mat-layout-grid { background: rgba(0, 0, 0, .2); }
+
+    .demo-mat-layout-grid .mat-layout-grid-cell {
+        background: rgba(0, 0, 0, .2);
+        height: 100px;
+    }
+</style>
+
+<h5 class="mat-h5">Usage</h5>
+<div class="demo-mat-layout-grid">
+    <DemoContainer>
+        <Content>
+            <div class="mat-layout-grid">
+                <div class="mat-layout-grid-inner">
+                    <div class="mat-layout-grid-cell"></div>
+                    <div class="mat-layout-grid-cell"></div>
+                    <div class="mat-layout-grid-cell"></div>
+                </div>
+            </div>
+        </Content>
+        <SourceContent>
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <div class=""mat-layout-grid"">
+                <div class=""mat-layout-grid-inner"">
+                    <div class=""mat-layout-grid-cell""></div>
+                    <div class=""mat-layout-grid-cell""></div>
+                    <div class=""mat-layout-grid-cell""></div>
+                </div>
+            </div>
+        ")></BlazorFiddle>
+        </SourceContent>
+</DemoContainer>
+</div>
+
+<h5 class="mat-h5">
+    Nested grid
+</h5>
+
+<p class="mat-body1">
+    When your contents need extra structure that cannot be supported by single layout grid,
+    you can nest layout grid within each other. To nest layout grid,
+    add a new mat-layout-grid-inner to wrap around nested mat-layout-grid-cell within
+    an existing mat-layout-grid-cell.
+</p>
+<p class="mat-body1">
+    The nested layout grid behaves exactly like when they are not nested, e.g, they have 12 columns on desktop, 8 columns on tablet and 4 columns on phone. They also use the same gutter size as their parents, but margins are not re-introduced since they are living within another cell.
+</p>
+<p class="mat-body1">
+    However, the Material Design guidelines do not recommend having a deeply nested grid as it might mean an over complicated UX.
+</p>
+
+<div class="demo-mat-layout-grid">
+    <DemoContainer>
+        <Content>
+            <div class="mat-layout-grid">
+                <div class="mat-layout-grid-inner">
+                    <div class="mat-layout-grid-cell">
+                        <div class="mat-layout-grid-inner">
+                            <div class="mat-layout-grid-cell">
+                                <span>Second level</span>
+                            </div>
+                            <div class="mat-layout-grid-cell">
+                                <span>Second level</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mat-layout-grid-cell">First level</div>
+                    <div class="mat-layout-grid-cell">First level</div>
+                </div>
+            </div>
+        </Content>
+        <SourceContent>
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <div class=""mat-layout-grid"">
+                <div class=""mat-layout-grid-inner"">
+                    <div class=""mat-layout-grid-cell"">
+                        <div class=""mat-layout-grid-inner"">
+                            <div class=""mat-layout-grid-cell"">
+                                <span>Second level</span>
+                            </div>
+                            <div class=""mat-layout-grid-cell"">
+                                <span>Second level</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=""mat-layout-grid-cell"">First level</div>
+                    <div class=""mat-layout-grid-cell"">First level</div>
+                </div>
+            </div>
+        ")></BlazorFiddle>
+        </SourceContent>
+</DemoContainer>
+</div>
+
+
+<h5 class="mat-h5">
+    Columns
+</h5>
+
+<div class="demo-mat-layout-grid">
+    <DemoContainer>
+        <Content>
+            <div class="mat-layout-grid">
+                <div class="mat-layout-grid-inner">
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6"></div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3"></div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2"></div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1"></div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3"></div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1"></div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-8"></div>
+                </div>
+            </div>
+        </Content>
+        <SourceContent>
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <div class=""mat-layout-grid"">
+                <div class=""mat-layout-grid-inner"">
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-6""></div>
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-3""></div>
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-2""></div>
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-1""></div>
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-3""></div>
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-1""></div>
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-8""></div>
+                </div>
+            </div>
+        ")></BlazorFiddle>
+        </SourceContent>
+</DemoContainer>
+</div>
+
+<h5 class="mat-h5">
+    Grid Left Alignment
+</h5>
+
+<p class="mat-body1">
+    This requires a max-width on the top-level grid element.
+</p>
+
+<div class="demo-mat-layout-grid">
+    <DemoContainer>
+        <Content>
+            <div class="mat-layout-grid mat-layout-grid-align-left" style="max-width: 800px;">
+                <div class="mat-layout-grid-inner">
+                    <div class="mat-layout-grid-cell"></div>
+                    <div class="mat-layout-grid-cell"></div>
+                    <div class="mat-layout-grid-cell"></div>
+                </div>
+            </div>
+        </Content>
+        <SourceContent>
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <div class=""mat-layout-grid mat-layout-grid-align-left"" style=""max-width: 800px;"">
+                <div class=""mat-layout-grid-inner"">
+                    <div class=""mat-layout-grid-cell""></div>
+                    <div class=""mat-layout-grid-cell""></div>
+                    <div class=""mat-layout-grid-cell""></div>
+                </div>
+            </div>
+        ")></BlazorFiddle>
+        </SourceContent>
+</DemoContainer>
+</div>
+
+<h5 class="mat-h5">
+    Right Alignment
+</h5>
+
+<p class="mat-body1">
+    This requires a max-width on the top-level grid element.
+</p>
+
+<div class="demo-mat-layout-grid">
+    <DemoContainer>
+        <Content>
+            <div class="mat-layout-grid mat-layout-grid-align-right" style="max-width: 800px;">
+                <div class="mat-layout-grid-inner">
+                    <div class="mat-layout-grid-cell"></div>
+                    <div class="mat-layout-grid-cell"></div>
+                    <div class="mat-layout-grid-cell"></div>
+                </div>
+            </div>
+        </Content>
+        <SourceContent>
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <div class=""mat-layout-grid mat-layout-grid-align-right"" style=""max-width: 800px;"">
+                <div class=""mat-layout-grid-inner"">
+                    <div class=""mat-layout-grid-cell""></div>
+                    <div class=""mat-layout-grid-cell""></div>
+                    <div class=""mat-layout-grid-cell""></div>
+                </div>
+            </div>
+        ")></BlazorFiddle>
+        </SourceContent>
+</DemoContainer>
+</div>
+
+<h5 class="mat-h5">
+    Cell Alignment
+</h5>
+
+<p class="mat-body1">
+    Cell alignment requires a cell height smaller than the inner height of the grid.
+</p>
+
+<div class="demo-mat-layout-grid">
+    <DemoContainer>
+        <Content>
+            <div class="mat-layout-grid">
+                <div class="mat-layout-grid-inner" style="min-height: 200px;">
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-align-top"></div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-align-middle"></div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-align-bottom"></div>
+                </div>
+            </div>
+        </Content>
+        <SourceContent>
+        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            <div class=""mat-layout-grid"">
+                <div class=""mat-layout-grid-inner"" style=""min-height: 200px;"">
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-align-top""></div>
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-align-middle""></div>
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-align-bottom""></div>
+                </div>
+            </div>
+        ")></BlazorFiddle>
+        </SourceContent>
+</DemoContainer>
+</div>
