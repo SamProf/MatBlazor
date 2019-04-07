@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MatBlazor.Components.Base;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace MatBlazor.Components.MatDialog
 {
@@ -20,18 +21,32 @@ namespace MatBlazor.Components.MatDialog
             get => _isOpen;
             set
             {
-                _isOpen = value;
-                CallAfterRender(async () =>
+                if (IsOpen != value)
                 {
-                    await Js.InvokeAsync<object>("matBlazor.matDialog.setIsOpen", Ref, value);
-                });
+                    _isOpen = value;
+                    CallAfterRender(async () =>
+                    {
+                        await Js.InvokeAsync<object>("matBlazor.matDialog.setIsOpen", Ref, value);
+                    });
+                }
             }
         }
+
+        [Parameter]
+        public EventCallback<bool> IsOpenChanged { get; set; }
 
         public BaseMatDialog()
         {
             ClassMapper.Add("mdc-dialog");
-            CallAfterRender(async () => { await Js.InvokeAsync<object>("matBlazor.matDialog.init", Ref); });
+            CallAfterRender(async () => { await Js.InvokeAsync<object>("matBlazor.matDialog.init", Ref, new DotNetObjectRef(this)); });
+        }
+
+        [JSInvokable]
+        public async Task MatDialogClosedHandler()
+        {
+            _isOpen = false;
+            await IsOpenChanged.InvokeAsync(false);
+            this.StateHasChanged();
         }
     }
 }

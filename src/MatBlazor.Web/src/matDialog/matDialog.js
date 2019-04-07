@@ -5,9 +5,10 @@ import {MDCDialog} from '@material/dialog';
 
 export function init(ref, component) {
   ref.matBlazorRef = new MDCDialog(ref);
-  // ref.addEventListener('MDCDrawer:closed', () => {
-  //   component.invokeMethodAsync('ClosedHandler');
-  // });
+
+  ref.addEventListener('MDCDialog:closed', () => {
+    component.invokeMethodAsync('MatDialogClosedHandler');
+  });
 }
 
 

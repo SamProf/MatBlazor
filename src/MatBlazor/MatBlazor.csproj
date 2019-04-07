@@ -19,6 +19,7 @@
     <Copyright>Vladimir Samoilenko</Copyright>
     <FileVersion>0.6.12.0</FileVersion>
     <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

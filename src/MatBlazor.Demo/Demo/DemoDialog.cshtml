@@ -2,18 +2,19 @@
 
 <DemoContainer>
     <Content>
+        <div>Dialog is open: @dialogIsOpen</div>
         <MatButton OnClick="ButtonClick">Open</MatButton>
-        <MatDialog IsOpen="@dialogIsOpen">
-            <MatDialogTitle>Test Dialog title</MatDialogTitle>
+        <MatDialog bind-IsOpen="@dialogIsOpen">
+            <MatDialogTitle>Get this party started?</MatDialogTitle>
             <MatDialogContent>
-                <h1>Test Content</h1>
+                Turn up the jams and have a good time.
             </MatDialogContent>
             <MatDialogActions>
-                <MatButton>Ok</MatButton>
-                <MatButton>Cancel</MatButton>
+                <MatButton>Decline</MatButton>
+                <MatButton>Accept</MatButton>
             </MatDialogActions>
         </MatDialog>
-        
+
         @functions
         {
 
@@ -27,21 +28,23 @@
             }
 
         }
+
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <div>Dialog is open: @dialogIsOpen</div>
         <MatButton OnClick=""ButtonClick"">Open</MatButton>
-        <MatDialog IsOpen=""@dialogIsOpen"">
-            <MatDialogTitle>Test Dialog title</MatDialogTitle>
+        <MatDialog bind-IsOpen=""@dialogIsOpen"">
+            <MatDialogTitle>Get this party started?</MatDialogTitle>
             <MatDialogContent>
-                <h1>Test Content</h1>
+                Turn up the jams and have a good time.
             </MatDialogContent>
             <MatDialogActions>
-                <MatButton>Ok</MatButton>
-                <MatButton>Cancel</MatButton>
+                <MatButton>Decline</MatButton>
+                <MatButton>Accept</MatButton>
             </MatDialogActions>
         </MatDialog>
-        
+
         @functions
         {
 
@@ -55,6 +58,7 @@
             }
 
         }
+
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
