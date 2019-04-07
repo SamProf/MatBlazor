@@ -39,7 +39,7 @@ namespace MatBlazor.Components.MatAutocomplete
             set
             {
                 isOpened = value;
-                OnOpenedChanged?.Invoke(value);
+                OnOpenedChanged.InvokeAsync(value);
                 this.StateHasChanged();
             }
         }
@@ -63,7 +63,7 @@ namespace MatBlazor.Components.MatAutocomplete
             set
             {
                 stringValue = value;
-                OnStringValueChanged?.Invoke(value);
+                OnStringValueChanged.InvokeAsync(value);
             }
         }
 
@@ -77,12 +77,12 @@ namespace MatBlazor.Components.MatAutocomplete
             set
             {
                 _value = value;
-                OnChange.InvokeAsync(_value);
+                ValueChanged.InvokeAsync(_value);
             }
         }
 
         [Parameter]
-        protected EventCallback<object> OnChange { get; set; }
+        protected EventCallback<object> ValueChanged { get; set; }
 
         [Parameter]
         protected RenderFragment<ItemType> ItemTemplate { get; set; }
@@ -97,13 +97,13 @@ namespace MatBlazor.Components.MatAutocomplete
         protected bool Outlined { get; set; }
 
         [Parameter]
-        protected Action<bool> OnOpenedChanged { get; set; }
+        protected EventCallback<bool> OnOpenedChanged { get; set; }
 
         [Parameter]
-        protected Action<string> OnStringValueChanged { get; set; }
+        protected EventCallback<string> OnStringValueChanged { get; set; }
 
         [Parameter]
-        protected Action<string> OnTextChanged { get; set; }
+        protected EventCallback<string> OnTextChanged { get; set; }
 
         [Parameter]
         protected bool ShowClearButton { get; set; }
@@ -127,7 +127,7 @@ namespace MatBlazor.Components.MatAutocomplete
         public void OnValueChanged(UIChangeEventArgs ev)
         {
             StringValue = (string)ev.Value;
-            var filteredWrapper = FilteredCollection.SingleOrDefault();
+            var filteredWrapper = FilteredCollection.FirstOrDefault();
             Value = filteredWrapper != null ? filteredWrapper.Element : (default);
             if (Value == null && !AllowFreeText)
             {
