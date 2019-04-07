@@ -1,9 +1,11 @@
 @using MatBlazor.Components.MatButton
 @using MatBlazor.Models
 @using Microsoft.AspNetCore.Components
-<h1>BaseMatComponent</h1>
+<h3 class="mat-h3">BaseMatComponent</h3>
 
-<h3>Capture of Reference of the component</h3>
+<p class="mat-body1">BaseMatComponent contains base component parameters and features.</p>
+
+<h5 class="mat-h5">Capture of Reference of the component</h5>
 <DemoContainer>
     <Content>
         <MatButton ref="ButtonRef" OnClick="@Click">Get me Ref</MatButton>
@@ -40,7 +42,7 @@
 </DemoContainer>
 
 
-<h3>Apply css Class to MatBlazor Components</h3>
+<h5 class="mat-h5">Apply css Class to MatBlazor Components</h5>
 <DemoContainer>
     <Content>
         <style>
@@ -66,7 +68,7 @@
     </SourceContent>
 </DemoContainer>
 
-<h3>Apply style to MatBlazor Components</h3>
+<h5 class="mat-h5">Apply style to MatBlazor Components</h5>
 <DemoContainer>
     <Content>
         <MatButton Style="background: lightcoral;">Button with style</MatButton>

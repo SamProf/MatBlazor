@@ -1,156 +1,153 @@
-<h1>MatSlider</h1>
+<h3 class="mat-h3">MatSlider</h3>
 
-<p>
-    <h4>Continuous Slider: @Val</h4>
-    <DemoContainer>
-        <Content>
-            <MatSlider bind-Value="@Val"></MatSlider>
-
-            @functions
-            {
-
-                public decimal Val
-                {
-                    get => _val;
-                    set
-                    {
-                        _val = value;
-                        this.StateHasChanged();
-                    }
-                }
-
-                private decimal _val = 0;
-            }
-
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatSlider bind-Value=""@Val""></MatSlider>
-
-            @functions
-            {
-
-                public decimal Val
-                {
-                    get => _val;
-                    set
-                    {
-                        _val = value;
-                        this.StateHasChanged();
-                    }
-                }
-
-                private decimal _val = 0;
-            }
-
-        ")></BlazorFiddle>
-        </SourceContent>
-</DemoContainer>
+<p class="mat-body1">
+    Sliders let users select from a range of values by moving the slider thumb.
 </p>
 
+<h5 class="mat-h5">Continuous Slider: @Val</h5>
+<DemoContainer>
+    <Content>
+        <MatSlider bind-Value="@Val"></MatSlider>
 
-<p>
-    <h4>Initializing the slider with custom ranges/values: @Val2</h4>
-    <DemoContainer>
-        <Content>
-            <MatSlider bind-Value="@Val2" ValueMin="-10" ValueMax="20"></MatSlider>
+        @functions
+        {
 
-            @functions
+            public decimal Val
             {
-
-                public decimal Val2
+                get => _val;
+                set
                 {
-                    get => _val2;
-                    set
-                    {
-                        _val2 = value;
-                        this.StateHasChanged();
-                    }
+                    _val = value;
+                    this.StateHasChanged();
                 }
-
-                private decimal _val2 = 0;
             }
 
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatSlider bind-Value=""@Val2"" ValueMin=""-10"" ValueMax=""20""></MatSlider>
+            private decimal _val = 0;
+        }
 
-            @functions
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlider bind-Value=""@Val""></MatSlider>
+
+        @functions
+        {
+
+            public decimal Val
             {
-
-                public decimal Val2
+                get => _val;
+                set
                 {
-                    get => _val2;
-                    set
-                    {
-                        _val2 = value;
-                        this.StateHasChanged();
-                    }
+                    _val = value;
+                    this.StateHasChanged();
                 }
-
-                private decimal _val2 = 0;
             }
 
-        ")></BlazorFiddle>
-        </SourceContent>
+            private decimal _val = 0;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>
 
-</p>
 
-<p>
-    <h4>Discrete Slider: @Val3</h4>
-    <DemoContainer>
-        <Content>
-            <MatSlider bind-Value="@Val3" Discrete="true"></MatSlider>
+<h5 class="mat-h5">Initializing the slider with custom ranges/values: @Val2</h5>
+<DemoContainer>
+    <Content>
+        <MatSlider bind-Value="@Val2" ValueMin="-10" ValueMax="20"></MatSlider>
 
-            @functions
+        @functions
+        {
+
+            public decimal Val2
             {
-
-                public decimal Val3
+                get => _val2;
+                set
                 {
-                    get => _val3;
-                    set
-                    {
-                        _val3 = value;
-                        this.StateHasChanged();
-                    }
+                    _val2 = value;
+                    this.StateHasChanged();
                 }
-
-                private decimal _val3 = 0;
             }
 
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatSlider bind-Value=""@Val3"" Discrete=""true""></MatSlider>
+            private decimal _val2 = 0;
+        }
 
-            @functions
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlider bind-Value=""@Val2"" ValueMin=""-10"" ValueMax=""20""></MatSlider>
+
+        @functions
+        {
+
+            public decimal Val2
             {
-
-                public decimal Val3
+                get => _val2;
+                set
                 {
-                    get => _val3;
-                    set
-                    {
-                        _val3 = value;
-                        this.StateHasChanged();
-                    }
+                    _val2 = value;
+                    this.StateHasChanged();
                 }
-
-                private decimal _val3 = 0;
             }
 
-        ")></BlazorFiddle>
-        </SourceContent>
+            private decimal _val2 = 0;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>
-</p>
 
-<p>
-    <h4>Using a step value</h4>
-    <b>Disabled due to an error in Blazor </b>
-    <a href="https://github.com/aspnet/AspNetCore/issues/8704" target="_blank">Bug</a>
-    @*
+
+<h5 class="mat-h5">Discrete Slider: @Val3</h5>
+<DemoContainer>
+    <Content>
+        <MatSlider bind-Value="@Val3" Discrete="true"></MatSlider>
+
+        @functions
+        {
+
+            public decimal Val3
+            {
+                get => _val3;
+                set
+                {
+                    _val3 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private decimal _val3 = 0;
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlider bind-Value=""@Val3"" Discrete=""true""></MatSlider>
+
+        @functions
+        {
+
+            public decimal Val3
+            {
+                get => _val3;
+                set
+                {
+                    _val3 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private decimal _val3 = 0;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Using a step value</h5>
+<b>Disabled due to an error in Blazor </b>
+<a href="https://github.com/aspnet/AspNetCore/issues/8704" target="_blank">Bug</a>
+@*
     <DemoContainer>
         <Content>
             <MatSlider bind-Value="@Val4" Step="5"></MatSlider>
@@ -196,18 +193,16 @@
         </SourceContent>
 </DemoContainer>
     *@
-</p>
 
-<p>
-    <h4>Disabled sliders</h4>
-    <DemoContainer>
-        <Content>
-            <MatSlider Disabled="true" Value="55"></MatSlider>
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatSlider Disabled=""true"" Value=""55""></MatSlider>
-        ")></BlazorFiddle>
-        </SourceContent>
+
+<h5 class="mat-h5">Disabled sliders</h5>
+<DemoContainer>
+    <Content>
+        <MatSlider Disabled="true" Value="55"></MatSlider>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlider Disabled=""true"" Value=""55""></MatSlider>
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>
-</p>

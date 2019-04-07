@@ -1,5 +1,10 @@
-<h1 class="mat-h1">MatDialog</h1>
+<h3 class="mat-h3">MatDialog</h3>
 
+<p class="mat-body1">
+    Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
+</p>
+
+<h5 class="mat-h5">Example</h5>
 <DemoContainer>
     <Content>
         <div>Dialog is open: @dialogIsOpen</div>
@@ -17,18 +22,14 @@
 
         @functions
         {
-
             bool dialogIsOpen = false;
 
             void ButtonClick()
             {
                 dialogIsOpen = true;
                 this.StateHasChanged();
-
             }
-
         }
-
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
@@ -47,18 +48,14 @@
 
         @functions
         {
-
             bool dialogIsOpen = false;
 
             void ButtonClick()
             {
                 dialogIsOpen = true;
                 this.StateHasChanged();
-
             }
-
         }
-
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

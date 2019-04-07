@@ -1,7 +1,11 @@
 @using Microsoft.AspNetCore.Components
-<h1>MatButton</h1>
+<h3 class="mat-h3">MatButton</h3>
 
-<h3>Button types</h3>
+<p class="mat-body1">
+    Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
+</p>
+
+<h5 class="mat-h5">Button types</h5>
 <DemoContainer>
     <Content>
         <MatButton OnClick="@Click">Text @ButtonState</MatButton>
@@ -9,7 +13,7 @@
         <MatButton Unelevated="true">Unelevated</MatButton>
         <MatButton Outlined="true">Outlined</MatButton>
         <MatButton Dense="true">Dense</MatButton>
-        
+
         @functions
         {
             string ButtonState = "";
@@ -20,6 +24,7 @@
             }
 
         }
+
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
@@ -28,7 +33,7 @@
         <MatButton Unelevated=""true"">Unelevated</MatButton>
         <MatButton Outlined=""true"">Outlined</MatButton>
         <MatButton Dense=""true"">Dense</MatButton>
-        
+
         @functions
         {
             string ButtonState = """";
@@ -39,11 +44,12 @@
             }
 
         }
+
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
-<h3>Disabled</h3>
+<h5 class="mat-h5">Disabled</h5>
 <DemoContainer>
     <Content>
         <MatButton Disabled="true">Text</MatButton>
@@ -64,7 +70,7 @@
 </DemoContainer>
 
 
-<h3>Icons</h3>
+<h5 class="mat-h5">Icons</h5>
 <DemoContainer>
     <Content>
         <MatButton Icon="favorite">Text</MatButton>
@@ -84,7 +90,7 @@
     </SourceContent>
 </DemoContainer>
 
-<h3>Trailing Icons</h3>
+<h5 class="mat-h5">Trailing Icons</h5>
 <DemoContainer>
     <Content>
         <MatButton TrailingIcon="favorite">Text</MatButton>

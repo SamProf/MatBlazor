@@ -1,127 +1,128 @@
-<h1>MatSlideToggle</h1>
+<h3 class="mat-h3">MatSlideToggle</h3>
 
-
-<h4>Basic Usage</h4>
-<p>
-    <DemoContainer>
-        <Content>
-            <MatSlideToggle bind-Checked="@Val1"></MatSlideToggle> <span>@Val1</span>
-
-            @functions
-            {
-
-                public bool Val1
-                {
-                    get => _val1;
-                    set
-                    {
-                        _val1 = value;
-                        this.StateHasChanged();
-                    }
-                }
-
-                private bool _val1;
-            }
-
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatSlideToggle bind-Checked=""@Val1""></MatSlideToggle> <span>@Val1</span>
-
-            @functions
-            {
-
-                public bool Val1
-                {
-                    get => _val1;
-                    set
-                    {
-                        _val1 = value;
-                        this.StateHasChanged();
-                    }
-                }
-
-                private bool _val1;
-            }
-
-        ")></BlazorFiddle>
-        </SourceContent>
-</DemoContainer>
+<p class="mat-body1">
+    MatSlideToggle is an on/off control that can be toggled via clicking or dragging.
 </p>
 
-<p>
-    <DemoContainer>
-        <Content>
-            <MatSlideToggle bind-Checked="@Val2"></MatSlideToggle> <span>@Val2</span>
+<h5 class="mat-h5">Example</h5>
 
-            @functions
+<DemoContainer>
+    <Content>
+        <MatSlideToggle bind-Checked="@Val1"></MatSlideToggle> <span>@Val1</span>
+
+        @functions
+        {
+
+            public bool Val1
             {
-
-
-                public bool Val2
+                get => _val1;
+                set
                 {
-                    get => _val2;
-                    set
-                    {
-                        _val2 = value;
-                        this.StateHasChanged();
-                    }
+                    _val1 = value;
+                    this.StateHasChanged();
                 }
-
-                private bool _val2 = true;
             }
 
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatSlideToggle bind-Checked=""@Val2""></MatSlideToggle> <span>@Val2</span>
+            private bool _val1;
+        }
 
-            @functions
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlideToggle bind-Checked=""@Val1""></MatSlideToggle> <span>@Val1</span>
+
+        @functions
+        {
+
+            public bool Val1
             {
-
-
-                public bool Val2
+                get => _val1;
+                set
                 {
-                    get => _val2;
-                    set
-                    {
-                        _val2 = value;
-                        this.StateHasChanged();
-                    }
+                    _val1 = value;
+                    this.StateHasChanged();
                 }
-
-                private bool _val2 = true;
             }
 
-        ")></BlazorFiddle>
-        </SourceContent>
-</DemoContainer>
-</p>
+            private bool _val1;
+        }
 
-<h4>Label</h4>
-<p>
-    <DemoContainer>
-        <Content>
-            <MatSlideToggle Label="off/on"></MatSlideToggle>
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatSlideToggle Label=""off/on""></MatSlideToggle>
-        ")></BlazorFiddle>
-        </SourceContent>
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>
-</p>
 
-<h4>Disabled</h4>
-<p>
-    <DemoContainer>
-        <Content>
-            <MatSlideToggle Disabled="true"></MatSlideToggle>
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatSlideToggle Disabled=""true""></MatSlideToggle>
-        ")></BlazorFiddle>
-        </SourceContent>
+
+<DemoContainer>
+    <Content>
+        <MatSlideToggle bind-Checked="@Val2"></MatSlideToggle> <span>@Val2</span>
+
+        @functions
+        {
+
+
+            public bool Val2
+            {
+                get => _val2;
+                set
+                {
+                    _val2 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private bool _val2 = true;
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlideToggle bind-Checked=""@Val2""></MatSlideToggle> <span>@Val2</span>
+
+        @functions
+        {
+
+
+            public bool Val2
+            {
+                get => _val2;
+                set
+                {
+                    _val2 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private bool _val2 = true;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>
-</p>
+
+
+<h5 class="mat-h5">Label</h5>
+
+<DemoContainer>
+    <Content>
+        <MatSlideToggle Label="off/on"></MatSlideToggle>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlideToggle Label=""off/on""></MatSlideToggle>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">Disabled</h5>
+
+<DemoContainer>
+    <Content>
+        <MatSlideToggle Disabled="true"></MatSlideToggle>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlideToggle Disabled=""true""></MatSlideToggle>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

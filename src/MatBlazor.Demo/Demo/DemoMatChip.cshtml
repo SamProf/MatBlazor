@@ -1,24 +1,26 @@
-<h1>MatChip</h1>
+<h3 class="mat-h3">MatChip</h3>
 
-<p>
-    <h5>MatChipSet</h5>
-
-    <DemoContainer>
-        <Content>
-            <MatChipSet>
-                <MatChip Label="Label"></MatChip>
-                <MatChip Label="LeadingIcon" LeadingIcon="favorite"></MatChip>
-                <MatChip Label="TrailingIcon" TrailingIcon="favorite"></MatChip>
-            </MatChipSet>
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatChipSet>
-                <MatChip Label=""Label""></MatChip>
-                <MatChip Label=""LeadingIcon"" LeadingIcon=""favorite""></MatChip>
-                <MatChip Label=""TrailingIcon"" TrailingIcon=""favorite""></MatChip>
-            </MatChipSet>
-        ")></BlazorFiddle>
-        </SourceContent>
-</DemoContainer>
+<p class="mat-body1">
+    Chips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.
 </p>
+
+<h5 class="mat-h5">Example</h5>
+
+<DemoContainer>
+    <Content>
+        <MatChipSet>
+            <MatChip Label="Label"></MatChip>
+            <MatChip Label="LeadingIcon" LeadingIcon="favorite"></MatChip>
+            <MatChip Label="TrailingIcon" TrailingIcon="favorite"></MatChip>
+        </MatChipSet>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatChipSet>
+            <MatChip Label=""Label""></MatChip>
+            <MatChip Label=""LeadingIcon"" LeadingIcon=""favorite""></MatChip>
+            <MatChip Label=""TrailingIcon"" TrailingIcon=""favorite""></MatChip>
+        </MatChipSet>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

@@ -1,145 +1,143 @@
-<h1>MatRadioButton</h1>
+<h3 class="mat-h3">MatRadioButton</h3>
 
-<p>
-    <h4>Simple</h4>
-    <DemoContainer>
-        <Content>
-            <h3>@Val1</h3>
-            <MatButton OnClick="((e)=>{ this.Val1 = 1.ToString(); })">Set 1</MatButton>
-            <MatRadioGroup bind-Value="@Val1">
-                <MatRadioButton Value="1"></MatRadioButton>
-                <MatRadioButton Value="2"></MatRadioButton>
-                <MatRadioButton Value="3"></MatRadioButton>
-            </MatRadioGroup>
-            <h3>@Val2</h3>
-            <MatRadioGroup bind-Value="@Val2">
-                <MatRadioButton Value="4"></MatRadioButton>
-                <MatRadioButton Value="5"></MatRadioButton>
-            </MatRadioGroup>
+<p class="mat-body1">
+    Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
+</p>
+
+<h5 class="mat-h5">Example</h5>
+<DemoContainer>
+    <Content>
+        <h3>@Val1</h3>
+        <MatButton OnClick="((e) => { this.Val1 = 1.ToString(); })">Set 1</MatButton>
+        <MatRadioGroup bind-Value="@Val1">
+            <MatRadioButton Value="1"></MatRadioButton>
+            <MatRadioButton Value="2"></MatRadioButton>
+            <MatRadioButton Value="3"></MatRadioButton>
+        </MatRadioGroup>
+        <h3>@Val2</h3>
+        <MatRadioGroup bind-Value="@Val2">
+            <MatRadioButton Value="4"></MatRadioButton>
+            <MatRadioButton Value="5"></MatRadioButton>
+        </MatRadioGroup>
 
 
-            @functions
+        @functions
+        {
+
+            protected string Val1
             {
-
-                protected string Val1
+                get => _val1;
+                set
                 {
-                    get => _val1;
-                    set
-                    {
-                        _val1 = value;
-                        this.StateHasChanged();
-                    }
+                    _val1 = value;
+                    this.StateHasChanged();
                 }
-
-                protected string Val2
-                {
-                    get => _val2;
-                    set
-                    {
-                        _val2 = value;
-                        this.StateHasChanged();
-                    }
-                }
-
-                private string _val1;
-                private string _val2;
             }
 
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <h3>@Val1</h3>
-            <MatButton OnClick=""((e)=>{ this.Val1 = 1.ToString(); })"">Set 1</MatButton>
-            <MatRadioGroup bind-Value=""@Val1"">
-                <MatRadioButton Value=""1""></MatRadioButton>
-                <MatRadioButton Value=""2""></MatRadioButton>
-                <MatRadioButton Value=""3""></MatRadioButton>
-            </MatRadioGroup>
-            <h3>@Val2</h3>
-            <MatRadioGroup bind-Value=""@Val2"">
-                <MatRadioButton Value=""4""></MatRadioButton>
-                <MatRadioButton Value=""5""></MatRadioButton>
-            </MatRadioGroup>
-
-
-            @functions
+            protected string Val2
             {
-
-                protected string Val1
+                get => _val2;
+                set
                 {
-                    get => _val1;
-                    set
-                    {
-                        _val1 = value;
-                        this.StateHasChanged();
-                    }
+                    _val2 = value;
+                    this.StateHasChanged();
                 }
-
-                protected string Val2
-                {
-                    get => _val2;
-                    set
-                    {
-                        _val2 = value;
-                        this.StateHasChanged();
-                    }
-                }
-
-                private string _val1;
-                private string _val2;
             }
 
-        ")></BlazorFiddle>
-        </SourceContent>
+            private string _val1;
+            private string _val2;
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <h3>@Val1</h3>
+        <MatButton OnClick=""((e) => { this.Val1 = 1.ToString(); })"">Set 1</MatButton>
+        <MatRadioGroup bind-Value=""@Val1"">
+            <MatRadioButton Value=""1""></MatRadioButton>
+            <MatRadioButton Value=""2""></MatRadioButton>
+            <MatRadioButton Value=""3""></MatRadioButton>
+        </MatRadioGroup>
+        <h3>@Val2</h3>
+        <MatRadioGroup bind-Value=""@Val2"">
+            <MatRadioButton Value=""4""></MatRadioButton>
+            <MatRadioButton Value=""5""></MatRadioButton>
+        </MatRadioGroup>
+
+
+        @functions
+        {
+
+            protected string Val1
+            {
+                get => _val1;
+                set
+                {
+                    _val1 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            protected string Val2
+            {
+                get => _val2;
+                set
+                {
+                    _val2 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private string _val1;
+            private string _val2;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>
-</p>
 
-<p>
-    <h4>Disabled</h4>
-    <DemoContainer>
-        <Content>
-            <MatRadioGroup>
-                <MatRadioButton></MatRadioButton>
-                <MatRadioButton Disabled="true"></MatRadioButton>
-                <MatRadioButton></MatRadioButton>
-                <MatRadioButton></MatRadioButton>
-            </MatRadioGroup>
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatRadioGroup>
-                <MatRadioButton></MatRadioButton>
-                <MatRadioButton Disabled=""true""></MatRadioButton>
-                <MatRadioButton></MatRadioButton>
-                <MatRadioButton></MatRadioButton>
-            </MatRadioGroup>
-        ")></BlazorFiddle>
-        </SourceContent>
+
+<h5 class="mat-h5">Disabled</h5>
+<DemoContainer>
+    <Content>
+        <MatRadioGroup>
+            <MatRadioButton></MatRadioButton>
+            <MatRadioButton Disabled="true"></MatRadioButton>
+            <MatRadioButton></MatRadioButton>
+            <MatRadioButton></MatRadioButton>
+        </MatRadioGroup>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatRadioGroup>
+            <MatRadioButton></MatRadioButton>
+            <MatRadioButton Disabled=""true""></MatRadioButton>
+            <MatRadioButton></MatRadioButton>
+            <MatRadioButton></MatRadioButton>
+        </MatRadioGroup>
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>
 
-</p>
 
-
-<p>
-    <h4>Label</h4>
-    <DemoContainer>
-        <Content>
-            <MatRadioGroup>
-                <MatRadioButton Label="Label1"></MatRadioButton>
-                <MatRadioButton Label="Label2"></MatRadioButton>
-                <MatRadioButton Label="Label3"></MatRadioButton>
-                <MatRadioButton Label="Label4"></MatRadioButton>
-            </MatRadioGroup>
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatRadioGroup>
-                <MatRadioButton Label=""Label1""></MatRadioButton>
-                <MatRadioButton Label=""Label2""></MatRadioButton>
-                <MatRadioButton Label=""Label3""></MatRadioButton>
-                <MatRadioButton Label=""Label4""></MatRadioButton>
-            </MatRadioGroup>
-        ")></BlazorFiddle>
-        </SourceContent>
+<h5 class="mat-h5">Label</h5>
+<DemoContainer>
+    <Content>
+        <MatRadioGroup>
+            <MatRadioButton Label="Label1"></MatRadioButton>
+            <MatRadioButton Label="Label2"></MatRadioButton>
+            <MatRadioButton Label="Label3"></MatRadioButton>
+            <MatRadioButton Label="Label4"></MatRadioButton>
+        </MatRadioGroup>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatRadioGroup>
+            <MatRadioButton Label=""Label1""></MatRadioButton>
+            <MatRadioButton Label=""Label2""></MatRadioButton>
+            <MatRadioButton Label=""Label3""></MatRadioButton>
+            <MatRadioButton Label=""Label4""></MatRadioButton>
+        </MatRadioGroup>
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>
-</p>
