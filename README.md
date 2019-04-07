@@ -7,7 +7,7 @@ MatBlazor comprises a range of components which implement common interaction pat
 If you like the idea of this repo leave your feedback as an issue or star the repo or let me know on.
 
 ## Demo and Documentation
-https://blazorcomponents.github.io/MatBlazor/
+http://www.matblazor.com
 
 
 ## Prerequisites
@@ -46,6 +46,9 @@ At the beginning of the your application, usually in MainLayout.cshtml please ad
 
 ### In progress
 - New component MatTabBar
+
+### New domain name
+- [www.matblazor.com](http://www.matblazor.com)
 
 ### MatBlazor 0.6.15
 - New component MatSnackbar
