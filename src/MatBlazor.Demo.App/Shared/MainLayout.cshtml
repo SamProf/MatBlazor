@@ -16,9 +16,13 @@
             <MatAppBarTitle>MatBlazor - Material Design components for Blazor and Razor Components</MatAppBarTitle>
         </MatAppBarSection>
         <MatAppBarSection Align="@MatAppBarSectionAlign.End">
-            <a href="https://www.nuget.org/packages/MatBlazor/" target="_blank"><img src="https://img.shields.io/nuget/v/MatBlazor.svg" /></a>
-            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url" target="_blank" style="margin-left: 5px;"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" /></a>
-           
+            <a href="https://www.nuget.org/packages/MatBlazor/" target="_blank">
+                <img src="https://img.shields.io/nuget/v/MatBlazor.svg"/>
+            </a>
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url" target="_blank" style="margin-left: 5px;">
+                <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"/>
+            </a>
+
             <MatIconButton Link="http://samprof.com" Target="_blank" Title="Author SamProf">
                 <i class="fa fa-user-circle" aria-hidden="true"></i>
             </MatIconButton>
@@ -36,88 +40,15 @@
             <MatList SingleSelection="true">
                 <MatListItem Href="@Url.ToAbsoluteUri("").AbsoluteUri">Home</MatListItem>
 
+                @foreach (var navItem in navItems)
+                {
+                <MatListItem Href="@Url.ToAbsoluteUri(navItem.Url).AbsoluteUri">
+                    @navItem.Name
+                </MatListItem>
+                }
+
                 <MatListItem Href="@Url.ToAbsoluteUri("BaseComponent").AbsoluteUri">
                     Base Component
-                </MatListItem>
-
-                <MatListItem Href="@Url.ToAbsoluteUri("Autocomplete").AbsoluteUri">
-                    Autocomplete
-                </MatListItem>
-                
-                <MatListItem Href="@Url.ToAbsoluteUri("Checkbox").AbsoluteUri">
-                    Checkbox
-                </MatListItem>
-
-                <MatListItem Href="@Url.ToAbsoluteUri("TextField").AbsoluteUri">
-                    TextField
-                </MatListItem>
-
-                <MatListItem Href="@Url.ToAbsoluteUri("RadioButton").AbsoluteUri">
-                    RadioButton
-                </MatListItem>
-
-                <MatListItem Href="@Url.ToAbsoluteUri("Select").AbsoluteUri">
-                    Select
-                </MatListItem>
-
-                <MatListItem Href="@Url.ToAbsoluteUri("Slider").AbsoluteUri">
-                    Slider
-                </MatListItem>
-
-                <MatListItem Href="@Url.ToAbsoluteUri("SlideToggle").AbsoluteUri">
-                    SlideToggle
-                </MatListItem>
-
-                <MatListItem Href="@Url.ToAbsoluteUri("Drawer").AbsoluteUri">
-                    Drawer
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("AppBar").AbsoluteUri">
-                    AppBar
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("Dialog").AbsoluteUri">
-                    Dialog
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("Snackbar").AbsoluteUri">
-                    Snackbar
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("Menu").AbsoluteUri">
-                    Menu
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("Card").AbsoluteUri">
-                    Card
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("Divider").AbsoluteUri">
-                    Divider
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("List").AbsoluteUri">
-                    List
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("Button").AbsoluteUri">
-                    Button
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("Ripple").AbsoluteUri">
-                    Ripple
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("IconButton").AbsoluteUri">
-                    IconButton
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("Icon").AbsoluteUri">
-                    Icon
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("Chip").AbsoluteUri">
-                    Chip
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("ProgressBar").AbsoluteUri">
-                    ProgressBar
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("Elevation").AbsoluteUri">
-                    Elevation
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("Typography").AbsoluteUri">
-                    Typography
-                </MatListItem>
-                <MatListItem Href="@Url.ToAbsoluteUri("LayoutGrid").AbsoluteUri">
-                    Layout Grid
                 </MatListItem>
             </MatList>
         </MatListGroup>
@@ -140,4 +71,143 @@
         _navMenuOpened = !_navMenuOpened;
         this.StateHasChanged();
     }
+
+
+    class NavItem
+    {
+        public string Name;
+        public string Url;
+    }
+
+
+    NavItem[] navItems;
+
+    protected async override Task OnInitAsync()
+    {
+        await base.OnInitAsync();
+        navItems = new[]
+        {
+            new NavItem()
+            {
+                Name = "Autocomplete",
+                Url = "Autocomplete"
+            },
+            new NavItem()
+            {
+                Name = "Checkbox",
+                Url = "Checkbox"
+            },
+            new NavItem()
+            {
+                Name = "TextField",
+                Url = "TextField"
+            },
+            new NavItem()
+            {
+                Name = "RadioButton",
+                Url = "RadioButton"
+            },
+            new NavItem()
+            {
+                Name = "Select",
+                Url = "Select"
+            },
+            new NavItem()
+            {
+                Name = "Slider",
+                Url = "Slider"
+            },
+            new NavItem()
+            {
+                Name = "SlideToggle",
+                Url = "SlideToggle"
+            },
+            new NavItem()
+            {
+                Name = "Drawer",
+                Url = "Drawer"
+            },
+            new NavItem()
+            {
+                Name = "AppBar",
+                Url = "AppBar"
+            },
+            new NavItem()
+            {
+                Name = "Dialog",
+                Url = "Dialog"
+            },
+            new NavItem()
+            {
+                Name = "Snackbar",
+                Url = "Snackbar"
+            },
+            new NavItem()
+            {
+                Name = "Menu",
+                Url = "Menu"
+            },
+            new NavItem()
+            {
+                Name = "Card",
+                Url = "Card"
+            },
+            new NavItem()
+            {
+                Name = "Divider",
+                Url = "Divider"
+            },
+            new NavItem()
+            {
+                Name = "List",
+                Url = "List"
+            },
+            new NavItem()
+            {
+                Name = "Button",
+                Url = "Button"
+            },
+            new NavItem()
+            {
+                Name = "Ripple",
+                Url = "Ripple"
+            },
+            new NavItem()
+            {
+                Name = "IconButton",
+                Url = "IconButton"
+            },
+            new NavItem()
+            {
+                Name = "Icon",
+                Url = "Icon"
+            },
+            new NavItem()
+            {
+                Name = "Chip",
+                Url = "Chip"
+            },
+            new NavItem()
+            {
+                Name = "ProgressBar",
+                Url = "ProgressBar"
+            },
+            new NavItem()
+            {
+                Name = "Elevation",
+                Url = "Elevation"
+            },
+            new NavItem()
+            {
+                Name = "Typography",
+                Url = "Typography"
+            },
+            new NavItem()
+            {
+                Name = "LayoutGrid",
+                Url = "LayoutGrid"
+            },
+        }.OrderBy(i => i.Name).ToArray();
+    }
+
 }
