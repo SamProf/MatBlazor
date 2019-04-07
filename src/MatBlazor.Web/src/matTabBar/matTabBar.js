@@ -1,8 +1,6 @@
 import './matTabBar.scss';
 
 
-
-
 export function init(ref, component) {
   ref.matBlazorRef = new MDCTabBar(ref);
 
