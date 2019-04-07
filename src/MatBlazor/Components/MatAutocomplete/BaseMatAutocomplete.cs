@@ -1,30 +1,32 @@
 ﻿using MatBlazor.Components.Base;
-using MatBlazor.Helpers;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MatBlazor.Components.MatAutocomplete
 {
-    //TODO: Modify to generic class when generic components will be available in blazor
-    public class BaseMatAutocomplete : BaseMatComponent
+    public class BaseMatAutocomplete<ItemType> : BaseMatComponent
     {
-
         protected const int DefaultsElementsInPopup = 10;
         private bool isOpened;
         private string stringValue;
+        private ItemType _value;
 
-        protected IEnumerable FilteredCollection
+        protected IEnumerable<AutocompleteElementWrapper<ItemType>> FilteredCollection
         {
             get
             {
-                return Collection.Cast<object>()
-                      .Select(x => x.ToString())
-                      .Where(x => x != null &&
-                      (string.IsNullOrEmpty(StringValue) || x.ToLowerInvariant().Contains(StringValue.ToLowerInvariant())))
-                      .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup);
+                return Collection.Select(x => new AutocompleteElementWrapper<ItemType>()
+                {
+                    StringValue = ComputeStringValue(x),
+                    Element = x
+                })
+                .Where(x => x != null &&
+                (string.IsNullOrEmpty(StringValue) || x.StringValue.ToLowerInvariant().Contains(StringValue.ToLowerInvariant())))
+                .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup);
             }
         }
 
@@ -66,13 +68,30 @@ namespace MatBlazor.Components.MatAutocomplete
         }
 
         [Parameter]
-        protected object Value { get; set; }
+        protected ItemType Value
+        {
+            get
+            {
+                return _value;
+            }
+            set
+            {
+                _value = value;
+                OnChange.Invoke(_value);
+            }
+        }
 
         [Parameter]
         protected Action<object> OnChange { get; set; }
 
         [Parameter]
-        protected IEnumerable Collection { get; set; }
+        protected RenderFragment<ItemType> ItemTemplate { get; set; }
+
+        [Parameter]
+        protected Func<ItemType, string> CustomStringSelector { get; set; }
+
+        [Parameter]
+        protected IEnumerable<ItemType> Collection { get; set; }
 
         [Parameter]
         protected bool Outlined { get; set; }
@@ -89,6 +108,12 @@ namespace MatBlazor.Components.MatAutocomplete
         [Parameter]
         protected bool ShowClearButton { get; set; }
 
+        [Parameter]
+        protected bool FullWidth { get; set; }
+
+        [Parameter]
+        public bool AllowFreeText { get; protected set; }
+
         protected void OpenPopup()
         {
             IsOpened = true;
@@ -102,30 +127,32 @@ namespace MatBlazor.Components.MatAutocomplete
         public void OnValueChanged(UIChangeEventArgs ev)
         {
             StringValue = (string)ev.Value;
+            var filteredWrapper = FilteredCollection.SingleOrDefault();
+            Value = filteredWrapper != null ? filteredWrapper.Element : (default);
+            if (Value == null && !AllowFreeText)
+            {
+                StringValue = string.Empty;
+            }
             StateHasChanged();
         }
 
-        public void ItemClicked(object selectedObject)
+        public void ItemClicked(ItemType selectedObject)
         {
-            Console.WriteLine("An item is clicked: " + selectedObject);
             Value = selectedObject;
-            StringValue = Value.ToString();
-            OnChange.Invoke(selectedObject);
+            StringValue = ComputeStringValue(Value);
             StateHasChanged();
         }
 
         public void ClearText(UIMouseEventArgs e)
         {
-            Console.WriteLine("Clear text started");
             StringValue = "";
-            Value = null;
+            Value = default;
             StateHasChanged();
         }
 
-
-        public BaseMatAutocomplete()
+        private string ComputeStringValue(ItemType obj)
         {
-
+            return CustomStringSelector?.Invoke(obj) ?? obj?.ToString();
         }
 
         protected async override Task OnFirstAfterRenderAsync()
