@@ -1,0 +1,52 @@
+@using MatBlazor.Components.MatRipple
+<h3 class="mat-h3">MatRipple</h3>
+
+<p class="mat-body1">
+    Ripples are visual representations used to communicate the status of a component or interactive element.
+</p>
+
+<h5 class="mat-h5">Example</h5>
+<DemoContainer>
+    <Content>
+        <style>
+            .demo-mat-ripple {
+                width: 300px; 
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+        <MatRipple class="demo-mat-ripple">
+            Click here
+        </MatRipple>
+        <MatRipple class="demo-mat-ripple" Color="@MatRippleColor.Primary">
+            Primary
+        </MatRipple>
+        <MatRipple class="demo-mat-ripple" Color="@MatRippleColor.Secondary">
+            Secondary
+        </MatRipple>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <style>
+            .demo-mat-ripple {
+                width: 300px; 
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+        <MatRipple class=""demo-mat-ripple"">
+            Click here
+        </MatRipple>
+        <MatRipple class=""demo-mat-ripple"" Color=""@MatRippleColor.Primary"">
+            Primary
+        </MatRipple>
+        <MatRipple class=""demo-mat-ripple"" Color=""@MatRippleColor.Secondary"">
+            Secondary
+        </MatRipple>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

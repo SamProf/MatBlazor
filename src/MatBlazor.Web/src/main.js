@@ -19,6 +19,7 @@ import * as matElevation from './matElevation/matElevation';
 import * as matProgressBar from './matProgressBar/matProgressBar';
 import * as matDialog from './matDialog/matDialog';
 import * as matLayoutGrid from './matLayoutGrid/matLayoutGrid';
+import * as matRipple from './matRipple/matRipple';
 
 
 
@@ -42,6 +43,7 @@ window.matBlazor = {
   matProgressBar,
   matDialog,
   matLayoutGrid,
+  matRipple,
 };
 
 

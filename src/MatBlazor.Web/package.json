@@ -29,6 +29,7 @@
     "@material/list": "^1.0.1",
     "@material/menu": "^1.0.1",
     "@material/radio": "^1.0.1",
+    "@material/ripple": "^1.1.0",
     "@material/select": "^1.0.1",
     "@material/slider": "^1.0.0",
     "@material/switch": "^1.0.1",

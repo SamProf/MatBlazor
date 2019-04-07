@@ -42,30 +42,10 @@ At the beginning of the your application, usually in MainLayout.cshtml please ad
 <MatBlazorInstall />
 ```
 
-## Components
-
-- MatCheckbox
-- MatTextField
-- MatRadioButton
-- MatSelect
-- MatSlider
-- MatSlideToggle
-
-- MatDrawer
-- MatAppBar
-- MatMenu
-
-- MatCard
-- MatDivider
-- MatList
-
-- MatButton
-- MatIconButton
-- MatIcon
-- MatChip
-
-
 ## News
+
+### MatBlazor 0.6.14
+- New component MatRipple
 
 ### MatBlazor 0.6.13
 - New styles Layout Grid
