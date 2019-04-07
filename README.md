@@ -44,6 +44,9 @@ At the beginning of the your application, usually in MainLayout.cshtml please ad
 
 ## News
 
+### In progress
+- New component MatTabBar
+
 ### MatBlazor 0.6.15
 - New component MatSnackbar
 

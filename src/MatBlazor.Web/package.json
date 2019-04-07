@@ -34,6 +34,7 @@
     "@material/slider": "^1.0.0",
     "@material/snackbar": "^1.1.0",
     "@material/switch": "^1.0.1",
+    "@material/tab-bar": "^1.1.0",
     "@material/textfield": "^1.0.1",
     "@material/top-app-bar": "^1.0.1",
     "@material/typography": "^1.0.0",

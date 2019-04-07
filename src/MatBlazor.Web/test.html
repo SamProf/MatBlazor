@@ -9,18 +9,38 @@
 </head>
 <body>
 
-<div class="mdc-snackbar mdc-snackbar--stacked mdc-snackbar--leading" id="ref">
-    <div class="mdc-snackbar__surface">
-        <div class="mdc-snackbar__label"
-             role="status"
-             aria-live="polite">
-            Can't send photo. Retry in 5 seconds.
-        </div>
-        <div class="mdc-snackbar__actions">
-            <button type="button" class="mdc-button">Retry</button>
+
+<div class="mdc-tab-bar" role="tablist" id="ref">
+    <div class="mdc-tab-scroller">
+        <div class="mdc-tab-scroller__scroll-area">
+            <div class="mdc-tab-scroller__scroll-content">
+                <button class="mdc-tab" role="tab" tabindex="0">
+          <span class="mdc-tab__content">
+            <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
+            <span class="mdc-tab__text-label">Favorites</span>
+          </span>
+                    <span class="mdc-tab-indicator">
+            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+          </span>
+                    <span class="mdc-tab__ripple"></span>
+                </button>
+
+                <button class="mdc-tab" role="tab" tabindex="1">
+          <span class="mdc-tab__content">
+            <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
+            <span class="mdc-tab__text-label">Favorites</span>
+          </span>
+                    <span class="mdc-tab-indicator">
+            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+          </span>
+                    <span class="mdc-tab__ripple"></span>
+                </button>
+            </div>
         </div>
     </div>
 </div>
+
+
 
 
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -28,9 +48,11 @@
 
 <script type="text/javascript">
   var ref = document.getElementById('ref');
-  const c = new mdc.snackbar.MDCSnackbar(ref);
-  c.open();
-
+  // debugger;
+  const c = new mdc.tabBar.MDCTabBar(ref);
+  c.useAutomaticActivation = true;
+  // c.activateTab(0);
+  // c.open();
 
 
 </script>
