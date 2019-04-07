@@ -16,6 +16,7 @@ import * as matDrawer from './matDrawer/matDrawer';
 import * as matMenu from './matMenu/matMenu';
 import * as matTypography from './matTypography/matTypography';
 import * as matElevation from './matElevation/matElevation';
+import * as matAutocomplete from './matAutocomplete/matAutocomplete';
 import * as matProgressBar from './matProgressBar/matProgressBar';
 import * as matDialog from './matDialog/matDialog';
 import * as matLayoutGrid from './matLayoutGrid/matLayoutGrid';
@@ -26,6 +27,7 @@ import * as matTabBar from './matTabBar/matTabBar';
 
 
 window.matBlazor = {
+  matAutocomplete,
   matButton,
   matCheckbox,
   matTextField,

@@ -1,0 +1,27 @@
+.mat-autocomplete-wrapper
+{
+    position: relative;
+    display: inline-block;
+    width:100%;
+}
+
+.mat-autocomplete-clearbutton
+{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    text-align: center;
+}
+
+.mat-autocomplete-popup
+{
+    width: 100%;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    text-align: center;
+    border-radius: 6px;
+    background: white;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+}

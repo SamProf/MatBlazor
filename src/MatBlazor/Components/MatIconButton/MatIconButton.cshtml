@@ -1,6 +1,6 @@
 ﻿@inherits BaseMatIconButton
 
-<a class="@ClassMapper.Class" style="@Style" ref="Ref" onclick="@OnClickHandler" href=@Link target=@Target title=@Title>
+<a class="@ClassMapper.Class" style="@Style" ref="Ref" onmousedown="@OnMouseDown" onclick="@OnClick" href=@Link target=@Target title=@Title>
     @if (Icon != null)
     {
         <MatIcon Icon="@Icon"></MatIcon>

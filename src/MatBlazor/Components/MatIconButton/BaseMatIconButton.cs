@@ -17,6 +17,9 @@ namespace MatBlazor.Components.MatIconButton
         public EventCallback<UIMouseEventArgs> OnClick { get; set; }
 
         [Parameter]
+        public Action<UIMouseEventArgs> OnMouseDown { get; set; }
+
+        [Parameter]
         public string Icon { get; set; }
 
         [Parameter]
