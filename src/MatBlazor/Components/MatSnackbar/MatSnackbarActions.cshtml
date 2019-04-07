@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Components
+@inherits MatBlazor.Components.Base.BaseMatComponent
+
+<div class="@ClassMapper.Class" style="@Style" ref="Ref">
+    @ChildContent
+</div>
+
+
+@functions
+{
+
+    [Parameter]
+    protected RenderFragment ChildContent { get; set; }
+
+    protected async override Task OnInitAsync()
+    {
+        await base.OnInitAsync();
+        ClassMapper.Add("mdc-snackbar__actions");
+    }
+
+}

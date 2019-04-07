@@ -32,6 +32,7 @@
     "@material/ripple": "^1.1.0",
     "@material/select": "^1.0.1",
     "@material/slider": "^1.0.0",
+    "@material/snackbar": "^1.1.0",
     "@material/switch": "^1.0.1",
     "@material/textfield": "^1.0.1",
     "@material/top-app-bar": "^1.0.1",

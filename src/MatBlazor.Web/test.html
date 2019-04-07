@@ -9,7 +9,18 @@
 </head>
 <body>
 
-<div id="ref" class="mdc-ripple-surface" style="width: 300px; height: 300px">Test</div>
+<div class="mdc-snackbar mdc-snackbar--stacked mdc-snackbar--leading" id="ref">
+    <div class="mdc-snackbar__surface">
+        <div class="mdc-snackbar__label"
+             role="status"
+             aria-live="polite">
+            Can't send photo. Retry in 5 seconds.
+        </div>
+        <div class="mdc-snackbar__actions">
+            <button type="button" class="mdc-button">Retry</button>
+        </div>
+    </div>
+</div>
 
 
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -17,7 +28,8 @@
 
 <script type="text/javascript">
   var ref = document.getElementById('ref');
-  const dialog = new mdc.ripple.MDCRipple(ref);
+  const c = new mdc.snackbar.MDCSnackbar(ref);
+  c.open();
 
 
 
