@@ -77,12 +77,12 @@ namespace MatBlazor.Components.MatAutocomplete
             set
             {
                 _value = value;
-                OnChange.Invoke(_value);
+                OnChange.InvokeAsync(_value);
             }
         }
 
         [Parameter]
-        protected Action<object> OnChange { get; set; }
+        protected EventCallback<object> OnChange { get; set; }
 
         [Parameter]
         protected RenderFragment<ItemType> ItemTemplate { get; set; }

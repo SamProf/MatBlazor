@@ -11,6 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+      "launchUrl": "Autocomplete",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

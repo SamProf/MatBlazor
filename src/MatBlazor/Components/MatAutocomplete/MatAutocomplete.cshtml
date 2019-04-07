@@ -3,7 +3,7 @@
 @typeparam ItemType
 
 <div class="mat-autocomplete-wrapper">
-    <MatTextField Icon="@Icon" GotFocus="@OpenPopup" HideClearButton="true" FullWidth="@FullWidth" LostFocus="@ClosePopup" Label="@Label" Value=@StringValue OnInput=@OnValueChanged Outlined="@Outlined"></MatTextField>
+    <MatTextField Icon="@Icon" OnFocus="@OpenPopup" HideClearButton="true" FullWidth="@FullWidth" OnFocusOut="@ClosePopup" Label="@Label" Value=@StringValue OnInput=@OnValueChanged Outlined="@Outlined"></MatTextField>
     @if (ShowClearButton)
     {
         <div class="mat-autocomplete-clearbutton">

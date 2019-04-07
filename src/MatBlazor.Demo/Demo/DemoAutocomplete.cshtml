@@ -1,0 +1,27 @@
+﻿<h3 class="mat-h3">MatAutocomplete</h3>
+
+<p class="mat-body1">
+    The autocomplete is a normal text input enhanced by a panel of suggested options.
+</p>
+
+
+<h5 class="mat-h5">Example</h5>
+<DemoContainer>
+    <Content>
+        
+        <MatAutocomplete Collection="@options" ItemType="string"></MatAutocomplete>
+
+        @functions
+        {
+
+            string[] options = new[]
+            {
+                "One",
+                "Two",
+                "Three"
+            };
+
+        }
+
+    </Content>
+</DemoContainer>
