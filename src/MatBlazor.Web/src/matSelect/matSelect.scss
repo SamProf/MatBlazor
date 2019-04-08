@@ -1,13 +1,17 @@
 @import "@material/select/mdc-select";
 
-select {
+.mat-select {
+  select {
     /* for Firefox */
     -moz-appearance: none;
     /* for Chrome */
     -webkit-appearance: none;
-}
-  
+  }
+
   /* For IE10 */
-select::-ms-expand {
+  select::-ms-expand {
     display: none;
+  }
+
 }
+

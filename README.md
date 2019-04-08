@@ -47,6 +47,9 @@ At the beginning of the your application, usually in MainLayout.cshtml please ad
 ### In progress
 - New component MatTabBar
 
+### MatBlazor 0.6.17
+- Fixed Select is showing native arrow? #48 (sandrohanea)
+
 ### MatBlazor 0.6.16
 - New component MatAutocomplete (sandrohanea)
 

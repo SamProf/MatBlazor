@@ -15,6 +15,7 @@ namespace MatBlazor.Components.MatSelect
         public BaseMatSelect()
         {
             ClassMapper
+                .Add("mat-select")
                 .Add("mdc-select")
                 .If("mdc-select--outlined", () => Outlined)
                 .If("mdc-select--disabled", () => Disabled);
