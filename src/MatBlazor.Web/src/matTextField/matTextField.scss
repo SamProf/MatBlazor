@@ -7,3 +7,18 @@
     width:0;
     height:0;
 }
+
+/* Fix Full Width padding issues */
+.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) .mdc-text-field__input{
+    padding: 20px 16px 6px;
+}
+
+.mdc-text-field--fullwidth-with-trailing-icon:not(.mdc-text-field--textarea) .mdc-text-field__input
+{
+    padding: 20px 48px 6px 16px;
+}
+
+.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea) .mdc-text-field__input
+{
+    padding: 20px 16px 6px 48px;
+}
