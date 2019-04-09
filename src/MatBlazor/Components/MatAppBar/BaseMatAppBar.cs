@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatAppBar
 {
+    /// <summary>
+    /// Acts as a container for items such as application title, navigation icon, and action items.
+    /// </summary>
     public class BaseMatAppBar : BaseMatComponent
     {
         [Parameter]

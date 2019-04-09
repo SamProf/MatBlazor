@@ -13,6 +13,9 @@ namespace MatBlazor.Components.Base
 {
     public abstract class BaseMatComponent : ComponentBase
     {
+        /// <summary>
+        /// Returned ElementRef reference for DOM element.
+        /// </summary>
         public ElementRef Ref { get; set; }
 
         public string MatBlazorId = "matBlazorId_" + Guid.NewGuid();
@@ -63,6 +66,9 @@ namespace MatBlazor.Components.Base
             ClassMapper.Get(() => this.Class);
         }
 
+        /// <summary>
+        /// Specifies one or more classnames for an DOM element.
+        /// </summary>
         [Parameter]
         public string Class
         {
@@ -75,6 +81,9 @@ namespace MatBlazor.Components.Base
         }
 
 
+        /// <summary>
+        /// Specifies an inline style for an DOM element.
+        /// </summary>
         [Parameter]
         public string Style
         {

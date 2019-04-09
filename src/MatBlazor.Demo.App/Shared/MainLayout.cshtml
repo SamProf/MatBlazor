@@ -42,9 +42,9 @@
 
                 @foreach (var navItem in navItems)
                 {
-                <MatListItem Href="@Url.ToAbsoluteUri(navItem.Url).AbsoluteUri">
-                    @navItem.Name
-                </MatListItem>
+                    <MatListItem Href="@Url.ToAbsoluteUri(navItem.Url).AbsoluteUri">
+                        @navItem.Name
+                    </MatListItem>
                 }
 
                 <MatListItem Href="@Url.ToAbsoluteUri("BaseComponent").AbsoluteUri">
@@ -55,7 +55,7 @@
     </MatDrawer>
 
 
-    <MatDrawerContent Style="padding-left: 5px; padding-right: 5px;">
+    <MatDrawerContent Style="padding-left: 25px; padding-right: 25px;">
         <MatAppBarAdjust></MatAppBarAdjust>
         @Body
     </MatDrawerContent>
@@ -63,7 +63,20 @@
 </MatDrawerContainer>
 
 
+<MatSnackbar bind-IsOpen="@lazySnackbarIsOpen">
+    <MatSnackbarContent>If you like MatBlazor, please put a star on GitHub.</MatSnackbarContent>
+    <MatSnackbarActions>
+        @* <MatButton Raised="true">Star</MatButton> *@
+        <MatIconButton Icon="@MatIconNames.Stars" Link="https://github.com/BlazorComponents/MatBlazor" style="color: white;" target="_blank"></MatIconButton>
+    </MatSnackbarActions>
+
+</MatSnackbar>
+
+
 @functions {
+
+    bool lazySnackbarIsOpen = false;
+
     bool _navMenuOpened = true;
 
     void MenuButtonClicked()
@@ -85,6 +98,11 @@
     protected async override Task OnInitAsync()
     {
         await base.OnInitAsync();
+
+        Task.Delay(TimeSpan.FromSeconds(5))
+            .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
+
+
         navItems = new[]
         {
             new NavItem()

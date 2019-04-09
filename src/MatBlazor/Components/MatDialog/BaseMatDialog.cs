@@ -8,6 +8,9 @@ using Microsoft.JSInterop;
 
 namespace MatBlazor.Components.MatDialog
 {
+    /// <summary>
+    /// Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
+    /// </summary>
     public class BaseMatDialog : BaseMatComponent
     {
         private bool _isOpen;

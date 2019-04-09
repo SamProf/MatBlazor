@@ -1,97 +1,62 @@
-<h3 class="mat-h3">MatCheckbox</h3>
-<p class="mat-body1">
-    Checkboxes allow the user to select multiple options from a set.
-</p>
+<DocMatCheckbox></DocMatCheckbox>
 
 <h5 class="mat-h5">Example</h5>
 
 <DemoContainer>
     <Content>
         <div>
-            <MatCheckbox bind-Checked="@Checked1"></MatCheckbox> <b>@Checked1</b>
+            <MatCheckbox bind-Checked="@checked1" Label="@(getLabel(checked1))"></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox bind-Checked="@Checked2"></MatCheckbox> <b>@Checked2</b>
+            <MatCheckbox bind-Checked="@checked2" Label="@(getLabel(checked2))"></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox Disabled="true"></MatCheckbox> <b>Disabled</b>
+            <MatCheckbox Disabled="true" bind-Checked="@checked1" Label="Disabled"></MatCheckbox>
         </div>
         <div>
-            <h5>Label</h5>
-            <MatCheckbox Label="Label"></MatCheckbox><br/>
-            <MatCheckbox>Inline Label</MatCheckbox>
+            <MatCheckbox bind-Checked="@checked2">Inline Label</MatCheckbox>
         </div>
 
         @functions
         {
+            private bool checked1 = true;
+            private bool checked2 = false;
 
-            public bool Checked1
+            string getLabel(bool val)
             {
-                get => _checked1;
-                set
-                {
-                    _checked1 = value;
-                    this.StateHasChanged();
-                }
+                return !val ? "Check me!" : "Uncheck me?";
             }
 
-            public bool Checked2
-            {
-                get => _checked2;
-                set
-                {
-                    _checked2 = value;
-                    this.StateHasChanged();
-                }
-            }
-
-            private bool _checked1 = true;
-            private bool _checked2 = false;
         }
+
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <div>
-            <MatCheckbox bind-Checked=""@Checked1""></MatCheckbox> <b>@Checked1</b>
+            <MatCheckbox bind-Checked=""@checked1"" Label=""@(getLabel(checked1))""></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox bind-Checked=""@Checked2""></MatCheckbox> <b>@Checked2</b>
+            <MatCheckbox bind-Checked=""@checked2"" Label=""@(getLabel(checked2))""></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox Disabled=""true""></MatCheckbox> <b>Disabled</b>
+            <MatCheckbox Disabled=""true"" bind-Checked=""@checked1"" Label=""Disabled""></MatCheckbox>
         </div>
         <div>
-            <h5>Label</h5>
-            <MatCheckbox Label=""Label""></MatCheckbox><br/>
-            <MatCheckbox>Inline Label</MatCheckbox>
+            <MatCheckbox bind-Checked=""@checked2"">Inline Label</MatCheckbox>
         </div>
 
         @functions
         {
+            private bool checked1 = true;
+            private bool checked2 = false;
 
-            public bool Checked1
+            string getLabel(bool val)
             {
-                get => _checked1;
-                set
-                {
-                    _checked1 = value;
-                    this.StateHasChanged();
-                }
+                return !val ? ""Check me!"" : ""Uncheck me?"";
             }
 
-            public bool Checked2
-            {
-                get => _checked2;
-                set
-                {
-                    _checked2 = value;
-                    this.StateHasChanged();
-                }
-            }
-
-            private bool _checked1 = true;
-            private bool _checked2 = false;
         }
+
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

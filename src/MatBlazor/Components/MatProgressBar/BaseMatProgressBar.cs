@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatProgressBar
 {
+    /// <summary>
+    /// Progress indicators display the length of a process or express an unspecified wait time.
+    /// </summary>
     public class BaseMatProgressBar : BaseMatComponent
     {
         private double _progress;

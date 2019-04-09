@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatSlideToggle
 {
+    /// <summary>
+    /// Component for on/off control that can be toggled via clicking or dragging.
+    /// </summary>
     public class BaseMatSlideToggle : BaseMatComponent
     {
         public BaseMatSlideToggle()

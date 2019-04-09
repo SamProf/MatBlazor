@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatList
 {
+    /// <summary>
+    /// Lists present multiple line items vertically as a single continuous element. 
+    /// </summary>
     public class BaseMatList : BaseMatComponent
     {
         [Parameter]

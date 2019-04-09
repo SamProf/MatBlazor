@@ -1,8 +1,6 @@
-<h3 class="mat-h3">MatDrawer</h3>
-
-<p class="mat-body1">
-    The navigation drawer slides in from the left and contains the navigation destinations for your app.
-</p>
+<DocMatDrawer></DocMatDrawer>
+<DocMatDrawerContainer Secondary="true"></DocMatDrawerContainer>
+<DocMatDrawerContent Secondary="true"></DocMatDrawerContent>
 
 <h5 class="mat-h5">Opened</h5>
 <DemoContainer SourcePath=".\..\..\MatBlazor.Demo.App\Frames\MatDrawerPageFrame.cshtml">
@@ -11,16 +9,12 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerFrame""
-@addTagHelper *,MatBlazor
-@addTagHelper *,MatBlazor.Demo
-
 
 <MatDrawerContainer Style=""width: 100vw; height: 100vh;"">
     <MatDrawer bind-Opened=""@Opened"">
         Drawer Content
     </MatDrawer>
     <MatDrawerContent>
-
         <div>
             <MatButton OnClick=""@((e) => ButtonClicked())"">
                 @if (Opened)
@@ -34,21 +28,17 @@
             </MatButton>
         </div>
         <p>Page Content</p>
-
     </MatDrawerContent>
 </MatDrawerContainer>
 
 
 @functions
 {
-
-
     bool Opened = true;
 
     void ButtonClicked()
     {
         Opened = !Opened;
-        this.StateHasChanged();
     }
 
 }")></BlazorFiddle>
@@ -65,9 +55,6 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerModalFrame""
 @using MatBlazor.Components.MatDrawer
-@addTagHelper *,MatBlazor
-@addTagHelper *,MatBlazor.Demo
-
 
 <MatDrawerContainer Style=""width: 100vw; height: 100vh;"">
     <MatDrawer bind-Opened=""@Opened"" Mode=""@MatDrawerMode.Modal"">
@@ -78,21 +65,17 @@
             <MatButton OnClick=""@((e) => ButtonClicked())"">Open Menu</MatButton>
         </div>
         <p>Page Content</p>
-
     </MatDrawerContent>
 </MatDrawerContainer>
 
 
 @functions
 {
-
-
     bool Opened = true;
 
     void ButtonClicked()
     {
         Opened = !Opened;
-        this.StateHasChanged();
     }
 
 }")></BlazorFiddle>

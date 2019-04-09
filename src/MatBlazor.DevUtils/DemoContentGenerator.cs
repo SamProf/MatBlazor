@@ -8,12 +8,27 @@ using System.Xml;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using System.Linq;
+using MatBlazor.Components.Base;
+using MatBlazor.DevUtils.Core;
 
 namespace MatBlazor.DevUtils
 {
     [TestFixture]
     public class DemoContentGenerator
     {
+        [Test]
+        public void GenerateDocumentation()
+        {
+            
+            var config = Config.GetConfig();
+            var gen = new MatDocumenationGenerator(typeof(BaseMatComponent).Assembly,
+                Path.Combine(config.Path, "MatBlazor.Demo", "Doc"));
+            {
+            };
+            gen.Generate();
+        }
+
+
         [Test]
         public void GenerateNews()
         {

@@ -1,61 +1,109 @@
-<h3 class="mat-h3">MatDialog</h3>
-
-<p class="mat-body1">
-    Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
-</p>
+<DocMatDialog></DocMatDialog>
+<DocMatDialogTitle Secondary="true"></DocMatDialogTitle>
+<DocMatDialogContent Secondary="true"></DocMatDialogContent>
+<DocMatDialogActions Secondary="true"></DocMatDialogActions>
 
 <h5 class="mat-h5">Example</h5>
-<DemoContainer>
+
+<style>
+    .demo-mat-dialog-container li { padding: 5px; }
+</style>
+
+<DemoContainer Class="demo-mat-dialog-container">
     <Content>
-        <div>Dialog is open: @dialogIsOpen</div>
-        <MatButton OnClick="ButtonClick">Open</MatButton>
+        <ol>
+            <li>
+                <MatTextField Label="What's your name?" bind-Value="@name"></MatTextField>
+            </li>
+            <li>
+                <MatButton OnClick="@OpenDialog" Raised="true">Pick one</MatButton>
+            </li>
+            @if (animal != null)
+            {
+                <li>You chose: @animal</li>
+            }
+        </ol>
         <MatDialog bind-IsOpen="@dialogIsOpen">
-            <MatDialogTitle>Get this party started?</MatDialogTitle>
+            <MatDialogTitle>Hi @name</MatDialogTitle>
             <MatDialogContent>
-                Turn up the jams and have a good time.
+                <p>What's your favorite animal?</p>
+                <MatTextField bind-Value="@dialogAnimal"></MatTextField>
             </MatDialogContent>
             <MatDialogActions>
-                <MatButton>Decline</MatButton>
-                <MatButton>Accept</MatButton>
+                <MatButton OnClick="@(e => { dialogIsOpen = false; })">No Thanks</MatButton>
+                <MatButton OnClick="@OkClick">OK</MatButton>
             </MatDialogActions>
         </MatDialog>
 
         @functions
         {
             bool dialogIsOpen = false;
+            string name = null;
+            string animal = null;
+            string dialogAnimal = null;
 
-            void ButtonClick()
+            void OpenDialog()
             {
+                dialogAnimal = null;
                 dialogIsOpen = true;
-                this.StateHasChanged();
             }
+
+            void OkClick()
+            {
+                animal = dialogAnimal;
+                dialogIsOpen = false;
+            }
+
         }
+
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <div>Dialog is open: @dialogIsOpen</div>
-        <MatButton OnClick=""ButtonClick"">Open</MatButton>
+        <ol>
+            <li>
+                <MatTextField Label=""What's your name?"" bind-Value=""@name""></MatTextField>
+            </li>
+            <li>
+                <MatButton OnClick=""@OpenDialog"" Raised=""true"">Pick one</MatButton>
+            </li>
+            @if (animal != null)
+            {
+                <li>You chose: @animal</li>
+            }
+        </ol>
         <MatDialog bind-IsOpen=""@dialogIsOpen"">
-            <MatDialogTitle>Get this party started?</MatDialogTitle>
+            <MatDialogTitle>Hi @name</MatDialogTitle>
             <MatDialogContent>
-                Turn up the jams and have a good time.
+                <p>What's your favorite animal?</p>
+                <MatTextField bind-Value=""@dialogAnimal""></MatTextField>
             </MatDialogContent>
             <MatDialogActions>
-                <MatButton>Decline</MatButton>
-                <MatButton>Accept</MatButton>
+                <MatButton OnClick=""@(e => { dialogIsOpen = false; })"">No Thanks</MatButton>
+                <MatButton OnClick=""@OkClick"">OK</MatButton>
             </MatDialogActions>
         </MatDialog>
 
         @functions
         {
             bool dialogIsOpen = false;
+            string name = null;
+            string animal = null;
+            string dialogAnimal = null;
 
-            void ButtonClick()
+            void OpenDialog()
             {
+                dialogAnimal = null;
                 dialogIsOpen = true;
-                this.StateHasChanged();
             }
+
+            void OkClick()
+            {
+                animal = dialogAnimal;
+                dialogIsOpen = false;
+            }
+
         }
+
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

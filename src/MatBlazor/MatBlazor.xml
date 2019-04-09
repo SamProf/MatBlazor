@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MatBlazor</name>
+    </assembly>
+    <members>
+        <member name="P:MatBlazor.Components.Base.BaseMatComponent.Ref">
+            <summary>
+            Returned ElementRef reference for DOM element.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.Base.BaseMatComponent.Class">
+            <summary>
+            Specifies one or more classnames for an DOM element.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.Base.BaseMatComponent.Style">
+            <summary>
+            Specifies an inline style for an DOM element.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatAppBar.BaseMatAppBar">
+            <summary>
+            Acts as a container for items such as application title, navigation icon, and action items.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1">
+            <summary>
+            The autocomplete is a normal text input enhanced by a panel of suggested options.
+            </summary>
+            <typeparam name="ItemType">Type of element type.</typeparam>
+        </member>
+        <member name="T:MatBlazor.Components.MatButton.BaseMatButton">
+            <summary>
+            Buttons communicate an action a user can take.
+            They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.OnClick">
+            <summary>
+             Event occurs when the user clicks on an element.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Command">
+            <summary>
+             Command executed when the user clicks on an element.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.CommandParameter">
+            <summary>
+             Command parameter.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Raised">
+            <summary>
+            Button has raised style.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Unelevated">
+            <summary>
+            Button has unelevated style.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Outlined">
+            <summary>
+            Button has outlined style.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Dense">
+            <summary>
+            Button has dense style.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Disabled">
+            <summary>
+            Button is disabled.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Icon">
+            <summary>
+            Specifies an button's icon.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.TrailingIcon">
+            <summary>
+            Specifies if icon has trailing position.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Label">
+            <summary>
+            Text label of Button.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.ChildContent">
+            <summary>
+            Inline label of Button.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatCard.BaseMatCard">
+            <summary>
+            Cards contain content and actions about a single subject.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatCheckbox.BaseMatCheckbox">
+            <summary>
+            Checkboxes allow the user to select multiple options from a set.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatChip.BaseMatChip">
+            <summary>
+            Chips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatDialog.BaseMatDialog">
+            <summary>
+            Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatDivider.BaseMatDivider">
+            <summary>
+            MatDivider is a component that allows for Material styling of a line separator with various orientation options. 
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatDrawer.BaseMatDrawer">
+            <summary>
+            The navigation drawer slides in from the left and contains the navigation destinations for your app.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatIconButton.BaseMatIconButton">
+            <summary>
+            Icons are appropriate for buttons that allow a user to take actions or make a selection, such as adding or removing a star to an item.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatIcon.BaseMatIcon">
+            <summary>
+            Makes it easier to use vector-based icons in your app.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatList.BaseMatList">
+            <summary>
+            Lists present multiple line items vertically as a single continuous element. 
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatMenu.BaseMatMenu">
+            <summary>
+            Menus display a list of choices on a transient sheet of material.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatProgressBar.BaseMatProgressBar">
+            <summary>
+            Progress indicators display the length of a process or express an unspecified wait time.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatRadioButton.BaseMatRadioButton">
+            <summary>
+            Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatRipple.BaseMatRipple">
+            <summary>
+            Ripples are visual representations used to communicate the status of a component or interactive element. 
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatSelect.BaseMatSelect">
+            <summary>
+            Selects allow users to select from a single-option menu. It functions as a wrapper around the browser's native select element.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatSlider.BaseMatSlider">
+            <summary>
+            Sliders let users select from a range of values by moving the slider thumb. 
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatSlideToggle.BaseMatSlideToggle">
+            <summary>
+            Component for on/off control that can be toggled via clicking or dragging.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatSnackbar.BaseMatSnackbar">
+            <summary>
+            Snackbars provide brief messages about app processes at the bottom of the screen.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.Components.MatTextField.BaseMatTextField">
+            <summary>
+            Text fields allow users to input, edit, and select text.
+            </summary>
+        </member>
+    </members>
+</doc>

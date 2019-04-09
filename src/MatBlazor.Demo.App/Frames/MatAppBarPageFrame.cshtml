@@ -1,9 +1,5 @@
 ﻿@page "/MatAppBarFrame"
-@inject IJSRuntime JsRuntime
 @using MatBlazor.Components.MatAppBar
-@using Microsoft.AspNetCore.Components
-@addTagHelper *,MatBlazor
-@addTagHelper *,MatBlazor.Demo
 
 
 <MatAppBar Fixed="true">
@@ -12,16 +8,8 @@
             <MatIconButton Icon="menu"></MatIconButton>
             <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
         </MatAppBarSection>
-        <MatAppBarSection Align="MatAppBarSectionAlign.End">
-            <MatIconButton Icon="favorite" OnClick="@RunOnClick"></MatIconButton>
+        <MatAppBarSection Align="@MatAppBarSectionAlign.End">
+            <MatIconButton Icon="favorite"></MatIconButton>
         </MatAppBarSection>
     </MatAppBarRow>
 </MatAppBar>
-
-@functions
-{
-    void RunOnClick(UIMouseEventArgs e)
-    {
-        JsRuntime.InvokeAsync<object>("window.alert", "Test");
-    }
-}

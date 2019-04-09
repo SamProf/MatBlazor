@@ -9,6 +9,9 @@ using Microsoft.JSInterop;
 
 namespace MatBlazor.Components.MatSlider
 {
+    /// <summary>
+    /// Sliders let users select from a range of values by moving the slider thumb. 
+    /// </summary>
     public class BaseMatSlider : BaseMatComponent
     {
         protected JsHelper jsHelper;

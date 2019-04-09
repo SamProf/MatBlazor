@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatRadioButton
 {
+    /// <summary>
+    /// Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
+    /// </summary>
     public class BaseMatRadioButton : BaseMatComponent
     {
         [CascadingParameter]

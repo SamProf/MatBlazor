@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatCard
 {
+    /// <summary>
+    /// Cards contain content and actions about a single subject.
+    /// </summary>
     public class BaseMatCard : BaseMatComponent
     {
-
         public BaseMatCard()
         {
             ClassMapper

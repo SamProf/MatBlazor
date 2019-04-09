@@ -1,13 +1,23 @@
-## MatBlazor - Material Design components for Blazor and Razor Components
+# ![MatBlazor](content/matblazor.png)
+
+## Material Design components for Blazor and Razor Components
 [![NuGet](https://img.shields.io/nuget/v/MatBlazor.svg)](https://www.nuget.org/packages/MatBlazor/)
+[![GitHub Stars](https://img.shields.io/github/stars/blazorcomponents/matblazor.svg)](https://github.com/BlazorComponents/MatBlazor/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/blazorcomponents/matblazor.svg)](https://github.com/BlazorComponents/MatBlazor/issues)
+[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://www.matblazor.com)
+[![MIT](https://img.shields.io/github/license/BlazorComponents/MatBlazor.svg)](LICENSE)
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url)
 
 MatBlazor comprises a range of components which implement common interaction patterns according to the Material Design specification.
 
-If you like the idea of this repo leave your feedback as an issue or star the repo or let me know on.
 
 ## Demo and Documentation
-https://www.matblazor.com
+- [MatBlazor documentation and demo website](https://www.matblazor.com)
+- [BlazorFiddle example](https://blazorfiddle.com/s/matblazor-news-client)
+
+
+![](content/demo-blazor-news-client.png)
+
 
 
 ## Prerequisites
@@ -23,7 +33,7 @@ Complete all Blazor 0.9  dependencies.
 
 ## Installation 
 
-![NuGet](https://img.shields.io/nuget/v/MatBlazor.svg)
+Latest version in here:  [![NuGet](https://img.shields.io/nuget/v/MatBlazor.svg)](https://www.nuget.org/packages/MatBlazor/)
 
 
 To Install 
@@ -37,15 +47,61 @@ dotnet add package MatBlazor
 ```
 
 ## MatBlazor components for Razor Components
-At the beginning of the your application, usually in MainLayout.cshtml please add MatBlazorInstall component
-```
+At the beginning of the your Blazor application, usually in `MainLayout.cshtml` please add `<MatBlazorInstall/>` component
+```html
 <MatBlazorInstall />
 ```
+
+
+## Usage
+
+![MatBlazor Buttons Example](content/matblazor-buttons.png)
+
+```html
+<MatButton OnClick="@Click">Text @ButtonState</MatButton>
+<MatButton Raised="true">Raised</MatButton>
+<MatButton Unelevated="true">Unelevated</MatButton>
+<MatButton Outlined="true">Outlined</MatButton>
+<MatButton Dense="true">Dense</MatButton> 
+
+@functions
+{
+  string ButtonState = "";
+  void Click(UIMouseEventArgs e)
+  {
+    ButtonState = "Clicked";
+  }
+} 
+```
+
+
+## Questions
+
+For *how-to* questions and other non-issues, for now you can use issues.
+
+## Contributing
+
+We'd greatly appreciate any contribution you make. :)
+
+## Roadmap
+
+In the near future we plan to maximize the count and features of the components inspired by other frameworks like Angular Material, React Material UI and Vue Material.
+
+## License
+
+This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
 ### In progress
 - New component MatTabBar
+
+### MatBlazor 0.9.0
+- Creating partial documentation for all components (autogeneration)
+- Improved many examples
+- Improved homepage, components page design, README.md
+- Change of versioning policy is similar to Blazor
+- Fixed MatTextBox FullWidth Padding / Icon Fix #43 #51 (enkodellc)
 
 ### MatBlazor 0.6.17
 - Fixed Select is showing native arrow? #48 (sandrohanea)

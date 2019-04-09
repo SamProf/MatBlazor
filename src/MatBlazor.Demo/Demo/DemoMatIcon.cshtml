@@ -1,10 +1,6 @@
-<h3 class="mat-h3">MatIcon</h3>
+<DocMatIcon></DocMatIcon>
 
-<p class="mat-body1">
-    MatIcon makes it easier to use vector-based icons in your app.
-</p>
-
-<h5 class="mat-h5">Use Examples</h5>
+<h5 class="mat-h5">Examples</h5>
 
 <DemoContainer>
     <Content>
@@ -34,19 +30,40 @@
 
 <h5 class="mat-h5">All material icons for MatBlazor</h5>
 
+<style>
+    .demo-mat-icon-cat h4{
+        padding-top: 20px;
+        padding-left: 20px;
+    }
+
+    .demo-mat-icon-icon-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .demo-mat-icon-icon-item {
+        width: 250px;
+        height: 80px;
+        text-align: center;
+        display: inline-block;
+    }
+</style>
+
 @foreach (var cat in MatIconCategories.Data)
 {
-    <h4>@cat.Name</h4>
-    <div style="display: flex; flex-direction: row; width: 100%; max-width: 100%; flex-wrap: wrap;">
+    <div class="mat-elevation-z5 demo-mat-icon-cat">
+        <h4 class="mat-h6">@cat.Name</h4>
+        <div class="demo-mat-icon-icon-container">
 
-        @foreach (var icon in cat.Icons)
-        {
-            <div style="width: 250px; height: 80px; text-align: center;">
-                <div>
-                    <MatIcon Icon="@icon.Id"></MatIcon>
+            @foreach (var icon in cat.Icons)
+            {
+                <div class="demo-mat-icon-icon-item">
+                    <div>
+                        <MatIcon Icon="@icon.Id"></MatIcon>
+                    </div>
+                    <div>@icon.Id</div>
                 </div>
-                <div>@icon.Id</div>
-            </div>
-        }
+            }
+        </div>
     </div>
 }

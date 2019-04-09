@@ -9,6 +9,9 @@ using Microsoft.JSInterop;
 
 namespace MatBlazor.Components.MatDrawer
 {
+    /// <summary>
+    /// The navigation drawer slides in from the left and contains the navigation destinations for your app.
+    /// </summary>
     public class BaseMatDrawer : BaseMatComponent
     {
         private bool _opened;
@@ -55,6 +58,7 @@ namespace MatBlazor.Components.MatDrawer
 
             ClassMapper
                 .Add("mdc-drawer")
+                .Add("mat-drawer")
                 .If("mdc-drawer--dismissible", () => Mode == MatDrawerMode.Dismissible)
                 .If("mdc-drawer--modal", () => Mode == MatDrawerMode.Modal);
 

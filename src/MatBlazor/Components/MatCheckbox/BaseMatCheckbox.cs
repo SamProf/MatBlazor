@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatCheckbox
 {
+    /// <summary>
+    /// Checkboxes allow the user to select multiple options from a set.
+    /// </summary>
     public class BaseMatCheckbox : BaseMatComponent
     {
         protected ElementRef FormFieldRef;
@@ -48,7 +51,6 @@ namespace MatBlazor.Components.MatCheckbox
         {
             await base.OnFirstAfterRenderAsync();
             await Js.InvokeAsync<object>("matBlazor.matCheckbox.init", Ref, FormFieldRef);
-
         }
     }
 }

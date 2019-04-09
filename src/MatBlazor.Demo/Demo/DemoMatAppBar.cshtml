@@ -1,8 +1,7 @@
-<h3 class="mat-h3">MatAppBar</h3>
-
-<p class="mat-body1">
-    MatAppBar are a container for items such as application title, navigation icon, and action items.
-</p>
+<DocMatAppBar></DocMatAppBar>
+<DocMatAppBarRow Secondary="true"></DocMatAppBarRow>
+<DocMatAppBarSection Secondary="true"></DocMatAppBarSection>
+<DocMatAppBarTitle Secondary="true"></DocMatAppBarTitle>
 
 <h5 class="mat-h5">Example</h5>
 
@@ -12,11 +11,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatAppBarFrame""
-@inject IJSRuntime JsRuntime
 @using MatBlazor.Components.MatAppBar
-@using Microsoft.AspNetCore.Components
-@addTagHelper *,MatBlazor
-@addTagHelper *,MatBlazor.Demo
 
 
 <MatAppBar Fixed=""true"">
@@ -25,19 +20,11 @@
             <MatIconButton Icon=""menu""></MatIconButton>
             <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
         </MatAppBarSection>
-        <MatAppBarSection Align=""MatAppBarSectionAlign.End"">
-            <MatIconButton Icon=""favorite"" OnClick=""@RunOnClick""></MatIconButton>
+        <MatAppBarSection Align=""@MatAppBarSectionAlign.End"">
+            <MatIconButton Icon=""favorite""></MatIconButton>
         </MatAppBarSection>
     </MatAppBarRow>
-</MatAppBar>
-
-@functions
-{
-    void RunOnClick(UIMouseEventArgs e)
-    {
-        JsRuntime.InvokeAsync<object>(""window.alert"", ""Test"");
-    }
-}")></BlazorFiddle>
+</MatAppBar>")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 

@@ -8,6 +8,9 @@ using Microsoft.JSInterop;
 
 namespace MatBlazor.Components.MatRipple
 {
+    /// <summary>
+    /// Ripples are visual representations used to communicate the status of a component or interactive element. 
+    /// </summary>
     public class BaseMatRipple : BaseMatComponent
     {
         [Parameter]

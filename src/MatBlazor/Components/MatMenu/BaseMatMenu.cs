@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatMenu
 {
+    /// <summary>
+    /// Menus display a list of choices on a transient sheet of material.
+    /// </summary>
     public class BaseMatMenu : BaseMatComponent
     {
         private bool _opened;

@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatChip
 {
+    /// <summary>
+    /// Chips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.
+    /// </summary>
     public class BaseMatChip : BaseMatComponent
     {
         [Parameter]

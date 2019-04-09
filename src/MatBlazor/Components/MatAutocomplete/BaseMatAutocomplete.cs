@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace MatBlazor.Components.MatAutocomplete
 {
+    /// <summary>
+    /// The autocomplete is a normal text input enhanced by a panel of suggested options.
+    /// </summary>
+    /// <typeparam name="ItemType">Type of element type.</typeparam>
     public class BaseMatAutocomplete<ItemType> : BaseMatComponent
     {
         protected const int DefaultsElementsInPopup = 10;
@@ -66,7 +70,7 @@ namespace MatBlazor.Components.MatAutocomplete
                 OnStringValueChanged.InvokeAsync(value);
             }
         }
-
+       
         [Parameter]
         protected ItemType Value
         {

@@ -1,14 +1,10 @@
 ﻿@page "/MatDrawerFrame"
-@addTagHelper *,MatBlazor
-@addTagHelper *,MatBlazor.Demo
-
 
 <MatDrawerContainer Style="width: 100vw; height: 100vh;">
     <MatDrawer bind-Opened="@Opened">
         Drawer Content
     </MatDrawer>
     <MatDrawerContent>
-
         <div>
             <MatButton OnClick="@((e) => ButtonClicked())">
                 @if (Opened)
@@ -22,21 +18,17 @@
             </MatButton>
         </div>
         <p>Page Content</p>
-
     </MatDrawerContent>
 </MatDrawerContainer>
 
 
 @functions
 {
-
-
     bool Opened = true;
 
     void ButtonClicked()
     {
         Opened = !Opened;
-        this.StateHasChanged();
     }
 
 }

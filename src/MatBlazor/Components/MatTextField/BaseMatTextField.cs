@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatTextField
 {
+    /// <summary>
+    /// Text fields allow users to input, edit, and select text.
+    /// </summary>
     public class BaseMatTextField : BaseMatComponent
     {
         [Parameter]

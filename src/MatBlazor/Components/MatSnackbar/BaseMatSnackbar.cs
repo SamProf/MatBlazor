@@ -5,6 +5,9 @@ using Microsoft.JSInterop;
 
 namespace MatBlazor.Components.MatSnackbar
 {
+    /// <summary>
+    /// Snackbars provide brief messages about app processes at the bottom of the screen.
+    /// </summary>
     public class BaseMatSnackbar : BaseMatComponent
     {
         private bool _isOpen;

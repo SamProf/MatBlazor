@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatIconButton
 {
+    /// <summary>
+    /// Icons are appropriate for buttons that allow a user to take actions or make a selection, such as adding or removing a star to an item.
+    /// </summary>
     public class BaseMatIconButton : BaseMatComponent
     {
         [Parameter]

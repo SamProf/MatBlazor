@@ -10,6 +10,10 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatButton
 {
+    /// <summary>
+    /// Buttons communicate an action a user can take.
+    /// They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
+    /// </summary>
     public class BaseMatButton : BaseMatComponent
     {
         protected async override Task OnFirstAfterRenderAsync()
@@ -28,16 +32,28 @@ namespace MatBlazor.Components.MatButton
                 .If("mdc-button--dense", () => this.Dense);
         }
 
+        /// <summary>
+        ///  Event occurs when the user clicks on an element.
+        /// </summary>
         [Parameter]
         protected EventCallback<UIMouseEventArgs> OnClick { get; set; }
 
+        /// <summary>
+        ///  Command executed when the user clicks on an element.
+        /// </summary>
         [Parameter]
         protected ICommand Command { get; set; }
 
-               
+
+        /// <summary>
+        ///  Command parameter.
+        /// </summary>
         [Parameter]
         protected object CommandParameter { get; set; }
 
+        /// <summary>
+        /// Button has raised style.
+        /// </summary>
         [Parameter]
         public bool Raised
         {
@@ -49,6 +65,9 @@ namespace MatBlazor.Components.MatButton
             }
         }
 
+        /// <summary>
+        /// Button has unelevated style.
+        /// </summary>
         [Parameter]
         public bool Unelevated
         {
@@ -60,6 +79,9 @@ namespace MatBlazor.Components.MatButton
             }
         }
 
+        /// <summary>
+        /// Button has outlined style.
+        /// </summary>
         [Parameter]
         public bool Outlined
         {
@@ -70,6 +92,10 @@ namespace MatBlazor.Components.MatButton
                 ClassMapper.MakeDirty();
             }
         }
+
+        /// <summary>
+        /// Button has dense style.
+        /// </summary>
 
         [Parameter]
         public bool Dense
@@ -82,6 +108,9 @@ namespace MatBlazor.Components.MatButton
             }
         }
 
+        /// <summary>
+        /// Button is disabled.
+        /// </summary>
         [Parameter]
         public bool Disabled
         {
@@ -93,7 +122,9 @@ namespace MatBlazor.Components.MatButton
             }
         }
 
-
+        /// <summary>
+        /// Specifies an button's icon.
+        /// </summary>
         [Parameter]
         public string Icon
         {
@@ -105,9 +136,15 @@ namespace MatBlazor.Components.MatButton
             }
         }
 
+        /// <summary>
+        /// Specifies if icon has trailing position.
+        /// </summary>
         [Parameter]
         public string TrailingIcon { get; set; }
 
+        /// <summary>
+        /// Text label of Button.
+        /// </summary>
         [Parameter]
         public string Label
         {
@@ -120,13 +157,16 @@ namespace MatBlazor.Components.MatButton
         }
 
 
+        /// <summary>
+        /// Inline label of Button.
+        /// </summary>
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 
         protected void OnClickHandler(UIMouseEventArgs ev)
         {
             OnClick.InvokeAsync(ev);
-            if(Command?.CanExecute(CommandParameter) ?? false)
+            if (Command?.CanExecute(CommandParameter) ?? false)
             {
                 Command.Execute(CommandParameter);
             }

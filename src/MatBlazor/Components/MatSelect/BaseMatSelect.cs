@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatSelect
 {
+    /// <summary>
+    /// Selects allow users to select from a single-option menu. It functions as a wrapper around the browser's native select element.
+    /// </summary>
     public class BaseMatSelect : BaseMatComponent
     {
         private string _value;

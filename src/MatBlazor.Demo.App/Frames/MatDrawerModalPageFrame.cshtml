@@ -1,8 +1,5 @@
 ﻿@page "/MatDrawerModalFrame"
 @using MatBlazor.Components.MatDrawer
-@addTagHelper *,MatBlazor
-@addTagHelper *,MatBlazor.Demo
-
 
 <MatDrawerContainer Style="width: 100vw; height: 100vh;">
     <MatDrawer bind-Opened="@Opened" Mode="@MatDrawerMode.Modal">
@@ -13,21 +10,17 @@
             <MatButton OnClick="@((e) => ButtonClicked())">Open Menu</MatButton>
         </div>
         <p>Page Content</p>
-
     </MatDrawerContent>
 </MatDrawerContainer>
 
 
 @functions
 {
-
-
     bool Opened = true;
 
     void ButtonClicked()
     {
         Opened = !Opened;
-        this.StateHasChanged();
     }
 
 }

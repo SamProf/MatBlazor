@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Components.MatIcon
 {
+    /// <summary>
+    /// Makes it easier to use vector-based icons in your app.
+    /// </summary>
     public class BaseMatIcon : BaseMatComponent
     {
 

@@ -2,51 +2,86 @@
 
 
 <h1 class="mat-h1">MatBlazor</h1>
-<h4 class="mat-h4">Material Design components for Blazor and Blazor Components.</h4>
-
-<h5 class="mat-h5">Installation</h5>
-
-<p>
-    Install MatBlazor library via nuget.
-</p>
-
-<p>
-    <code>
-        Install-Package MatBlazor
-    </code>
-</p>
-<p>
-    or
-</p>
-<p>
-    <code>
-        dotnet add package MatBlazor
-    </code>
-</p>
+<h4 class="mat-h4">Material Design components for Blazor and Razor Components.</h4>
+<div>
+    <a href="https://www.nuget.org/packages/MatBlazor/" target="_blank">
+        <img src="https://img.shields.io/nuget/v/MatBlazor.svg"/>
+    </a>
+    <a href="https://github.com/BlazorComponents/MatBlazor" target="_blank">
+        <img src="https://img.shields.io/github/stars/blazorcomponents/matblazor.svg"/>
+    </a>
+    <a href="https://github.com/BlazorComponents/MatBlazor/issues" target="_blank">
+        <img src="https://img.shields.io/github/issues/blazorcomponents/matblazor.svg"/>
+    </a>
+    <a href="https://github.com/BlazorComponents/MatBlazor/blob/master/LICENSE" target="_blank">
+        <img src="https://img.shields.io/github/license/BlazorComponents/MatBlazor.svg"/>
+    </a>
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url" target="_blank" style="margin-left: 5px;">
+        <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"/>
+    </a>
+</div>
 
 
-<h5 class="mat-h5">Usage</h5>
+<style>
+    .index-row-container {
+        display: flex;
+        flex-direction: row;
+    }
 
 
-<p>
-    MatBlazor components are self-supporting.
-</p>
+    .index-row-container .index-row-item {
+        flex: 1;
+        padding: 20px;
+        margin: 20px;
+    }
+</style>
 
-<p>
-    <BlazorFiddle Template="MatBlazor" Code=@(@"@addTagHelper *,MatBlazor
+<div class="index-row-container">
+    <div class="index-row-item mat-elevation-z5">
+        <h5 class="mat-h5">Installation</h5>
+
+        <p>
+            Install MatBlazor library via nuget.
+        </p>
+
+        <p>
+            <code>
+                Install-Package MatBlazor
+            </code>
+        </p>
+        <p>
+            or
+        </p>
+        <p>
+            <code>
+                dotnet add package MatBlazor
+            </code>
+        </p>
+    </div>
+    
+    <div class="index-row-item mat-elevation-z5">
+        <h5 class="mat-h5">Usage</h5>
+        <p>
+            MatBlazor components are self-supporting.
+        </p>
+
+        <p>
+            <BlazorFiddle Template="MatBlazor" Code=@(@"@addTagHelper *,MatBlazor
 <MatButton>Test</MatButton>")>
-    </BlazorFiddle>
-</p>
+            </BlazorFiddle>
+        </p>
 
-<h5 class="mat-h5">MatBlazor components for Razor Components</h5>
+        <h5 class="mat-h5">MatBlazor components for Razor Components</h5>
 
 
-<p>
-    At the beginning of the your application, usually in MainLayout.cshtml please add MatBlazorInstall component
-    <BlazorFiddle Template="MatBlazor" Code=@(@"<MatBlazorInstall />")>
-    </BlazorFiddle>
-</p>
+        <p>
+            At the beginning of the your application, usually in MainLayout.cshtml please add MatBlazorInstall component
+            <BlazorFiddle Template="MatBlazor" Code=@(@"<MatBlazorInstall />")>
+            </BlazorFiddle>
+        </p>
 
+    </div>
+</div>
 
 <div class="">
     <News></News>
