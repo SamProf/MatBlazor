@@ -2,9 +2,9 @@
 @using System.Collections;
 @typeparam ItemType
 
-<div class="mat-autocomplete-wrapper">
+<div class="@WrapperClassMapper.Class">
     <MatTextField Icon="@Icon" OnFocus="@OpenPopup" HideClearButton="true" FullWidth="@FullWidth" OnFocusOut="@ClosePopup" Label="@Label" Value=@StringValue OnInput=@OnValueChanged Outlined="@Outlined"></MatTextField>
-    @if (ShowClearButton)
+    @if (IsShowingClearButton)
     {
         <div class="mat-autocomplete-clearbutton">
             <MatIconButton Icon="clear" OnMouseDown="@ClearText"></MatIconButton>
@@ -14,7 +14,7 @@
     {
         <div class="mat-autocomplete-popup">
             <MatList SingleSelection="true">
-                @foreach (var elementWrapper in FilteredCollection)
+                @foreach (var elementWrapper in GetFilteredCollection(StringValue))
                 {
                 <MatListItem OnMouseDown="@((e) => ItemClicked(elementWrapper.Element))">
                     @if (ItemTemplate != null)
