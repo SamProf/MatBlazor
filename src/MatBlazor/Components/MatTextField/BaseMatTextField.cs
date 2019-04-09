@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -107,6 +107,8 @@ namespace MatBlazor.Components.MatTextField
                 .If("mdc-text-field--outlined", () => !this.FullWidth && this.Outlined)
                 .If("mdc-text-field--disabled", () => this.Disabled)
                 .If("mdc-text-field--fullwidth", () => this.FullWidth)
+                .If("mdc-text-field--fullwidth-with-leading-icon", () => this.FullWidth && this.Icon != null && !this.IconTrailing)
+                .If("mdc-text-field--fullwidth-with-trailing-icon", () => this.FullWidth && this.Icon != null && this.IconTrailing)
                 .If("mdc-text-field--textarea", () => this.TextArea);
 
             LabelClassMapper

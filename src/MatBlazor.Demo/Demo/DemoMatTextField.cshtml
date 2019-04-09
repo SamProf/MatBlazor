@@ -459,10 +459,16 @@
 <DemoContainer>
     <Content>
         <p>
-            <MatTextField bind-Value="@MyString8" Label="Standard" FullWidth="true"></MatTextField>
+            <MatTextField bind-Value="@MyString8" Label="Full Width" FullWidth="true"></MatTextField>
         </p>
         <p>
             <MatTextField bind-Value="@MyString8" Dense="true" Label="Dense" FullWidth="true"></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-value="@MyString8" Label="Leading Icon" Icon="mail_outline" FullWidth="true" Required="true"></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-value="@MyString8" Label="Trailing Icon - Password" Icon="lock_outline" IconTrailing="true" FullWidth="true" Required="true" Type="password"></MatTextField>
         </p>
         <p>
             <div class="text-field-container">
@@ -490,10 +496,16 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            <MatTextField bind-Value=""@MyString8"" Label=""Standard"" FullWidth=""true""></MatTextField>
+            <MatTextField bind-Value=""@MyString8"" Label=""Full Width"" FullWidth=""true""></MatTextField>
         </p>
         <p>
             <MatTextField bind-Value=""@MyString8"" Dense=""true"" Label=""Dense"" FullWidth=""true""></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-value=""@MyString8"" Label=""Leading Icon"" Icon=""mail_outline"" FullWidth=""true"" Required=""true""></MatTextField>
+        </p>
+        <p>
+            <MatTextField bind-value=""@MyString8"" Label=""Trailing Icon - Passowrd"" Icon=""lock_outline"" IconTrailing=""true"" FullWidth=""true"" Required=""true"" Type=""password""></MatTextField>
         </p>
         <p>
             <div class=""text-field-container"">
