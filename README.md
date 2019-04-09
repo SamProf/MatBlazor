@@ -95,6 +95,7 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ### In progress
 - New component MatTabBar
+- Fixed #50 Autocomplete FullWidth + #52
 
 ### MatBlazor 0.9.0
 - Creating partial documentation for all components (autogeneration)
