@@ -25,8 +25,58 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatAutocomplete Collection=""@options"" ItemType=""string"" Label=""Pick one""></MatAutocomplete>
+
+        @functions
+        {
+
+            string[] options = new[]
+            {
+                ""One"",
+                ""Two"",
+                ""Three""
+            };
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Icon</h5>
+<DemoContainer>
+    <Content>
+        <MatAutocomplete Collection="@options" Icon="thumb_up_alt" ItemType="string" Label="Pick one"></MatAutocomplete>
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatAutocomplete Collection=""@options"" Icon=""thumb_up_alt"" ItemType=""string"" Label=""Pick one""></MatAutocomplete>
+
+        @functions
+        {
+
+            string[] options = new[]
+            {
+                ""One"",
+                ""Two"",
+                ""Three""
+            };
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Clear Button</h5>
+<DemoContainer>
+    <Content>
+        <MatAutocomplete Collection="@options" Value="@options[0]" ShowClearButton="true" Icon="thumb_up_alt" ItemType="string" Label="Pick one"></MatAutocomplete>
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatAutocomplete Collection=""@options"" Icon=""thumb_up_alt"" ShowClearButton=""true"" ItemType=""string"" Label=""Pick one""></MatAutocomplete>
 
         @functions
         {
@@ -86,7 +136,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatAutocomplete Collection=""@options2"" ItemType=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"">
             <ItemTemplate>
                 <div style=""display: flex; flex-direction: row; width: 100%;"">
@@ -127,3 +177,60 @@
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
+
+
+<h5 class="mat-h5">With Full Width</h5>
+<DemoContainer>
+    <Content>
+        <MatAutocomplete Collection="@options2" FullWidth="true" ItemType="Car" Label="Select car" CustomStringSelector="@(i => i.Name)">
+            <ItemTemplate>
+                <div style="display: flex; flex-direction: row; width: 100%;">
+                    <div style="flex: 1;">@context.Name</div>
+                    <div style="width: 150px;">@context.Price$</div>
+                </div>
+            </ItemTemplate>
+        </MatAutocomplete>
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatAutocomplete Collection=""@options2"" FullWidth=""true"" ItemType=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"">
+            <ItemTemplate>
+                <div style=""display: flex; flex-direction: row; width: 100%;"">
+                    <div style=""flex: 1;"">@context.Name</div>
+                    <div style=""width: 150px;"">@context.Price$</div>
+                </div>
+            </ItemTemplate>
+        </MatAutocomplete>
+
+        @functions
+        {
+
+            public class Car
+            {
+                public string Name { get; set; }
+                public double Price { get; set; }
+
+                public Car(string name, double price)
+                {
+                    Name = name;
+                    Price = price;
+                }
+            }
+
+            Car[] options2 = new[]
+            {
+                new Car(""Volkswagen Golf"", 10000),
+                new Car(""Volkswagen Passat"", 11000),
+                new Car(""Volkswagen Polo"", 12000),
+                new Car(""Ford Focus"", 13000),
+                new Car(""Ford Fiesta"", 14000),
+                new Car(""Ford Fusion"", 15000),
+                new Car(""Ford Mondeo"", 16000),
+            };
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+

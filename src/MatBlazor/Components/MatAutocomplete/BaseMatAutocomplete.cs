@@ -1,4 +1,5 @@
 ﻿using MatBlazor.Components.Base;
+using MatBlazor.Helpers;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections;
@@ -15,19 +16,21 @@ namespace MatBlazor.Components.MatAutocomplete
         private string stringValue;
         private ItemType _value;
 
-        protected IEnumerable<AutocompleteElementWrapper<ItemType>> FilteredCollection
+        protected IEnumerable<AutocompleteElementWrapper<ItemType>> GetFilteredCollection(string searchText)
         {
-            get
+            return Collection.Select(x => new AutocompleteElementWrapper<ItemType>()
             {
-                return Collection.Select(x => new AutocompleteElementWrapper<ItemType>()
-                {
-                    StringValue = ComputeStringValue(x),
-                    Element = x
-                })
-                .Where(x => x != null &&
-                (string.IsNullOrEmpty(StringValue) || x.StringValue.ToLowerInvariant().Contains(StringValue.ToLowerInvariant())))
-                .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup);
-            }
+                StringValue = ComputeStringValue(x),
+                Element = x
+            })
+            .Where(x => x != null &&
+            (string.IsNullOrEmpty(searchText) || x.StringValue.ToLowerInvariant().Contains(searchText.ToLowerInvariant())))
+            .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup);
+        }
+
+        protected bool IsShowingClearButton
+        {
+            get => ShowClearButton && !string.IsNullOrEmpty(this.StringValue);
         }
 
         public bool IsOpened
@@ -77,6 +80,7 @@ namespace MatBlazor.Components.MatAutocomplete
             set
             {
                 _value = value;
+                StringValue = Value == null && !AllowFreeText ? string.Empty : ComputeStringValue(Value);
                 ValueChanged.InvokeAsync(_value);
             }
         }
@@ -126,28 +130,29 @@ namespace MatBlazor.Components.MatAutocomplete
 
         public void OnValueChanged(UIChangeEventArgs ev)
         {
-            StringValue = (string)ev.Value;
-            var filteredWrapper = FilteredCollection.FirstOrDefault();
+            var filteredWrapper = GetFilteredCollection((string)ev.Value).FirstOrDefault();
             Value = filteredWrapper != null ? filteredWrapper.Element : (default);
-            if (Value == null && !AllowFreeText)
-            {
-                StringValue = string.Empty;
-            }
             StateHasChanged();
         }
 
         public void ItemClicked(ItemType selectedObject)
         {
             Value = selectedObject;
-            StringValue = ComputeStringValue(Value);
             StateHasChanged();
         }
 
         public void ClearText(UIMouseEventArgs e)
         {
-            StringValue = "";
             Value = default;
             StateHasChanged();
+        }
+
+        protected ClassMapper WrapperClassMapper = new ClassMapper();
+
+        public BaseMatAutocomplete()
+        {
+            WrapperClassMapper.Add("mat-autocomplete-wrapper")
+                              .If("mat-autocomplete-wrapper-fullwidth", () => FullWidth);
         }
 
         private string ComputeStringValue(ItemType obj)
