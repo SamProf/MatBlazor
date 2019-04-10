@@ -24,7 +24,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\SamProf\Projects\MatBlazor\src\MatBlazor\MatBlazor.xml</DocumentationFile>
+    <DocumentationFile>\MatBlazor\src\MatBlazor\MatBlazor.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
