@@ -20,11 +20,6 @@
 		<td>Type of element type.</td>
 	</tr>
 	<tr>
-		<td>AllowFreeText</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
 		<td>Class</td>
 		<td>String</td>
 		<td>Specifies one or more classnames for an DOM element.</td>
@@ -32,67 +27,62 @@
 	<tr>
 		<td>Collection</td>
 		<td>IEnumerable&lt;ItemType&gt;</td>
-		<td></td>
+		<td>The collection which should be rendered and filtered</td>
 	</tr>
 	<tr>
 		<td>CustomStringSelector</td>
 		<td>Func&lt;ItemType,String&gt;</td>
-		<td></td>
+		<td>This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.</td>
 	</tr>
 	<tr>
 		<td>FullWidth</td>
 		<td>Boolean</td>
-		<td></td>
+		<td>This value indicates if the textfield and the dialog will be or not displayed in the full screen, the default value is false</td>
 	</tr>
 	<tr>
 		<td>Icon</td>
 		<td>String</td>
-		<td></td>
+		<td>The Icon displayed as the leading icon for the TextField</td>
 	</tr>
 	<tr>
 		<td>ItemTemplate</td>
 		<td>RenderFragment&lt;ItemType&gt;</td>
-		<td></td>
+		<td>ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..</td>
 	</tr>
 	<tr>
 		<td>Label</td>
 		<td>String</td>
-		<td></td>
+		<td>The label of the TextField</td>
 	</tr>
 	<tr>
 		<td>NumberOfElementsInPopup</td>
 		<td>Nullable&lt;Int32&gt;</td>
-		<td></td>
+		<td>Maximum number of elements displayed in the popup</td>
 	</tr>
 	<tr>
 		<td>OnOpenedChanged</td>
 		<td>EventCallback&lt;Boolean&gt;</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>OnStringValueChanged</td>
-		<td>EventCallback&lt;String&gt;</td>
-		<td></td>
+		<td>OnOpenedChanged is fired when the popup dialog is opened or close and the parameter indicates whenever is it open, the default value is false</td>
 	</tr>
 	<tr>
 		<td>OnTextChanged</td>
 		<td>EventCallback&lt;String&gt;</td>
-		<td></td>
+		<td>OnTextChanged is fired when the string value is changed(when an input occurs in the textfield or when an item is selected)</td>
 	</tr>
 	<tr>
 		<td>Outlined</td>
 		<td>Boolean</td>
-		<td></td>
+		<td>If this parameter is true then the style of the textbox is outlined see `MatTextfield`</td>
 	</tr>
 	<tr>
 		<td>ShowClearButton</td>
 		<td>Boolean</td>
-		<td></td>
+		<td>This value indicates if the clear button(using a trailing icon) should be displayed, which can clear the entire text and the selected value), the default value is false</td>
 	</tr>
 	<tr>
 		<td>StringValue</td>
 		<td>String</td>
-		<td></td>
+		<td>The StringValue displayed in the TextField</td>
 	</tr>
 	<tr>
 		<td>Style</td>
@@ -102,12 +92,12 @@
 	<tr>
 		<td>Value</td>
 		<td>ItemType</td>
-		<td></td>
+		<td>The value to be used to pre-select an item from the list</td>
 	</tr>
 	<tr>
 		<td>ValueChanged</td>
 		<td>EventCallback&lt;Object&gt;</td>
-		<td></td>
+		<td>ValueChanged is fired when the value is selected(by clicking on an element in the popup)</td>
 	</tr>
 	<tr>
 		<td>Ref</td>
