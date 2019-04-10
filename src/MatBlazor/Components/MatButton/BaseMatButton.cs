@@ -16,6 +16,9 @@ namespace MatBlazor.Components.MatButton
     /// </summary>
     public class BaseMatButton : BaseMatComponent
     {
+        [Inject]
+        public Microsoft.AspNetCore.Components.Services.IUriHelper UriHelper { get; set; }
+
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
@@ -50,6 +53,12 @@ namespace MatBlazor.Components.MatButton
         /// </summary>
         [Parameter]
         protected object CommandParameter { get; set; }
+
+        /// <summary>
+        /// Link to a url when clicked.
+        /// </summary>
+        [Parameter]
+        public string Link { get; set; }
 
         /// <summary>
         /// Button has raised style.
@@ -165,10 +174,17 @@ namespace MatBlazor.Components.MatButton
 
         protected void OnClickHandler(UIMouseEventArgs ev)
         {
-            OnClick.InvokeAsync(ev);
-            if (Command?.CanExecute(CommandParameter) ?? false)
+            if (Link != null)
             {
-                Command.Execute(CommandParameter);
+                UriHelper.NavigateTo(Link);
+            }
+            else
+            {
+                OnClick.InvokeAsync(ev);
+                if (Command?.CanExecute(CommandParameter) ?? false)
+                {
+                    Command.Execute(CommandParameter);
+                }
             }
         }
 

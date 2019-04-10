@@ -1,9 +1,16 @@
 ﻿@inherits BaseMatIconButton
 
-<a class="@ClassMapper.Class" style="@Style" ref="Ref" onmousedown="@OnMouseDown" onclick="@OnClick" href=@Link target=@Target title=@Title>
+<button class="@ClassMapper.Class" style="@Style" ref="Ref" disabled=@Disabled onclick="@OnClickHandler" href=@Link>
     @if (Icon != null)
     {
-        <MatIcon Icon="@Icon"></MatIcon>
+        @if (ToggleIcon != null && Toggled)
+        {
+            <MatIcon Icon="@ToggleIcon"></MatIcon>
+        }
+        else
+        {
+            <MatIcon Icon="@Icon"></MatIcon>
+        }
     }
     @ChildContent
-</a>
+</button>
