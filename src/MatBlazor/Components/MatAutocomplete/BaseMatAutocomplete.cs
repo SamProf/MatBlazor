@@ -51,15 +51,27 @@ namespace MatBlazor.Components.MatAutocomplete
             }
         }
 
+        /// <summary>
+        /// Maximum number of elements displayed in the popup
+        /// </summary>
         [Parameter]
         protected int? NumberOfElementsInPopup { get; set; }
 
+        /// <summary>
+        /// The label of the TextField
+        /// </summary>
         [Parameter]
         protected string Label { get; set; }
 
+        /// <summary>
+        /// The Icon displayed as the leading icon for the TextField
+        /// </summary>
         [Parameter]
         protected string Icon { get; set; }
 
+        /// <summary>
+        /// The StringValue displayed in the TextField
+        /// </summary>
         [Parameter]
         protected string StringValue
         {
@@ -70,10 +82,13 @@ namespace MatBlazor.Components.MatAutocomplete
             set
             {
                 stringValue = value;
-                OnStringValueChanged.InvokeAsync(value);
+                OnTextChanged.InvokeAsync(value);
             }
         }
        
+        /// <summary>
+        /// The value to be used to pre-select an item from the list
+        /// </summary>
         [Parameter]
         protected ItemType Value
         {
@@ -84,43 +99,64 @@ namespace MatBlazor.Components.MatAutocomplete
             set
             {
                 _value = value;
-                StringValue = Value == null && !AllowFreeText ? string.Empty : ComputeStringValue(Value);
+                StringValue = Value == default ? string.Empty : ComputeStringValue(Value);
                 ValueChanged.InvokeAsync(_value);
             }
         }
 
+        /// <summary>
+        /// ValueChanged is fired when the value is selected(by clicking on an element in the popup)
+        /// </summary>
         [Parameter]
         protected EventCallback<object> ValueChanged { get; set; }
 
+        /// <summary>
+        /// ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
+        /// </summary>
         [Parameter]
         protected RenderFragment<ItemType> ItemTemplate { get; set; }
 
+        /// <summary>
+        /// This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.
+        /// </summary>
         [Parameter]
         protected Func<ItemType, string> CustomStringSelector { get; set; }
 
+        /// <summary>
+        /// The collection which should be rendered and filtered
+        /// </summary>
         [Parameter]
         protected IEnumerable<ItemType> Collection { get; set; }
 
+        /// <summary>
+        /// If this parameter is true then the style of the textbox is outlined see `MatTextfield`
+        /// </summary>
         [Parameter]
         protected bool Outlined { get; set; }
 
+        /// <summary>
+        /// OnOpenedChanged is fired when the popup dialog is opened or close and the parameter indicates whenever is it open, the default value is false
+        /// </summary>
         [Parameter]
         protected EventCallback<bool> OnOpenedChanged { get; set; }
 
-        [Parameter]
-        protected EventCallback<string> OnStringValueChanged { get; set; }
-
+        /// <summary>
+        /// OnTextChanged is fired when the string value is changed(when an input occurs in the textfield or when an item is selected)
+        /// </summary>
         [Parameter]
         protected EventCallback<string> OnTextChanged { get; set; }
 
+        /// <summary>
+        /// This value indicates if the clear button(using a trailing icon) should be displayed, which can clear the entire text and the selected value), the default value is false
+        /// </summary>
         [Parameter]
         protected bool ShowClearButton { get; set; }
 
+        /// <summary>
+        /// This value indicates if the textfield and the dialog will be or not displayed in the full screen, the default value is false
+        /// </summary>
         [Parameter]
         protected bool FullWidth { get; set; }
-
-        [Parameter]
-        public bool AllowFreeText { get; protected set; }
 
         protected void OpenPopup()
         {
@@ -134,8 +170,7 @@ namespace MatBlazor.Components.MatAutocomplete
 
         public void OnValueChanged(UIChangeEventArgs ev)
         {
-            var filteredWrapper = GetFilteredCollection((string)ev.Value).FirstOrDefault();
-            Value = filteredWrapper != null ? filteredWrapper.Element : (default);
+            StringValue = (string)ev.Value;
             StateHasChanged();
         }
 
