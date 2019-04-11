@@ -2,6 +2,7 @@
 
 ## Material Design components for Blazor and Razor Components
 [![NuGet](https://img.shields.io/nuget/v/MatBlazor.svg)](https://www.nuget.org/packages/MatBlazor/)
+[![Gitter](https://badges.gitter.im/BlazorComponents/MatBlazor.svg)](https://gitter.im/BlazorComponents/MatBlazor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![GitHub Stars](https://img.shields.io/github/stars/blazorcomponents/matblazor.svg)](https://github.com/BlazorComponents/MatBlazor/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/blazorcomponents/matblazor.svg)](https://github.com/BlazorComponents/MatBlazor/issues)
 [![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://www.matblazor.com)
@@ -77,7 +78,7 @@ At the beginning of the your Blazor application, usually in `MainLayout.cshtml` 
 
 ## Questions
 
-For *how-to* questions and other non-issues, for now you can use issues.
+For *how-to* questions and other non-issues, for now you can use issues or you can use [![Gitter](https://badges.gitter.im/BlazorComponents/MatBlazor.svg)](https://gitter.im/BlazorComponents/MatBlazor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
 
 ## Contributing
 
