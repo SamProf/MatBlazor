@@ -23,7 +23,7 @@
                 <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"/>
             </a>
 
-            <MatIconButton Link="http://samprof.com">
+            <MatIconButton Link="http://samprof.com" Target="_blank">
                 <i class="fa fa-user-circle" aria-hidden="true"></i>
             </MatIconButton>
             <MatIconButton Link="https://github.com/BlazorComponents/MatBlazor">
@@ -224,6 +224,11 @@
             {
                 Name = "LayoutGrid",
                 Url = "LayoutGrid"
+            },
+            new NavItem()
+            {
+                Name = "Table",
+                Url = "Table"
             },
         }.OrderBy(i => i.Name).ToArray();
     }

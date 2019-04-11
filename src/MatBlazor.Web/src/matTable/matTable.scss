@@ -1,0 +1,62 @@
+.mdc-table, .mdc-table--striped {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+tr {
+    &.mdc-table-footer-row, &.mdc-table-row {
+        height: 48px;
+    }
+}
+
+.mdc-table {
+    td, th {
+        padding: 0;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+    }
+}
+
+tr.mdc-table-header-row {
+    height: 56px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.mdc-table--striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mdc-paginator {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.mdc-paginator-range-label {
+    margin: 0 32px 0 24px;
+}
+
+.mdc-paginator-range-actions {
+    display: flex;
+    align-items: center;
+}
+
+.mdc-paginator-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 56px;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+}
+
+.mdc-paginator-range-buttons .mdc-icon-button {}
+
+.mdc-paginator-page-size {
+    line-height: 56px;
+    .mat-select {}
+}

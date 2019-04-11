@@ -296,6 +296,36 @@
             Snackbars provide brief messages about app processes at the bottom of the screen.
             </summary>
         </member>
+        <member name="T:MatBlazor.Components.MatTable.BaseMatTable">
+            <summary>
+            Mat Table display a table data.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.ShowPaging">
+            <summary>
+            Specifies the Paging visibility
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.ShowFooter">
+            <summary>
+            Specifies the Footer visibility.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.Striped">
+            <summary>
+            Determines if table has alternating color rows.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.PageSize">
+            <summary>
+            The number of rows per page.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatTable.MatTable`1.Items">
+            <summary>
+            Specifies the data for the table.
+            </summary>
+        </member>
         <member name="T:MatBlazor.Components.MatTextField.BaseMatTextField">
             <summary>
             Text fields allow users to input, edit, and select text.
