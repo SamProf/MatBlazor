@@ -77,13 +77,9 @@
     <Content Update="_ViewImports.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Demo\DemoMatTable.cshtml">
+    <Content Update="Demo\DemoTable.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Doc\" />
   </ItemGroup>
 
 </Project>

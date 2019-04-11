@@ -97,6 +97,10 @@ namespace MatBlazor.Components.MatIconButton
         /// </summary>
         [Parameter]
         protected EventCallback<UIMouseEventArgs> OnClick { get; set; }
+        
+       
+        [Parameter]
+        protected EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
 
         protected async override Task OnFirstAfterRenderAsync()
         {

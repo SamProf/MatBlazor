@@ -1,5 +1,6 @@
 // global css
 import './theme/theme.scss';
+import './matTable/matTable.scss';
 import * as matButton from './matButton/matButton';
 import * as matCheckbox from './matCheckbox/matCheckbox';
 import * as matTextField from './matTextField/matTextField';

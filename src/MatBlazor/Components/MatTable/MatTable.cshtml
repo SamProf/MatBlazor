@@ -67,13 +67,16 @@
             UpdateList(1);
         }
     }
-
+    
     [Parameter]
     RenderFragment MatTableHeader { get; set; }
 
     [Parameter]
     RenderFragment<TableItem> MatTableRow { get; set; }
 
+    /// <summary>
+    /// Specifies the data for the table.
+    /// </summary>
     [Parameter]
     protected IEnumerable<TableItem> Items { get; set; }
 
