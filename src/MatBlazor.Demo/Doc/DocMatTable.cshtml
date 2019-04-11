@@ -6,32 +6,67 @@
 
 @if (!Secondary) {<h3 class="mat-h3">MatTable</h3> } else { <h5 class="mat-h5">MatTable</h5> }
 
-<p>Table allow users to display data in a paginated table. Future features may include sorting, grouping, and filtering.</p>
+<p>Mat Table display a table data.</p>
 
 <div><table class="article-table mat-elevation-z5">
 	<tr>
-        <td>ShowPaging</td>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td style="font-weight: bold;">TableItem</td>
+		<td>Generic argument</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Class</td>
+		<td>String</td>
+		<td>Specifies one or more classnames for an DOM element.</td>
+	</tr>
+	<tr>
+		<td>Items</td>
+		<td>IEnumerable&lt;TableItem&gt;</td>
+		<td>Specifies the data for the table.</td>
+	</tr>
+	<tr>
+		<td>MatTableHeader</td>
+		<td>RenderFragment</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>MatTableRow</td>
+		<td>RenderFragment&lt;TableItem&gt;</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>PageSize</td>
+		<td>Int32</td>
+		<td>The number of rows per page.</td>
+	</tr>
+	<tr>
+		<td>ShowFooter</td>
 		<td>Boolean</td>
-        <td>Specifies the Paging visibility</td>
+		<td>Specifies the Footer visibility.</td>
 	</tr>
 	<tr>
-        <td>ShowFooter</td>
-        <td>Boolean</td>
-        <td>Specifies the Footer visibility.</td>
-	</tr>
-	<tr>
-        <td>Striped</td>
+		<td>ShowPaging</td>
 		<td>Boolean</td>
-        <td>Determines if table has alternating color rows.</td>
+		<td>Specifies the Paging visibility</td>
 	</tr>
 	<tr>
-        <td>PageSize</td>
-		<td>Int</td>
-        <td>The number of rows per page.</td>
+		<td>Striped</td>
+		<td>Boolean</td>
+		<td>Determines if table has alternating color rows.</td>
 	</tr>
 	<tr>
-        <td>Items</td>
-        <td>IEnumerable</td>
-        <td>Specifies the data for the table.</td>
+		<td>Style</td>
+		<td>String</td>
+		<td>Specifies an inline style for an DOM element.</td>
+	</tr>
+	<tr>
+		<td>Ref</td>
+		<td>ElementRef</td>
+		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>

@@ -1,4 +1,4 @@
-﻿<DocMatTable></DocMatTable>
+<DocMatTable></DocMatTable>
 
 <h5 class="mat-h5">Example</h5>
 
@@ -47,7 +47,7 @@
         }
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTable Items=""@cars"" PageSize=""4"">
             <MatTableHeader>
                 <th>Name</th>
@@ -56,7 +56,7 @@
             </MatTableHeader>
             <MatTableRow>
                 <td>@context.Name</td>
-                <td>@String.Format(""${0:f2}"",@context.Price)</td>
+                <td>@String.Format(""${0:f2}"", @context.Price)</td>
                 <td>@context.Horsepower</td>
             </MatTableRow>
         </MatTable>

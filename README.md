@@ -93,6 +93,9 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
+### MatBlazor 0.9.2
+- PR: MatTable Version 1 #58 (enkodellc)
+
 ### MatBlazor 0.9.1
 - PR: Fixed #50 Autocomplete FullWidth + #52 (sandrohanea)
 - PR: MatIconButton Add Functionality, Update Demo #53 (enkodellc)

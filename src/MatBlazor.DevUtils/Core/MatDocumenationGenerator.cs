@@ -164,7 +164,7 @@ namespace MatBlazor.DevUtils.Core
 
                         if (type.IsGenericType)
                         {
-                            type = type.BaseType.GetGenericTypeDefinition();
+                            type = type.BaseType;
                         }
                         else
                         {
