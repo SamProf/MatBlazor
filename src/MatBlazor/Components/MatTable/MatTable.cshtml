@@ -35,7 +35,7 @@
         <div class="mdc-paginator-range-actions">
             <span class="mdc-paginator-range-label">Page @CurrentPage of @TotalPages</span>
             <div class="mdc-paginator-range-buttons">
-                <MatIconButton Icon="first_page" onclick=@(async () => SetPageSize("back")) Disabled=@(CurrentPage <= 1)></MatIconButton>
+                <MatIconButton Icon="first_page" onclick=@(async () => NavigateToPage("first")) Disabled=@(CurrentPage <= 1)></MatIconButton>
                 <MatIconButton Icon="navigate_before" onclick=@(async () => NavigateToPage("previous")) Disabled=@(CurrentPage <= 1)></MatIconButton>
                 @*@for (int i = StartPage; i <= EndPage; i++)
                     {
@@ -45,7 +45,7 @@
                         </MatIconButton>
                     }*@
                 <MatIconButton Icon="navigate_next" onclick=@(async () => NavigateToPage("next")) Disabled=@(CurrentPage == EndPage)></MatIconButton>
-                <MatIconButton Icon="last_page" onclick=@(async () => SetPageSize("forward")) Disabled=@(CurrentPage == EndPage)></MatIconButton>
+                <MatIconButton Icon="last_page" onclick=@(async () => NavigateToPage("last")) Disabled=@(CurrentPage == EndPage)></MatIconButton>
             </div>
         </div>
     </div>
@@ -100,7 +100,7 @@
 
     public void SetPageSize(string direction)
     {
-        if (direction == "forward" && EndPage < TotalPages)
+        if ((direction == "forward" || direction == "last") && (EndPage < TotalPages))
         {
             StartPage = EndPage + 1;
             if (EndPage + PageSize < TotalPages)
@@ -113,7 +113,7 @@
             }
             this.StateHasChanged();
         }
-        else if (direction == "back" && StartPage > 1)
+        else if ((direction == "back" || direction == "first") && (StartPage > 1))
         {
             EndPage = StartPage - 1;
             StartPage = StartPage - PageSize;
@@ -122,7 +122,11 @@
 
     public void NavigateToPage(string direction)
     {
-        if (direction == "next")
+        if (direction == "first")
+        {
+            CurrentPage = StartPage;
+        }
+        else if (direction == "next")
         {
             if (CurrentPage < TotalPages)
             {
@@ -143,6 +147,10 @@
                 }
                 CurrentPage -= 1;
             }
+        }
+        else if (direction == "last")
+        {
+            CurrentPage = EndPage;
         }
         UpdateList(CurrentPage);
     }
