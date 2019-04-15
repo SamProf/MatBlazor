@@ -301,6 +301,41 @@
             Mat Table display a table data.
             </summary>
         </member>
+        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.RequestApiOnlyOnce">
+            <summary>
+            Specifies whether to Request the API only once.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.DebounceMilliseconds">
+            <summary>
+            Specifies the delay duration between user input on the Search Term Field. Default 800
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.FilterByColumnName">
+            <summary>
+            Specifies which column is used for the filter / search term. If this is populated the Search Textbox will be visible.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.SearchTermFieldLabel">
+            <summary>
+            Specifies the Label for the Filter / Search Term  Textbox
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.SearchTermFieldPlaceHolder">
+            <summary>
+            Specifies the Placeholder for the Filter / Search Term  Textbox
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.LoadInitialData">
+            <summary>
+            Specifies where to Load the Initial Table Data
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.ApiUrl">
+            <summary>
+            Specifies the API Url form for the table data 
+            </summary>
+        </member>
         <member name="P:MatBlazor.Components.MatTable.BaseMatTable.ShowPaging">
             <summary>
             Specifies the Paging visibility
@@ -308,7 +343,7 @@
         </member>
         <member name="P:MatBlazor.Components.MatTable.BaseMatTable.ShowFooter">
             <summary>
-            Specifies the Footer visibility.
+            Specifies the Table Footer visibility.
             </summary>
         </member>
         <member name="P:MatBlazor.Components.MatTable.BaseMatTable.Striped">
@@ -319,6 +354,11 @@
         <member name="P:MatBlazor.Components.MatTable.BaseMatTable.PageSize">
             <summary>
             The number of rows per page.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.Components.MatTable.MatTable`1.PageSizes">
+            <summary>
+            Not Functioning
             </summary>
         </member>
         <member name="P:MatBlazor.Components.MatTable.MatTable`1.Items">
