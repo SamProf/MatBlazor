@@ -1,0 +1,416 @@
+﻿@typeparam TableItem
+@typeparam Paging
+@inject HttpClient Http
+@using System.Net.Http
+@using System.Threading
+@using System.Reflection;
+@using Microsoft.AspNetCore.Components
+
+<BlazorMessageAlert Dismissible=@true Type=@BlazorMessageAlert.AlertType.Danger Message=@ErrorMessage></BlazorMessageAlert>
+@if (!HideSearchTermField)
+{
+    <div class="form-group">
+        <input type="text"
+               class="form-control"
+               placeholder="@SearchTermFieldPlaceHolder"
+               oninput="@((e) => OnInput(e))"
+               bind="@SearchTerm" />
+    </div>
+}
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>@GridHeader</tr>
+        </thead>
+        <tbody>
+            @if (ItemList != null)
+            {
+                foreach (var item in ItemList)
+                {
+                    <tr>@GridRow(item)</tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="pagination float-right">
+    <select onchange="@(async(e) => await OnPageSizeChange(e))" class="form-control">
+        @if (PageSizes != null)
+        {
+            foreach (var item in PageSizes)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        }
+    </select>
+    @if (PageSize <= 0)
+    {
+        if (!string.IsNullOrWhiteSpace(SearchTerm))
+        {
+            <span class="pagebutton btn btn-link disabled" style="color: black">@RecordsFilteredCount - @RecordsFilteredCount</span>
+        }
+        else
+        {
+            <span class="pagebutton btn btn-link disabled" style="color: black">@RecordsCount - @RecordsCount</span>
+        }
+    }
+    else
+    {
+        if (!string.IsNullOrWhiteSpace(SearchTerm))
+        {
+            <span class="btn btn-link disabled" style="color: black">@(RecordsFrom + 1) - @RecordsTo | @RecordsFilteredCount</span>
+        }
+        else
+        {
+            <span class="btn btn-link disabled" style="color: black">@(RecordsFrom + 1) - @RecordsTo | @RecordsCount</span>
+        }
+    }
+    <button type="button" class="btn btn-default" onclick=@(async () => await NavigateToPage(PageDirection.Previous))><i class="material-icons mx-auto">keyboard_arrow_left</i></button>
+    <button type="button" class="btn btn-default" onclick=@(async () => await NavigateToPage(PageDirection.Next))><i class="material-icons mx-auto">keyboard_arrow_right</i></button>
+</div>
+
+@functions {
+
+    #region Private Fields
+
+    int TotalPages { get; set; }
+    int PageSize { get; set; }
+    int RecordsFrom { get; set; }
+    int RecordsTo { get; set; }
+    int RecordsCount { get; set; }
+    int RecordsFilteredCount { get; set; }
+    int Page { get; set; }
+    int StartPage { get; set; }
+    int EndPage { get; set; }
+    string SearchTerm { get; set; }
+    string ErrorMessage { get; set; }
+    Timer DebounceTimerInterval { get; set; }
+    Action<object> DebounceAction { get; set; }
+    object LastObjectDebounced { get; set; }
+    IEnumerable<TableItem> ItemList { get; set; }
+
+    #endregion
+
+    #region Parameters
+
+    [Parameter]
+    int DebounceMilliseconds { get; set; }
+    [Parameter]
+    PageSizeStructure[] PageSizes { get; set; }
+    [Parameter]
+    string PageParamName { get; set; }
+    [Parameter]
+    string PageSizeParamName { get; set; }
+    [Parameter]
+    bool HideSearchTermField { get; set; }
+    [Parameter]
+    string SearchTermFieldPlaceHolder { get; set; }
+    [Parameter]
+    protected string SearchTermParamName { get; set; }
+    [Parameter]
+    protected bool RequestApiOnlyOnce { get; set; }
+    [Parameter]
+    bool LoadInitialData { get; set; }
+    [Parameter]
+    string ApiUrl { get; set; }
+    [Parameter]
+    string FilterByPropertyName { get; set; }
+    [Parameter]
+    bool Descending { get; set; }
+    [Parameter]
+    string DescendingParamName { get; set; }
+    [Parameter]
+    string SortBy { get; set; }
+    [Parameter]
+    string SortByParamName { get; set; }
+    [Parameter]
+    string PagingDataPropertyName { get; set; }
+    [Parameter]
+    string PagingRecordsCountPropertyName { get; set; }
+    [Parameter]
+    RenderFragment GridHeader { get; set; }
+    [Parameter]
+    RenderFragment<TableItem> GridRow { get; set; }
+    [Parameter]
+    IEnumerable<TableItem> Items { get; set; }
+
+    #endregion
+
+    #region Events
+
+    protected override async Task OnInitAsync()
+    {
+        if (DebounceMilliseconds <= 0)
+        {
+            DebounceMilliseconds = 800;
+        }
+        if (PageSizes == null)
+        {
+            PageSizes = new PageSizeStructure[]
+            {
+                new PageSizeStructure() { Text = "5", Value = 5 },
+                new PageSizeStructure() { Text = "10", Value = 10 },
+                new PageSizeStructure() { Text = "20", Value = 20 },
+                new PageSizeStructure() { Text = "25", Value = 25 },
+                new PageSizeStructure() { Text = "35", Value = 35 },
+                new PageSizeStructure() { Text = "50", Value = 50 },
+                new PageSizeStructure() { Text = "*", Value = -1 }
+                    };
+            PageSize = 5;
+        }
+        Page = 1;
+        if (!string.IsNullOrWhiteSpace(ApiUrl) && (RequestApiOnlyOnce || LoadInitialData))
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(PagingDataPropertyName) &&
+                        !string.IsNullOrWhiteSpace(PagingRecordsCountPropertyName))
+                {
+                    await SearchPagedData();
+                }
+                else
+                {
+                    await SearchData();
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+        }
+        else if (Items != null && Items.Count() > 0)
+        {
+            FilterLocalProvidedData();
+        }
+    }
+    async Task LoadData()
+    {
+        try
+        {
+            if (RequestApiOnlyOnce)
+            {
+                FilterData();
+            }
+            else if (!string.IsNullOrWhiteSpace(ApiUrl) &&
+                    !string.IsNullOrWhiteSpace(PagingDataPropertyName) &&
+                    !string.IsNullOrWhiteSpace(PagingRecordsCountPropertyName))
+            {
+                await SearchPagedData();
+            }
+            else if (!string.IsNullOrWhiteSpace(ApiUrl) &&
+                    string.IsNullOrWhiteSpace(PagingDataPropertyName) ||
+                    string.IsNullOrWhiteSpace(PagingRecordsCountPropertyName))
+            {
+                await SearchData();
+            }
+            else
+            {
+                FilterData();
+            }
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = ex.Message;
+        }
+        StateHasChanged();
+    }
+    async Task SearchData()
+    {
+        Items = await Http.GetJsonAsync<TableItem[]>(ApiUrl + SearchTermParam(SearchTerm));
+        ItemList = Items.Skip(RecordsFrom).Take(PageSize);
+        RecordsCount = Items.Count();
+        TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+        RecordsFrom = (Page - 1) * PageSize;
+        RecordsTo = RecordsFrom + PageSize;
+        SetPageSize(PageDirection.Forward);
+    }
+    void FilterLocalProvidedData()
+    {
+        RecordsFrom = (Page - 1) * PageSize;
+        RecordsTo = RecordsFrom + PageSize;
+        ItemList = Items.Skip(RecordsFrom).Take(PageSize);
+        TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+        SetPageSize(PageDirection.Forward);
+    }
+    async Task SearchPagedData()
+    {
+        Paging PagedData = await Http.GetJsonAsync<Paging>(ApiUrl + SearchTermParam(SearchTerm));
+        Items = (IEnumerable<TableItem>)
+                PagedData
+                .GetType()
+                .GetProperty(PagingDataPropertyName)
+                .GetValue(PagedData);
+        var Count = Convert.ToInt32(
+                    PagedData
+                    .GetType()
+                    .GetProperty(PagingRecordsCountPropertyName)
+                    .GetValue(PagedData)
+                );
+        RecordsFrom = (Page - 1) * PageSize;
+        RecordsTo = (RecordsFrom + PageSize < Count) ? RecordsFrom + PageSize : Count;
+        ItemList = Items;
+        TotalPages = (int)Math.Ceiling(Count / (decimal)PageSize);
+        SetPageSize(PageDirection.Forward);
+    }
+    void OnInput(UIChangeEventArgs eventArgs)
+    {
+        Debounce(eventArgs, DebounceMilliseconds, async (e) =>
+        {
+            SearchTerm = ((UIChangeEventArgs)e).Value?.ToString();
+            Page = 1;
+            await LoadData();
+        });
+    }
+    void FilterData()
+    {
+        if (string.IsNullOrWhiteSpace(FilterByPropertyName))
+            throw new ArgumentNullException("FilterByPropertyName param cannot be null");
+
+        RecordsFrom = (Page - 1) * PageSize;
+
+        if (!string.IsNullOrWhiteSpace(SearchTerm))
+        {
+            var filteredCollection = new List<TableItem>();
+            foreach (var item in Items)
+            {
+                var propertyInfo = item.GetType().GetProperty(FilterByPropertyName, BindingFlags.Public | BindingFlags.Instance);
+
+                if (propertyInfo == null)
+                    throw new NotSupportedException(FilterByPropertyName + " property does not exists in the current context");
+
+                var propertyValue = propertyInfo.GetValue(item, null)?.ToString();
+
+                if (propertyValue.ToLower().Contains(SearchTerm.ToLower()))
+                    filteredCollection.Add(item);
+            }
+
+            RecordsFilteredCount = filteredCollection.Count;
+            RecordsTo = (RecordsFrom + PageSize < RecordsFilteredCount) ? RecordsFrom + PageSize : RecordsFilteredCount;
+            TotalPages = (int)Math.Ceiling(RecordsFilteredCount / (decimal)PageSize);
+
+            if (PageSize <= 0)
+            {
+                ItemList = filteredCollection;
+            }
+            else
+            {
+                ItemList = filteredCollection.Skip(RecordsFrom).Take(PageSize);
+            }
+        }
+        else
+        {
+            if (PageSize <= 0)
+            {
+                ItemList = Items;
+            }
+            else
+            {
+                ItemList = Items.Skip(RecordsFrom).Take(PageSize);
+            }
+            RecordsTo = (RecordsFrom + PageSize < Items.Count()) ? RecordsFrom + PageSize : Items.Count();
+            TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+        }
+        SetPageSize(PageDirection.Forward);
+        StateHasChanged();
+    }
+    async Task OnPageSizeChange(UIChangeEventArgs eventArgs)
+    {
+        PageSize = Convert.ToInt32(eventArgs.Value?.ToString());
+        Page = 1;
+        await LoadData();
+    }
+    async Task UpdatePage(int SelectedPage)
+    {
+        Page = SelectedPage;
+        await LoadData();
+    }
+    void SetPageSize(PageDirection pageDirection)
+    {
+        if (pageDirection == PageDirection.Forward && EndPage < TotalPages)
+        {
+            StartPage = EndPage + 1;
+            if (EndPage + PageSize < TotalPages)
+            {
+                EndPage = StartPage + PageSize - 1;
+            }
+            else
+            {
+                EndPage = TotalPages;
+            }
+        }
+        else if (pageDirection == PageDirection.Back && StartPage > 1)
+        {
+            EndPage = StartPage - 1;
+            StartPage = StartPage - PageSize;
+        }
+    }
+    async Task NavigateToPage(PageDirection pageDirection)
+    {
+        if (pageDirection == PageDirection.Next)
+        {
+            if (Page < TotalPages)
+            {
+                if (Page == EndPage)
+                {
+                    SetPageSize(PageDirection.Forward);
+                }
+                Page += 1;
+            }
+        }
+        else if (pageDirection == PageDirection.Previous)
+        {
+            if (Page > 1)
+            {
+                if (Page == StartPage)
+                {
+                    SetPageSize(PageDirection.Back);
+                }
+                Page -= 1;
+            }
+        }
+        await UpdatePage(Page);
+    }
+
+    #endregion
+
+    #region Helpers
+
+    string SearchTermParam(string SearchTerm)
+    {
+        var SearchTermParam = (string.IsNullOrWhiteSpace(SearchTermParamName) ? "SearchTerm=" + SearchTerm : SearchTermParamName + "=" + SearchTerm);
+        var DescendingParam = (string.IsNullOrWhiteSpace(DescendingParamName) ? "Descending=" + Descending : DescendingParamName + "=" + Descending);
+        var SortByParam = (string.IsNullOrWhiteSpace(SortByParamName) ? "SortBy=" + SortBy : SortByParamName + "=" + SortBy);
+        var PageParam = (string.IsNullOrWhiteSpace(PageParamName) ? "Page=" + Page : PageParamName + "=" + Page);
+        var PageSizeParam = (string.IsNullOrWhiteSpace(PageSizeParamName) ? "PageSize=" + PageSize : PageSizeParamName + "=" + PageSize);
+        return "?" +
+                SearchTermParam + "&" +
+                DescendingParam + "&" +
+                SortByParam + "&" +
+                PageParam + "&" +
+                PageSizeParam;
+    }
+    void Debounce(object obj, int interval, Action<object> debounceAction)
+    {
+        LastObjectDebounced = obj;
+        DebounceAction = debounceAction;
+
+        DebounceTimerInterval?.Dispose();
+
+        DebounceTimerInterval = new Timer(DebounceTimerIntervalOnTick, obj, interval, interval);
+    }
+    void DebounceTimerIntervalOnTick(object state)
+    {
+        DebounceTimerInterval?.Dispose();
+
+        if (DebounceTimerInterval != null)
+        {
+            DebounceAction?.Invoke(LastObjectDebounced);
+        }
+
+        DebounceTimerInterval = null;
+    }
+
+    #endregion
+
+}
