@@ -7,7 +7,7 @@
 
 @if (!String.IsNullOrWhiteSpace(FilterByColumnName))
 {
-    <MatTextField class="mdc-table-filter" OnInput="@((e) => OnInput(e))" Placeholder="@SearchTermFieldPlaceHolder" Label="@SearchTermFieldLabel" Value="@SearchTerm"></MatTextField>
+    <MatTextField class="mdc-table-filter" OnInput="@((e) => OnInput(e))" Placeholder="@SearchTermFieldPlaceHolder" Label="@SearchTermFieldLabel" Value="@SearchTerm" Icon="filter_list"></MatTextField>
 }
 
 <table class="@ClassMapper.Class" style="@Style" ref="Ref">
@@ -344,36 +344,27 @@
 
     async Task NavigateToPage(PageDirection direction)
     {
-        if (direction == PageDirection.First)
+        CurrentPage = (direction) switch
         {
-            CurrentPage = StartPage;
-        }
-        else if (direction == PageDirection.Next)
-        {
-            if (CurrentPage < TotalPages)
-            {
-                if (CurrentPage == EndPage)
+            PageDirection.First => StartPage,
+            PageDirection.Last => EndPage,
+            PageDirection.Next => ((Func<int>)(() => {
+                if ((CurrentPage < TotalPages) && (CurrentPage == EndPage))
                 {
                     SetPageSize(PageDirection.Next);
                 }
-                CurrentPage += 1;
-            }
-        }
-        else if (direction == PageDirection.Previous)
-        {
-            if (CurrentPage > 1)
-            {
-                if (CurrentPage == StartPage)
+                return CurrentPage + 1;
+            }))(),
+            PageDirection.Previous => ((Func<int>)(() => {
+                if ((CurrentPage > 1) && (CurrentPage == StartPage))
                 {
                     SetPageSize(PageDirection.Previous);
-                }
-                CurrentPage -= 1;
-            }
-        }
-        else if (direction == PageDirection.Last)
-        {
-            CurrentPage = EndPage;
-        }
+                }                                    
+                return CurrentPage - 1;
+            }))(),
+            _ => throw new NotSupportedException()
+        };
+
         await UpdateList(CurrentPage);
     }
 

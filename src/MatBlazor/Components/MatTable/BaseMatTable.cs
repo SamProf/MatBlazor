@@ -14,11 +14,7 @@ namespace MatBlazor.Components.MatTable
     /// Mat Table display a table data.
     /// </summary>
     public class BaseMatTable : BaseMatComponent
-    {
-        private bool _showPaging = true;
-        private bool _showFooter = false;
-        private int _pageSize = 5;
-        private bool _showFilter = false;
+    {        
         private string _searchTermFieldPlaceHolder = null;
         private string _searchTermFieldLabel = null;            
 
@@ -134,28 +130,13 @@ namespace MatBlazor.Components.MatTable
         /// Specifies the Paging visibility
         /// </summary>
         [Parameter]
-        public bool ShowPaging
-        {
-            get => _showPaging;
-            set
-            {
-                _showPaging = value;
-                ClassMapper.MakeDirty();
-            }
-        }
+        public bool ShowPaging { get; set; } = true;
 
         /// <summary>
         /// Specifies the Table Footer visibility.
         /// </summary>
         [Parameter]
-        public bool ShowFooter {
-            get => _showFooter;
-            set
-            {
-                _showFooter = value;
-                ClassMapper.MakeDirty();
-            }
-        }
+        public bool ShowFooter { get; set; } = false;
 
         /// <summary>
         /// Determines if table has alternating color rows.
@@ -167,15 +148,7 @@ namespace MatBlazor.Components.MatTable
         /// The number of rows per page.
         /// </summary>
         [Parameter]
-        protected int PageSize
-        {
-            get => _pageSize;
-            set
-            {
-                _pageSize = value;
-                ClassMapper.MakeDirty();
-            }
-        }
+        protected int PageSize { get; set; } = 5;
 
         public BaseMatTable()
         {
