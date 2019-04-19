@@ -1,14 +1,26 @@
 ﻿@inherits BaseMatTable
 @typeparam TableItem
+@inject System.Net.Http.HttpClient Http
+
+@using System.Threading
+@using System.Reflection;
+
+@if (!String.IsNullOrWhiteSpace(FilterByColumnName))
+{
+    <MatTextField class="mdc-table-filter" OnInput="@((e) => OnInput(e))" Placeholder="@SearchTermFieldPlaceHolder" Label="@SearchTermFieldLabel" Value="@SearchTerm" Icon="filter_list"></MatTextField>
+}
 
 <table class="@ClassMapper.Class" style="@Style" ref="Ref">
     <thead>
         <tr class="mdc-table-header-row">@MatTableHeader</tr>
     </thead>
     <tbody>
-        @foreach (var item in ItemList)
+        @if (ItemList != null)
         {
-            <tr class="mdc-table-row">@MatTableRow(item)</tr>
+            @foreach (var item in ItemList)
+            {
+                <tr class="mdc-table-row">@MatTableRow(item)</tr>
+            }
         }
     </tbody>
     @if (@ShowFooter)
@@ -19,40 +31,44 @@
 
 @if (@ShowPaging)
 {
-<div class="mdc-paginator">
-    <div class="mdc-paginator-container">
-        <div class="mdc-paginator-page-size">
-            Items per page:
-            <MatSelect bind-Value="@PageSizeStr">
-                <MatOption>5</MatOption>
-                <MatOption>10</MatOption>
-                <MatOption>25</MatOption>
-                <MatOption>50</MatOption>
-                <MatOption>100</MatOption>
-            </MatSelect>
-        </div>
+    <div class="mdc-paginator">
+        <div class="mdc-paginator-container">
+            <div class="mdc-paginator-page-size">
+                Items per page:
 
-        <div class="mdc-paginator-range-actions">
-            <span class="mdc-paginator-range-label">Page @CurrentPage of @TotalPages</span>
-            <div class="mdc-paginator-range-buttons">
-                <MatIconButton Icon="first_page" onclick=@(async () => NavigateToPage("first")) Disabled=@(CurrentPage <= 1)></MatIconButton>
-                <MatIconButton Icon="navigate_before" onclick=@(async () => NavigateToPage("previous")) Disabled=@(CurrentPage <= 1)></MatIconButton>
-                @*@for (int i = StartPage; i <= EndPage; i++)
+                <MatSelect bind-Value="@PageSizeStr">
+                    @if (PageSizes != null)
                     {
-                        var currentPage = i;
-                        <MatIconButton class="@(currentPage == CurrentPage ? "currentpage" : "")" onclick=@(async () => UpdateList(currentPage))>
-                            @currentPage
-                        </MatIconButton>
-                    }*@
-                <MatIconButton Icon="navigate_next" onclick=@(async () => NavigateToPage("next")) Disabled=@(CurrentPage == EndPage)></MatIconButton>
-                <MatIconButton Icon="last_page" onclick=@(async () => NavigateToPage("last")) Disabled=@(CurrentPage == EndPage)></MatIconButton>
+                        foreach (var item in PageSizes)
+                        {
+                            <MatOption Value="@item.Value.ToString()">@item.Text</MatOption>
+                        }
+                    }
+                </MatSelect>
+            </div>
+
+            <div class="mdc-paginator-range-actions">
+                <span class="mdc-paginator-range-label">Page @CurrentPage of @TotalPages</span>
+                <div class="mdc-paginator-range-buttons">
+                    <MatIconButton Icon="first_page" onclick=@(async () => NavigateToPage(PageDirection.First)) Disabled=@(CurrentPage <= 1)></MatIconButton>
+                    <MatIconButton Icon="navigate_before" onclick=@(async () => NavigateToPage(PageDirection.Previous)) Disabled=@(CurrentPage <= 1)></MatIconButton>
+                    @*@for (int i = StartPage; i <= EndPage; i++)
+                        {
+                            var currentPage = i;
+                            <MatIconButton class="@(currentPage == CurrentPage ? "currentpage" : "")" onclick=@(async () => UpdateList(currentPage))>
+                                @currentPage
+                            </MatIconButton>
+                        }*@
+                    <MatIconButton Icon="navigate_next" onclick=@(async () => NavigateToPage(PageDirection.Next)) Disabled=@(CurrentPage == EndPage)></MatIconButton>
+                    <MatIconButton Icon="last_page" onclick=@(async () => NavigateToPage(PageDirection.Last)) Disabled=@(CurrentPage == EndPage)></MatIconButton>
+                </div>
             </div>
         </div>
     </div>
-</div>
 }
 
 @functions{
+
     protected string PageSizeStr
     {
         get => PageSize.ToString();
@@ -60,19 +76,25 @@
         {
             PageSize = Convert.ToInt32(value);
             CurrentPage = 1;
-            TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);  
+            TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
             EndPage = TotalPages;
             StartPage = 1;
-            SetPageSize("forward");                     
-            UpdateList(1);
+            SetPageSize(PageDirection.Next);
+            UpdateList(1).GetAwaiter();
         }
     }
-    
+
     [Parameter]
     RenderFragment MatTableHeader { get; set; }
 
     [Parameter]
     RenderFragment<TableItem> MatTableRow { get; set; }
+
+    /// <summary>
+    /// Not Functioning
+    /// </summary>
+    [Parameter]
+    public PageSizeStructure[] PageSizes { get; set; }
 
     /// <summary>
     /// Specifies the data for the table.
@@ -84,23 +106,223 @@
 
     protected override async Task OnInitAsync()
     {
-        PageSize = 5;
+        if (DebounceMilliseconds <= 0)
+        {
+            DebounceMilliseconds = 800;
+        }
+        if (PageSizes == null)
+        {
+            PageSizes = new PageSizeStructure[]
+            {
+                new PageSizeStructure() { Text = "5", Value = 5 },
+                new PageSizeStructure() { Text = "10", Value = 10 },
+                new PageSizeStructure() { Text = "25", Value = 25 },
+                new PageSizeStructure() { Text = "50", Value = 50 },
+                new PageSizeStructure() { Text = "100", Value = 100 },
+                new PageSizeStructure() { Text = "*", Value = -1 }
+            };
+            PageSize = 5;
+        }
         CurrentPage = 1;
-        ItemList = Items.Skip((CurrentPage - 1) * PageSize).Take(PageSize);
-        TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);        
-        SetPageSize("forward");
+
+        if (!string.IsNullOrWhiteSpace(ApiUrl) && (RequestApiOnlyOnce || LoadInitialData))
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(PagingDataPropertyName) &&
+                        !string.IsNullOrWhiteSpace(PagingRecordsCountPropertyName))
+                {
+                    await SearchPagedData();
+                }
+                else
+                {
+                    await SearchData();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error OnInit: " + ex.Message);
+                ErrorMessage = ex.Message;
+            }
+        }
+        else if (Items != null && Items.Count() > 0)
+        {
+            FilterLocalProvidedData();
+        }
     }
 
-    public void UpdateList(int currentPage)
+    async Task UpdateList(int currentPage)
     {
         ItemList = Items.Skip((currentPage - 1) * PageSize).Take(PageSize);
         CurrentPage = currentPage;
         this.StateHasChanged();
+        await LoadData();
     }
 
-    public void SetPageSize(string direction)
+    async Task OnPageSizeChange(UIChangeEventArgs eventArgs)
     {
-        if ((direction == "forward" || direction == "last") && (EndPage < TotalPages))
+        PageSize = Convert.ToInt32(eventArgs.Value?.ToString());
+        CurrentPage = 1;
+        await LoadData();
+    }
+
+    async Task LoadData()
+    {
+        try
+        {
+            if (RequestApiOnlyOnce)
+            {
+                FilterData();
+            }
+            else if (!string.IsNullOrWhiteSpace(ApiUrl) &&
+                    !string.IsNullOrWhiteSpace(PagingDataPropertyName) &&
+                    !string.IsNullOrWhiteSpace(PagingRecordsCountPropertyName))
+            {
+                await SearchPagedData();
+            }
+            else if (!string.IsNullOrWhiteSpace(ApiUrl) &&
+                    (string.IsNullOrWhiteSpace(PagingDataPropertyName) ||
+                    string.IsNullOrWhiteSpace(PagingRecordsCountPropertyName)))
+            {
+                await SearchData();
+            }
+            else
+            {
+                FilterData();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error LoadData: " + ex.Message);
+            ErrorMessage = ex.Message;
+        }
+        this.StateHasChanged();
+    }
+
+    async Task SearchData()
+    {
+        try {
+            Items = await Http.GetJsonAsync<TableItem[]>(ApiUrl + SearchTermParam(SearchTerm));
+            ItemList = Items.Skip(RecordsFrom).Take(PageSize);
+            RecordsCount = Items.Count();
+            TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+            EndPage = TotalPages;
+            RecordsFrom = (CurrentPage - 1) * PageSize;
+            RecordsTo = RecordsFrom + PageSize;
+            SetPageSize(PageDirection.Next);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error SearchData: " + ex.Message);
+            ErrorMessage = ex.Message;
+        }
+    }
+
+    void FilterLocalProvidedData()
+    {
+        RecordsFrom = (CurrentPage - 1) * PageSize;
+        RecordsTo = RecordsFrom + PageSize;
+        ItemList = Items.Skip(RecordsFrom).Take(PageSize);
+        TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+        EndPage = TotalPages;
+        SetPageSize(PageDirection.Next);
+    }
+
+    async Task SearchPagedData()
+    {
+        var PagedData = await Http.GetJsonAsync<TableItem>(ApiUrl + SearchTermParam(SearchTerm));
+        Items = (IEnumerable<TableItem>)
+                PagedData
+                .GetType()
+                .GetProperty(PagingDataPropertyName)
+                .GetValue(PagedData);
+        var Count = Convert.ToInt32(
+                    PagedData
+                    .GetType()
+                    .GetProperty(PagingRecordsCountPropertyName)
+                    .GetValue(PagedData)
+               );
+        RecordsFrom = (CurrentPage - 1) * PageSize;
+        RecordsTo = (RecordsFrom + PageSize < Count) ? RecordsFrom + PageSize : Count;
+        ItemList = Items;
+        TotalPages = (int)Math.Ceiling(Count / (decimal)PageSize);
+        EndPage = TotalPages;
+        SetPageSize(PageDirection.First);
+    }
+
+    void FilterData()
+    {
+        try
+        {
+            RecordsFrom = (CurrentPage - 1) * PageSize;
+
+            if (!string.IsNullOrWhiteSpace(SearchTerm))
+            {
+                if (string.IsNullOrWhiteSpace(FilterByColumnName))
+                {
+                    throw new ArgumentNullException("FilterByColumnName param cannot be null");
+                }
+
+                var filteredCollection = new List<TableItem>();
+                foreach (var item in Items)
+                {
+                    var propertyInfo = item.GetType().GetProperty(FilterByColumnName, BindingFlags.Public | BindingFlags.Instance);
+
+                    if (propertyInfo == null)
+                    {
+                        throw new NotSupportedException(FilterByColumnName + " column does not exists in the current context");
+                    }
+
+                    var propertyValue = propertyInfo.GetValue(item, null)?.ToString();
+
+                    if (propertyValue.ToLower().Contains(SearchTerm.ToLower()))
+                    {
+                        filteredCollection.Add(item);
+                    }
+                }
+
+                RecordsFilteredCount = filteredCollection.Count;
+                RecordsTo = (RecordsFrom + PageSize < RecordsFilteredCount) ? RecordsFrom + PageSize : RecordsFilteredCount;
+                TotalPages = (int)Math.Ceiling(RecordsFilteredCount / (decimal)PageSize);
+                EndPage = TotalPages;
+
+                if (PageSize <= 0)
+                {
+                    ItemList = filteredCollection;
+                }
+                else
+                {
+                    ItemList = filteredCollection.Skip(RecordsFrom).Take(PageSize);
+                }
+            }
+            else
+            {
+                if (PageSize <= 0)
+                {
+                    ItemList = Items;
+                }
+                else
+                {
+                    ItemList = Items.Skip(RecordsFrom).Take(PageSize);
+                }
+                RecordsTo = (RecordsFrom + PageSize < Items.Count()) ? RecordsFrom + PageSize : Items.Count();
+                TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+                EndPage = TotalPages;
+            }
+            SetPageSize(PageDirection.Next);
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error LoadData: " + ex.Message);
+            ErrorMessage = ex.Message;
+        }
+    }
+
+    public void SetPageSize(PageDirection direction)
+    {
+
+        if ((direction == PageDirection.Next || direction == PageDirection.Last) && (EndPage < TotalPages))
         {
             StartPage = EndPage + 1;
             if (EndPage + PageSize < TotalPages)
@@ -113,45 +335,46 @@
             }
             this.StateHasChanged();
         }
-        else if ((direction == "back" || direction == "first") && (StartPage > 1))
+        else if ((direction == PageDirection.Previous || direction == PageDirection.First) && (StartPage > 1))
         {
             EndPage = StartPage - 1;
             StartPage = StartPage - PageSize;
         }
     }
 
-    public void NavigateToPage(string direction)
+    async Task NavigateToPage(PageDirection direction)
     {
-        if (direction == "first")
+        CurrentPage = (direction) switch
         {
-            CurrentPage = StartPage;
-        }
-        else if (direction == "next")
-        {
-            if (CurrentPage < TotalPages)
-            {
-                if (CurrentPage == EndPage)
+            PageDirection.First => StartPage,
+            PageDirection.Last => EndPage,
+            PageDirection.Next => ((Func<int>)(() => {
+                if ((CurrentPage < TotalPages) && (CurrentPage == EndPage))
                 {
-                    SetPageSize("forward");
+                    SetPageSize(PageDirection.Next);
                 }
-                CurrentPage += 1;
-            }
-        }
-        else if (direction == "previous")
-        {
-            if (CurrentPage > 1)
-            {
-                if (CurrentPage == StartPage)
+                return CurrentPage + 1;
+            }))(),
+            PageDirection.Previous => ((Func<int>)(() => {
+                if ((CurrentPage > 1) && (CurrentPage == StartPage))
                 {
-                    SetPageSize("back");
-                }
-                CurrentPage -= 1;
-            }
-        }
-        else if (direction == "last")
+                    SetPageSize(PageDirection.Previous);
+                }                                    
+                return CurrentPage - 1;
+            }))(),
+            _ => throw new NotSupportedException()
+        };
+
+        await UpdateList(CurrentPage);
+    }
+
+    void OnInput(UIChangeEventArgs eventArgs)
+    {
+        Debounce(eventArgs, DebounceMilliseconds, async (e) =>
         {
-            CurrentPage = EndPage;
-        }
-        UpdateList(CurrentPage);
+            SearchTerm = ((UIChangeEventArgs)e).Value?.ToString();
+            CurrentPage = 1;
+            await LoadData();
+        });
     }
 }

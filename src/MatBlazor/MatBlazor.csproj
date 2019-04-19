@@ -5,7 +5,7 @@
     <OutputType>Library</OutputType>
     <IsPackable>true</IsPackable>
     <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>8.0</LangVersion>
     <Version>0.9.2</Version>
     <Description>Material Design components for Blazor and Razor Components</Description>
     <PackageProjectUrl>https://www.matblazor.com/</PackageProjectUrl>
