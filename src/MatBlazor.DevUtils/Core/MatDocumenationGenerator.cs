@@ -23,7 +23,7 @@ namespace MatBlazor.DevUtils.Core
         {
             var xml = XDocument.Load(XmlPath);
 
-            foreach (var fileInfo in new DirectoryInfo(OutputPath).GetFiles("*.cshtml", SearchOption.TopDirectoryOnly))
+            foreach (var fileInfo in new DirectoryInfo(OutputPath).GetFiles("*.razor", SearchOption.TopDirectoryOnly))
             {
                 fileInfo.Delete();
             }
@@ -45,7 +45,7 @@ namespace MatBlazor.DevUtils.Core
 
                 Console.WriteLine(typeName);
 
-                var outFilePath = Path.Combine(OutputPath, $"Doc{GetFileName(typeName)}.cshtml");
+                var outFilePath = Path.Combine(OutputPath, $"Doc{GetFileName(typeName)}.razor");
 
                 var sb = new StringBuilder();
 

@@ -7,22 +7,42 @@
 <DemoContainer>
     <Content>
         <div>
-            <MatCheckbox bind-Checked="@checked1" Label="@(getLabel(checked1))"></MatCheckbox>
+            <MatCheckbox bind-Checked="@Checked1" Label="@(getLabel(Checked1))"></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox bind-Checked="@checked2" Label="@(getLabel(checked2))"></MatCheckbox>
+            <MatCheckbox bind-Checked="@Checked2" Label="@(getLabel(Checked2))"></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox Disabled="true" bind-Checked="@checked1" Label="Disabled"></MatCheckbox>
+            <MatCheckbox Disabled="true" bind-Checked="@Checked1" Label="Disabled"></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox bind-Checked="@checked2">Inline Label</MatCheckbox>
+            <MatCheckbox bind-Checked="@Checked2">Inline Label</MatCheckbox>
         </div>
 
         @functions
         {
-            bool checked1 { get; set; }
+            bool checked1 = true;
             bool checked2 = false;
+
+            public bool Checked1
+            {
+                get { return checked1; }
+                set
+                {
+                    checked1 = value;
+                    StateHasChanged();
+                }
+            }
+
+            public bool Checked2
+            {
+                get { return checked2; }
+                set
+                {
+                    checked2 = value;
+                    StateHasChanged();
+                }
+            }
 
             string getLabel(bool val)
             {

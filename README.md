@@ -94,6 +94,9 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
+### MatBlazor 0.9.3
+- Update to Blazor 3.0.0-preview4-19216-03
+
 ### MatBlazor 0.9.2
 - PR: MatTable Version 1 #58 (enkodellc)
 
