@@ -15,12 +15,16 @@
 }
 
 @functions {
+
     [Parameter]
     string Message { get; set; }
+
     [Parameter]
     AlertType Type { get; set; }
+
     [Parameter]
     bool Dismissible { get; set; }
+
     [Parameter]
     Action OnDismiss { get; set; }
 
@@ -29,24 +33,41 @@
     protected override void OnInit()
     {
         if (Type == AlertType.Danger)
+        {
             ClassType = "alert-danger";
+        }
         else if (Type == AlertType.Dark)
+        {
             ClassType = "alert-dark";
+        }
         else if (Type == AlertType.Info)
+        {
             ClassType = "alert-info";
+        }
         else if (Type == AlertType.Ligth)
+        {
             ClassType = "alert-ligth";
+        }
         else if (Type == AlertType.Link)
+        {
             ClassType = "alert-link";
+        }
         else if (Type == AlertType.Primary)
+        {
             ClassType = "alert-primary";
+        }
         else if (Type == AlertType.Secondary)
+        {
             ClassType = "alert-secondary";
+        }
         else if (Type == AlertType.Success)
+        {
             ClassType = "alert-success";
+        }
         else if (Type == AlertType.Warning)
+        {
             ClassType = "alert-warning";
-
+        }
     }
 
     protected void Dismiss()
@@ -54,4 +75,5 @@
         Message = null;
         OnDismiss?.Invoke();
     }
+
 }

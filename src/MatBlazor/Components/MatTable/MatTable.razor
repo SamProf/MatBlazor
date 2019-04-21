@@ -120,7 +120,7 @@
                 new PageSizeStructure() { Text = "50", Value = 50 },
                 new PageSizeStructure() { Text = "100", Value = 100 },
                 new PageSizeStructure() { Text = "*", Value = -1 }
-            };
+                };
             PageSize = 5;
         }
         CurrentPage = 1;
@@ -201,7 +201,8 @@
 
     async Task SearchData()
     {
-        try {
+        try
+        {
             Items = await Http.GetJsonAsync<TableItem[]>(ApiUrl + SearchTermParam(SearchTerm));
             ItemList = Items.Skip(RecordsFrom).Take(PageSize);
             RecordsCount = Items.Count();
@@ -348,18 +349,20 @@
         {
             PageDirection.First => StartPage,
             PageDirection.Last => EndPage,
-            PageDirection.Next => ((Func<int>)(() => {
+            PageDirection.Next => ((Func<int>)(() =>
+            {
                 if ((CurrentPage < TotalPages) && (CurrentPage == EndPage))
                 {
                     SetPageSize(PageDirection.Next);
                 }
                 return CurrentPage + 1;
             }))(),
-            PageDirection.Previous => ((Func<int>)(() => {
+            PageDirection.Previous => ((Func<int>)(() =>
+            {
                 if ((CurrentPage > 1) && (CurrentPage == StartPage))
                 {
                     SetPageSize(PageDirection.Previous);
-                }                                    
+                }
                 return CurrentPage - 1;
             }))(),
             _ => throw new NotSupportedException()

@@ -17,7 +17,7 @@ namespace MatBlazor.Components.MatIconButton
     {
 
         [Inject]
-        public Microsoft.AspNetCore.Components.Services.IUriHelper UriHelper { get; set; }
+        public Microsoft.AspNetCore.Components.IUriHelper UriHelper { get; set; }
 
         private bool _disabled;
         private bool _toggled = false;

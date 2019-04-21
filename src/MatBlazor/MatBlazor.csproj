@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <IsPackable>true</IsPackable>
-    <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
+    <IsPackable>true</IsPackable>   
     <LangVersion>8.0</LangVersion>
+    <RazorLangVersion>3.0</RazorLangVersion>
     <Version>0.9.2</Version>
     <Description>Material Design components for Blazor and Razor Components</Description>
     <PackageProjectUrl>https://www.matblazor.com/</PackageProjectUrl>
@@ -40,44 +40,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="0.9.0-preview3-19154-02" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.9.0-preview3-19154-02" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.0.0-preview4-19216-03" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.0.0-preview4-19216-03" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Components\MatAppBar\MatAppBarAction.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Components\MatAppBar\MatAppBarTitle.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Components\MatAppBar\MatAppBarNavigationIcon.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Components\MatAppBar\MatAppBarSection.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Components\MatAppBar\MatAppBarRow.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Components\MatCard\MatCard.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Components\MatCheckbox\MatCheckbox.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Components\MatChipSet\MatChipSet.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Components\MatChip\MatChip.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Components\MatList\Helpers\MatListItemSecondaryText.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Components\MatTextField\MatTextField.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
+   
   </ItemGroup>
 
 </Project>

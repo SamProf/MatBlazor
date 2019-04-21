@@ -1,3 +1,5 @@
+@using MatBlazor.Components.MatCheckbox
+
 <DocMatCheckbox></DocMatCheckbox>
 
 <h5 class="mat-h5">Example</h5>
@@ -19,8 +21,8 @@
 
         @functions
         {
-            private bool checked1 = true;
-            private bool checked2 = false;
+            bool checked1 { get; set; }
+            bool checked2 = false;
 
             string getLabel(bool val)
             {

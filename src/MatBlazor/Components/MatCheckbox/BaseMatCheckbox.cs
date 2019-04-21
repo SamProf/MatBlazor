@@ -24,13 +24,13 @@ namespace MatBlazor.Components.MatCheckbox
         protected RenderFragment ChildContent { get; set; }
 
         [Parameter]
-        public bool Checked { get; set; }
+        protected bool Checked { get; set; }
 
         [Parameter]
         public string Label { get; set; }
 
         [Parameter]
-        public EventCallback<bool> CheckedChanged { get; set; }
+        protected Action<bool> CheckedChanged { get; set; }
 //
 //        [Parameter]
 //        public bool Indeterminate { get; set; }
@@ -44,7 +44,7 @@ namespace MatBlazor.Components.MatCheckbox
         protected void ChangeHandler(UIChangeEventArgs e)
         {
             Checked = (bool) e.Value;
-            CheckedChanged.InvokeAsync(this.Checked);
+            CheckedChanged?.Invoke(this.Checked);
         }
 
         protected async override Task OnFirstAfterRenderAsync()
