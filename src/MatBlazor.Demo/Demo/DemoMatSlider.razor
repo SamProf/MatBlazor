@@ -202,3 +202,44 @@
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
+
+
+<h5 class="mat-h5">ValueChanged event</h5>
+<DemoContainer>
+    <Content>
+        <MatSlider ValueChanged="@OnValueChanged"></MatSlider>
+
+        @functions
+        {
+
+            public void OnValueChanged(decimal val)
+            {
+                Console.WriteLine($"OnValueChanged: {val}");
+                
+            }
+        }
+
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlider bind-Value=""@Val3"" Discrete=""true""></MatSlider>
+
+        @functions
+        {
+
+            public decimal Val3
+            {
+                get => _val3;
+                set
+                {
+                    _val3 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private decimal _val3 = 0;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
