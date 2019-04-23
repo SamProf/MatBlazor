@@ -1,4 +1,4 @@
-# ![MatBlazor](content/matblazor.png)
+# ![MatBlazor](content/logo-medium.png) ![MatBlazor](content/matblazor.png)
 
 ## Material Design components for Blazor and Razor Components
 [![NuGet](https://img.shields.io/nuget/v/MatBlazor.svg)](https://www.nuget.org/packages/MatBlazor/)
@@ -94,11 +94,18 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
+### MatBlazor 0.9.4
+- Now we have Logo (many thanks to [enkodellc](https://github.com/enkodellc))
+- PR: Prevent *.razor files from being packed #64 (IvanJosipovic)
+- Fixed Examples generation
+
 ### MatBlazor 0.9.3
 - Update to Blazor 3.0.0-preview4-19216-03
+- PR: MatTable Table Filter, get data from API #61 (enkodellc, arivera12)
+- PR: Fix Table Navigation Error #60 (enkodellc)
 
 ### MatBlazor 0.9.2
-- PR: MatTable Version 1 #58 (enkodellc)
+- PR: MatTable Version 1 #58 (enkodellc, arivera12)
 
 ### MatBlazor 0.9.1
 - PR: Fixed #50 Autocomplete FullWidth + #52 (sandrohanea)

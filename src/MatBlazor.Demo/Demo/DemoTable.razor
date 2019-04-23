@@ -48,49 +48,48 @@
         }
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-<MatTable Items=""@cars"">
-    <MatTableHeader>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Horsepower</th>
-    </MatTableHeader>
-    <MatTableRow>
-        <td>@context.Name</td>
-        <td>@String.Format(""${0:f2}"", @context.Price)</td>
-        <td>@context.Horsepower</td>
-    </MatTableRow>
-</MatTable>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTable Items=""@cars"">
+            <MatTableHeader>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Horsepower</th>
+            </MatTableHeader>
+            <MatTableRow>
+                <td>@context.Name</td>
+                <td>@String.Format(""${0:f2}"", @context.Price)</td>
+                <td>@context.Horsepower</td>
+            </MatTableRow>
+        </MatTable>
 
-@functions
-{
-    public class Car
-    {
-        public string Name { get; set; }
-        public double Price { get; set; }
-        public int Horsepower { get; set; }
-
-        public Car(string name, double price, int horsepower)
+        @functions
         {
-            Name = name;
-            Price = price;
-            Horsepower = horsepower;
+            public class Car
+            {
+                public string Name { get; set; }
+                public double Price { get; set; }
+                public int Horsepower { get; set; }
+
+                public Car(string name, double price, int horsepower)
+                {
+                    Name = name;
+                    Price = price;
+                    Horsepower = horsepower;
+                }
+            }
+
+            Car[] cars = new[]
+            {
+                new Car(""Volkswagen Golf"", 10000,220),
+                new Car(""Volkswagen Passat"", 11000,240),
+                new Car(""Volkswagen Polo"", 12000,110),
+                new Car(""Ford Focus"", 13000,200),
+                new Car(""Ford Fiesta"", 14000,160),
+                new Car(""Ford Fusion"", 15000,260),
+                new Car(""Ford Mondeo"", 16000,120),
+            };
         }
-    }
-
-    Car[] cars = new[]
-    {
-        new Car(""Volkswagen Golf"", 10000,220),
-        new Car(""Volkswagen Passat"", 11000,240),
-        new Car(""Volkswagen Polo"", 12000,110),
-        new Car(""Ford Focus"", 13000,200),
-        new Car(""Ford Fiesta"", 14000,160),
-        new Car(""Ford Fusion"", 15000,260),
-        new Car(""Ford Mondeo"", 16000,120),
-    };
-
-}
-        ")></BlazorFiddle>
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -126,35 +125,34 @@
         }
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-<MatTable Items=""@todos"" LoadInitialData=""true"" Striped=""true"" RequestApiOnlyOnce=""true"" ApiUrl=""https://jsonplaceholder.typicode.com/todos"" FilterByColumnName=""Title"" DebounceMilliseconds=""150"">
-    <MatTableHeader>
-        <th>Id</th>
-        <th>Todo</th>
-        <th>Completed</th>
-    </MatTableHeader>
-    <MatTableRow>
-        <td>@String.Format(""{0:d}"", @context.Id)</td>
-        <td>@context.Title</td>
-        <td>@context.Completed</td>
-    </MatTableRow>
-</MatTable>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTable Items=""@todos"" LoadInitialData=""true"" Striped=""true"" RequestApiOnlyOnce=""true"" ApiUrl=""https://jsonplaceholder.typicode.com/todos"" FilterByColumnName=""Title"" DebounceMilliseconds=""150"">
+            <MatTableHeader>
+                <th>Id</th>
+                <th>Todo</th>
+                <th>Completed</th>
+            </MatTableHeader>
+            <MatTableRow>
+                <td>@String.Format(""{0:d}"", @context.Id)</td>
+                <td>@context.Title</td>
+                <td>@context.Completed</td>
+            </MatTableRow>
+        </MatTable>
 
-@functions
-{
-    public class Todo
-    {
-        public int UserId { get; set; }
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public bool Completed { get; set; }
+        @functions
+        {
+            public class Todo
+            {
+                public int UserId { get; set; }
+                public int Id { get; set; }
+                public string Title { get; set; }
+                public bool Completed { get; set; }
 
-        public Todo() { }
-    }
+                public Todo() { }
+            }
 
-    Todo[] todos;
-}
-        ")></BlazorFiddle>
+            Todo[] todos;
+        }
+    ")></BlazorFiddle>
     </SourceContent>
-
 </DemoContainer>

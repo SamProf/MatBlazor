@@ -21,6 +21,7 @@
     <PackageReleaseNotes></PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>Vladimir Samoilenko</Authors>
+    <PackageIconUrl>https://raw.githubusercontent.com/BlazorComponents/MatBlazor/master/content/icon.ico</PackageIconUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

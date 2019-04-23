@@ -221,23 +221,17 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSlider bind-Value=""@Val3"" Discrete=""true""></MatSlider>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlider ValueChanged=""@OnValueChanged""></MatSlider>
 
         @functions
         {
 
-            public decimal Val3
+            public void OnValueChanged(decimal val)
             {
-                get => _val3;
-                set
-                {
-                    _val3 = value;
-                    this.StateHasChanged();
-                }
+                Console.WriteLine($""OnValueChanged: {val}"");
+                
             }
-
-            private decimal _val3 = 0;
         }
 
     ")></BlazorFiddle>

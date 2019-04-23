@@ -27,6 +27,6 @@ namespace MatBlazor.DevUtils
         public string DemoContainerTag = "DemoContainer";
         public string ContentTag = "Content";
         public string SourceContentTag = "SourceContent";
-        public string FileMask = "*.cshtml";
+        public string FileMask = "*.razor";
     }
 }
