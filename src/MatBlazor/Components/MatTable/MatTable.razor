@@ -345,28 +345,53 @@
 
     async Task NavigateToPage(PageDirection direction)
     {
-        CurrentPage = (direction) switch
+        switch (direction)
         {
-            PageDirection.First => StartPage,
-            PageDirection.Last => EndPage,
-            PageDirection.Next => ((Func<int>)(() =>
-            {
+            case (PageDirection.First):
+                CurrentPage = StartPage;
+                break;
+            case (PageDirection.Last):
+                CurrentPage = EndPage;
+                break;
+            case (PageDirection.Next):
                 if ((CurrentPage < TotalPages) && (CurrentPage == EndPage))
                 {
                     SetPageSize(PageDirection.Next);
                 }
-                return CurrentPage + 1;
-            }))(),
-            PageDirection.Previous => ((Func<int>)(() =>
-            {
+                CurrentPage++;
+                break;
+            case (PageDirection.Previous):
                 if ((CurrentPage > 1) && (CurrentPage == StartPage))
                 {
                     SetPageSize(PageDirection.Previous);
                 }
-                return CurrentPage - 1;
-            }))(),
-            _ => throw new NotSupportedException()
-        };
+                CurrentPage--;
+                break;
+        }
+
+        // C# 8.0 Code
+        //CurrentPage = (direction) switch
+        //{
+        //    PageDirection.First => StartPage,
+        //    PageDirection.Last => EndPage,
+        //    PageDirection.Next => ((Func<int>)(() =>
+        //    {
+        //        if ((CurrentPage < TotalPages) && (CurrentPage == EndPage))
+        //        {
+        //            SetPageSize(PageDirection.Next);
+        //        }
+        //        return CurrentPage + 1;
+        //    }))(),
+        //    PageDirection.Previous => ((Func<int>)(() =>
+        //    {
+        //        if ((CurrentPage > 1) && (CurrentPage == StartPage))
+        //        {
+        //            SetPageSize(PageDirection.Previous);
+        //        }
+        //        return CurrentPage - 1;
+        //    }))(),
+        //    _ => throw new NotSupportedException()
+        //};
 
         await UpdateList(CurrentPage);
     }
