@@ -25,10 +25,10 @@ MatBlazor comprises a range of components which implement common interaction pat
 
 Don't know what Blazor is? Read [here](https://github.com/aspnet/Blazor)
 
-Complete all Blazor 0.9  dependencies.
+Complete all Blazor dependencies.
 
-- .NET Core 3.0 Preview 3 SDK (3.0.100-preview3-010431)
-- Visual Studio 2019 (Preview 4 or later) with the ASP.NET and web development workload selected.
+- .NET Core 3.0 Preview 4 SDK (3.0.0-preview4-19216-03)
+- Visual Studio 2019 Preview 4 with the ASP.NET and web development workload selected.
 - The latest Blazor extension from the Visual Studio Marketplace.
 - The Blazor templates on the command-line: dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.9.0-preview3-19154-02
 
@@ -93,6 +93,10 @@ In the near future we plan to maximize the count and features of the components 
 This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
+
+### MatBlazor 0.9.6
+- All components in one namespace MatBlazor (only one using directive)
+- PR: Revert back to C# 7.3 #66 (enkodellc)
 
 ### MatBlazor 0.9.5
 - Fixed problem with including *.razor files

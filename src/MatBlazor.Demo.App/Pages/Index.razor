@@ -63,18 +63,26 @@
     </div>
 
     <div class="index-row-item mat-elevation-z5">
+        <h5 class="mat-h5">_Imports.razor</h5>
+        <p>
+            Add @@using MatBlazor in main _Imports.razor
+        </p>
+
+        <p>
+            <BlazorFiddle Template="MatBlazor" Code=@(@"@using MatBlazor")>
+            </BlazorFiddle>
+        </p>
         <h5 class="mat-h5">Usage</h5>
         <p>
             MatBlazor components are self-supporting.
         </p>
 
         <p>
-            <BlazorFiddle Template="MatBlazor" Code=@(@"@using MatBlazor.Components.MatButton
-<MatButton>Test</MatButton>")>
+            <BlazorFiddle Template="MatBlazor" Code=@(@"<MatButton>Test</MatButton>")>
             </BlazorFiddle>
         </p>
 
-        <h5 class="mat-h5">MatBlazor components for Razor Components</h5>
+        <h5 class="mat-h5">MatBlazor components for Server Blazor (ex Razor Components)</h5>
 
 
         <p>
