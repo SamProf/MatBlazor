@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace MatBlazor.Components.MatSlider
+namespace MatBlazor
 {
     /// <summary>
     /// Sliders let users select from a range of values by moving the slider thumb. 

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace MatBlazor.Helpers
+namespace MatBlazor
 {
     public class ClassMapper
     {

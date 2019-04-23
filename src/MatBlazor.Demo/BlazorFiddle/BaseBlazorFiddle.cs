@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MatBlazor.Components.Base;
 using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Demo.BlazorFiddle

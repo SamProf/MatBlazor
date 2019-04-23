@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Threading;
-using MatBlazor.Components.Base;
-using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Components;
-using System.Reflection;
 
-namespace MatBlazor.Components.MatTable
+namespace MatBlazor
 {
     /// <summary>
     /// Mat Table display a table data.

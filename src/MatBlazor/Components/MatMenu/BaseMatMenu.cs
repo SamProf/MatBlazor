@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using Microsoft.AspNetCore.Blazor;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatMenu
+namespace MatBlazor
 {
     /// <summary>
     /// Menus display a list of choices on a transient sheet of material.

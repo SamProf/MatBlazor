@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MatBlazor.Components.MatAutocomplete
+﻿namespace MatBlazor
 {
     public class AutocompleteElementWrapper<TItem>
     {

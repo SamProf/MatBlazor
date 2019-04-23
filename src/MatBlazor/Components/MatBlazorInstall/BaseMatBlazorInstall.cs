@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using Mono.WebAssembly.Interop;
 
-namespace MatBlazor.Components.MatBlazorInstall
+namespace MatBlazor
 {
     public class BaseMatBlazorInstall : ComponentBase
     {

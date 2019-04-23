@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
-using MatBlazor.Components.Base;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace MatBlazor.Components.MatSnackbar
+namespace MatBlazor
 {
     /// <summary>
     /// Snackbars provide brief messages about app processes at the bottom of the screen.

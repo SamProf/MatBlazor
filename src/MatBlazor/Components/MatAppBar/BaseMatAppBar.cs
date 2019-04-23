@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using Microsoft.AspNetCore.Blazor;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatAppBar
+namespace MatBlazor
 {
     /// <summary>
     /// Acts as a container for items such as application title, navigation icon, and action items.

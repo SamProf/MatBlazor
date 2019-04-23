@@ -1,4 +1,4 @@
-﻿namespace MatBlazor.Components.MatRipple
+﻿namespace MatBlazor
 {
     public enum MatRippleColor
     {

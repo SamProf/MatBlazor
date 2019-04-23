@@ -1,4 +1,4 @@
-﻿namespace MatBlazor.Components.Experiments.BlazorGridView
+﻿namespace MatBlazor
 {
     public class PageSizeStructure
     {

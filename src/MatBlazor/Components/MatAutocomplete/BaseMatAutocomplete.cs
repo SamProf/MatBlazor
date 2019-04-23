@@ -1,13 +1,10 @@
-﻿using MatBlazor.Components.Base;
-using MatBlazor.Helpers;
-using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatAutocomplete
+namespace MatBlazor
 {
     /// <summary>
     /// The autocomplete is a normal text input enhanced by a panel of suggested options.

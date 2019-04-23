@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
+﻿using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatRipple
+namespace MatBlazor
 {
     /// <summary>
     /// Ripples are visual representations used to communicate the status of a component or interactive element. 

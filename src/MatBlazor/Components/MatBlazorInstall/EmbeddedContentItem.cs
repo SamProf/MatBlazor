@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MatBlazor.Components.MatBlazorInstall
+﻿namespace MatBlazor
 {
     public class EmbeddedContentItem
     {

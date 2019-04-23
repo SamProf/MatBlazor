@@ -1,8 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Components
-@inherits MatBlazor.Components.Base.BaseMatComponent
+@inherits BaseMatComponent
 
 
-<div class="@ClassMapper.Class" style="@Style" ref="Ref" id="@MatBlazorId">
+<div class="@ClassMapper.Class"
+     style="@Style"
+     ref="Ref"
+     role="status"
+     aria-live="polite">
     @ChildContent
 </div>
 
@@ -16,7 +20,7 @@
     protected async override Task OnInitAsync()
     {
         await base.OnInitAsync();
-        ClassMapper.Add("mdc-dialog__content");
+        ClassMapper.Add("mdc-snackbar__label");
     }
 
 }

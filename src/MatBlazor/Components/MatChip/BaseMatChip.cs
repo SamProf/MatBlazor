@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using MatBlazor.Helpers;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatChip
+namespace MatBlazor
 {
     /// <summary>
     /// Chips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.

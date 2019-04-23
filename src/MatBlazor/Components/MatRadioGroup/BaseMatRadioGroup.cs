@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatRadioGroup
+namespace MatBlazor
 {
     public class BaseMatRadioGroup : BaseMatComponent
     {

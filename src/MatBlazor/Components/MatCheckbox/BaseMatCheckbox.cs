@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatCheckbox
+namespace MatBlazor
 {
     /// <summary>
     /// Checkboxes allow the user to select multiple options from a set.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MatBlazor.Helpers
+namespace MatBlazor
 {
     public class ClassBuilderRuleDictionary<T, TK> : ClassBuilderRule<T>
     {

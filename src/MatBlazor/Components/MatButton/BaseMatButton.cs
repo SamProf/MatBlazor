@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
-using MatBlazor.Components.Base;
-using MatBlazor.Helpers;
-using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatButton
+namespace MatBlazor
 {
     /// <summary>
     /// Buttons communicate an action a user can take.

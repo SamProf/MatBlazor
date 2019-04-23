@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using Microsoft.AspNetCore.Blazor;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatChipSet
+namespace MatBlazor
 {
     public class BaseMatChipSet : BaseMatComponent
     {

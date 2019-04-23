@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MatBlazor.Components.Base;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace MatBlazor.Components.MatDialog
+namespace MatBlazor
 {
     /// <summary>
     /// Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.

@@ -1,13 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using MatBlazor.Helpers;
-using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatTextField
+namespace MatBlazor
 {
     /// <summary>
     /// Text fields allow users to input, edit, and select text.

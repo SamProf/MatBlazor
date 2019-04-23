@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using MatBlazor.Helpers;
-using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatCard
+namespace MatBlazor
 {
     /// <summary>
     /// Cards contain content and actions about a single subject.

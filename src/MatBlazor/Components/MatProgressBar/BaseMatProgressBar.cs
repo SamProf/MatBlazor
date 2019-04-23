@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using MatBlazor.Components.Base;
 using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatProgressBar
+namespace MatBlazor
 {
     /// <summary>
     /// Progress indicators display the length of a process or express an unspecified wait time.

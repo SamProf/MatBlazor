@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using Microsoft.AspNetCore.Blazor;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatSelect
+namespace MatBlazor
 {
     /// <summary>
     /// Selects allow users to select from a single-option menu. It functions as a wrapper around the browser's native select element.

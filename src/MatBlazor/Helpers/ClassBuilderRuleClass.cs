@@ -1,4 +1,4 @@
-﻿namespace MatBlazor.Helpers
+﻿namespace MatBlazor
 {
     public class ClassBuilderRuleClass<T> : ClassBuilderRule<T>
     {

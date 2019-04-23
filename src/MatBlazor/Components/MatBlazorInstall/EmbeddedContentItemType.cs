@@ -1,4 +1,4 @@
-﻿namespace MatBlazor.Components.MatBlazorInstall
+﻿namespace MatBlazor
 {
     public enum EmbeddedContentItemType
     {

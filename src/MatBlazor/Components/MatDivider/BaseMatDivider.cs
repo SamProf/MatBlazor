@@ -1,7 +1,6 @@
-﻿using MatBlazor.Components.Base;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatDivider
+namespace MatBlazor
 {
     /// <summary>
     /// MatDivider is a component that allows for Material styling of a line separator with various orientation options. 

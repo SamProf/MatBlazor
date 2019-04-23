@@ -4,371 +4,371 @@
         <name>MatBlazor</name>
     </assembly>
     <members>
-        <member name="P:MatBlazor.Components.Base.BaseMatComponent.Ref">
+        <member name="P:MatBlazor.BaseMatComponent.Ref">
             <summary>
             Returned ElementRef reference for DOM element.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.Base.BaseMatComponent.Class">
+        <member name="P:MatBlazor.BaseMatComponent.Class">
             <summary>
             Specifies one or more classnames for an DOM element.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.Base.BaseMatComponent.Style">
+        <member name="P:MatBlazor.BaseMatComponent.Style">
             <summary>
             Specifies an inline style for an DOM element.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatAppBar.BaseMatAppBar">
+        <member name="T:MatBlazor.BaseMatAppBar">
             <summary>
             Acts as a container for items such as application title, navigation icon, and action items.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1">
+        <member name="T:MatBlazor.BaseMatAutocomplete`1">
             <summary>
             The autocomplete is a normal text input enhanced by a panel of suggested options.
             </summary>
             <typeparam name="ItemType">Type of element type.</typeparam>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.NumberOfElementsInPopup">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.NumberOfElementsInPopup">
             <summary>
             Maximum number of elements displayed in the popup
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.Label">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.Label">
             <summary>
             The label of the TextField
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.Icon">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.Icon">
             <summary>
             The Icon displayed as the leading icon for the TextField
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.StringValue">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.StringValue">
             <summary>
             The StringValue displayed in the TextField
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.Value">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.Value">
             <summary>
             The value to be used to pre-select an item from the list
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.ValueChanged">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.ValueChanged">
             <summary>
             ValueChanged is fired when the value is selected(by clicking on an element in the popup)
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.ItemTemplate">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.ItemTemplate">
             <summary>
             ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.CustomStringSelector">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.CustomStringSelector">
             <summary>
             This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.Collection">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.Collection">
             <summary>
             The collection which should be rendered and filtered
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.Outlined">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.Outlined">
             <summary>
             If this parameter is true then the style of the textbox is outlined see `MatTextfield`
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.OnOpenedChanged">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.OnOpenedChanged">
             <summary>
             OnOpenedChanged is fired when the popup dialog is opened or close and the parameter indicates whenever is it open, the default value is false
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.OnTextChanged">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.OnTextChanged">
             <summary>
             OnTextChanged is fired when the string value is changed(when an input occurs in the textfield or when an item is selected)
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.ShowClearButton">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.ShowClearButton">
             <summary>
             This value indicates if the clear button(using a trailing icon) should be displayed, which can clear the entire text and the selected value), the default value is false
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatAutocomplete.BaseMatAutocomplete`1.FullWidth">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.FullWidth">
             <summary>
             This value indicates if the textfield and the dialog will be or not displayed in the full screen, the default value is false
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatButton.BaseMatButton">
+        <member name="T:MatBlazor.BaseMatButton">
             <summary>
             Buttons communicate an action a user can take.
             They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.OnClick">
+        <member name="P:MatBlazor.BaseMatButton.OnClick">
             <summary>
              Event occurs when the user clicks on an element.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Command">
+        <member name="P:MatBlazor.BaseMatButton.Command">
             <summary>
              Command executed when the user clicks on an element.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.CommandParameter">
+        <member name="P:MatBlazor.BaseMatButton.CommandParameter">
             <summary>
              Command parameter.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Link">
+        <member name="P:MatBlazor.BaseMatButton.Link">
             <summary>
             Link to a url when clicked.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Raised">
+        <member name="P:MatBlazor.BaseMatButton.Raised">
             <summary>
             Button has raised style.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Unelevated">
+        <member name="P:MatBlazor.BaseMatButton.Unelevated">
             <summary>
             Button has unelevated style.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Outlined">
+        <member name="P:MatBlazor.BaseMatButton.Outlined">
             <summary>
             Button has outlined style.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Dense">
+        <member name="P:MatBlazor.BaseMatButton.Dense">
             <summary>
             Button has dense style.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Disabled">
+        <member name="P:MatBlazor.BaseMatButton.Disabled">
             <summary>
             Button is disabled.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Icon">
+        <member name="P:MatBlazor.BaseMatButton.Icon">
             <summary>
             Specifies an button's icon.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.TrailingIcon">
+        <member name="P:MatBlazor.BaseMatButton.TrailingIcon">
             <summary>
             Specifies if icon has trailing position.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.Label">
+        <member name="P:MatBlazor.BaseMatButton.Label">
             <summary>
             Text label of Button.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatButton.BaseMatButton.ChildContent">
+        <member name="P:MatBlazor.BaseMatButton.ChildContent">
             <summary>
             Inline label of Button.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatCard.BaseMatCard">
+        <member name="T:MatBlazor.BaseMatCard">
             <summary>
             Cards contain content and actions about a single subject.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatCheckbox.BaseMatCheckbox">
+        <member name="T:MatBlazor.BaseMatCheckbox">
             <summary>
             Checkboxes allow the user to select multiple options from a set.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatChip.BaseMatChip">
+        <member name="T:MatBlazor.BaseMatChip">
             <summary>
             Chips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatDialog.BaseMatDialog">
+        <member name="T:MatBlazor.BaseMatDialog">
             <summary>
             Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatDivider.BaseMatDivider">
+        <member name="T:MatBlazor.BaseMatDivider">
             <summary>
             MatDivider is a component that allows for Material styling of a line separator with various orientation options. 
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatDrawer.BaseMatDrawer">
+        <member name="T:MatBlazor.BaseMatDrawer">
             <summary>
             The navigation drawer slides in from the left and contains the navigation destinations for your app.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatIconButton.BaseMatIconButton">
+        <member name="T:MatBlazor.BaseMatIconButton">
             <summary>
             Icons are appropriate for buttons that allow a user to take actions or make a selection, such as adding or removing a star to an item.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatIconButton.BaseMatIconButton.Icon">
+        <member name="P:MatBlazor.BaseMatIconButton.Icon">
             <summary>
             Default Button Icon
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatIconButton.BaseMatIconButton.Target">
+        <member name="P:MatBlazor.BaseMatIconButton.Target">
             <summary>
             *Not available yet
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatIconButton.BaseMatIconButton.ToggleIcon">
+        <member name="P:MatBlazor.BaseMatIconButton.ToggleIcon">
             <summary>
             Icon to use when Button is clicked
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatIconButton.BaseMatIconButton.Link">
+        <member name="P:MatBlazor.BaseMatIconButton.Link">
             <summary>
             Navigate to this url when clicked.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatIconButton.BaseMatIconButton.Disabled">
+        <member name="P:MatBlazor.BaseMatIconButton.Disabled">
             <summary>
             Button is disabled.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatIconButton.BaseMatIconButton.Command">
+        <member name="P:MatBlazor.BaseMatIconButton.Command">
             <summary>
              Command executed when the user clicks on an element.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatIconButton.BaseMatIconButton.CommandParameter">
+        <member name="P:MatBlazor.BaseMatIconButton.CommandParameter">
             <summary>
              Command parameter.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatIconButton.BaseMatIconButton.OnClick">
+        <member name="P:MatBlazor.BaseMatIconButton.OnClick">
             <summary>
              Event occurs when the user clicks on an element.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatIcon.BaseMatIcon">
+        <member name="T:MatBlazor.BaseMatIcon">
             <summary>
             Makes it easier to use vector-based icons in your app.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatList.BaseMatList">
+        <member name="T:MatBlazor.BaseMatList">
             <summary>
             Lists present multiple line items vertically as a single continuous element. 
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatMenu.BaseMatMenu">
+        <member name="T:MatBlazor.BaseMatMenu">
             <summary>
             Menus display a list of choices on a transient sheet of material.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatProgressBar.BaseMatProgressBar">
+        <member name="T:MatBlazor.BaseMatProgressBar">
             <summary>
             Progress indicators display the length of a process or express an unspecified wait time.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatRadioButton.BaseMatRadioButton">
+        <member name="T:MatBlazor.BaseMatRadioButton">
             <summary>
             Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatRipple.BaseMatRipple">
+        <member name="T:MatBlazor.BaseMatRipple">
             <summary>
             Ripples are visual representations used to communicate the status of a component or interactive element. 
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatSelect.BaseMatSelect">
+        <member name="T:MatBlazor.BaseMatSelect">
             <summary>
             Selects allow users to select from a single-option menu. It functions as a wrapper around the browser's native select element.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatSlider.BaseMatSlider">
+        <member name="T:MatBlazor.BaseMatSlider">
             <summary>
             Sliders let users select from a range of values by moving the slider thumb. 
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatSlideToggle.BaseMatSlideToggle">
+        <member name="T:MatBlazor.BaseMatSlideToggle">
             <summary>
             Component for on/off control that can be toggled via clicking or dragging.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatSnackbar.BaseMatSnackbar">
+        <member name="T:MatBlazor.BaseMatSnackbar">
             <summary>
             Snackbars provide brief messages about app processes at the bottom of the screen.
             </summary>
         </member>
-        <member name="T:MatBlazor.Components.MatTable.BaseMatTable">
+        <member name="T:MatBlazor.BaseMatTable">
             <summary>
             Mat Table display a table data.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.RequestApiOnlyOnce">
+        <member name="P:MatBlazor.BaseMatTable.RequestApiOnlyOnce">
             <summary>
             Specifies whether to Request the API only once.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.DebounceMilliseconds">
+        <member name="P:MatBlazor.BaseMatTable.DebounceMilliseconds">
             <summary>
             Specifies the delay duration between user input on the Search Term Field. Default 800
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.FilterByColumnName">
+        <member name="P:MatBlazor.BaseMatTable.FilterByColumnName">
             <summary>
             Specifies which column is used for the filter / search term. If this is populated the Search Textbox will be visible.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.SearchTermFieldLabel">
+        <member name="P:MatBlazor.BaseMatTable.SearchTermFieldLabel">
             <summary>
             Specifies the Label for the Filter / Search Term  Textbox
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.SearchTermFieldPlaceHolder">
+        <member name="P:MatBlazor.BaseMatTable.SearchTermFieldPlaceHolder">
             <summary>
             Specifies the Placeholder for the Filter / Search Term  Textbox
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.LoadInitialData">
+        <member name="P:MatBlazor.BaseMatTable.LoadInitialData">
             <summary>
             Specifies where to Load the Initial Table Data
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.ApiUrl">
+        <member name="P:MatBlazor.BaseMatTable.ApiUrl">
             <summary>
             Specifies the API Url form for the table data 
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.ShowPaging">
+        <member name="P:MatBlazor.BaseMatTable.ShowPaging">
             <summary>
             Specifies the Paging visibility
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.ShowFooter">
+        <member name="P:MatBlazor.BaseMatTable.ShowFooter">
             <summary>
             Specifies the Table Footer visibility.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.Striped">
+        <member name="P:MatBlazor.BaseMatTable.Striped">
             <summary>
             Determines if table has alternating color rows.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.BaseMatTable.PageSize">
+        <member name="P:MatBlazor.BaseMatTable.PageSize">
             <summary>
             The number of rows per page.
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.MatTable`1.PageSizes">
+        <member name="T:MatBlazor.BaseMatTextField">
+            <summary>
+            Text fields allow users to input, edit, and select text.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatTable`1.PageSizes">
             <summary>
             Not Functioning
             </summary>
         </member>
-        <member name="P:MatBlazor.Components.MatTable.MatTable`1.Items">
+        <member name="P:MatBlazor.MatTable`1.Items">
             <summary>
             Specifies the data for the table.
-            </summary>
-        </member>
-        <member name="T:MatBlazor.Components.MatTextField.BaseMatTextField">
-            <summary>
-            Text fields allow users to input, edit, and select text.
             </summary>
         </member>
     </members>

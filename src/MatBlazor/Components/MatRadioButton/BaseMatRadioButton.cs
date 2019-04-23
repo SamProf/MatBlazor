@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using MatBlazor.Components.MatRadioGroup;
-using Microsoft.AspNetCore.Blazor;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatRadioButton
+namespace MatBlazor
 {
     /// <summary>
     /// Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.

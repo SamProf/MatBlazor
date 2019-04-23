@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MatBlazor.Components.Base;
-using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace MatBlazor.Components.MatDrawer
+namespace MatBlazor
 {
     /// <summary>
     /// The navigation drawer slides in from the left and contains the navigation destinations for your app.

@@ -1,4 +1,4 @@
-﻿namespace MatBlazor.Components.MatDrawer
+﻿namespace MatBlazor
 {
     public enum MatDrawerMode
     {

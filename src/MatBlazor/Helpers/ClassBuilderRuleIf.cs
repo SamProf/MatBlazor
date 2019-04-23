@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MatBlazor.Helpers
+namespace MatBlazor
 {
     public class ClassBuilderRuleIf<T> : ClassBuilderRule<T>
     {

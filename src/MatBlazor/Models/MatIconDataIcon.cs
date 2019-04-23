@@ -1,4 +1,4 @@
-﻿namespace MatBlazor.Models
+﻿namespace MatBlazor
 {
     public class MatIconDataIcon
     {

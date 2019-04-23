@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
-using MatBlazor.Components.Base;
-using MatBlazor.Helpers;
-using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor.Components.MatIconButton
+namespace MatBlazor
 {
     /// <summary>
     /// Icons are appropriate for buttons that allow a user to take actions or make a selection, such as adding or removing a star to an item.
