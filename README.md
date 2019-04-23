@@ -94,6 +94,10 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
+### MatBlazor 0.9.5
+- Fixed problem with including *.razor files
+- PR: #63 MatBlazor Logo / .svg / .ico #65 (enkodellc)
+
 ### MatBlazor 0.9.4
 - Now we have Logo (many thanks to [enkodellc](https://github.com/enkodellc))
 - PR: Prevent *.razor files from being packed #64 (IvanJosipovic)
