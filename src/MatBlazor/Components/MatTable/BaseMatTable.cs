@@ -90,7 +90,7 @@ namespace MatBlazor.Components.MatTable
         {
             get
             {
-                return _searchTermFieldLabel == null ? "Filter" : _searchTermFieldLabel;
+                return _searchTermFieldLabel ?? "Filter";
             }
             set
             {
@@ -106,7 +106,7 @@ namespace MatBlazor.Components.MatTable
         {
             get
             {
-                return _searchTermFieldPlaceHolder == null ? FilterByColumnName : _searchTermFieldPlaceHolder;
+                return _searchTermFieldPlaceHolder ?? FilterByColumnName;
             }
             set
             {
