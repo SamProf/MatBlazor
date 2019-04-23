@@ -1,4 +1,4 @@
-# ![MatBlazor](content/logo-medium.png) ![MatBlazor](content/matblazor.png)
+# ![MatBlazor](content/logo.svg) ![MatBlazor](content/matblazor.png)
 
 ## Material Design components for Blazor and Razor Components
 [![NuGet](https://img.shields.io/nuget/v/MatBlazor.svg)](https://www.nuget.org/packages/MatBlazor/)
