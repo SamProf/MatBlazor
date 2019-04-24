@@ -20,19 +20,19 @@ namespace MatBlazor
         [Inject]
         protected IJSRuntime Js { get; set; }
 
-        private List<Func<Task>> afterRenderCallStack = new List<Func<Task>>();
+        private Queue<Func<Task>> afterRenderCallQuene = new Queue<Func<Task>>();
 
         private bool isRendered = false;
 
 
         protected void CallAfterRender(Action action)
         {
-            afterRenderCallStack.Add(() => { return Task.Run(action); });
+            afterRenderCallQuene.Enqueue(() => { return Task.Run(action); });
         }
 
         protected void CallAfterRender(Func<Task> action)
         {
-            afterRenderCallStack.Add(action);
+            afterRenderCallQuene.Enqueue(action);
         }
 
         protected async override Task OnAfterRenderAsync()
@@ -43,13 +43,12 @@ namespace MatBlazor
                 isRendered = true;
             }
 
-            foreach (var action in afterRenderCallStack)
+            Func<Task> action;
+            while (afterRenderCallQuene.Count > 0)
             {
+                action = afterRenderCallQuene.Dequeue();
                 await action();
             }
-
-            afterRenderCallStack.Clear();
-//            await base.OnAfterRenderAsync();
         }
 
         protected async virtual Task OnFirstAfterRenderAsync()

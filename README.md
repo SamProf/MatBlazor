@@ -94,6 +94,9 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
+### MatBlazor 0.9.7
+- Fixed Drawer problem
+
 ### MatBlazor 0.9.6
 - All components in one namespace MatBlazor (only one using directive)
 - PR: Revert back to C# 7.3 #66 (enkodellc)

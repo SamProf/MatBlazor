@@ -17,11 +17,20 @@ namespace MatBlazor.Demo.BlazorFiddle
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("blazorFiddle.create", Ref, new
+            try
             {
-                Text = this.Code,
-                Template = this.Template,
-            });
+                await Js.InvokeAsync<object>("blazorFiddle.create", Ref, new
+                {
+                    Text = this.Code,
+                    Template = this.Template,
+                });
+            }
+            catch (Exception e)
+            {
+//                Console.WriteLine(e);
+//                throw;
+            }
+            
         }
     }
 }
