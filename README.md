@@ -2,11 +2,11 @@
 
 ## Material Design components for Blazor and Razor Components
 [![NuGet](https://img.shields.io/nuget/v/MatBlazor.svg)](https://www.nuget.org/packages/MatBlazor/)
-[![Gitter](https://badges.gitter.im/BlazorComponents/MatBlazor.svg)](https://gitter.im/BlazorComponents/MatBlazor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![GitHub Stars](https://img.shields.io/github/stars/blazorcomponents/matblazor.svg)](https://github.com/BlazorComponents/MatBlazor/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/blazorcomponents/matblazor.svg)](https://github.com/BlazorComponents/MatBlazor/issues)
+[![Gitter](https://badges.gitter.im/MatBlazor/community.svg)](https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![GitHub Stars](https://img.shields.io/github/stars/SamProf/MatBlazor.svg)](https://github.com/SamProf/MatBlazor/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/SamProf/MatBlazor.svg)](https://github.com/SamProf/MatBlazor/issues)
 [![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://www.matblazor.com)
-[![MIT](https://img.shields.io/github/license/BlazorComponents/MatBlazor.svg)](LICENSE)
+[![MIT](https://img.shields.io/github/license/SamProf/MatBlazor.svg)](LICENSE)
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url)
 
 MatBlazor comprises a range of components which implement common interaction patterns according to the Material Design specification.
@@ -78,7 +78,7 @@ At the beginning of the your Blazor application, usually in `MainLayout.cshtml` 
 
 ## Questions
 
-For *how-to* questions and other non-issues, for now you can use issues or you can use [![Gitter](https://badges.gitter.im/BlazorComponents/MatBlazor.svg)](https://gitter.im/BlazorComponents/MatBlazor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
+For *how-to* questions and other non-issues, for now you can use issues or you can use [![Gitter](https://badges.gitter.im/MatBlazor/community.svg)](https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
 
 ## Contributing
 
@@ -93,6 +93,10 @@ In the near future we plan to maximize the count and features of the components 
 This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
+
+### MatBlazor 0.9.8
+- New github path: [https://github.com/SamProf/MatBlazor](https://github.com/SamProf/MatBlazor)
+- New gitter chat: [https://gitter.im/MatBlazor/community](https://gitter.im/MatBlazor/community)
 
 ### MatBlazor 0.9.7
 - Fixed Drawer problem
