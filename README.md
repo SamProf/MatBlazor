@@ -30,7 +30,7 @@ Complete all Blazor dependencies.
 - .NET Core 3.0 Preview 4 SDK (3.0.0-preview4-19216-03)
 - Visual Studio 2019 Preview 4 with the ASP.NET and web development workload selected.
 - The latest Blazor extension from the Visual Studio Marketplace.
-- The Blazor templates on the command-line: dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.9.0-preview3-19154-02
+- The Blazor templates on the command-line: dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview4-19216-03
 
 ## Installation 
 
