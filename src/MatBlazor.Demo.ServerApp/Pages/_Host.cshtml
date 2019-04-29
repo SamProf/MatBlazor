@@ -1,4 +1,4 @@
-@page "/"
+﻿@page "/"
 @namespace MatBlazor.Demo.ServerApp.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
@@ -6,23 +6,14 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MatBlazor.Demo.ServerApp</title>
+    <meta name="viewport" content="width=device-width">
+    <title>MatBlazor - Material Design components for Blazor and Razor Components</title>
     <base href="~/" />
-    <environment include="Development">
-        <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              asp-fallback-href="css/bootstrap/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
-    </environment>
-    <link href="css/site.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/favicon-32x32.png">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 </head>
-<body>
-    <app>@(await Html.RenderComponentAsync<App>())</app>
+<body class="mat">
+    <app style="display: flex;">@(await Html.RenderComponentAsync<App>())</app>
 
     <script src="_framework/blazor.server.js"></script>
 </body>

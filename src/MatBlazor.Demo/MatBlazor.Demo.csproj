@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <None Remove="content\blazorFiddleLoader.js" />
+    <None Remove="content\site.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,7 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
-   
+    <EmbeddedResource Update="content\site.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

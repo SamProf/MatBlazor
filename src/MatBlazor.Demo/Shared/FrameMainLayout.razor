@@ -1,0 +1,18 @@
+﻿@inherits Microsoft.AspNetCore.Components.Layouts.LayoutComponentBase
+@using System.Reflection
+@using Microsoft.AspNetCore.Components
+@inject IUriHelper Url
+
+<MatBlazorInstall Assemblies="@assemblies"></MatBlazorInstall>
+
+@Body
+
+@functions
+{
+
+    Assembly[] assemblies = new[]
+    {
+        typeof(MatBlazor.Demo.Pages.Index).Assembly
+    };
+
+}

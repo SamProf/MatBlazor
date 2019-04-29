@@ -1,9 +1,10 @@
 ﻿@inherits Microsoft.AspNetCore.Components.Layouts.LayoutComponentBase
+@using System.Reflection
 @using Microsoft.AspNetCore.Components
 @inject IUriHelper Url
 
 
-<MatBlazorInstall/>
+    <MatBlazorInstall Assemblies="@assemblies"></MatBlazorInstall>
 
 <MatAppBar Style="z-index: 100;" Class="mat">
     <MatAppBarRow>
@@ -70,6 +71,11 @@
 
 
 @functions {
+
+    Assembly[] assemblies = new[]
+    {
+        typeof(MatBlazor.Demo.Pages.Index).Assembly
+    };
 
     bool lazySnackbarIsOpen = false;
 
