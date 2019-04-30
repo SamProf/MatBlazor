@@ -4,7 +4,7 @@
 @inject IUriHelper Url
 
 
-    <MatBlazorInstall Assemblies="@assemblies"></MatBlazorInstall>
+    
 
 <MatAppBar Style="z-index: 100;" Class="mat">
     <MatAppBarRow>
@@ -72,10 +72,7 @@
 
 @functions {
 
-    Assembly[] assemblies = new[]
-    {
-        typeof(MatBlazor.Demo.Pages.Index).Assembly
-    };
+  
 
     bool lazySnackbarIsOpen = false;
 

@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EmbeddedBlazorContent" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MatBlazor.Demo.App\MatBlazor.Demo.App.csproj" />
     <ProjectReference Include="..\MatBlazor.Demo\MatBlazor.Demo.csproj" />
     <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />

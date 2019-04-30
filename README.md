@@ -47,10 +47,18 @@ or
 dotnet add package MatBlazor
 ```
 
-## MatBlazor components for Razor Components
-At the beginning of the your Blazor application, usually in `MainLayout.cshtml` please add `<MatBlazorInstall/>` component
+## MatBlazor components for server-side Blazor (Razor Components)
+- Startup.cs
+```
+app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);
+```
+- _Host.cshtml (head section)  
 ```html
-<MatBlazorInstall />
+@using EmbeddedBlazorContent
+<head>
+    ...
+    @Html.EmbeddedBlazorContent()
+</head>
 ```
 
 
@@ -93,6 +101,11 @@ In the near future we plan to maximize the count and features of the components 
 This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
+
+### MatBlazor 0.9.9
+- Demo and documentation [https://www.matblazor.com](https://www.matblazor.com) working as server-side Blazor 
+- `<MatBlazorInstall />` for server-side Blazor is obsolete
+- For server-side Blazor used [EmbeddedBlazorContent](https://github.com/SamProf/EmbeddedBlazorContent) [![NuGet](https://img.shields.io/nuget/v/EmbeddedBlazorContent.svg)](https://www.nuget.org/packages/EmbeddedBlazorContent/)
 
 ### MatBlazor 0.9.8
 - New github path: [https://github.com/SamProf/MatBlazor](https://github.com/SamProf/MatBlazor)

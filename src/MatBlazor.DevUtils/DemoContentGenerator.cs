@@ -47,7 +47,7 @@ namespace MatBlazor.DevUtils
 
             Console.WriteLine(result);
 
-            var newsFile = Path.Combine(config.Path, "MatBlazor.Demo.App", "Shared", "News.razor");
+            var newsFile = Path.Combine(config.Path, "MatBlazor.Demo", "Shared", "News.razor");
 
             if (!File.Exists(newsFile))
             {

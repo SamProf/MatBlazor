@@ -1,13 +1,23 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
+using EmbeddedBlazorContent;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.FileProviders.Embedded;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Primitives;
 
 
 namespace MatBlazor.Demo.ServerApp
@@ -18,9 +28,13 @@ namespace MatBlazor.Demo.ServerApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<HttpClient>();
             services.AddRazorPages();
-            services.AddServerSideBlazor();
-            
+            services.AddServerSideBlazor().AddSignalR().AddHubOptions<ComponentHub>(o =>
+            {
+                o.MaximumReceiveMessageSize = 1024 * 1024 * 100;
+            });
+            //services.AddServerSideBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,8 +53,20 @@ namespace MatBlazor.Demo.ServerApp
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
+            
+            app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);
+
+            app.UseEmbeddedBlazorContent(typeof(MatBlazor.Demo.Pages.Index).Assembly);
 
             app.UseRouting();
+
+
+            app.UseSignalR(route => route.MapHub<ComponentHub>(ComponentHub.DefaultPath, o =>
+            {
+                o.ApplicationMaxBufferSize = 1024*1024*100; // larger size
+                o.TransportMaxBufferSize = 1024 * 1024 * 100; // larger size
+            }));
+
 
             app.UseEndpoints(endpoints =>
             {
@@ -49,4 +75,6 @@ namespace MatBlazor.Demo.ServerApp
             });
         }
     }
+
+
 }

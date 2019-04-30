@@ -86,8 +86,17 @@
 
 
         <p>
-            At the beginning of the your application, usually in MainLayout.razor please add MatBlazorInstall component
-            <BlazorFiddle Template="MatBlazor" Code=@(@"<MatBlazorInstall />")>
+            1) Startup.cs
+            <BlazorFiddle Template="MatBlazor" Code=@(@"app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);")>
+            </BlazorFiddle>
+        </p>
+        <p>
+            2) _Host.cshtml (head section)
+            <BlazorFiddle Template="MatBlazor" Code=@(@"@using EmbeddedBlazorContent
+<head>
+    ...
+    @Html.EmbeddedBlazorContent()
+</head>")>
             </BlazorFiddle>
         </p>
 
