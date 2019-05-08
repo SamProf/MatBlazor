@@ -136,8 +136,8 @@
         AppModel.UserCountChanged += UserCountChanged;
 
 
-        //Task.Delay(TimeSpan.FromSeconds(5))
-        //  .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
+        Task.Delay(TimeSpan.FromSeconds(5))
+          .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
 
 
         navItems = new[]
