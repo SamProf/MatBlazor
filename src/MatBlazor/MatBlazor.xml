@@ -296,6 +296,11 @@
             Snackbars provide brief messages about app processes at the bottom of the screen.
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatTabBar">
+            <summary>
+            WARNING: In Development progress
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatTable">
             <summary>
             Mat Table display a table data.
