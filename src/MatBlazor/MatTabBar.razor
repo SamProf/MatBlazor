@@ -1,1 +1,13 @@
 ﻿@inherits BaseMatTabBar
+
+<div class="@ClassMapper.Class" ref="Ref" style="@Style" role="tablist" >
+    <div class="mdc-tab-scroller">
+        <div class="mdc-tab-scroller__scroll-area">
+            <div class="mdc-tab-scroller__scroll-content">
+                <CascadingValue Value="@this">
+                    @ChildContent
+                </CascadingValue>
+            </div>
+        </div>
+    </div>
+</div>
