@@ -95,17 +95,26 @@ namespace MatBlazor
             }
             set
             {
+                if (EqualValues(value, _value))
+                {
+                    return;
+                }
                 _value = value;
-                StringValue = Value == default ? string.Empty : ComputeStringValue(Value);
+                StringValue = EqualValues(Value, default(ItemType)) ? string.Empty : ComputeStringValue(Value);
                 ValueChanged.InvokeAsync(_value);
             }
+        }
+
+        private static bool EqualValues(ItemType a1, ItemType a2)
+        {
+            return EqualityComparer<ItemType>.Default.Equals(a1, a2);
         }
 
         /// <summary>
         /// ValueChanged is fired when the value is selected(by clicking on an element in the popup)
         /// </summary>
         [Parameter]
-        protected EventCallback<object> ValueChanged { get; set; }
+        protected EventCallback<ItemType> ValueChanged { get; set; }
 
         /// <summary>
         /// ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..

@@ -20,7 +20,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatAutocomplete Collection=""@options"" ItemType=""string"" Label=""Pick one""></MatAutocomplete>
 
         @functions
@@ -35,7 +35,8 @@
 
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -45,9 +46,10 @@
         <MatAutocomplete Collection="@options" Icon="thumb_up_alt" ItemType="string" Label="Pick one"></MatAutocomplete>
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatAutocomplete Collection=""@options"" Icon=""thumb_up_alt"" ItemType=""string"" Label=""Pick one""></MatAutocomplete>
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -57,23 +59,29 @@
         <MatAutocomplete Collection="@options" Value="@options[0]" ShowClearButton="true" Icon="thumb_up_alt" ItemType="string" Label="Pick one"></MatAutocomplete>
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatAutocomplete Collection=""@options"" Value=""@options[0]"" ShowClearButton=""true"" Icon=""thumb_up_alt"" ItemType=""string"" Label=""Pick one""></MatAutocomplete>
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
 <h5 class="mat-h5">ItemTemplate</h5>
 <DemoContainer>
     <Content>
-        <MatAutocomplete Collection="@options2" ItemType="Car" Label="Select car" CustomStringSelector="@(i => i.Name)">
-            <ItemTemplate>
-                <div style="display: flex; flex-direction: row; width: 100%;">
-                    <div style="flex: 1;">@context.Name</div>
-                    <div style="width: 150px;">@context.Price$</div>
-                </div>
-            </ItemTemplate>
-        </MatAutocomplete>
+        <p>
+            <MatAutocomplete Collection="@options2" ItemType="Car" Label="Select car" CustomStringSelector="@(i => i.Name)" bind-Value="@value">
+                <ItemTemplate>
+                    <div style="display: flex; flex-direction: row; width: 100%;">
+                        <div style="flex: 1;">@context.Name</div>
+                        <div style="width: 150px;">@context.Price$</div>
+                    </div>
+                </ItemTemplate>
+            </MatAutocomplete>
+        </p>
+        <p>
+            Selected value: @(value?.Name)
+        </p>
 
         @functions
         {
@@ -90,6 +98,8 @@
                 }
             }
 
+            Car value = null;
+
             Car[] options2 = new[]
             {
                 new Car("Volkswagen Golf", 10000),
@@ -105,7 +115,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatAutocomplete Collection=""@options2"" ItemType=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"">
             <ItemTemplate>
                 <div style=""display: flex; flex-direction: row; width: 100%;"">
@@ -143,7 +153,8 @@
 
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -161,7 +172,7 @@
         </MatAutocomplete>
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatAutocomplete Collection=""@options2"" FullWidth=""true"" ItemType=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"">
             <ItemTemplate>
                 <div style=""display: flex; flex-direction: row; width: 100%;"">
@@ -170,7 +181,7 @@
                 </div>
             </ItemTemplate>
         </MatAutocomplete>
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
-

@@ -25,12 +25,7 @@ namespace MatBlazor
         private bool isRendered = false;
 
 
-        protected void CallAfterRender(Action action)
-        {
-            afterRenderCallQuene.Enqueue(() => { return Task.Run(action); });
-        }
-
-        protected void CallAfterRender(Func<Task> action)
+       protected void CallAfterRender(Func<Task> action)
         {
             afterRenderCallQuene.Enqueue(action);
         }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
@@ -15,6 +16,7 @@ namespace MatBlazor.Demo.ServerApp
     {
         public static void Main(string[] args)
         {
+            ThreadPool.SetMaxThreads(int.MaxValue, int.MaxValue);
             CreateHostBuilder(args).Build().Run();
         }
 

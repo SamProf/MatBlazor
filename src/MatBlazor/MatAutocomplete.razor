@@ -1,6 +1,7 @@
-﻿@inherits BaseMatAutocomplete<ItemType>
+﻿@typeparam ItemType
+@inherits BaseMatAutocomplete<ItemType>
 @using System.Collections;
-@typeparam ItemType
+
 
 <div class="@WrapperClassMapper.Class">
     <MatTextField Icon="@Icon" OnFocus="@OpenPopup" HideClearButton="true" FullWidth="@FullWidth" OnFocusOut="@ClosePopup" Label="@Label" Value=@StringValue OnInput=@OnValueChanged Outlined="@Outlined"></MatTextField>
@@ -16,16 +17,16 @@
             <MatList SingleSelection="true">
                 @foreach (var elementWrapper in GetFilteredCollection(StringValue))
                 {
-                <MatListItem OnMouseDown="@((e) => ItemClicked(elementWrapper.Element))">
-                    @if (ItemTemplate != null)
-                    {
-                        @ItemTemplate(elementWrapper.Element)
-                    }
-                    else
-                    {
-                        <MatListItemText>@(elementWrapper.StringValue)</MatListItemText>
-                    }
-                </MatListItem>
+                    <MatListItem OnMouseDown="@((e) => ItemClicked(elementWrapper.Element))">
+                        @if (ItemTemplate != null)
+                        {
+                            @ItemTemplate(elementWrapper.Element)
+                        }
+                        else
+                        {
+                            <MatListItemText>@(elementWrapper.StringValue)</MatListItemText>
+                        }
+                    </MatListItem>
                 }
             </MatList>
         </div>

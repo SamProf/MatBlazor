@@ -27,79 +27,85 @@
 
 <style>
     .index-row-container {
-        display: flex;
-        flex-direction: row;
+        
     }
 
 
     .index-row-container .index-row-item {
-        flex: 1;
         padding: 20px;
         margin: 20px;
     }
+    
+    .index-row-container .index-row-item .blazor-fiddle{
+        overflow-wrap: break-word;
+    }
 </style>
 
-<div class="index-row-container">
-    <div class="index-row-item mat-elevation-z5">
-        <h5 class="mat-h5">Installation</h5>
 
-        <p>
-            Install MatBlazor library via nuget.
-        </p>
+<div class="mat-layout-grid index-row-container">
+    <div class="mat-layout-grid-inner">
 
-        <p>
-            <code>
-                Install-Package MatBlazor
-            </code>
-        </p>
-        <p>
-            or
-        </p>
-        <p>
-            <code>
-                dotnet add package MatBlazor
-            </code>
-        </p>
-    </div>
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6 mat-elevation-z5 index-row-item">
+            <h5 class="mat-h5">Installation</h5>
 
-    <div class="index-row-item mat-elevation-z5">
-        <h5 class="mat-h5">_Imports.razor</h5>
-        <p>
-            Add @@using MatBlazor in main _Imports.razor
-        </p>
+            <p>
+                Install MatBlazor library via nuget.
+            </p>
 
-        <p>
-            <BlazorFiddle Template="MatBlazor" Code=@(@"@using MatBlazor")>
-            </BlazorFiddle>
-        </p>
-        <h5 class="mat-h5">Usage</h5>
-        <p>
-            MatBlazor components are self-supporting.
-        </p>
+            <p>
+                <code>
+                    Install-Package MatBlazor
+                </code>
+            </p>
+            <p>
+                or
+            </p>
+            <p>
+                <code>
+                    dotnet add package MatBlazor
+                </code>
+            </p>
+        </div>
 
-        <p>
-            <BlazorFiddle Template="MatBlazor" Code=@(@"<MatButton>Test</MatButton>")>
-            </BlazorFiddle>
-        </p>
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6 mat-elevation-z5 index-row-item">
+            <h5 class="mat-h5">_Imports.razor</h5>
+            <p>
+                Add @@using MatBlazor in main _Imports.razor
+            </p>
 
-        <h5 class="mat-h5">MatBlazor components for Server Blazor (ex Razor Components)</h5>
+            <p>
+                <BlazorFiddle Template="MatBlazor" Code=@(@"@using MatBlazor")>
+                </BlazorFiddle>
+            </p>
+            <h5 class="mat-h5">Usage</h5>
+            <p>
+                MatBlazor components are self-supporting.
+            </p>
+
+            <p>
+                <BlazorFiddle Template="MatBlazor" Code=@(@"<MatButton>Test</MatButton>")>
+                </BlazorFiddle>
+            </p>
+
+            <h5 class="mat-h5">MatBlazor components for Server Blazor (ex Razor Components)</h5>
 
 
-        <p>
-            1) Startup.cs
-            <BlazorFiddle Template="MatBlazor" Code=@(@"app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);")>
-            </BlazorFiddle>
-        </p>
-        <p>
-            2) _Host.cshtml (head section)
-            <BlazorFiddle Template="MatBlazor" Code=@(@"@using EmbeddedBlazorContent
+            <p>
+                1) Startup.cs
+                <BlazorFiddle Template="MatBlazor" Code=@(@"app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);")>
+                </BlazorFiddle>
+            </p>
+            <p>
+                2) _Host.cshtml (head section)
+                <BlazorFiddle Template="MatBlazor" Code=@(@"@using EmbeddedBlazorContent
 <head>
     ...
     @Html.EmbeddedBlazorContent()
 </head>")>
-            </BlazorFiddle>
-        </p>
+                </BlazorFiddle>
+            </p>
 
+        </div>
     </div>
 </div>
 

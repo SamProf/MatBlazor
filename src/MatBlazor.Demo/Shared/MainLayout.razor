@@ -1,10 +1,12 @@
 ﻿@inherits Microsoft.AspNetCore.Components.Layouts.LayoutComponentBase
 @using System.Reflection
+@using MatBlazor.Demo.Models
 @using Microsoft.AspNetCore.Components
 @inject IUriHelper Url
+@inject AppModel AppModel
+@inject UserAppModel UserAppModel
+@inject IJSRuntime Js
 
-
-    
 
 <MatAppBar Style="z-index: 100;" Class="mat">
     <MatAppBarRow>
@@ -13,13 +15,7 @@
             <MatAppBarTitle>MatBlazor - Material Design components for Blazor and Razor Components</MatAppBarTitle>
         </MatAppBarSection>
         <MatAppBarSection Align="@MatAppBarSectionAlign.End">
-            <a href="https://www.nuget.org/packages/MatBlazor/" target="_blank">
-                <img src="https://img.shields.io/nuget/v/MatBlazor.svg"/>
-            </a>
-            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url" target="_blank" style="margin-left: 5px;">
-                <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"/>
-            </a>
-
+            <MatChip Label="@userCount.ToString()"></MatChip>
             <MatIconButton Link="http://samprof.com" Target="_blank">
                 <i class="fa fa-user-circle" aria-hidden="true"></i>
             </MatIconButton>
@@ -72,11 +68,10 @@
 
 @functions {
 
-  
 
     bool lazySnackbarIsOpen = false;
 
-    bool _navMenuOpened = true;
+    bool _navMenuOpened = false;
 
     void MenuButtonClicked()
     {
@@ -94,12 +89,55 @@
 
     NavItem[] navItems;
 
+
+    public int userCount;
+
+
+    protected void UserCountChanged(object s, int v)
+    {
+        this.Invoke(() =>
+        {
+            this.userCount = v;
+            this.StateHasChanged();
+        });
+    }
+
+
+
+    private bool isFirstRender = true;
+
+    protected override async Task OnAfterRenderAsync()
+    {
+        if (isFirstRender)
+        {
+            var d = await Js.InvokeAsync<double>("matBlazorDemo.innerWidth");
+
+            if (d > 1000)
+            {
+                _navMenuOpened = true;
+                this.StateHasChanged();
+            }
+
+            isFirstRender = false;
+        }
+
+    }
+
     protected async override Task OnInitAsync()
     {
+
         await base.OnInitAsync();
 
-        Task.Delay(TimeSpan.FromSeconds(5))
-            .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
+
+
+
+        userCount = AppModel.GetUserCount();
+
+        AppModel.UserCountChanged += UserCountChanged;
+
+
+        //Task.Delay(TimeSpan.FromSeconds(5))
+        //  .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
 
 
         navItems = new[]
@@ -231,5 +269,7 @@
             },
         }.OrderBy(i => i.Name).ToArray();
     }
+
+
 
 }

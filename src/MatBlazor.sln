@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.DevUtils", "MatBl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.Demo.ServerApp", "MatBlazor.Demo.ServerApp\MatBlazor.Demo.ServerApp.csproj", "{C9E2DCA1-DBA2-4919-BCBF-60FCC6DB0E68}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmbeddedBlazorContent", "..\..\EmbeddedBlazorContent\src\EmbeddedBlazorContent\EmbeddedBlazorContent.csproj", "{D2842106-E323-4293-B35F-B12A407A3BFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C9E2DCA1-DBA2-4919-BCBF-60FCC6DB0E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9E2DCA1-DBA2-4919-BCBF-60FCC6DB0E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9E2DCA1-DBA2-4919-BCBF-60FCC6DB0E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2842106-E323-4293-B35F-B12A407A3BFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2842106-E323-4293-B35F-B12A407A3BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2842106-E323-4293-B35F-B12A407A3BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2842106-E323-4293-B35F-B12A407A3BFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
