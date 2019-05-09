@@ -2,8 +2,11 @@
 @typeparam TableItem
 @inject System.Net.Http.HttpClient Http
 
+@using System
+@using System.Collections.Generic
 @using System.Threading
 @using System.Reflection;
+@using Microsoft.AspNetCore.Components
 
 @if (!String.IsNullOrWhiteSpace(FilterByColumnName))
 {

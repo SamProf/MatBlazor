@@ -102,6 +102,11 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
+
+### MatBlazor 0.9.11
+- MatTabGroup and MatTab components
+- MatTabBar and MatTabLabel components
+
 ### MatBlazor 0.9.10
 - Update to ASP.NET Core 3.0.0-preview5-19227-01
 - [https://www.matblazor.com](https://www.matblazor.com) working as server-side Blazor on Linux server

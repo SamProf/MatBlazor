@@ -1,40 +1,212 @@
-<DocMatTabBar></DocMatTabBar>
-<DocMatTabLabel></DocMatTabLabel>
+@using System.ComponentModel
+@using Microsoft.AspNetCore.Components
+<DocMatTabGroup></DocMatTabGroup>
+<DocMatTab Secondary="true"></DocMatTab>
+
 
 <h5 class="mat-h5">Example</h5>
 
 <DemoContainer>
     <Content>
-       <MatTabBar>
-           <MatTabLabel>Test1</MatTabLabel>
-           <MatTabLabel>Test1</MatTabLabel>
-           <MatTabLabel>Test1</MatTabLabel>
-           <MatTabLabel>Test1</MatTabLabel>
-           <MatTabLabel>Test1</MatTabLabel>
-           <MatTabLabel>Test1</MatTabLabel>
-       </MatTabBar>
+        <MatTabGroup>
+            <MatTab Label="First">
+                First Content
+            </MatTab>
+            <MatTab Label="Second">
+                Second Content
+            </MatTab>
+            <MatTab>
+                <LabelContent>
+                    Third <MatIcon Icon="@MatIconNames.Close"></MatIcon>
+                </LabelContent>
+                <ChildContent>
+                    Third Content
+                </ChildContent>
+            </MatTab>
 
-        @functions
-        {
-           
-        }
+        </MatTabGroup>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-       <MatTabBar>
-           <MatTabLabel>Test1</MatTabLabel>
-           <MatTabLabel>Test1</MatTabLabel>
-           <MatTabLabel>Test1</MatTabLabel>
-           <MatTabLabel>Test1</MatTabLabel>
-           <MatTabLabel>Test1</MatTabLabel>
-           <MatTabLabel>Test1</MatTabLabel>
-       </MatTabBar>
+        <MatTabGroup>
+            <MatTab Label=""First"">
+                First Content
+            </MatTab>
+            <MatTab Label=""Second"">
+                Second Content
+            </MatTab>
+            <MatTab>
+                <LabelContent>
+                    Third <MatIcon Icon=""@MatIconNames.Close""></MatIcon>
+                </LabelContent>
+                <ChildContent>
+                    Third Content
+                </ChildContent>
+            </MatTab>
 
-        @functions
-        {
-           
-        }
+        </MatTabGroup>
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
+
+<h5 class="mat-h5">Dynamic tabs and close button</h5>
+
+<DemoContainer>
+    <Content>
+        <MatTabGroup>
+            @foreach (var tab in tabs)
+            {
+                <MatTab>
+                    <LabelContent>
+                        @tab.Label <MatIconButton Icon="@MatIconNames.Close" OnClick="@(_ => CloseTab(tab))"></MatIconButton>
+                    </LabelContent>
+                    <ChildContent>
+                        @tab.Content
+                    </ChildContent>
+                </MatTab>
+            }
+        </MatTabGroup>
+
+        @functions
+        {
+
+            List<TabItem> tabs = new List<TabItem>()
+            {
+                new TabItem()
+                {
+                    Label = "Tab 1",
+                    Content = @<div>Content 1</div>
+                },
+                new TabItem()
+                {
+                    Label = "Tab 2",
+                    Content = @<div>Content 2</div>
+                },
+                new TabItem()
+                {
+                    Label = "Tab 3",
+                    Content = @<div>Content 3</div>
+                },
+                new TabItem()
+                {
+                    Label = "Tab 4",
+                    Content = @<div>Content 4</div>
+                },
+                new TabItem()
+                {
+                    Label = "Tab 5",
+                    Content = @<div>Content 5</div>
+                },
+            };
+
+            void CloseTab(TabItem tab)
+            {
+                tabs.Remove(tab);
+            }
+
+            class TabItem
+            {
+                public string Label { get; set; }
+                public RenderFragment Content { get; set; }
+            }
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTabGroup>
+            @foreach (var tab in tabs)
+            {
+                <MatTab>
+                    <LabelContent>
+                        @tab.Label <MatIconButton Icon=""@MatIconNames.Close"" OnClick=""@(_ => CloseTab(tab))""></MatIconButton>
+                    </LabelContent>
+                    <ChildContent>
+                        @tab.Content
+                    </ChildContent>
+                </MatTab>
+            }
+        </MatTabGroup>
+
+        @functions
+        {
+
+            List<TabItem> tabs = new List<TabItem>()
+            {
+                new TabItem()
+                {
+                    Label = ""Tab 1"",
+                    Content = @<div>Content 1</div>
+                },
+                new TabItem()
+                {
+                    Label = ""Tab 2"",
+                    Content = @<div>Content 2</div>
+                },
+                new TabItem()
+                {
+                    Label = ""Tab 3"",
+                    Content = @<div>Content 3</div>
+                },
+                new TabItem()
+                {
+                    Label = ""Tab 4"",
+                    Content = @<div>Content 4</div>
+                },
+                new TabItem()
+                {
+                    Label = ""Tab 5"",
+                    Content = @<div>Content 5</div>
+                },
+            };
+
+            void CloseTab(TabItem tab)
+            {
+                tabs.Remove(tab);
+            }
+
+            class TabItem
+            {
+                public string Label { get; set; }
+                public RenderFragment Content { get; set; }
+            }
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<DocMatTabBar></DocMatTabBar>
+<DocMatTabLabel Secondary="true"></DocMatTabLabel>
+
+
+<h5 class="mat-h5">Example</h5>
+
+<DemoContainer>
+    <Content>
+        <MatTabBar>
+            <MatTabLabel>Test1</MatTabLabel>
+            <MatTabLabel>Test2</MatTabLabel>
+            <MatTabLabel>Test3</MatTabLabel>
+            <MatTabLabel>Test4</MatTabLabel>
+            <MatTabLabel>Test5</MatTabLabel>
+            <MatTabLabel>Test6</MatTabLabel>
+        </MatTabBar>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTabBar>
+            <MatTabLabel>Test1</MatTabLabel>
+            <MatTabLabel>Test2</MatTabLabel>
+            <MatTabLabel>Test3</MatTabLabel>
+            <MatTabLabel>Test4</MatTabLabel>
+            <MatTabLabel>Test5</MatTabLabel>
+            <MatTabLabel>Test6</MatTabLabel>
+        </MatTabBar>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

@@ -8,23 +8,32 @@ namespace MatBlazor
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 
+
         [CascadingParameter]
         protected BaseMatTabBar Parent { get; set; }
 
+        [CascadingParameter]
+        public BaseMatTab Tab { get; set; }
+
         public BaseMatTabLabel()
         {
-            ClassMapper.Add("mdc-tab")
+            ClassMapper
+                .Add("mat-tab-label")
+                .Add("mdc-tab")
                 .If("mdc-tab--active", () => IsActive);
         }
 
         protected override void OnInit()
         {
-            Parent.Labels.Add(this);
+            if (Parent.Active == null)
+            {
+                Parent.Active = this;
+            }
         }
 
         public void Dispose()
         {
-            Parent.Labels.Remove(this);
+            Parent.ActiveChanged.InvokeAsync(Parent.Active);
         }
 
         public bool IsActive

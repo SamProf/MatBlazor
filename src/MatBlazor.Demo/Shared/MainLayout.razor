@@ -1,4 +1,5 @@
 ﻿@inherits Microsoft.AspNetCore.Components.Layouts.LayoutComponentBase
+@implements IDisposable
 @using System.Reflection
 @using MatBlazor.Demo.Models
 @using Microsoft.AspNetCore.Components
@@ -103,7 +104,6 @@
     }
 
 
-
     private bool isFirstRender = true;
 
     protected override async Task OnAfterRenderAsync()
@@ -120,15 +120,12 @@
 
             isFirstRender = false;
         }
-
     }
 
     protected async override Task OnInitAsync()
     {
-
+        Console.WriteLine("My OnInitAsync");
         await base.OnInitAsync();
-
-
 
 
         userCount = AppModel.GetUserCount();
@@ -137,7 +134,7 @@
 
 
         Task.Delay(TimeSpan.FromSeconds(5))
-          .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
+            .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
 
 
         navItems = new[]
@@ -266,7 +263,8 @@
             {
                 Name = "Table",
                 Url = "Table"
-            },  new NavItem()
+            },
+            new NavItem()
             {
                 Name = "Tab",
                 Url = "Tab"
@@ -274,6 +272,9 @@
         }.OrderBy(i => i.Name).ToArray();
     }
 
-
+    public void Dispose()
+    {
+        Console.WriteLine("My Dispose");
+    }
 
 }

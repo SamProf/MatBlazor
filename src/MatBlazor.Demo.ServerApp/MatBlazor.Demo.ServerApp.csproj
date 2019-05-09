@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\EmbeddedBlazorContent\src\EmbeddedBlazorContent\EmbeddedBlazorContent.csproj" />
-    <ProjectReference Include="..\MatBlazor.Demo.App\MatBlazor.Demo.App.csproj" />
     <ProjectReference Include="..\MatBlazor.Demo\MatBlazor.Demo.csproj" />
     <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
   </ItemGroup>
