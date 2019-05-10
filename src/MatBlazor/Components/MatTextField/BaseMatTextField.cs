@@ -8,6 +8,8 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatTextField : BaseMatComponent
     {
+        public ElementRef InputRef { get; set; }
+
         [Parameter]
         public string Value
         {

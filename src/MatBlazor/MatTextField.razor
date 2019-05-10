@@ -8,11 +8,11 @@
 
     @if (TextArea)
     {
-        <textarea placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled />
+        <textarea ref="InputRef" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled />
     }
     else
     {
-        <input type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled />
+        <input ref="InputRef" type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled />
     }
 
 

@@ -11,7 +11,7 @@ namespace MatBlazor
         /// <summary>
         /// Returned ElementRef reference for DOM element.
         /// </summary>
-        public ElementRef Ref { get; set; }
+        public virtual ElementRef Ref { get; set; }
 
         public string MatBlazorId = "matBlazorId_" + Guid.NewGuid();
 
