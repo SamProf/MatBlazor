@@ -39,6 +39,7 @@
     "@material/top-app-bar": "^2.1.0",
     "@material/typography": "^1.0.0",
     "babel-polyfill": "^6.26.0",
+    "flatpickr": "^4.5.7",
     "install": "^0.12.2",
     "npm": "^6.9.0"
   },
