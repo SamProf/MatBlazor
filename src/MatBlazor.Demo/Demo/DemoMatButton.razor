@@ -15,7 +15,7 @@
         <MatButton Link="https://github.com/BlazorComponents/MatBlazor">
             <i class="fa fa-github" aria-hidden="true"></i> &nbsp; Github
         </MatButton>
-        
+
         @functions
         {
 
@@ -38,7 +38,7 @@
         <MatButton Link=""https://github.com/BlazorComponents/MatBlazor"">
             <i class=""fa fa-github"" aria-hidden=""true""></i> &nbsp; Github
         </MatButton>
-        
+
         @functions
         {
 
@@ -154,6 +154,23 @@
         <MatButton Unelevated=""true"" TrailingIcon=""favorite"">Unelevated</MatButton>
         <MatButton Outlined=""true"" TrailingIcon=""favorite"">Outlined</MatButton>
         <MatButton Dense=""true"" TrailingIcon=""favorite"">Dense</MatButton>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">Button Type</h5>
+<DemoContainer>
+    <Content>
+        <form>
+            <MatButton type="submit" name="action">OK</MatButton>
+        </form>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <form>
+            <MatButton type=""submit"" name=""action"">OK</MatButton>
+        </form>
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

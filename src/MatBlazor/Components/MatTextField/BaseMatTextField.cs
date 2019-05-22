@@ -30,6 +30,9 @@ namespace MatBlazor
         public EventCallback<string> ValueChanged { get; set; }
 
         [Parameter]
+        public EventCallback<UIMouseEventArgs> IconOnClick { get; set; }
+
+        [Parameter]
         public EventCallback<UIFocusEventArgs> OnFocus { get; set; }
 
         [Parameter]
@@ -71,6 +74,12 @@ namespace MatBlazor
         [Parameter]
         public bool Disabled { get; set; }
 
+        /// <summary>
+        /// When true, it specifies that an input field is read-only.
+        /// </summary>
+        [Parameter]
+        public bool ReadOnly { get; set; }
+
         [Parameter]
         public bool FullWidth { get; set; }
 
@@ -89,10 +98,32 @@ namespace MatBlazor
         [Parameter]
         public string Type { get; set; } = "text";
 
+
+        /// <summary>
+        /// Css class of input element
+        /// </summary>
+        [Parameter]
+        public string InputClass
+        {
+            get => _inputClass;
+            set
+            {
+                _inputClass = value;
+                InputClassMapper.MakeDirty();
+            }
+        }
+        /// <summary>
+        /// Style attribute of input element
+        /// </summary>
+
+        [Parameter]
+        public string InputStyle { get; set; }
+
         protected ClassMapper LabelClassMapper = new ClassMapper();
         protected ClassMapper InputClassMapper = new ClassMapper();
 
         private string _value;
+        private string _inputClass;
 
         public BaseMatTextField()
         {
@@ -106,8 +137,10 @@ namespace MatBlazor
                 .If("mdc-text-field--outlined", () => !this.FullWidth && this.Outlined)
                 .If("mdc-text-field--disabled", () => this.Disabled)
                 .If("mdc-text-field--fullwidth", () => this.FullWidth)
-                .If("mdc-text-field--fullwidth-with-leading-icon", () => this.FullWidth && this.Icon != null && !this.IconTrailing)
-                .If("mdc-text-field--fullwidth-with-trailing-icon", () => this.FullWidth && this.Icon != null && this.IconTrailing)
+                .If("mdc-text-field--fullwidth-with-leading-icon",
+                    () => this.FullWidth && this.Icon != null && !this.IconTrailing)
+                .If("mdc-text-field--fullwidth-with-trailing-icon",
+                    () => this.FullWidth && this.Icon != null && this.IconTrailing)
                 .If("mdc-text-field--textarea", () => this.TextArea);
 
             LabelClassMapper
@@ -115,6 +148,7 @@ namespace MatBlazor
                 .If("mdc-floating-label--float-above", () => !string.IsNullOrEmpty(Value));
 
             InputClassMapper
+                .Get(() => this.InputClass)
                 .Add("mdc-text-field__input")
                 .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(Value))
                 .If("mat-hide-clearbutton", () => this.HideClearButton);

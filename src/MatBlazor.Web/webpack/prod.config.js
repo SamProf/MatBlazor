@@ -42,6 +42,17 @@ module.exports = {
   },
 
   plugins: [
-    new UglifyJsPlugin({})
+    new UglifyJsPlugin({
+
+        compress: {},
+        mangle: true,
+        output: {
+          comments: false,
+          beautify: false,
+
+        },
+
+
+    })
   ],
 };

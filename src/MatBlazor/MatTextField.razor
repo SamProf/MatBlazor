@@ -3,16 +3,16 @@
 <div class="@ClassMapper.Class" style="@Style" ref="Ref">
     @if (Icon != null)
     {
-        <i class="material-icons mdc-text-field__icon" tabindex="0">@Icon</i>
+        <i class="material-icons mdc-text-field__icon" tabindex="0" onclick="@IconOnClick">@Icon</i>
     }
 
     @if (TextArea)
     {
-        <textarea ref="InputRef" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled />
+        <textarea style="@InputStyle" ref="InputRef" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" />
     }
     else
     {
-        <input ref="InputRef" type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled />
+        <input style="@InputStyle" ref="InputRef" type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" />
     }
 
 

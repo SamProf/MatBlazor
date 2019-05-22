@@ -4,12 +4,35 @@
 <h5 class="mat-h5">Example</h5>
 <DemoContainer>
     <Content>
-        <MatDatePicker></MatDatePicker>
+        <p>
+            <MatDatePicker bind-Value="@Date1"></MatDatePicker>
+        </p>
+        <MatButton OnClick="@(_=> { Date1 = DateTime.Now; this.StateHasChanged(); })">Now</MatButton>
+        <MatButton OnClick="@(_=> { Date1 = null; this.StateHasChanged(); })">Empty</MatButton>
+
+        <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : "")</span>
+
+        @functions
+        {
+            public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
+        }
+
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatDatePicker></MatDatePicker>
+        <p>
+            <MatDatePicker bind-Value=""@Date1""></MatDatePicker>
+        </p>
+        <MatButton OnClick=""@(_=> { Date1 = DateTime.Now; this.StateHasChanged(); })"">Now</MatButton>
+        <MatButton OnClick=""@(_=> { Date1 = null; this.StateHasChanged(); })"">Empty</MatButton>
+
+        <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : """")</span>
+
+        @functions
+        {
+            public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
+        }
+
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
-

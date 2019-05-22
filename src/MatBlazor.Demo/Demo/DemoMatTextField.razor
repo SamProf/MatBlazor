@@ -625,15 +625,89 @@
 </DemoContainer>
 
 
-<h5 class="mat-h5">Disabled</h5>
+<h5 class="mat-h5">Disabled and ReadOnly</h5>
 
 <DemoContainer>
     <Content>
-        <MatTextField Disabled="true"></MatTextField>
+        <p>
+            <MatTextField Disabled="true" Value="Disabled" Label="Disabled"></MatTextField>
+        </p>
+
+        <p>
+            <MatTextField Disabled="true" TextArea="true" Value="Disabled TextArea" Label="Disabled TextArea"></MatTextField>
+        </p>
+
+        <p>
+            <MatTextField ReadOnly="true" Value="ReadOnly" Label="ReadOnly"></MatTextField>
+        </p>
+
+        <p>
+            <MatTextField ReadOnly="true" TextArea="true" Value="ReadOnly TextArea" Label="ReadOnly TextArea"></MatTextField>
+        </p>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatTextField Disabled=""true""></MatTextField>
+        <p>
+            <MatTextField Disabled=""true"" Value=""Disabled"" Label=""Disabled""></MatTextField>
+        </p>
+
+        <p>
+            <MatTextField Disabled=""true"" TextArea=""true"" Value=""Disabled TextArea"" Label=""Disabled TextArea""></MatTextField>
+        </p>
+
+        <p>
+            <MatTextField ReadOnly=""true"" Value=""ReadOnly"" Label=""ReadOnly""></MatTextField>
+        </p>
+
+        <p>
+            <MatTextField ReadOnly=""true"" TextArea=""true"" Value=""ReadOnly TextArea"" Label=""ReadOnly TextArea""></MatTextField>
+        </p>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">InputClass and InputStyle</h5>
+
+<DemoContainer>
+    <Content>
+
+        <style>
+            .demo-text-field-class {
+                font-family: monospace;
+                color: red !important;
+            }
+        </style>
+
+        <p>
+            <MatTextField Value="InputClass" Label="Label" InputClass="demo-text-field-class"></MatTextField>
+        </p>
+
+        <p>
+            <MatTextField Value="InputStyle" Label="Label" InputStyle="font-family: monospace; color: green;"></MatTextField>
+        </p>
+
+       
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+
+        <style>
+            .demo-text-field-class {
+                font-family: monospace;
+                color: red !important;
+            }
+        </style>
+
+        <p>
+            <MatTextField Value=""InputClass"" Label=""Label"" InputClass=""demo-text-field-class""></MatTextField>
+        </p>
+
+        <p>
+            <MatTextField Value=""InputStyle"" Label=""Label"" InputStyle=""font-family: monospace; color: green;""></MatTextField>
+        </p>
+
+       
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

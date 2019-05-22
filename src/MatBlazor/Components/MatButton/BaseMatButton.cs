@@ -42,6 +42,16 @@ namespace MatBlazor
         protected ICommand Command { get; set; }
 
 
+        [Parameter]
+        protected string Type { get; set; } = null;
+
+        [Parameter]
+        protected string Name { get; set; } = null;
+
+        [Parameter]
+        protected string Value { get; set; } = null;
+
+
         /// <summary>
         ///  Command parameter.
         /// </summary>

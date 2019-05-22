@@ -102,6 +102,11 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
+### MatBlazor 0.9.12
+- MatDatePicker (alpha)
+- MatTextField ReadOnly
+- MatTextField InputClass and InputStyle
+- MatButton Type, Name, Value #75
 
 ### MatBlazor 0.9.11
 - MatTabGroup and MatTab components
