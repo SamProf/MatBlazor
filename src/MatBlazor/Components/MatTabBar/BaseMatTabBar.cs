@@ -10,6 +10,8 @@ namespace MatBlazor
     {
         private BaseMatTabLabel _active;
 
+        internal List<BaseMatTabLabel> Tabs = new List<BaseMatTabLabel>();
+
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 

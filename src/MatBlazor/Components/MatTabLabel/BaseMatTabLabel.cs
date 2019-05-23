@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
@@ -25,17 +26,27 @@ namespace MatBlazor
 
         protected override void OnInit()
         {
+            Parent.Tabs.Add(this);
             if (Parent.Active == null)
             {
                 Parent.Active = this;
             }
         }
 
+        private bool disposed = false;
         public void Dispose()
         {
-            Parent.ActiveChanged.InvokeAsync(Parent.Active);
+            disposed = true;
+            Parent.Tabs.Remove(this);
+            if (Parent.Active == this)
+            {
+                Parent.Active = Parent.Tabs.FirstOrDefault();
+            }
+            else
+            {
+                Parent.ActiveChanged.InvokeAsync(Parent.Active);
+            }
         }
-
         public bool IsActive
         {
             get { return Parent.Active == this; }
@@ -43,7 +54,10 @@ namespace MatBlazor
 
         public void Activate()
         {
-            Parent.Active = this;
+            if (!disposed)
+            {
+                Parent.Active = this;
+            }
         }
     }
 }

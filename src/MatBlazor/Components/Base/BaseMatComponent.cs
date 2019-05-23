@@ -86,20 +86,5 @@ namespace MatBlazor
 
         private string _class;
         private string _style;
-
-
-        protected bool ParameterIsChanged<T>(ParameterCollection parameters, string parameterName, T value)
-        {
-            T newValue;
-            if (parameters.TryGetValue(parameterName, out newValue))
-            {
-                if (!EqualityComparer<T>.Default.Equals(value, newValue))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
     }
 }

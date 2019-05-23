@@ -50,7 +50,7 @@ namespace MatBlazor
 
         public async override Task SetParametersAsync(ParameterCollection parameters)
         {
-            var valueIsChanged = ParameterIsChanged(parameters, nameof(Value), Value);
+            var valueIsChanged = this.ParameterIsChanged(parameters, nameof(Value), Value);
             await base.SetParametersAsync(parameters);
             if (valueIsChanged)
             {
