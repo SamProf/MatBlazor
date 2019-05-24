@@ -1,0 +1,37 @@
+﻿@inherits BaseMatNumericUpDownField
+
+<div class="@ClassMapper.Class" style="@Style" ref="Ref">
+    @if (Icon != null)
+    {
+        <i class="material-icons mdc-text-field__icon" tabindex="0" onclick="@IconOnClick">@Icon</i>
+    }
+
+    <input style="@InputStyle" ref="InputRef" type="@Type" max=@Maximum min=@Minimum placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@BindedValue aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" step=@Step />
+
+    @if (!FullWidth && Outlined)
+    {
+        <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            @if (Label != null)
+            {
+                <div class="mdc-notched-outline__notch">
+                    <label class="@LabelClassMapper.Class" for="@MatBlazorId">@Label</label>
+                </div>
+            }
+            <div class="mdc-notched-outline__trailing"></div>
+        </div>
+    }
+    else
+    {
+        if (Label != null)
+        {
+            <label class="@LabelClassMapper.Class" for="@MatBlazorId">@Label</label>
+        }
+        <div class="mdc-line-ripple"></div>
+    }
+
+</div>
+@if (HelperText != null)
+{
+    <p class="mdc-text-field-helper-text" aria-hidden="true">@HelperText</p>
+}
