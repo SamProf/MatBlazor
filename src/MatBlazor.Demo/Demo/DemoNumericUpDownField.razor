@@ -35,5 +35,37 @@
         } 
 
     </Content>
-    
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <h4>Counter 1: [@(testingNullableDecimal1?.ToString() ?? ""No value"")] </h4>
+        <h4>Counter 2: [@(testingNullableDecimal2?.ToString() ?? ""No value"")] </h4>
+
+        <MatButton OnClick=""@Click"">ClickMe @ButtonState</MatButton>
+        <br/>
+        <MatNumericUpDownField 
+            bind-Value=@testingNullableDecimal1 
+            DecimalPlaces=2>
+        </MatNumericUpDownField>
+        <MatNumericUpDownField 
+            bind-Value=@testingNullableDecimal2 
+            DecimalPlaces=0 
+            Minimum=null Maximum=null >
+        </MatNumericUpDownField>
+
+        @functions
+        {
+            decimal? testingNullableDecimal1 = 0;
+            decimal? testingNullableDecimal2 = null;
+
+            string ButtonState = """";
+            void Click(UIMouseEventArgs e)
+            {
+                ButtonState = ""Clicked"";
+                testingNullableDecimal1 += 1;
+                testingNullableDecimal2 += 100;
+            }
+        } 
+
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>
