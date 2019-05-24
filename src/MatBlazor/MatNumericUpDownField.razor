@@ -6,7 +6,7 @@
         <i class="material-icons mdc-text-field__icon" tabindex="0" onclick="@IconOnClick">@Icon</i>
     }
 
-    <input style="@InputStyle" ref="InputRef" type="@Type" max=@Maximum min=@Minimum placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@BindedValue aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" step=@Step />
+    <input style="@InputStyle" ref="InputRef" type="@Type" max="@(Maximum?.ToString()??"")" min="@(Minimum?.ToString()??"")" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@BindedValue aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" step=@Step />
 
     @if (!FullWidth && Outlined)
     {

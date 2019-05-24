@@ -12,7 +12,7 @@ namespace MatBlazor
         public ElementRef InputRef { get; set; }
 
         [Parameter]
-        public decimal Value  // obj-type
+        public decimal? Value  // obj-type
         {
             get => _value;
             set
@@ -29,11 +29,17 @@ namespace MatBlazor
 
         protected string BindedValue  // obj-type
         {
-            get => Value.ToString();
+            get => Value == null?"":Value.ToString();
             set
             {
                 bool hasChanged = value != Value.ToString();
                 if (!hasChanged) return;
+
+                if (String.IsNullOrEmpty(value) )
+                {
+                    Value = null;
+                    return;
+                }
 
                 bool isDecimal = decimal.TryParse( value, out decimal valueAux );
                 if (!isDecimal && MatchToBetterValue ) 
@@ -42,15 +48,15 @@ namespace MatBlazor
                     return;
                 }
 
-                if ( isDecimal && valueAux < Minimum && MatchToBetterValue)
+                if ( Minimum.HasValue && isDecimal && valueAux < Minimum.Value && MatchToBetterValue)
                 {
-                    Value = Math.Round(Minimum, DecimalPlaces);
+                    Value = Math.Round(Minimum.Value, DecimalPlaces);
                     return;
                 }
 
-                if ( isDecimal && valueAux > Maximum && MatchToBetterValue)
+                if ( Maximum.HasValue && isDecimal && valueAux > Maximum && MatchToBetterValue)
                 {
-                    Value = Math.Round(Maximum, DecimalPlaces);
+                    Value = Math.Round(Maximum.Value, DecimalPlaces);
                     return;
                 }
 
@@ -64,10 +70,10 @@ namespace MatBlazor
         }
 
         [Parameter]
-        public decimal Maximum { get; set; }  = 100;
+        public decimal? Maximum { get; set; }  = 100;
 
         [Parameter]
-        public decimal Minimum { get; set; }  = 0;
+        public decimal? Minimum { get; set; }  = 0;
 
         [Parameter]
         public int DecimalPlaces { get; set; } = 0;
@@ -77,7 +83,7 @@ namespace MatBlazor
         public bool MatchToBetterValue { get; set; } = false; // Move value to closed valid value. Dangerous because UI doesn't refresh.
 
         [Parameter]
-        public EventCallback<decimal> ValueChanged { get; set; }   
+        public EventCallback<decimal?> ValueChanged { get; set; }   
   
         [Parameter]
         public EventCallback<UIMouseEventArgs> IconOnClick { get; set; }
@@ -169,7 +175,7 @@ namespace MatBlazor
         protected ClassMapper LabelClassMapper = new ClassMapper();
         protected ClassMapper InputClassMapper = new ClassMapper();
 
-        private decimal _value; // obj-type
+        private decimal? _value; // obj-type
         private string _inputClass;
 
         public BaseMatNumericUpDownField()
