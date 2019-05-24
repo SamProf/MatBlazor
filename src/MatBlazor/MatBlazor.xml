@@ -266,6 +266,26 @@
             Menus display a list of choices on a transient sheet of material.
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatNumericUpDownField">
+            <summary>
+            Text fields allow users to input, edit, and select text.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatNumericUpDownField.ReadOnly">
+            <summary>
+            When true, it specifies that an input field is read-only.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatNumericUpDownField.InputClass">
+            <summary>
+            Css class of input element
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatNumericUpDownField.InputStyle">
+            <summary>
+            Style attribute of input element
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatProgressBar">
             <summary>
             Progress indicators display the length of a process or express an unspecified wait time.
