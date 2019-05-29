@@ -48,6 +48,9 @@ dotnet add package MatBlazor
 ```
 
 ## MatBlazor components for server-side Blazor (Razor Components)
+
+Used [EmbeddedBlazorContent](https://github.com/SamProf/EmbeddedBlazorContent) library:  [![NuGet](https://img.shields.io/nuget/v/EmbeddedBlazorContent.svg)](https://www.nuget.org/packages/EmbeddedBlazorContent/)
+
 - Startup.cs
 ```
 app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);
