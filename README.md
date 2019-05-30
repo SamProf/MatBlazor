@@ -103,6 +103,11 @@ In the near future we plan to maximize the count and features of the components 
 
 This project is licensed under the terms of the [MIT license](LICENSE).
 
+## Thank you
+- [Blazor](https://blazor.net)
+- [MDC Web](https://material.io/components/)
+- [flatpickr.js](https://flatpickr.js.org/)
+
 ## News
 
 
