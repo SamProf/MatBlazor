@@ -411,6 +411,11 @@
             Style attribute of input element
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatThemeProvider">
+            <summary>
+            The Material Design color system can be used to create a color theme that reflects your brand or style.
+            </summary>
+        </member>
         <member name="P:MatBlazor.MatTable`1.PageSizes">
             <summary>
             Not Functioning

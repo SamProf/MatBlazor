@@ -16,13 +16,19 @@
             <MatAppBarTitle>MatBlazor - Material Design components for Blazor and Razor Components</MatAppBarTitle>
         </MatAppBarSection>
         <MatAppBarSection Align="@MatAppBarSectionAlign.End">
-            <MatChip Label="@userCount.ToString()"></MatChip>
+            <MatIconButton ref="themeButton" Icon="invert_colors" OnClick="@OnClick">
+            </MatIconButton>
             <MatIconButton Link="http://samprof.com" Target="_blank">
                 <i class="fa fa-user-circle" aria-hidden="true"></i>
             </MatIconButton>
             <MatIconButton Link="https://github.com/SamProf/MatBlazor">
                 <i class="fa fa-github" aria-hidden="true"></i>
             </MatIconButton>
+            <MatMenu ref="Menu" style="z-index: 100;">
+                <ThemeColorSelector bind-Value="@ThemePrimary"></ThemeColorSelector>
+            </MatMenu>
+
+
         </MatAppBarSection>
     </MatAppBarRow>
 </MatAppBar>
@@ -69,6 +75,29 @@
 
 @functions {
 
+    BaseMatIconButton themeButton;
+    BaseMatMenu Menu;
+
+
+
+    [CascadingParameter]
+    MatTheme theme { get; set; }
+
+
+    public string ThemePrimary
+    {
+        get { return theme.Primary; }
+        set
+        {
+            theme.Primary = value;
+            theme.ThemeHasChanged();
+        }
+    }
+
+    public void OnClick(UIMouseEventArgs e)
+    {
+        this.Menu.OpenAsync(themeButton.Ref);
+    }
 
     bool lazySnackbarIsOpen = false;
 
@@ -91,19 +120,8 @@
     NavItem[] navItems;
 
 
-    public int userCount;
-
-
-    protected void UserCountChanged(object s, int v)
-    {
-        this.Invoke(() =>
-        {
-            this.userCount = v;
-            this.StateHasChanged();
-        });
-    }
-
-
+    
+   
     private bool isFirstRender = true;
 
     protected override async Task OnAfterRenderAsync()
@@ -128,11 +146,7 @@
         await base.OnInitAsync();
 
 
-        userCount = AppModel.GetUserCount();
-
-        AppModel.UserCountChanged += UserCountChanged;
-
-
+        
         Task.Delay(TimeSpan.FromSeconds(5))
             .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
 
@@ -274,13 +288,18 @@
                 Name = "DatePicker",
                 Url = "DatePicker"
             },
-            
+            new NavItem()
+            {
+                Name = "Themes",
+                Url = "Themes"
+            },
+
         }.OrderBy(i => i.Name).ToArray();
     }
 
     public void Dispose()
     {
-        Console.WriteLine("My Dispose");
+        
     }
 
 }

@@ -6,14 +6,17 @@ using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
-    public abstract class BaseMatComponent : ComponentBase
+    public abstract class BaseMatComponent : ComponentBase, IBaseMatComponent
     {
         /// <summary>
         /// Returned ElementRef reference for DOM element.
         /// </summary>
         public virtual ElementRef Ref { get; set; }
 
-        public string MatBlazorId = "matBlazorId_" + Guid.NewGuid();
+        public string MatBlazorId = IdGeneratorHelper.Generate("matBlazor_id_" );
+
+        [CascadingParameter]
+        public MatTheme Theme { get; set; }
 
         protected ClassMapper ClassMapper { get; } = new ClassMapper();
 
@@ -52,7 +55,9 @@ namespace MatBlazor
 
         protected BaseMatComponent()
         {
-            ClassMapper.Get(() => this.Class);
+            ClassMapper
+                .Get(() => this.Class)
+                .Get(()=>this.Theme?.GetClass());
         }
 
         /// <summary>

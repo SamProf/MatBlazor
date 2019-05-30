@@ -1,0 +1,251 @@
+@using Microsoft.AspNetCore.Components
+
+<DocMatThemeProvider></DocMatThemeProvider>
+
+
+<style>
+    .mat-blazor-demo-theme-app-row { padding: 5px; }
+</style>
+
+<div class="mat-layout-grid">
+    <div class="mat-layout-grid-inner">
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">
+            <div style="padding: 10px;">
+                <MatTextField bind-Value="@Theme.Primary" Label="Primary" ValueChanged="@(_ => this.Theme.ThemeHasChanged())" OnFocus="@(_ => colorType = ColorType.Primary)" class="@(colorType == ColorType.Primary ? "mat-elevation-z10" : null)"></MatTextField>
+                <MatTextField bind-Value="@Theme.Secondary" Label="Secondary" ValueChanged="@(_ => this.Theme.ThemeHasChanged())" OnFocus="@(_ => colorType = ColorType.Secondary)" class="@(colorType == ColorType.Secondary ? "mat-elevation-z10" : null)"></MatTextField>
+            </div>
+
+            <ThemeColorSelector bind-Value="@ColorValue"></ThemeColorSelector>
+        </div>
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">
+
+            <div class="mat-blazor-demo-theme-app-row">
+                <MatButton Icon="favorite">Text</MatButton>
+                <MatButton Raised="true" Icon="favorite">Raised</MatButton>
+                <MatButton Unelevated="true" Icon="favorite">Unelevated</MatButton>
+                <MatButton Outlined="true" Icon="favorite">Outlined</MatButton>
+                <MatButton Dense="true" Icon="favorite">Dense</MatButton>
+            </div>
+            <div class="mat-blazor-demo-theme-app-row">
+                <MatCheckbox Checked="true" Label="Checked"></MatCheckbox>
+                <MatCheckbox Checked="false" Label="Unchecked"></MatCheckbox>
+            </div>
+
+            <div class="mat-blazor-demo-theme-app-row">
+                <MatList SingleSelection="true" TwoLine="true">
+                    <MatListItem>
+                        <MatListItemText>
+                            <MatListItemPrimaryText>First-line text</MatListItemPrimaryText>
+                            <MatListItemSecondaryText>Second-line text</MatListItemSecondaryText>
+                        </MatListItemText>
+                    </MatListItem>
+
+                    <MatListItem>
+                        <MatListItemText>
+                            <MatListItemPrimaryText>First-line text</MatListItemPrimaryText>
+                            <MatListItemSecondaryText>Second-line text</MatListItemSecondaryText>
+                        </MatListItemText>
+                    </MatListItem>
+
+                    <MatListItem>
+                        <MatListItemText>
+                            <MatListItemPrimaryText>First-line text</MatListItemPrimaryText>
+                            <MatListItemSecondaryText>Second-line text</MatListItemSecondaryText>
+                        </MatListItemText>
+                    </MatListItem>
+
+                </MatList>
+            </div>
+
+            <div class="mat-blazor-demo-theme-app-row">
+                <h3 class="mat-subtitle1">Progress</h3>
+                <MatProgressBar Progress="0.6"></MatProgressBar>
+
+                <h3 class="mat-subtitle1">Buffer</h3>
+                <MatProgressBar Progress="0.35" Buffer="0.7"></MatProgressBar>
+
+                <h3 class="mat-subtitle1">Indeterminate</h3>
+                <MatProgressBar Indeterminate="true"></MatProgressBar>
+            </div>
+
+            <div class="mat-blazor-demo-theme-app-row">
+                <MatSelect Label="Pick a Food Group">
+                    <MatOption Value=""></MatOption>
+                    <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
+                    <MatOption Value="vegetables">Vegetables</MatOption>
+                    <MatOption Value="fruit">Fruit</MatOption>
+                </MatSelect>
+            </div>
+            <div class="mat-blazor-demo-theme-app-row">
+                <MatTextField Label="Standard"></MatTextField>
+                <MatTextField Label="Icon" Icon="favorite"></MatTextField>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h5 class="mat-h5">Examples</h5>
+<DemoContainer>
+    <Content>
+
+        <MatThemeProvider Theme="@theme1">
+            <div class="mat-blazor-demo-theme-app-row">
+                <MatButton Icon="favorite">Text</MatButton>
+                <MatButton Raised="true" Icon="favorite">Raised</MatButton>
+                <MatButton Unelevated="true" Icon="favorite">Unelevated</MatButton>
+                <MatButton Outlined="true" Icon="favorite">Outlined</MatButton>
+                <MatButton Dense="true" Icon="favorite">Dense</MatButton>
+            </div>
+        </MatThemeProvider>
+
+
+        <MatThemeProvider Theme="@theme2">
+            <div class="mat-blazor-demo-theme-app-row">
+                <MatButton Icon="favorite">Text</MatButton>
+                <MatButton Raised="true" Icon="favorite">Raised</MatButton>
+                <MatButton Unelevated="true" Icon="favorite">Unelevated</MatButton>
+                <MatButton Outlined="true" Icon="favorite">Outlined</MatButton>
+                <MatButton Dense="true" Icon="favorite">Dense</MatButton>
+            </div>
+        </MatThemeProvider>
+
+        @functions
+        {
+
+            MatTheme theme1 = new MatTheme()
+            {
+                Primary = MatThemeColors.Orange._500.Value,
+                Secondary = MatThemeColors.BlueGrey._500.Value
+            };
+
+            MatTheme theme2 = new MatTheme()
+            {
+                Primary = "green",
+                Secondary = "orange"
+            };
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+
+        <MatThemeProvider Theme=""@theme1"">
+            <div class=""mat-blazor-demo-theme-app-row"">
+                <MatButton Icon=""favorite"">Text</MatButton>
+                <MatButton Raised=""true"" Icon=""favorite"">Raised</MatButton>
+                <MatButton Unelevated=""true"" Icon=""favorite"">Unelevated</MatButton>
+                <MatButton Outlined=""true"" Icon=""favorite"">Outlined</MatButton>
+                <MatButton Dense=""true"" Icon=""favorite"">Dense</MatButton>
+            </div>
+        </MatThemeProvider>
+
+
+        <MatThemeProvider Theme=""@theme2"">
+            <div class=""mat-blazor-demo-theme-app-row"">
+                <MatButton Icon=""favorite"">Text</MatButton>
+                <MatButton Raised=""true"" Icon=""favorite"">Raised</MatButton>
+                <MatButton Unelevated=""true"" Icon=""favorite"">Unelevated</MatButton>
+                <MatButton Outlined=""true"" Icon=""favorite"">Outlined</MatButton>
+                <MatButton Dense=""true"" Icon=""favorite"">Dense</MatButton>
+            </div>
+        </MatThemeProvider>
+
+        @functions
+        {
+
+            MatTheme theme1 = new MatTheme()
+            {
+                Primary = MatThemeColors.Orange._500.Value,
+                Secondary = MatThemeColors.BlueGrey._500.Value
+            };
+
+            MatTheme theme2 = new MatTheme()
+            {
+                Primary = ""green"",
+                Secondary = ""orange""
+            };
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">Real use</h5>
+<p>To apply theme for all application you can use MatThemeProvider in MainLayout.razor or App.razor</p>
+<BlazorFiddle Template="MatBlazor" Code=@(@"
+    <MatThemeProvider Theme=""@theme"">
+        <Router AppAssembly=typeof(Pages.Index).Assembly/>
+    </MatThemeProvider>
+
+    @functions
+    {
+        MatTheme theme = new MatTheme()
+        {
+            Primary = MatThemeColors.Orange._500.Value,
+            Secondary = MatThemeColors.BlueGrey._500.Value
+        };
+    }")>
+</BlazorFiddle>
+
+
+@functions
+{
+
+    [CascadingParameter]
+    public MatTheme Theme { get; set; }
+
+
+    ColorType colorType = ColorType.Primary;
+
+
+    public string ColorValue
+    {
+        get
+        {
+            switch (colorType)
+            {
+                case ColorType.Primary:
+                    return Theme.Primary;
+                case ColorType.Secondary:
+                    return Theme.Secondary;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        set
+        {
+            switch (colorType)
+            {
+                case ColorType.Primary:
+                    Theme.Primary = value;
+                    break;
+                case ColorType.Secondary:
+                    Theme.Secondary = value;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            this.Theme.ThemeHasChanged();
+        }
+    }
+
+
+    enum ColorType
+    {
+        Primary,
+        Secondary
+    }
+
+}
+
+<h5 class="mat-h5">
+    Official color tool
+</h5>
+<p>
+    The Material Design team has also built an awesome palette configuration tool: <a href="https://material.io/tools/color/">material.io/tools/color</a>. This can help you create a color palette for your UI, as well as measure the accessibility level of any color combination.
+</p>

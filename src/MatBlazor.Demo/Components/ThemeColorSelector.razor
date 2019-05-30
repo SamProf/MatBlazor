@@ -1,0 +1,63 @@
+@using Microsoft.AspNetCore.Components
+<style>
+    .demo-mat-blazor-theme-color-item {
+        display: table-cell;
+        width: 36px;
+        height: 36px;
+        vertical-align: top;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+    }
+
+    .demo-mat-blazor-theme-color-item .material-icons {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .demo-mat-blazor-theme-color-item.selected { /* border: 1px solid black; */ }
+</style>
+<div>
+    @foreach (var color in MatThemeColors.Items.Values)
+    {
+        <div>
+            @foreach (var shadow in color.Shadows.Values)
+            {
+                <div class="demo-mat-blazor-theme-color-item @(Value == shadow.Value ? "mat-elevation-z10" : "")" style="background: @(shadow.Value)" onclick="@(_ => Value = shadow.Value)">
+                    @if (Value == shadow.Value)
+                    {
+                        <MatIcon>check_circle</MatIcon>
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>
+
+
+@functions
+{
+
+    [Parameter]
+    public string Value
+    {
+        get => _value;
+        set
+        {
+            if (value == _value)
+            {
+                return;
+            }
+            _value = value;
+            this.StateHasChanged();
+            ValueChanged.InvokeAsync(value);
+        }
+    }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    private string _value;
+}

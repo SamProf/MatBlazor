@@ -8,7 +8,7 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatRadioButton : BaseMatComponent
     {
-        [CascadingParameter]
+        [CascadingParameter()]
         protected BaseMatRadioGroup Group { get; set; }
 
         protected ElementRef FormFieldRef;

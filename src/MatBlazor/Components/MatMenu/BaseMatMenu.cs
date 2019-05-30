@@ -10,6 +10,12 @@ namespace MatBlazor
     {
         private bool _opened;
 
+
+        public BaseMatMenu()
+        {
+            ClassMapper.Add("mdc-menu mdc-menu-surface");
+        }
+
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 

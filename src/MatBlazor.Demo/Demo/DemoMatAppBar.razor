@@ -2,6 +2,8 @@
 <DocMatAppBarRow Secondary="true"></DocMatAppBarRow>
 <DocMatAppBarSection Secondary="true"></DocMatAppBarSection>
 <DocMatAppBarTitle Secondary="true"></DocMatAppBarTitle>
+<DocMatAppBarContainer Secondary="true"></DocMatAppBarContainer>
+<DocMatAppBarContent Secondary="true"></DocMatAppBarContent>
 
 <h5 class="mat-h5">Example</h5>
 
@@ -13,17 +15,24 @@
     	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatAppBarFrame""
 
 
-<MatAppBar Fixed=""true"">
-    <MatAppBarRow>
-        <MatAppBarSection>
-            <MatIconButton Icon=""menu""></MatIconButton>
-            <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
-        </MatAppBarSection>
-        <MatAppBarSection Align=""@MatAppBarSectionAlign.End"">
-            <MatIconButton Icon=""favorite""></MatIconButton>
-        </MatAppBarSection>
-    </MatAppBarRow>
-</MatAppBar>")></BlazorFiddle>
+<MatAppBarContainer>
+    <MatAppBar Fixed=""true"">
+        <MatAppBarRow>
+            <MatAppBarSection>
+                <MatIconButton Icon=""menu""></MatIconButton>
+                <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
+            </MatAppBarSection>
+            <MatAppBarSection Align=""@MatAppBarSectionAlign.End"">
+                <MatIconButton Icon=""favorite""></MatIconButton>
+            </MatAppBarSection>
+        </MatAppBarRow>
+    </MatAppBar>
+
+    <MatAppBarContent>
+        Content
+    </MatAppBarContent>
+</MatAppBarContainer>
+")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 

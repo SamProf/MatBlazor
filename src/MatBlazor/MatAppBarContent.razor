@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Components
+@inherits BaseMatComponent
+
+<div class="@ClassMapper.Class" ref="Ref" style="@(Style) width: 100%; height: 100%; box-sizing: border-box;">
+    @ChildContent
+</div>
+
+@functions
+{
+
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+
+
+    protected async override Task OnInitAsync()
+    {
+        await base.OnInitAsync();
+        ClassMapper.Add("mdc-top-app-bar--fixed-adjust");
+    }
+    
+
+}

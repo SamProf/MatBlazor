@@ -13,6 +13,7 @@ namespace MatBlazor
         [Inject]
         public Microsoft.AspNetCore.Components.IUriHelper UriHelper { get; set; }
 
+
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();

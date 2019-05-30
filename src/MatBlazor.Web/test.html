@@ -10,21 +10,50 @@
 <body>
 
 
-
-
-
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
 <script src="https://unpkg.com/js-datepicker"></script>
-<input id="ref">
+
+
+<style>
+
+</style>
+
+<button class="mdc-button" >
+    <span class="mdc-button__label">Button</span>
+</button>
+
+
+
+<div>
+    <style>
+        * {
+            --mdc-theme-primary: red;
+        }
+    </style>
+
+    <button class="mdc-button" id="ref">
+        <span class="mdc-button__label">Button</span>
+    </button>
+
+</div>
+
+<style>
+    * {
+        --mdc-theme-primary: blue;
+    }
+</style>
+
+
+
+<button class="mdc-button">
+    <span class="mdc-button__label">Button</span>
+</button>
 
 
 <script type="text/javascript">
   var ref = document.getElementById('ref');
-  var options = {};
-  const picker = datepicker(ref, options)
-
-
+  const buttonRipple = new mdc.ripple.MDCRipple(ref);
 
 </script>
 

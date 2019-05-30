@@ -36,6 +36,7 @@
     "@material/switch": "^2.0.0",
     "@material/tab-bar": "^2.1.0",
     "@material/textfield": "^2.1.0",
+    "@material/theme": "^1.1.0",
     "@material/top-app-bar": "^2.1.0",
     "@material/typography": "^1.0.0",
     "babel-polyfill": "^6.26.0",

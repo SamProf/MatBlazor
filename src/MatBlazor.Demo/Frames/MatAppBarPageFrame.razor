@@ -1,14 +1,20 @@
 ﻿@page "/MatAppBarFrame"
 
 
-<MatAppBar Fixed="true">
-    <MatAppBarRow>
-        <MatAppBarSection>
-            <MatIconButton Icon="menu"></MatIconButton>
-            <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
-        </MatAppBarSection>
-        <MatAppBarSection Align="@MatAppBarSectionAlign.End">
-            <MatIconButton Icon="favorite"></MatIconButton>
-        </MatAppBarSection>
-    </MatAppBarRow>
-</MatAppBar>
+<MatAppBarContainer>
+    <MatAppBar Fixed="true">
+        <MatAppBarRow>
+            <MatAppBarSection>
+                <MatIconButton Icon="menu"></MatIconButton>
+                <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
+            </MatAppBarSection>
+            <MatAppBarSection Align="@MatAppBarSectionAlign.End">
+                <MatIconButton Icon="favorite"></MatIconButton>
+            </MatAppBarSection>
+        </MatAppBarRow>
+    </MatAppBar>
+
+    <MatAppBarContent>
+        Content
+    </MatAppBarContent>
+</MatAppBarContainer>

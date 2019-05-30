@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNetCore.Components
+@inherits BaseMatComponent
+
+<div class="@ClassMapper.Class" ref="Ref" style="@Style">
+    @ChildContent
+</div>
+
+@functions
+{
+
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+
+}

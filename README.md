@@ -105,6 +105,13 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
+
+### MatBlazor 0.9.13
+- MatThemeProvider (Themes support)
+- MatAppBarContainer, MatAppBarContent
+- PR: MatNumericUpDownField #78 - early preview (ctrl-alt-d)
+- MatMenu fix (added class and style support)
+
 ### MatBlazor 0.9.12
 - MatDatePicker (alpha)
 - MatTextField ReadOnly
