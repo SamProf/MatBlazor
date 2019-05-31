@@ -110,6 +110,8 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
+### MatBlazor 0.9.14
+- MatFAB - Floating Action Button
 
 ### MatBlazor 0.9.13
 - MatThemeProvider (Themes support)

@@ -16,44 +16,38 @@
 
 
 <style>
-
-</style>
-
-<button class="mdc-button" >
-    <span class="mdc-button__label">Button</span>
-</button>
-
-
-
-<div>
-    <style>
-        * {
-            --mdc-theme-primary: red;
-        }
-    </style>
-
-    <button class="mdc-button" id="ref">
-        <span class="mdc-button__label">Button</span>
-    </button>
-
-</div>
-
-<style>
-    * {
-        --mdc-theme-primary: blue;
+    .app-fab--absolute {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
     }
+
 </style>
 
-
-
-<button class="mdc-button">
-    <span class="mdc-button__label">Button</span>
+<button class="mdc-fab" aria-label="Favorite">
+    <span class="mdc-fab__icon material-icons">favorite</span>
 </button>
+
+<button class="mdc-fab" aria-label="Favorite">
+    <span class="material-icons">favorite</span>
+</button>
+
+
+<button class="mdc-fab mdc-fab--extended">
+    <span class="material-icons mdc-fab__icon">add</span>
+    <span class="mdc-fab__label">Create</span>
+</button>
+
+<button class="mdc-fab mdc-fab--extended">
+    <span class="material-icons">add</span>
+    <span class="mdc-fab__label">Create</span>
+</button>
+
 
 
 <script type="text/javascript">
-  var ref = document.getElementById('ref');
-  const buttonRipple = new mdc.ripple.MDCRipple(ref);
+  // var ref = document.getElementById('ref');
+  // const buttonRipple = new mdc.ripple.MDCRipple(ref);
 
 </script>
 

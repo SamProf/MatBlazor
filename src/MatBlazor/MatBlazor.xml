@@ -206,6 +206,11 @@
             The navigation drawer slides in from the left and contains the navigation destinations for your app.
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatFAB">
+            <summary>
+            A floating action button represents the primary action in an application.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatIconButton">
             <summary>
             Icons are appropriate for buttons that allow a user to take actions or make a selection, such as adding or removing a star to an item.

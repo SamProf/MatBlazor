@@ -1,0 +1,14 @@
+﻿@inherits BaseMatFAB
+
+
+<button class="@ClassMapper.Class" style="@Style" onclick="@OnClick" ref="Ref">
+    @ChildContent
+    @if (Icon != null)
+    {
+        <span class="mdc-fab__icon material-icons">@Icon</span>
+    }
+    @if (Label != null)
+    {
+        <span class="mdc-fab__label">@Label</span>
+    }
+</button>

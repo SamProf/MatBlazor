@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "Themes",
+      "launchUrl": "FAB",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

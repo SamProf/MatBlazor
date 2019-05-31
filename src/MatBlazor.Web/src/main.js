@@ -25,6 +25,7 @@ import * as matRipple from './matRipple/matRipple';
 import * as matSnackbar from './matSnackbar/matSnackbar';
 import * as matTabBar from './matTabBar/matTabBar';
 import * as matDatePicker from './matDatePicker/matDatePicker';
+import * as matFAB from './matFAB/matFAB';
 
 
 
@@ -53,6 +54,7 @@ window.matBlazor = {
   matSnackbar,
   matTabBar,
   matDatePicker,
+  matFAB,
 };
 
 

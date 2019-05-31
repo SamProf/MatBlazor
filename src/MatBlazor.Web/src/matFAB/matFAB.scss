@@ -1,0 +1,8 @@
+@import "@material/fab/mdc-fab";
+
+
+.mat-fab {
+  > .material-icons {
+    @extend .mdc-fab__icon;
+  }
+}
