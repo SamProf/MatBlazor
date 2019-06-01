@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
+    /// <summary>
+    /// MatExpansionPanel provides an expandable details-summary view.
+    /// </summary>
     public class BaseMatExpansionPanel : BaseMatComponent
     {
         [CascadingParameter]

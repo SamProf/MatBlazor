@@ -19,6 +19,11 @@
             Specifies an inline style for an DOM element.
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatExpansionPanel">
+            <summary>
+            MatExpansionPanel provides an expandable details-summary view.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatAppBar">
             <summary>
             Acts as a container for items such as application title, navigation icon, and action items.

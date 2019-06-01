@@ -1,4 +1,5 @@
-@* <DocMatFAB></DocMatFAB> *@
+<DocMatExpansionPanel></DocMatExpansionPanel>
+<DocMatAccordion Secondary="true"></DocMatAccordion>
 
 <h5 class="mat-h5">Example</h5>
 <DemoContainer>
@@ -6,10 +7,10 @@
         <MatAccordion>
             <MatExpansionPanel bind-Expanded="@panelOpenState">
                 <MatExpansionPanelSummary>
-                    <MatPanelTitle>Self aware panel</MatPanelTitle>
-                    <MatPanelDescription>
+                    <MatExpansionPanelHeader>Self aware panel</MatExpansionPanelHeader>
+                    <MatExpansionPanelSubHeader>
                         Currently I am @(panelOpenState ? "open" : "closed")
-                    </MatPanelDescription>
+                    </MatExpansionPanelSubHeader>
                 </MatExpansionPanelSummary>
                 <MatExpansionPanelDetails>
                     <p>I'm visible because I am open</p>
@@ -18,8 +19,8 @@
 
             <MatExpansionPanel>
                 <MatExpansionPanelSummary>
-                    <MatPanelTitle>Personal data</MatPanelTitle>
-                    <MatPanelDescription>Type your name and age</MatPanelDescription>
+                    <MatExpansionPanelHeader>Personal data</MatExpansionPanelHeader>
+                    <MatExpansionPanelSubHeader>Type your name and age</MatExpansionPanelSubHeader>
                 </MatExpansionPanelSummary>
                 <MatExpansionPanelDetails>
                     <MatTextField Label="First name"></MatTextField>
@@ -36,5 +37,40 @@
         }
 
     </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatAccordion>
+            <MatExpansionPanel bind-Expanded=""@panelOpenState"">
+                <MatExpansionPanelSummary>
+                    <MatExpansionPanelHeader>Self aware panel</MatExpansionPanelHeader>
+                    <MatExpansionPanelSubHeader>
+                        Currently I am @(panelOpenState ? ""open"" : ""closed"")
+                    </MatExpansionPanelSubHeader>
+                </MatExpansionPanelSummary>
+                <MatExpansionPanelDetails>
+                    <p>I'm visible because I am open</p>
+                </MatExpansionPanelDetails>
+            </MatExpansionPanel>
 
+            <MatExpansionPanel>
+                <MatExpansionPanelSummary>
+                    <MatExpansionPanelHeader>Personal data</MatExpansionPanelHeader>
+                    <MatExpansionPanelSubHeader>Type your name and age</MatExpansionPanelSubHeader>
+                </MatExpansionPanelSummary>
+                <MatExpansionPanelDetails>
+                    <MatTextField Label=""First name""></MatTextField>
+                    <MatTextField Label=""Age""></MatTextField>
+                </MatExpansionPanelDetails>
+            </MatExpansionPanel>
+
+        </MatAccordion>
+
+
+        @functions
+        {
+            bool panelOpenState;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>
