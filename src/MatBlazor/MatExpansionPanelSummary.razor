@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Components
+@inherits BaseMatComponent
+
+<div class="@ClassMapper.Class" style="@Style" ref="Ref" onclick="@OnClickHandler">
+    @ChildContent
+</div>
+
+@functions
+{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [CascadingParameter]
+    public BaseMatExpansionPanel ExpansionPanel { get; set; }
+
+    protected override void OnInit()
+    {
+        ClassMapper.Add("mat-expansion-panel__summary");
+    }
+
+    protected async void OnClickHandler(UIMouseEventArgs e)
+    {
+        this.ExpansionPanel.ToggleAsync();
+    }
+
+}

@@ -1,0 +1,40 @@
+@* <DocMatFAB></DocMatFAB> *@
+
+<h5 class="mat-h5">Example</h5>
+<DemoContainer>
+    <Content>
+        <MatAccordion>
+            <MatExpansionPanel bind-Expanded="@panelOpenState">
+                <MatExpansionPanelSummary>
+                    <MatPanelTitle>Self aware panel</MatPanelTitle>
+                    <MatPanelDescription>
+                        Currently I am @(panelOpenState ? "open" : "closed")
+                    </MatPanelDescription>
+                </MatExpansionPanelSummary>
+                <MatExpansionPanelDetails>
+                    <p>I'm visible because I am open</p>
+                </MatExpansionPanelDetails>
+            </MatExpansionPanel>
+
+            <MatExpansionPanel>
+                <MatExpansionPanelSummary>
+                    <MatPanelTitle>Personal data</MatPanelTitle>
+                    <MatPanelDescription>Type your name and age</MatPanelDescription>
+                </MatExpansionPanelSummary>
+                <MatExpansionPanelDetails>
+                    <MatTextField Label="First name"></MatTextField>
+                    <MatTextField Label="Age"></MatTextField>
+                </MatExpansionPanelDetails>
+            </MatExpansionPanel>
+
+        </MatAccordion>
+
+
+        @functions
+        {
+            bool panelOpenState;
+        }
+
+    </Content>
+
+</DemoContainer>

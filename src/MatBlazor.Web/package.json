@@ -43,6 +43,7 @@
     "babel-polyfill": "^6.26.0",
     "flatpickr": "^4.5.7",
     "install": "^0.12.2",
+    "material-components-web": "^2.3.0",
     "npm": "^6.9.0"
   },
   "devDependencies": {
