@@ -12,59 +12,51 @@
 
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 <script src="/MatBlazor.Web/dist/matBlazor.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
-<script src="https://unpkg.com/js-datepicker"></script>
+<!--<link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">-->
+<!--<script src="https://unpkg.com/js-datepicker"></script>-->
 
 
 <style>
 
 
+
 </style>
 
+<p>dddd</p>
+<p>dddd</p>
+<p>dddd</p>
+<p>dddd</p>
+<p>dddd</p>
+<p>dddd</p>
+<p>dddd</p>
+<p>dddd</p>
+<span id="ref" style="left: 100px; right: 100px; position: absolute;">
+    pets
+    e
+    we
+    ff
+    ewfew
+    few
+    fewf
+    ewf
+    ewfew
+    few
+    fewf
+    ewf
+    ewfew
+    few
+</span>
 
-<div class="mat-accordion">
-
-
-    <div class="mat-expansion-panel mdc-elevation--z3">
-        <div class="mat-expansion-panel__summary">
-            <span class="mat-expansion-panel__header">Personal data</span>
-
-            <!--<span class="mat-expansion-panel__secondary-content">Type your name</span>-->
-        </div>
-        <div class="mat-expansion-panel__content">The canvas is "transparent" for screen reader users. HTML content
-            included in the HTML5 canvas sub DOM is announced and navigable by screen reader users and is navigable
-            by keyboard users.
-        </div>
-        <div class="mat-expansion-panel__actions">
-            <button class="mdc-button mdc-button--raised mdc-button--primary mat-expansion-panel__action">Save</button>
-            <button class="mdc-button mat-expansion-panel__action">Cancel</button>
-        </div>
-    </div>
-
-    <div class="mat-expansion-panel mdc-elevation--z3">
-        <div class="mat-expansion-panel__summary">
-            <span class="mat-expansion-panel__header">Personal data</span>
-
-            <!--<span class="mat-expansion-panel__secondary-content">Type your name</span>-->
-        </div>
-        <div class="mat-expansion-panel__content">The canvas is "transparent" for screen reader users. HTML content
-            included in the HTML5 canvas sub DOM is announced and navigable by screen reader users and is navigable
-            by keyboard users.
-        </div>
-        <div class="mat-expansion-panel__actions">
-            <button class="mdc-button mdc-button--raised mdc-button--primary mat-expansion-panel__action">Save</button>
-            <button class="mdc-button mat-expansion-panel__action">Cancel</button>
-        </div>
-    </div>
+<div id="tRef" class="mat-tooltip" >tool</div>
 
 
-
-</div>
 
 
 <script type="text/javascript">
-  // var ref = document.getElementById('ref');
-  // const buttonRipple = new mdc.ripple.MDCRipple(ref);
+  var ref = document.getElementById('ref');
+  var tooltip = document.getElementById('tRef');
+
+  new matBlazor.matTooltip.init(tooltip, ref);
 
 </script>
 

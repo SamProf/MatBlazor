@@ -11,9 +11,17 @@ namespace MatBlazor
         /// <summary>
         /// Returned ElementRef reference for DOM element.
         /// </summary>
-        public virtual ElementRef Ref { get; set; }
+        public virtual ElementRef Ref
+        {
+            get => RefStore.Ref;
+            set { RefStore.Ref = value; }
+        }
 
-        public string MatBlazorId = IdGeneratorHelper.Generate("matBlazor_id_" );
+
+        [Parameter]
+        public ElementRefStore RefStore { get; set; } = new ElementRefStore();
+
+        public string MatBlazorId = IdGeneratorHelper.Generate("matBlazor_id_");
 
         [CascadingParameter]
         public MatTheme Theme { get; set; }
@@ -57,7 +65,7 @@ namespace MatBlazor
         {
             ClassMapper
                 .Get(() => this.Class)
-                .Get(()=>this.Theme?.GetClass());
+                .Get(() => this.Theme?.GetClass());
         }
 
         /// <summary>

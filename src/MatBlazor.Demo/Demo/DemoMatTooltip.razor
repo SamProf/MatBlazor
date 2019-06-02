@@ -1,22 +1,43 @@
 @using Microsoft.AspNetCore.Components
-<h3 class="mat-h3">MatTooltip</h3>
+<DocMatTooltip></DocMatTooltip>
 
-<p class="mat-body1">
-    The  Material tooltip provides a text label that is displayed when the user hovers an element.
-</p>
 
 <h5 class="mat-h5">Example</h5>
-
-<MatTooltip>
-    <h1>Test tooltip content</h1>
-</MatTooltip>
-
-@functions
-{
-    BaseMatButton buttonRef;
-
-    protected void Click1()
-    {
-        this.StateHasChanged();
-    }
-}
+<DemoContainer>
+    <Content>
+        <MatTooltip Tooltip="Right tooltip" Position="@MatTooltipPosition.Right">
+            <MatButton RefStore="@context">Right</MatButton>
+        </MatTooltip>
+        
+        <MatTooltip Tooltip="Left tooltip" Position="@MatTooltipPosition.Left">
+            <MatButton RefStore="@context">Left</MatButton>
+        </MatTooltip>
+        
+        <MatTooltip Tooltip="Top tooltip" Position="@MatTooltipPosition.Top">
+            <MatButton RefStore="@context">Top</MatButton>
+        </MatTooltip>
+        
+        <MatTooltip Tooltip="Bottom tooltip" Position="@MatTooltipPosition.Bottom">
+            <MatButton RefStore="@context">Bottom</MatButton>
+        </MatTooltip>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTooltip Tooltip=""Right tooltip"" Position=""@MatTooltipPosition.Right"">
+            <MatButton RefStore=""@context"">Right</MatButton>
+        </MatTooltip>
+        
+        <MatTooltip Tooltip=""Left tooltip"" Position=""@MatTooltipPosition.Left"">
+            <MatButton RefStore=""@context"">Left</MatButton>
+        </MatTooltip>
+        
+        <MatTooltip Tooltip=""Top tooltip"" Position=""@MatTooltipPosition.Top"">
+            <MatButton RefStore=""@context"">Top</MatButton>
+        </MatTooltip>
+        
+        <MatTooltip Tooltip=""Bottom tooltip"" Position=""@MatTooltipPosition.Bottom"">
+            <MatButton RefStore=""@context"">Bottom</MatButton>
+        </MatTooltip>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

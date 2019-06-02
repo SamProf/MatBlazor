@@ -44,6 +44,7 @@
     "flatpickr": "^4.5.7",
     "install": "^0.12.2",
     "material-components-web": "^2.3.0",
+    "material-tooltip": "^1.0.1",
     "npm": "^6.9.0"
   },
   "devDependencies": {

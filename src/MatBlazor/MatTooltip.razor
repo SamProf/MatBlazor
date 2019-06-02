@@ -1,15 +1,19 @@
 ﻿@using Microsoft.AspNetCore.Components
 @inherits BaseMatTooltip
 
-<div style="display: none;" ref="Ref"></div>
+@ChildContent(ContentRefStore)
 
-@ChildContent
-
-
+<div class="@ClassMapper.Class" ref="Ref" style="@Style">
+    @if (TooltipContent != null)
+    {
+        @TooltipContent
+    }
+    else
+    {
+        @Tooltip
+    }
+</div>
 
 @functions
 {
-
-    
-
 }
