@@ -9,7 +9,7 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatCheckbox : BaseMatComponent
     {
-        protected ElementRef FormFieldRef;
+        protected ElementRef ComponentRef;
 
         public BaseMatCheckbox()
         {
@@ -46,7 +46,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("matBlazor.matCheckbox.init", Ref, FormFieldRef);
+            await Js.InvokeAsync<object>("matBlazor.matCheckbox.init", ComponentRef, Ref);
         }
     }
 }

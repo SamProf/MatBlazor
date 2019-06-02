@@ -52,9 +52,6 @@
 }
 
 
-
-
-
 .mat-tooltip {
   @include mdl-tooltip;
   //opacity: 0;
@@ -77,15 +74,14 @@
   //-ms-transition: all 0.5s ease-in-out;
 
 
-
   &.top {
     //margin-top: 20px;
   }
+
   &.show {
     //opacity: 1;
     //margin-top: 10px;
     //pointer-events: all;
-
 
 
     opacity: .9;
@@ -128,3 +124,7 @@
   //}
 }
 
+
+.mat-tooltip-wrapper {
+  display: inline-block;
+}

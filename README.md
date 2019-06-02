@@ -112,6 +112,7 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ### MatBlazor Next
 - MatAccordion, MatExpansionPanel
+- MatTooltip
 
 ### MatBlazor 0.9.14
 - MatFAB - Floating Action Button

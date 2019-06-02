@@ -21,10 +21,18 @@ class MatTooltip {
   targetRef;
 
 
-  constructor(ref, targetRef, options) {
+  constructor(ref, targetRef, targetId, options) {
+    // console.log(arguments);
+
+    if (targetId) {
+
+      targetRef = document.getElementById(targetId);
+    }
     // debugger;
     this.ref = ref;
     this.targetRef = targetRef;
+
+
     this.options = options || {};
     ref[matTooltipRefKey] = this;
     targetRef[matTooltipTargetRefKey] = this;
@@ -42,8 +50,8 @@ class MatTooltip {
 
   calculatePos(position) {
     var xy = {};
-    console.log(this.targetRef);
-    console.log(this.ref);
+    // console.log(this.targetRef);
+    // console.log(this.ref);
 
     switch (position) {
       case TooltipPosition.top: {
@@ -87,8 +95,6 @@ class MatTooltip {
     var xy = this.calculatePos(position);
 
 
-
-
     this.ref.classList.remove(TooltipPosition.top);
     this.ref.classList.remove(TooltipPosition.bottom);
     this.ref.classList.remove(TooltipPosition.left);
@@ -110,8 +116,8 @@ class MatTooltip {
   }
 }
 
-export function init(ref, targetRef, options) {
-  new MatTooltip(ref, targetRef, options);
+export function init(ref, targetRef, targetId, options) {
+  new MatTooltip(ref, targetRef, targetId, options);
 }
 
 

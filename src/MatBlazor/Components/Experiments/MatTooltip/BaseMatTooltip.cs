@@ -17,6 +17,12 @@ namespace MatBlazor
         public string Tooltip { get; set; }
 
         [Parameter]
+        public string TargetId { get; set; }
+
+        [Parameter]
+        public bool Wrap { get; set; }
+
+        [Parameter]
         public MatTooltipPosition Position { get; set; }
 
         [Parameter]
@@ -27,7 +33,7 @@ namespace MatBlazor
             ClassMapper.Add("mat-tooltip");
             CallAfterRender(async () =>
             {
-                await Js.InvokeAsync<object>("matBlazor.matTooltip.init", RefStore.Ref, ContentRefStore.Ref,
+                await Js.InvokeAsync<object>("matBlazor.matTooltip.init", RefStore.Ref, ContentRefStore?.Ref, TargetId,
                     CreateJSOptions());
             });
         }

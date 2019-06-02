@@ -1,7 +1,22 @@
 ﻿@using Microsoft.AspNetCore.Components
 @inherits BaseMatTooltip
 
-@ChildContent(ContentRefStore)
+@if (!Wrap)
+{
+    if (ChildContent != null)
+    {
+        @ChildContent(ContentRefStore)
+    }
+}
+else
+{
+    <div class="mat-tooltip-wrapper" ref="ContentRefStore.Ref">
+        @if (ChildContent != null)
+        {
+            @ChildContent(ContentRefStore)
+        }
+    </div>
+}
 
 <div class="@ClassMapper.Class" ref="Ref" style="@Style">
     @if (TooltipContent != null)
