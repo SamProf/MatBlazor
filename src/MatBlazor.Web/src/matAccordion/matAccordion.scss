@@ -48,9 +48,13 @@
         display: none;
       }
 
-      &::after {
+
+
+
+
+      .after {
         font-family: "Material Icons";
-        content: "\e313";
+        //content: "\e313";
         font-size: 24px;
         font-weight: normal;
         font-style: normal;
@@ -114,7 +118,7 @@
     }
 
     &.mat-expansion-panel-expanded {
-      .mat-expansion-panel__summary::after {
+      .mat-expansion-panel__summary .after {
         transform: rotate(180deg);
       }
     }

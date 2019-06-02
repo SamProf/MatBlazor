@@ -1,9 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Components
 @inherits BaseMatComponent
 
-<div class="@ClassMapper.Class" style="@Style" ref="Ref" onclick="@OnClickHandler">
-    @ChildContent
-</div>
+
+    <div class="@ClassMapper.Class" ref="Ref" style="@Style" onclick="@OnClickHandler">
+        @ChildContent
+
+        <span class="after material-icon">&#58131;</span>
+    </div>
 
 @functions
 {
@@ -15,7 +18,11 @@
 
     protected override void OnInit()
     {
-        ClassMapper.Add("mat-expansion-panel__summary");
+        ClassMapper.Add("mat-expansion-panel__summary").Add("mdc-ripple-surface");
+        CallAfterRender(async () =>
+        {
+            await Js.InvokeAsync<object>("matBlazor.matAccordion.initSummary", Ref);
+        });
     }
 
     protected async void OnClickHandler(UIMouseEventArgs e)
