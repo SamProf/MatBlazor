@@ -8,7 +8,7 @@
 
         <p>
             <MatButton Label="Menu" OnClick="@OnClick" RefBack="@buttonForwardRef"></MatButton>
-            <MatMenu ref="Menu" TargetRefBack="@buttonForwardRef">
+            <MatMenu ref="Menu" TargetForwardRef="@buttonForwardRef">
                 <MatList>
                     <MatListItem>Item 1</MatListItem>
                     <MatListItem>Item 2</MatListItem>
@@ -38,7 +38,7 @@
 
         <p>
             <MatButton Label=""Menu"" OnClick=""@OnClick"" RefBack=""@buttonForwardRef""></MatButton>
-            <MatMenu ref=""Menu"" TargetRefBack=""@buttonForwardRef"">
+            <MatMenu ref=""Menu"" TargetForwardRef=""@buttonForwardRef"">
                 <MatList>
                     <MatListItem>Item 1</MatListItem>
                     <MatListItem>Item 2</MatListItem>
