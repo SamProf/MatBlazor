@@ -110,9 +110,10 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
-### MatBlazor Next
+### MatBlazor 1.0.0
 - MatAccordion, MatExpansionPanel
 - MatTooltip
+- ForwardRef concept
 
 ### MatBlazor 0.9.14
 - MatFAB - Floating Action Button
