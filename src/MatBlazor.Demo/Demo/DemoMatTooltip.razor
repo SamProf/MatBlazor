@@ -3,72 +3,71 @@
 <DocMatTooltip></DocMatTooltip>
 
 
-<h5 class="mat-h5">RefStore Concept for MatBlazor components</h5>
-<p>ChildContent of MatTooltip is a template for tooltips target with RefStore marker as @@context</p>
-<p>All MatBlazor components supports <a href="@Url.ToAbsoluteUri("RefStore").AbsoluteUri">RefStore forvarding</a> concept. So you can apply parameter RefStore="@@context"</p>.
-<p>All Html DOM elements just should return ElementRef reference to @@context</p>.
+<h5 class="mat-h5">ForwardRef Concept for MatBlazor components</h5>
+<p>ChildContent of MatTooltip is a template for tooltips target with RefBack marker as @@context</p>
+<p>All MatBlazor components supports <a href="@Url.ToAbsoluteUri("ForwardRef").AbsoluteUri">ForwardRef</a> concept. So you can apply parameter RefBack="@@context"</p>.
 
 <DemoContainer>
     <Content>
         <MatTooltip Tooltip="My tooltip">
-            <MatButton RefStore="@context">Right</MatButton>
+            <MatButton RefBack="@context">Right</MatButton>
         </MatTooltip>
 
         <MatTooltip Tooltip="My tooltip">
-            <MatCheckbox RefStore="@context" Label="Checkbox"></MatCheckbox>
+            <MatCheckbox RefBack="@context" Label="Checkbox"></MatCheckbox>
         </MatTooltip>
 
         <MatTooltip Tooltip="My tooltip">
-            <MatIconButton RefStore="@context" Icon="favorite"></MatIconButton>
+            <MatIconButton RefBack="@context" Icon="favorite"></MatIconButton>
         </MatTooltip>
 
         <MatTooltip Tooltip="My tooltip">
-            <MatTextField Label="TextField" RefStore="@context"></MatTextField>
+            <MatTextField Label="TextField" RefBack="@context"></MatTextField>
         </MatTooltip>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTooltip Tooltip=""My tooltip"">
-            <MatButton RefStore=""@context"">Right</MatButton>
+            <MatButton RefBack=""@context"">Right</MatButton>
         </MatTooltip>
 
         <MatTooltip Tooltip=""My tooltip"">
-            <MatCheckbox RefStore=""@context"" Label=""Checkbox""></MatCheckbox>
+            <MatCheckbox RefBack=""@context"" Label=""Checkbox""></MatCheckbox>
         </MatTooltip>
 
         <MatTooltip Tooltip=""My tooltip"">
-            <MatIconButton RefStore=""@context"" Icon=""favorite""></MatIconButton>
+            <MatIconButton RefBack=""@context"" Icon=""favorite""></MatIconButton>
         </MatTooltip>
 
         <MatTooltip Tooltip=""My tooltip"">
-            <MatTextField Label=""TextField"" RefStore=""@context""></MatTextField>
+            <MatTextField Label=""TextField"" RefBack=""@context""></MatTextField>
         </MatTooltip>
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
 
-<h5 class="mat-h5">RefStore Concept for Html elements</h5>
-<p>All Html DOM elements just should return ElementRef reference to @@context</p>.
+<h5 class="mat-h5">ForwardRef Concept for Html elements</h5>
+<p>All Html DOM elements just should return ElementRef reference to @@context.Current</p>.
 <style>
     .mat-blazor-demo-tooltip-refstore-html > * { padding-right: 10px; }
 </style>
 <DemoContainer class="mat-blazor-demo-tooltip-refstore-html">
     <Content>
         <MatTooltip Tooltip="My tooltip">
-            <span ref="@context.Ref">SPAN</span>
+            <span ref="@context.Current">SPAN</span>
         </MatTooltip>
 
         <MatTooltip Tooltip="My tooltip">
-            <input type="text" ref="@context.Ref" value="Text input"/>
+            <input type="text" ref="@context.Current" value="Text input"/>
         </MatTooltip>
 
         <MatTooltip Tooltip="My tooltip">
-            <button ref="@context.Ref" value="Button">Button</button>
+            <button ref="@context.Current" value="Button">Button</button>
         </MatTooltip>
 
         <MatTooltip Tooltip="My tooltip">
-            <div ref="@context.Ref" style="display: inline-block;">
+            <div ref="@context.Current" style="display: inline-block;">
                 <h1>Complex</h1>
                 <p>Any Html structures can have tooltips</p>
             </div>
@@ -77,19 +76,19 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTooltip Tooltip=""My tooltip"">
-            <span ref=""@context.Ref"">SPAN</span>
+            <span ref=""@context.Current"">SPAN</span>
         </MatTooltip>
 
         <MatTooltip Tooltip=""My tooltip"">
-            <input type=""text"" ref=""@context.Ref"" value=""Text input""/>
+            <input type=""text"" ref=""@context.Current"" value=""Text input""/>
         </MatTooltip>
 
         <MatTooltip Tooltip=""My tooltip"">
-            <button ref=""@context.Ref"" value=""Button"">Button</button>
+            <button ref=""@context.Current"" value=""Button"">Button</button>
         </MatTooltip>
 
         <MatTooltip Tooltip=""My tooltip"">
-            <div ref=""@context.Ref"" style=""display: inline-block;"">
+            <div ref=""@context.Current"" style=""display: inline-block;"">
                 <h1>Complex</h1>
                 <p>Any Html structures can have tooltips</p>
             </div>
@@ -171,37 +170,37 @@
 <DemoContainer>
     <Content>
         <MatTooltip Tooltip="Right tooltip" Position="@MatTooltipPosition.Right">
-            <MatButton RefStore="@context">Right</MatButton>
+            <MatButton RefBack="@context">Right</MatButton>
         </MatTooltip>
 
         <MatTooltip Tooltip="Left tooltip" Position="@MatTooltipPosition.Left">
-            <MatButton RefStore="@context">Left</MatButton>
+            <MatButton RefBack="@context">Left</MatButton>
         </MatTooltip>
 
         <MatTooltip Tooltip="Top tooltip" Position="@MatTooltipPosition.Top">
-            <MatButton RefStore="@context">Top</MatButton>
+            <MatButton RefBack="@context">Top</MatButton>
         </MatTooltip>
 
         <MatTooltip Tooltip="Bottom tooltip" Position="@MatTooltipPosition.Bottom">
-            <MatButton RefStore="@context">Bottom</MatButton>
+            <MatButton RefBack="@context">Bottom</MatButton>
         </MatTooltip>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTooltip Tooltip=""Right tooltip"" Position=""@MatTooltipPosition.Right"">
-            <MatButton RefStore=""@context"">Right</MatButton>
+            <MatButton RefBack=""@context"">Right</MatButton>
         </MatTooltip>
 
         <MatTooltip Tooltip=""Left tooltip"" Position=""@MatTooltipPosition.Left"">
-            <MatButton RefStore=""@context"">Left</MatButton>
+            <MatButton RefBack=""@context"">Left</MatButton>
         </MatTooltip>
 
         <MatTooltip Tooltip=""Top tooltip"" Position=""@MatTooltipPosition.Top"">
-            <MatButton RefStore=""@context"">Top</MatButton>
+            <MatButton RefBack=""@context"">Top</MatButton>
         </MatTooltip>
 
         <MatTooltip Tooltip=""Bottom tooltip"" Position=""@MatTooltipPosition.Bottom"">
-            <MatButton RefStore=""@context"">Bottom</MatButton>
+            <MatButton RefBack=""@context"">Bottom</MatButton>
         </MatTooltip>
     ")></BlazorFiddle>
     </SourceContent>

@@ -8,18 +8,24 @@ namespace MatBlazor
 {
     public abstract class BaseMatComponent : ComponentBase, IBaseMatComponent
     {
+        private ElementRef _ref;
+
         /// <summary>
         /// Returned ElementRef reference for DOM element.
         /// </summary>
         public virtual ElementRef Ref
         {
-            get => RefStore.Ref;
-            set { RefStore.Ref = value; }
+            get => _ref;
+            set
+            {
+                _ref = value;
+                RefBack?.Set(value);
+            }
         }
 
 
         [Parameter]
-        public ElementRefStore RefStore { get; set; } = new ElementRefStore();
+        public ForwardRef RefBack { get; set; }
 
         public string MatBlazorId = IdGeneratorHelper.Generate("matBlazor_id_");
 

@@ -8,7 +8,7 @@ namespace MatBlazor
     public class BaseMatTooltip : BaseMatComponent
     {
         [Parameter]
-        protected RenderFragment<ElementRefStore> ChildContent { get; set; }
+        protected RenderFragment<ForwardRef> ChildContent { get; set; }
 
         [Parameter]
         public RenderFragment TooltipContent { get; set; }
@@ -26,14 +26,14 @@ namespace MatBlazor
         public MatTooltipPosition Position { get; set; }
 
         [Parameter]
-        public ElementRefStore ContentRefStore { get; set; } = new ElementRefStore();
+        public ForwardRef TargetForwardRef { get; set; } = new ForwardRef();
 
         public BaseMatTooltip()
         {
             ClassMapper.Add("mat-tooltip");
             CallAfterRender(async () =>
             {
-                await Js.InvokeAsync<object>("matBlazor.matTooltip.init", RefStore.Ref, ContentRefStore?.Ref, TargetId,
+                await Js.InvokeAsync<object>("matBlazor.matTooltip.init", Ref, TargetForwardRef?.Current, TargetId,
                     CreateJSOptions());
             });
         }
