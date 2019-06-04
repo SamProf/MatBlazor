@@ -15,6 +15,7 @@ MatBlazor comprises a range of components which implement common interaction pat
 ## Demo and Documentation
 - [MatBlazor documentation and demo website](https://www.matblazor.com)
 - [BlazorFiddle example](https://blazorfiddle.com/s/matblazor-news-client)
+- [BlazorBoilerplate](http://blazorboilerplate.com/)
 
 
 ![](content/demo-blazor-news-client.png)
