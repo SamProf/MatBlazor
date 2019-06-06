@@ -1,0 +1,77 @@
+<DocMatFAB></DocMatFAB>
+
+<h5 class="mat-h5">Example</h5>
+<DemoContainer>
+    <Content>
+
+        <style>
+            .app-fab--absolute {
+                position: fixed;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        </style>
+
+        <MatFAB Class="@(isAbsolute ? "app-fab--absolute" : "")" Icon="@MatIconNames.Favorite" Label="Absolute Position" OnClick="@(_ => GoToAbsolute())"></MatFAB>
+
+        <MatFAB Icon="@MatIconNames.Favorite"></MatFAB>
+
+        <MatFAB Icon="@MatIconNames.Favorite" Label="Add to favorites"></MatFAB>
+
+        <MatFAB Label="Custom Icon">
+            <MatIcon>favorite</MatIcon>
+        </MatFAB>
+
+        <MatFAB Icon="@MatIconNames.Favorite" Label="Mini" Mini="true"></MatFAB>
+
+        @functions
+        {
+
+            bool isAbsolute = false;
+
+            void GoToAbsolute()
+            {
+                isAbsolute = !isAbsolute;
+            }
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+
+        <style>
+            .app-fab--absolute {
+                position: fixed;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        </style>
+
+        <MatFAB Class=""@(isAbsolute ? ""app-fab--absolute"" : """")"" Icon=""@MatIconNames.Favorite"" Label=""Absolute Position"" OnClick=""@(_ => GoToAbsolute())""></MatFAB>
+
+        <MatFAB Icon=""@MatIconNames.Favorite""></MatFAB>
+
+        <MatFAB Icon=""@MatIconNames.Favorite"" Label=""Add to favorites""></MatFAB>
+
+        <MatFAB Label=""Custom Icon"">
+            <MatIcon>favorite</MatIcon>
+        </MatFAB>
+
+        <MatFAB Icon=""@MatIconNames.Favorite"" Label=""Mini"" Mini=""true""></MatFAB>
+
+        @functions
+        {
+
+            bool isAbsolute = false;
+
+            void GoToAbsolute()
+            {
+                isAbsolute = !isAbsolute;
+            }
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

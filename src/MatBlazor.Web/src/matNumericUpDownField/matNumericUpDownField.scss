@@ -1,0 +1,23 @@
+@import "@material/textfield/mdc-text-field";
+
+
+/* Hide clear button from edge */
+.mat-hide-clearbutton::-ms-clear
+{
+    width:0;
+    height:0;
+}
+
+/* Fix Full Width padding issues */
+.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) .mdc-text-field__input{
+    padding-right: 48px;
+}
+
+.mat-numericUpDownField
+{
+    //padding-left: 16px;
+    //padding-right: 48px;
+    input { 
+        text-align: right; 
+    }
+}

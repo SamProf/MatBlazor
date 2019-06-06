@@ -4,6 +4,7 @@ import './matTable/matTable.scss';
 import * as matButton from './matButton/matButton';
 import * as matCheckbox from './matCheckbox/matCheckbox';
 import * as matTextField from './matTextField/matTextField';
+import * as matNumericUpDownField from './matNumericUpDownField/matNumericUpDownField';
 import * as matRadioButton from './matRadioButton/matRadioButton';
 import * as matSelect from './matSelect/matSelect';
 import * as matSlider from './matSlider/matSlider';
@@ -25,7 +26,9 @@ import * as matRipple from './matRipple/matRipple';
 import * as matSnackbar from './matSnackbar/matSnackbar';
 import * as matTabBar from './matTabBar/matTabBar';
 import * as matDatePicker from './matDatePicker/matDatePicker';
-
+import * as matFAB from './matFAB/matFAB';
+import * as matAccordion from './matAccordion/matAccordion';
+import * as matTooltip from './matTooltip/matTooltip';
 
 
 window.matBlazor = {
@@ -33,6 +36,7 @@ window.matBlazor = {
   matButton,
   matCheckbox,
   matTextField,
+  matNumericUpDownField,
   matRadioButton,
   matSelect,
   matSlider,
@@ -53,6 +57,9 @@ window.matBlazor = {
   matSnackbar,
   matTabBar,
   matDatePicker,
+  matFAB,
+  matAccordion,
+  matTooltip
 };
 
 

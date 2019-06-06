@@ -1,12 +1,10 @@
 ﻿@inherits BaseMatNumericUpDownField
 
 <div class="@ClassMapper.Class" style="@Style" ref="Ref">
-    @if (Icon != null)
-    {
-        <i class="material-icons mdc-text-field__icon" tabindex="0" onclick="@IconOnClick">@Icon</i>
-    }
 
-    <input style="@InputStyle" ref="InputRef" type="@Type" max="@(Maximum?.ToString()??"")" min="@(Minimum?.ToString()??"")" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@BindedValue aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" step=@Step />
+    <i class="material-icons mdc-text-field__icon" tabindex="0" onclick="@Decrease" role="button" disabled=@Disabled readonly="@ReadOnly">@MinusIcon</i>
+    <input style="@InputStyle" ref="InputRef" type="text" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@VisibleValue aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" />
+    <i class="material-icons mdc-text-field__icon" tabindex="0" onclick="@Increase" role="button" disabled=@Disabled readonly="@ReadOnly">@PlusIcon</i>
 
     @if (!FullWidth && Outlined)
     {
@@ -29,6 +27,7 @@
         }
         <div class="mdc-line-ripple"></div>
     }
+
 
 </div>
 @if (HelperText != null)

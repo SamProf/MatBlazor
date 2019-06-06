@@ -1,14 +1,14 @@
 <DocMatMenu></DocMatMenu>
 
-<h5 class="mat-h5">Example</h5>
+<h5 class="mat-h5">RefBack Example</h5>
 
 <DemoContainer>
     <Content>
         @using Microsoft.AspNetCore.Components
 
         <p>
-            <MatButton Label="Menu" OnClick="@OnClick" ref="Button"></MatButton>
-            <MatMenu ref="Menu">
+            <MatButton Label="Menu" OnClick="@OnClick" RefBack="@buttonForwardRef"></MatButton>
+            <MatMenu ref="Menu" TargetForwardRef="@buttonForwardRef">
                 <MatList>
                     <MatListItem>Item 1</MatListItem>
                     <MatListItem>Item 2</MatListItem>
@@ -21,12 +21,12 @@
 
         @functions
         {
-            BaseMatButton Button;
+            ForwardRef buttonForwardRef = new ForwardRef();
             BaseMatMenu Menu;
 
             public void OnClick(UIMouseEventArgs e)
             {
-                this.Menu.OpenAsync(Button.Ref);
+                this.Menu.OpenAsync();
             }
 
         }
@@ -37,8 +37,8 @@
         @using Microsoft.AspNetCore.Components
 
         <p>
-            <MatButton Label=""Menu"" OnClick=""@OnClick"" ref=""Button""></MatButton>
-            <MatMenu ref=""Menu"">
+            <MatButton Label=""Menu"" OnClick=""@OnClick"" RefBack=""@buttonForwardRef""></MatButton>
+            <MatMenu ref=""Menu"" TargetForwardRef=""@buttonForwardRef"">
                 <MatList>
                     <MatListItem>Item 1</MatListItem>
                     <MatListItem>Item 2</MatListItem>
@@ -51,12 +51,77 @@
 
         @functions
         {
-            BaseMatButton Button;
+            ForwardRef buttonForwardRef = new ForwardRef();
             BaseMatMenu Menu;
 
             public void OnClick(UIMouseEventArgs e)
             {
-                this.Menu.OpenAsync(Button.Ref);
+                this.Menu.OpenAsync();
+            }
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Example</h5>
+
+<DemoContainer>
+    <Content>
+        @using Microsoft.AspNetCore.Components
+
+        <p>
+            <MatButton Label="Menu" OnClick="@OnClick2" ref="Button2"></MatButton>
+            <MatMenu ref="Menu2">
+                <MatList>
+                    <MatListItem>Item 1</MatListItem>
+                    <MatListItem>Item 2</MatListItem>
+                    <MatListItem>Item 3</MatListItem>
+                    <MatListItem>Item 4</MatListItem>
+                    <MatListItem>Item 5</MatListItem>
+                </MatList>
+            </MatMenu>
+        </p>
+
+        @functions
+        {
+            BaseMatButton Button2;
+            BaseMatMenu Menu2;
+
+            public void OnClick2(UIMouseEventArgs e)
+            {
+                this.Menu2.OpenAsync(Button2.Ref);
+            }
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        @using Microsoft.AspNetCore.Components
+
+        <p>
+            <MatButton Label=""Menu"" OnClick=""@OnClick2"" ref=""Button2""></MatButton>
+            <MatMenu ref=""Menu2"">
+                <MatList>
+                    <MatListItem>Item 1</MatListItem>
+                    <MatListItem>Item 2</MatListItem>
+                    <MatListItem>Item 3</MatListItem>
+                    <MatListItem>Item 4</MatListItem>
+                    <MatListItem>Item 5</MatListItem>
+                </MatList>
+            </MatMenu>
+        </p>
+
+        @functions
+        {
+            BaseMatButton Button2;
+            BaseMatMenu Menu2;
+
+            public void OnClick2(UIMouseEventArgs e)
+            {
+                this.Menu2.OpenAsync(Button2.Ref);
             }
 
         }

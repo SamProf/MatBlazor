@@ -8,12 +8,26 @@ namespace MatBlazor
 {
     public abstract class BaseMatComponent : ComponentBase, IBaseMatComponent
     {
+        private ElementRef _ref;
+
         /// <summary>
         /// Returned ElementRef reference for DOM element.
         /// </summary>
-        public virtual ElementRef Ref { get; set; }
+        public virtual ElementRef Ref
+        {
+            get => _ref;
+            set
+            {
+                _ref = value;
+                RefBack?.Set(value);
+            }
+        }
 
-        public string MatBlazorId = IdGeneratorHelper.Generate("matBlazor_id_" );
+
+        [Parameter]
+        public ForwardRef RefBack { get; set; }
+
+        public string MatBlazorId = IdGeneratorHelper.Generate("matBlazor_id_");
 
         [CascadingParameter]
         public MatTheme Theme { get; set; }
@@ -57,7 +71,7 @@ namespace MatBlazor
         {
             ClassMapper
                 .Get(() => this.Class)
-                .Get(()=>this.Theme?.GetClass());
+                .Get(() => this.Theme?.GetClass());
         }
 
         /// <summary>

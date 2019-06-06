@@ -10,10 +10,10 @@ using NUnit.Framework.Internal;
 
 namespace MatBlazor.DevUtils
 {
-    [TestFixture()]
+//    [TestFixture()]
     public class MatIconNameGenerator
     {
-        [Test]
+//        [Test]
         public void Generate()
         {
             var config = Config.GetConfig();

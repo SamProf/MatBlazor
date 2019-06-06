@@ -1,22 +1,207 @@
+@inject IUriHelper Url
 @using Microsoft.AspNetCore.Components
-<h3 class="mat-h3">MatTooltip</h3>
+<DocMatTooltip></DocMatTooltip>
 
-<p class="mat-body1">
-    The  Material tooltip provides a text label that is displayed when the user hovers an element.
-</p>
 
-<h5 class="mat-h5">Example</h5>
+<h5 class="mat-h5">ForwardRef Concept for MatBlazor components</h5>
+<p>ChildContent of MatTooltip is a template for tooltips target with RefBack marker as @@context</p>
+<p>All MatBlazor components supports <a href="@Url.ToAbsoluteUri("ForwardRef").AbsoluteUri">ForwardRef</a> concept. So you can apply parameter RefBack="@@context"</p>.
 
-<MatTooltip>
-    <h1>Test tooltip content</h1>
-</MatTooltip>
+<DemoContainer>
+    <Content>
+        <MatTooltip Tooltip="My tooltip">
+            <MatButton RefBack="@context">Right</MatButton>
+        </MatTooltip>
 
-@functions
-{
-    BaseMatButton buttonRef;
+        <MatTooltip Tooltip="My tooltip">
+            <MatCheckbox RefBack="@context" Label="Checkbox"></MatCheckbox>
+        </MatTooltip>
 
-    protected void Click1()
-    {
-        this.StateHasChanged();
-    }
-}
+        <MatTooltip Tooltip="My tooltip">
+            <MatIconButton RefBack="@context" Icon="favorite"></MatIconButton>
+        </MatTooltip>
+
+        <MatTooltip Tooltip="My tooltip">
+            <MatTextField Label="TextField" RefBack="@context"></MatTextField>
+        </MatTooltip>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTooltip Tooltip=""My tooltip"">
+            <MatButton RefBack=""@context"">Right</MatButton>
+        </MatTooltip>
+
+        <MatTooltip Tooltip=""My tooltip"">
+            <MatCheckbox RefBack=""@context"" Label=""Checkbox""></MatCheckbox>
+        </MatTooltip>
+
+        <MatTooltip Tooltip=""My tooltip"">
+            <MatIconButton RefBack=""@context"" Icon=""favorite""></MatIconButton>
+        </MatTooltip>
+
+        <MatTooltip Tooltip=""My tooltip"">
+            <MatTextField Label=""TextField"" RefBack=""@context""></MatTextField>
+        </MatTooltip>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">ForwardRef Concept for Html elements</h5>
+<p>All Html DOM elements just should return ElementRef reference to @@context.Current</p>.
+<style>
+    .mat-blazor-demo-tooltip-refstore-html > * { padding-right: 10px; }
+</style>
+<DemoContainer class="mat-blazor-demo-tooltip-refstore-html">
+    <Content>
+        <MatTooltip Tooltip="My tooltip">
+            <span ref="@context.Current">SPAN</span>
+        </MatTooltip>
+
+        <MatTooltip Tooltip="My tooltip">
+            <input type="text" ref="@context.Current" value="Text input"/>
+        </MatTooltip>
+
+        <MatTooltip Tooltip="My tooltip">
+            <button ref="@context.Current" value="Button">Button</button>
+        </MatTooltip>
+
+        <MatTooltip Tooltip="My tooltip">
+            <div ref="@context.Current" style="display: inline-block;">
+                <h1>Complex</h1>
+                <p>Any Html structures can have tooltips</p>
+            </div>
+        </MatTooltip>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTooltip Tooltip=""My tooltip"">
+            <span ref=""@context.Current"">SPAN</span>
+        </MatTooltip>
+
+        <MatTooltip Tooltip=""My tooltip"">
+            <input type=""text"" ref=""@context.Current"" value=""Text input""/>
+        </MatTooltip>
+
+        <MatTooltip Tooltip=""My tooltip"">
+            <button ref=""@context.Current"" value=""Button"">Button</button>
+        </MatTooltip>
+
+        <MatTooltip Tooltip=""My tooltip"">
+            <div ref=""@context.Current"" style=""display: inline-block;"">
+                <h1>Complex</h1>
+                <p>Any Html structures can have tooltips</p>
+            </div>
+        </MatTooltip>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">TargetId Concept for Html elements</h5>
+<p>MatTooltip can use target by Id</p>.
+<DemoContainer class="mat-blazor-demo-tooltip-refstore-html">
+    <Content>
+        <MatTooltip Tooltip="My tooltip" TargetId="mySpanForDemoTooltip">
+            <span id="mySpanForDemoTooltip">Span with id=mySpanForDemoTooltip</span>
+        </MatTooltip>
+
+
+        <div style="display: inline-block;" id="myComplexDivForDemoTooltip">
+            <h1>Complex div</h1>
+            <p>Paragraph with id=myComplexDivForDemoTooltip</p>
+        </div>
+
+        <MatTooltip Tooltip="My tooltip" TargetId="myComplexDivForDemoTooltip">
+        </MatTooltip>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTooltip Tooltip=""My tooltip"" TargetId=""mySpanForDemoTooltip"">
+            <span id=""mySpanForDemoTooltip"">Span with id=mySpanForDemoTooltip</span>
+        </MatTooltip>
+
+
+        <div style=""display: inline-block;"" id=""myComplexDivForDemoTooltip"">
+            <h1>Complex div</h1>
+            <p>Paragraph with id=myComplexDivForDemoTooltip</p>
+        </div>
+
+        <MatTooltip Tooltip=""My tooltip"" TargetId=""myComplexDivForDemoTooltip"">
+        </MatTooltip>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">Wrap Concept for any tooltip</h5>
+<p>MatTooltip can create own wrapper</p>.
+<DemoContainer class="mat-blazor-demo-tooltip-refstore-html">
+    <Content>
+        <MatTooltip Tooltip="My tooltip" Wrap="true">
+            <span >Span with Wrapper</span>
+        </MatTooltip>
+        
+
+        <MatTooltip Tooltip="My tooltip" Wrap="true">
+            <MatButton>Button with wrapper</MatButton>
+        </MatTooltip>
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTooltip Tooltip=""My tooltip"" Wrap=""true"">
+            <span >Span with Wrapper</span>
+        </MatTooltip>
+        
+
+        <MatTooltip Tooltip=""My tooltip"" Wrap=""true"">
+            <MatButton>Button with wrapper</MatButton>
+        </MatTooltip>
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+
+<h5 class="mat-h5">MatTooltipPosition</h5>
+
+<DemoContainer>
+    <Content>
+        <MatTooltip Tooltip="Right tooltip" Position="@MatTooltipPosition.Right">
+            <MatButton RefBack="@context">Right</MatButton>
+        </MatTooltip>
+
+        <MatTooltip Tooltip="Left tooltip" Position="@MatTooltipPosition.Left">
+            <MatButton RefBack="@context">Left</MatButton>
+        </MatTooltip>
+
+        <MatTooltip Tooltip="Top tooltip" Position="@MatTooltipPosition.Top">
+            <MatButton RefBack="@context">Top</MatButton>
+        </MatTooltip>
+
+        <MatTooltip Tooltip="Bottom tooltip" Position="@MatTooltipPosition.Bottom">
+            <MatButton RefBack="@context">Bottom</MatButton>
+        </MatTooltip>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTooltip Tooltip=""Right tooltip"" Position=""@MatTooltipPosition.Right"">
+            <MatButton RefBack=""@context"">Right</MatButton>
+        </MatTooltip>
+
+        <MatTooltip Tooltip=""Left tooltip"" Position=""@MatTooltipPosition.Left"">
+            <MatButton RefBack=""@context"">Left</MatButton>
+        </MatTooltip>
+
+        <MatTooltip Tooltip=""Top tooltip"" Position=""@MatTooltipPosition.Top"">
+            <MatButton RefBack=""@context"">Top</MatButton>
+        </MatTooltip>
+
+        <MatTooltip Tooltip=""Bottom tooltip"" Position=""@MatTooltipPosition.Bottom"">
+            <MatButton RefBack=""@context"">Bottom</MatButton>
+        </MatTooltip>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

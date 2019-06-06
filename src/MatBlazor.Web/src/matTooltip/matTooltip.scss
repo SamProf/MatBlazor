@@ -1,0 +1,130 @@
+@keyframes md-tooltip-fade-in {
+  from {
+    transform: scale(.9, .9) translateX(-50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1, 1) translateX(-50%);
+    opacity: .9;
+  }
+}
+
+@keyframes md-tooltip-fade-out {
+  to {
+    transform: scale(1, 1) translateX(-50%);
+    opacity: 0;
+  }
+}
+
+
+@mixin mdl-tooltip {
+  position: absolute;
+  z-index: 100;
+  //margin-top: 14px;
+  //left: 50%;
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+  //box-sizing: border-box;
+  //height: 22px;
+  padding: 5px;
+  transform: scale(.9, .9);
+  //transform-origin: -14px 50%;
+
+  //content: attr(aria-label);
+
+  font-size: 10px;
+  font-weight: 500;
+  font-family: Roboto, sans-serif;
+
+  //animation-fill-mode: forward;
+  background: #616161;
+  border-radius: 2px;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+
+  max-width: 320px;
+
+  transition: opacity 75ms cubic-bezier(0, 0, .2, 1), transform 0s 75ms cubic-bezier(0, 0, .2, 1);
+  will-change: opacity, transform;
+}
+
+
+.mat-tooltip {
+  @include mdl-tooltip;
+  //opacity: 0;
+  //text-align: center;
+  //color: #fff;
+  //background: rgba(0, 0, 0, 0.6);
+  //position: absolute;
+  //z-index: 100;
+  //padding: 15px;
+  //pointer-events: none;
+  //border-radius: 5px;
+  //-moz-border-radius: 5px;
+  //-webkit-border-radius: 5px;
+  //-o-border-radius: 5px;
+  //-ms-border-radius: 5px;
+  //transition: opacity 0.5s ease-in-out;
+  //-moz-transition: all 0.5s ease-in-out;
+  //-webkit-transition: all 0.5s ease-in-out;
+  //-o-transition: all 0.5s ease-in-out;
+  //-ms-transition: all 0.5s ease-in-out;
+
+
+  &.top {
+    //margin-top: 20px;
+  }
+
+  &.show {
+    //opacity: 1;
+    //margin-top: 10px;
+    //pointer-events: all;
+
+
+    opacity: .9;
+    transform: scale(1, 1);
+    transition: opacity 150ms cubic-bezier(0, 0, .2, 1), transform 150ms cubic-bezier(0, 0, .2, 1);
+
+
+    &.top {
+      //margin-top: 10px;
+    }
+
+  }
+
+  //&:after {
+  //  width: 0;
+  //  height: 0;
+  //  border-left: 10px solid transparent;
+  //  border-right: 10px solid transparent;
+  //  border-top: 10px solid rgba(0, 0, 0, 0.6);
+  //  content: '';
+  //  position: absolute;
+  //  left: 50%;
+  //  bottom: -10px;
+  //  margin-left: -10px;
+  //}
+  //&.top:after {
+  //  border-top-color: transparent;
+  //  border-bottom: 10px solid rgba(0, 0, 0, 0.6);
+  //  top: -20px;
+  //  bottom: auto;
+  //}
+  //&.left:after {
+  //  left: 10px;
+  //  margin: 0;
+  //}
+  //&.right:after {
+  //  right: 10px;
+  //  left: auto;
+  //  margin: 0;
+  //}
+}
+
+
+.mat-tooltip-wrapper {
+  display: inline-block;
+}

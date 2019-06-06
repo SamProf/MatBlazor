@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNetCore.Components
+@inherits BaseMatComponent
+
+<div class="@ClassMapper.Class" style="@Style" ref="Ref">
+    @ChildContent
+</div>
+
+@functions
+{
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    protected override void OnInit()
+    {
+        ClassMapper.Add("mat-expansion-panel__sub-header");
+    }
+
+}

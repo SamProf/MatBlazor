@@ -1,15 +1,35 @@
-﻿@using Microsoft.AspNetCore.Components
+﻿
+@using Microsoft.AspNetCore.Components
 @inherits BaseMatTooltip
 
-<div style="display: none;" ref="Ref"></div>
+@if (!Wrap)
+{
+    if (ChildContent != null)
+    {
+        @ChildContent(TargetForwardRef)
+    }
+}
+else
+{
+    <div class="mat-tooltip-wrapper" ref="TargetForwardRef.Current">
+        @if (ChildContent != null)
+        {
+            @ChildContent(TargetForwardRef)
+        }
+    </div>
+}
 
-@ChildContent
-
-
+<div class="@ClassMapper.Class" ref="Ref" style="@Style">
+    @if (TooltipContent != null)
+    {
+        @TooltipContent
+    }
+    else
+    {
+        @Tooltip
+    }
+</div>
 
 @functions
 {
-
-    
-
 }
