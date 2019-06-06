@@ -11,7 +11,7 @@
 
 
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-<script src="/MatBlazor.Web/dist/matBlazor.js"></script>
+<!--<script src="/MatBlazor.Web/dist/matBlazor.js"></script>-->
 <!--<link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">-->
 <!--<script src="https://unpkg.com/js-datepicker"></script>-->
 
@@ -22,41 +22,40 @@
 
 </style>
 
-<p>dddd</p>
-<p>dddd</p>
-<p>dddd</p>
-<p>dddd</p>
-<p>dddd</p>
-<p>dddd</p>
-<p>dddd</p>
-<p>dddd</p>
-<span id="ref" style="left: 100px; right: 100px; position: absolute;">
-    pets
-    e
-    we
-    ff
-    ewfew
-    few
-    fewf
-    ewf
-    ewfew
-    few
-    fewf
-    ewf
-    ewfew
-    few
-</span>
+<aside class="mdc-drawer mdc-drawer--dismissible" id="ref">
+    <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+            <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+                <span class="mdc-list-item__text">Inbox</span>
+            </a>
+            <a class="mdc-list-item" href="#">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+                <span class="mdc-list-item__text">Outgoing</span>
+            </a>
+            <a class="mdc-list-item" href="#">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+                <span class="mdc-list-item__text">Drafts</span>
+            </a>
+        </nav>
+    </div>
+</aside>
 
-<div id="tRef" class="mat-tooltip" >tool</div>
-
+<div class="mdc-drawer-app-content">
+    App Content
+</div>
 
 
 
 <script type="text/javascript">
   var ref = document.getElementById('ref');
-  var tooltip = document.getElementById('tRef');
-
-  new matBlazor.matTooltip.init(tooltip, ref);
+  setTimeout(()=>{
+    ref.classList.add("mdc-drawer--open");
+    ref.classList.add("mdc-drawer--opening");
+  }, 2000);
+  // var tooltip = document.getElementById('tRef');
+  //
+  // new matBlazor.matTooltip.init(tooltip, ref);
 
 </script>
 

@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.DevUtils
 {
-    [TestFixture]
+//    [TestFixture]
     public class ImportFileGenerator
     {
-        [Test]
+//        [Test]
         public void GenerateImportsFileContent()
         {
             var assembly = typeof(BaseMatComponent).Assembly;

@@ -12,10 +12,10 @@ using NUnit.Framework.Internal;
 
 namespace MatBlazor.DevUtils
 {
-    [TestFixture()]
+//    [TestFixture()]
     public class MatThemesGenerator
     {
-        [Test]
+//        [Test]
         public void Generate()
         {
             var config = Config.GetConfig();
