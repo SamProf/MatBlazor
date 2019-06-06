@@ -111,6 +111,9 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
+### MatBlazor 1.0.1
+- Material theme configuration #90 
+
 ### MatBlazor 1.0.0
 - MatAccordion, MatExpansionPanel
 - MatTooltip

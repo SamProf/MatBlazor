@@ -431,6 +431,41 @@
             The Material Design color system can be used to create a color theme that reflects your brand or style.
             </summary>
         </member>
+        <member name="P:MatBlazor.MatTheme.Primary">
+            <summary>
+            The theme primary color
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatTheme.Secondary">
+            <summary>
+            The theme secondary color
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatTheme.Background">
+            <summary>
+            The theme background color
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatTheme.Surface">
+            <summary>
+            The theme surface color
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatTheme.OnPrimary">
+            <summary>
+            Text color on top of a primary background
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatTheme.OnSecondary">
+            <summary>
+            Text color on top of a secondary background
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatTheme.OnSurface">
+            <summary>
+            Text color on top of a surface background
+            </summary>
+        </member>
         <member name="P:MatBlazor.MatTable`1.PageSizes">
             <summary>
             Not Functioning

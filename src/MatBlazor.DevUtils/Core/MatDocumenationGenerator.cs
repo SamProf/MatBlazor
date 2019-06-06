@@ -30,9 +30,14 @@ namespace MatBlazor.DevUtils.Core
 
             foreach (var type in Assembly.ExportedTypes)
             {
-                if (!type.IsSubclassOf(typeof(ComponentBase)))
+//                if (!type.IsSubclassOf(typeof(ComponentBase)))
+//                {
+//                    continue;
+//                }
+
+
+                if (type.Name == "MatTheme")
                 {
-                    continue;
                 }
 
                 if (type.Name.StartsWith("Base"))
@@ -55,7 +60,8 @@ namespace MatBlazor.DevUtils.Core
                 sb.AppendLine();
                 sb.AppendLine();
                 //@if (Secondary) { <h3 class="mat-h3">MatProgressBar</h3> } else { <h3 class="mat-h3">MatProgressBar</h3> }
-                sb.AppendLine($"@if (!Secondary) {{<h3 class=\"mat-h3\">{HtmlEncode(typeName)}</h3> }} else {{ <h5 class=\"mat-h5\">{HtmlEncode(typeName)}</h5> }}");
+                sb.AppendLine(
+                    $"@if (!Secondary) {{<h3 class=\"mat-h3\">{HtmlEncode(typeName)}</h3> }} else {{ <h5 class=\"mat-h5\">{HtmlEncode(typeName)}</h5> }}");
                 sb.AppendLine();
                 var typeXml = FindDocXml(xml, type);
                 if (typeXml != null)
@@ -73,7 +79,16 @@ namespace MatBlazor.DevUtils.Core
 
                 var parameters = type
                     .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                    .Where(prop => prop.GetCustomAttributes(typeof(ParameterAttribute)).Any())
+                    .Where(prop =>
+                        (type.IsSubclassOf(typeof(ComponentBase)) &&
+                        prop.GetCustomAttributes(typeof(ParameterAttribute)).Any())
+
+                        ||
+
+                        (!type.IsSubclassOf(typeof(ComponentBase)) &&
+                         prop.DeclaringType.Assembly == Assembly)
+
+                    )
                     .OrderBy(i => i.Name)
                     .Union(
                         type.GetProperties(BindingFlags.Instance | BindingFlags.Public)
@@ -152,7 +167,7 @@ namespace MatBlazor.DevUtils.Core
                 var membersEl = xml.Root.Element("members");
                 if (membersEl != null)
                 {
-                    while (type.Assembly == Assembly)
+                    while (type != null && type.Assembly == Assembly)
                     {
                         var key = $"T:{type.FullName}";
                         var el = membersEl.Elements("member").FirstOrDefault(i => i.Attribute("name").Value == key);
