@@ -4,6 +4,7 @@ import './matTable/matTable.scss';
 import * as matButton from './matButton/matButton';
 import * as matCheckbox from './matCheckbox/matCheckbox';
 import * as matTextField from './matTextField/matTextField';
+import * as matNumericUpDownField from './matNumericUpDownField/matNumericUpDownField';
 import * as matRadioButton from './matRadioButton/matRadioButton';
 import * as matSelect from './matSelect/matSelect';
 import * as matSlider from './matSlider/matSlider';
@@ -35,6 +36,7 @@ window.matBlazor = {
   matButton,
   matCheckbox,
   matTextField,
+  matNumericUpDownField,
   matRadioButton,
   matSelect,
   matSlider,
