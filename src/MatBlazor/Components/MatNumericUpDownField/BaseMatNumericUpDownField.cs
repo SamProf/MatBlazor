@@ -11,7 +11,8 @@ namespace MatBlazor
     {
         public ElementRef InputRef { get; set; }
 
-        bool shortCut;
+        bool firstSet = true;
+        protected bool InvalidInput { get; private set; }
 
         [Parameter]
         public decimal? Value  // obj-type
@@ -19,93 +20,138 @@ namespace MatBlazor
             get => _value;
             set
             {
-                shortCut = true;
-                UpdateValue(value);
+                // if is the same value
+                if (value == _value)
+                {
+                    return;
+                }
+
+                ReduxSetValue(value);
             }
         }
 
-        protected async void UpdateValue( decimal? value)
+        protected async void ReduxSetValue(decimal? value, bool isInvalid = false)
         {
             // update ui as usual.
-            var _newbindedValue = value?.ToString() ?? "";
-            _bindedValue = _newbindedValue;
+            var _newUiBindedValue = (value?.ToString() ?? "").Trim();
+            ChecIsValid(_newUiBindedValue);
+            InvalidInput = InvalidInput || isInvalid;
 
             // if value is the same force update ui.
-            if (_value == value)
+            // because virtual dom don't realize about change.
+            if (_uiBindedValue == _newUiBindedValue)
             {
-                //work around to refresh out of range values for twice.
-                _bindedValue = "                                       ";
-                await Task.Delay(1);
-                _bindedValue = _newbindedValue;
-                await Task.Delay(1);
-                StateHasChanged();
+                // option JS:
+                await Js.InvokeAsync<object>("matBlazor.matNumericUpDownField.setValue", Ref, _newUiBindedValue);
                 return;
+                // option Blazor:
+                // _bindedValue = "                                       ";
+                // await Task.Delay(1);
+                // _bindedValue = _newbindedValue;
+                // await Task.Delay(1);
+                // StateHasChanged();
+                // return;
             }
+
+            _uiBindedValue = _newUiBindedValue;
+
+            // set new value.
+            _value = value;
 
             // set mappers.
             LabelClassMapper.MakeDirty();
             InputClassMapper.MakeDirty();
 
-            // paranoia. If value is changed from outside of control don't raise ValueChanged
-            if (_value == value && shortCut)
+            if (!firstSet)
             {
-                shortCut = false;
-                return;
+                // don't say to user value changed on first set.
+                await ValueChanged.InvokeAsync(value);
             }
 
-            // set new value.
-            _value = value;
-            await ValueChanged.InvokeAsync(value);
+            firstSet = false;
         }
 
-        protected bool InvalidInput { get; private set; }
-
-        protected string VisibleValue  // obj-type
+        protected string UiBindedValue  // obj-type
         {
-            get => _bindedValue;
+            get => _uiBindedValue;
             set
             {
 
-                InvalidInput = false;
                 bool isDecimal = decimal.TryParse(value, out decimal valueAux);
 
-                if (String.IsNullOrWhiteSpace(value) )
+                if (String.IsNullOrWhiteSpace(value))
                 {
-                    UpdateValue(null);
+                    ReduxSetValue(null);
                 }
 
-                else if (!isDecimal ) 
+                else if (!isDecimal)
                 {
-                    UpdateValue(null);
+                    ReduxSetValue(null, true);
                     InvalidInput = true;
-                }
-
-                else if( Minimum.HasValue && isDecimal && valueAux < Minimum.Value)
-                {
-                    var v = Math.Round(Minimum.Value, DecimalPlaces);
-                    UpdateValue(v);
-                }
-
-                else if( Maximum.HasValue && isDecimal && valueAux > Maximum)
-                {
-                    var v = Math.Round(Maximum.Value, DecimalPlaces);
-                    UpdateValue(v);
                 }
 
                 else
                 {
-                    var v = Math.Round(valueAux, DecimalPlaces);
-                    UpdateValue(v);
+                    valueAux = Sanitize(valueAux).Value;
+                    ReduxSetValue(valueAux);
                 }
 
             }
         }
 
-        [Parameter]
-        public decimal? Maximum { get; set; }  = 100;
+        private void ChecIsValid(string value)
+        {
+            bool isDecimal = decimal.TryParse(value, out decimal valueAux);
+            var isOk = isDecimal || String.IsNullOrWhiteSpace(value);
+            InvalidInput = !isOk;
+        }
+
+        private decimal? Sanitize(decimal? value)
+        {
+            if (!value.HasValue)
+            {
+                return null;
+            }
+
+            else if (Minimum.HasValue && value.Value < Minimum.Value)
+            {
+                return Math.Round(Minimum.Value, DecimalPlaces);
+            }
+
+            else if (Maximum.HasValue && value.Value > Maximum)
+            {
+                return Math.Round(Maximum.Value, DecimalPlaces);
+            }
+
+            return Math.Round(value.Value, DecimalPlaces);
+
+        }
+
+        protected async void Increase()
+        {
+            decimal? value = (Value ?? -this.Step) + this.Step;
+            value = Sanitize(value);
+            ReduxSetValue(value);
+        }
+
+        protected async void Decrease()
+        {
+            decimal? value = (Value ?? +this.Step) - this.Step;
+            value = Sanitize(value);
+            ReduxSetValue(value);
+        }
 
         [Parameter]
-        public decimal? Minimum { get; set; }  = 0;
+        public string Icon { get; set; }
+
+        [Parameter]
+        public EventCallback<UIMouseEventArgs> IconOnClick { get; set; }
+
+        [Parameter]
+        public decimal? Maximum { get; set; } = 100;
+
+        [Parameter]
+        public decimal? Minimum { get; set; } = 0;
 
         [Parameter]
         public int DecimalPlaces { get; set; } = 0;
@@ -114,7 +160,7 @@ namespace MatBlazor
         protected Decimal Step { get; set; } = 1m;
 
         [Parameter]
-        public EventCallback<decimal?> ValueChanged { get; set; }   
+        public EventCallback<decimal?> ValueChanged { get; set; }
 
         [Parameter]
         public EventCallback<UIFocusEventArgs> OnFocus { get; set; }
@@ -137,9 +183,9 @@ namespace MatBlazor
         [Parameter]
         public string Label { get; set; }
 
-        public string PlusIcon { get; set; } = "add";
+        public string PlusIcon { get; set; } = "keyboard_arrow_down";
 
-        public string MinusIcon { get; set; } = "remove";
+        public string MinusIcon { get; set; } = "keyboard_arrow_up";
 
         [Parameter]
         public bool Box { get; set; }
@@ -182,7 +228,7 @@ namespace MatBlazor
         /// Css class of input element
         /// </summary>
         [Parameter]
-        public string InputClass     
+        public string InputClass
         {
             get => _inputClass;
             set
@@ -198,11 +244,31 @@ namespace MatBlazor
         [Parameter]
         public string InputStyle { get; set; }
 
-        protected ClassMapper LabelClassMapper = new ClassMapper();
+        protected ClassMapper LabelClassMapper { set; get; } = new ClassMapper();
         protected ClassMapper InputClassMapper = new ClassMapper();
 
+        //
+        protected bool displayUpDown = false;
+        protected void OnMainDivMouseOver(UIMouseEventArgs args) => displayUpDown = true;
+        protected void OnMainDivMouseOut(UIMouseEventArgs args) => displayUpDown = false;
+        protected string displayUpDownStyle => displayUpDown ? "" : "display:none;";
+
+        //
+        protected bool UpingDowning = false;
+        protected void OnUpDownMouseOver(UIMouseEventArgs args)
+        {
+            UpingDowning = true;
+            ClassMapper.MakeDirty();
+        }
+        protected void OnUpDownMouseOut(UIMouseEventArgs args)
+        {
+            UpingDowning = false;
+            ClassMapper.MakeDirty();
+        }
+
+        //
         private decimal? _value; // obj-type
-        private string _bindedValue;
+        private string _uiBindedValue;
         private string _inputClass;
 
         public BaseMatNumericUpDownField()
@@ -211,7 +277,8 @@ namespace MatBlazor
                 .Add("mat-numericUpDownField")
                 .Add("mdc-text-field")
                 .Add("_mdc-text-field--upgraded")
-                .If("mdc-text-field--with-leading-icon", ()=>true)
+                .If("mdc-text-field--focused", () => UpingDowning)
+                .If("mdc-text-field--with-leading-icon", () => this.Icon != null )
                 .If("mdc-text-field--with-trailing-icon", () => true)
                 .If("mdc-text-field--invalid", () => this.InvalidInput )
                 .If("mdc-text-field--box", () => !this.FullWidth && this.Box)
@@ -220,18 +287,18 @@ namespace MatBlazor
                 .If("mdc-text-field--disabled", () => this.Disabled)
                 .If("mdc-text-field--fullwidth", () => this.FullWidth)
                 .If("mdc-text-field--fullwidth-with-leading-icon",
-                    () => true)
+                    () => this.FullWidth && this.Icon != null )
                 .If("mdc-text-field--fullwidth-with-trailing-icon",
-                    () => true);
+                    () => false);
 
             LabelClassMapper
                 .Add("mdc-floating-label")
-                .If("mdc-floating-label--float-above", () => true); // obj-type: !string.IsNullOrEmpty(Value)
+                .If("mdc-floating-label--float-above", () => !string.IsNullOrEmpty(UiBindedValue));
 
             InputClassMapper
                 .Get(() => this.InputClass)
                 .Add("mdc-text-field__input")
-                .If("_mdc-text-field--upgraded", () => true) // obj-type: !string.IsNullOrEmpty(Value)
+                .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(UiBindedValue) )
                 .If("mat-hide-clearbutton", () => this.HideClearButton);
         }
 
@@ -241,37 +308,5 @@ namespace MatBlazor
             await Js.InvokeAsync<object>("matBlazor.matNumericUpDownField.init", Ref);
         }
 
-        private void Sanitize()
-        {
-            if (!Value.HasValue)
-            {
-                Value = 0m;
-                return;
-            }
-
-            if (Value.Value > (Maximum ?? Decimal.MaxValue))
-            {
-                Value = (Maximum ?? Decimal.MaxValue);
-                return;
-            }
-
-            if (Value.Value < (Minimum ?? Decimal.MinValue))
-            {
-                Value = (Minimum ?? Decimal.MinValue);
-            }
-
-        }
-
-        protected void Increase()
-        {
-            Value = (Value ?? -this.Step ) + this.Step;
-            Sanitize();
-        }
-
-        protected void Decrease()
-        {
-            Value = (Value ?? +this.Step ) - this.Step;
-            Sanitize();
-        }
     }
 }

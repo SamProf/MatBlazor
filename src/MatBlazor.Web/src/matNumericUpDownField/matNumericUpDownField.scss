@@ -13,6 +13,11 @@
     padding-right: 48px;
 }
 
+.mdc-floating-label--float-above
+{
+    background-color:  var(--mdc-theme-surface, #fff);
+}
+
 .mat-numericUpDownField
 {
     //padding-left: 16px;
