@@ -55,11 +55,15 @@ namespace MatBlazor
                 isRendered = true;
             }
 
-            Func<Task> action;
-            while (afterRenderCallQuene.Count > 0)
+            if (afterRenderCallQuene.Count > 0)
             {
-                action = afterRenderCallQuene.Dequeue();
-                await action();
+                var actions = afterRenderCallQuene.ToArray();
+                afterRenderCallQuene.Clear();
+
+                foreach (var action in actions)
+                {
+                    await action();
+                }
             }
         }
 

@@ -29,6 +29,7 @@ import * as matDatePicker from './matDatePicker/matDatePicker';
 import * as matFAB from './matFAB/matFAB';
 import * as matAccordion from './matAccordion/matAccordion';
 import * as matTooltip from './matTooltip/matTooltip';
+import * as utils from './utils/utils';
 
 
 window.matBlazor = {
@@ -59,7 +60,8 @@ window.matBlazor = {
   matDatePicker,
   matFAB,
   matAccordion,
-  matTooltip
+  matTooltip,
+  utils,
 };
 
 

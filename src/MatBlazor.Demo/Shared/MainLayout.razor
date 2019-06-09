@@ -34,7 +34,7 @@
 </MatAppBar>
 
 <MatDrawerContainer Style="width: 100vw; height: 100vh;" Class="mat">
-    <MatDrawer bind-Opened="@_navMenuOpened">
+    <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Responsive">
         <MatAppBarAdjust></MatAppBarAdjust>
         <MatListGroup>
             <MatList SingleSelection="true">
@@ -126,26 +126,26 @@
 
     protected override async Task OnAfterRenderAsync()
     {
-        if (isFirstRender)
-        {
-            var d = await Js.InvokeAsync<double>("matBlazorDemo.innerWidth");
 
-            if (d > 1000)
-            {
-                _navMenuOpened = true;
-                this.StateHasChanged();
-            }
-
-            isFirstRender = false;
-        }
+        
+//        if (isFirstRender)
+//        {
+//            var d = await Js.InvokeAsync<double>("matBlazorDemo.innerWidth");
+//
+//            if (d > 1000)
+//            {
+//                _navMenuOpened = true;
+//                this.StateHasChanged();
+//            }
+//
+//            isFirstRender = false;
+//        }
     }
 
     protected async override Task OnInitAsync()
     {
         Console.WriteLine("My OnInitAsync");
         await base.OnInitAsync();
-
-
 
         Task.Delay(TimeSpan.FromSeconds(5))
             .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
