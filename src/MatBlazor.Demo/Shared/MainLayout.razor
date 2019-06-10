@@ -33,7 +33,7 @@
 </MatAppBar>
 
 <MatDrawerContainer Style="width: 100vw; height: 100vh;" Class="mat">
-    <MatHidden Breakpoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up">
+    <MatHidden Breakpoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up" HiddenChanged="@ModelDrawerHiddenChanged">
         <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Modal">
             <DemoDrawerContent></DemoDrawerContent>
         </MatDrawer>
@@ -84,6 +84,15 @@
         }
     }
 
+
+    protected void ModelDrawerHiddenChanged(bool hidden)
+    {
+        if (!hidden)
+        {
+            _navMenuOpened = false;
+        }
+    }
+
     public void OnClick(UIMouseEventArgs e)
     {
         this.Menu.OpenAsync(themeButton.Ref);
@@ -99,7 +108,7 @@
         this.StateHasChanged();
     }
 
-    
+
     protected override async Task OnAfterRenderAsync()
     {
     }
@@ -111,7 +120,7 @@
         Task.Delay(TimeSpan.FromSeconds(5))
             .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
 
-     
+
     }
 
     public void Dispose()

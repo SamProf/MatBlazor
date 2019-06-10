@@ -16,6 +16,8 @@ namespace MatBlazor
 
         public bool Hidden { get; set; } = true;
 
+        [Parameter]
+        public EventCallback<bool> HiddenChanged { get; set; }
 
         protected async Task UpdateVisible()
         {
@@ -24,6 +26,7 @@ namespace MatBlazor
             if (val != Hidden)
             {
                 Hidden = val;
+                await HiddenChanged.InvokeAsync(val);
                 this.StateHasChanged();
             }
         }
