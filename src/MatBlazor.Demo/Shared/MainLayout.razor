@@ -37,20 +37,16 @@
     <MatHidden Breakpoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up" HiddenChanged="@ModelDrawerHiddenChanged">
         <ChildContent>
             <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Modal">
+                <MatAppBarAdjust></MatAppBarAdjust>
                 <DemoDrawerContent></DemoDrawerContent>
             </MatDrawer>
         </ChildContent>
         <ElseContent>
             <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Dismissible">
+                <MatAppBarAdjust></MatAppBarAdjust>
                 <DemoDrawerContent></DemoDrawerContent>
             </MatDrawer>
         </ElseContent>
-        <InitContent>
-            <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Dismissible">
-                <DemoDrawerContent></DemoDrawerContent>
-            </MatDrawer>
-        </InitContent>
-
     </MatHidden>
 
 
