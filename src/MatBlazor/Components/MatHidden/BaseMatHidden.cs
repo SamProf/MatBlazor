@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
+    /// <summary>
+    /// Quickly and responsively toggle the visibility value of components and more with our hidden utilities.
+    /// </summary>
     public class BaseMatHidden : BaseMatComponent
     {
         [Parameter]
