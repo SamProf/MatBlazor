@@ -9,12 +9,18 @@ namespace MatBlazor
         public RenderFragment ChildContent { get; set; }
 
         [Parameter]
+        public RenderFragment ElseContent { get; set; }
+
+        [Parameter]
+        public RenderFragment InitContent { get; set; }
+
+        [Parameter]
         public MatBreakpoint Breakpoint { get; set; }
 
         [Parameter]
         public MatHiddenDirection Direction { get; set; }
 
-        public bool Hidden { get; set; } = true;
+        public bool? Hidden { get; set; } = null;
 
         [Parameter]
         public EventCallback<bool> HiddenChanged { get; set; }
@@ -23,7 +29,7 @@ namespace MatBlazor
         {
             var innerWidth = await Js.InvokeAsync<decimal>("matBlazor.utils.windowInnerWidth");
             var val = MatHiddenUtils.IsHidden(innerWidth, Breakpoint, Direction);
-            if (val != Hidden)
+            if (!Hidden.HasValue || val != Hidden.Value)
             {
                 Hidden = val;
                 await HiddenChanged.InvokeAsync(val);

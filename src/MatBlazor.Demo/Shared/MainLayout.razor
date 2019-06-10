@@ -34,20 +34,24 @@
 
 <MatDrawerContainer Style="width: 100vw; height: 100vh;" Class="mat">
 
-    <MatHiddenContainer Breakpoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up" HiddenChanged="@ModelDrawerHiddenChanged">
-        @if (context.HasValue && !context.Value)
-        {
+    <MatHidden Breakpoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up" HiddenChanged="@ModelDrawerHiddenChanged">
+        <ChildContent>
             <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Modal">
                 <DemoDrawerContent></DemoDrawerContent>
             </MatDrawer>
-        }
-        else
-        {
+        </ChildContent>
+        <ElseContent>
             <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Dismissible">
                 <DemoDrawerContent></DemoDrawerContent>
             </MatDrawer>
-        }
-    </MatHiddenContainer>
+        </ElseContent>
+        <InitContent>
+            <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Dismissible">
+                <DemoDrawerContent></DemoDrawerContent>
+            </MatDrawer>
+        </InitContent>
+
+    </MatHidden>
 
 
     <MatDrawerContent Style="padding-left: 25px; padding-right: 25px;">
@@ -89,9 +93,9 @@
     }
 
 
-    protected void ModelDrawerHiddenChanged(bool? hidden)
+    protected void ModelDrawerHiddenChanged(bool hidden)
     {
-        if (hidden.HasValue && !hidden.Value)
+        if (!hidden)
         {
             _navMenuOpened = false;
         }

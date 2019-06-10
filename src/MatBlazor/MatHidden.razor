@@ -1,6 +1,26 @@
 ﻿@inherits BaseMatHidden
 
-@if (!Hidden && ChildContent != null)
+@if (Hidden.HasValue)
 {
-    @ChildContent
+    if (Hidden.Value)
+    {
+        if (ElseContent != null)
+        {
+            @ElseContent
+        }
+    }
+    else
+    {
+        if (ChildContent != null)
+        {
+            @ChildContent
+        }
+    }
+}
+else
+{
+    if (InitContent != null)
+    {
+        @InitContent
+    }
 }
