@@ -8,7 +8,7 @@
         <iframe src="MatDrawerFrame" style="width: 100%; height: 50%;"></iframe>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerFrame""
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerFrame""
 
 <MatDrawerContainer Style=""width: 100vw; height: 100vh;"">
     <MatDrawer bind-Opened=""@Opened"">
@@ -41,8 +41,7 @@
         Opened = !Opened;
     }
 
-}")>
-        </BlazorFiddle>
+}")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -53,7 +52,7 @@
         <iframe src="MatDrawerModalFrame" style="width: 100%; height: 50%;"></iframe>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerModalFrame""
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerModalFrame""
 
 <MatDrawerContainer Style=""width: 100vw; height: 100vh;"">
     <MatDrawer bind-Opened=""@Opened"" Mode=""@MatDrawerMode.Modal"">
@@ -77,8 +76,7 @@
         Opened = !Opened;
     }
 
-}")>
-        </BlazorFiddle>
+}")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -89,15 +87,36 @@
         <iframe src="MatDrawerResponsiveFrame" style="width: 100%; height: 50%;"></iframe>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerModalFrame""
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerResponsiveFrame""
+
 
 <MatDrawerContainer Style=""width: 100vw; height: 100vh;"">
-    <MatDrawer bind-Opened=""@Opened"" Mode=""@MatDrawerMode.Modal"">
-        Drawer Content
-    </MatDrawer>
+    <MatHidden Breakpoint=""@MatBreakpoint.SM"" Direction=""@MatHiddenDirection.Up"">
+        <ChildContent>
+            <MatDrawer bind-Opened=""@Opened"" Mode=""@MatDrawerMode.Modal"">
+                Drawer Content
+            </MatDrawer>
+        </ChildContent>
+
+        <ElseContent>
+            <MatDrawer bind-Opened=""@Opened"" Mode=""@MatDrawerMode.Dismissible"">
+                Drawer Content
+            </MatDrawer>
+        </ElseContent>
+    </MatHidden>
+
     <MatDrawerContent>
         <div>
-            <MatButton OnClick=""@((e) => ButtonClicked())"">Open Menu</MatButton>
+            <MatButton OnClick=""@((e) => ButtonClicked())"">
+                @if (Opened)
+                {
+                    <span>Hide Menu</span>
+                }
+                else
+                {
+                    <span>Open Menu</span>
+                }
+            </MatButton>
         </div>
         <p>Page Content</p>
     </MatDrawerContent>
@@ -113,7 +132,6 @@
         Opened = !Opened;
     }
 
-}")>
-        </BlazorFiddle>
+}")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
