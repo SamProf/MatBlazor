@@ -110,6 +110,8 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 - [flatpickr.js](https://flatpickr.js.org/)
 
 ## News
+### MatBlazor 1.1.1
+- Fixed Clicking on Icon in DatePicker doesn't show the calender selection window. #86 
 
 ### MatBlazor 1.1.0
 - MatHidden
