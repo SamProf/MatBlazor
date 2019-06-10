@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
@@ -57,7 +58,7 @@ namespace MatBlazor
 
             this.CallAfterRender(async () =>
             {
-                await Js.InvokeAsync<object>("matBlazor.matDrawer.init", Ref, new DotNetObjectRef(this));
+               await Js.InvokeAsync<object>("matBlazor.matDrawer.init", Ref, new DotNetObjectRef(this));
             });
 
         }
@@ -75,5 +76,7 @@ namespace MatBlazor
         {
             await base.OnInitAsync();
         }
+
+        
     }
 }

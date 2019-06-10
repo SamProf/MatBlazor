@@ -6,7 +6,7 @@ using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
-    public abstract class BaseMatComponent : ComponentBase, IBaseMatComponent
+    public abstract class BaseMatComponent : ComponentBase, IBaseMatComponent, IDisposable
     {
         [Parameter]
         public ForwardRef RefBack { get; set; }
@@ -38,6 +38,10 @@ namespace MatBlazor
 
                 foreach (var action in actions)
                 {
+                    if (Disposed)
+                    {
+                        return;
+                    }
                     await action();
                 }
             }
@@ -50,5 +54,12 @@ namespace MatBlazor
         protected BaseMatComponent()
         {
         }
+
+        public void Dispose()
+        {
+            Disposed = true;
+        }
+
+        protected bool Disposed { get; private set; }
     }
 }
