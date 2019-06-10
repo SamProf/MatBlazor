@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatAccordion : BaseMatComponent
+    public class BaseMatAccordion : BaseMatDomComponent
     {
         [Parameter]
         public RenderFragment ChildContent { get; set; }

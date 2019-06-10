@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Demo.BlazorFiddle
 {
-    public class BaseBlazorFiddle : BaseMatComponent
+    public class BaseBlazorFiddle : BaseMatDomComponent
     {
         [Parameter]
         protected string Code { get; set; }

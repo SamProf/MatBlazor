@@ -5,7 +5,7 @@ namespace MatBlazor
     /// <summary>
     /// The Material tooltip provides a text label that is displayed when the user hovers an element.
     /// </summary>
-    public class BaseMatTooltip : BaseMatComponent
+    public class BaseMatTooltip : BaseMatDomComponent
     {
         [Parameter]
         protected RenderFragment<ForwardRef> ChildContent { get; set; }

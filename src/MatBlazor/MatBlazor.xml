@@ -4,17 +4,17 @@
         <name>MatBlazor</name>
     </assembly>
     <members>
-        <member name="P:MatBlazor.BaseMatComponent.Ref">
+        <member name="P:MatBlazor.BaseMatDomComponent.Ref">
             <summary>
             Returned ElementRef reference for DOM element.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatComponent.Class">
+        <member name="P:MatBlazor.BaseMatDomComponent.Class">
             <summary>
             Specifies one or more classnames for an DOM element.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatComponent.Style">
+        <member name="P:MatBlazor.BaseMatDomComponent.Style">
             <summary>
             Specifies an inline style for an DOM element.
             </summary>

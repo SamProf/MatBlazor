@@ -7,7 +7,7 @@ namespace MatBlazor
     /// <summary>
     /// Progress indicators display the length of a process or express an unspecified wait time.
     /// </summary>
-    public class BaseMatProgressBar : BaseMatComponent
+    public class BaseMatProgressBar : BaseMatDomComponent
     {
         private double _progress;
         private double _buffer;

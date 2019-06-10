@@ -7,7 +7,7 @@ namespace MatBlazor
     /// <summary>
     /// Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
     /// </summary>
-    public class BaseMatDialog : BaseMatComponent
+    public class BaseMatDialog : BaseMatDomComponent
     {
         private bool _isOpen;
 

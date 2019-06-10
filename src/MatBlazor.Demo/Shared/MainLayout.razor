@@ -3,7 +3,6 @@
 @using System.Reflection
 @using MatBlazor.Demo.Models
 @using Microsoft.AspNetCore.Components
-@inject IUriHelper Url
 @inject AppModel AppModel
 @inject UserAppModel UserAppModel
 @inject IJSRuntime Js
@@ -34,26 +33,17 @@
 </MatAppBar>
 
 <MatDrawerContainer Style="width: 100vw; height: 100vh;" Class="mat">
-    <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Responsive">
-        <MatAppBarAdjust></MatAppBarAdjust>
-        <MatListGroup>
-            <MatList SingleSelection="true">
-                <MatListItem Href="@Url.ToAbsoluteUri("").AbsoluteUri">Home</MatListItem>
+    <MatHidden Breakpoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up">
+        <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Modal">
+            <DemoDrawerContent></DemoDrawerContent>
+        </MatDrawer>
+    </MatHidden>
 
-                @foreach (var navItem in navItems)
-                {
-                    <MatListItem Href="@Url.ToAbsoluteUri(navItem.Url).AbsoluteUri">
-                        @navItem.Name
-                    </MatListItem>
-                }
-
-                <MatListItem Href="@Url.ToAbsoluteUri("BaseComponent").AbsoluteUri">
-                    Base Component
-                </MatListItem>
-            </MatList>
-        </MatListGroup>
-    </MatDrawer>
-
+    <MatHidden Breakpoint="@MatBreakpoint.XS" Direction="@MatHiddenDirection.Down">
+        <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Dismissible">
+            <DemoDrawerContent></DemoDrawerContent>
+        </MatDrawer>
+    </MatHidden>
 
     <MatDrawerContent Style="padding-left: 25px; padding-right: 25px;">
         <MatAppBarAdjust></MatAppBarAdjust>
@@ -101,7 +91,7 @@
 
     bool lazySnackbarIsOpen = false;
 
-    bool _navMenuOpened = false;
+    bool _navMenuOpened = true;
 
     void MenuButtonClicked()
     {
@@ -109,207 +99,19 @@
         this.StateHasChanged();
     }
 
-
-    class NavItem
-    {
-        public string Name;
-        public string Url;
-    }
-
-
-    NavItem[] navItems;
-
-
-
-
-    private bool isFirstRender = true;
-
+    
     protected override async Task OnAfterRenderAsync()
     {
-
-        
-//        if (isFirstRender)
-//        {
-//            var d = await Js.InvokeAsync<double>("matBlazorDemo.innerWidth");
-//
-//            if (d > 1000)
-//            {
-//                _navMenuOpened = true;
-//                this.StateHasChanged();
-//            }
-//
-//            isFirstRender = false;
-//        }
     }
 
     protected async override Task OnInitAsync()
     {
-        Console.WriteLine("My OnInitAsync");
         await base.OnInitAsync();
 
         Task.Delay(TimeSpan.FromSeconds(5))
             .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
 
-
-        navItems = new[]
-        {
-            new NavItem()
-            {
-                Name = "Autocomplete",
-                Url = "Autocomplete"
-            },
-            new NavItem()
-            {
-                Name = "Checkbox",
-                Url = "Checkbox"
-            },
-            new NavItem()
-            {
-                Name = "TextField",
-                Url = "TextField"
-            },
-            new NavItem()
-            {
-                Name = "RadioButton",
-                Url = "RadioButton"
-            },
-            new NavItem()
-            {
-                Name = "Select",
-                Url = "Select"
-            },
-            new NavItem()
-            {
-                Name = "Slider",
-                Url = "Slider"
-            },
-            new NavItem()
-            {
-                Name = "SlideToggle",
-                Url = "SlideToggle"
-            },
-            new NavItem()
-            {
-                Name = "Drawer",
-                Url = "Drawer"
-            },
-            new NavItem()
-            {
-                Name = "AppBar",
-                Url = "AppBar"
-            },
-            new NavItem()
-            {
-                Name = "Dialog",
-                Url = "Dialog"
-            },
-            new NavItem()
-            {
-                Name = "Snackbar",
-                Url = "Snackbar"
-            },
-            new NavItem()
-            {
-                Name = "Menu",
-                Url = "Menu"
-            },
-            new NavItem()
-            {
-                Name = "Card",
-                Url = "Card"
-            },
-            new NavItem()
-            {
-                Name = "Divider",
-                Url = "Divider"
-            },
-            new NavItem()
-            {
-                Name = "List",
-                Url = "List"
-            },
-            new NavItem()
-            {
-                Name = "Button",
-                Url = "Button"
-            },
-            new NavItem()
-            {
-                Name = "Ripple",
-                Url = "Ripple"
-            },
-            new NavItem()
-            {
-                Name = "IconButton",
-                Url = "IconButton"
-            },
-            new NavItem()
-            {
-                Name = "Icon",
-                Url = "Icon"
-            },
-            new NavItem()
-            {
-                Name = "Chip",
-                Url = "Chip"
-            },
-            new NavItem()
-            {
-                Name = "ProgressBar",
-                Url = "ProgressBar"
-            },
-            new NavItem()
-            {
-                Name = "Elevation",
-                Url = "Elevation"
-            },
-            new NavItem()
-            {
-                Name = "Typography",
-                Url = "Typography"
-            },
-            new NavItem()
-            {
-                Name = "LayoutGrid",
-                Url = "LayoutGrid"
-            },
-            new NavItem()
-            {
-                Name = "Table",
-                Url = "Table"
-            },
-            new NavItem()
-            {
-                Name = "Tab",
-                Url = "Tab"
-            },
-            new NavItem()
-            {
-                Name = "DatePicker",
-                Url = "DatePicker"
-            },
-            new NavItem()
-            {
-                Name = "Themes",
-                Url = "Themes"
-            },
-            new NavItem()
-            {
-                Name = "FAB",
-                Url = "FAB"
-            },
-            new NavItem()
-            {
-                Name = "Expansion Panel",
-                Url = "ExpansionPanel"
-            },
-            new NavItem()
-            {
-                Name = "Tooltip",
-                Url = "Tooltip"
-            },
-
-        }.OrderBy(i => i.Name).ToArray();
+     
     }
 
     public void Dispose()

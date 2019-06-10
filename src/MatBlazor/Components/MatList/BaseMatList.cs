@@ -6,7 +6,7 @@ namespace MatBlazor
     /// <summary>
     /// Lists present multiple line items vertically as a single continuous element. 
     /// </summary>
-    public class BaseMatList : BaseMatComponent
+    public class BaseMatList : BaseMatDomComponent
     {
         [Parameter]
         protected RenderFragment ChildContent { get; set; }

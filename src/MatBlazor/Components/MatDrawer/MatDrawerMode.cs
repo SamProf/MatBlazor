@@ -4,6 +4,5 @@
     {
         Dismissible,
         Modal,
-        Responsive,
     }
 }

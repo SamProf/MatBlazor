@@ -8,7 +8,7 @@ namespace MatBlazor
     /// <summary>
     /// Sliders let users select from a range of values by moving the slider thumb. 
     /// </summary>
-    public class BaseMatSlider : BaseMatComponent
+    public class BaseMatSlider : BaseMatDomComponent
     {
         protected JsHelper jsHelper;
 

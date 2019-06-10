@@ -1,0 +1,199 @@
+@using Microsoft.AspNetCore.Components
+@inject IUriHelper Url
+
+<MatAppBarAdjust></MatAppBarAdjust>
+<MatListGroup>
+    <MatList SingleSelection="true">
+        <MatListItem Href="@Url.ToAbsoluteUri("").AbsoluteUri">Home</MatListItem>
+
+        @foreach (var navItem in navItems)
+        {
+            <MatListItem Href="@Url.ToAbsoluteUri(navItem.Url).AbsoluteUri">
+                @navItem.Name
+            </MatListItem>
+        }
+
+        <MatListItem Href="@Url.ToAbsoluteUri("BaseComponent").AbsoluteUri">
+            Base Component
+        </MatListItem>
+    </MatList>
+</MatListGroup>
+
+@functions
+{
+
+    class NavItem
+    {
+        public string Name;
+        public string Url;
+    }
+
+    NavItem[] navItems;
+
+    protected async override Task OnInitAsync()
+    {
+
+        await base.OnInitAsync();
+
+        navItems = new[]
+        {
+            new NavItem()
+            {
+                Name = "Autocomplete",
+                Url = "Autocomplete"
+            },
+            new NavItem()
+            {
+                Name = "Checkbox",
+                Url = "Checkbox"
+            },
+            new NavItem()
+            {
+                Name = "TextField",
+                Url = "TextField"
+            },
+            new NavItem()
+            {
+                Name = "RadioButton",
+                Url = "RadioButton"
+            },
+            new NavItem()
+            {
+                Name = "Select",
+                Url = "Select"
+            },
+            new NavItem()
+            {
+                Name = "Slider",
+                Url = "Slider"
+            },
+            new NavItem()
+            {
+                Name = "SlideToggle",
+                Url = "SlideToggle"
+            },
+            new NavItem()
+            {
+                Name = "Drawer",
+                Url = "Drawer"
+            },
+            new NavItem()
+            {
+                Name = "AppBar",
+                Url = "AppBar"
+            },
+            new NavItem()
+            {
+                Name = "Dialog",
+                Url = "Dialog"
+            },
+            new NavItem()
+            {
+                Name = "Snackbar",
+                Url = "Snackbar"
+            },
+            new NavItem()
+            {
+                Name = "Menu",
+                Url = "Menu"
+            },
+            new NavItem()
+            {
+                Name = "Card",
+                Url = "Card"
+            },
+            new NavItem()
+            {
+                Name = "Divider",
+                Url = "Divider"
+            },
+            new NavItem()
+            {
+                Name = "List",
+                Url = "List"
+            },
+            new NavItem()
+            {
+                Name = "Button",
+                Url = "Button"
+            },
+            new NavItem()
+            {
+                Name = "Ripple",
+                Url = "Ripple"
+            },
+            new NavItem()
+            {
+                Name = "IconButton",
+                Url = "IconButton"
+            },
+            new NavItem()
+            {
+                Name = "Icon",
+                Url = "Icon"
+            },
+            new NavItem()
+            {
+                Name = "Chip",
+                Url = "Chip"
+            },
+            new NavItem()
+            {
+                Name = "ProgressBar",
+                Url = "ProgressBar"
+            },
+            new NavItem()
+            {
+                Name = "Elevation",
+                Url = "Elevation"
+            },
+            new NavItem()
+            {
+                Name = "Typography",
+                Url = "Typography"
+            },
+            new NavItem()
+            {
+                Name = "LayoutGrid",
+                Url = "LayoutGrid"
+            },
+            new NavItem()
+            {
+                Name = "Table",
+                Url = "Table"
+            },
+            new NavItem()
+            {
+                Name = "Tab",
+                Url = "Tab"
+            },
+            new NavItem()
+            {
+                Name = "DatePicker",
+                Url = "DatePicker"
+            },
+            new NavItem()
+            {
+                Name = "Themes",
+                Url = "Themes"
+            },
+            new NavItem()
+            {
+                Name = "FAB",
+                Url = "FAB"
+            },
+            new NavItem()
+            {
+                Name = "Expansion Panel",
+                Url = "ExpansionPanel"
+            },
+            new NavItem()
+            {
+                Name = "Tooltip",
+                Url = "Tooltip"
+            },
+
+        }.OrderBy(i => i.Name).ToArray();
+    }
+
+}

@@ -73,7 +73,7 @@ namespace MatBlazor.DevUtils.Core
 
                 var includeFields = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase)
                 {
-                    nameof(BaseMatComponent.Ref)
+                    nameof(BaseMatDomComponent.Ref)
                 };
 
 

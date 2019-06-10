@@ -6,7 +6,7 @@ namespace MatBlazor
     /// <summary>
     /// Acts as a container for items such as application title, navigation icon, and action items.
     /// </summary>
-    public class BaseMatAppBar : BaseMatComponent
+    public class BaseMatAppBar : BaseMatDomComponent
     {
         [Parameter]
         public bool Short { get; set; }

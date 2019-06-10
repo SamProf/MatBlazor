@@ -7,7 +7,7 @@ namespace MatBlazor
     /// <summary>
     /// Snackbars provide brief messages about app processes at the bottom of the screen.
     /// </summary>
-    public class BaseMatSnackbar : BaseMatComponent
+    public class BaseMatSnackbar : BaseMatDomComponent
     {
         private bool _isOpen;
 

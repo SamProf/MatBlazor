@@ -13,7 +13,7 @@ namespace MatBlazor.DevUtils
 //        [Test]
         public void GenerateImportsFileContent()
         {
-            var assembly = typeof(BaseMatComponent).Assembly;
+            var assembly = typeof(BaseMatDomComponent).Assembly;
             var sb = new StringBuilder();
             foreach (var nam in assembly.GetExportedTypes().Where(i=>i.IsSubclassOf(typeof(ComponentBase))).Select(i=>i.Namespace).Distinct().OrderBy(i=>i))
             {

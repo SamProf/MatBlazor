@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatTabLabel : BaseMatComponent, IDisposable
+    public class BaseMatTabLabel : BaseMatDomComponent, IDisposable
     {
         [Parameter]
         protected RenderFragment ChildContent { get; set; }

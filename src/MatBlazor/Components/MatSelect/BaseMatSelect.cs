@@ -6,7 +6,7 @@ namespace MatBlazor
     /// <summary>
     /// Selects allow users to select from a single-option menu. It functions as a wrapper around the browser's native select element.
     /// </summary>
-    public class BaseMatSelect : BaseMatComponent
+    public class BaseMatSelect : BaseMatDomComponent
     {
         private string _value;
 

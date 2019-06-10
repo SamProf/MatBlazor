@@ -6,7 +6,7 @@ namespace MatBlazor
     /// <summary>
     /// MatExpansionPanel provides an expandable details-summary view.
     /// </summary>
-    public class BaseMatExpansionPanel : BaseMatComponent
+    public class BaseMatExpansionPanel : BaseMatDomComponent
     {
         [CascadingParameter]
         public BaseMatAccordion Accordion { get; set; }

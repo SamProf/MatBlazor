@@ -7,7 +7,7 @@ namespace MatBlazor
     /// <summary>
     /// Checkboxes allow the user to select multiple options from a set.
     /// </summary>
-    public class BaseMatCheckbox : BaseMatComponent
+    public class BaseMatCheckbox : BaseMatDomComponent
     {
         protected ElementRef ComponentRef;
 

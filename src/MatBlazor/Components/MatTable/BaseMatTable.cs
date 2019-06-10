@@ -7,7 +7,7 @@ namespace MatBlazor
     /// <summary>
     /// Mat Table display a table data.
     /// </summary>
-    public class BaseMatTable : BaseMatComponent
+    public class BaseMatTable : BaseMatDomComponent
     {        
         private string _searchTermFieldPlaceHolder = null;
         private string _searchTermFieldLabel = null;            

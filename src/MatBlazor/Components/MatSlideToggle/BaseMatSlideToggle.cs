@@ -6,7 +6,7 @@ namespace MatBlazor
     /// <summary>
     /// Component for on/off control that can be toggled via clicking or dragging.
     /// </summary>
-    public class BaseMatSlideToggle : BaseMatComponent
+    public class BaseMatSlideToggle : BaseMatDomComponent
     {
         public BaseMatSlideToggle()
         {

@@ -7,7 +7,7 @@ namespace MatBlazor
     /// <summary>
     /// The navigation drawer slides in from the left and contains the navigation destinations for your app.
     /// </summary>
-    public class BaseMatDrawer : BaseMatComponent
+    public class BaseMatDrawer : BaseMatDomComponent
     {
         private bool _opened;
 
@@ -51,8 +51,15 @@ namespace MatBlazor
             ClassMapper
                 .Add("mdc-drawer")
                 .Add("mat-drawer")
-                .If("mdc-drawer--dismissible", () => Mode == MatDrawerMode.Dismissible || Mode == MatDrawerMode.Responsive)
+                .If("mdc-drawer--dismissible", () => Mode == MatDrawerMode.Dismissible)
                 .If("mdc-drawer--modal", () => Mode == MatDrawerMode.Modal);
+
+
+            this.CallAfterRender(async () =>
+            {
+                await Js.InvokeAsync<object>("matBlazor.matDrawer.init", Ref, new DotNetObjectRef(this));
+            });
+
         }
 
 
@@ -67,44 +74,6 @@ namespace MatBlazor
         protected async override Task OnInitAsync()
         {
             await base.OnInitAsync();
-
-            var mode = Mode;
-
-            if (mode == MatDrawerMode.Responsive)
-            {
-                this.CallAfterRender(async () =>
-                {
-                    var isMobile = await Js.InvokeAsync<bool>("matBlazor.utils.isMobile");
-                    if (isMobile)
-                    {
-                        Mode = MatDrawerMode.Modal;
-                    }
-                    else
-                    {
-                        Mode = MatDrawerMode.Dismissible;
-                    }
-
-                    this.StateHasChanged();
-
-
-                    this.CallAfterRender(async () =>
-                    {
-                        await Js.InvokeAsync<object>("matBlazor.matDrawer.init", Ref, new DotNetObjectRef(this));
-
-                        if (Mode == MatDrawerMode.Dismissible)
-                        {
-                            Opened = true;
-                        }
-                    });
-                });
-            }
-            else
-            {
-                this.CallAfterRender(async () =>
-                {
-                    await Js.InvokeAsync<object>("matBlazor.matDrawer.init", Ref, new DotNetObjectRef(this));
-                });
-            }
         }
     }
 }

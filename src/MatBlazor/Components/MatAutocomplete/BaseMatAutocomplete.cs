@@ -10,7 +10,7 @@ namespace MatBlazor
     /// The autocomplete is a normal text input enhanced by a panel of suggested options.
     /// </summary>
     /// <typeparam name="ItemType">Type of element type.</typeparam>
-    public class BaseMatAutocomplete<ItemType> : BaseMatComponent
+    public class BaseMatAutocomplete<ItemType> : BaseMatDomComponent
     {
         protected const int DefaultsElementsInPopup = 10;
         private bool isOpened;

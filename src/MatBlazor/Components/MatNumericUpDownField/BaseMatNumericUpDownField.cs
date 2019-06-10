@@ -7,7 +7,7 @@ namespace MatBlazor
     /// <summary>
     /// Text fields allow users to input, edit, and select text.
     /// </summary>
-    public class BaseMatNumericUpDownField : BaseMatComponent
+    public class BaseMatNumericUpDownField : BaseMatDomComponent
     {
         public ElementRef InputRef { get; set; }
 

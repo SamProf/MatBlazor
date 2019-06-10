@@ -5,7 +5,7 @@ namespace MatBlazor
     /// <summary>
     /// Cards contain content and actions about a single subject.
     /// </summary>
-    public class BaseMatCard : BaseMatComponent
+    public class BaseMatCard : BaseMatDomComponent
     {
         public BaseMatCard()
         {

@@ -2,7 +2,7 @@
 
 namespace MatBlazor
 {
-    public class BaseMatDrawerContainer  : BaseMatComponent
+    public class BaseMatDrawerContainer  : BaseMatDomComponent
     {
         [Parameter]
         protected RenderFragment ChildContent { get; set; }

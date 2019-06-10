@@ -6,7 +6,7 @@ namespace MatBlazor
     /// <summary>
     /// WARNING: In Development progress
     /// </summary>
-    public class BaseMatTabBar : BaseMatComponent
+    public class BaseMatTabBar : BaseMatDomComponent
     {
         private BaseMatTabLabel _active;
 

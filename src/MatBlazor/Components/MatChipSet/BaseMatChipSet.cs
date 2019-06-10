@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatChipSet : BaseMatComponent
+    public class BaseMatChipSet : BaseMatDomComponent
     {
         [Parameter]
         protected RenderFragment ChildContent { get; set; }

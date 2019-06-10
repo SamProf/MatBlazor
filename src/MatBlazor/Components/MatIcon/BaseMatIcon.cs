@@ -5,7 +5,7 @@ namespace MatBlazor
     /// <summary>
     /// Makes it easier to use vector-based icons in your app.
     /// </summary>
-    public class BaseMatIcon : BaseMatComponent
+    public class BaseMatIcon : BaseMatDomComponent
     {
 
         [Parameter]

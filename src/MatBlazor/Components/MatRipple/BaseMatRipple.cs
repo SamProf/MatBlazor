@@ -5,7 +5,7 @@ namespace MatBlazor
     /// <summary>
     /// Ripples are visual representations used to communicate the status of a component or interactive element. 
     /// </summary>
-    public class BaseMatRipple : BaseMatComponent
+    public class BaseMatRipple : BaseMatDomComponent
     {
         [Parameter]
         protected RenderFragment ChildContent { get; set; }

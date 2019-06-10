@@ -20,7 +20,7 @@ namespace MatBlazor.DevUtils
         {
             
             var config = Config.GetConfig();
-            var gen = new MatDocumenationGenerator(typeof(BaseMatComponent).Assembly,
+            var gen = new MatDocumenationGenerator(typeof(BaseMatDomComponent).Assembly,
                 Path.Combine(config.Path, "MatBlazor.Demo", "Doc"));
             {
             };

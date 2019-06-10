@@ -5,7 +5,7 @@ namespace MatBlazor
     /// <summary>
     /// A floating action button represents the primary action in an application.
     /// </summary>
-    public class BaseMatFAB : BaseMatComponent
+    public class BaseMatFAB : BaseMatDomComponent
     {
         [Parameter]
         public string Icon { get; set; }

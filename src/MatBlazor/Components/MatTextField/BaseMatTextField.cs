@@ -6,7 +6,7 @@ namespace MatBlazor
     /// <summary>
     /// Text fields allow users to input, edit, and select text.
     /// </summary>
-    public class BaseMatTextField : BaseMatComponent
+    public class BaseMatTextField : BaseMatDomComponent
     {
         public ElementRef InputRef { get; set; }
 
