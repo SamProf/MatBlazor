@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
@@ -31,6 +32,12 @@ namespace MatBlazor
         protected async Task UpdateVisible()
         {
             var innerWidth = await Js.InvokeAsync<decimal>("matBlazor.utils.windowInnerWidth");
+            await UpdateVisibleFromValue(innerWidth);
+        }
+
+
+        protected async Task UpdateVisibleFromValue(decimal innerWidth)
+        {
             var val = MatHiddenUtils.IsHidden(innerWidth, Breakpoint, Direction);
             if (!Hidden.HasValue || val != Hidden.Value)
             {
@@ -42,7 +49,24 @@ namespace MatBlazor
 
         public BaseMatHidden()
         {
-            CallAfterRender(async () => { await UpdateVisible(); });
+            CallAfterRender(async () =>
+            {
+                await Js.InvokeAsync<object>("matBlazor.matHidden.init", MatBlazorId, new DotNetObjectRef(this));
+                await UpdateVisible();
+            });
+        }
+
+
+        [JSInvokable]
+        public async Task MatHiddenUpdateHandler(decimal innerWidth)
+        {
+            await UpdateVisibleFromValue(innerWidth);
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            Js.InvokeAsync<object>("matBlazor.matHidden.destroy", MatBlazorId);
         }
     }
 }

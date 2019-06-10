@@ -8,7 +8,7 @@
         <iframe src="MatDrawerFrame" style="width: 100%; height: 50%;"></iframe>
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerFrame""
+        <BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerFrame""
 
 <MatDrawerContainer Style=""width: 100vw; height: 100vh;"">
     <MatDrawer bind-Opened=""@Opened"">
@@ -41,10 +41,10 @@
         Opened = !Opened;
     }
 
-}")></BlazorFiddle>
+}")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
-
 
 
 <h5 class="mat-h5">Modal</h5>
@@ -53,7 +53,7 @@
         <iframe src="MatDrawerModalFrame" style="width: 100%; height: 50%;"></iframe>
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerModalFrame""
+        <BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerModalFrame""
 
 <MatDrawerContainer Style=""width: 100vw; height: 100vh;"">
     <MatDrawer bind-Opened=""@Opened"" Mode=""@MatDrawerMode.Modal"">
@@ -77,10 +77,43 @@
         Opened = !Opened;
     }
 
-}")></BlazorFiddle>
+}")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
 
+<h5 class="mat-h5">Responsive</h5>
+<DemoContainer SourcePath=".\..\..\MatBlazor.Demo\Frames\MatDrawerResponsivePageFrame.razor">
+    <Content>
+        <iframe src="MatDrawerResponsiveFrame" style="width: 100%; height: 50%;"></iframe>
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerModalFrame""
+
+<MatDrawerContainer Style=""width: 100vw; height: 100vh;"">
+    <MatDrawer bind-Opened=""@Opened"" Mode=""@MatDrawerMode.Modal"">
+        Drawer Content
+    </MatDrawer>
+    <MatDrawerContent>
+        <div>
+            <MatButton OnClick=""@((e) => ButtonClicked())"">Open Menu</MatButton>
+        </div>
+        <p>Page Content</p>
+    </MatDrawerContent>
+</MatDrawerContainer>
 
 
+@functions
+{
+    bool Opened = true;
+
+    void ButtonClicked()
+    {
+        Opened = !Opened;
+    }
+
+}")>
+        </BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

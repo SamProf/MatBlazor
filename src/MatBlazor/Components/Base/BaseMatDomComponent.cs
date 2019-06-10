@@ -22,9 +22,7 @@ namespace MatBlazor
                 RefBack?.Set(value);
             }
         }
-
-        public string MatBlazorId = IdGeneratorHelper.Generate("matBlazor_id_");
-
+        
         [CascadingParameter]
         public MatTheme Theme { get; set; }
 
