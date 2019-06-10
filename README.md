@@ -112,7 +112,7 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 ## News
 
 ### MatBlazor 1.1.0
-- MatHidden, MatHiddenContainer
+- MatHidden
 
 ### MatBlazor 1.0.1
 - Material theme configuration #90 
