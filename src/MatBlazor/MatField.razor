@@ -1,0 +1,47 @@
+﻿@typeparam T
+@inherits BaseMatField<T>
+
+
+<div class="@ClassMapper.Class" style="@Style" ref="Ref">
+    @if (Icon != null)
+    {
+        <i class="material-icons mdc-text-field__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
+    }
+
+    @if (TextArea)
+    {
+        <textarea style="@InputStyle" ref="InputRef" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind=@ValueAsString aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" />
+    }
+    else
+    {
+        <input style="@InputStyle" ref="InputRef" type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" bind="@ValueAsString" aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" />
+    }
+
+
+    @if (!FullWidth && Outlined)
+    {
+        <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            @if (Label != null)
+            {
+                <div class="mdc-notched-outline__notch">
+                    <label class="@LabelClassMapper.Class" for="@MatBlazorId">@Label</label>
+                </div>
+            }
+            <div class="mdc-notched-outline__trailing"></div>
+        </div>
+    }
+    else
+    {
+        if (Label != null)
+        {
+            <label class="@LabelClassMapper.Class" for="@MatBlazorId">@Label</label>
+        }
+        <div class="mdc-line-ripple"></div>
+    }
+
+</div>
+@if (HelperText != null)
+{
+    <p class="mdc-text-field-helper-text" aria-hidden="true">@HelperText</p>
+}

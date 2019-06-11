@@ -6,15 +6,22 @@ namespace MatBlazor
     /// <summary>
     /// Text fields allow users to input, edit, and select text.
     /// </summary>
-    public class BaseMatTextField : BaseMatTextField<string>
+    public abstract class BaseMatTextField : MatField<string>
     {
-        [Parameter]
-        public string Type { get; set; } = "text";
-
-
         public BaseMatTextField()
         {
             this.CallAfterRender(async () => { await Js.InvokeAsync<object>("matBlazor.matTextField.init", Ref); });
+        }
+
+        protected override string ConvertToValue(string value)
+        {
+            return value;
+        }
+
+
+        protected override string ConvertFromValue(string value)
+        {
+            return value;
         }
     }
 }

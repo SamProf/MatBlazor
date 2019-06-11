@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatTextField<T> : BaseMatDomComponent
+    public abstract class BaseMatField<T> : BaseMatDomComponent
     {
-        public ElementRef InputRef { get; set; }
+        [Parameter]
+        public string Type { get; set; } = "text";
 
+        public ElementRef InputRef { get; set; }
 
         private T _value;
 
@@ -19,11 +22,37 @@ namespace MatBlazor
                 if (!EqualityComparer<T>.Default.Equals(value, _value))
                 {
                     _value = value;
+                    _valueAsString = ConvertFromValue(value);
                     ValueChanged.InvokeAsync(value);
                 }
             }
         }
 
+
+        private string _valueAsString;
+
+        protected string ValueAsString
+        {
+            get => _valueAsString;
+            set
+            {
+                _valueAsString = value;
+                Value = ConvertToValue(value);
+            }
+        }
+
+
+        protected virtual T ConvertToValue(string value)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        protected virtual string ConvertFromValue(T value)
+        {
+            throw new NotImplementedException();
+        }
+        
         [Parameter]
         public EventCallback<T> ValueChanged { get; set; }
 
@@ -99,6 +128,7 @@ namespace MatBlazor
         /// </summary>
         [Parameter]
         public string InputClass { get; set; }
+
         /// <summary>
         /// Style attribute of input element
         /// </summary>
@@ -110,7 +140,7 @@ namespace MatBlazor
         protected ClassMapper InputClassMapper = new ClassMapper();
 
 
-        public BaseMatTextField()
+        public BaseMatField()
         {
             ClassMapper
                 .Add("mdc-text-field")
