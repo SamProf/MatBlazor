@@ -29,7 +29,7 @@ namespace MatBlazor
             set
             {
                 _disabled = value;
-                ClassMapper.MakeDirty();
+                
             }
         }
 

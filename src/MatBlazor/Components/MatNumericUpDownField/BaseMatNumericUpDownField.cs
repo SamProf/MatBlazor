@@ -59,9 +59,7 @@ namespace MatBlazor
             _value = value;
 
             // set mappers.
-            LabelClassMapper.MakeDirty();
-            InputClassMapper.MakeDirty();
-
+            
             if (!firstSet)
             {
                 // don't say to user value changed on first set.
@@ -234,7 +232,7 @@ namespace MatBlazor
             set
             {
                 _inputClass = value;
-                InputClassMapper.MakeDirty();
+                
             }
         }
         /// <summary>

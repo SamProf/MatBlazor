@@ -75,7 +75,7 @@ namespace MatBlazor
             set
             {
                 _raised = value;
-                ClassMapper.MakeDirty();
+                
             }
         }
 
@@ -89,7 +89,7 @@ namespace MatBlazor
             set
             {
                 _unelevated = value;
-                ClassMapper.MakeDirty();
+                
             }
         }
 
@@ -103,7 +103,7 @@ namespace MatBlazor
             set
             {
                 _outlined = value;
-                ClassMapper.MakeDirty();
+                
             }
         }
 
@@ -118,7 +118,7 @@ namespace MatBlazor
             set
             {
                 _dense = value;
-                ClassMapper.MakeDirty();
+             
             }
         }
 
@@ -132,7 +132,7 @@ namespace MatBlazor
             set
             {
                 _disabled = value;
-                ClassMapper.MakeDirty();
+                
             }
         }
 
@@ -146,7 +146,7 @@ namespace MatBlazor
             set
             {
                 _icon = value;
-                ClassMapper.MakeDirty();
+                
             }
         }
 
@@ -166,7 +166,6 @@ namespace MatBlazor
             set
             {
                 _label = value;
-                ClassMapper.MakeDirty();
             }
         }
 
