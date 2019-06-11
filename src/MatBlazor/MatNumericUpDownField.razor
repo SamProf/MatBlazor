@@ -1,6 +1,6 @@
 ﻿@inherits BaseMatNumericUpDownField
 
-<div class="@ClassMapper.Class" style="@Style" ref="Ref" onmouseover="@OnMainDivMouseOver" onmouseout="@OnMainDivMouseOut">
+<div class="@ClassMapper.Class" style="@Style" ref="Ref" >
 
     @if (Icon != null)
     {
@@ -12,16 +12,14 @@
            oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" 
            disabled=@Disabled readonly="@ReadOnly" />
 
-    <i style=" left: initial;right: 20px;background: none;top: 3px;bottom: initial; @displayUpDownStyle" 
+    <i style=" left: initial;right: 20px;background: none;top: 3px;bottom: initial; user-select: none; " 
        class="material-icons mdc-text-field__icon" 
        tabindex="0" onclick="@Increase" role="button" 
-        onmouseover="@OnUpDownMouseOver" onmouseout="@OnUpDownMouseOut"
        disabled=@Disabled readonly="@ReadOnly">@MinusIcon</i>
 
-    <i style="left: initial;right: 20px;background: none;top: initial;bottom: 3px;  @displayUpDownStyle" 
+    <i style="left: initial;right: 20px;background: none;top: initial;bottom: 3px; user-select: none; " 
        class="material-icons mdc-text-field__icon" tabindex="0" 
         onclick="@Decrease" role="button"
-        onmouseover="@OnUpDownMouseOver" onmouseout="@OnUpDownMouseOut"
         disabled=@Disabled readonly="@ReadOnly">@PlusIcon</i>
     
 

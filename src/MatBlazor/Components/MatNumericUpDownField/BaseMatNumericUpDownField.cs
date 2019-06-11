@@ -248,25 +248,6 @@ namespace MatBlazor
         protected ClassMapper InputClassMapper = new ClassMapper();
 
         //
-        protected bool displayUpDown = false;
-        protected void OnMainDivMouseOver(UIMouseEventArgs args) => displayUpDown = true;
-        protected void OnMainDivMouseOut(UIMouseEventArgs args) => displayUpDown = false;
-        protected string displayUpDownStyle => displayUpDown ? "" : "display:none;";
-
-        //
-        protected bool UpingDowning = false;
-        protected void OnUpDownMouseOver(UIMouseEventArgs args)
-        {
-            UpingDowning = true;
-            ClassMapper.MakeDirty();
-        }
-        protected void OnUpDownMouseOut(UIMouseEventArgs args)
-        {
-            UpingDowning = false;
-            ClassMapper.MakeDirty();
-        }
-
-        //
         private decimal? _value; // obj-type
         private string _uiBindedValue;
         private string _inputClass;
@@ -277,7 +258,6 @@ namespace MatBlazor
                 .Add("mat-numericUpDownField")
                 .Add("mdc-text-field")
                 .Add("_mdc-text-field--upgraded")
-                .If("mdc-text-field--focused", () => UpingDowning)
                 .If("mdc-text-field--with-leading-icon", () => this.Icon != null )
                 .If("mdc-text-field--with-trailing-icon", () => true)
                 .If("mdc-text-field--invalid", () => this.InvalidInput )
