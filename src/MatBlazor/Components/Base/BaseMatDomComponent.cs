@@ -46,7 +46,7 @@ namespace MatBlazor
             set
             {
                 _class = value;
-                
+                ClassMapper.MakeDirty();
             }
         }
 

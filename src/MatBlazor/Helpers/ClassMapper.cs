@@ -6,15 +6,30 @@ namespace MatBlazor
 {
     public class ClassMapper
     {
+        private string _class;
+        private bool _dirty = true;
+
         public string Class
         {
             get
             {
-                return string.Join(" ", map.Where(i => i.Value()).Select(i => i.Key()));
+                if (_dirty)
+                {
+                    _class = string.Join(" ", map.Where(i => i.Value()).Select(i => i.Key()));
+                }
+
+                return _class;
             }
         }
 
+
         private Dictionary<Func<string>, Func<bool>> map = new Dictionary<Func<string>, Func<bool>>();
+
+
+        public void MakeDirty()
+        {
+            _dirty = true;
+        }
 
         public ClassMapper Add(string name)
         {

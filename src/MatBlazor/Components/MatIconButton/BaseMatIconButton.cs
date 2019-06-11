@@ -44,7 +44,7 @@ namespace MatBlazor
             set
             {
                 _toggled = value;
-                
+                ClassMapper.MakeDirty();
             }
         }
 
@@ -64,7 +64,7 @@ namespace MatBlazor
             set
             {
                 _disabled = value;
-                
+                ClassMapper.MakeDirty();
             }
         }
 

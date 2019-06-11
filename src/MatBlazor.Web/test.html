@@ -22,21 +22,47 @@
 
 </style>
 
-
-<div class="mdc-text-field mdc-text-field--outlined mdc-text-field--fullwidth" id="ref">
-    <input type="text" id="tf-outlined" class="mdc-text-field__input">
-    <div class="mdc-notched-outline">
-        <div class="mdc-notched-outline__leading"></div>
-        <div class="mdc-notched-outline__notch">
-            <label for="tf-outlined" class="mdc-floating-label">Your Name</label>
-        </div>
-        <div class="mdc-notched-outline__trailing"></div>
+<aside class="mdc-drawer mdc-drawer--dismissible" id="ref">
+    <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+            <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+                <span class="mdc-list-item__text">Inbox</span>
+            </a>
+            <a class="mdc-list-item" href="#">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+                <span class="mdc-list-item__text">Outgoing</span>
+            </a>
+            <a class="mdc-list-item" href="#">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+                <span class="mdc-list-item__text">Drafts</span>
+            </a>
+        </nav>
     </div>
+</aside>
+
+<div class="mdc-drawer-app-content">
+    App Content
 </div>
+
 
 <script type="text/javascript">
   var ref = document.getElementById('ref');
-  new mdc.textField.MDCTextField(ref);
+
+
+
+  // setTimeout(()=>{
+  //   ref.classList.add("mdc-drawer--open");
+  //   ref.classList.add("mdc-drawer--opening");
+  // }, 2000);
+  // var tooltip = document.getElementById('tRef');
+  //
+  // var d = new mdc.drawer.MDCDrawer(ref);
+
+  // setInterval(()=>{
+  //   d.open = !d.open;
+  // }, 3000);
+
 </script>
 
 

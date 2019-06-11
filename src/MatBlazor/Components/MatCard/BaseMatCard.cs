@@ -21,7 +21,7 @@ namespace MatBlazor
             set
             {
                 _stroke = value;
-                
+                ClassMapper.MakeDirty();
             }
         }
 
