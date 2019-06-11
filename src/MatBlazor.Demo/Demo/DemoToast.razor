@@ -11,9 +11,12 @@
         <h3>
             Dependency injection configuration
         </h3>
-        <h5>1. Startup.cs</h5><br />
+        <h5>1. Startup.cs</h5>
+        <p>Add using MatBlazor.DependencyInjection; and then in the ConfiguresServices method include services.AddMatToaster...</p>
         <pre class="code">
             <code>
+                using MatBlazor.DependencyInjection;
+
                 services.AddMatToaster(config =>
                 {
                 config.PositionClass = MatBlazor.MatToaster.Helpers.Position.BottomRight;
