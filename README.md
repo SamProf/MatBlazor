@@ -108,8 +108,12 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 - [Blazor](https://blazor.net)
 - [MDC Web](https://material.io/components/)
 - [flatpickr.js](https://flatpickr.js.org/)
+- [toast](https://github.com/sotsera/sotsera.blazor.toaster)
 
 ## News
+
+### MatBlazor 1.0.2
+- MatToast (many thanks to [enkodellc](https://github.com/enkodellc))
 
 ### MatBlazor 1.0.1
 - Material theme configuration #90 
