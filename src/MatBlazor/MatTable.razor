@@ -199,7 +199,7 @@
             Console.WriteLine("Error LoadData: " + ex.Message);
             ErrorMessage = ex.Message;
         }
-        this.StateHasChanged();
+        base.Invoke(StateHasChanged);
     }
 
     async Task SearchData()
