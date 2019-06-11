@@ -1,12 +1,10 @@
 .mdc-toast-title {
-  font-weight: 700
+  font-weight: 700;
+  display: block;
 }
 
 .mdc-toast-icon {
-  float: left;
-  left: -10px;
-  top: 5px;
-  position: relative;
+  width: 34px;
   font-size: 26px;
 }
 
@@ -15,12 +13,14 @@
 }
 
 .mdc-toast-ripple > div{
-  padding: 10px 5px 10px 20px;
+  padding: 10px 5px 10px 5px;
 }
 
 .mdc-toast-message {
   -ms-word-wrap: break-word;
-  word-wrap: break-word
+  word-wrap: break-word;
+  display: flex;
+  align-items: center;
 }
 
 .mdc-toast-message a, .mdc-toast-message label {
@@ -31,12 +31,14 @@
   color: #CCC;
   text-decoration: none
 }
+.mdc-toast-body{
+  flex: 1;
+}
 
 .mdc-toast-close-button {
-  position: relative;
+  position: absolute !important;
   right: -.3em;
   top: -.3em;
-  float: right;
 }
 
 .mdc-toast-top-center {
@@ -146,6 +148,29 @@
 
 .mdc-toast {
   background-color: #030303
+}
+
+.mdc-toast-primary {
+  background-color: var(--mdc-theme-primary, #030303);
+}
+
+.mdc-toast-secondary {
+  background-color: var(--mdc-theme-secondary, #030303);
+}
+
+.mdc-toast-light {
+  background-color: var(--mdc-theme-light, lightgray);
+  color: var(--mdc-theme-dark, #999);
+}
+
+.mdc-toast-dark {
+  background-color: var(--mdc-theme-dark, #999);
+  color: var(--mdc-theme-light, lightgray);
+}
+
+.mdc-toast-link {
+  background-color: var(--mdc-theme-dark, #e1e1e1);
+  color: var(--mdc-theme-light, blue);
 }
 
 .mdc-toast-success {

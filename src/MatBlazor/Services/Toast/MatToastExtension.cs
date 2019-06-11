@@ -14,7 +14,7 @@ namespace MatBlazor.DependencyInjection
         public static IServiceCollection AddMatToaster(this IServiceCollection services, Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException(nameof(configuration));
-            services.TryAddScoped<IBaseMatToastContainer>(builder => new MatToaster(configuration));
+            services.TryAddScoped<IBaseMatToastContainer>(builder => new MatBlazor.Services.Toast.MatToaster(configuration));
             return services;
         }
 

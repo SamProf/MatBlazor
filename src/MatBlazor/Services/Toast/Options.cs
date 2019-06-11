@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MatBlazor.Components.MatToast;
+using MatBlazor.MatToaster.Helpers;
 
 namespace MatBlazor.Services.Toast
 {
@@ -36,7 +37,6 @@ namespace MatBlazor.Services.Toast
             HideTransitionDuration = configuration.HideTransitionDuration;
 
             ShowProgressBar = configuration.ShowProgressBar;
-            ProgressBarClass = configuration.ProgressBarClass;
 
             ShowCloseButton = configuration.ShowCloseButton;
             CloseIcon = configuration.CloseIcon;

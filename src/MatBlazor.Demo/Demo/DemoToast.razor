@@ -1,12 +1,68 @@
 ﻿@inject MatBlazor.Components.MatToast.IBaseMatToastContainer matToaster
-@using  MatBlazor.Services.Toast;
+@using  MatBlazor.MatToaster.Helpers;
 
 <DocMatToast></DocMatToast>
+<DocMatToastContainer></DocMatToastContainer>
+
+<div class="mat-elevation-z5 mat-layout-grid">
+    <div class="mat-layout-grid-inner-span-12">
+        <h2 class="mat-h2">Installation</h2>
+
+        <h3>
+            Dependency injection configuration
+        </h3>
+        <h5>1. Startup.cs</h5><br />
+        <pre class="code">
+            <code>
+                services.AddMatToaster(config =>
+                {
+                config.PositionClass = MatBlazor.MatToaster.Helpers.Position.BottomRight;
+                config.PreventDuplicates = false;
+                config.NewestOnTop = true;
+                config.ShowCloseButton = true;
+                });
+            </code>
+        </pre>
+        <h3>MatToasterContainter component</h3>
+        <h5>2. App.razor</h5>
+        <p>
+            The toast container must be added to the App.razor component or to another component always loaded in the application like MainLayout.razor.
+            It is important to have exactly one instance of this component rendered in the application tree at any given time.
+        </p>
+        <pre class="code">
+            <code>
+                &lt;MatToastContainer /&gt;
+            </code>
+        </pre>
+        <h3>Usage</h3>
+        <h5>3. Code</h5>
+        <p>In a component:</p>
+        <pre class="code">
+            <code>
+                @@inject MatBlazor.Components.MatToast.IBaseMatToastContainer matToaster
+            </code>
+        </pre>
+        <p>In a class:</p>
+        <pre class="code">
+            <code>
+                [Inject]
+                protected MatBlazor.Components.MatToast.IBaseMatToastContainer matToaster { get; set; }
+                @using  MatBlazor.MatToaster.Helpers;
+            </code>            
+        </pre>
+        <p>Then call one of the display methods:</p>
+        <pre class="code">
+            <code>
+                matToaster.Add("Toast body text");
+                matToaster.Add("Toast body text","Toast title", "code");
+            </code>
+        </pre>
+    </div>
+</div>
 
 <h5 class="mat-h5">Example</h5>
 <DemoContainer>
     <Content>
-
         <div class="mat-layout-grid">
             <div class="mat-layout-grid-inner">
                 <div class="mat-layout-grid-cell">
@@ -16,10 +72,16 @@
                 </div>
                 <div class="mat-layout-grid-cell">
                     <h3>Actions</h3>
+                    <MatButton Raised="true" class="mdc-toast-danger" onclick="@(() => Show(ToastType.Danger))">Danger</MatButton>
+                    <MatButton Raised="true" class="mdc-toast-dark" onclick="@(() => Show(ToastType.Dark, "accessible"))">Dark</MatButton>
                     <MatButton Raised="true" class="mdc-toast-info" onclick="@(() => Show(ToastType.Info))">Info</MatButton>
+                    <MatButton Raised="true" class="mdc-toast-light" onclick="@(() => Show(ToastType.Light))">Light</MatButton>
+                    <MatButton Raised="true" class="mdc-toast-link" onclick="@(() => Show(ToastType.Link,"link"))">Link</MatButton>
+                    <MatButton Raised="true" class="mdc-toast-primary" onclick="@(() => Show(ToastType.Primary))">Primary</MatButton>
+                    <MatButton Raised="true" class="mdc-toast-secondary" onclick="@(() => Show(ToastType.Secondary))">Secondary</MatButton>
                     <MatButton Raised="true" class="mdc-toast-success" onclick="@(() => Show(ToastType.Success))">Success</MatButton>
                     <MatButton Raised="true" class="mdc-toast-warning" onclick="@(() => Show(ToastType.Warning))">Warning</MatButton>
-                    <MatButton Raised="true" class="mdc-toast-danger" onclick="@(() => Show(ToastType.Danger))">Danger</MatButton>
+
                 </div>
                 <div class="mat-layout-grid-cell">
                     <h3>Toast transitions</h3>
@@ -56,7 +118,7 @@
             </div>
         </div>
 
-    
+
         @functions {
             private string _title = "Test Title";
             private string _message = "Test Message";
@@ -96,29 +158,29 @@
                 _requireInteraction = matToaster.Configuration.RequireInteraction;
             }
 
-            public void Show(ToastType type)
+            public void Show(ToastType type, string icon = "")
             {
-                matToaster.Add(type, _message, _title, config =>
-                {
-                    config.ShowCloseButton = _showCloseButton;
-                    config.ShowProgressBar = _showProgressBar;
-                    config.MaximumOpacity = Convert.ToInt32(_maximumOpacity);
+                matToaster.Add(_message, type, _title, icon, config =>
+               {
+                   config.ShowCloseButton = _showCloseButton;
+                   config.ShowProgressBar = _showProgressBar;
+                   config.MaximumOpacity = Convert.ToInt32(_maximumOpacity);
 
-                    config.ShowTransitionDuration = Convert.ToInt32(_showTransitionDuration);
-                    config.VisibleStateDuration = Convert.ToInt32(_visibleStateDuration);
-                    config.HideTransitionDuration = Convert.ToInt32(_hideTransitionDuration);
+                   config.ShowTransitionDuration = Convert.ToInt32(_showTransitionDuration);
+                   config.VisibleStateDuration = Convert.ToInt32(_visibleStateDuration);
+                   config.HideTransitionDuration = Convert.ToInt32(_hideTransitionDuration);
 
-                    config.RequireInteraction = _requireInteraction;
+                   config.RequireInteraction = _requireInteraction;
 
-                    if (_actionOnClick)
-                    {
-                        config.Onclick = toast =>
-                        {
-                            Console.WriteLine($"Title: \"{toast.Title}\"; message: \"{toast.Message}\"; Type: {toast.Options.Type}");
-                            return Task.CompletedTask;
-                        };
-                    }
-                });
+                   if (_actionOnClick)
+                   {
+                       config.Onclick = toast =>
+                       {
+                           Console.WriteLine($"Title: \"{toast.Title}\"; message: \"{toast.Message}\"; Type: {toast.Options.Type}");
+                           return Task.CompletedTask;
+                       };
+                   }
+               });
             }
         }
 
@@ -126,32 +188,124 @@
     </Content>
     <SourceContent>
         <BlazorFiddle Template="MatBlazor" Code=@(@"
-        <div>Danger Alert is open: @toastDangerIsOpen</div>
-        <MatButton OnClick=""DangerButtonClick"">Open</MatButton>
-        <MatToast bind-IsOpen=""@toastDangerIsOpen"" Type=""ToastType.Danger"" Dismissible=""true"" Message=""toastDangerMessage""></MatToast>
+        <div class=""mat-layout-grid"">
+            <div class=""mat-layout-grid-inner"">
+                <div class=""mat-layout-grid-cell"">
+                    <h3>Data</h3>
+                    <p><MatTextField Label=""Title"" bind-Value=""_title""></MatTextField></p>
+                    <p><MatTextField Label=""Message"" bind-Value=""_message""></MatTextField></p>
+                </div>
+                <div class=""mat-layout-grid-cell"">
+                    <h3>Actions</h3>
+                    <MatButton Raised=""true"" class=""mdc-toast-danger"" onclick=""@(() => Show(ToastType.Danger))"">Danger</MatButton>
+                    <MatButton Raised=""true"" class=""mdc-toast-dark"" onclick=""@(() => Show(ToastType.Dark, ""accessible""))"">Dark</MatButton>
+                    <MatButton Raised=""true"" class=""mdc-toast-info"" onclick=""@(() => Show(ToastType.Info))"">Info</MatButton>
+                    <MatButton Raised=""true"" class=""mdc-toast-light"" onclick=""@(() => Show(ToastType.Light))"">Light</MatButton>
+                    <MatButton Raised=""true"" class=""mdc-toast-link"" onclick=""@(() => Show(ToastType.Link,""link""))"">Link</MatButton>
+                    <MatButton Raised=""true"" class=""mdc-toast-primary"" onclick=""@(() => Show(ToastType.Primary))"">Primary</MatButton>
+                    <MatButton Raised=""true"" class=""mdc-toast-secondary"" onclick=""@(() => Show(ToastType.Secondary))"">Secondary</MatButton>
+                    <MatButton Raised=""true"" class=""mdc-toast-success"" onclick=""@(() => Show(ToastType.Success))"">Success</MatButton>
+                    <MatButton Raised=""true"" class=""mdc-toast-warning"" onclick=""@(() => Show(ToastType.Warning))"">Warning</MatButton>
+
+                </div>
+                <div class=""mat-layout-grid-cell"">
+                    <h3>Toast transitions</h3>
+                    <p><MatTextField Label=""Show duration"" Type=""number"" bind-Value=""_showTransitionDuration""></MatTextField></p>
+                    <p><MatTextField Label=""Visible duration"" Type=""number"" bind-Value=""_visibleStateDuration""></MatTextField></p>
+                    <p><MatTextField Label=""Hide duration"" Type=""number"" bind-Value=""_hideTransitionDuration""></MatTextField></p>
+                </div>
+                <div class=""mat-layout-grid-cell"">
+                    <h3>General options</h3>
+                    <p>
+                        <MatSelect Label=""Position"" bind-Value=""@matToaster.Configuration.PositionClass"">
+                            <MatOption Value=""mdc-toast-top-left"">Top left</MatOption>
+                            <MatOption Value=""mdc-toast-top-center"">Top center</MatOption>
+                            <MatOption Value=""mdc-toast-top-right"">Top right</MatOption>
+                            <MatOption Value=""mdc-toast-top-full-width"">Top full width</MatOption>
+                            <MatOption Value=""mdc-toast-bottom-right"">Bottom right</MatOption>
+                            <MatOption Value=""mdc-toast-bottom-center"">Bottom center</MatOption>
+                            <MatOption Value=""mdc-toast-bottom-left"">Bottom left</MatOption>
+                            <MatOption Value=""mdc-toast-bottom-full-width"">Bottom full width</MatOption>
+                        </MatSelect>
+                    </p>
+                    <p><MatTextField Label=""Max visible toasts"" Type=""number"" bind-Value=""_maxDisplayedToasts""></MatTextField></p>
+                    <p><MatCheckbox Label=""Newest on Top"" bind-Checked=""@matToaster.Configuration.NewestOnTop""></MatCheckbox></p>
+                    <p><MatCheckbox Label=""Prevent duplicates"" bind-Checked=""@matToaster.Configuration.PreventDuplicates""></MatCheckbox></p>
+                </div>
+                <div class=""mat-layout-grid-cell"">
+                    <h3>Toast options</h3>
+                    <p><MatTextField Label=""Max opacity (%)"" Type=""number"" bind-Value=""_maximumOpacity""></MatTextField></p>
+                    <p><MatCheckbox Label=""Require interaction"" bind-Checked=""@_requireInteraction""></MatCheckbox></p>
+                    <p><MatCheckbox Label=""Progress bar"" bind-Checked=""@_showProgressBar""></MatCheckbox></p>
+                    <p><MatCheckbox Label=""Close Button"" bind-Checked=""@_showCloseButton""></MatCheckbox></p>
+                    <p><MatCheckbox Label=""Action on click (message in console)"" bind-Checked=""@_actionOnClick""></MatCheckbox></p>
+                </div>
+            </div>
+        </div>
 
 
-        @functions
-        {
-            bool toastDangerIsOpen = false;
-            string toastDangerMessage = ""Danger Will Robinson!"";
-            bool toastInfoIsOpen = false;
-            bool toastSuccessIsOpen = false;
+        @functions {
+            private string _title = ""Test Title"";
+            private string _message = ""Test Message"";
+            private bool _showProgressBar;
+            private bool _showCloseButton;
+            private bool _actionOnClick;
+            private string _maximumOpacity;
 
-            void DangerButtonClick()
+            private string _showTransitionDuration;
+            private string _visibleStateDuration;
+            private string _hideTransitionDuration;
+
+            private bool _requireInteraction;
+
+            public string _maxDisplayedToasts
             {
-                toastDangerIsOpen = true;
-                this.StateHasChanged();
+                get
+                {
+                    return matToaster.Configuration.MaxDisplayedToasts.ToString();
+                }
+                set
+                {
+                    matToaster.Configuration.MaxDisplayedToasts = Convert.ToInt32(value);
+                }
             }
-            void InfoButtonClick()
+
+            protected override void OnInit()
             {
-                toastInfoIsOpen = true;
-                this.StateHasChanged();
+                _showProgressBar = matToaster.Configuration.ShowProgressBar;
+                _showCloseButton = matToaster.Configuration.ShowCloseButton;
+                _maximumOpacity = matToaster.Configuration.MaximumOpacity.ToString();
+
+                _showTransitionDuration = matToaster.Configuration.ShowTransitionDuration.ToString();
+                _visibleStateDuration = matToaster.Configuration.VisibleStateDuration.ToString();
+                _hideTransitionDuration = matToaster.Configuration.HideTransitionDuration.ToString();
+
+                _requireInteraction = matToaster.Configuration.RequireInteraction;
             }
-            void SuccessButtonClick()
+
+            public void Show(ToastType type, string icon = """")
             {
-                toastSuccessIsOpen = true;
-                this.StateHasChanged();
+                matToaster.Add(_message, type, _title, icon, config =>
+               {
+                   config.ShowCloseButton = _showCloseButton;
+                   config.ShowProgressBar = _showProgressBar;
+                   config.MaximumOpacity = Convert.ToInt32(_maximumOpacity);
+
+                   config.ShowTransitionDuration = Convert.ToInt32(_showTransitionDuration);
+                   config.VisibleStateDuration = Convert.ToInt32(_visibleStateDuration);
+                   config.HideTransitionDuration = Convert.ToInt32(_hideTransitionDuration);
+
+                   config.RequireInteraction = _requireInteraction;
+
+                   if (_actionOnClick)
+                   {
+                       config.Onclick = toast =>
+                       {
+                           Console.WriteLine($""Title: \""{toast.Title}\""; message: \""{toast.Message}\""; Type: {toast.Options.Type}"");
+                           return Task.CompletedTask;
+                       };
+                   }
+               });
             }
         }
     ")></BlazorFiddle>

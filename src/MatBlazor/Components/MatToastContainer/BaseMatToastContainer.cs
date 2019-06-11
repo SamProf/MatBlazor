@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Components;
 using System.Linq;
 using System.Collections.Generic;
 using MatBlazor.Components.MatToast;
-using MatBlazor.Services.Toast;
 
 namespace MatBlazor
 {

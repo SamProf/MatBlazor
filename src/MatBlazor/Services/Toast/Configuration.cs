@@ -1,5 +1,5 @@
 ﻿using System;
-using MatBlazor.Services.Toast;
+using MatBlazor.MatToaster.Helpers;
 
 namespace MatBlazor.Services.Toast
 {
@@ -67,14 +67,9 @@ namespace MatBlazor.Services.Toast
             }
         }
 
-        /// <summary>
-        ///  A <see cref="IconClasses"/> instance containing the css classes for all the <see cref="ToastState"/> states.
-        /// </summary>
-        public IconClasses IconClasses = new IconClasses();
-
         public Configuration()
         {
-            PositionClass = Defaults.Classes.Position.BottomRight;
+            PositionClass = Position.BottomRight;
             NewestOnTop = true;
             PreventDuplicates = true;
             MaxDisplayedToasts = 5;
@@ -84,11 +79,16 @@ namespace MatBlazor.Services.Toast
         {
             switch (type)
             {
-                case ToastType.Info: return IconClasses.Info;
-                case ToastType.Danger: return IconClasses.Danger;
-                case ToastType.Success: return IconClasses.Success;
-                case ToastType.Warning: return IconClasses.Warning;
-                default: return IconClasses.Info;
+                case ToastType.Danger: return "mdc-toast-danger";
+                case ToastType.Dark: return "mdc-toast-dark";
+                case ToastType.Info: return "mdc-toast-info";
+                case ToastType.Light: return "mdc-toast-light";
+                case ToastType.Link: return "mdc-toast-light";
+                case ToastType.Primary: return "mdc-toast-primary";
+                case ToastType.Secondary: return "mdc-toast-secondary";
+                case ToastType.Success: return "mdc-toast-success";
+                case ToastType.Warning: return "mdc-toast-warning";
+                default: return "mdc-toast-info";
             }
         }
     }

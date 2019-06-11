@@ -104,6 +104,10 @@
     animation-delay: 0.2s;
 }
 
+.code {
+    background-color: rgb(245, 245, 245);
+}
+
 @-webkit-keyframes sk-cubeGridScaleDelay {
     0%, 70%, 100% {
         -webkit-transform: scale3D(1, 1, 1);

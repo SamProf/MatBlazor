@@ -1,5 +1,7 @@
 ﻿using System;
 using MatBlazor.Services.Toast;
+using MatBlazor.MatToaster.Helpers;
+
 
 namespace MatBlazor.Components.MatToast
 {
@@ -33,7 +35,7 @@ namespace MatBlazor.Components.MatToast
         {
             get
             {           
-                return $"{Options.ToastClass} {"mdc-toast-" + Options.Type.ToString().ToLower() }";
+                return $"{Options.ToastClass} {Options.ToastTypeClass}";
             }
         }
 
@@ -88,10 +90,28 @@ namespace MatBlazor.Components.MatToast
             }
         }
 
-        public IBaseMatToast(string title, string message, Options options)
+        public IBaseMatToast(string message, string title, string icon, Options options)
         {
-            Title = title;
             Message = message;
+            Title = title;           
+            Icon = icon;
+
+            if (string.IsNullOrEmpty(icon)) {
+                switch (options.Type)
+                {
+                    case ToastType.Danger: Icon = "error"; break;
+                    case ToastType.Dark: Icon = "error"; break;
+                    case ToastType.Info: Icon = "info"; break;
+                    case ToastType.Light: Icon = "notification_important"; break;
+                    case ToastType.Link: Icon = "link"; break;
+                    case ToastType.Primary: Icon = "announcement"; break;
+                    case ToastType.Secondary: Icon = "notification_important"; break;
+                    case ToastType.Success: Icon = "check_circle"; break;
+                    case ToastType.Warning: Icon = "warning"; break;                    
+                    default: Icon = "notification_important"; break;
+                };
+            }
+
             Options = options;
 
             AnimationId = $"toaster-{Guid.NewGuid()}";

@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Threading.Tasks;
-using System.Timers;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-using MatBlazor;
 using MatBlazor.Components.MatToast;
-using MatBlazor.Services.Toast;
+using MatBlazor.MatToaster.Helpers;
+
 
 namespace MatBlazor
 {
@@ -22,8 +19,6 @@ namespace MatBlazor
         public string Title => Toast.Title;
 
         public string Message => Toast.Message;
-
-        public string AnimationStyle => Toast.AnimationStyle;
 
         public void Clicked(UIEventArgs args) => Toast.Clicked(false);
         public void CloseIconClicked(UIEventArgs args) => Toast.Clicked(true);

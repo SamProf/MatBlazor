@@ -474,7 +474,7 @@
         <member name="T:MatBlazor.Components.MatToast.IBaseMatToastContainer">
             <inheritdoc />
             <summary>
-            Represents an instance of the Toaster engine
+            Represents an instance of the MatToaster engine
             </summary>
         </member>
         <member name="P:MatBlazor.Components.MatToast.IBaseMatToastContainer.Toasts">
@@ -492,13 +492,14 @@
             An event raised when the list of toasts changes or a global configuration setting is modified
             </summary>
         </member>
-        <member name="M:MatBlazor.Components.MatToast.IBaseMatToastContainer.Add(MatBlazor.Services.Toast.ToastType,System.String,System.String,System.Action{MatBlazor.Services.Toast.Options})">
+        <member name="M:MatBlazor.Components.MatToast.IBaseMatToastContainer.Add(System.String,MatBlazor.MatToaster.Helpers.ToastType,System.String,System.String,System.Action{MatBlazor.Services.Toast.Options})">
             <summary>
-            Displays a toast with the specified <see cref="!:MatBlazor.Services.Toast." />
+            Displays a toast with the specified <see cref="T:MatBlazor.MatToast" />
             </summary>
-            <param name="type">The toast <see cref="!:MatBlazor.Services.Toast."/></param>
             <param name="message">The toast main message</param>
+            <param name="type">The optional toast <see cref="T:MatBlazor.MatToaster.Helpers.ToastType"/></param>
             <param name="title">The optional toast tile</param>
+            <param name="icon">The optional toast icon</param>
             <param name="configure">An action for configuring a <see cref="T:MatBlazor.Services.Toast.Options"/> instance already containing the globally configured settings</param>
         </member>
         <member name="M:MatBlazor.Components.MatToast.IBaseMatToastContainer.Clear">
@@ -524,9 +525,14 @@
             Toasts provide brief notifications or messages about app processes
             </summary>
         </member>
+        <member name="T:MatBlazor.Services.Toast.CommonOptions">
+            <summary>
+            The common options for MatToaster
+            </summary>
+        </member>
         <member name="P:MatBlazor.Services.Toast.CommonOptions.ToastClass">
             <summary>
-            The main toast class. Defaults to <see cref="F:MatBlazor.Services.Toast.Defaults.Classes.Toast"/>
+            The main toast class. Defaults to <see cref="F:MatBlazor.MatToaster.Helpers.Classes.Toast"/>
             </summary>
         </member>
         <member name="P:MatBlazor.Services.Toast.CommonOptions.MaximumOpacity">
@@ -536,7 +542,7 @@
         </member>
         <member name="P:MatBlazor.Services.Toast.CommonOptions.ShowTransitionDuration">
             <summary>
-            How long the showing transition takes to bring a toast to the MaximumOpacity and set it to the Visible state. Defaults to 1000 ms.
+            How long the showing transition takes to bring a toast to the MaximumOpacity and set it to the Visible state. Defaults to 500 ms.
             </summary>
         </member>
         <member name="P:MatBlazor.Services.Toast.CommonOptions.ShowStepDuration">
@@ -551,7 +557,7 @@
         </member>
         <member name="P:MatBlazor.Services.Toast.CommonOptions.HideTransitionDuration">
             <summary>
-            How long the hiding transition takes to make a toast disappear. Defaults to 2000 ms.
+            How long the hiding transition takes to make a toast disappear. Defaults to 500 ms.
             </summary>
         </member>
         <member name="P:MatBlazor.Services.Toast.CommonOptions.HideStepDuration">
@@ -569,11 +575,6 @@
             Interval between component repaint during the Visible state: it's used only if ShowProgressBar is true. Defaults to 50 ms.
             </summary>
         </member>
-        <member name="P:MatBlazor.Services.Toast.CommonOptions.ProgressBarClass">
-            <summary>
-            The css class for the progress bar. Defaults to <see cref="F:MatBlazor.Services.Toast.Defaults.Classes.ProgressBarClass"/>.
-            </summary>
-        </member>
         <member name="P:MatBlazor.Services.Toast.CommonOptions.ShowCloseButton">
             <summary>
             States if the close button has to be used for hiding a toast. The button presence disables the default "hide on click" behaviour. Defaults to true.
@@ -581,7 +582,7 @@
         </member>
         <member name="P:MatBlazor.Services.Toast.CommonOptions.CloseIcon">
             <summary>
-            The css class for the close icon. Defaults to <see cref="F:MatBlazor.Services.Toast.Defaults.Classes.CloseIcon"/>.
+            The css class for the close icon. Defaults to <see cref="F:MatBlazor.MatToaster.Helpers.Classes.CloseIcon"/>.
             </summary>
         </member>
         <member name="P:MatBlazor.Services.Toast.CommonOptions.RequireInteraction">
@@ -611,37 +612,7 @@
         </member>
         <member name="P:MatBlazor.Services.Toast.Configuration.PositionClass">
             <summary>
-            The css class driving the toast position in the screen. The predefined positions are contained in <see cref="T:MatBlazor.Services.Toast.Defaults.Classes.Position"/>. Defaults to <see cref="F:MatBlazor.Services.Toast.Defaults.Classes.Position.TopRight"/>
-            </summary>
-        </member>
-        <member name="F:MatBlazor.Services.Toast.Configuration.IconClasses">
-            <summary>
-             A <see cref="F:MatBlazor.Services.Toast.Configuration.IconClasses"/> instance containing the css classes for all the <see cref="T:MatBlazor.Services.Toast.ToastState"/> states.
-            </summary>
-        </member>
-        <member name="T:MatBlazor.Services.Toast.IconClasses">
-            <summary>
-            Defines the css classes to be used for the <see cref="T:MatBlazor.Services.Toast.ToastState"/>
-            </summary>
-        </member>
-        <member name="P:MatBlazor.Services.Toast.IconClasses.Info">
-            <summary>
-            The css class for the Info <see cref="T:MatBlazor.Services.Toast.ToastState"/>. Defaults to <see cref="F:MatBlazor.Services.Toast.Defaults.Classes.Icons.Info"/>
-            </summary>
-        </member>
-        <member name="P:MatBlazor.Services.Toast.IconClasses.Success">
-            <summary>
-            The css class for the Success <see cref="T:MatBlazor.Services.Toast.ToastState"/>. Defaults to <see cref="F:MatBlazor.Services.Toast.Defaults.Classes.Icons.Success"/>
-            </summary>
-        </member>
-        <member name="P:MatBlazor.Services.Toast.IconClasses.Danger">
-            <summary>
-            The css class for the Warning <see cref="T:MatBlazor.Services.Toast.ToastState"/>. Defaults to <see cref="F:MatBlazor.Services.Toast.Defaults.Classes.Icons.Warning"/>
-            </summary>
-        </member>
-        <member name="P:MatBlazor.Services.Toast.IconClasses.Warning">
-            <summary>
-            The css class for the Error <see cref="T:MatBlazor.Services.Toast.ToastState"/>. Defaults to <see cref="!:Defaults.Classes.Icons.Error"/>
+            The css class driving the toast position in the screen. The predefined positions are contained in <see cref="!:Defaults.Classes.Position"/>. Defaults to <see cref="!:Defaults.Classes.Position.TopRight"/>
             </summary>
         </member>
         <member name="P:MatBlazor.Services.Toast.Options.Onclick">

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MatBlazor.MatToaster.Helpers;
 
 namespace MatBlazor.Services.Toast
 {
@@ -17,13 +18,13 @@ namespace MatBlazor.Services.Toast
             Configuration.OnUpdate += ConfigurationUpdated;            
         }
 
-        public void Add(ToastType type, string message, string title, Action<Options> configure)
+        public void Add(string message, ToastType type, string title, string icon, Action<Options> configure)
         {
             if (string.IsNullOrEmpty(message)) return;
 
             message = message.Trim();
-            title = title.Trim();
-
+            title = string.IsNullOrEmpty(title) ? "" : title.Trim();
+            
             if (Configuration.PreventDuplicates && ToastAlreadyPresent(message, title, type))
             {
                 return;
@@ -32,13 +33,13 @@ namespace MatBlazor.Services.Toast
             var options = new Options(type, Configuration);
             configure?.Invoke(options);
 
-            var toast = new IBaseMatToast(title, message, options);
+            var toast = new IBaseMatToast(message, title, icon, options);
             toast.OnClose += Remove;
             Toasts.Add(toast);
 
             OnToastsUpdated?.Invoke();
         }
-
+               
         public void Clear()
         {
             var toasts = Toasts;
