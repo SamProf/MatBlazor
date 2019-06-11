@@ -113,7 +113,7 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 ## News
 
 ### MatBlazor 1.1.2
-- MatToast (many thanks to [enkodellc](https://github.com/enkodellc))
+- MatToast (Thanks to [enkodellc](https://github.com/enkodellc))
 
 ### MatBlazor 1.1.1
 - Fixed Clicking on Icon in DatePicker doesn't show the calender selection window. #86 

@@ -1,0 +1,57 @@
+﻿@page "/Breakpoints";
+
+<h3 class="mat-h3">MatBreakpoint</h3>
+<h5 class="mat-h5">
+    API that enables the use of breakpoints in a wide variety of contexts.
+</h5>
+
+<p>
+    For optimal user experience, material design interfaces need to be able to adapt their layout at various breakpoints. MatBlazor uses a simplified implementation of the original specification.
+</p>
+
+<p>Each breakpoint (a key) matches with a fixed screen width (a value):</p>
+
+
+<div>
+    <table class="article-table mat-elevation-z5">
+        <tr>
+            <th>Breakpoint</th>
+            <th>Size</th>
+            <th>Description</th>
+        </tr>
+
+        <tr>
+            <td>XS</td>
+            <td>0px</td>
+            <td>extra-small</td>
+        </tr>
+        <tr>
+            <td>SM</td>
+            <td>600px</td>
+            <td>small</td>
+        </tr>
+        <tr>
+            <td>MD</td>
+            <td>960px</td>
+            <td>medium</td>
+        </tr>
+        <tr>
+            <td>LG</td>
+            <td>1280px</td>
+            <td>large</td>
+        </tr>
+        <tr>
+            <td>XL</td>
+            <td>1920</td>
+            <td>extra-large</td>
+        </tr>
+    </table>
+</div>
+
+<p>
+    These breakpoint values are used to determine breakpoint ranges. A range starts from the breakpoint value inclusive, to the next breakpoint value exclusive:
+</p>
+
+<div>
+    <img class="article-image" src="https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/mat-breakpoints.png"/>
+</div>

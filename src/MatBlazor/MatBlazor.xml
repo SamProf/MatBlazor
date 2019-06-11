@@ -221,6 +221,11 @@
             A floating action button represents the primary action in an application.
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatHidden">
+            <summary>
+            Quickly and responsively toggle the visibility value of components and more with our hidden utilities.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatIconButton">
             <summary>
             Icons are appropriate for buttons that allow a user to take actions or make a selection, such as adding or removing a star to an item.

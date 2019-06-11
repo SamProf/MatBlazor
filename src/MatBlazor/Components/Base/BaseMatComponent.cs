@@ -11,6 +11,9 @@ namespace MatBlazor
         [Parameter]
         public ForwardRef RefBack { get; set; }
 
+
+        public string MatBlazorId = IdGeneratorHelper.Generate("matBlazor_id_");
+
         [Inject]
         protected IJSRuntime Js { get; set; }
 
@@ -55,7 +58,7 @@ namespace MatBlazor
         {
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             Disposed = true;
         }

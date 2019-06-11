@@ -36,6 +36,10 @@
     padding: 12px 12px 12px 24px;
 }
 
+.article-image {
+    max-width: 100%;
+}
+
 .article-table td:first-child { border-left: none; }
 
 .article-table td:last-child {
