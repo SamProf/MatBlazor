@@ -112,7 +112,7 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
-### In progress: MatBlazor 1.2.0
+### MatBlazor 1.2.0
 - .NET Core 3.0.100-preview6-012264
 - MatToast (Thanks to [enkodellc](https://github.com/enkodellc))
 - MatNumericUpDownField (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
