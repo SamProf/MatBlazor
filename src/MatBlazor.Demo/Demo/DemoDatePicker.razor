@@ -12,7 +12,7 @@
 
         <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : "")</span>
 
-        @functions
+        @code
         {
             public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
         }
@@ -28,7 +28,7 @@
 
         <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : """")</span>
 
-        @functions
+        @code
         {
             public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
         }

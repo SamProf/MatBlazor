@@ -17,7 +17,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("matBlazor.matSlider.init", Ref, new DotNetObjectRef(jsHelper));
+            await Js.InvokeAsync<object>("matBlazor.matSlider.init", Ref, DotNetObjectRef.Create(jsHelper));
         }
 
         public BaseMatSlider()

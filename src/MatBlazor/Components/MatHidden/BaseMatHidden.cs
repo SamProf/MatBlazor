@@ -51,7 +51,7 @@ namespace MatBlazor
         {
             CallAfterRender(async () =>
             {
-                await Js.InvokeAsync<object>("matBlazor.matHidden.init", MatBlazorId, new DotNetObjectRef(this));
+                await Js.InvokeAsync<object>("matBlazor.matHidden.init", MatBlazorId, DotNetObjectRef.Create(this));
                 await UpdateVisible();
             });
         }

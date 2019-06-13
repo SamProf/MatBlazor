@@ -32,7 +32,7 @@ namespace MatBlazor
 
         public BaseMatDatePicker()
         {
-            CallAfterRender(async () => { Js.InvokeAsync<object>("matBlazor.matDatePicker.init", Ref, new DotNetObjectRef(this), Value); });
+            CallAfterRender(async () => { Js.InvokeAsync<object>("matBlazor.matDatePicker.init", Ref, DotNetObjectRef.Create(this), Value); });
         }
 
 

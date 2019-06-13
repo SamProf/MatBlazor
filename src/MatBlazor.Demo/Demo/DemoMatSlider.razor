@@ -5,7 +5,7 @@
     <Content>
         <MatSlider bind-Value="@Val"></MatSlider>
 
-        @functions
+        @code
         {
 
             public decimal Val
@@ -26,7 +26,7 @@
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider bind-Value=""@Val""></MatSlider>
 
-        @functions
+        @code
         {
 
             public decimal Val
@@ -52,7 +52,7 @@
     <Content>
         <MatSlider bind-Value="@Val2" ValueMin="-10" ValueMax="20"></MatSlider>
 
-        @functions
+        @code
         {
 
             public decimal Val2
@@ -73,7 +73,7 @@
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider bind-Value=""@Val2"" ValueMin=""-10"" ValueMax=""20""></MatSlider>
 
-        @functions
+        @code
         {
 
             public decimal Val2
@@ -99,7 +99,7 @@
     <Content>
         <MatSlider bind-Value="@Val3" Discrete="true"></MatSlider>
 
-        @functions
+        @code
         {
 
             public decimal Val3
@@ -120,7 +120,7 @@
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider bind-Value=""@Val3"" Discrete=""true""></MatSlider>
 
-        @functions
+        @code
         {
 
             public decimal Val3
@@ -148,7 +148,7 @@
         <Content>
             <MatSlider bind-Value="@Val4" Step="5"></MatSlider>
 
-            @functions
+            @code
             {
 
                 public decimal Val4
@@ -169,7 +169,7 @@
         	<BlazorFiddle Template="MatBlazor" Code=@(@"
             <MatSlider bind-Value=""@Val4"" Step=""5""></MatSlider>
 
-            @functions
+            @code
             {
 
                 public decimal Val4
@@ -209,7 +209,7 @@
     <Content>
         <MatSlider ValueChanged="@OnValueChanged"></MatSlider>
 
-        @functions
+        @code
         {
 
             public void OnValueChanged(decimal val)
@@ -224,7 +224,7 @@
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider ValueChanged=""@OnValueChanged""></MatSlider>
 
-        @functions
+        @code
         {
 
             public void OnValueChanged(decimal val)
