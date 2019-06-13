@@ -6,7 +6,7 @@
     <Content>
         <MatAutocomplete Collection="@options" ItemType="string" Label="Pick one"></MatAutocomplete>
 
-        @code
+        @functions
         {
 
             string[] options = new[]
@@ -23,7 +23,7 @@
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatAutocomplete Collection=""@options"" ItemType=""string"" Label=""Pick one""></MatAutocomplete>
 
-        @code
+        @functions
         {
 
             string[] options = new[]
@@ -80,7 +80,7 @@
             Selected value: @(value?.Name)
         </p>
 
-        @code
+        @functions
         {
 
             public class Car
@@ -127,7 +127,7 @@
             Selected value: @(value?.Name)
         </p>
 
-        @code
+        @functions
         {
 
             public class Car
