@@ -51,7 +51,7 @@ namespace MatBlazor
                 .If("mdc-snackbar--leading", () => Leading);
             CallAfterRender(async () =>
             {
-                dotNetObjectRef = dotNetObjectRef ?? DotNetObjectRef.Create(this);
+                dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
                 await Js.InvokeAsync<object>("matBlazor.matSnackbar.init", Ref, dotNetObjectRef);
             });
         }
@@ -59,7 +59,7 @@ namespace MatBlazor
         public override void Dispose()
         {
             base.Dispose();
-            dotNetObjectRef?.Dispose();
+            DisposeDotNetObjectRef(dotNetObjectRef);
         }
 
         [JSInvokable]

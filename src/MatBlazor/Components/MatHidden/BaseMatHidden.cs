@@ -53,7 +53,7 @@ namespace MatBlazor
             
             CallAfterRender(async () =>
             {
-                dotNetObjectRef = dotNetObjectRef ?? DotNetObjectRef.Create(this);
+                dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
                 await Js.InvokeAsync<object>("matBlazor.matHidden.init", MatBlazorId, dotNetObjectRef);
                 await UpdateVisible();
             });
@@ -69,7 +69,7 @@ namespace MatBlazor
         public override void Dispose()
         {
             base.Dispose();
-            dotNetObjectRef?.Dispose();
+            DisposeDotNetObjectRef(dotNetObjectRef);
             Js.InvokeAsync<object>("matBlazor.matHidden.destroy", MatBlazorId);
         }
     }

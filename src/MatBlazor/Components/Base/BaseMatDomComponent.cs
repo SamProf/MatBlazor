@@ -67,5 +67,6 @@ namespace MatBlazor
 
         private string _class;
         private string _style;
+        
     }
 }

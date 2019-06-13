@@ -14,11 +14,7 @@ namespace MatBlazor
 
         public string MatBlazorId = IdGeneratorHelper.Generate("matBlazor_id_");
 
-        [Inject]
-        protected IJSRuntime Js { get; set; }
-
-        [Inject]
-        protected IComponentContext ComponentContext { get; set; }
+        
 
         private Queue<Func<Task>> afterRenderCallQuene = new Queue<Func<Task>>();
 
@@ -68,5 +64,36 @@ namespace MatBlazor
         }
 
         protected bool Disposed { get; private set; }
+
+
+        [Inject]
+        protected IJSRuntime Js { get; set; }
+
+        #region Hack to fix https://github.com/aspnet/AspNetCore/issues/11159
+
+        public static object CreateDotNetObjectRefSyncObj = new object();
+
+        protected DotNetObjectRef<T> CreateDotNetObjectRef<T>(T value) where T : class
+        {
+            lock (CreateDotNetObjectRefSyncObj)
+            {
+                JSRuntime.SetCurrentJSRuntime(Js);
+                return DotNetObjectRef.Create(value);
+            }
+        }
+
+        protected void DisposeDotNetObjectRef<T>(DotNetObjectRef<T> value) where T : class
+        {
+            if (value != null)
+            {
+                lock (CreateDotNetObjectRefSyncObj)
+                {
+                    JSRuntime.SetCurrentJSRuntime(Js);
+                    value.Dispose();
+                }
+            }
+        }
+
+        #endregion
     }
 }

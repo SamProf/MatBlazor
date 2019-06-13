@@ -20,12 +20,13 @@ namespace MatBlazor
         public BaseMatSlider()
         {
             jsHelper = new JsHelper(this);
-            dotNetObjectRef = DotNetObjectRef.Create(jsHelper);
+            
             ClassMapper
                 .Add("mdc-slider")
                 .If("mdc-slider--discrete", () => Discrete);
             CallAfterRender(async () =>
             {
+                dotNetObjectRef = dotNetObjectRef??CreateDotNetObjectRef(jsHelper);
                 await Js.InvokeAsync<object>("matBlazor.matSlider.init", Ref, dotNetObjectRef);
             });
         }
@@ -33,7 +34,7 @@ namespace MatBlazor
         public override void Dispose()
         {
             base.Dispose();
-            dotNetObjectRef.Dispose();
+            DisposeDotNetObjectRef(dotNetObjectRef);
         }
 
 

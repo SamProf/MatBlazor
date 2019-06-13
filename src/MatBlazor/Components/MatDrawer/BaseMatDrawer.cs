@@ -51,7 +51,7 @@ namespace MatBlazor
         private DotNetObjectRef<BaseMatDrawer> dotNetObjectRef;
         public BaseMatDrawer()
         {
-            dotNetObjectRef = DotNetObjectRef.Create(this);
+            
             ClassMapper
                 .Add("mdc-drawer")
                 .Add("mat-drawer")
@@ -61,6 +61,7 @@ namespace MatBlazor
 
             this.CallAfterRender(async () =>
             {
+                dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
                 await Js.InvokeAsync<object>("matBlazor.matDrawer.init", Ref, dotNetObjectRef);
             });
         }
@@ -68,7 +69,7 @@ namespace MatBlazor
         public override void Dispose()
         {
             base.Dispose();
-            dotNetObjectRef.Dispose();
+            DisposeDotNetObjectRef(dotNetObjectRef);
         }
 
 

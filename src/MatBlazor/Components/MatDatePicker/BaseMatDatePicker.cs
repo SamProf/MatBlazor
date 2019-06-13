@@ -31,24 +31,22 @@ namespace MatBlazor
         }
 
 
-
         private DotNetObjectRef<BaseMatDatePicker> dotNetObjectRef;
 
         public BaseMatDatePicker()
         {
-            dotNetObjectRef = DotNetObjectRef.Create(this);
             CallAfterRender(async () =>
             {
+                dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
                 Js.InvokeAsync<object>("matBlazor.matDatePicker.init", Ref, dotNetObjectRef, Value);
             });
         }
 
-        public  override void Dispose()
+        public override void Dispose()
         {
             base.Dispose();
-            dotNetObjectRef.Dispose();
+            DisposeDotNetObjectRef(dotNetObjectRef);
         }
-
 
 
         [JSInvokable]
