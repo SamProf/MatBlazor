@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-
     /// <summary>
     /// The Material Design color system can be used to create a color theme that reflects your brand or style.
     /// </summary>
@@ -29,6 +28,7 @@ namespace MatBlazor
                 {
                     _theme.Changed -= _theme_Changed;
                 }
+
                 _theme = value;
 
                 if (_theme != null)

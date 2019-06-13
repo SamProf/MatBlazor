@@ -32,9 +32,11 @@ namespace MatBlazor
 
         public BaseMatDatePicker()
         {
-            CallAfterRender(async () => { Js.InvokeAsync<object>("matBlazor.matDatePicker.init", Ref, DotNetObjectRef.Create(this), Value); });
+            CallAfterRender(async () =>
+            {
+                Js.InvokeAsync<object>("matBlazor.matDatePicker.init", Ref, DotNetObjectRef.Create(this), Value);
+            });
         }
-
 
 
         [JSInvokable]
@@ -47,17 +49,13 @@ namespace MatBlazor
         }
 
 
-
         public async override Task SetParametersAsync(ParameterCollection parameters)
         {
             var valueIsChanged = this.ParameterIsChanged(parameters, nameof(Value), Value);
             await base.SetParametersAsync(parameters);
             if (valueIsChanged)
             {
-                CallAfterRender(async () =>
-                {
-                    Js.InvokeAsync<object>("matBlazor.matDatePicker.setDate", Ref, Value);
-                });
+                CallAfterRender(async () => { Js.InvokeAsync<object>("matBlazor.matDatePicker.setDate", Ref, Value); });
             }
         }
     }

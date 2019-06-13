@@ -7,8 +7,20 @@
         <p>
             <MatDatePicker bind-Value="@Date1"></MatDatePicker>
         </p>
-        <MatButton OnClick="@(_=> { Date1 = DateTime.Now; this.StateHasChanged(); })">Now</MatButton>
-        <MatButton OnClick="@(_=> { Date1 = null; this.StateHasChanged(); })">Empty</MatButton>
+        <MatButton OnClick="@(_ =>
+                              {
+                                  Date1 = DateTime.Now;
+                                  this.StateHasChanged();
+                              })">
+            Now
+        </MatButton>
+        <MatButton OnClick="@(_ =>
+                              {
+                                  Date1 = null;
+                                  this.StateHasChanged();
+                              })">
+            Empty
+        </MatButton>
 
         <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : "")</span>
 
@@ -23,8 +35,20 @@
         <p>
             <MatDatePicker bind-Value=""@Date1""></MatDatePicker>
         </p>
-        <MatButton OnClick=""@(_=> { Date1 = DateTime.Now; this.StateHasChanged(); })"">Now</MatButton>
-        <MatButton OnClick=""@(_=> { Date1 = null; this.StateHasChanged(); })"">Empty</MatButton>
+        <MatButton OnClick=""@(_ =>
+                              {
+                                  Date1 = DateTime.Now;
+                                  this.StateHasChanged();
+                              })"">
+            Now
+        </MatButton>
+        <MatButton OnClick=""@(_ =>
+                              {
+                                  Date1 = null;
+                                  this.StateHasChanged();
+                              })"">
+            Empty
+        </MatButton>
 
         <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : """")</span>
 

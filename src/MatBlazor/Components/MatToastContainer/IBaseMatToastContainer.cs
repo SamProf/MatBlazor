@@ -32,7 +32,8 @@ namespace MatBlazor
         /// <param name="title">The optional toast tile</param>
         /// <param name="icon">The optional toast icon</param>
         /// <param name="configure">An action for configuring a <see cref="Options"/> instance already containing the globally configured settings</param>
-        void Add(string message, ToastType type, string title = null, string icon = null, Action<Options> configure = null);
+        void Add(string message, ToastType type, string title = null, string icon = null,
+            Action<Options> configure = null);
 
         /// <summary>
         /// Hides all the toasts, including the ones waiting to be displayed

@@ -54,16 +54,15 @@ namespace MatBlazor
 
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
-                       
+
         [Parameter]
         public string Icon { get; set; }
 
         [Parameter]
         public ToastType Type { get; set; }
-                     
+
         public BaseMatToast()
         {
-
         }
     }
 }

@@ -13,7 +13,7 @@ namespace MatBlazor
         public MatToaster(Configuration configuration)
         {
             Configuration = configuration;
-            Configuration.OnUpdate += ConfigurationUpdated;            
+            Configuration.OnUpdate += ConfigurationUpdated;
         }
 
         public void Add(string message, ToastType type, string title, string icon, Action<Options> configure)
@@ -22,7 +22,7 @@ namespace MatBlazor
 
             message = message.Trim();
             title = string.IsNullOrEmpty(title) ? "" : title.Trim();
-            
+
             if (Configuration.PreventDuplicates && ToastAlreadyPresent(message, title, type))
             {
                 return;
@@ -37,7 +37,7 @@ namespace MatBlazor
 
             OnToastsUpdated?.Invoke();
         }
-               
+
         public void Clear()
         {
             var toasts = Toasts;

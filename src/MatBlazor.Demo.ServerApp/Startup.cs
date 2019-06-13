@@ -54,7 +54,6 @@ namespace MatBlazor.Demo.ServerApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
@@ -76,7 +75,6 @@ namespace MatBlazor.Demo.ServerApp
             app.UseStaticFiles();
 
 
-
             app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatDomComponent).Assembly);
 
             app.UseEmbeddedBlazorContent(typeof(MatBlazor.Demo.Pages.Index).Assembly);
@@ -86,7 +84,7 @@ namespace MatBlazor.Demo.ServerApp
 
             app.UseSignalR(route => route.MapHub<ComponentHub>(ComponentHub.DefaultPath, o =>
             {
-                o.ApplicationMaxBufferSize = 1024*1024*100; // larger size
+                o.ApplicationMaxBufferSize = 1024 * 1024 * 100; // larger size
                 o.TransportMaxBufferSize = 1024 * 1024 * 100; // larger size
             }));
 
@@ -98,6 +96,4 @@ namespace MatBlazor.Demo.ServerApp
             });
         }
     }
-
-
 }

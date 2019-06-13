@@ -35,6 +35,7 @@ namespace MatBlazor
                                 contentItemType = EmbeddedContentItemType.Js;
                                 break;
                             }
+
                             case ".CSS":
                             {
                                 contentItemType = EmbeddedContentItemType.Css;
@@ -60,6 +61,7 @@ namespace MatBlazor
                             }
                         }
                     }
+
                     dic.Add(assembly, value);
                 }
 

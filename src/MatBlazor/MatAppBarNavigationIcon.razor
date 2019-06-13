@@ -5,13 +5,13 @@
 @functions
 {
 
-[Parameter]
-public EventCallback<UIMouseEventArgs> OnClick { get; set; }
+    [Parameter]
+    public EventCallback<UIMouseEventArgs> OnClick { get; set; }
 
 
-void OnClickHandler(UIMouseEventArgs e)
-{
-    OnClick.InvokeAsync(e);
-}
+    void OnClickHandler(UIMouseEventArgs e)
+    {
+        OnClick.InvokeAsync(e);
+    }
 
 }

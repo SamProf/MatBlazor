@@ -27,7 +27,8 @@ namespace MatBlazor
         /// <summary>
         /// Adds a singleton <see cref="IBaseMatToastContainer"/> instance to the DI <see cref="IServiceCollection"/> with an action for configuring the default <see cref="Configuration"/>
         /// </summary>
-        public static IServiceCollection AddMatToaster(this IServiceCollection services, Action<Configuration> configure)
+        public static IServiceCollection AddMatToaster(this IServiceCollection services,
+            Action<Configuration> configure)
         {
             if (configure == null) throw new ArgumentNullException(nameof(configure));
 

@@ -21,7 +21,9 @@ namespace MatBlazor
             Ratio = 1
         };
 
-        private TransitionState() { }
+        private TransitionState()
+        {
+        }
 
         public TransitionState(TransitionTimer timer, int maximumOpacity)
         {
@@ -42,5 +44,5 @@ namespace MatBlazor
                 Ratio = timer.RemainingMilliseconds / Duration;
             }
         }
-    }    
+    }
 }

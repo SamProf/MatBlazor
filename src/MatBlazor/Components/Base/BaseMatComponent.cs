@@ -45,6 +45,7 @@ namespace MatBlazor
                     {
                         return;
                     }
+
                     await action();
                 }
             }

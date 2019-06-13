@@ -7,7 +7,6 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatIcon : BaseMatDomComponent
     {
-
         [Parameter]
         public string Icon { get; set; }
 

@@ -20,13 +20,14 @@ namespace MatBlazor
         protected IEnumerable<AutocompleteElementWrapper<ItemType>> GetFilteredCollection(string searchText)
         {
             return Collection.Select(x => new AutocompleteElementWrapper<ItemType>()
-            {
-                StringValue = ComputeStringValue(x),
-                Element = x
-            })
-            .Where(x => x != null &&
-            (string.IsNullOrEmpty(searchText) || x.StringValue.ToLowerInvariant().Contains(searchText.ToLowerInvariant())))
-            .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup);
+                {
+                    StringValue = ComputeStringValue(x),
+                    Element = x
+                })
+                .Where(x => x != null &&
+                            (string.IsNullOrEmpty(searchText) || x.StringValue.ToLowerInvariant()
+                                 .Contains(searchText.ToLowerInvariant())))
+                .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup);
         }
 
         protected bool IsShowingClearButton
@@ -36,10 +37,7 @@ namespace MatBlazor
 
         public bool IsOpened
         {
-            get
-            {
-                return isOpened;
-            }
+            get { return isOpened; }
             set
             {
                 isOpened = value;
@@ -72,33 +70,28 @@ namespace MatBlazor
         [Parameter]
         protected string StringValue
         {
-            get
-            {
-                return stringValue;
-            }
+            get { return stringValue; }
             set
             {
                 stringValue = value;
                 OnTextChanged.InvokeAsync(value);
             }
         }
-       
+
         /// <summary>
         /// The value to be used to pre-select an item from the list
         /// </summary>
         [Parameter]
         protected ItemType Value
         {
-            get
-            {
-                return _value;
-            }
+            get { return _value; }
             set
             {
                 if (EqualValues(value, _value))
                 {
                     return;
                 }
+
                 _value = value;
                 StringValue = EqualValues(Value, default(ItemType)) ? string.Empty : ComputeStringValue(Value);
                 ValueChanged.InvokeAsync(_value);
@@ -176,7 +169,7 @@ namespace MatBlazor
 
         public void OnValueChanged(UIChangeEventArgs ev)
         {
-            StringValue = (string)ev.Value;
+            StringValue = (string) ev.Value;
             StateHasChanged();
         }
 
@@ -197,7 +190,7 @@ namespace MatBlazor
         public BaseMatAutocomplete()
         {
             WrapperClassMapper.Add("mat-autocomplete-wrapper")
-                              .If("mat-autocomplete-wrapper-fullwidth", () => FullWidth);
+                .If("mat-autocomplete-wrapper-fullwidth", () => FullWidth);
         }
 
         private string ComputeStringValue(ItemType obj)

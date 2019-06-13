@@ -15,7 +15,7 @@ namespace MatBlazor
         protected bool InvalidInput { get; private set; }
 
         [Parameter]
-        public decimal? Value  // obj-type
+        public decimal? Value // obj-type
         {
             get => _value;
             set
@@ -71,12 +71,11 @@ namespace MatBlazor
             firstSet = false;
         }
 
-        protected string UiBindedValue  // obj-type
+        protected string UiBindedValue // obj-type
         {
             get => _uiBindedValue;
             set
             {
-
                 bool isDecimal = decimal.TryParse(value, out decimal valueAux);
 
                 if (String.IsNullOrWhiteSpace(value))
@@ -95,7 +94,6 @@ namespace MatBlazor
                     valueAux = Sanitize(valueAux).Value;
                     ReduxSetValue(valueAux);
                 }
-
             }
         }
 
@@ -124,7 +122,6 @@ namespace MatBlazor
             }
 
             return Math.Round(value.Value, DecimalPlaces);
-
         }
 
         protected async void Increase()
@@ -237,6 +234,7 @@ namespace MatBlazor
                 InputClassMapper.MakeDirty();
             }
         }
+
         /// <summary>
         /// Style attribute of input element
         /// </summary>
@@ -258,28 +256,28 @@ namespace MatBlazor
                 .Add("mat-numericUpDownField")
                 .Add("mdc-text-field")
                 .Add("_mdc-text-field--upgraded")
-                .If("mdc-text-field--with-leading-icon", () => this.Icon != null )
+                .If("mdc-text-field--with-leading-icon", () => this.Icon != null)
                 .If("mdc-text-field--with-trailing-icon", () => true)
-                .If("mdc-text-field--invalid", () => this.InvalidInput )
+                .If("mdc-text-field--invalid", () => this.InvalidInput)
                 .If("mdc-text-field--box", () => !this.FullWidth && this.Box)
                 .If("mdc-text-field--dense", () => Dense)
                 .If("mdc-text-field--outlined", () => !this.FullWidth && this.Outlined)
                 .If("mdc-text-field--disabled", () => this.Disabled)
                 .If("mdc-text-field--fullwidth", () => this.FullWidth)
                 .If("mdc-text-field--fullwidth-with-leading-icon",
-                    () => this.FullWidth && this.Icon != null )
+                    () => this.FullWidth && this.Icon != null)
                 .If("mdc-text-field--fullwidth-with-trailing-icon",
                     () => false);
 
             LabelClassMapper
                 .Add("mdc-floating-label")
-                .If("mat-floating-label--float-above-outlined", () => Outlined && !string.IsNullOrEmpty(UiBindedValue) )
+                .If("mat-floating-label--float-above-outlined", () => Outlined && !string.IsNullOrEmpty(UiBindedValue))
                 .If("mdc-floating-label--float-above", () => !string.IsNullOrEmpty(UiBindedValue));
 
             InputClassMapper
                 .Get(() => this.InputClass)
                 .Add("mdc-text-field__input")
-                .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(UiBindedValue) )
+                .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(UiBindedValue))
                 .If("mat-hide-clearbutton", () => this.HideClearButton);
         }
 
@@ -288,6 +286,5 @@ namespace MatBlazor
             await base.OnFirstAfterRenderAsync();
             await Js.InvokeAsync<object>("matBlazor.matNumericUpDownField.init", Ref);
         }
-
     }
 }

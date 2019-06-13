@@ -15,16 +15,16 @@
 
 <table class="@ClassMapper.Class" style="@Style" ref="Ref">
     <thead>
-        <tr class="mdc-table-header-row">@MatTableHeader</tr>
+    <tr class="mdc-table-header-row">@MatTableHeader</tr>
     </thead>
     <tbody>
-        @if (ItemList != null)
-        {
-            @foreach (var item in ItemList)
-            {
-                <tr class="mdc-table-row">@MatTableRow(item)</tr>
-            }
-        }
+    @if (ItemList != null)
+    {
+        @foreach (var item in ItemList)
+         {
+             <tr class="mdc-table-row">@MatTableRow(item)</tr>
+         }
+    }
     </tbody>
     @if (@ShowFooter)
     {
@@ -62,7 +62,7 @@
                                 @currentPage
                             </MatIconButton>
                         }*@
-                    <MatIconButton Icon="navigate_next" onclick=@(async () => NavigateToPage(PageDirection.Next)) Disabled=@(CurrentPage == EndPage)></MatIconButton>
+                    <MatIconButton Icon="navigate_next" onclick="@(async () => NavigateToPage(PageDirection.Next))" Disabled="@(CurrentPage == EndPage)"></MatIconButton>
                     <MatIconButton Icon="last_page" onclick=@(async () => NavigateToPage(PageDirection.Last)) Disabled=@(CurrentPage == EndPage)></MatIconButton>
                 </div>
             </div>
@@ -79,7 +79,7 @@
         {
             PageSize = Convert.ToInt32(value);
             CurrentPage = 1;
-            TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+            TotalPages = (int) Math.Ceiling(Items.Count() / (decimal) PageSize);
             EndPage = TotalPages;
             StartPage = 1;
             SetPageSize(PageDirection.Next);
@@ -117,13 +117,13 @@
         {
             PageSizes = new PageSizeStructure[]
             {
-                new PageSizeStructure() { Text = "5", Value = 5 },
-                new PageSizeStructure() { Text = "10", Value = 10 },
-                new PageSizeStructure() { Text = "25", Value = 25 },
-                new PageSizeStructure() { Text = "50", Value = 50 },
-                new PageSizeStructure() { Text = "100", Value = 100 },
-                new PageSizeStructure() { Text = "*", Value = -1 }
-                };
+                new PageSizeStructure() {Text = "5", Value = 5},
+                new PageSizeStructure() {Text = "10", Value = 10},
+                new PageSizeStructure() {Text = "25", Value = 25},
+                new PageSizeStructure() {Text = "50", Value = 50},
+                new PageSizeStructure() {Text = "100", Value = 100},
+                new PageSizeStructure() {Text = "*", Value = -1}
+            };
             PageSize = 5;
         }
         CurrentPage = 1;
@@ -133,7 +133,7 @@
             try
             {
                 if (!string.IsNullOrWhiteSpace(PagingDataPropertyName) &&
-                        !string.IsNullOrWhiteSpace(PagingRecordsCountPropertyName))
+                    !string.IsNullOrWhiteSpace(PagingRecordsCountPropertyName))
                 {
                     await SearchPagedData();
                 }
@@ -178,14 +178,14 @@
                 FilterData();
             }
             else if (!string.IsNullOrWhiteSpace(ApiUrl) &&
-                    !string.IsNullOrWhiteSpace(PagingDataPropertyName) &&
-                    !string.IsNullOrWhiteSpace(PagingRecordsCountPropertyName))
+                     !string.IsNullOrWhiteSpace(PagingDataPropertyName) &&
+                     !string.IsNullOrWhiteSpace(PagingRecordsCountPropertyName))
             {
                 await SearchPagedData();
             }
             else if (!string.IsNullOrWhiteSpace(ApiUrl) &&
-                    (string.IsNullOrWhiteSpace(PagingDataPropertyName) ||
-                    string.IsNullOrWhiteSpace(PagingRecordsCountPropertyName)))
+                     (string.IsNullOrWhiteSpace(PagingDataPropertyName) ||
+                      string.IsNullOrWhiteSpace(PagingRecordsCountPropertyName)))
             {
                 await SearchData();
             }
@@ -209,7 +209,7 @@
             Items = await Http.GetJsonAsync<TableItem[]>(ApiUrl + SearchTermParam(SearchTerm));
             ItemList = Items.Skip(RecordsFrom).Take(PageSize);
             RecordsCount = Items.Count();
-            TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+            TotalPages = (int) Math.Ceiling(Items.Count() / (decimal) PageSize);
             EndPage = TotalPages;
             RecordsFrom = (CurrentPage - 1) * PageSize;
             RecordsTo = RecordsFrom + PageSize;
@@ -227,7 +227,7 @@
         RecordsFrom = (CurrentPage - 1) * PageSize;
         RecordsTo = RecordsFrom + PageSize;
         ItemList = Items.Skip(RecordsFrom).Take(PageSize);
-        TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+        TotalPages = (int) Math.Ceiling(Items.Count() / (decimal) PageSize);
         EndPage = TotalPages;
         SetPageSize(PageDirection.Next);
     }
@@ -236,20 +236,20 @@
     {
         var PagedData = await Http.GetJsonAsync<TableItem>(ApiUrl + SearchTermParam(SearchTerm));
         Items = (IEnumerable<TableItem>)
-                PagedData
+            PagedData
                 .GetType()
                 .GetProperty(PagingDataPropertyName)
                 .GetValue(PagedData);
         var Count = Convert.ToInt32(
-                    PagedData
-                    .GetType()
-                    .GetProperty(PagingRecordsCountPropertyName)
-                    .GetValue(PagedData)
-               );
+            PagedData
+                .GetType()
+                .GetProperty(PagingRecordsCountPropertyName)
+                .GetValue(PagedData)
+            );
         RecordsFrom = (CurrentPage - 1) * PageSize;
         RecordsTo = (RecordsFrom + PageSize < Count) ? RecordsFrom + PageSize : Count;
         ItemList = Items;
-        TotalPages = (int)Math.Ceiling(Count / (decimal)PageSize);
+        TotalPages = (int) Math.Ceiling(Count / (decimal) PageSize);
         EndPage = TotalPages;
         SetPageSize(PageDirection.First);
     }
@@ -287,7 +287,7 @@
 
                 RecordsFilteredCount = filteredCollection.Count;
                 RecordsTo = (RecordsFrom + PageSize < RecordsFilteredCount) ? RecordsFrom + PageSize : RecordsFilteredCount;
-                TotalPages = (int)Math.Ceiling(RecordsFilteredCount / (decimal)PageSize);
+                TotalPages = (int) Math.Ceiling(RecordsFilteredCount / (decimal) PageSize);
                 EndPage = TotalPages;
 
                 if (PageSize <= 0)
@@ -310,7 +310,7 @@
                     ItemList = Items.Skip(RecordsFrom).Take(PageSize);
                 }
                 RecordsTo = (RecordsFrom + PageSize < Items.Count()) ? RecordsFrom + PageSize : Items.Count();
-                TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+                TotalPages = (int) Math.Ceiling(Items.Count() / (decimal) PageSize);
                 EndPage = TotalPages;
             }
             SetPageSize(PageDirection.Next);
@@ -325,7 +325,6 @@
 
     public void SetPageSize(PageDirection direction)
     {
-
         if ((direction == PageDirection.Next || direction == PageDirection.Last) && (EndPage < TotalPages))
         {
             StartPage = EndPage + 1;
@@ -372,29 +371,29 @@
                 break;
         }
 
-        // C# 8.0 Code
-        //CurrentPage = (direction) switch
-        //{
-        //    PageDirection.First => StartPage,
-        //    PageDirection.Last => EndPage,
-        //    PageDirection.Next => ((Func<int>)(() =>
-        //    {
-        //        if ((CurrentPage < TotalPages) && (CurrentPage == EndPage))
-        //        {
-        //            SetPageSize(PageDirection.Next);
-        //        }
-        //        return CurrentPage + 1;
-        //    }))(),
-        //    PageDirection.Previous => ((Func<int>)(() =>
-        //    {
-        //        if ((CurrentPage > 1) && (CurrentPage == StartPage))
-        //        {
-        //            SetPageSize(PageDirection.Previous);
-        //        }
-        //        return CurrentPage - 1;
-        //    }))(),
-        //    _ => throw new NotSupportedException()
-        //};
+    // C# 8.0 Code
+    //CurrentPage = (direction) switch
+    //{
+    //    PageDirection.First => StartPage,
+    //    PageDirection.Last => EndPage,
+    //    PageDirection.Next => ((Func<int>)(() =>
+    //    {
+    //        if ((CurrentPage < TotalPages) && (CurrentPage == EndPage))
+    //        {
+    //            SetPageSize(PageDirection.Next);
+    //        }
+    //        return CurrentPage + 1;
+    //    }))(),
+    //    PageDirection.Previous => ((Func<int>)(() =>
+    //    {
+    //        if ((CurrentPage > 1) && (CurrentPage == StartPage))
+    //        {
+    //            SetPageSize(PageDirection.Previous);
+    //        }
+    //        return CurrentPage - 1;
+    //    }))(),
+    //    _ => throw new NotSupportedException()
+    //};
 
         await UpdateList(CurrentPage);
     }
@@ -403,9 +402,10 @@
     {
         Debounce(eventArgs, DebounceMilliseconds, async (e) =>
         {
-            SearchTerm = ((UIChangeEventArgs)e).Value?.ToString();
+            SearchTerm = ((UIChangeEventArgs) e).Value?.ToString();
             CurrentPage = 1;
             await LoadData();
         });
     }
+
 }

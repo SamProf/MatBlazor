@@ -7,7 +7,7 @@ namespace MatBlazor
     /// Represents an instance of a Toast
     /// It handles the user interactions and orchestrates the the state transitions
     /// </summary>
-    public class IBaseMatToast: IDisposable
+    public class IBaseMatToast : IDisposable
     {
         private string AnimationId { get; }
 
@@ -30,10 +30,7 @@ namespace MatBlazor
 
         public string ContainerClass
         {
-            get
-            {           
-                return $"{Options.ToastClass} {Options.ToastTypeClass}";
-            }
+            get { return $"{Options.ToastClass} {Options.ToastTypeClass}"; }
         }
 
         public string ProgressBarStyle
@@ -90,23 +87,46 @@ namespace MatBlazor
         public IBaseMatToast(string message, string title, string icon, Options options)
         {
             Message = message;
-            Title = title;           
+            Title = title;
             Icon = icon;
 
-            if (string.IsNullOrEmpty(icon)) {
+            if (string.IsNullOrEmpty(icon))
+            {
                 switch (options.Type)
                 {
-                    case ToastType.Danger: Icon = "error"; break;
-                    case ToastType.Dark: Icon = "error"; break;
-                    case ToastType.Info: Icon = "info"; break;
-                    case ToastType.Light: Icon = "notification_important"; break;
-                    case ToastType.Link: Icon = "link"; break;
-                    case ToastType.Primary: Icon = "announcement"; break;
-                    case ToastType.Secondary: Icon = "notification_important"; break;
-                    case ToastType.Success: Icon = "check_circle"; break;
-                    case ToastType.Warning: Icon = "warning"; break;                    
-                    default: Icon = "notification_important"; break;
-                };
+                    case ToastType.Danger:
+                        Icon = "error";
+                        break;
+                    case ToastType.Dark:
+                        Icon = "error";
+                        break;
+                    case ToastType.Info:
+                        Icon = "info";
+                        break;
+                    case ToastType.Light:
+                        Icon = "notification_important";
+                        break;
+                    case ToastType.Link:
+                        Icon = "link";
+                        break;
+                    case ToastType.Primary:
+                        Icon = "announcement";
+                        break;
+                    case ToastType.Secondary:
+                        Icon = "notification_important";
+                        break;
+                    case ToastType.Success:
+                        Icon = "check_circle";
+                        break;
+                    case ToastType.Warning:
+                        Icon = "warning";
+                        break;
+                    default:
+                        Icon = "notification_important";
+                        break;
+                }
+
+                ;
             }
 
             Options = options;
@@ -134,7 +154,7 @@ namespace MatBlazor
         }
 
         public void MouseEnter() => TransitionTo(ToastState.MouseOver);
-        
+
         public void MouseLeave()
         {
             if (State == ToastState.Hiding) return;
@@ -186,6 +206,7 @@ namespace MatBlazor
                     }
                     else if (Options.VisibleStateDuration < 0) TransitionTo(ToastState.Hiding);
                     else Timer.Start(Options.VisibleStateDuration);
+
                     break;
                 case ToastState.Hiding:
                     if (Options.HideTransitionDuration <= 0)
@@ -194,6 +215,7 @@ namespace MatBlazor
                         return;
                     }
                     else Timer.Start(Options.HideTransitionDuration);
+
                     break;
                 case ToastState.MouseOver:
                     break;

@@ -81,13 +81,10 @@ namespace MatBlazor.DevUtils.Core
                     .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
                     .Where(prop =>
                         (type.IsSubclassOf(typeof(ComponentBase)) &&
-                        prop.GetCustomAttributes(typeof(ParameterAttribute)).Any())
-
+                         prop.GetCustomAttributes(typeof(ParameterAttribute)).Any())
                         ||
-
                         (!type.IsSubclassOf(typeof(ComponentBase)) &&
                          prop.DeclaringType.Assembly == Assembly)
-
                     )
                     .OrderBy(i => i.Name)
                     .Union(

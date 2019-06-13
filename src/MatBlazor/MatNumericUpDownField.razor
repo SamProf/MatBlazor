@@ -1,27 +1,29 @@
 ﻿@inherits BaseMatNumericUpDownField
 
-<div class="@ClassMapper.Class" style="@Style" ref="Ref" >
+<div class="@ClassMapper.Class" style="@Style" ref="Ref">
 
     @if (Icon != null)
     {
         <i class="material-icons mdc-text-field__icon" tabindex="0" onclick="@IconOnClick">@Icon</i>
     }
 
-    <input style="@InputStyle; padding: 20px 48px 6px 48px;" ref="InputRef" type="text" placeholder="@PlaceHolder" required=@Required 
-           class="@InputClassMapper.Class" id="@MatBlazorId" bind=@UiBindedValue aria-label="@Label" 
-           oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" 
-           disabled=@Disabled readonly="@ReadOnly" />
+    <input style="@InputStyle; padding: 20px 48px 6px 48px;" ref="InputRef" type="text" placeholder="@PlaceHolder" required=@Required
+           class="@InputClassMapper.Class" id="@MatBlazorId" bind=@UiBindedValue aria-label="@Label"
+           oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus"
+           disabled=@Disabled readonly="@ReadOnly"/>
 
-    <i style=" left: initial;right: 20px;background: none;top: 3px;bottom: initial; user-select: none; " 
-       class="material-icons mdc-text-field__icon" 
-       tabindex="0" onclick="@Increase" role="button" 
-       disabled=@Disabled readonly="@ReadOnly">@MinusIcon</i>
+    <i style="left: initial; right: 20px; background: none; top: 3px; bottom: initial; user-select: none;"
+       class="material-icons mdc-text-field__icon"
+       tabindex="0" onclick="@Increase" role="button"
+       disabled=@Disabled readonly="@ReadOnly">
+        @MinusIcon</i>
 
-    <i style="left: initial;right: 20px;background: none;top: initial;bottom: 3px; user-select: none; " 
-       class="material-icons mdc-text-field__icon" tabindex="0" 
-        onclick="@Decrease" role="button"
-        disabled=@Disabled readonly="@ReadOnly">@PlusIcon</i>
-    
+    <i style="left: initial; right: 20px; background: none; top: initial; bottom: 3px; user-select: none;"
+       class="material-icons mdc-text-field__icon" tabindex="0"
+       onclick="@Decrease" role="button"
+       disabled=@Disabled readonly="@ReadOnly">
+        @PlusIcon</i>
+
 
     @if (!FullWidth && Outlined)
     {

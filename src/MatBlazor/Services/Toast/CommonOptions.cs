@@ -1,5 +1,5 @@
 ﻿namespace MatBlazor
-{        
+{
     /// <summary>
     /// The common options for MatToaster
     /// </summary>

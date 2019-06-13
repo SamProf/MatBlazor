@@ -18,12 +18,12 @@ namespace MatBlazor.DevUtils
         [Test]
         public void GenerateDocumentation()
         {
-            
             var config = Config.GetConfig();
             var gen = new MatDocumenationGenerator(typeof(BaseMatDomComponent).Assembly,
                 Path.Combine(config.Path, "MatBlazor.Demo", "Doc"));
             {
-            };
+            }
+            ;
             gen.Generate();
         }
 

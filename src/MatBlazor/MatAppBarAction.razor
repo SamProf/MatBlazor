@@ -9,21 +9,21 @@
 @functions
 {
 
-[Parameter]
-private RenderFragment ChildContent { get; set; }
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
 
-[Parameter]
-private EventCallback<UIMouseEventArgs> OnClick { get; set; }
+    [Parameter]
+    private EventCallback<UIMouseEventArgs> OnClick { get; set; }
 
-[Parameter]
-private string Icon { get; set; }
+    [Parameter]
+    private string Icon { get; set; }
 
-[Parameter]
-public string Label { get; set; }
+    [Parameter]
+    public string Label { get; set; }
 
-private void OnClickHandler(UIMouseEventArgs e)
-{
-    OnClick.InvokeAsync(e);
-}
+    private void OnClickHandler(UIMouseEventArgs e)
+    {
+        OnClick.InvokeAsync(e);
+    }
 
 }

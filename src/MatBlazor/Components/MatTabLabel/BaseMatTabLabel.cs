@@ -34,6 +34,7 @@ namespace MatBlazor
         }
 
         private bool disposed = false;
+
         public void Dispose()
         {
             disposed = true;
@@ -47,6 +48,7 @@ namespace MatBlazor
                 Parent.ActiveChanged.InvokeAsync(Parent.Active);
             }
         }
+
         public bool IsActive
         {
             get { return Parent.Active == this; }

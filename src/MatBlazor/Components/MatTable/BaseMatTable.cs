@@ -8,9 +8,9 @@ namespace MatBlazor
     /// Mat Table display a table data.
     /// </summary>
     public class BaseMatTable : BaseMatDomComponent
-    {        
+    {
         private string _searchTermFieldPlaceHolder = null;
-        private string _searchTermFieldLabel = null;            
+        private string _searchTermFieldLabel = null;
 
         #region Private Fields
 
@@ -36,27 +36,34 @@ namespace MatBlazor
 
         [Parameter]
         public string PageParamName { get; set; }
+
         [Parameter]
         public string PageSizeParamName { get; set; }
+
         [Parameter]
         public bool Descending { get; set; }
+
         [Parameter]
         public string DescendingParamName { get; set; }
+
         [Parameter]
         public string SortBy { get; set; }
+
         [Parameter]
         public string SortByParamName { get; set; }
 
 
         [Parameter]
         public string PagingDataPropertyName { get; set; }
+
         [Parameter]
-        public string PagingRecordsCountPropertyName { get; set; }        
+        public string PagingRecordsCountPropertyName { get; set; }
+
         [Parameter]
         protected string SearchTermParamName { get; set; }
+
         #endregion
 
-               
 
         /// <summary>
         /// Specifies whether to Request the API only once.
@@ -75,21 +82,15 @@ namespace MatBlazor
         /// </summary>
         [Parameter]
         public string FilterByColumnName { get; set; }
-        
+
         /// <summary>
         /// Specifies the Label for the Filter / Search Term  Textbox
         /// </summary>
         [Parameter]
         public string SearchTermFieldLabel
         {
-            get
-            {
-                return _searchTermFieldLabel ?? "Filter";
-            }
-            set
-            {
-                _searchTermFieldLabel = value;
-            }
+            get { return _searchTermFieldLabel ?? "Filter"; }
+            set { _searchTermFieldLabel = value; }
         }
 
         /// <summary>
@@ -98,14 +99,8 @@ namespace MatBlazor
         [Parameter]
         public string SearchTermFieldPlaceHolder
         {
-            get
-            {
-                return _searchTermFieldPlaceHolder ?? FilterByColumnName;
-            }
-            set
-            {
-                _searchTermFieldPlaceHolder = value;
-            }
+            get { return _searchTermFieldPlaceHolder ?? FilterByColumnName; }
+            set { _searchTermFieldPlaceHolder = value; }
         }
 
         /// <summary>
@@ -150,23 +145,33 @@ namespace MatBlazor
                 .Add("mdc-table")
                 .If("mdc-table--striped", () => this.Striped);
         }
-               
+
 
         #region Helpers
 
         protected string SearchTermParam(string SearchTerm)
         {
-            var SearchTermParam = (string.IsNullOrWhiteSpace(SearchTermParamName) ? "SearchTerm=" + SearchTerm : SearchTermParamName + "=" + SearchTerm);
-            var DescendingParam = (string.IsNullOrWhiteSpace(DescendingParamName) ? "Descending=" + Descending : DescendingParamName + "=" + Descending);
-            var SortByParam = (string.IsNullOrWhiteSpace(SortByParamName) ? "SortBy=" + SortBy : SortByParamName + "=" + SortBy);
-            var PageParam = (string.IsNullOrWhiteSpace(PageParamName) ? "Page=" + CurrentPage : PageParamName + "=" + CurrentPage);
-            var PageSizeParam = (string.IsNullOrWhiteSpace(PageSizeParamName) ? "PageSize=" + PageSize : PageSizeParamName + "=" + PageSize);
+            var SearchTermParam = (string.IsNullOrWhiteSpace(SearchTermParamName)
+                ? "SearchTerm=" + SearchTerm
+                : SearchTermParamName + "=" + SearchTerm);
+            var DescendingParam = (string.IsNullOrWhiteSpace(DescendingParamName)
+                ? "Descending=" + Descending
+                : DescendingParamName + "=" + Descending);
+            var SortByParam = (string.IsNullOrWhiteSpace(SortByParamName)
+                ? "SortBy=" + SortBy
+                : SortByParamName + "=" + SortBy);
+            var PageParam = (string.IsNullOrWhiteSpace(PageParamName)
+                ? "Page=" + CurrentPage
+                : PageParamName + "=" + CurrentPage);
+            var PageSizeParam = (string.IsNullOrWhiteSpace(PageSizeParamName)
+                ? "PageSize=" + PageSize
+                : PageSizeParamName + "=" + PageSize);
             return "?" +
-                    SearchTermParam + "&" +
-                    DescendingParam + "&" +
-                    SortByParam + "&" +
-                    PageParam + "&" +
-                    PageSizeParam;
+                   SearchTermParam + "&" +
+                   DescendingParam + "&" +
+                   SortByParam + "&" +
+                   PageParam + "&" +
+                   PageSizeParam;
         }
 
         protected void Debounce(object obj, int interval, Action<object> debounceAction)
@@ -202,6 +207,7 @@ namespace MatBlazor
             Next,
             Last,
         }
+
         public class PageSizeStructure
         {
             public string Text { get; set; }
@@ -209,6 +215,5 @@ namespace MatBlazor
         }
 
         #endregion
-
     }
 }

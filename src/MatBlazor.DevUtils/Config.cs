@@ -12,7 +12,6 @@ namespace MatBlazor.DevUtils
         }
 
 
-
         public string Path
         {
             get { return System.IO.Path.GetFullPath(_path); }
@@ -24,6 +23,7 @@ namespace MatBlazor.DevUtils
         {
             get { return System.IO.Path.GetDirectoryName(Path); }
         }
+
         public string DemoContainerTag = "DemoContainer";
         public string ContentTag = "Content";
         public string SourceContentTag = "SourceContent";

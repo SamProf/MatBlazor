@@ -30,7 +30,6 @@ namespace MatBlazor.Demo.BlazorFiddle
 //                Console.WriteLine(e);
 //                throw;
             }
-            
         }
     }
 }

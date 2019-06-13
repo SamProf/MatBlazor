@@ -27,7 +27,6 @@ namespace MatBlazor
 
         public BaseMatToastContainer()
         {
-  
         }
 
         public string Class => ToastContainer.Configuration.PositionClass;

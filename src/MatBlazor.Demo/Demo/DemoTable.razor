@@ -19,6 +19,7 @@
 
         @functions
         {
+
             public class Car
             {
                 public string Name { get; set; }
@@ -35,15 +36,17 @@
 
             Car[] cars = new[]
             {
-                new Car("Volkswagen Golf", 10000,220),
-                new Car("Volkswagen Passat", 11000,240),
-                new Car("Volkswagen Polo", 12000,110),
-                new Car("Ford Focus", 13000,200),
-                new Car("Ford Fiesta", 14000,160),
-                new Car("Ford Fusion", 15000,260),
-                new Car("Ford Mondeo", 16000,120),
+                new Car("Volkswagen Golf", 10000, 220),
+                new Car("Volkswagen Passat", 11000, 240),
+                new Car("Volkswagen Polo", 12000, 110),
+                new Car("Ford Focus", 13000, 200),
+                new Car("Ford Fiesta", 14000, 160),
+                new Car("Ford Fusion", 15000, 260),
+                new Car("Ford Mondeo", 16000, 120),
             };
+
         }
+
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
@@ -62,6 +65,7 @@
 
         @functions
         {
+
             public class Car
             {
                 public string Name { get; set; }
@@ -78,15 +82,17 @@
 
             Car[] cars = new[]
             {
-                new Car(""Volkswagen Golf"", 10000,220),
-                new Car(""Volkswagen Passat"", 11000,240),
-                new Car(""Volkswagen Polo"", 12000,110),
-                new Car(""Ford Focus"", 13000,200),
-                new Car(""Ford Fiesta"", 14000,160),
-                new Car(""Ford Fusion"", 15000,260),
-                new Car(""Ford Mondeo"", 16000,120),
+                new Car(""Volkswagen Golf"", 10000, 220),
+                new Car(""Volkswagen Passat"", 11000, 240),
+                new Car(""Volkswagen Polo"", 12000, 110),
+                new Car(""Ford Focus"", 13000, 200),
+                new Car(""Ford Fiesta"", 14000, 160),
+                new Car(""Ford Fusion"", 15000, 260),
+                new Car(""Ford Mondeo"", 16000, 120),
             };
+
         }
+
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
@@ -109,6 +115,7 @@
 
         @functions
         {
+
             public class Todo
             {
                 public int UserId { get; set; }
@@ -116,11 +123,14 @@
                 public string Title { get; set; }
                 public bool Completed { get; set; }
 
-                public Todo() { }
+                public Todo()
+                {
+                }
             }
 
             Todo[] todos;
         }
+
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
@@ -139,6 +149,7 @@
 
         @functions
         {
+
             public class Todo
             {
                 public int UserId { get; set; }
@@ -146,11 +157,14 @@
                 public string Title { get; set; }
                 public bool Completed { get; set; }
 
-                public Todo() { }
+                public Todo()
+                {
+                }
             }
 
             Todo[] todos;
         }
+
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

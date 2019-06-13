@@ -12,6 +12,7 @@
         Success,
         Warning
     }
+
     public enum ToastState
     {
         Init,

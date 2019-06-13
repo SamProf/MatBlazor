@@ -27,7 +27,8 @@ namespace MatBlazor.DevUtils
             var colors = new Dictionary<string, Dictionary<string, string>>();
 
 
-            var regex = new Regex("^\\$material-color-(?<color>\\S+?)-(?<shade>[^-]+?):(\\s+?)(?<value>[^-]+?);(\\s*?)$",
+            var regex = new Regex(
+                "^\\$material-color-(?<color>\\S+?)-(?<shade>[^-]+?):(\\s+?)(?<value>[^-]+?);(\\s*?)$",
                 RegexOptions.Multiline);
 
             foreach (Match line in regex.Matches(data))
@@ -57,7 +58,8 @@ namespace MatBlazor.DevUtils
             sb.AppendLine("\t{");
             foreach (var color in colors)
             {
-                sb.AppendLine($"\t\tpublic static MatThemeColor{GetName(color.Key)} {GetName(color.Key)} {{get;}} = new MatThemeColor{GetName(color.Key)}();");
+                sb.AppendLine(
+                    $"\t\tpublic static MatThemeColor{GetName(color.Key)} {GetName(color.Key)} {{get;}} = new MatThemeColor{GetName(color.Key)}();");
             }
 
             sb.AppendLine("\t\tstatic MatThemeColors()");
@@ -68,11 +70,11 @@ namespace MatBlazor.DevUtils
             {
                 sb.AppendLine($"\t\t\t\t{{{GetName(color.Key)}.Key, {GetName(color.Key)}}},");
             }
+
             sb.AppendLine("\t\t\t};");
             sb.AppendLine("\t\t}");
 
             sb.AppendLine("\t}");
-
 
 
             foreach (var color in colors)
@@ -81,11 +83,13 @@ namespace MatBlazor.DevUtils
                 sb.AppendLine("\t{");
                 foreach (var sh in color.Value)
                 {
-                    sb.AppendLine($"\t\tpublic MatThemeColorShadow {GetPropName(sh.Key)} {{get;}} = new MatThemeColorShadow(\"{sh.Key}\", \"{GetPropName(sh.Key)}\", \"{sh.Value}\");");
+                    sb.AppendLine(
+                        $"\t\tpublic MatThemeColorShadow {GetPropName(sh.Key)} {{get;}} = new MatThemeColorShadow(\"{sh.Key}\", \"{GetPropName(sh.Key)}\", \"{sh.Value}\");");
                 }
 
 
-                sb.AppendLine($"\t\tpublic MatThemeColor{GetName(color.Key)}() : base(\"{color.Key}\", \"{GetName(color.Key)}\")");
+                sb.AppendLine(
+                    $"\t\tpublic MatThemeColor{GetName(color.Key)}() : base(\"{color.Key}\", \"{GetName(color.Key)}\")");
                 sb.AppendLine($"\t\t{{");
                 sb.AppendLine($"\t\t\tShadows = new Dictionary<string, MatThemeColorShadow>()");
                 sb.AppendLine($"\t\t\t{{");
@@ -93,6 +97,7 @@ namespace MatBlazor.DevUtils
                 {
                     sb.AppendLine($"\t\t\t\t{{{GetPropName(sh.Key)}.Key, {GetPropName(sh.Key)}}},");
                 }
+
                 sb.AppendLine($"\t\t\t}};");
                 sb.AppendLine($"\t\t}}");
 

@@ -37,7 +37,10 @@ namespace MatBlazor
         public BaseMatDialog()
         {
             ClassMapper.Add("mdc-dialog");
-            CallAfterRender(async () => { await Js.InvokeAsync<object>("matBlazor.matDialog.init", Ref, DotNetObjectRef.Create(this)); });
+            CallAfterRender(async () =>
+            {
+                await Js.InvokeAsync<object>("matBlazor.matDialog.init", Ref, DotNetObjectRef.Create(this));
+            });
         }
 
         [JSInvokable]

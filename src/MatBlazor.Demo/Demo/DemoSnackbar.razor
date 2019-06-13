@@ -13,7 +13,7 @@
                 <MatButton Raised="true">Retry</MatButton>
             </MatSnackbarActions>
         </MatSnackbar>
-        
+
         <MatButton OnClick="Button2Click">Stacked</MatButton>
         <MatSnackbar bind-IsOpen="@snackBar2IsOpen" Stacked="true">
             <MatSnackbarContent>This item already has the label "travel". You can add a new label.</MatSnackbarContent>
@@ -21,7 +21,7 @@
                 <MatButton Raised="true">Add new label</MatButton>
             </MatSnackbarActions>
         </MatSnackbar>
-        
+
         <MatButton OnClick="Button3Click">Leading</MatButton>
         <MatSnackbar bind-IsOpen="@snackBar3IsOpen" Leading="true">
             <MatSnackbarContent>Your photo has been archived.</MatSnackbarContent>
@@ -41,17 +41,21 @@
                 snackBarIsOpen = true;
                 this.StateHasChanged();
             }
+
             void Button2Click()
             {
                 snackBar2IsOpen = true;
                 this.StateHasChanged();
             }
+
             void Button3Click()
             {
                 snackBar3IsOpen = true;
                 this.StateHasChanged();
             }
+
         }
+
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
@@ -63,7 +67,7 @@
                 <MatButton Raised=""true"">Retry</MatButton>
             </MatSnackbarActions>
         </MatSnackbar>
-        
+
         <MatButton OnClick=""Button2Click"">Stacked</MatButton>
         <MatSnackbar bind-IsOpen=""@snackBar2IsOpen"" Stacked=""true"">
             <MatSnackbarContent>This item already has the label ""travel"". You can add a new label.</MatSnackbarContent>
@@ -71,7 +75,7 @@
                 <MatButton Raised=""true"">Add new label</MatButton>
             </MatSnackbarActions>
         </MatSnackbar>
-        
+
         <MatButton OnClick=""Button3Click"">Leading</MatButton>
         <MatSnackbar bind-IsOpen=""@snackBar3IsOpen"" Leading=""true"">
             <MatSnackbarContent>Your photo has been archived.</MatSnackbarContent>
@@ -91,17 +95,21 @@
                 snackBarIsOpen = true;
                 this.StateHasChanged();
             }
+
             void Button2Click()
             {
                 snackBar2IsOpen = true;
                 this.StateHasChanged();
             }
+
             void Button3Click()
             {
                 snackBar3IsOpen = true;
                 this.StateHasChanged();
             }
+
         }
+
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

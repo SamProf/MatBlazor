@@ -22,7 +22,7 @@ namespace MatBlazor
                 RefBack?.Set(value);
             }
         }
-        
+
         [CascadingParameter]
         public MatTheme Theme { get; set; }
 

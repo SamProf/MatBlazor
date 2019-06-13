@@ -7,7 +7,7 @@
 <DemoContainer>
     <Content>
         <MatButton ref="ButtonRef" OnClick="@Click">Get me Ref</MatButton>
-        
+
         @functions
         {
             BaseMatButton ButtonRef;
@@ -19,11 +19,12 @@
             }
 
         }
+
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatButton ref=""ButtonRef"" OnClick=""@Click"">Get me Ref</MatButton>
-        
+
         @functions
         {
             BaseMatButton ButtonRef;
@@ -35,6 +36,7 @@
             }
 
         }
+
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
@@ -44,9 +46,7 @@
 <DemoContainer>
     <Content>
         <style>
-            .my-button-class {
-                background: lightcoral !important;
-            }
+            .my-button-class { background: lightcoral !important; }
         </style>
 
         <MatButton Class="my-button-class">Button with class</MatButton>
@@ -55,9 +55,7 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <style>
-            .my-button-class {
-                background: lightcoral !important;
-            }
+            .my-button-class { background: lightcoral !important; }
         </style>
 
         <MatButton Class=""my-button-class"">Button with class</MatButton>

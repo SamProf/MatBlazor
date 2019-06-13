@@ -21,7 +21,7 @@ namespace MatBlazor
             get => Group.Value == Value;
         }
 
-        
+
         [Parameter]
         public bool Disabled
         {
@@ -41,7 +41,6 @@ namespace MatBlazor
 
         protected void OnChangeHandler(UIChangeEventArgs e)
         {
-
             Group.Value = this.Value;
             //Checked = (bool)e.Value;
         }

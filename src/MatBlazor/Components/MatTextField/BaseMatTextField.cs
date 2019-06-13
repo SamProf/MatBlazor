@@ -112,6 +112,7 @@ namespace MatBlazor
                 InputClassMapper.MakeDirty();
             }
         }
+
         /// <summary>
         /// Style attribute of input element
         /// </summary>

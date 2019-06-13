@@ -9,7 +9,6 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatIconButton : BaseMatDomComponent
     {
-
         [Inject]
         public Microsoft.AspNetCore.Components.IUriHelper UriHelper { get; set; }
 
@@ -91,8 +90,8 @@ namespace MatBlazor
         /// </summary>
         [Parameter]
         protected EventCallback<UIMouseEventArgs> OnClick { get; set; }
-        
-       
+
+
         [Parameter]
         protected EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
 
