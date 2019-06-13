@@ -42,11 +42,10 @@ namespace MatBlazor
 
 
         private DotNetObjectRef<BaseMatSnackbar> dotNetObjectRef;
+
         public BaseMatSnackbar()
         {
-            
-
-                ClassMapper
+            ClassMapper
                 .Add("mdc-snackbar")
                 .If("mdc-snackbar--stacked", () => Stacked)
                 .If("mdc-snackbar--leading", () => Leading);
