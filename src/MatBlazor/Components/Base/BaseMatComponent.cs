@@ -66,6 +66,13 @@ namespace MatBlazor
         protected bool Disposed { get; private set; }
 
 
+
+        protected void InvokeStateHasChanged()
+        {
+            Invoke(StateHasChanged);
+        }
+
+
         [Inject]
         protected IJSRuntime Js { get; set; }
 

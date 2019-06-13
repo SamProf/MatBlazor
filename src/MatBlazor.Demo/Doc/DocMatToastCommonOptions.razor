@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">Options</h3> } else { <h5 class="mat-h5">Options</h5> }
+@if (!Secondary) {<h3 class="mat-h3">MatToastCommonOptions</h3> } else { <h5 class="mat-h5">MatToastCommonOptions</h5> }
 
 <p>The common options for MatToaster</p>
 
@@ -13,6 +13,11 @@
 		<th>Name</th>
 		<th>Type</th>
 		<th>Description</th>
+	</tr>
+	<tr>
+		<td>Class</td>
+		<td>String</td>
+		<td>The main toast class. Defaults to</td>
 	</tr>
 	<tr>
 		<td>CloseIcon</td>
@@ -33,11 +38,6 @@
 		<td>MaximumOpacity</td>
 		<td>Int32</td>
 		<td>The maximum opacity expressed as an integer percentage for a toast in the Visible state. Defaults to 80% where 0 means completely hidden and 100 means solid color.</td>
-	</tr>
-	<tr>
-		<td>Onclick</td>
-		<td>Func&lt;IBaseMatToast,Task&gt;</td>
-		<td>The async  to be called on user click</td>
 	</tr>
 	<tr>
 		<td>ProgressBarStepDuration</td>
@@ -68,21 +68,6 @@
 		<td>ShowTransitionDuration</td>
 		<td>Int32</td>
 		<td>How long the showing transition takes to bring a toast to the MaximumOpacity and set it to the Visible state. Defaults to 500 ms.</td>
-	</tr>
-	<tr>
-		<td>ToastClass</td>
-		<td>String</td>
-		<td>The main toast class. Defaults to</td>
-	</tr>
-	<tr>
-		<td>ToastTypeClass</td>
-		<td>String</td>
-		<td>The css class representing the toast state</td>
-	</tr>
-	<tr>
-		<td>Type</td>
-		<td>ToastType</td>
-		<td>The</td>
 	</tr>
 	<tr>
 		<td>VisibleStateDuration</td>

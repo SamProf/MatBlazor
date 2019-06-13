@@ -1,103 +1,103 @@
-.mdc-toast-title {
+.mat-toast-title {
   font-weight: 700;
   display: block;
 }
 
-.mdc-toast-icon {
+.mat-toast-icon {
   width: 34px;
   font-size: 26px;
 }
 
-.mdc-toast-ripple {
+.mat-toast-ripple {
   padding: 0px !important;
 }
 
-.mdc-toast-ripple > div{
+.mat-toast-ripple > div{
   padding: 10px 5px 10px 5px;
 }
 
-.mdc-toast-message {
+.mat-toast-message {
   -ms-word-wrap: break-word;
   word-wrap: break-word;
   display: flex;
   align-items: center;
 }
 
-.mdc-toast-message a, .mdc-toast-message label {
+.mat-toast-message a, .mat-toast-message label {
   color: #FFF
 }
 
-.mdc-toast-message a:hover {
+.mat-toast-message a:hover {
   color: #CCC;
   text-decoration: none
 }
-.mdc-toast-body{
+.mat-toast-body{
   flex: 1;
 }
 
-.mdc-toast-close-button {
+.mat-toast-close-button {
   position: absolute !important;
   right: -.3em;
   top: -.3em;
 }
 
-.mdc-toast-top-center {
+.mat-toast-top-center {
   top: 0;
   right: 0;
   width: 100%
 }
 
-.mdc-toast-bottom-center {
+.mat-toast-bottom-center {
   bottom: 0;
   right: 0;
   width: 100%
 }
 
-.mdc-toast-top-full-width {
+.mat-toast-top-full-width {
   top: 0;
   right: 0;
   width: 100%
 }
 
-.mdc-toast-bottom-full-width {
+.mat-toast-bottom-full-width {
   bottom: 0;
   right: 0;
   width: 100%
 }
 
-.mdc-toast-top-left {
+.mat-toast-top-left {
   top: 12px;
   left: 12px
 }
 
-.mdc-toast-top-right {
+.mat-toast-top-right {
   top: 12px;
   right: 12px
 }
 
-.mdc-toast-bottom-right {
+.mat-toast-bottom-right {
   right: 12px;
   bottom: 12px
 }
 
-.mdc-toast-bottom-left {
+.mat-toast-bottom-left {
   bottom: 12px;
   left: 12px
 }
 
-#mdc-toast-container {
+.mat-toast-container {
   position: fixed;
   z-index: 999999;
   pointer-events: none
 }
 
-#mdc-toast-container * {
+.mat-toast-container * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box
 }
 
-#mdc-toast-container > div {
+.mat-toast-container > div {
   position: relative;
   pointer-events: auto;
   overflow: hidden;
@@ -118,13 +118,13 @@
   filter: alpha(opacity=80)
 }
 
-#mdc-toast-container > div.rtl {
+.mat-toast-container > div.rtl {
   direction: rtl;
   padding: 15px 50px 15px 15px;
   background-position: right 15px center
 }
 
-#mdc-toast-container > div:hover {
+.mat-toast-container > div:hover {
   -moz-box-shadow: 0 0 12px #000;
   -webkit-box-shadow: 0 0 12px #000;
   box-shadow: 0 0 12px #000;
@@ -134,62 +134,62 @@
   cursor: pointer
 }
 
-#mdc-toast-container.mdc-toast-bottom-center > div, #mdc-toast-container.mdc-toast-top-center > div {
+.mat-toast-container.mat-toast-bottom-center > div, .mat-toast-container.mat-toast-top-center > div {
   width: 300px;
   margin-left: auto;
   margin-right: auto
 }
 
-#mdc-toast-container.mdc-toast-bottom-full-width > div, #mdc-toast-container.mdc-toast-top-full-width > div {
+.mat-toast-container.mat-toast-bottom-full-width > div, .mat-toast-container.mat-toast-top-full-width > div {
   width: 96%;
   margin-left: auto;
   margin-right: auto
 }
 
-.mdc-toast {
+.mat-toast {
   background-color: #030303
 }
 
-.mdc-toast-primary {
+.mat-toast-primary {
   background-color: var(--mdc-theme-primary, #030303);
 }
 
-.mdc-toast-secondary {
+.mat-toast-secondary {
   background-color: var(--mdc-theme-secondary, #030303);
 }
 
-.mdc-toast-light {
+.mat-toast-light {
   background-color: var(--mdc-theme-light, lightgray);
   color: var(--mdc-theme-dark, #999);
 }
 
-.mdc-toast-dark {
+.mat-toast-dark {
   background-color: var(--mdc-theme-dark, #999);
   color: var(--mdc-theme-light, lightgray);
 }
 
-.mdc-toast-link {
+.mat-toast-link {
   background-color: var(--mdc-theme-dark, #e1e1e1);
   color: var(--mdc-theme-light, blue);
 }
 
-.mdc-toast-success {
+.mat-toast-success {
   background-color: #51A351
 }
 
-.mdc-toast-danger {
+.mat-toast-danger {
   background-color: #BD362F
 }
 
-.mdc-toast-info {
+.mat-toast-info {
   background-color: #2F96B4
 }
 
-.mdc-toast-warning {
+.mat-toast-warning {
   background-color: #F89406
 }
 
-.mdc-toast-progress {
+.mat-toast-progress {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -201,47 +201,47 @@
 }
 
 @media all and (max-width: 240px) {
-  #mdc-toast-container > div {
+  .mat-toast-container > div {
     padding: 8px 8px 8px 50px;
     width: 11em
   }
-  #mdc-toast-container > div.rtl {
+  .mat-toast-container > div.rtl {
     padding: 8px 50px 8px 8px
   }
-  #mdc-toast-container .mdc-toast-close-button {
+  .mat-toast-container .mat-toast-close-button {
     right: -.2em;
     top: -.2em
   }
-  #mdc-toast-container .rtl .mdc-toast-close-button {
+  .mat-toast-container .rtl .mat-toast-close-button {
     left: -.2em;
     right: .2em
   }
 }
 
 @media all and (min-width: 241px) and (max-width: 480px) {
-  #mdc-toast-container > div {
+  .mat-toast-container > div {
     padding: 8px 8px 8px 50px;
     width: 18em
   }
-  #mdc-toast-container > div.rtl {
+  .mat-toast-container > div.rtl {
     padding: 8px 50px 8px 8px
   }
-  #mdc-toast-container .mdc-toast-close-button {
+  .mat-toast-container .mat-toast-close-button {
     right: -.2em;
     top: -.2em
   }
-  #mdc-toast-container .rtl .mdc-toast-close-button {
+  .mat-toast-container .rtl .mat-toast-close-button {
     left: -.2em;
     right: .2em
   }
 }
 
 @media all and (min-width: 481px) and (max-width: 768px) {
-  #mdc-toast-container > div {
+  .mat-toast-container > div {
     padding: 15px 15px 15px 50px;
     width: 25em
   }
-  #mdc-toast-container > div.rtl {
+  .mat-toast-container > div.rtl {
     padding: 15px 50px 15px 15px
   }
 }

@@ -4,19 +4,19 @@ using System.Linq;
 
 namespace MatBlazor
 {
-    public class MatToaster : IBaseMatToastContainer
+    public class MatToaster : IMatToaster
     {
-        public Configuration Configuration { get; }
+        public MatToastConfiguration Configuration { get; }
         public event Action OnToastsUpdated;
-        public IList<IBaseMatToast> Toasts { get; private set; } = new List<IBaseMatToast>();
+        public IList<MatToast> Toasts { get; private set; } = new List<MatToast>();
 
-        public MatToaster(Configuration configuration)
+        public MatToaster(MatToastConfiguration configuration)
         {
             Configuration = configuration;
             Configuration.OnUpdate += ConfigurationUpdated;
         }
 
-        public void Add(string message, ToastType type, string title, string icon, Action<Options> configure)
+        public void Add(string message, MatToastType type, string title, string icon, Action<MatToastOptions> configure)
         {
             if (string.IsNullOrEmpty(message)) return;
 
@@ -28,10 +28,10 @@ namespace MatBlazor
                 return;
             }
 
-            var options = new Options(type, Configuration);
+            var options = new MatToastOptions(type, Configuration);
             configure?.Invoke(options);
 
-            var toast = new IBaseMatToast(message, title, icon, options);
+            var toast = new MatToast(message, title, icon, options);
             toast.OnClose += Remove;
             Toasts.Add(toast);
 
@@ -41,21 +41,21 @@ namespace MatBlazor
         public void Clear()
         {
             var toasts = Toasts;
-            Toasts = new List<IBaseMatToast>();
+            Toasts = new List<MatToast>();
             OnToastsUpdated?.Invoke();
             DisposeToasts(toasts);
         }
 
-        public void Remove(IBaseMatToast toast)
+        public void Remove(MatToast toast)
         {
             toast.OnClose -= Remove;
             Toasts.Remove(toast);
 
             OnToastsUpdated?.Invoke();
-            toast.Dispose();
+//            toast.Dispose();
         }
 
-        private bool ToastAlreadyPresent(string message, string title, ToastType type)
+        private bool ToastAlreadyPresent(string message, string title, MatToastType type)
         {
             return Toasts.Any(t =>
                 message.Equals(t.Message) &&
@@ -75,12 +75,12 @@ namespace MatBlazor
             DisposeToasts(Toasts);
         }
 
-        private void DisposeToasts(IEnumerable<IBaseMatToast> toasts)
+        private void DisposeToasts(IEnumerable<MatToast> toasts)
         {
             foreach (var toast in toasts)
             {
                 toast.OnClose -= Remove;
-                toast.Dispose();
+//                toast.Dispose();
             }
         }
     }

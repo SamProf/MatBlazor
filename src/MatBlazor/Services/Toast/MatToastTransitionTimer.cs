@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace MatBlazor
 {
-    public class TransitionTimer : IDisposable
+    public class MatToastTransitionTimer : IDisposable
     {
         private Action Callback { get; set; }
         private DateTime DueTime { get; set; }
@@ -19,7 +19,7 @@ namespace MatBlazor
             }
         }
 
-        public TransitionTimer(Action callback)
+        public MatToastTransitionTimer(Action callback)
         {
             Callback = callback;
             Timer = new Timer(TransitionCallback, null, Timeout.Infinite, Timeout.Infinite);

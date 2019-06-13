@@ -3,14 +3,14 @@
 namespace MatBlazor
 {
     /// <summary>
-    /// Represents the global <see cref="Configuration"/> instance
+    /// Represents the global <see cref="MatToastConfiguration"/> instance
     /// </summary>
-    public class Configuration : CommonOptions
+    public class MatToastConfiguration : MatToastCommonOptions
     {
         private bool _newestOnTop;
         private bool _preventDuplicates;
         private int _maxDisplayedToasts;
-        private string _positionClass;
+        private MatToastPosition _position;
 
         internal event Action OnUpdate;
 
@@ -54,40 +54,39 @@ namespace MatBlazor
         }
 
         /// <summary>
-        /// The css class driving the toast position in the screen. The predefined positions are contained in <see cref="Defaults.Classes.Position"/>. Defaults to <see cref="Defaults.Classes.Position.TopRight"/>
+        /// The css class driving the toast position in the screen. The predefined positions are contained in <see cref="MatToastPosition"/>. Defaults to <see cref="MatToastPosition.TopRight"/>
         /// </summary>
-        public string PositionClass
+        public MatToastPosition Position
         {
-            get => _positionClass;
+            get => _position;
             set
             {
-                _positionClass = value;
+                _position = value;
                 OnUpdate?.Invoke();
             }
         }
 
-        public Configuration()
+        public MatToastConfiguration()
         {
-            PositionClass = Position.BottomRight;
             NewestOnTop = true;
             PreventDuplicates = true;
             MaxDisplayedToasts = 5;
         }
 
-        internal string ToastTypeClass(ToastType type)
+        internal static string ToastTypeClass(MatToastType type)
         {
             switch (type)
             {
-                case ToastType.Danger: return "mdc-toast-danger";
-                case ToastType.Dark: return "mdc-toast-dark";
-                case ToastType.Info: return "mdc-toast-info";
-                case ToastType.Light: return "mdc-toast-light";
-                case ToastType.Link: return "mdc-toast-light";
-                case ToastType.Primary: return "mdc-toast-primary";
-                case ToastType.Secondary: return "mdc-toast-secondary";
-                case ToastType.Success: return "mdc-toast-success";
-                case ToastType.Warning: return "mdc-toast-warning";
-                default: return "mdc-toast-info";
+                case MatToastType.Danger: return "mat-toast-danger";
+                case MatToastType.Dark: return "mat-toast-dark";
+                case MatToastType.Info: return "mat-toast-info";
+                case MatToastType.Light: return "mat-toast-light";
+                case MatToastType.Link: return "mat-toast-light";
+                case MatToastType.Primary: return "mat-toast-primary";
+                case MatToastType.Secondary: return "mat-toast-secondary";
+                case MatToastType.Success: return "mat-toast-success";
+                case MatToastType.Warning: return "mat-toast-warning";
+                default: return "mat-toast-info";
             }
         }
     }

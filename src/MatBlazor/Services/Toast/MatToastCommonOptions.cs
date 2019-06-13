@@ -3,17 +3,17 @@
     /// <summary>
     /// The common options for MatToaster
     /// </summary>
-    public class CommonOptions
+    public class MatToastCommonOptions
     {
         /// <summary>
-        /// The main toast class. Defaults to <see cref="Classes.Toast"/>
+        /// The main toast class. Defaults to <see cref="MatToastClasses.Toast"/>
         /// </summary>
-        public string ToastClass { get; set; } = Classes.Toast;
+        public string Class { get; set; }
 
         /// <summary>
         /// The maximum opacity expressed as an integer percentage for a toast in the Visible state. Defaults to 80% where 0 means completely hidden and 100 means solid color.
         /// </summary>
-        public int MaximumOpacity { get; set; } = 80;
+        public int MaximumOpacity { get; set; } = 100;
 
         /// <summary>
         /// How long the showing transition takes to bring a toast to the MaximumOpacity and set it to the Visible state. Defaults to 500 ms.
@@ -56,9 +56,9 @@
         public bool ShowCloseButton { get; set; } = true;
 
         /// <summary>
-        /// The css class for the close icon. Defaults to <see cref="Classes.CloseIcon"/>.
+        /// The css class for the close icon. Defaults to <see cref="MatToastClasses.CloseIcon"/>.
         /// </summary>
-        public string CloseIcon { get; set; } = Classes.CloseIcon;
+        public string CloseIcon { get; set; } = MatToastClasses.CloseIcon;
 
         /// <summary>
         /// When true it disables the auto hiding and forces the user to interact with the toast for closing it. Defaults to false.

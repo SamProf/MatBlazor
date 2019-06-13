@@ -8,18 +8,18 @@ namespace MatBlazor
     /// <summary>
     /// Toasts provide brief notifications or messages about app processes
     /// </summary>
-    public class BaseMatToastContainer : BaseMatDomComponent, IDisposable
+    public class BaseMatToastContainer : BaseMatDomComponent
     {
         [Inject]
-        protected IBaseMatToastContainer ToastContainer { get; set; }
+        protected IMatToaster Toaster { get; set; }
 
-        public IEnumerable<IBaseMatToast> MatToasts
+        public IEnumerable<MatToast> ToastsToShow
         {
             get
             {
-                var toasts = ToastContainer.Toasts.Take(ToastContainer.Configuration.MaxDisplayedToasts);
+                var toasts = Toaster.Toasts.Take(Toaster.Configuration.MaxDisplayedToasts);
 
-                return ToastContainer.Configuration.NewestOnTop
+                return Toaster.Configuration.NewestOnTop
                     ? toasts.Reverse()
                     : toasts;
             }
@@ -27,19 +27,21 @@ namespace MatBlazor
 
         public BaseMatToastContainer()
         {
+            ClassMapper
+                .Add("mat-toast-container")
+                .Get(() => MatToatsPositionConvertor.Convert(Toaster.Configuration.Position));
         }
-
-        public string Class => ToastContainer.Configuration.PositionClass;
 
         protected override void OnInit()
         {
             base.OnInit();
-            ToastContainer.OnToastsUpdated += () => Invoke(StateHasChanged);
+            Toaster.OnToastsUpdated += InvokeStateHasChanged;
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
-            ToastContainer.OnToastsUpdated -= StateHasChanged;
+            base.Dispose();
+            Toaster.OnToastsUpdated -= InvokeStateHasChanged;
         }
     }
 }

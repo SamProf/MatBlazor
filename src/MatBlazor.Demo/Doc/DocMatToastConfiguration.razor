@@ -4,15 +4,20 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">CommonOptions</h3> } else { <h5 class="mat-h5">CommonOptions</h5> }
+@if (!Secondary) {<h3 class="mat-h3">MatToastConfiguration</h3> } else { <h5 class="mat-h5">MatToastConfiguration</h5> }
 
-<p>The common options for MatToaster</p>
+<p>Represents the global  instance</p>
 
 <div><table class="article-table mat-elevation-z5">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
 		<th>Description</th>
+	</tr>
+	<tr>
+		<td>Class</td>
+		<td>String</td>
+		<td>The main toast class. Defaults to</td>
 	</tr>
 	<tr>
 		<td>CloseIcon</td>
@@ -30,9 +35,29 @@
 		<td>How long the hiding transition takes to make a toast disappear. Defaults to 500 ms.</td>
 	</tr>
 	<tr>
+		<td>MaxDisplayedToasts</td>
+		<td>Int32</td>
+		<td>The maximum number of toasts to be displayed at the same time. Defaults to 5</td>
+	</tr>
+	<tr>
 		<td>MaximumOpacity</td>
 		<td>Int32</td>
 		<td>The maximum opacity expressed as an integer percentage for a toast in the Visible state. Defaults to 80% where 0 means completely hidden and 100 means solid color.</td>
+	</tr>
+	<tr>
+		<td>NewestOnTop</td>
+		<td>Boolean</td>
+		<td>Drives the toast display sequence: when true the newest displayable toast will be on top. Otherwise it will be on the bottom. Defaults to true.</td>
+	</tr>
+	<tr>
+		<td>Position</td>
+		<td>MatToastPosition</td>
+		<td>The css class driving the toast position in the screen. The predefined positions are contained in . Defaults to</td>
+	</tr>
+	<tr>
+		<td>PreventDuplicates</td>
+		<td>Boolean</td>
+		<td>When true, a new toast with the same type, title and message of an already present toast will be ignored. Defaults to true.</td>
 	</tr>
 	<tr>
 		<td>ProgressBarStepDuration</td>
@@ -63,11 +88,6 @@
 		<td>ShowTransitionDuration</td>
 		<td>Int32</td>
 		<td>How long the showing transition takes to bring a toast to the MaximumOpacity and set it to the Visible state. Defaults to 500 ms.</td>
-	</tr>
-	<tr>
-		<td>ToastClass</td>
-		<td>String</td>
-		<td>The main toast class. Defaults to</td>
 	</tr>
 	<tr>
 		<td>VisibleStateDuration</td>

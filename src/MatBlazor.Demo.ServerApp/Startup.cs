@@ -45,7 +45,6 @@ namespace MatBlazor.Demo.ServerApp
             services.AddMatToaster(config =>
             {
                 //example MatToaster customizations
-                config.PositionClass = MatBlazor.Position.BottomRight;
                 config.PreventDuplicates = false;
                 config.NewestOnTop = true;
                 config.ShowCloseButton = true;

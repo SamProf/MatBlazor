@@ -3,29 +3,23 @@ using System.Threading.Tasks;
 
 namespace MatBlazor
 {
-    public class Options : CommonOptions
+    public class MatToastOptions : MatToastCommonOptions
     {
         /// <summary>
         /// The async <see cref="Func{MatToast,Task}"/> to be called on user click
         /// </summary>
-        public Func<IBaseMatToast, Task> Onclick { get; set; }
+        public Func<MatToast, Task> Onclick { get; set; }
 
         /// <summary>
         /// The <see cref="Type"/>
         /// </summary>
-        public ToastType Type { get; }
+        public MatToastType Type { get; }
 
-        /// <summary>
-        /// The css class representing the toast state
-        /// </summary>
-        public string ToastTypeClass { get; set; }
-
-        public Options(ToastType type, Configuration configuration)
+        public MatToastOptions(MatToastType type, MatToastConfiguration configuration)
         {
             Type = type;
-            ToastTypeClass = configuration.ToastTypeClass(type);
-
-            ToastClass = configuration.ToastClass;
+        
+            Class = configuration.Class;
             MaximumOpacity = configuration.MaximumOpacity;
 
             ShowTransitionDuration = configuration.ShowTransitionDuration;
