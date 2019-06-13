@@ -20,8 +20,6 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.FileProviders.Embedded;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Primitives;
-using MatBlazor.DependencyInjection;
-using MatBlazor.Services.Toast;
 
 namespace MatBlazor.Demo.ServerApp
 {
@@ -35,16 +33,17 @@ namespace MatBlazor.Demo.ServerApp
             services.AddSingleton<AppModel>();
             services.AddScoped<UserAppModel>();
             services.AddRazorPages();
-            services.AddServerSideBlazor().AddSignalR().AddHubOptions<ComponentHub>(o =>
-            {
-                o.MaximumReceiveMessageSize = 1024 * 1024 * 100;
-            });
+            services.AddServerSideBlazor();
+//                .AddSignalR().AddHubOptions<ComponentHub>(o =>
+//            {
+//                o.MaximumReceiveMessageSize = 1024 * 1024 * 100;
+//            });
             //services.AddServerSideBlazor();
 
             services.AddMatToaster(config =>
             {
                 //example MatToaster customizations
-                config.PositionClass = MatBlazor.MatToaster.Helpers.Position.BottomRight;
+                config.PositionClass = MatBlazor.Position.BottomRight;
                 config.PreventDuplicates = false;
                 config.NewestOnTop = true;
                 config.ShowCloseButton = true;
@@ -82,11 +81,11 @@ namespace MatBlazor.Demo.ServerApp
             app.UseRouting();
 
 
-            app.UseSignalR(route => route.MapHub<ComponentHub>(ComponentHub.DefaultPath, o =>
-            {
-                o.ApplicationMaxBufferSize = 1024 * 1024 * 100; // larger size
-                o.TransportMaxBufferSize = 1024 * 1024 * 100; // larger size
-            }));
+//            app.UseSignalR(route => route.MapHub<ComponentHub>(ComponentHub.DefaultPath, o =>
+//            {
+//                o.ApplicationMaxBufferSize = 1024 * 1024 * 100; // larger size
+//                o.TransportMaxBufferSize = 1024 * 1024 * 100; // larger size
+//            }));
 
 
             app.UseEndpoints(endpoints =>
