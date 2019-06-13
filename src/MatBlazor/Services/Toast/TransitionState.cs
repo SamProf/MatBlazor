@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace MatBlazor.Services.Toast
+namespace MatBlazor
 {
     public class TransitionState
     {

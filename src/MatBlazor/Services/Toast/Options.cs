@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using MatBlazor.Components.MatToast;
-using MatBlazor.MatToaster.Helpers;
 
-namespace MatBlazor.Services.Toast
+namespace MatBlazor
 {
     public class Options : CommonOptions
     {

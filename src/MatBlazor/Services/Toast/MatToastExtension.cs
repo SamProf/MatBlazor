@@ -1,10 +1,8 @@
 ﻿using System;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using MatBlazor.Components.MatToast;
 using Microsoft.Extensions.DependencyInjection;
-using MatBlazor.Services.Toast;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace MatBlazor.DependencyInjection
+namespace MatBlazor
 {
     public static class MatToastExtension
     {
@@ -14,7 +12,7 @@ namespace MatBlazor.DependencyInjection
         public static IServiceCollection AddMatToaster(this IServiceCollection services, Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException(nameof(configuration));
-            services.TryAddScoped<IBaseMatToastContainer>(builder => new MatBlazor.Services.Toast.MatToaster(configuration));
+            services.TryAddScoped<IBaseMatToastContainer>(builder => new MatToaster(configuration));
             return services;
         }
 

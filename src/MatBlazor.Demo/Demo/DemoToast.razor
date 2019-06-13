@@ -1,5 +1,4 @@
-@inject MatBlazor.Components.MatToast.IBaseMatToastContainer matToaster
-@using  MatBlazor.MatToaster.Helpers;
+@inject IBaseMatToastContainer matToaster
 
 <DocMatToast></DocMatToast>
 <DocMatToastContainer></DocMatToastContainer>
@@ -49,8 +48,7 @@
         <pre class="code">
             <code>
                 [Inject]
-                protected MatBlazor.Components.MatToast.IBaseMatToastContainer matToaster { get; set; }
-                @using  MatBlazor.MatToaster.Helpers;
+                protected MatBlazor.Components.MatToast.IBaseMatToastContainer matToaster { get; set; }                
             </code>            
         </pre>
         <p>Then call one of the display methods:</p>

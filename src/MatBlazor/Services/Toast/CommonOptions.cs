@@ -1,7 +1,4 @@
-﻿using MatBlazor.MatToaster.Helpers;
-
-
-namespace MatBlazor.Services.Toast
+﻿namespace MatBlazor
 {        
     /// <summary>
     /// The common options for MatToaster

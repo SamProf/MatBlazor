@@ -1,9 +1,6 @@
 ﻿using System;
-using MatBlazor.Services.Toast;
-using MatBlazor.MatToaster.Helpers;
 
-
-namespace MatBlazor.Components.MatToast
+namespace MatBlazor
 {
     /// <inheritdoc />
     /// <summary>

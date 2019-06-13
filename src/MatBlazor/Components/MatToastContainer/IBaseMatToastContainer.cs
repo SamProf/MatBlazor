@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using MatBlazor.Services.Toast;
-using MatBlazor.MatToaster.Helpers;
 
-
-namespace MatBlazor.Components.MatToast
+namespace MatBlazor
 {
     /// <inheritdoc />
     /// <summary>
@@ -18,7 +15,7 @@ namespace MatBlazor.Components.MatToast
         IList<IBaseMatToast> Toasts { get; }
 
         /// <summary>
-        /// The global <see cref="MatBlazor.Services.Toast.Configuration"/> 
+        /// The global <see cref="MatBlazor.Configuration"/> 
         /// </summary>
         Configuration Configuration { get; }
 
@@ -31,7 +28,7 @@ namespace MatBlazor.Components.MatToast
         /// Displays a toast with the specified <see cref="MatBlazor.MatToast" />
         /// </summary>
         /// <param name="message">The toast main message</param>
-        /// <param name="type">The optional toast <see cref="MatBlazor.MatToaster.Helpers.ToastType"/></param>
+        /// <param name="type">The optional toast <see cref="ToastType"/></param>
         /// <param name="title">The optional toast tile</param>
         /// <param name="icon">The optional toast icon</param>
         /// <param name="configure">An action for configuring a <see cref="Options"/> instance already containing the globally configured settings</param>

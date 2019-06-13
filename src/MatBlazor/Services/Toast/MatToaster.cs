@@ -1,10 +1,8 @@
-﻿using MatBlazor.Components.MatToast;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MatBlazor.MatToaster.Helpers;
 
-namespace MatBlazor.Services.Toast
+namespace MatBlazor
 {
     public class MatToaster : IBaseMatToastContainer
     {

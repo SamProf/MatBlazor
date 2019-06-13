@@ -1,7 +1,5 @@
 ﻿using System;
 using Microsoft.AspNetCore.Components;
-using MatBlazor.Components.MatToast;
-using MatBlazor.MatToaster.Helpers;
 
 
 namespace MatBlazor

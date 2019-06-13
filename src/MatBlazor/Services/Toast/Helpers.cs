@@ -1,4 +1,4 @@
-﻿namespace MatBlazor.MatToaster.Helpers
+﻿namespace MatBlazor
 {
     public enum ToastType
     {

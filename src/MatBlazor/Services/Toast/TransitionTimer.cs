@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace MatBlazor.Services.Toast
+namespace MatBlazor
 {
     public class TransitionTimer : IDisposable
     {

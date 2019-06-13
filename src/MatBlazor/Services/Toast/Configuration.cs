@@ -1,7 +1,6 @@
 ﻿using System;
-using MatBlazor.MatToaster.Helpers;
 
-namespace MatBlazor.Services.Toast
+namespace MatBlazor
 {
     /// <summary>
     /// Represents the global <see cref="Configuration"/> instance
