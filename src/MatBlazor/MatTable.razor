@@ -39,7 +39,7 @@
             <div class="mdc-paginator-page-size">
                 Items per page:
 
-                <MatSelect bind-Value="@PageSizeStr">
+                <MatSelect @bind-Value="@PageSizeStr">
                     @if (PageSizes != null)
                     {
                         foreach (var item in PageSizes)

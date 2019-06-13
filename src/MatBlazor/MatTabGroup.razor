@@ -1,7 +1,7 @@
 ﻿@inherits BaseMatTabGroup
 
 <div class="@ClassMapper.Class" ref="Ref" style="@Style">
-    <MatTabBar bind-Active="@Active">
+    <MatTabBar @bind-Active="@Active">
         <CascadingValue Value="@this">
             @ChildContent
         </CascadingValue>

@@ -4,13 +4,13 @@
 <MatDrawerContainer Style="width: 100vw; height: 100vh;">
     <MatHidden Breakpoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up">
         <ChildContent>
-            <MatDrawer bind-Opened="@Opened" Mode="@MatDrawerMode.Modal">
+            <MatDrawer @bind-Opened="@Opened" Mode="@MatDrawerMode.Modal">
                 Drawer Content
             </MatDrawer>
         </ChildContent>
 
         <ElseContent>
-            <MatDrawer bind-Opened="@Opened" Mode="@MatDrawerMode.Dismissible">
+            <MatDrawer @bind-Opened="@Opened" Mode="@MatDrawerMode.Dismissible">
                 Drawer Content
             </MatDrawer>
         </ElseContent>

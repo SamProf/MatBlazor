@@ -15,7 +15,7 @@
                    class="form-control"
                    placeholder="@SearchTermFieldPlaceHolder"
                    oninput="@((e) => OnInput(e))"
-                   bind="@SearchTerm" />
+                   @bind="@SearchTerm" />
         </div>
     }
     <div class="table-responsive">
@@ -275,7 +275,7 @@
                 var filteredCollection = new List<TableItem>();
                 foreach (var item in Items)
                 {
-                    var propertyInfo = item.GetType().GetProperty(FilterByPropertyName, BindingFlags.Public | BindingFlags.Instance);
+                    var propertyInfo = item.GetType().GetProperty(FilterByPropertyName, @bindingFlags.Public | @bindingFlags.Instance);
 
                     if (propertyInfo == null)
                     {

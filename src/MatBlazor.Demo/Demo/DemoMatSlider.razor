@@ -3,7 +3,7 @@
 <h5 class="mat-h5">Continuous Slider: @Val</h5>
 <DemoContainer>
     <Content>
-        <MatSlider bind-Value="@Val"></MatSlider>
+        <MatSlider @bind-Value="@Val"></MatSlider>
 
         @functions
         {
@@ -24,7 +24,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSlider bind-Value=""@Val""></MatSlider>
+        <MatSlider @bind-Value=""@Val""></MatSlider>
 
         @functions
         {
@@ -50,7 +50,7 @@
 <h5 class="mat-h5">Initializing the slider with custom ranges/values: @Val2</h5>
 <DemoContainer>
     <Content>
-        <MatSlider bind-Value="@Val2" ValueMin="-10" ValueMax="20"></MatSlider>
+        <MatSlider @bind-Value="@Val2" ValueMin="-10" ValueMax="20"></MatSlider>
 
         @functions
         {
@@ -71,7 +71,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSlider bind-Value=""@Val2"" ValueMin=""-10"" ValueMax=""20""></MatSlider>
+        <MatSlider @bind-Value=""@Val2"" ValueMin=""-10"" ValueMax=""20""></MatSlider>
 
         @functions
         {
@@ -97,7 +97,7 @@
 <h5 class="mat-h5">Discrete Slider: @Val3</h5>
 <DemoContainer>
     <Content>
-        <MatSlider bind-Value="@Val3" Discrete="true"></MatSlider>
+        <MatSlider @bind-Value="@Val3" Discrete="true"></MatSlider>
 
         @functions
         {
@@ -118,7 +118,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSlider bind-Value=""@Val3"" Discrete=""true""></MatSlider>
+        <MatSlider @bind-Value=""@Val3"" Discrete=""true""></MatSlider>
 
         @functions
         {
@@ -146,7 +146,7 @@
 @*
     <DemoContainer>
         <Content>
-            <MatSlider bind-Value="@Val4" Step="5"></MatSlider>
+            <MatSlider @bind-Value="@Val4" Step="5"></MatSlider>
 
             @functions
             {
@@ -167,7 +167,7 @@
         </Content>
         <SourceContent>
         	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatSlider bind-Value=""@Val4"" Step=""5""></MatSlider>
+            <MatSlider @bind-Value=""@Val4"" Step=""5""></MatSlider>
 
             @functions
             {

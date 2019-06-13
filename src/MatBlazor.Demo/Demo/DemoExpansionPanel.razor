@@ -5,7 +5,7 @@
 <DemoContainer>
     <Content>
         <MatAccordion>
-            <MatExpansionPanel bind-Expanded="@panelOpenState">
+            <MatExpansionPanel @bind-Expanded="@panelOpenState">
                 <MatExpansionPanelSummary>
                     <MatExpansionPanelHeader>Self aware panel</MatExpansionPanelHeader>
                     <MatExpansionPanelSubHeader>
@@ -40,7 +40,7 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatAccordion>
-            <MatExpansionPanel bind-Expanded=""@panelOpenState"">
+            <MatExpansionPanel @bind-Expanded=""@panelOpenState"">
                 <MatExpansionPanelSummary>
                     <MatExpansionPanelHeader>Self aware panel</MatExpansionPanelHeader>
                     <MatExpansionPanelSubHeader>

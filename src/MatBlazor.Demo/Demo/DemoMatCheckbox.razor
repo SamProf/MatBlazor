@@ -5,16 +5,16 @@
 <DemoContainer>
     <Content>
         <div>
-            <MatCheckbox bind-Checked="@Checked1" Label="@(getLabel(Checked1))"></MatCheckbox>
+            <MatCheckbox @bind-Checked="@Checked1" Label="@(getLabel(Checked1))"></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox bind-Checked="@Checked2" Label="@(getLabel(Checked2))"></MatCheckbox>
+            <MatCheckbox @bind-Checked="@Checked2" Label="@(getLabel(Checked2))"></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox Disabled="true" bind-Checked="@Checked1" Label="Disabled"></MatCheckbox>
+            <MatCheckbox Disabled="true" @bind-Checked="@Checked1" Label="Disabled"></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox bind-Checked="@Checked2">Inline Label</MatCheckbox>
+            <MatCheckbox @bind-Checked="@Checked2">Inline Label</MatCheckbox>
         </div>
 
         @functions
@@ -53,16 +53,16 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <div>
-            <MatCheckbox bind-Checked=""@Checked1"" Label=""@(getLabel(Checked1))""></MatCheckbox>
+            <MatCheckbox @bind-Checked=""@Checked1"" Label=""@(getLabel(Checked1))""></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox bind-Checked=""@Checked2"" Label=""@(getLabel(Checked2))""></MatCheckbox>
+            <MatCheckbox @bind-Checked=""@Checked2"" Label=""@(getLabel(Checked2))""></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox Disabled=""true"" bind-Checked=""@Checked1"" Label=""Disabled""></MatCheckbox>
+            <MatCheckbox Disabled=""true"" @bind-Checked=""@Checked1"" Label=""Disabled""></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox bind-Checked=""@Checked2"">Inline Label</MatCheckbox>
+            <MatCheckbox @bind-Checked=""@Checked2"">Inline Label</MatCheckbox>
         </div>
 
         @functions

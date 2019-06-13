@@ -24,7 +24,7 @@
                 <i class="fa fa-github" aria-hidden="true"></i>
             </MatIconButton>
             <MatMenu ref="Menu" style="z-index: 100;">
-                <ThemeColorSelector bind-Value="@ThemePrimary"></ThemeColorSelector>
+                <ThemeColorSelector @bind-Value="@ThemePrimary"></ThemeColorSelector>
             </MatMenu>
 
 
@@ -36,13 +36,13 @@
 
     <MatHidden Breakpoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up" HiddenChanged="@ModelDrawerHiddenChanged">
         <ChildContent>
-            <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Modal">
+            <MatDrawer @bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Modal">
                 <MatAppBarAdjust></MatAppBarAdjust>
                 <DemoDrawerContent></DemoDrawerContent>
             </MatDrawer>
         </ChildContent>
         <ElseContent>
-            <MatDrawer bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Dismissible">
+            <MatDrawer @bind-Opened="@_navMenuOpened" Mode="@MatDrawerMode.Dismissible">
                 <MatAppBarAdjust></MatAppBarAdjust>
                 <DemoDrawerContent></DemoDrawerContent>
             </MatDrawer>
@@ -58,7 +58,7 @@
 </MatDrawerContainer>
 
 
-<MatSnackbar bind-IsOpen="@lazySnackbarIsOpen">
+<MatSnackbar @bind-IsOpen="@lazySnackbarIsOpen">
     <MatSnackbarContent>If you like MatBlazor, please put a star on GitHub.</MatSnackbarContent>
     <MatSnackbarActions>
         @* <MatButton Raised="true">Star</MatButton> *@

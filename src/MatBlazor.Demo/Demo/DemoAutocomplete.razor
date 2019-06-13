@@ -67,7 +67,7 @@
 <DemoContainer>
     <Content>
         <p>
-            <MatAutocomplete Collection="@options2" ItemType="Car" Label="Select car" CustomStringSelector="@(i => i.Name)" bind-Value="@value">
+            <MatAutocomplete Collection="@options2" ItemType="Car" Label="Select car" CustomStringSelector="@(i => i.Name)" @bind-Value="@value">
                 <ItemTemplate>
                     <div style="display: flex; flex-direction: row; width: 100%;">
                         <div style="flex: 1;">@context.Name</div>
@@ -114,7 +114,7 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            <MatAutocomplete Collection=""@options2"" ItemType=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"" bind-Value=""@value"">
+            <MatAutocomplete Collection=""@options2"" ItemType=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"" @bind-Value=""@value"">
                 <ItemTemplate>
                     <div style=""display: flex; flex-direction: row; width: 100%;"">
                         <div style=""flex: 1;"">@context.Name</div>

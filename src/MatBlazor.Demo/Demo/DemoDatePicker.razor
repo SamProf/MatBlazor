@@ -5,7 +5,7 @@
 <DemoContainer>
     <Content>
         <p>
-            <MatDatePicker bind-Value="@Date1"></MatDatePicker>
+            <MatDatePicker @bind-Value="@Date1"></MatDatePicker>
         </p>
         <MatButton OnClick="@(_ =>
                               {
@@ -33,7 +33,7 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            <MatDatePicker bind-Value=""@Date1""></MatDatePicker>
+            <MatDatePicker @bind-Value=""@Date1""></MatDatePicker>
         </p>
         <MatButton OnClick=""@(_ =>
                               {

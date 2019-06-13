@@ -6,13 +6,13 @@
     <Content>
         <h3>@Val1</h3>
         <MatButton OnClick="((e) => { this.Val1 = 1.ToString(); })">Set 1</MatButton>
-        <MatRadioGroup bind-Value="@Val1">
+        <MatRadioGroup @bind-Value="@Val1">
             <MatRadioButton Value="1"></MatRadioButton>
             <MatRadioButton Value="2"></MatRadioButton>
             <MatRadioButton Value="3"></MatRadioButton>
         </MatRadioGroup>
         <h3>@Val2</h3>
-        <MatRadioGroup bind-Value="@Val2">
+        <MatRadioGroup @bind-Value="@Val2">
             <MatRadioButton Value="4"></MatRadioButton>
             <MatRadioButton Value="5"></MatRadioButton>
         </MatRadioGroup>
@@ -50,13 +50,13 @@
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <h3>@Val1</h3>
         <MatButton OnClick=""((e) => { this.Val1 = 1.ToString(); })"">Set 1</MatButton>
-        <MatRadioGroup bind-Value=""@Val1"">
+        <MatRadioGroup @bind-Value=""@Val1"">
             <MatRadioButton Value=""1""></MatRadioButton>
             <MatRadioButton Value=""2""></MatRadioButton>
             <MatRadioButton Value=""3""></MatRadioButton>
         </MatRadioGroup>
         <h3>@Val2</h3>
-        <MatRadioGroup bind-Value=""@Val2"">
+        <MatRadioGroup @bind-Value=""@Val2"">
             <MatRadioButton Value=""4""></MatRadioButton>
             <MatRadioButton Value=""5""></MatRadioButton>
         </MatRadioGroup>

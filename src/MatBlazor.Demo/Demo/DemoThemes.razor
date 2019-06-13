@@ -13,11 +13,19 @@
     <div class="mat-layout-grid-inner">
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">
             <div style="padding: 10px;">
-                <MatTextField bind-Value="@Theme.Primary" Label="Primary" ValueChanged="@(_ => this.Theme.ThemeHasChanged())" OnFocus="@(_ => colorType = ColorType.Primary)" class="@(colorType == ColorType.Primary ? "mat-elevation-z10" : null)"></MatTextField>
-                <MatTextField bind-Value="@Theme.Secondary" Label="Secondary" ValueChanged="@(_ => this.Theme.ThemeHasChanged())" OnFocus="@(_ => colorType = ColorType.Secondary)" class="@(colorType == ColorType.Secondary ? "mat-elevation-z10" : null)"></MatTextField>
+                <MatTextField Value="@Theme.Primary" Label="Primary" ValueChanged="@(_ =>
+                                                                                     {
+                                                                                         Theme.Primary = _;
+                                                                                         this.Theme.ThemeHasChanged();
+                                                                                     })" OnFocus="@(_ => colorType = ColorType.Primary)" class="@(colorType == ColorType.Primary ? "mat-elevation-z10" : null)"></MatTextField>
+                <MatTextField Value="@Theme.Secondary" Label="Secondary" ValueChanged="@(_ =>
+                                                                                         {
+                                                                                             Theme.Secondary = _;
+                                                                                             this.Theme.ThemeHasChanged();
+                                                                                         })" OnFocus="@(_ => colorType = ColorType.Secondary)" class="@(colorType == ColorType.Secondary ? "mat-elevation-z10" : null)"></MatTextField>
             </div>
 
-            <ThemeColorSelector bind-Value="@ColorValue"></ThemeColorSelector>
+            <ThemeColorSelector @bind-Value="@ColorValue"></ThemeColorSelector>
         </div>
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">
 

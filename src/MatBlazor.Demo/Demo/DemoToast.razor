@@ -69,10 +69,10 @@
             <div class="mat-layout-grid-cell">
                 <h3>Data</h3>
                 <p>
-                    <MatTextField Label="Title" bind-Value="_title"></MatTextField>
+                    <MatTextField Label="Title" @bind-Value="_title"></MatTextField>
                 </p>
                 <p>
-                    <MatTextField Label="Message" bind-Value="_message"></MatTextField>
+                    <MatTextField Label="Message" @bind-Value="_message"></MatTextField>
                 </p>
             </div>
             <div class="mat-layout-grid-cell">
@@ -91,19 +91,19 @@
             <div class="mat-layout-grid-cell">
                 <h3>Toast transitions</h3>
                 <p>
-                    <MatTextField Label="Show duration" Type="number" bind-Value="_showTransitionDuration"></MatTextField>
+                    <MatTextField Label="Show duration" Type="number" @bind-Value="_showTransitionDuration"></MatTextField>
                 </p>
                 <p>
-                    <MatTextField Label="Visible duration" Type="number" bind-Value="_visibleStateDuration"></MatTextField>
+                    <MatTextField Label="Visible duration" Type="number" @bind-Value="_visibleStateDuration"></MatTextField>
                 </p>
                 <p>
-                    <MatTextField Label="Hide duration" Type="number" bind-Value="_hideTransitionDuration"></MatTextField>
+                    <MatTextField Label="Hide duration" Type="number" @bind-Value="_hideTransitionDuration"></MatTextField>
                 </p>
             </div>
             <div class="mat-layout-grid-cell">
                 <h3>General options</h3>
                 <p>
-                    <MatSelect Label="Position" bind-Value="@matToaster.Configuration.PositionClass">
+                    <MatSelect Label="Position" @bind-Value="@matToaster.Configuration.PositionClass">
                         <MatOption Value="mdc-toast-top-left">Top left</MatOption>
                         <MatOption Value="mdc-toast-top-center">Top center</MatOption>
                         <MatOption Value="mdc-toast-top-right">Top right</MatOption>
@@ -115,31 +115,31 @@
                     </MatSelect>
                 </p>
                 <p>
-                    <MatTextField Label="Max visible toasts" Type="number" bind-Value="_maxDisplayedToasts"></MatTextField>
+                    <MatTextField Label="Max visible toasts" Type="number" @bind-Value="_maxDisplayedToasts"></MatTextField>
                 </p>
                 <p>
-                    <MatCheckbox Label="Newest on Top" bind-Checked="@matToaster.Configuration.NewestOnTop"></MatCheckbox>
+                    <MatCheckbox Label="Newest on Top" @bind-Checked="@matToaster.Configuration.NewestOnTop"></MatCheckbox>
                 </p>
                 <p>
-                    <MatCheckbox Label="Prevent duplicates" bind-Checked="@matToaster.Configuration.PreventDuplicates"></MatCheckbox>
+                    <MatCheckbox Label="Prevent duplicates" @bind-Checked="@matToaster.Configuration.PreventDuplicates"></MatCheckbox>
                 </p>
             </div>
             <div class="mat-layout-grid-cell">
                 <h3>Toast options</h3>
                 <p>
-                    <MatTextField Label="Max opacity (%)" Type="number" bind-Value="_maximumOpacity"></MatTextField>
+                    <MatTextField Label="Max opacity (%)" Type="number" @bind-Value="_maximumOpacity"></MatTextField>
                 </p>
                 <p>
-                    <MatCheckbox Label="Require interaction" bind-Checked="@_requireInteraction"></MatCheckbox>
+                    <MatCheckbox Label="Require interaction" @bind-Checked="@_requireInteraction"></MatCheckbox>
                 </p>
                 <p>
-                    <MatCheckbox Label="Progress bar" bind-Checked="@_showProgressBar"></MatCheckbox>
+                    <MatCheckbox Label="Progress bar" @bind-Checked="@_showProgressBar"></MatCheckbox>
                 </p>
                 <p>
-                    <MatCheckbox Label="Close Button" bind-Checked="@_showCloseButton"></MatCheckbox>
+                    <MatCheckbox Label="Close Button" @bind-Checked="@_showCloseButton"></MatCheckbox>
                 </p>
                 <p>
-                    <MatCheckbox Label="Action on click (message in console)" bind-Checked="@_actionOnClick"></MatCheckbox>
+                    <MatCheckbox Label="Action on click (message in console)" @bind-Checked="@_actionOnClick"></MatCheckbox>
                 </p>
             </div>
         </div>
@@ -215,10 +215,10 @@
             <div class=""mat-layout-grid-cell"">
                 <h3>Data</h3>
                 <p>
-                    <MatTextField Label=""Title"" bind-Value=""_title""></MatTextField>
+                    <MatTextField Label=""Title"" @bind-Value=""_title""></MatTextField>
                 </p>
                 <p>
-                    <MatTextField Label=""Message"" bind-Value=""_message""></MatTextField>
+                    <MatTextField Label=""Message"" @bind-Value=""_message""></MatTextField>
                 </p>
             </div>
             <div class=""mat-layout-grid-cell"">
@@ -237,19 +237,19 @@
             <div class=""mat-layout-grid-cell"">
                 <h3>Toast transitions</h3>
                 <p>
-                    <MatTextField Label=""Show duration"" Type=""number"" bind-Value=""_showTransitionDuration""></MatTextField>
+                    <MatTextField Label=""Show duration"" Type=""number"" @bind-Value=""_showTransitionDuration""></MatTextField>
                 </p>
                 <p>
-                    <MatTextField Label=""Visible duration"" Type=""number"" bind-Value=""_visibleStateDuration""></MatTextField>
+                    <MatTextField Label=""Visible duration"" Type=""number"" @bind-Value=""_visibleStateDuration""></MatTextField>
                 </p>
                 <p>
-                    <MatTextField Label=""Hide duration"" Type=""number"" bind-Value=""_hideTransitionDuration""></MatTextField>
+                    <MatTextField Label=""Hide duration"" Type=""number"" @bind-Value=""_hideTransitionDuration""></MatTextField>
                 </p>
             </div>
             <div class=""mat-layout-grid-cell"">
                 <h3>General options</h3>
                 <p>
-                    <MatSelect Label=""Position"" bind-Value=""@matToaster.Configuration.PositionClass"">
+                    <MatSelect Label=""Position"" @bind-Value=""@matToaster.Configuration.PositionClass"">
                         <MatOption Value=""mdc-toast-top-left"">Top left</MatOption>
                         <MatOption Value=""mdc-toast-top-center"">Top center</MatOption>
                         <MatOption Value=""mdc-toast-top-right"">Top right</MatOption>
@@ -261,31 +261,31 @@
                     </MatSelect>
                 </p>
                 <p>
-                    <MatTextField Label=""Max visible toasts"" Type=""number"" bind-Value=""_maxDisplayedToasts""></MatTextField>
+                    <MatTextField Label=""Max visible toasts"" Type=""number"" @bind-Value=""_maxDisplayedToasts""></MatTextField>
                 </p>
                 <p>
-                    <MatCheckbox Label=""Newest on Top"" bind-Checked=""@matToaster.Configuration.NewestOnTop""></MatCheckbox>
+                    <MatCheckbox Label=""Newest on Top"" @bind-Checked=""@matToaster.Configuration.NewestOnTop""></MatCheckbox>
                 </p>
                 <p>
-                    <MatCheckbox Label=""Prevent duplicates"" bind-Checked=""@matToaster.Configuration.PreventDuplicates""></MatCheckbox>
+                    <MatCheckbox Label=""Prevent duplicates"" @bind-Checked=""@matToaster.Configuration.PreventDuplicates""></MatCheckbox>
                 </p>
             </div>
             <div class=""mat-layout-grid-cell"">
                 <h3>Toast options</h3>
                 <p>
-                    <MatTextField Label=""Max opacity (%)"" Type=""number"" bind-Value=""_maximumOpacity""></MatTextField>
+                    <MatTextField Label=""Max opacity (%)"" Type=""number"" @bind-Value=""_maximumOpacity""></MatTextField>
                 </p>
                 <p>
-                    <MatCheckbox Label=""Require interaction"" bind-Checked=""@_requireInteraction""></MatCheckbox>
+                    <MatCheckbox Label=""Require interaction"" @bind-Checked=""@_requireInteraction""></MatCheckbox>
                 </p>
                 <p>
-                    <MatCheckbox Label=""Progress bar"" bind-Checked=""@_showProgressBar""></MatCheckbox>
+                    <MatCheckbox Label=""Progress bar"" @bind-Checked=""@_showProgressBar""></MatCheckbox>
                 </p>
                 <p>
-                    <MatCheckbox Label=""Close Button"" bind-Checked=""@_showCloseButton""></MatCheckbox>
+                    <MatCheckbox Label=""Close Button"" @bind-Checked=""@_showCloseButton""></MatCheckbox>
                 </p>
                 <p>
-                    <MatCheckbox Label=""Action on click (message in console)"" bind-Checked=""@_actionOnClick""></MatCheckbox>
+                    <MatCheckbox Label=""Action on click (message in console)"" @bind-Checked=""@_actionOnClick""></MatCheckbox>
                 </p>
             </div>
         </div>
