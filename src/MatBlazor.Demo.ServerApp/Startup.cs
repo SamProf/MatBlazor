@@ -30,16 +30,18 @@ namespace MatBlazor.Demo.ServerApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<HttpClient>();
-            services.AddSingleton<AppModel>();
-            services.AddScoped<UserAppModel>();
             services.AddRazorPages();
             services.AddServerSideBlazor();
-//                .AddSignalR().AddHubOptions<ComponentHub>(o =>
-//            {
-//                o.MaximumReceiveMessageSize = 1024 * 1024 * 100;
-//            });
+            //                .AddSignalR().AddHubOptions<ComponentHub>(o =>
+            //            {
+            //                o.MaximumReceiveMessageSize = 1024 * 1024 * 100;
+            //            });
             //services.AddServerSideBlazor();
 
+
+
+            services.AddSingleton<AppModel>();
+            services.AddScoped<UserAppModel>();
             services.AddMatToaster(config =>
             {
                 //example MatToaster customizations
