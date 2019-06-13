@@ -112,8 +112,10 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
-### MatBlazor 1.1.2
+### MatBlazor 1.2.0
 - MatToast (Thanks to [enkodellc](https://github.com/enkodellc))
+- MatNumericUpDownField (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
+- PR: MatTable bug where LoadData would throw exception when using Filter #101 ([Garderoben](https://github.com/Garderoben))
 
 ### MatBlazor 1.1.1
 - Fixed Clicking on Icon in DatePicker doesn't show the calender selection window. #86 

@@ -1,4 +1,4 @@
-﻿@inject MatBlazor.Components.MatToast.IBaseMatToastContainer matToaster
+@inject MatBlazor.Components.MatToast.IBaseMatToastContainer matToaster
 @using  MatBlazor.MatToaster.Helpers;
 
 <DocMatToast></DocMatToast>
@@ -190,7 +190,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <div class=""mat-layout-grid"">
             <div class=""mat-layout-grid-inner"">
                 <div class=""mat-layout-grid-cell"">
@@ -311,6 +311,8 @@
                });
             }
         }
+
+
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

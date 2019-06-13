@@ -4,27 +4,54 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatToast</h3> } else { <h5 class="mat-h5">Blazor Toast</h5> }
+@if (!Secondary) {<h3 class="mat-h3">MatToast</h3> } else { <h5 class="mat-h5">MatToast</h5> }
+
+<p>Toasts provide brief notifications or messages about app processes</p>
 
 <div><table class="article-table mat-elevation-z5">
-    <tr>
-        <th>Title</th>
-        <th>Type</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>Message</td>
-        <td>String</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Icon</td>
-        <td>String</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Type</td>
-        <td>ToastType</td>
-        <td></td>
-    </tr>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>ChildContent</td>
+		<td>RenderFragment</td>
+		<td>Child content of MatToast</td>
+	</tr>
+	<tr>
+		<td>Class</td>
+		<td>String</td>
+		<td>Specifies one or more classnames for an DOM element.</td>
+	</tr>
+	<tr>
+		<td>Icon</td>
+		<td>String</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>RefBack</td>
+		<td>ForwardRef</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Style</td>
+		<td>String</td>
+		<td>Specifies an inline style for an DOM element.</td>
+	</tr>
+	<tr>
+		<td>Toast</td>
+		<td>IBaseMatToast</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>ToastType</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Ref</td>
+		<td>ElementRef</td>
+		<td>Returned ElementRef reference for DOM element.</td>
+	</tr>
 </table></div>
