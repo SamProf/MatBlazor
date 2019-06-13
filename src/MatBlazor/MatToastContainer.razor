@@ -1,0 +1,8 @@
+﻿@inherits BaseMatToastContainer
+
+<div id="mdc-toast-container" class="@Class">
+    @foreach (var matToast in MatToasts)
+    {
+        <MatToast Toast="@matToast"></MatToast>
+    }
+</div>

@@ -20,7 +20,8 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.FileProviders.Embedded;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Primitives;
-
+using MatBlazor.DependencyInjection;
+using MatBlazor.Services.Toast;
 
 namespace MatBlazor.Demo.ServerApp
 {
@@ -39,6 +40,15 @@ namespace MatBlazor.Demo.ServerApp
                 o.MaximumReceiveMessageSize = 1024 * 1024 * 100;
             });
             //services.AddServerSideBlazor();
+
+            services.AddMatToaster(config =>
+            {
+                //example MatToaster customizations
+                config.PositionClass = MatBlazor.MatToaster.Helpers.Position.BottomRight;
+                config.PreventDuplicates = false;
+                config.NewestOnTop = true;
+                config.ShowCloseButton = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,8 +75,8 @@ namespace MatBlazor.Demo.ServerApp
 
             app.UseStaticFiles();
 
-            
-            
+
+
             app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatDomComponent).Assembly);
 
             app.UseEmbeddedBlazorContent(typeof(MatBlazor.Demo.Pages.Index).Assembly);

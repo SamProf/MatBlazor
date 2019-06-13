@@ -15,7 +15,7 @@ MatBlazor comprises a range of components which implement common interaction pat
 ## Demo and Documentation
 - [MatBlazor documentation and demo website](https://www.matblazor.com)
 - [BlazorFiddle example](https://blazorfiddle.com/s/matblazor-news-client)
-- [BlazorBoilerplate](http://blazorboilerplate.com/)
+- [BlazorBoilerplate](https://blazorboilerplate.com/)
 
 
 ![](content/demo-blazor-news-client.png)
@@ -108,8 +108,13 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 - [Blazor](https://blazor.net)
 - [MDC Web](https://material.io/components/)
 - [flatpickr.js](https://flatpickr.js.org/)
+- [toast](https://github.com/sotsera/sotsera.blazor.toaster)
 
 ## News
+
+### MatBlazor 1.1.2
+- MatToast (Thanks to [enkodellc](https://github.com/enkodellc))
+
 ### MatBlazor 1.1.1
 - Fixed Clicking on Icon in DatePicker doesn't show the calender selection window. #86 
 

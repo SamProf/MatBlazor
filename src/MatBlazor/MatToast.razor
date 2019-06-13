@@ -1,0 +1,33 @@
+﻿@inherits BaseMatToast
+@Css
+
+<MatRipple Class="mdc-toast-ripple">
+    <div class='@Toast.ContainerClass' style="@Toast.AnimationStyle" onmouseenter="@MouseEnter" onmouseleave="@MouseLeave" onclick="@Clicked">
+        <div class="mdc-toast-message">
+            @if (Toast.ShowProgressBar)
+            {
+                <div class="mdc-toast-progress" style="@Toast.ProgressBarStyle"></div>
+            }
+            @if (!string.IsNullOrEmpty(Toast.Icon))
+            {
+                <MatIcon Class="mdc-toast-icon" Icon="@Toast.Icon"></MatIcon>
+            }
+            @if (Toast.Options.ShowCloseButton)
+            {
+                <MatIconButton Icon="@Toast.Options.CloseIcon" Class="mdc-toast-close-button" OnMouseDown="@CloseIconClicked"></MatIconButton>
+            }
+            @if (!string.IsNullOrEmpty(Message))
+            {
+                <div class="mdc-toast-body">
+
+                    @if (!string.IsNullOrEmpty(Title))
+                    {
+                        <span class="mdc-toast-title">@Title</span>
+                    }
+                    @Message
+                </div>
+            }
+        </div>
+    </div>
+</MatRipple>
+
