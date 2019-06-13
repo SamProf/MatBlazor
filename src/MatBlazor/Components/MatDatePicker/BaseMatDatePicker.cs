@@ -30,13 +30,25 @@ namespace MatBlazor
             set => throw new NotSupportedException();
         }
 
+
+
+        private DotNetObjectRef<BaseMatDatePicker> dotNetObjectRef;
+
         public BaseMatDatePicker()
         {
+            dotNetObjectRef = DotNetObjectRef.Create(this);
             CallAfterRender(async () =>
             {
-                Js.InvokeAsync<object>("matBlazor.matDatePicker.init", Ref, DotNetObjectRef.Create(this), Value);
+                Js.InvokeAsync<object>("matBlazor.matDatePicker.init", Ref, dotNetObjectRef, Value);
             });
         }
+
+        public  override void Dispose()
+        {
+            base.Dispose();
+            dotNetObjectRef.Dispose();
+        }
+
 
 
         [JSInvokable]

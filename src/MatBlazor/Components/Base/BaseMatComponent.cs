@@ -17,6 +17,9 @@ namespace MatBlazor
         [Inject]
         protected IJSRuntime Js { get; set; }
 
+        [Inject]
+        protected IComponentContext ComponentContext { get; set; }
+
         private Queue<Func<Task>> afterRenderCallQuene = new Queue<Func<Task>>();
 
         private bool isRendered = false;

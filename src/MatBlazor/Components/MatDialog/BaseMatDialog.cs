@@ -34,13 +34,23 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<bool> IsOpenChanged { get; set; }
 
+        private DotNetObjectRef<BaseMatDialog> dotNetObjectRef;
+
         public BaseMatDialog()
         {
+            
             ClassMapper.Add("mdc-dialog");
             CallAfterRender(async () =>
             {
-                await Js.InvokeAsync<object>("matBlazor.matDialog.init", Ref, DotNetObjectRef.Create(this));
+                dotNetObjectRef = dotNetObjectRef ?? DotNetObjectRef.Create(this);
+                await Js.InvokeAsync<object>("matBlazor.matDialog.init", Ref, dotNetObjectRef);
             });
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            dotNetObjectRef?.Dispose();
         }
 
         [JSInvokable]

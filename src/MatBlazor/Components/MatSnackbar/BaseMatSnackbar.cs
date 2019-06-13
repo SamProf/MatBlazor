@@ -40,16 +40,30 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<bool> IsOpenChanged { get; set; }
 
+
+        private DotNetObjectRef<BaseMatSnackbar> dotNetObjectRef;
         public BaseMatSnackbar()
         {
-            ClassMapper
+            
+
+                ClassMapper
                 .Add("mdc-snackbar")
                 .If("mdc-snackbar--stacked", () => Stacked)
                 .If("mdc-snackbar--leading", () => Leading);
             CallAfterRender(async () =>
             {
-                await Js.InvokeAsync<object>("matBlazor.matSnackbar.init", Ref, DotNetObjectRef.Create(this));
+                if (ComponentContext.IsConnected)
+                {
+                    dotNetObjectRef = dotNetObjectRef ?? DotNetObjectRef.Create(this);
+                    await Js.InvokeAsync<object>("matBlazor.matSnackbar.init", Ref, dotNetObjectRef);
+                }
             });
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            dotNetObjectRef?.Dispose();
         }
 
         [JSInvokable]

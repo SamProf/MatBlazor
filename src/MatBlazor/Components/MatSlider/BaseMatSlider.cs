@@ -14,19 +14,26 @@ namespace MatBlazor
 
         private decimal _value;
 
-        protected async override Task OnFirstAfterRenderAsync()
-        {
-            await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("matBlazor.matSlider.init", Ref, DotNetObjectRef.Create(jsHelper));
-        }
+
+        private DotNetObjectRef<JsHelper> dotNetObjectRef;
 
         public BaseMatSlider()
         {
             jsHelper = new JsHelper(this);
+            dotNetObjectRef = DotNetObjectRef.Create(jsHelper);
             ClassMapper
                 .Add("mdc-slider")
-                .If("mdc-slider--discrete", () => Discrete)
-                ;
+                .If("mdc-slider--discrete", () => Discrete);
+            CallAfterRender(async () =>
+            {
+                await Js.InvokeAsync<object>("matBlazor.matSlider.init", Ref, dotNetObjectRef);
+            });
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            dotNetObjectRef.Dispose();
         }
 
 
