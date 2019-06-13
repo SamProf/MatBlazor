@@ -52,11 +52,8 @@ namespace MatBlazor
                 .If("mdc-snackbar--leading", () => Leading);
             CallAfterRender(async () =>
             {
-                if (ComponentContext.IsConnected)
-                {
-                    dotNetObjectRef = dotNetObjectRef ?? DotNetObjectRef.Create(this);
-                    await Js.InvokeAsync<object>("matBlazor.matSnackbar.init", Ref, dotNetObjectRef);
-                }
+                dotNetObjectRef = dotNetObjectRef ?? DotNetObjectRef.Create(this);
+                await Js.InvokeAsync<object>("matBlazor.matSnackbar.init", Ref, dotNetObjectRef);
             });
         }
 
