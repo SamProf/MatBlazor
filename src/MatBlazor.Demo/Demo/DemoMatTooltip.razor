@@ -55,19 +55,19 @@
 <DemoContainer class="mat-blazor-demo-tooltip-refstore-html">
     <Content>
         <MatTooltip Tooltip="My tooltip">
-            <span ref="@context.Current">SPAN</span>
+            <span @ref="@context.Current">SPAN</span>
         </MatTooltip>
 
         <MatTooltip Tooltip="My tooltip">
-            <input type="text" ref="@context.Current" value="Text input"/>
+            <input type="text" @ref="@context.Current" value="Text input"/>
         </MatTooltip>
 
         <MatTooltip Tooltip="My tooltip">
-            <button ref="@context.Current" value="Button">Button</button>
+            <button @ref="@context.Current" value="Button">Button</button>
         </MatTooltip>
 
         <MatTooltip Tooltip="My tooltip">
-            <div ref="@context.Current" style="display: inline-block;">
+            <div @ref="@context.Current" style="display: inline-block;">
                 <h1>Complex</h1>
                 <p>Any Html structures can have tooltips</p>
             </div>
@@ -76,19 +76,19 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTooltip Tooltip=""My tooltip"">
-            <span ref=""@context.Current"">SPAN</span>
+            <span @ref=""@context.Current"">SPAN</span>
         </MatTooltip>
 
         <MatTooltip Tooltip=""My tooltip"">
-            <input type=""text"" ref=""@context.Current"" value=""Text input""/>
+            <input type=""text"" @ref=""@context.Current"" value=""Text input""/>
         </MatTooltip>
 
         <MatTooltip Tooltip=""My tooltip"">
-            <button ref=""@context.Current"" value=""Button"">Button</button>
+            <button @ref=""@context.Current"" value=""Button"">Button</button>
         </MatTooltip>
 
         <MatTooltip Tooltip=""My tooltip"">
-            <div ref=""@context.Current"" style=""display: inline-block;"">
+            <div @ref=""@context.Current"" style=""display: inline-block;"">
                 <h1>Complex</h1>
                 <p>Any Html structures can have tooltips</p>
             </div>

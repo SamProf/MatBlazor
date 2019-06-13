@@ -13,7 +13,7 @@
     <MatTextField class="mdc-table-filter" OnInput="@((e) => OnInput(e))" Placeholder="@SearchTermFieldPlaceHolder" Label="@SearchTermFieldLabel" Value="@SearchTerm" Icon="filter_list"></MatTextField>
 }
 
-<table class="@ClassMapper.Class" style="@Style" ref="Ref">
+<table class="@ClassMapper.Class" style="@Style" @ref="Ref">
     <thead>
     <tr class="mdc-table-header-row">@MatTableHeader</tr>
     </thead>

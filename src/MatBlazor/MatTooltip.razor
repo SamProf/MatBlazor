@@ -10,7 +10,7 @@
 }
 else
 {
-    <div class="mat-tooltip-wrapper" ref="TargetForwardRef.Current">
+    <div class="mat-tooltip-wrapper" @ref="TargetForwardRef.Current">
         @if (ChildContent != null)
         {
             @ChildContent(TargetForwardRef)
@@ -18,7 +18,7 @@ else
     </div>
 }
 
-<div class="@ClassMapper.Class" ref="Ref" style="@Style">
+<div class="@ClassMapper.Class" @ref="Ref" style="@Style">
     @if (TooltipContent != null)
     {
         @TooltipContent

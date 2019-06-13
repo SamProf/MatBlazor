@@ -1,13 +1,13 @@
 ﻿@inherits BaseMatNumericUpDownField
 
-<div class="@ClassMapper.Class" style="@Style" ref="Ref">
+<div class="@ClassMapper.Class" style="@Style" @ref="Ref">
 
     @if (Icon != null)
     {
         <i class="material-icons mdc-text-field__icon" ta@bindex="0" onclick="@IconOnClick">@Icon</i>
     }
 
-    <input style="@InputStyle; padding: 20px 48px 6px 48px;" ref="InputRef" type="text" placeholder="@PlaceHolder" required=@Required
+    <input style="@InputStyle; padding: 20px 48px 6px 48px;" @ref="InputRef" type="text" placeholder="@PlaceHolder" required=@Required
            class="@InputClassMapper.Class" id="@MatBlazorId" @bind="@UiBindedValue" aria-label="@Label"
            oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus"
            disabled=@Disabled readonly="@ReadOnly"/>

@@ -1,6 +1,6 @@
 ﻿@inherits BaseMatTabLabel
 
-<div class="@ClassMapper.Class" ref="Ref" style="@Style" role="tab" ta@bindex="0" onclick="@(_ => Activate())" id="@MatBlazorId">
+<div class="@ClassMapper.Class" @ref="Ref" style="@Style" role="tab" ta@bindex="0" onclick="@(_ => Activate())" id="@MatBlazorId">
     <span class="mdc-tab__content" style="pointer-events: auto;">
         @* <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span> *@
         <span class="mdc-tab__text-label">@ChildContent</span>
