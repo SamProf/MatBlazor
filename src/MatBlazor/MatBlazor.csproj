@@ -37,10 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Components\MatThemeProvider\MatThemeProvider.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="content\MatBlazor.js" />
     <None Remove="content\MaterialIcons.css" />
   </ItemGroup>
