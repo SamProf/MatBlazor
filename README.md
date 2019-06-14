@@ -13,7 +13,8 @@ MatBlazor comprises a range of components which implement common interaction pat
 
 
 ## Demo and Documentation
-- [MatBlazor documentation and demo website](https://www.matblazor.com)
+- [MatBlazor.com - Documentation and demo website](https://www.matblazor.com)
+- [MatBlazor - Documentation and demo website - ClientSideBlazor](https://samprof.github.io/MatBlazor/)
 - [BlazorFiddle example](https://blazorfiddle.com/s/matblazor-news-client)
 - [BlazorBoilerplate](https://blazorboilerplate.com/)
 
@@ -111,6 +112,13 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 - [toast](https://github.com/sotsera/sotsera.blazor.toaster)
 
 ## News
+
+### In progress MatBlazor 1.2.1
+- MatDatePicker parameters: Label, Dense, Outlined, Required, Disabled
+- PR: MatListItem Disabled #111 (Thanks to [enkodellc](https://github.com/enkodellc))
+- PR: Fixed a bug where Table would not re render after data changed. #110 (Thanks to [Garderoben](https://github.com/Garderoben))
+- Now we have [MatBlazor - Documentation and demo website - Client Side Blazor](https://samprof.github.io/MatBlazor/)
+- Fixed: Docs site looks to show bug for expansion panel #107
 
 ### MatBlazor 1.2.0
 - .NET Core 3.0.100-preview6-012264
