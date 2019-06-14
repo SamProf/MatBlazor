@@ -2,4 +2,20 @@
 @inherits BaseMatDatePicker
 
 
-<MatTextField @ref="TextFieldRef" RefBack="@RefBack" class="@ClassMapper.Class" style="@Style" Icon="@MatIconNames.Calendar_today" IconTrailing="true"></MatTextField>
+<MatTextField
+    RefBack="@RefBack"
+    class="@Class"
+    style="@Style"
+    Icon="@MatIconNames.Calendar_today"
+    IconTrailing="true"
+    Label="@Label"
+    Dense="@Dense"
+    HelperText="@HelperText"
+    Outlined="@Outlined"
+    FullWidth="@FullWidth"
+    PlaceHolder="@PlaceHolder"
+    Required="@Required"
+    Disabled="@Disabled"
+    ReadOnly="@ReadOnly"
+    @ref="TextFieldRef">
+</MatTextField>

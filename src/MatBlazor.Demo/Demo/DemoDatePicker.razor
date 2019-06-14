@@ -31,7 +31,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatDatePicker @bind-Value=""@Date1""></MatDatePicker>
         </p>
@@ -57,6 +57,30 @@
             public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
+</DemoContainer>
+
+
+
+<h5 class="mat-h5">Variants</h5>
+<DemoContainer>
+    <Content>
+        <p>
+            <MatDatePicker Label="With Label"></MatDatePicker>
+        </p>
+        <p>
+            <MatDatePicker Label="Dense" Dense="true"></MatDatePicker>
+        </p>
+        <p>
+            <MatDatePicker Label="Outlined" Outlined="true"></MatDatePicker>
+        </p>
+        <p>
+            <MatDatePicker Label="Required" Required="true"></MatDatePicker>
+        </p>
+        <p>
+            <MatDatePicker Label="Disabled" Disabled="true"></MatDatePicker>
+        </p>
+    </Content>
 </DemoContainer>

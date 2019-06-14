@@ -9,7 +9,7 @@ namespace MatBlazor
     /// <summary>
     /// Datetime picker based on flatpickr.js
     /// </summary>
-    public class BaseMatDatePicker : BaseMatDomComponent
+    public class BaseMatDatePicker : BaseMatComponent
     {
         protected BaseMatTextField TextFieldRef;
         private DateTime? _value;
@@ -22,12 +22,45 @@ namespace MatBlazor
         }
 
         [Parameter]
+        public string Class { get; set; }
+
+        [Parameter]
+        public string Style { get; set; }
+
+        [Parameter]
+        public string Label { get; set; }
+
+        [Parameter]
+        public bool Dense { get; set; }
+
+        [Parameter]
+        public bool Outlined { get; set; }
+
+//        [Parameter]
+        public bool FullWidth { get; set; }
+
+        [Parameter]
+        public bool Required { get; set; }
+
+        [Parameter]
+        public bool Disabled { get; set; }
+
+//        [Parameter]
+        public bool ReadOnly { get; set; }
+
+//        [Parameter]
+        public string PlaceHolder { get; set; }
+
+//        [Parameter]
+        public string HelperText { get; set; }
+
+
+        [Parameter]
         public EventCallback<DateTime?> ValueChanged { get; set; }
 
-        public override ElementRef Ref
+        public virtual ElementRef Ref
         {
             get => TextFieldRef.InputRef;
-            set => throw new NotSupportedException();
         }
 
 
