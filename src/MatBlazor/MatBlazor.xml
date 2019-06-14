@@ -281,6 +281,16 @@
             Lists present multiple line items vertically as a single continuous element. 
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatListItem">
+            <summary>
+            Lists present multiple line items vertically as a single continuous element. 
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatListItem.Disabled">
+            <summary>
+            List Item is disabled.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatMenu">
             <summary>
             Menus display a list of choices on a transient sheet of material.
