@@ -16,7 +16,7 @@
             <code>
                 using MatBlazor;
 
-                services.AddMatToaster(config =>
+                services.AddMatToaster(config =>MatToastContainer
                 {
                     config.PositionClass = MatToastPosition.TopRight;
                     config.PreventDuplicates = false;
@@ -49,7 +49,7 @@
             <code>
                 [Inject]
                 protected IMatToaster Toaster { get; set; }
-            </code>            
+            </code>
         </pre>
         <p>Then call one of the display methods:</p>
         <pre class="code">

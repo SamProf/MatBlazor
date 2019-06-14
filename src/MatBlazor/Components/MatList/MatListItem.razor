@@ -1,32 +1,15 @@
 ﻿@namespace MatBlazor
-@using Microsoft.AspNetCore.Components
+@inherits BaseMatListItem
 
-@if (Href == null)
+@if (Href == null || Disabled)
 {
-    <li class="mdc-list-item" onmousedown="@OnMouseDown" onclick="@OnClick">
+    <li class="@ClassMapper.Class" onmousedown="@OnMouseDown" onclick="@OnClick">
         @ChildContent
     </li>
 }
 else
 {
-    <a class="mdc-list-item" href="@Href" onmousedown="@OnMouseDown" onclick="@OnClick">
+    <a class="@ClassMapper.Class" href="@Href" onmousedown="@OnMouseDown" onclick="@OnClick">
         @ChildContent
     </a>
-}
-
-@functions
-{
-
-    [Parameter]
-    protected EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
-
-    [Parameter]
-    protected EventCallback<UIMouseEventArgs> OnClick { get; set; }
-
-    [Parameter]
-    protected RenderFragment ChildContent { get; set; }
-
-    [Parameter]
-    protected string Href { get; set; }
-
 }
