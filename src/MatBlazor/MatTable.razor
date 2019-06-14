@@ -155,6 +155,11 @@
         }
     }
 
+    protected override async Task OnParametersSetAsync()
+    {
+        await LoadData();
+    }
+
     async Task UpdateList(int currentPage)
     {
         ItemList = Items.Skip((currentPage - 1) * PageSize).Take(PageSize);
