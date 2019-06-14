@@ -82,12 +82,13 @@
         <MatAccordion Multi="true">
             @for (var i = 0; i < 10; i++)
             {
+                var ii = i; // capture variable
                 <MatExpansionPanel>
                     <MatExpansionPanelSummary>
-                        <MatExpansionPanelHeader>Panel @i</MatExpansionPanelHeader>
+                        <MatExpansionPanelHeader>Panel @ii</MatExpansionPanelHeader>
                     </MatExpansionPanelSummary>
                     <MatExpansionPanelDetails>
-                        <p>Content of panel @i</p>
+                        <p>Content of panel @ii</p>
                     </MatExpansionPanelDetails>
                 </MatExpansionPanel>
             }
@@ -98,12 +99,13 @@
         <MatAccordion Multi=""true"">
             @for (var i = 0; i < 10; i++)
             {
+                var ii = i; // capture variable
                 <MatExpansionPanel>
                     <MatExpansionPanelSummary>
-                        <MatExpansionPanelHeader>Panel @i</MatExpansionPanelHeader>
+                        <MatExpansionPanelHeader>Panel @ii</MatExpansionPanelHeader>
                     </MatExpansionPanelSummary>
                     <MatExpansionPanelDetails>
-                        <p>Content of panel @i</p>
+                        <p>Content of panel @ii</p>
                     </MatExpansionPanelDetails>
                 </MatExpansionPanel>
             }

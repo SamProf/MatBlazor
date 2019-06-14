@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "Toast",
+      "launchUrl": "Test",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
