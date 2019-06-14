@@ -1,4 +1,5 @@
-﻿@inherits BaseMatButton
+﻿@namespace MatBlazor
+@inherits BaseMatButton
 
 <button class="@ClassMapper.Class" style="@Style" onclick="@OnClickHandler" disabled=@Disabled aria-label="@(Label ?? Icon)" @ref="Ref" type="@Type" name="@Name" value="@Value">
     @if (Icon != null)

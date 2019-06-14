@@ -1,16 +1,17 @@
-﻿@inherits BaseMatIconButton
+﻿@namespace MatBlazor
+@inherits BaseMatIconButton
 
 <button class="@ClassMapper.Class" style="@Style" @ref="Ref" disabled=@Disabled onclick="@OnClickHandler" onmousedown="@OnMouseDown" href=@Link>
     @if (Icon != null)
     {
         @if (ToggleIcon != null && Toggled)
-         {
-             <MatIcon Icon="@ToggleIcon"></MatIcon>
-         }
-         else
-         {
-             <MatIcon Icon="@Icon"></MatIcon>
-         }
+        {
+            <MatIcon Icon="@ToggleIcon"></MatIcon>
+        }
+        else
+        {
+            <MatIcon Icon="@Icon"></MatIcon>
+        }
     }
     @ChildContent
 </button>
