@@ -1,12 +1,14 @@
 .mdc-table, .mdc-table--striped {
     width: 100%;
     max-width: 100%;
-    margin-bottom: 1rem;
     background-color: transparent;
     border-collapse: collapse;
     border-spacing: 0;
+    display: inline-block;
+    overflow-x: auto;
+    margin: 8px 0 32px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
-
 tr {
     &.mdc-table-footer-row, &.mdc-table-row {
         height: 48px;
@@ -14,10 +16,29 @@ tr {
 }
 
 .mdc-table {
-    td, th {
-        padding: 0;
-        border-bottom-width: 1px;
-        border-bottom-style: solid;
+    td {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 12px 12px 12px 24px;
+    }
+    td:first-child {
+        border-left: none;
+    }
+    td:last-child {
+        border-right: none;
+        width: 100%;
+    }
+    th{
+        line-height: 1.75rem;
+        font-weight: 400;
+        letter-spacing: .04em;
+        text-decoration: inherit;
+        text-transform: inherit;
+        background-color: rgba(0, 0, 0, 0.08);
+        font-size: 1.143rem;
+        color: #202124;
+        text-align: left;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 12px 12px 12px 24px;
     }
 }
 
@@ -28,7 +49,7 @@ tr.mdc-table-header-row {
 }
 
 .mdc-table--striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.02);
 }
 
 .mdc-paginator {

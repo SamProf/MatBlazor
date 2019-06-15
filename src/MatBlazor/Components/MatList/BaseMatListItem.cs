@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 namespace MatBlazor
 {
     /// <summary>
-    /// Lists present multiple line items vertically as a single continuous element. 
+    /// Lists present multiple line items vertically as a single continuous element.
     /// </summary>
     public class BaseMatListItem : BaseMatDomComponent
     {
@@ -17,6 +17,9 @@ namespace MatBlazor
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 
+        /// <summary>
+        /// The URL of the List Item
+        /// </summary>
         [Parameter]
         protected string Href { get; set; }
 
@@ -30,10 +33,6 @@ namespace MatBlazor
             set
             {
                 _disabled = value;
-                if (_disabled)
-                {
-
-                }
                 ClassMapper.MakeDirty();
             }
         }

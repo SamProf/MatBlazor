@@ -4,7 +4,7 @@
 
 <DemoContainer>
     <Content>
-        <MatTable Items="@cars">
+        <MatTable Items="@cars" class="mat-elevation-z5">
             <MatTableHeader>
                 <th>Name</th>
                 <th>Price</th>
@@ -50,7 +50,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatTable Items=""@cars"">
+        <MatTable Items=""@cars"" class=""mat-elevation-z5"">
             <MatTableHeader>
                 <th>Name</th>
                 <th>Price</th>
@@ -100,16 +100,17 @@
 <h5 class="mat-h5">Filter Example, Pull Data from API</h5>
 <DemoContainer>
     <Content>
-        <MatTable Items="@todos" LoadInitialData="true" Striped="true" RequestApiOnlyOnce="true" ApiUrl="https://jsonplaceholder.typicode.com/todos" FilterByColumnName="Title" DebounceMilliseconds="150">
+        <MatTable Items="@todos" LoadInitialData="true" Striped="true" RequestApiOnlyOnce="true" 
+                  ApiUrl="https://jsonplaceholder.typicode.com/todos" FilterByColumnName="Title" DebounceMilliseconds="150" class="mat-elevation-z5">
             <MatTableHeader>
                 <th>Id</th>
-                <th>Todo</th>
                 <th>Completed</th>
+                <th>Todo</th>
             </MatTableHeader>
             <MatTableRow>
                 <td>@String.Format("{0:d}", @context.Id)</td>
-                <td>@context.Title</td>
                 <td>@context.Completed</td>
+                <td>@context.Title</td>
             </MatTableRow>
         </MatTable>
 
@@ -134,16 +135,17 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatTable Items=""@todos"" LoadInitialData=""true"" Striped=""true"" RequestApiOnlyOnce=""true"" ApiUrl=""https://jsonplaceholder.typicode.com/todos"" FilterByColumnName=""Title"" DebounceMilliseconds=""150"">
+        <MatTable Items=""@todos"" LoadInitialData=""true"" Striped=""true"" RequestApiOnlyOnce=""true"" 
+            ApiUrl=""https://jsonplaceholder.typicode.com/todos"" FilterByColumnName=""Title"" DebounceMilliseconds=""150"" class=""mat-elevation-z5"">
             <MatTableHeader>
-                <th>Id</th>
-                <th>Todo</th>
+                <th>Id</th>                
                 <th>Completed</th>
+                <th>Todo</th>
             </MatTableHeader>
             <MatTableRow>
-                <td>@String.Format(""{0:d}"", @context.Id)</td>
-                <td>@context.Title</td>
+                <td>@String.Format(""{0:d}"", @context.Id)</td>                
                 <td>@context.Completed</td>
+                <td>@context.Title</td>
             </MatTableRow>
         </MatTable>
 
