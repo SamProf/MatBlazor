@@ -136,14 +136,14 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTable Items=""@todos"" LoadInitialData=""true"" Striped=""true"" RequestApiOnlyOnce=""true"" 
-            ApiUrl=""https://jsonplaceholder.typicode.com/todos"" FilterByColumnName=""Title"" DebounceMilliseconds=""150"" class=""mat-elevation-z5"">
+                  ApiUrl=""https://jsonplaceholder.typicode.com/todos"" FilterByColumnName=""Title"" DebounceMilliseconds=""150"" class=""mat-elevation-z5"">
             <MatTableHeader>
-                <th>Id</th>                
+                <th>Id</th>
                 <th>Completed</th>
                 <th>Todo</th>
             </MatTableHeader>
             <MatTableRow>
-                <td>@String.Format(""{0:d}"", @context.Id)</td>                
+                <td>@String.Format(""{0:d}"", @context.Id)</td>
                 <td>@context.Completed</td>
                 <td>@context.Title</td>
             </MatTableRow>

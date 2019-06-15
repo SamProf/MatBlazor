@@ -115,6 +115,7 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ### In progress MatBlazor 1.2.1
 - MatDatePicker parameters: Label, Dense, Outlined, Required, Disabled
+- PR: MatTable style updates #112 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: MatListItem Disabled #111 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: Fixed a bug where Table would not re render after data changed. #110 (Thanks to [Garderoben](https://github.com/Garderoben))
 - Now we have [MatBlazor - Documentation and demo website - Client Side Blazor](https://samprof.github.io/MatBlazor/)

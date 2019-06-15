@@ -283,7 +283,12 @@
         </member>
         <member name="T:MatBlazor.BaseMatListItem">
             <summary>
-            Lists present multiple line items vertically as a single continuous element. 
+            Lists present multiple line items vertically as a single continuous element.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatListItem.Href">
+            <summary>
+            The URL of the List Item
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatListItem.Disabled">
