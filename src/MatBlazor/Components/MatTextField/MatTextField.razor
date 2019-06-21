@@ -16,7 +16,6 @@
         <input style="@InputStyle" @ref="InputRef" type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@MatBlazorId" @bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" />
     }
 
-
     @if (!FullWidth && Outlined)
     {
         <div class="mdc-notched-outline">
@@ -42,5 +41,7 @@
 </div>
 @if (HelperText != null)
 {
-    <p class="mdc-text-field-helper-text" aria-hidden="true">@HelperText</p>
+    <div class="mdc-text-field-helper-line">
+        <div class="@HelperTextClassMapper.Class" aria-hidden="@(!HelperTextPersistent)">@HelperText</div>
+    </div>
 }
