@@ -68,13 +68,19 @@
 <DemoContainer>
     <Content>
         <p>
-            <MatTextField @bind-Value="@MyString10" HelperText="Helper Text" Label="Label"></MatTextField>
+            <MatTextField @bind-Value="@MyString10" Label="Label">
+                <HelperText>Helper Text</HelperText>
+            </MatTextField>
         </p>
         <p>
-            <MatTextField @bind-Value="@MyString10" HelperText="Helper Text Persistent" Label="Label" HelperTextPersistent="true"></MatTextField>
+            <MatTextField @bind-Value="@MyString10" Label="Label" HelperTextPersistent="true">
+                <HelperText>Helper Text Persistent</HelperText>
+            </MatTextField>
         </p>
         <p>
-            <MatTextField @bind-Value="@MyString10" HelperText="Helper Text Validation" Label="Label" HelperTextPersistent="true" HelperTextValidation="true"></MatTextField>
+            <MatTextField @bind-Value="@MyString10" Label="Label" HelperTextPersistent="true" HelperTextValidation="true">
+                <HelperText>Helper Text Validation</HelperText>
+            </MatTextField>
         </p>
 
         @functions
@@ -97,13 +103,19 @@
     <SourceContent>
         <BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            <MatTextField @bind-Value=""@MyString10"" HelperText=""Helper Text"" Label=""Label""></MatTextField>
+            <MatTextField @bind-Value=""@MyString"" Label=""Label"">
+                <HelperText>Helper Text</HelperText>
+            </MatTextField>
         </p>
         <p>
-            <MatTextField @bind-Value=""@MyString10"" HelperText=""Helper Text Persistent"" Label=""Label"" HelperTextPersistent=""true""></MatTextField>
+            <MatTextField @bind-Value=""@MyString"" Label=""Label"" HelperTextPersistent=""true"">
+                <HelperText>Helper Text Persistent</HelperText>
+            </MatTextField>
         </p>
         <p>
-            <MatTextField @bind-Value=""@MyString10"" HelperText=""Helper Text Validation"" Label=""Label"" HelperTextPersistent=""true"" HelperTextValidation=""true""></MatTextField>
+            <MatTextField @bind-Value=""@MyString"" Label=""Label"" HelperTextPersistent=""true"" HelperTextValidation=""true"">
+                <HelperText>Helper Text Validation</HelperText>
+            </MatTextField>
         </p>
 
         @functions

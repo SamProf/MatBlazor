@@ -52,7 +52,7 @@ namespace MatBlazor
         public string PlaceHolder { get; set; }
 
 //        [Parameter]
-        public string HelperText { get; set; }
+        public RenderFragment HelperText { get; set; }
 
 
         [Parameter]

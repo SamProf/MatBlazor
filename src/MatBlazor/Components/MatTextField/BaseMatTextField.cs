@@ -87,7 +87,7 @@ namespace MatBlazor
         public bool Required { get; set; }
 
         [Parameter]
-        public string HelperText { get; set; }
+        public RenderFragment HelperText { get; set; }
 
         [Parameter]
         public bool HelperTextPersistent { get; set; }
