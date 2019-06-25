@@ -16,8 +16,16 @@ namespace MatBlazor
                 .Add("mat-select")
                 .Add("mdc-select")
                 .If("mdc-select--outlined", () => Outlined)
-                .If("mdc-select--disabled", () => Disabled);
+                .If("mdc-select--disabled", () => Disabled)
+                .If("mdc-select--with-leading-icon", () => Icon != null);
+
+            HelperTextClassMapper
+                .Add("mdc-text-field-helper-text")
+                .If("mdc-text-field-helper-text--persistent", () => HelperTextPersistent)
+                .If("mdc-text-field-helper-text--validation-msg", () => HelperTextValidation);
         }
+
+        protected ClassMapper HelperTextClassMapper { get; } = new ClassMapper();
 
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
@@ -26,16 +34,31 @@ namespace MatBlazor
         protected bool Enhanced { get; set; } = false;
 
         [Parameter]
-        protected bool Outlined { get; set; }
+        public bool Outlined { get; set; }
 
         [Parameter]
-        protected bool Disabled { get; set; }
+        public bool Disabled { get; set; }
 
         [Parameter]
-        protected string Label { get; set; }
+        public string Label { get; set; }
 
         [Parameter]
-        protected string Value
+        public string Icon { get; set; }
+
+        [Parameter]
+        public string HelperText { get; set; }
+
+        [Parameter]
+        public bool HelperTextPersistent { get; set; }
+
+        [Parameter]
+        public bool HelperTextValidation { get; set; }
+
+        [Parameter]
+        public bool HideDropDownIcon { get; set; }
+
+        [Parameter]
+        public string Value
         {
             get => _value;
             set
@@ -49,11 +72,32 @@ namespace MatBlazor
         }
 
         [Parameter]
-        protected EventCallback<string> ValueChanged { get; set; }
+        public EventCallback<string> ValueChanged { get; set; }
+
+        [Parameter]
+        public EventCallback<UIMouseEventArgs> IconOnClick { get; set; }
+
+        [Parameter]
+        public EventCallback<UIFocusEventArgs> OnFocus { get; set; }
+
+        [Parameter]
+        public EventCallback<UIFocusEventArgs> OnFocusOut { get; set; }
+
+        [Parameter]
+        public EventCallback<UIKeyboardEventArgs> OnKeyPress { get; set; }
+
+        [Parameter]
+        public EventCallback<UIKeyboardEventArgs> OnKeyDown { get; set; }
+
+        [Parameter]
+        public EventCallback<UIKeyboardEventArgs> OnKeyUp { get; set; }
+
+        [Parameter]
+        public EventCallback<UIChangeEventArgs> OnInput { get; set; }
 
         public void OnChangeHandler(UIChangeEventArgs e)
         {
-            Value = (string) e.Value;
+            Value = (string)e.Value;
         }
 
         protected async override Task OnFirstAfterRenderAsync()
