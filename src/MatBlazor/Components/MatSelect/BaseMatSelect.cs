@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
+using System.Threading.Tasks;
 
 namespace MatBlazor
 {
@@ -94,11 +94,6 @@ namespace MatBlazor
 
         [Parameter]
         public EventCallback<UIChangeEventArgs> OnInput { get; set; }
-
-        public void OnChangeHandler(UIChangeEventArgs e)
-        {
-            Value = (string)e.Value;
-        }
 
         protected async override Task OnFirstAfterRenderAsync()
         {
