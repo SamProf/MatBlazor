@@ -1,7 +1,6 @@
 <DocMatTable></DocMatTable>
 
 <h5 class="mat-h5">Example</h5>
-
 <DemoContainer>
     <Content>
         <MatTable Items="@cars" class="mat-elevation-z5">
@@ -50,7 +49,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatTable Items=""@cars"" class=""mat-elevation-z5"">
+        <MatTable Items=""@cars"" class=""mat-elevation-z5"" AllowSelection=""true"">
             <MatTableHeader>
                 <th>Name</th>
                 <th>Price</th>
@@ -97,10 +96,10 @@
     </SourceContent>
 </DemoContainer>
 
-<h5 class="mat-h5">Filter Example, Pull Data from API</h5>
+<h5 class="mat-h5">Filter Example, Pull Data from API, Single Row Selection / Hover</h5>
 <DemoContainer>
     <Content>
-        <MatTable Items="@todos" LoadInitialData="true" Striped="true" RequestApiOnlyOnce="true" 
+        <MatTable Items="@todos" LoadInitialData="true" Striped="true" RequestApiOnlyOnce="true"  AllowSelection="true" RowClass="tester"
                   ApiUrl="https://jsonplaceholder.typicode.com/todos" FilterByColumnName="Title" DebounceMilliseconds="150" class="mat-elevation-z5">
             <MatTableHeader>
                 <th>Id</th>
@@ -135,15 +134,15 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatTable Items=""@todos"" LoadInitialData=""true"" Striped=""true"" RequestApiOnlyOnce=""true"" 
+        <MatTable Items=""@todos"" LoadInitialData=""true"" Striped=""true"" RequestApiOnlyOnce=""true""  AllowSelection=""true""
             ApiUrl=""https://jsonplaceholder.typicode.com/todos"" FilterByColumnName=""Title"" DebounceMilliseconds=""150"" class=""mat-elevation-z5"">
             <MatTableHeader>
-                <th>Id</th>                
+                <th>Id</th>
                 <th>Completed</th>
                 <th>Todo</th>
             </MatTableHeader>
             <MatTableRow>
-                <td>@String.Format(""{0:d}"", @context.Id)</td>                
+                <td>@String.Format(""{0:d}"", @context.Id)</td>
                 <td>@context.Completed</td>
                 <td>@context.Title</td>
             </MatTableRow>

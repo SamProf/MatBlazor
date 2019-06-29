@@ -15,6 +15,9 @@ tr {
     }
 }
 
+.mdc-table--striped tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
 .mdc-table {
     td {
         border: 1px solid rgba(0, 0, 0, 0.1);
@@ -40,16 +43,19 @@ tr {
         border: 1px solid rgba(0, 0, 0, 0.1);
         padding: 12px 12px 12px 24px;
     }
+    tr.mdc-table-row-hover:hover{
+        background-color: rgba(0, 0, 0, 0.12);
+        cursor: pointer;
+    }
+    tr.mdc-table-row-selected {
+        background-color: rgba(0, 0, 0, 0.12);
+    }
 }
 
-tr.mdc-table-header-row {
+.mdc-table-header-row {
     height: 56px;
     text-align: left;
     font-weight: 500;
-}
-
-.mdc-table--striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.02);
 }
 
 .mdc-paginator {
