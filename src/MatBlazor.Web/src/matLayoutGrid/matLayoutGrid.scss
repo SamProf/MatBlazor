@@ -21,7 +21,7 @@
 
 @for $col from 1 through 12 {
   @each $mode in map-keys($mdc-layout-grid-columns) {
-    .mat-layout-grid-cell-span-#{$col}-desktop {
+    .mat-layout-grid-cell-span-#{$col}-#{$mode} {
       @extend .mdc-layout-grid__cell--span-#{$col}-#{$mode};
     }
   }
