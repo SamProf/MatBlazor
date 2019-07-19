@@ -54,6 +54,9 @@ namespace MatBlazor
         public string Label { get; set; }
 
         [Parameter]
+        public string Id {get; set;}
+
+        [Parameter]
         public string Icon { get; set; }
 
         [Parameter]

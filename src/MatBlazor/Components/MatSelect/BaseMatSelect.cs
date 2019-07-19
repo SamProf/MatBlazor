@@ -35,6 +35,9 @@ namespace MatBlazor
         protected string Label { get; set; }
 
         [Parameter]
+        protected string Id { get; set; }
+
+        [Parameter]
         protected string Value
         {
             get => _value;
@@ -49,11 +52,18 @@ namespace MatBlazor
         }
 
         [Parameter]
+        public bool Required { get; set; }
+
+        [Parameter]
+        protected EventCallback<UIChangeEventArgs> OnChange { get; set; }
+
+        [Parameter]
         protected EventCallback<string> ValueChanged { get; set; }
 
         public void OnChangeHandler(UIChangeEventArgs e)
         {
             Value = (string) e.Value;
+            OnChange.InvokeAsync(e);
         }
 
         protected async override Task OnFirstAfterRenderAsync()
