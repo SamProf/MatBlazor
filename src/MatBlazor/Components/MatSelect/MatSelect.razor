@@ -29,7 +29,7 @@
     }
     else
     {
-        <select class="mdc-select__native-control" value="@Value" onchange="@OnChangeHandler" disabled=@Disabled>
+        <select class="mdc-select__native-control" value="@Value" @onchange="@OnChangeHandler" disabled=@Disabled required=@Required id="@Id">
             @ChildContent
         </select>
     }

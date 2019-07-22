@@ -50,6 +50,9 @@ namespace MatBlazor
         protected string Name { get; set; } = null;
 
         [Parameter]
+        public string Id {get; set;}
+
+        [Parameter]
         protected string Value { get; set; } = null;
 
 

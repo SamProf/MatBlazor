@@ -26,6 +26,9 @@ namespace MatBlazor
         public string Label { get; set; }
 
         [Parameter]
+        public string Id {get; set;}
+
+        [Parameter]
         protected Action<bool> CheckedChanged { get; set; }
 //
 //        [Parameter]
