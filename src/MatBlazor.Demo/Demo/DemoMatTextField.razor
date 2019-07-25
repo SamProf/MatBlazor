@@ -33,7 +33,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatTextField @bind-Value=""@MyString"" Label=""Standard""></MatTextField>
         </p>
@@ -95,7 +95,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatTextField @bind-Value=""@MyString10"" HelperText=""Helper Text"" Label=""Label""></MatTextField>
         </p>
@@ -109,17 +109,17 @@
         @functions
         {
 
-            public string MyString
+            public string MyString10
             {
-                get => _myString;
+                get => _myString10;
                 set
                 {
-                    _myString = value;
+                    _myString10 = value;
                     this.StateHasChanged();
                 }
             }
 
-            private string _myString;
+            private string _myString10;
         }
 
     ")></BlazorFiddle>
@@ -160,7 +160,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
 
         <p>
             <MatTextField @bind-Value=""@MyString2"" Label=""Standard"" Icon=""favorite""></MatTextField>
@@ -226,7 +226,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatTextField @bind-Value=""@MyString3"" Label=""Standard"" Icon=""favorite"" IconTrailing=""true""></MatTextField>
         </p>
@@ -291,7 +291,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatTextField @bind-Value=""@MyString4"" Label=""Standard"" Outlined=""true""></MatTextField>
         </p>
@@ -355,7 +355,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatTextField @bind-Value=""@MyString5"" Label=""Standard"" Icon=""favorite"" Outlined=""true""></MatTextField>
         </p>
@@ -419,7 +419,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatTextField @bind-Value=""@MyString6"" Label=""Standard"" Icon=""favorite"" IconTrailing=""true"" Outlined=""true""></MatTextField>
         </p>
@@ -481,7 +481,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatTextField @bind-Value=""@MyString7"" Label=""Standard"" TextArea=""true""></MatTextField>
         </p>
@@ -553,7 +553,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatTextField @bind-Value=""@MyString8"" Label=""Full Width"" FullWidth=""true""></MatTextField>
         </p>
@@ -627,7 +627,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatTextField @bind-Value=""@MyString9"" Label=""Standard"" TextArea=""true"" FullWidth=""true""></MatTextField>
         </p>
@@ -667,7 +667,7 @@
         <MatTextField PlaceHolder="Test PlaceHolder"></MatTextField>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTextField PlaceHolder=""Test PlaceHolder""></MatTextField>
     ")></BlazorFiddle>
     </SourceContent>
@@ -680,7 +680,7 @@
         <MatTextField Required="true"></MatTextField>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTextField Required=""true""></MatTextField>
     ")></BlazorFiddle>
     </SourceContent>
@@ -708,7 +708,7 @@
         </p>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatTextField Disabled=""true"" Value=""Disabled"" Label=""Disabled""></MatTextField>
         </p>
@@ -752,7 +752,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
 
         <style>
             .demo-text-field-class {
@@ -829,7 +829,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTextField OnFocus=""@OnFocusHandler"" OnFocusOut=""OnFocusOutHandler"" OnKeyPress=""@OnKeyPressHandler"" OnKeyDown=""@OnKeyDownHandler"" OnKeyUp=""@OnKeyUpHandler"" OnInput=""@OnInputHandler""></MatTextField>
 
         <div>@eventLog</div>
