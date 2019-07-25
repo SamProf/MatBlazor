@@ -113,7 +113,8 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
-### In progress MatBlazor 1.2.1
+### In progress MatBlazor 1.3.0
+- Update to .NET Core 3.0 Preview 7
 - MatDatePicker parameters: Label, Dense, Outlined, Required, Disabled
 - PR: Fixed up the helper text functionality in MatTextField. #121 (Thanks to [jorgy343](https://github.com/jorgy343))
 - PR: MatSelect Updates #124 (Thanks to [jorgy343](https://github.com/jorgy343))
