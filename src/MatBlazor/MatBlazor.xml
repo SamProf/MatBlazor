@@ -371,6 +371,21 @@
             Mat Table display a table data.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatTable.HeaderRowClass">
+            <summary>
+            Specifies a custom class for the MatTableHeader row
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTable.RowClass">
+            <summary>
+            Specifies a custom class for the MatTableRow
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTable.AllowSelection">
+            <summary>
+            Specifies weather you can select a single row.       
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatTable.RequestApiOnlyOnce">
             <summary>
             Specifies whether to Request the API only once.
@@ -424,6 +439,11 @@
         <member name="P:MatBlazor.BaseMatTable.PageSize">
             <summary>
             The number of rows per page.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.BaseTableRow">
+            <summary>
+            Mat Table Row display a table row   
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatTextField">
