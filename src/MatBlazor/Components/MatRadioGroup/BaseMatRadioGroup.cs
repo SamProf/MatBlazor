@@ -2,7 +2,7 @@
 
 namespace MatBlazor
 {
-    public class BaseMatRadioGroup : BaseMatDomComponent
+    public class BaseMatRadioGroup : BaseMatComponent
     {
         private string _value;
 

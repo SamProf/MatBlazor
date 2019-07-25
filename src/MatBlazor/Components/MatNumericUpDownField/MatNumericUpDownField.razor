@@ -11,7 +11,9 @@
     <input style="@InputStyle; padding: 20px 48px 6px 48px;" @ref="InputRef" type="text" placeholder="@PlaceHolder" required=@Required
            class="@InputClassMapper.Class" id="@Id" @bind="@UiBindedValue" aria-label="@Label"
            oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus"
-           disabled=@Disabled readonly="@ReadOnly" />
+           disabled=@Disabled readonly="@ReadOnly"
+           @attributes="Attributes"
+           />
 
     <i style="left: initial; right: 20px; background: none; top: 3px; bottom: initial; user-select: none;"
        class="material-icons mdc-text-field__icon"
