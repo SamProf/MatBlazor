@@ -117,6 +117,7 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 - MatDatePicker parameters: Label, Dense, Outlined, Required, Disabled
 - PR: Fixed up the helper text functionality in MatTextField. #121 (Thanks to [jorgy343](https://github.com/jorgy343))
 - PR: MatSelect Updates #124 (Thanks to [jorgy343](https://github.com/jorgy343))
+- PR: Typo. Mode is hardcoded #128 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
 - PR: MatTable style updates #112 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: MatListItem Disabled #111 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: Fixed a bug where Table would not re render after data changed. #110 (Thanks to [Garderoben](https://github.com/Garderoben))
