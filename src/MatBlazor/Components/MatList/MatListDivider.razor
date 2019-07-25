@@ -1,2 +1,4 @@
 ﻿@namespace MatBlazor
-<li role="separator" class="mdc-list-divider"></li>
+@inherits BaseMatDomComponent
+
+<li role="separator" class="@ClassMapper.Class mdc-list-divider" style="@Style" @ref="Ref" @attributes="Attributes" Id="@Id"></li>
