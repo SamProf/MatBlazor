@@ -1,7 +1,8 @@
 ﻿@namespace MatBlazor
 @using Microsoft.AspNetCore.Components
+@inherits BaseMatDomComponent
 @* mdc-top-app-bar__navigation-icon *@
-<a class="material-icons mdc-top-app-bar__navigation-icon" onclick="OnClickHandler">menu</a>
+<a class="@ClassMapper.Class material-icons mdc-top-app-bar__navigation-icon" style="@Style" @ref ="Ref" @attributes="Attributes" Id="@Id" @onclick="OnClickHandler">menu</a>
 
 @functions
 {
@@ -9,6 +10,8 @@
     [Parameter]
     public EventCallback<UIMouseEventArgs> OnClick { get; set; }
 
+
+    
 
     void OnClickHandler(UIMouseEventArgs e)
     {

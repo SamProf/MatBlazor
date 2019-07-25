@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatDomComponent
 @using Microsoft.AspNetCore.Components
-<section class="@ClassMapper.Class" style="@Style">
+<section class="@ClassMapper.Class" style="@Style" @ref ="Ref" @attributes="Attributes" Id="@Id">
     @ChildContent
 </section>
 
@@ -23,5 +23,4 @@
             .If("mdc-top-app-bar__section--align-end", () => this.Align == MatAppBarSectionAlign.End);
     }
 
-    protected ClassMapper ClassMapper { get; } = new ClassMapper();
 }

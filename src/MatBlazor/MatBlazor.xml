@@ -19,11 +19,6 @@
             Specifies an inline style for an DOM element.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatTooltip">
-            <summary>
-            The Material tooltip provides a text label that is displayed when the user hovers an element.
-            </summary>
-        </member>
         <member name="T:MatBlazor.BaseMatExpansionPanel">
             <summary>
             MatExpansionPanel provides an expandable details-summary view.
@@ -563,6 +558,11 @@
             <summary>
             Represents an instance of a Toast
             It handles the user interactions and orchestrates the the state transitions
+            </summary>
+        </member>
+        <member name="T:MatBlazor.BaseMatTooltip">
+            <summary>
+            The Material tooltip provides a text label that is displayed when the user hovers an element.
             </summary>
         </member>
         <member name="T:MatBlazor.MatToastCommonOptions">

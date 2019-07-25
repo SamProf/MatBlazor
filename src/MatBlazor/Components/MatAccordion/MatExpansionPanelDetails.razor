@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Components
 @inherits BaseMatDomComponent
 
-<div class="@ClassMapper.Class" style="@Style" @ref="Ref">
+<div class="@ClassMapper.Class mat-expansion-panel__content" style="@Style" @ref ="Ref" @attributes="Attributes" Id="@Id">
     @ChildContent
 </div>
 
@@ -11,10 +11,5 @@
 
     [Parameter]
     public RenderFragment ChildContent { get; set; }
-
-    protected override void OnInit()
-    {
-        ClassMapper.Add("mat-expansion-panel__content");
-    }
 
 }

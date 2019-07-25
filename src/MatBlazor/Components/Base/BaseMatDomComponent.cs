@@ -8,6 +8,13 @@ namespace MatBlazor
 {
     public abstract class BaseMatDomComponent : BaseMatComponent
     {
+        [Parameter]
+        public string Id { get; set; } = IdGeneratorHelper.Generate("matBlazor_id_");
+
+        [Parameter(CaptureUnmatchedValues = true)]
+        protected Dictionary<string, object> Attributes { get; set; }
+
+
         private ElementRef _ref;
 
         /// <summary>
@@ -67,6 +74,5 @@ namespace MatBlazor
 
         private string _class;
         private string _style;
-        
     }
 }

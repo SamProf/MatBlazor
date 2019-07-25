@@ -9,7 +9,7 @@
     }
 
     <input style="@InputStyle; padding: 20px 48px 6px 48px;" @ref="InputRef" type="text" placeholder="@PlaceHolder" required=@Required
-           class="@InputClassMapper.Class" id="@MatBlazorId" @bind="@UiBindedValue" aria-label="@Label"
+           class="@InputClassMapper.Class" id="@Id" @bind="@UiBindedValue" aria-label="@Label"
            oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus"
            disabled=@Disabled readonly="@ReadOnly" />
 
@@ -35,7 +35,7 @@
             @if (Label != null)
             {
                 <div class="mdc-notched-outline__notch">
-                    <label class="@LabelClassMapper.Class" for="@MatBlazorId">@Label</label>
+                    <label class="@LabelClassMapper.Class" for="@Id">@Label</label>
                 </div>
             }
             <div class="mdc-notched-outline__trailing"></div>
@@ -45,7 +45,7 @@
     {
         if (Label != null)
         {
-            <label class="@LabelClassMapper.Class" for="@MatBlazorId">@Label</label>
+            <label class="@LabelClassMapper.Class" for="@Id">@Label</label>
         }
         <div class="mdc-line-ripple"></div>
     }

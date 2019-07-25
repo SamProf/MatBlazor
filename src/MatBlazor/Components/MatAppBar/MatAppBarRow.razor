@@ -1,6 +1,7 @@
 ﻿@namespace MatBlazor
+@inherits BaseMatDomComponent
 @using Microsoft.AspNetCore.Components
-<div class="mdc-top-app-bar__row">
+<div class="@ClassMapper.Class mdc-top-app-bar__row" style="@Style" @ref ="Ref" @attributes="Attributes" Id="@Id">
     @ChildContent
 </div>
 
@@ -9,5 +10,8 @@
 
     [Parameter]
     private RenderFragment ChildContent { get; set; }
+
+
+    
 
 }
