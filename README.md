@@ -120,6 +120,7 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 - PR: Typo. Mode is hardcoded #128 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
 - PR: fix upper cases for linux env #130 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
 - PR: Improve Full Width Field Text Padding #131 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
+- PR: #89 MatTable Row Hover & Select #135 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: MatTable style updates #112 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: MatListItem Disabled #111 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: Fixed a bug where Table would not re render after data changed. #110 (Thanks to [Garderoben](https://github.com/Garderoben))

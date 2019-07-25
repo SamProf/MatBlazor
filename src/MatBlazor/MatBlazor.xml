@@ -383,7 +383,7 @@
         </member>
         <member name="P:MatBlazor.BaseMatTable.AllowSelection">
             <summary>
-            Specifies weather you can select a single row.       
+            Specifies weather you can select a single row.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatTable.RequestApiOnlyOnce">
@@ -418,7 +418,7 @@
         </member>
         <member name="P:MatBlazor.BaseMatTable.ApiUrl">
             <summary>
-            Specifies the API Url form for the table data 
+            Specifies the API Url form for the table data
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatTable.ShowPaging">
