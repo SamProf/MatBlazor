@@ -20,13 +20,7 @@ namespace MatBlazor
             get => _value;
             set { _value = value; }
         }
-
-        [Parameter]
-        public string Class { get; set; }
-
-        [Parameter]
-        public string Style { get; set; }
-
+        
         [Parameter]
         public string Label { get; set; }
 
