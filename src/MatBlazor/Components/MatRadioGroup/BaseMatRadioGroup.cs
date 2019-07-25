@@ -11,6 +11,10 @@ namespace MatBlazor
 
 
         [Parameter]
+        public string Id { get; set; } = IdGeneratorHelper.Generate("");
+
+
+        [Parameter]
         public string Value
         {
             get => _value;
