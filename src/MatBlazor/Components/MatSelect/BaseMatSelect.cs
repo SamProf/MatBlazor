@@ -58,9 +58,6 @@ namespace MatBlazor
         public bool HideDropDownIcon { get; set; }
 
         [Parameter]
-        protected string Id { get; set; }
-
-        [Parameter]
         protected string Value
         {
             get => _value;
