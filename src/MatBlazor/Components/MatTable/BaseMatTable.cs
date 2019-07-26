@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
@@ -11,7 +12,9 @@ namespace MatBlazor
     {
         private string _searchTermFieldPlaceHolder = null;
         private string _searchTermFieldLabel = null;
-
+        private string _headerRowClass = null;
+        private string _rowClass = null;
+        public BaseTableRow Current { get; private set; }
         #region Private Fields
 
         protected int TotalPages { get; set; }
@@ -32,7 +35,7 @@ namespace MatBlazor
 
         #endregion
 
-        #region Future Parameters  / Currently untested       
+        #region Future Parameters  / Currently untested
 
         [Parameter]
         public string PageParamName { get; set; }
@@ -64,6 +67,23 @@ namespace MatBlazor
 
         #endregion
 
+        /// <summary>
+        /// Specifies a custom class for the MatTableHeader row
+        /// </summary>
+        [Parameter]
+        public string HeaderRowClass { get; set; }
+
+        /// <summary>
+        /// Specifies a custom class for the MatTableRow
+        /// </summary>
+        [Parameter]
+        public string RowClass { get; set; }
+
+        /// <summary>
+        /// Specifies weather you can select a single row.
+        /// </summary>
+        [Parameter]
+        public bool AllowSelection { get; set; }
 
         /// <summary>
         /// Specifies whether to Request the API only once.
@@ -110,7 +130,7 @@ namespace MatBlazor
         public bool LoadInitialData { get; set; }
 
         /// <summary>
-        /// Specifies the API Url form for the table data 
+        /// Specifies the API Url form for the table data
         /// </summary>
         [Parameter]
         public string ApiUrl { get; set; }
@@ -148,6 +168,19 @@ namespace MatBlazor
 
 
         #region Helpers
+        public async Task ToggleSelectedAsync(BaseTableRow row)
+        {
+            if (row.Selected)
+            {
+                var current = Current;
+                Current = row;
+
+                if (current != null && current != row && current.Selected)
+                {
+                    await current.ToggleSelectedAsync();
+                }
+            }
+        }
 
         protected string SearchTermParam(string SearchTerm)
         {

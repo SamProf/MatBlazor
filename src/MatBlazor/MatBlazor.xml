@@ -19,11 +19,6 @@
             Specifies an inline style for an DOM element.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatTooltip">
-            <summary>
-            The Material tooltip provides a text label that is displayed when the user hovers an element.
-            </summary>
-        </member>
         <member name="T:MatBlazor.BaseMatExpansionPanel">
             <summary>
             MatExpansionPanel provides an expandable details-summary view.
@@ -371,6 +366,21 @@
             Mat Table display a table data.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatTable.HeaderRowClass">
+            <summary>
+            Specifies a custom class for the MatTableHeader row
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTable.RowClass">
+            <summary>
+            Specifies a custom class for the MatTableRow
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTable.AllowSelection">
+            <summary>
+            Specifies weather you can select a single row.
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatTable.RequestApiOnlyOnce">
             <summary>
             Specifies whether to Request the API only once.
@@ -403,7 +413,7 @@
         </member>
         <member name="P:MatBlazor.BaseMatTable.ApiUrl">
             <summary>
-            Specifies the API Url form for the table data 
+            Specifies the API Url form for the table data
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatTable.ShowPaging">
@@ -424,6 +434,11 @@
         <member name="P:MatBlazor.BaseMatTable.PageSize">
             <summary>
             The number of rows per page.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.BaseTableRow">
+            <summary>
+            Mat Table Row display a table row   
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatTextField">
@@ -543,6 +558,11 @@
             <summary>
             Represents an instance of a Toast
             It handles the user interactions and orchestrates the the state transitions
+            </summary>
+        </member>
+        <member name="T:MatBlazor.BaseMatTooltip">
+            <summary>
+            The Material tooltip provides a text label that is displayed when the user hovers an element.
             </summary>
         </member>
         <member name="T:MatBlazor.MatToastCommonOptions">

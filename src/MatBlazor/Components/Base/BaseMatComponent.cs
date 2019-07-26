@@ -11,9 +11,6 @@ namespace MatBlazor
         [Parameter]
         public ForwardRef RefBack { get; set; }
 
-
-        public string MatBlazorId = IdGeneratorHelper.Generate("matBlazor_id_");
-
         
 
         private Queue<Func<Task>> afterRenderCallQuene = new Queue<Func<Task>>();
@@ -24,6 +21,7 @@ namespace MatBlazor
         {
             afterRenderCallQuene.Enqueue(action);
         }
+
 
         protected async override Task OnAfterRenderAsync()
         {
@@ -64,7 +62,6 @@ namespace MatBlazor
         }
 
         protected bool Disposed { get; private set; }
-
 
 
         protected void InvokeStateHasChanged()

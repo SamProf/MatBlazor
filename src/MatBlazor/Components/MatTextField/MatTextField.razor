@@ -9,13 +9,12 @@
 
     @if (TextArea)
     {
-        <textarea style="@InputStyle" @ref="InputRef" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@Id" @bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" />
+        <textarea style="@InputStyle" @ref="InputRef" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@Id" @bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" @attributes="Attributes" />
     }
     else
     {
-        <input style="@InputStyle" @ref="InputRef" type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@Id" @bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" />
+        <input style="@InputStyle" @ref="InputRef" type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@Id" @bind=@Value aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" @attributes="Attributes" />
     }
-
 
     @if (!FullWidth && Outlined)
     {
@@ -24,7 +23,7 @@
             @if (Label != null)
             {
                 <div class="mdc-notched-outline__notch">
-                    <label class="@LabelClassMapper.Class" for="@MatBlazorId">@Label</label>
+                    <label class="@LabelClassMapper.Class" for="@Id">@Label</label>
                 </div>
             }
             <div class="mdc-notched-outline__trailing"></div>
@@ -34,7 +33,7 @@
     {
         if (Label != null)
         {
-            <label class="@LabelClassMapper.Class" for="@MatBlazorId">@Label</label>
+            <label class="@LabelClassMapper.Class" for="@Id">@Label</label>
         }
         <div class="mdc-line-ripple"></div>
     }
@@ -42,5 +41,7 @@
 </div>
 @if (HelperText != null)
 {
-    <p class="mdc-text-field-helper-text" aria-hidden="true">@HelperText</p>
+    <div class="mdc-text-field-helper-line">
+        <div class="@HelperTextClassMapper.Class" aria-hidden="@(!HelperTextPersistent)">@HelperText</div>
+    </div>
 }

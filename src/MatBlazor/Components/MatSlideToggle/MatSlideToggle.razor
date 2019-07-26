@@ -1,15 +1,15 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatSlideToggle
 
-<div class="@ClassMapper.Class" style="@Style" @ref="Ref">
+<div class="@ClassMapper.Class" style="@Style" @ref="Ref" @attributes="Attributes" Id="@Id">
     <div class="mdc-switch__track"></div>
     <div class="mdc-switch__thumb-underlay">
         <div class="mdc-switch__thumb">
-            <input type="checkbox" id="@MatBlazorId" class="mdc-switch__native-control" role="switch" checked="@Checked" onchange="@OnChangedHandler" disabled=@Disabled />
+            <input type="checkbox" id="@Id" class="mdc-switch__native-control" role="switch" checked="@Checked" onchange="@OnChangedHandler" disabled=@Disabled />
         </div>
     </div>
 </div>
 @if (Label != null)
 {
-    <label for="@MatBlazorId">@Label</label>
+    <label for="@Id">@Label</label>
 }

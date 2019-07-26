@@ -4,7 +4,9 @@
 
 <div @ref="Ref" class="@ClassMapper.Class" style="@Style" tabindex="0" role="slider"
      aria-valuemin="@ValueMin" aria-valuemax="@ValueMax" aria-valuenow="@Value"
-     aria-label="@Label" aria-disabled="@Disabled">
+     aria-label="@Label" aria-disabled="@Disabled"
+     @attributes="Attributes" Id="@Id"
+     >
     <div class="mdc-slider__track-container">
         <div class="mdc-slider__track"></div>
     </div>

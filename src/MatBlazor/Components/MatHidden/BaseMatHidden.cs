@@ -9,6 +9,8 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatHidden : BaseMatComponent
     {
+        private string Id = IdGeneratorHelper.Generate("");
+
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
@@ -54,7 +56,7 @@ namespace MatBlazor
             CallAfterRender(async () =>
             {
                 dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
-                await Js.InvokeAsync<object>("matBlazor.matHidden.init", MatBlazorId, dotNetObjectRef);
+                await Js.InvokeAsync<object>("matBlazor.matHidden.init", Id, dotNetObjectRef);
                 await UpdateVisible();
             });
         }
@@ -70,7 +72,7 @@ namespace MatBlazor
         {
             base.Dispose();
             DisposeDotNetObjectRef(dotNetObjectRef);
-            Js.InvokeAsync<object>("matBlazor.matHidden.destroy", MatBlazorId);
+            Js.InvokeAsync<object>("matBlazor.matHidden.destroy", Id);
         }
     }
 }

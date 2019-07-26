@@ -3,7 +3,7 @@
 @inherits BaseMatDomComponent
 
 
-<div class="@ClassMapper.Class" @ref="Ref" style="@Style" onclick="@OnClickHandler">
+<div class="@ClassMapper.Class" @ref="Ref" style="@Style" @onclick="OnClickHandler" @attributes="Attributes" Id="@Id">
     @ChildContent
 
     <span class="after material-icon">&#58131;</span>
@@ -20,6 +20,7 @@
 
     protected override void OnInit()
     {
+        base.OnInit();
         ClassMapper.Add("mat-expansion-panel__summary").Add("mdc-ripple-surface");
         CallAfterRender(async () => { await Js.InvokeAsync<object>("matBlazor.matAccordion.initSummary", Ref); });
     }

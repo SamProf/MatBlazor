@@ -3,8 +3,8 @@
 
 <div class="mdc-form-field" @ref="FormFieldRef">
     <div class="@ClassMapper.Class" style="@Style" @ref="Ref">
-        <input class="mdc-radio__native-control" type="radio" name="@Group.MatBlazorId" checked="@Checked" value="@MatBlazorId"
-               onchange="@((e) => OnChangeHandler(e))" id="@MatBlazorId" disabled=@Disabled />
+        <input class="mdc-radio__native-control" type="radio" name="@Group.Id" checked="@Checked" value="@Id"
+               @onchange="((e) => OnChangeHandler(e))" id="@Id" disabled=@Disabled @attributes="Attributes" />
         <div class="mdc-radio__background">
             <div class="mdc-radio__outer-circle"></div>
             <div class="mdc-radio__inner-circle"></div>
@@ -12,6 +12,6 @@
     </div>
     @if (Label != null)
     {
-        <label for="@MatBlazorId">@Label</label>
+        <label for="@Id">@Label</label>
     }
 </div>

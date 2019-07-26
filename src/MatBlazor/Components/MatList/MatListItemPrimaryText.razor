@@ -1,6 +1,8 @@
 ﻿@namespace MatBlazor
 @using Microsoft.AspNetCore.Components
-<span class="mdc-list-item__primary-text">
+@inherits BaseMatDomComponent
+
+<span class="@ClassMapper.Class mdc-list-item__primary-text" style="@Style" @ref="Ref" @attributes="Attributes" Id="@Id">
     @ChildContent
 </span>
 

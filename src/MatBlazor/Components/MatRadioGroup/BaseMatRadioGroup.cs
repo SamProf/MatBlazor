@@ -2,12 +2,16 @@
 
 namespace MatBlazor
 {
-    public class BaseMatRadioGroup : BaseMatDomComponent
+    public class BaseMatRadioGroup : BaseMatComponent
     {
         private string _value;
 
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
+
+
+        [Parameter]
+        public string Id { get; set; } = IdGeneratorHelper.Generate("");
 
 
         [Parameter]

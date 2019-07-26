@@ -93,6 +93,12 @@ namespace MatBlazor
         public string HelperText { get; set; }
 
         [Parameter]
+        public bool HelperTextPersistent { get; set; }
+
+        [Parameter]
+        public bool HelperTextValidation { get; set; }
+
+        [Parameter]
         public string PlaceHolder { get; set; }
 
         [Parameter]
@@ -100,7 +106,6 @@ namespace MatBlazor
 
         [Parameter]
         public string Type { get; set; } = "text";
-
 
         /// <summary>
         /// Css class of input element
@@ -119,12 +124,12 @@ namespace MatBlazor
         /// <summary>
         /// Style attribute of input element
         /// </summary>
-
         [Parameter]
         public string InputStyle { get; set; }
 
         protected ClassMapper LabelClassMapper = new ClassMapper();
         protected ClassMapper InputClassMapper = new ClassMapper();
+        protected ClassMapper HelperTextClassMapper = new ClassMapper();
 
         private string _value;
         private string _inputClass;
@@ -156,6 +161,11 @@ namespace MatBlazor
                 .Add("mdc-text-field__input")
                 .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(Value))
                 .If("mat-hide-clearbutton", () => this.HideClearButton);
+
+            HelperTextClassMapper
+                .Add("mdc-text-field-helper-text")
+                .If("mdc-text-field-helper-text--persistent", () => HelperTextPersistent)
+                .If("mdc-text-field-helper-text--validation-msg", () => HelperTextValidation);
         }
 
         protected async override Task OnFirstAfterRenderAsync()

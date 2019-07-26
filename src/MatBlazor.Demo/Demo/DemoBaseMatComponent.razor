@@ -3,6 +3,21 @@
 
 <p class="mat-body1">BaseMatComponent contains base component parameters and features.</p>
 
+<h5 class="mat-h5">@@Attributes and Id</h5>
+<DemoContainer>
+    <Content>
+        <MatButton customTest="123">Button with custom attribute</MatButton>
+        <MatTextField customTest="123" Label="TextField with custom attribute"></MatTextField>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatButton customTest=""123"">Button with custom attribute</MatButton>
+        <MatTextField customTest=""123"" Label=""TextField with custom attribute""></MatTextField>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
 <h5 class="mat-h5">Capture of Reference of the component</h5>
 <DemoContainer>
     <Content>

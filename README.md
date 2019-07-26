@@ -113,8 +113,16 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
-### In progress MatBlazor 1.2.1
+### In progress MatBlazor 1.3.0
+- Update to .NET Core 3.0 Preview 7
+- All components supports @@Attributes and Id parameter
 - MatDatePicker parameters: Label, Dense, Outlined, Required, Disabled
+- PR: Fixed up the helper text functionality in MatTextField. #121 (Thanks to [jorgy343](https://github.com/jorgy343))
+- PR: MatSelect Updates #124 (Thanks to [jorgy343](https://github.com/jorgy343))
+- PR: Typo. Mode is hardcoded #128 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
+- PR: fix upper cases for linux env #130 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
+- PR: Improve Full Width Field Text Padding #131 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
+- PR: #89 MatTable Row Hover & Select #135 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: MatTable style updates #112 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: MatListItem Disabled #111 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: Fixed a bug where Table would not re render after data changed. #110 (Thanks to [Garderoben](https://github.com/Garderoben))

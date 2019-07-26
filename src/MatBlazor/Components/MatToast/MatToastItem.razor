@@ -2,8 +2,8 @@
 @inherits BaseMatToastItem
 @Css
 
-<MatRipple Class="mat-toast-ripple">
-    <div class='@ContainerClassMapper.Class' style="@AnimationStyle" onmouseenter="@((_)=>MouseEnter())" onmouseleave="@(()=>MouseLeave())" @onclick="@(_=>Clicked(_))">
+<MatRipple Class="@Class" style="@Style" Id="@Id" Attributes="@Attributes" RefBack="@RefBack">
+    <div class='@ContainerClassMapper.Class' style="@AnimationStyle" onmouseenter="@((_)=>MouseEnter())" onmouseleave="@(()=>MouseLeave())" @onclick="(_=>Clicked(_))">
         <div class="mat-toast-message">
             @if (ShowProgressBar)
             {

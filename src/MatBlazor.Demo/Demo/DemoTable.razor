@@ -1,7 +1,6 @@
 <DocMatTable></DocMatTable>
 
 <h5 class="mat-h5">Example</h5>
-
 <DemoContainer>
     <Content>
         <MatTable Items="@cars" class="mat-elevation-z5">
@@ -97,10 +96,10 @@
     </SourceContent>
 </DemoContainer>
 
-<h5 class="mat-h5">Filter Example, Pull Data from API</h5>
+<h5 class="mat-h5">Filter Example, Pull Data from API, Single Row Selection / Hover</h5>
 <DemoContainer>
     <Content>
-        <MatTable Items="@todos" LoadInitialData="true" Striped="true" RequestApiOnlyOnce="true" 
+        <MatTable Items="@todos" LoadInitialData="true" Striped="true" RequestApiOnlyOnce="true"  AllowSelection="true" RowClass="tester"
                   ApiUrl="https://jsonplaceholder.typicode.com/todos" FilterByColumnName="Title" DebounceMilliseconds="150" class="mat-elevation-z5">
             <MatTableHeader>
                 <th>Id</th>
@@ -135,7 +134,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatTable Items=""@todos"" LoadInitialData=""true"" Striped=""true"" RequestApiOnlyOnce=""true"" 
+        <MatTable Items=""@todos"" LoadInitialData=""true"" Striped=""true"" RequestApiOnlyOnce=""true""  AllowSelection=""true"" RowClass=""tester""
                   ApiUrl=""https://jsonplaceholder.typicode.com/todos"" FilterByColumnName=""Title"" DebounceMilliseconds=""150"" class=""mat-elevation-z5"">
             <MatTableHeader>
                 <th>Id</th>

@@ -9,7 +9,7 @@ namespace MatBlazor
     /// <summary>
     /// Datetime picker based on flatpickr.js
     /// </summary>
-    public class BaseMatDatePicker : BaseMatComponent
+    public class BaseMatDatePicker : BaseMatDomComponent
     {
         protected BaseMatTextField TextFieldRef;
         private DateTime? _value;
@@ -20,13 +20,7 @@ namespace MatBlazor
             get => _value;
             set { _value = value; }
         }
-
-        [Parameter]
-        public string Class { get; set; }
-
-        [Parameter]
-        public string Style { get; set; }
-
+        
         [Parameter]
         public string Label { get; set; }
 
