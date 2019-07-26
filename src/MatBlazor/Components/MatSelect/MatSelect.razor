@@ -38,7 +38,7 @@
     }
     else
     {
-        <select class="mdc-select__native-control" @bind="@Value" aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled @attributes="Attributes" Id="@Id">
+        <select class="mdc-select__native-control" value="@Value" @onchange="@OnChangeHandler"  aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus"  disabled=@Disabled required=@Required @attributes="Attributes" Id="@Id">
             @ChildContent
         </select>
     }
