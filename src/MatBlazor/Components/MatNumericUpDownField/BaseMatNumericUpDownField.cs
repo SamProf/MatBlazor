@@ -44,6 +44,7 @@ namespace MatBlazor
                 // option JS:
                 await Js.InvokeAsync<object>("matBlazor.matNumericUpDownField.setValue", Ref, _newUiBindedValue);
                 return;
+
                 // option Blazor:
                 // _bindedValue = "                                       ";
                 // await Task.Delay(1);
@@ -56,17 +57,14 @@ namespace MatBlazor
             _uiBindedValue = _newUiBindedValue;
 
             // set new value.
+            var changedValue = _value != value;
             _value = value;
+            if (changedValue) await ValueChanged.InvokeAsync(value);
 
             // set mappers.
             LabelClassMapper.MakeDirty();
             InputClassMapper.MakeDirty();
-
-            if (!firstSet)
-            {
-                // don't say to user value changed on first set.
-                await ValueChanged.InvokeAsync(value);
-            }
+            
 
             firstSet = false;
         }
