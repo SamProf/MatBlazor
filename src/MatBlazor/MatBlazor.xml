@@ -296,6 +296,11 @@
             Menus display a list of choices on a transient sheet of material.
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatNavSubMenu">
+            <summary>
+            MatExpansionPanel provides an expandable details-summary view.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatNumericUpDownField">
             <summary>
             Text fields allow users to input, edit, and select text.
