@@ -18,8 +18,14 @@ namespace MatBlazor
         public bool Expanded { get; set; }
 
         [Parameter]
+        public bool Selected { get; set; }
+
+        [Parameter]
+        public EventCallback<bool> SelectedChanged { get; set; }
+
+        [Parameter]
         public EventCallback<bool> ExpandedChanged { get; set; }
-    
+
         public async Task ToggleAsync()
         {
             this.Expanded = !this.Expanded;
@@ -28,11 +34,20 @@ namespace MatBlazor
             this.StateHasChanged();
         }
 
+        public async Task ToggleSelectedAsync()
+        {
+            this.Selected = !this.Selected;
+            ClassMapper.MakeDirty();
+            await SelectedChanged.InvokeAsync(this.Selected);
+            this.StateHasChanged();
+        }
+
         public BaseMatNavSubMenu()
         {
             ClassMapper
                 .Add("mat-expansion-panel")
-                .If("mat-expansion-panel-expanded", () => Expanded);
+                .If("mat-expansion-panel-expanded", () => Expanded)
+                .If("mdc-expansion-panel-selected", () => Selected);
         }
     }
 }

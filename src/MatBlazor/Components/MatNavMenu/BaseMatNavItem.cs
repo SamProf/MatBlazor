@@ -14,6 +14,9 @@ namespace MatBlazor
         [CascadingParameter]
         public BaseMatNavMenu MatNavMenu { get; set; }
 
+        [CascadingParameter]
+        public BaseMatNavSubMenu MatNavSubMenu { get; set; }
+
         [Parameter]
         public bool Selected { get; set; }
 
@@ -25,10 +28,12 @@ namespace MatBlazor
             this.Selected = !this.Selected;
             ClassMapper.MakeDirty();
             await SelectedChanged.InvokeAsync(this.Selected);
+
             if (MatNavMenu != null)
             {
-                await this.MatNavMenu.ToggleSelectedAsync(this);
+                await this.MatNavMenu.ToggleSelectedAsync(this, MatNavSubMenu);
             }
+
             this.StateHasChanged();
         }
 

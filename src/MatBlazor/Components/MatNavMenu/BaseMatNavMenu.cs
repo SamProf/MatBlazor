@@ -12,11 +12,13 @@ namespace MatBlazor
         public RenderFragment ChildContent { get; set; }
 
         public BaseMatNavItem CurrentNavItem { get; private set; }
+        public BaseMatNavSubMenu CurrentSelectedNavSubMenu { get; private set; }
+        public BaseMatNavSubMenu CurrentNavSubMenu { get; private set; }
 
         [Parameter]
         public bool Multi { get; set; }
 
-        public BaseMatNavSubMenu Current { get; private set; }
+
 
         public async Task ToggleAsync(BaseMatNavSubMenu subMenu)
         {
@@ -24,8 +26,8 @@ namespace MatBlazor
             {
                 if (subMenu.Expanded)
                 {
-                    var current = Current;
-                    Current = subMenu;
+                    var current = CurrentNavSubMenu;
+                    CurrentNavSubMenu = subMenu;
 
                     if (current != null && current != subMenu && current.Expanded)
                     {
@@ -35,7 +37,7 @@ namespace MatBlazor
             }
         }
 
-        public async Task ToggleSelectedAsync(BaseMatNavItem navItem)
+        public async Task ToggleSelectedAsync(BaseMatNavItem navItem, BaseMatNavSubMenu navSubMenu)
         {
             if (navItem.Selected)
             {
@@ -45,6 +47,21 @@ namespace MatBlazor
                 if (currentNavItem != null && currentNavItem != navItem && currentNavItem.Selected)
                 {
                     await currentNavItem.ToggleSelectedAsync();
+                }
+            }
+
+            if (navSubMenu != null)
+            {
+                await navSubMenu.ToggleSelectedAsync();
+
+                if (CurrentSelectedNavSubMenu == null)
+                {
+                    CurrentSelectedNavSubMenu = navSubMenu;                    
+                }
+                else
+                {
+                    await CurrentSelectedNavSubMenu.ToggleSelectedAsync();
+                    CurrentSelectedNavSubMenu = navSubMenu;                    
                 }
             }
         }
