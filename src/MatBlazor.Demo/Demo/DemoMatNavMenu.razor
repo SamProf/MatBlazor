@@ -4,13 +4,13 @@
 <DemoContainer>
     <Content>
         @using Microsoft.AspNetCore.Components
-        
+
         <MatNavMenu>
             <MatNavItem>Item 1</MatNavItem>
             <MatNavItem Disabled="true">Item 2</MatNavItem>
             <MatNavSubMenu @bind-Expanded="@navSubMenuOpenState">
                 <MatNavSubMenuHeader>
-                    <MatNavItem><MatIcon Icon="all_inbox"></MatIcon>&nbsp; Item 3 - Expanded: @navSubMenuOpenState</MatNavItem>
+                    <MatNavItem AllowSelection="false"><MatIcon Icon="all_inbox"></MatIcon>&nbsp; Item 3 - Expanded: @navSubMenuOpenState</MatNavItem>
                 </MatNavSubMenuHeader>
                 <MatNavSubMenuList>
                     <MatNavItem Href="#">Item 3.A&nbsp; <MatIcon Icon="backup"></MatIcon></MatNavItem>
@@ -23,7 +23,7 @@
             <MatNavItem><MatIcon Icon="face"></MatIcon>&nbsp; Item 5</MatNavItem>
             <MatNavSubMenu>
                 <MatNavSubMenuHeader>
-                    <MatNavItem><MatIcon Icon="explore"></MatIcon>&nbsp; Item 6</MatNavItem>
+                    <MatNavItem AllowSelection="false"><MatIcon Icon="explore"></MatIcon>&nbsp; Item 6</MatNavItem>
                 </MatNavSubMenuHeader>
                 <MatNavSubMenuList>
                     <MatNavItem Disabled="true" Href="#">Item 6.A</MatNavItem>
@@ -49,7 +49,7 @@
             <MatNavItem Disabled=""true"">Item 2</MatNavItem>
             <MatNavSubMenu @bind-Expanded=""@navSubMenuOpenState"">
                 <MatNavSubMenuHeader>
-                    <MatNavItem><MatIcon Icon=""all_inbox""></MatIcon>&nbsp; Item 3 - Expanded: @navSubMenuOpenState</MatNavItem>
+                    <MatNavItem AllowSelection=""false""><MatIcon Icon=""all_inbox""></MatIcon>&nbsp; Item 3 - Expanded: @navSubMenuOpenState</MatNavItem>
                 </MatNavSubMenuHeader>
                 <MatNavSubMenuList>
                     <MatNavItem Href=""#"">Item 3.A&nbsp; <MatIcon Icon=""backup""></MatIcon></MatNavItem>
@@ -62,7 +62,7 @@
             <MatNavItem><MatIcon Icon=""face""></MatIcon>&nbsp; Item 5</MatNavItem>
             <MatNavSubMenu>
                 <MatNavSubMenuHeader>
-                    <MatNavItem><MatIcon Icon=""explore""></MatIcon>&nbsp; Item 6</MatNavItem>
+                    <MatNavItem AllowSelection=""false""><MatIcon Icon=""explore""></MatIcon>&nbsp; Item 6</MatNavItem>
                 </MatNavSubMenuHeader>
                 <MatNavSubMenuList>
                     <MatNavItem Disabled=""true"" Href=""#"">Item 6.A</MatNavItem>

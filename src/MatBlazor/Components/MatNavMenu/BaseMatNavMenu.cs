@@ -53,16 +53,11 @@ namespace MatBlazor
             if (navSubMenu != null)
             {
                 await navSubMenu.ToggleSelectedAsync();
-
-                if (CurrentSelectedNavSubMenu == null)
-                {
-                    CurrentSelectedNavSubMenu = navSubMenu;                    
-                }
-                else
-                {
-                    await CurrentSelectedNavSubMenu.ToggleSelectedAsync();
-                    CurrentSelectedNavSubMenu = navSubMenu;                    
-                }
+                CurrentSelectedNavSubMenu = navSubMenu;
+            }
+            else
+            {
+                CurrentSelectedNavSubMenu = null;
             }
         }
 

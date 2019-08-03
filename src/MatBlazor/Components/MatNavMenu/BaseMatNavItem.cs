@@ -21,6 +21,9 @@ namespace MatBlazor
         public bool Selected { get; set; }
 
         [Parameter]
+        public bool AllowSelection { get; set; } = true;
+
+        [Parameter]
         public EventCallback<bool> SelectedChanged { get; set; }
 
         public async Task ToggleSelectedAsync()
@@ -46,7 +49,11 @@ namespace MatBlazor
 
         protected async void OnClickHandler(UIMouseEventArgs e)
         {
-           await this.ToggleSelectedAsync();
+            if (AllowSelection)
+            {
+                await this.ToggleSelectedAsync();
+            }
+
             if (Href != null && !Disabled)
             {
                 UriHelper.NavigateTo(Href);

@@ -13,7 +13,7 @@
     {
         <MatNavSubMenu Expanded="true">
             <MatNavSubMenuHeader>
-                <MatNavItem>@type</MatNavItem>
+                <MatNavItem AllowSelection="false">@type</MatNavItem>
             </MatNavSubMenuHeader>
             <MatNavSubMenuList>
                 @foreach (var navItem in navItems.Where(n => n.ComponentType == @type))
