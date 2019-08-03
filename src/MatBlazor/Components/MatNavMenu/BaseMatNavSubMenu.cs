@@ -46,8 +46,8 @@ namespace MatBlazor
         {
             ClassMapper
                 .Add("mat-expansion-panel")
-                .If("mat-expansion-panel-expanded", () => Expanded)
-                .If("mdc-expansion-panel-selected", () => Selected);
+                .If("mat-expansion-panel--expanded", () => Expanded)
+                .If("mdc-expansion-panel--selected", () => Selected);
         }
     }
 }

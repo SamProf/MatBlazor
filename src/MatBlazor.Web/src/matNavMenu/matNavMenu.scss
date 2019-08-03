@@ -31,7 +31,7 @@
     top: 25%;
 }
 
-.mdc-expansion-panel-selected .mat-expansion-panel__summary::before{
+.mdc-expansion-panel--selected .mat-expansion-panel__summary::before{
     background-color: var(--mdc-theme-primary, #6200ee);
     opacity: 0.04;
 }
