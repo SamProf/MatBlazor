@@ -296,6 +296,11 @@
             Menus display a list of choices on a transient sheet of material.
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatNavItem">
+            <summary>
+            Nav Item is a menu item in the Nav Menu. Inherits from Mat List Item.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatNavMenu">
             <summary>
             MatNavMenu provides a navigation container

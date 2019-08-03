@@ -1,1 +1,5 @@
 @import "@material/list/mdc-list";
+
+.mdc-list-item--disabled {
+  cursor: not-allowed;
+}

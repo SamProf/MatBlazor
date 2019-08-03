@@ -4,7 +4,7 @@
 }
 .mat-accordion .mdc-nav-menu {
     .mat-expansion-panel__summary {
-        padding: 0 14px 0 0;
+        padding: 0;
     }
 
     .mat-expansion-panel__content {
@@ -19,4 +19,14 @@
         border-bottom: none;
         background-color: transparent;
     }
+}
+
+.mdc-nav-item{
+    flex-grow: 1;
+}
+
+.mdc-sub-menu-icon {
+    position: absolute;
+    right: 24px;
+    top: 25%;
 }

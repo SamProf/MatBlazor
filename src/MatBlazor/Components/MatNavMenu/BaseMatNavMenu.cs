@@ -11,6 +11,8 @@ namespace MatBlazor
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
+        public BaseMatNavItem CurrentNavItem { get; private set; }
+
         [Parameter]
         public bool Multi { get; set; }
 
@@ -29,6 +31,20 @@ namespace MatBlazor
                     {
                         await current.ToggleAsync();
                     }
+                }
+            }
+        }
+
+        public async Task ToggleSelectedAsync(BaseMatNavItem navItem)
+        {
+            if (navItem.Selected)
+            {
+                var currentNavItem = CurrentNavItem;
+                CurrentNavItem = navItem;
+
+                if (currentNavItem != null && currentNavItem != navItem && currentNavItem.Selected)
+                {
+                    await currentNavItem.ToggleSelectedAsync();
                 }
             }
         }

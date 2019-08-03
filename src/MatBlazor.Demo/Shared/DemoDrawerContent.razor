@@ -7,29 +7,29 @@
 </style>
 
 <MatNavMenu Multi="true">
-    <MatListItem Href="@Url.ToAbsoluteUri("").AbsoluteUri"><MatIcon Icon="home"></MatIcon>&nbsp; Home</MatListItem>
+    <MatNavItem Href="@Url.ToAbsoluteUri("").AbsoluteUri"><MatIcon Icon="home"></MatIcon>&nbsp; Home</MatNavItem>
 
     @foreach (string type in componentTypes)
     {
         <MatNavSubMenu Expanded="true">
             <MatNavSubMenuHeader>
-                <MatListItem>@type</MatListItem>
+                <MatNavItem>@type</MatNavItem>
             </MatNavSubMenuHeader>
             <MatNavSubMenuList>
                 @foreach (var navItem in navItems.Where(n => n.ComponentType == @type))
                 {
-                    <MatListItem Href="@Url.ToAbsoluteUri(navItem.Url).AbsoluteUri">
+                    <MatNavItem Href="@Url.ToAbsoluteUri(navItem.Url).AbsoluteUri">
                         @navItem.Name
-                    </MatListItem>
+                    </MatNavItem>
                 }
             </MatNavSubMenuList>
         </MatNavSubMenu>
         <MatDivider></MatDivider>
     }
 
-    <MatListItem Href="@Url.ToAbsoluteUri("BaseComponent").AbsoluteUri">
+    <MatNavItem Href="@Url.ToAbsoluteUri("BaseComponent").AbsoluteUri">
         Base Component
-    </MatListItem>
+    </MatNavItem>
 </MatNavMenu>
 
 @functions
