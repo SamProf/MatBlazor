@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 namespace MatBlazor
 {
     /// <summary>
-    /// MatExpansionPanel provides an expandable details-summary view.
+    /// MatNavSubMenu provides an expandable panel for child navigation lists.
     /// </summary>
     public class BaseMatNavSubMenu : BaseMatDomComponent
     {

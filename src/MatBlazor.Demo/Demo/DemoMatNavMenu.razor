@@ -8,9 +8,9 @@
         <MatNavMenu>
             <MatListItem>Item 1</MatListItem>
             <MatListItem Disabled="true">Item 2</MatListItem>
-            <MatNavSubMenu @bind-Expanded="@navListOpenState">
+            <MatNavSubMenu @bind-Expanded="@navSubMenuOpenState">
                 <MatNavSubMenuHeader>
-                    <MatListItem><MatIcon Icon="all_inbox"></MatIcon>&nbsp; Item 3 - Expanded: @navListOpenState</MatListItem>
+                    <MatListItem><MatIcon Icon="all_inbox"></MatIcon>&nbsp; Item 3 - Expanded: @navSubMenuOpenState</MatListItem>
                 </MatNavSubMenuHeader>
                 <MatNavSubMenuList>
                     <MatListItem Href="#">Item 3.A&nbsp; <MatIcon Icon="backup"></MatIcon></MatListItem>
@@ -38,7 +38,7 @@
 
         @functions
         {
-            bool navListOpenState;
+            bool navSubMenuOpenState;
         }
 
     </Content>
@@ -47,9 +47,9 @@
         <MatNavMenu>
             <MatListItem>Item 1</MatListItem>
             <MatListItem Disabled=""true"">Item 2</MatListItem>
-            <MatNavSubMenu @bind-Expanded=""@navListOpenState"">
+            <MatNavSubMenu @bind-Expanded=""@navSubMenuOpenState"">
                 <MatNavSubMenuHeader>
-                    <MatListItem><MatIcon Icon=""all_inbox""></MatIcon>&nbsp; Item 3 - Expanded: @navListOpenState</MatListItem>
+                    <MatListItem><MatIcon Icon=""all_inbox""></MatIcon>&nbsp; Item 3 - Expanded: @navSubMenuOpenState</MatListItem>
                 </MatNavSubMenuHeader>
                 <MatNavSubMenuList>
                     <MatListItem Href=""#"">Item 3.A&nbsp; <MatIcon Icon=""backup""></MatIcon></MatListItem>
@@ -73,6 +73,11 @@
             <MatListItem Href=""https://blazorboilerplate.com/"">Blazor Boilerplate</MatListItem>
             <MatListItem Href=""https://www.matblazor.com/"">MatBlazor</MatListItem>
         </MatNavMenu>
+
+        @functions
+        {
+            bool navSubMenuOpenState;
+        }
 
     ")></BlazorFiddle>
     </SourceContent>

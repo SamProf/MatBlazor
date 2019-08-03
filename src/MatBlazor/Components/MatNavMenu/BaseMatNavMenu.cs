@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
+    /// <summary>
+    /// MatNavMenu provides a navigation container
+    /// </summary>
     public class BaseMatNavMenu : BaseMatDomComponent
     {
         [Parameter]

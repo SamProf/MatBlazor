@@ -11,6 +11,10 @@
         padding: 0 0 0 13px;
     }
 
+    .mat-expansion-panel__content .mdc-list-item {
+        font-weight: 300;
+    }
+
     .mat-expansion-panel{
         border-bottom: none;
     }

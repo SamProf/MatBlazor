@@ -296,9 +296,14 @@
             Menus display a list of choices on a transient sheet of material.
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatNavMenu">
+            <summary>
+            MatNavMenu provides a navigation container
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatNavSubMenu">
             <summary>
-            MatExpansionPanel provides an expandable details-summary view.
+            MatNavSubMenu provides an expandable panel for child navigation lists.
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatNumericUpDownField">
