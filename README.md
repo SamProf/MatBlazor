@@ -88,9 +88,18 @@ app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);
 } 
 ```
 
-## Questions
+## Sponsors & Backers
+MatBlazor does not run under the umbrella of any company or anything like that.
+It is an independent project created in spare time.
+The development is active and we are working hard to release great things for you.
 
-For *how-to* questions and other non-issues, for now you can use issues or you can use [![Gitter](https://badges.gitter.im/MatBlazor/community.svg)](https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
+If you think that this project helped you or your company in any way, you can consider becoming a backer/sponsor.
+- [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url)
+- [Patreon](https://www.patreon.com/SamProf)
+
+### Backers:
+- [MaurizioVerde](https://github.com/MaurizioVerde)
+
 
 ## News
 
@@ -292,20 +301,14 @@ For *how-to* questions and other non-issues, for now you can use issues or you c
 - MatDrawer in progress
 
 
+
+## Questions
+
+For *how-to* questions and other non-issues, for now you can use issues or you can use [![Gitter](https://badges.gitter.im/MatBlazor/community.svg)](https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
+
+
 ## Contributing
 We'd greatly appreciate any contribution you make. :)
-
-
-## Sponsors & Backers
-MatBlazor does not run under the umbrella of any company or anything like that.
-It is an independent project created in spare time.
-The development is active and we are working hard to release great things for you.
-
-If you think that this project helped you or your company in any way, you can consider becoming a backer/sponsor.
-- [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url)
-
-### Backers:
-- [MaurizioVerde](https://github.com/MaurizioVerde)
 
 
 ## Roadmap
