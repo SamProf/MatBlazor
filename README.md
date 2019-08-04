@@ -88,14 +88,19 @@ app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);
 } 
 ```
 
-
 ## Questions
 
 For *how-to* questions and other non-issues, for now you can use issues or you can use [![Gitter](https://badges.gitter.im/MatBlazor/community.svg)](https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
 
 ## Contributing
-
 We'd greatly appreciate any contribution you make. :)
+
+
+## Sponsors & Backers
+MatBlazor is an MIT-licensed open source project. It is an independent project with continuous development. If you want to support the project - [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url)
+
+- [MaurizioVerde](https://github.com/MaurizioVerde)
+
 
 ## Roadmap
 
@@ -113,7 +118,10 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## News
 
-### In progress MatBlazor 1.3.0
+### In progress MatBlazor 1.4.0
+- NavMenu - new component (Thanks to [enkodellc](https://github.com/enkodellc))
+
+### MatBlazor 1.3.0
 - Update to .NET Core 3.0 Preview 7
 - All components supports @@Attributes and Id parameter
 - MatDatePicker parameters: Label, Dense, Outlined, Required, Disabled
