@@ -92,30 +92,6 @@ app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);
 
 For *how-to* questions and other non-issues, for now you can use issues or you can use [![Gitter](https://badges.gitter.im/MatBlazor/community.svg)](https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
 
-## Contributing
-We'd greatly appreciate any contribution you make. :)
-
-
-## Sponsors & Backers
-MatBlazor is an MIT-licensed open source project. It is an independent project with continuous development. If you want to support the project - [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url)
-
-- [MaurizioVerde](https://github.com/MaurizioVerde)
-
-
-## Roadmap
-
-In the near future we plan to maximize the count and features of the components inspired by other frameworks like Angular Material, React Material UI and Vue Material.
-
-## License
-
-This project is licensed under the terms of the [MIT license](LICENSE).
-
-## Thank you
-- [Blazor](https://blazor.net)
-- [MDC Web](https://material.io/components/)
-- [flatpickr.js](https://flatpickr.js.org/)
-- [toast](https://github.com/sotsera/sotsera.blazor.toaster)
-
 ## News
 
 ### In progress MatBlazor 1.4.0
@@ -314,3 +290,34 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 ### MatBlazor 0.4.3
 - Upgrade to Blazor 0.7.0
 - MatDrawer in progress
+
+
+## Contributing
+We'd greatly appreciate any contribution you make. :)
+
+
+## Sponsors & Backers
+MatBlazor does not run under the umbrella of any company or anything like that.
+It is an independent project created in spare time.
+The development is active and we are working hard to release great things for you.
+
+If you think that this project helped you or your company in any way, you can consider becoming a backer/sponsor.
+- [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url)
+
+### Backers:
+- [MaurizioVerde](https://github.com/MaurizioVerde)
+
+
+## Roadmap
+
+In the near future we plan to maximize the count and features of the components inspired by other frameworks like Angular Material, React Material UI and Vue Material.
+
+## License
+
+This project is licensed under the terms of the [MIT license](LICENSE).
+
+## Thank you
+- [Blazor](https://blazor.net)
+- [MDC Web](https://material.io/components/)
+- [flatpickr.js](https://flatpickr.js.org/)
+- [toast](https://github.com/sotsera/sotsera.blazor.toaster)
