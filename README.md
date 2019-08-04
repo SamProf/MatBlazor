@@ -8,6 +8,7 @@
 [![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://www.matblazor.com)
 [![MIT](https://img.shields.io/github/license/SamProf/MatBlazor.svg)](LICENSE)
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url)
+[![Patreon](https://img.shields.io/badge/Patreon-donation-blue)](https://www.patreon.com/SamProf)
 
 MatBlazor comprises a range of components which implement common interaction patterns according to the Material Design specification.
 
