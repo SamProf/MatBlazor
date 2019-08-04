@@ -23,3 +23,7 @@ div.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea)>i
     padding: 20px 16px 6px 48px;
 }
 
+.mat-floating-label--float-above-outlined
+{
+    background-color:  var(--mdc-theme-surface, #fff) !important;
+}

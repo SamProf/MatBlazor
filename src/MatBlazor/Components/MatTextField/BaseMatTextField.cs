@@ -151,6 +151,7 @@ namespace MatBlazor
 
             LabelClassMapper
                 .Add("mdc-floating-label")
+                .If("mat-floating-label--float-above-outlined", () => Outlined && !string.IsNullOrEmpty(Value))
                 .If("mdc-floating-label--float-above", () => !string.IsNullOrEmpty(Value));
 
             InputClassMapper
