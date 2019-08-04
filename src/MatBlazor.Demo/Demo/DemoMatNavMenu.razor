@@ -1,0 +1,84 @@
+<DocMatNavMenu></DocMatNavMenu>
+<h5 class="mat-h5">Example</h5>
+
+<DemoContainer>
+    <Content>
+        @using Microsoft.AspNetCore.Components
+
+        <MatNavMenu>
+            <MatNavItem>Item 1</MatNavItem>
+            <MatNavItem Disabled="true">Item 2</MatNavItem>
+            <MatNavSubMenu @bind-Expanded="@navSubMenuOpenState">
+                <MatNavSubMenuHeader>
+                    <MatNavItem AllowSelection="false"><MatIcon Icon="all_inbox"></MatIcon>&nbsp; Item 3 - Expanded: @navSubMenuOpenState</MatNavItem>
+                </MatNavSubMenuHeader>
+                <MatNavSubMenuList>
+                    <MatNavItem Href="#">Item 3.A&nbsp; <MatIcon Icon="backup"></MatIcon></MatNavItem>
+                    <MatNavItem>Item 3.B&nbsp; <MatIcon Icon="build"></MatIcon></MatNavItem>
+                    <MatNavItem>Item 3.C&nbsp; <MatIcon Icon="explore"></MatIcon></MatNavItem>
+                </MatNavSubMenuList>
+            </MatNavSubMenu>
+            <MatNavItem><MatIcon Icon="grade"></MatIcon>&nbsp; Item 4 </MatNavItem>
+            <MatDivider></MatDivider>
+            <MatNavItem><MatIcon Icon="face"></MatIcon>&nbsp; Item 5</MatNavItem>
+            <MatNavSubMenu>
+                <MatNavSubMenuHeader>
+                    <MatNavItem AllowSelection="false"><MatIcon Icon="explore"></MatIcon>&nbsp; Item 6</MatNavItem>
+                </MatNavSubMenuHeader>
+                <MatNavSubMenuList>
+                    <MatNavItem Disabled="true" Href="#">Item 6.A</MatNavItem>
+                    <MatNavItem>Item 6.B</MatNavItem>
+                    <MatNavItem>Item 6.C</MatNavItem>
+                </MatNavSubMenuList>
+            </MatNavSubMenu>
+            <MatNavItem Href="https://blazorboilerplate.com/">Blazor Boilerplate</MatNavItem>
+            <MatNavItem Href="https://www.matblazor.com/">MatBlazor</MatNavItem>
+        </MatNavMenu>
+
+
+        @functions
+        {
+            bool navSubMenuOpenState;
+        }
+
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatNavMenu>
+            <MatNavItem>Item 1</MatNavItem>
+            <MatNavItem Disabled=""true"">Item 2</MatNavItem>
+            <MatNavSubMenu @bind-Expanded=""@navSubMenuOpenState"">
+                <MatNavSubMenuHeader>
+                    <MatNavItem AllowSelection=""false""><MatIcon Icon=""all_inbox""></MatIcon>&nbsp; Item 3 - Expanded: @navSubMenuOpenState</MatNavItem>
+                </MatNavSubMenuHeader>
+                <MatNavSubMenuList>
+                    <MatNavItem Href=""#"">Item 3.A&nbsp; <MatIcon Icon=""backup""></MatIcon></MatNavItem>
+                    <MatNavItem>Item 3.B&nbsp; <MatIcon Icon=""build""></MatIcon></MatNavItem>
+                    <MatNavItem>Item 3.C&nbsp; <MatIcon Icon=""explore""></MatIcon></MatNavItem>
+                </MatNavSubMenuList>
+            </MatNavSubMenu>
+            <MatNavItem><MatIcon Icon=""grade""></MatIcon>&nbsp; Item 4 </MatNavItem>
+            <MatDivider></MatDivider>
+            <MatNavItem><MatIcon Icon=""face""></MatIcon>&nbsp; Item 5</MatNavItem>
+            <MatNavSubMenu>
+                <MatNavSubMenuHeader>
+                    <MatNavItem AllowSelection=""false""><MatIcon Icon=""explore""></MatIcon>&nbsp; Item 6</MatNavItem>
+                </MatNavSubMenuHeader>
+                <MatNavSubMenuList>
+                    <MatNavItem Disabled=""true"" Href=""#"">Item 6.A</MatNavItem>
+                    <MatNavItem>Item 6.B</MatNavItem>
+                    <MatNavItem>Item 6.C</MatNavItem>
+                </MatNavSubMenuList>
+            </MatNavSubMenu>
+            <MatNavItem Href=""https://blazorboilerplate.com/"">Blazor Boilerplate</MatNavItem>
+            <MatNavItem Href=""https://www.matblazor.com/"">MatBlazor</MatNavItem>
+        </MatNavMenu>
+
+        @functions
+        {
+            bool navSubMenuOpenState;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

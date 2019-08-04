@@ -1,211 +1,267 @@
 @using Microsoft.AspNetCore.Components
 @inject IUriHelper Url
+<style>
+    .mdc-drawer {
+        box-shadow: 2px 0px 2px 0px rgba(199,199,199,0.29);
+    }
+</style>
 
-<MatListGroup>
-    <MatList SingleSelection="true">
-        <MatListItem Href="@Url.ToAbsoluteUri("").AbsoluteUri">Home</MatListItem>
+<MatNavMenu Multi="true">
+    <MatNavItem Href="@Url.ToAbsoluteUri("").AbsoluteUri"><MatIcon Icon="home"></MatIcon>&nbsp; Home</MatNavItem>
 
-        @foreach (var navItem in navItems)
-        {
-            <MatListItem Href="@Url.ToAbsoluteUri(navItem.Url).AbsoluteUri">
-                @navItem.Name
-            </MatListItem>
-        }
+    @foreach (string type in componentTypes)
+    {
+        <MatNavSubMenu Expanded="true">
+            <MatNavSubMenuHeader>
+                <MatNavItem AllowSelection="false">@type</MatNavItem>
+            </MatNavSubMenuHeader>
+            <MatNavSubMenuList>
+                @foreach (var navItem in navItems.Where(n => n.ComponentType == @type))
+                {
+                    <MatNavItem Href="@Url.ToAbsoluteUri(navItem.Url).AbsoluteUri">
+                        @navItem.Name
+                    </MatNavItem>
+                }
+            </MatNavSubMenuList>
+        </MatNavSubMenu>
+        <MatDivider></MatDivider>
+    }
 
-        <MatListItem Href="@Url.ToAbsoluteUri("BaseComponent").AbsoluteUri">
-            Base Component
-        </MatListItem>
-    </MatList>
-</MatListGroup>
+    <MatNavItem Href="@Url.ToAbsoluteUri("BaseComponent").AbsoluteUri">
+        Base Component
+    </MatNavItem>
+</MatNavMenu>
 
 @functions
 {
-
     class NavItem
     {
+        public string ComponentType;
         public string Name;
         public string Url;
     }
 
     NavItem[] navItems;
+    string[] componentTypes;
 
     protected async override Task OnInitAsync()
     {
         await base.OnInitAsync();
 
+        componentTypes = new string[]{"Form Controls", "Navigation", "Layout", "Buttons & Indicators", "Popups & Modals"};
         navItems = new[]
         {
             new NavItem()
             {
                 Name = "Autocomplete",
-                Url = "Autocomplete"
+                Url = "Autocomplete",
+                ComponentType = "Form Controls"
             },
             new NavItem()
             {
                 Name = "Checkbox",
-                Url = "Checkbox"
+                Url = "Checkbox",
+                ComponentType = "Form Controls"
             },
             new NavItem()
             {
                 Name = "TextField",
-                Url = "TextField"
+                Url = "TextField",
+                ComponentType = "Form Controls"
             },
             new NavItem()
             {
                 Name = "RadioButton",
-                Url = "RadioButton"
+                Url = "RadioButton",
+                ComponentType = "Form Controls"
             },
             new NavItem()
             {
                 Name = "Select",
-                Url = "Select"
+                Url = "Select",
+                ComponentType = "Form Controls"
             },
             new NavItem()
             {
                 Name = "Slider",
-                Url = "Slider"
+                Url = "Slider",
+                ComponentType = "Form Controls"
             },
             new NavItem()
             {
                 Name = "SlideToggle",
-                Url = "SlideToggle"
+                Url = "SlideToggle",
+                ComponentType = "Form Controls"
             },
             new NavItem()
             {
                 Name = "Drawer",
-                Url = "Drawer"
+                Url = "Drawer",
+                ComponentType = "Navigation"
             },
             new NavItem()
             {
                 Name = "AppBar",
-                Url = "AppBar"
+                Url = "AppBar",
+                ComponentType = "Navigation"
             },
             new NavItem()
             {
                 Name = "Dialog",
-                Url = "Dialog"
+                Url = "Dialog",
+                ComponentType = "Popups & Modals"
             },
             new NavItem()
             {
                 Name = "Snackbar",
-                Url = "Snackbar"
+                Url = "Snackbar",
+                ComponentType = "Popups & Modals"
             },
             new NavItem()
             {
                 Name = "Menu",
-                Url = "Menu"
+                Url = "Menu",
+                ComponentType = "Layout"
             },
             new NavItem()
             {
                 Name = "Card",
-                Url = "Card"
+                Url = "Card",
+                ComponentType = "Layout"
             },
             new NavItem()
             {
                 Name = "Divider",
-                Url = "Divider"
+                Url = "Divider",
+                ComponentType = "Layout"
             },
             new NavItem()
             {
                 Name = "List",
-                Url = "List"
+                Url = "List",
+                ComponentType = "Layout"
             },
             new NavItem()
             {
                 Name = "Button",
-                Url = "Button"
+                Url = "Button",
+                ComponentType = "Buttons & Indicators"
             },
             new NavItem()
             {
                 Name = "Ripple",
-                Url = "Ripple"
+                Url = "Ripple",
+                ComponentType = "Buttons & Indicators"
             },
             new NavItem()
             {
                 Name = "IconButton",
-                Url = "IconButton"
+                Url = "IconButton",
+                ComponentType = "Buttons & Indicators"
             },
             new NavItem()
             {
                 Name = "Icon",
-                Url = "Icon"
+                Url = "Icon",
+                ComponentType = "Buttons & Indicators"
             },
             new NavItem()
             {
                 Name = "Chip",
-                Url = "Chip"
+                Url = "Chip",
+                ComponentType = "Buttons & Indicators"
             },
             new NavItem()
             {
                 Name = "ProgressBar",
-                Url = "ProgressBar"
+                Url = "ProgressBar",
+                ComponentType = "Buttons & Indicators"
             },
             new NavItem()
             {
                 Name = "Elevation",
-                Url = "Elevation"
+                Url = "Elevation",
+                ComponentType = "Layout"
             },
             new NavItem()
             {
                 Name = "Typography",
-                Url = "Typography"
+                Url = "Typography",
+                ComponentType = "Layout"
             },
             new NavItem()
             {
-                Name = "LayoutGrid",
-                Url = "LayoutGrid"
+                Name = "Layout Grid",
+                Url = "LayoutGrid",
+                ComponentType = "Layout"
             },
             new NavItem()
             {
                 Name = "Table",
-                Url = "Table"
+                Url = "Table",
+                ComponentType = "Layout"
             },
             new NavItem()
             {
                 Name = "Tab",
-                Url = "Tab"
+                Url = "Tab",
+                ComponentType = "Layout"
             },
             new NavItem()
             {
                 Name = "DatePicker",
-                Url = "DatePicker"
+                Url = "DatePicker",
+                ComponentType = "Form Controls"
             },
             new NavItem()
             {
                 Name = "Themes",
-                Url = "Themes"
+                Url = "Themes",
+                ComponentType = "Layout"
+
             },
             new NavItem()
             {
                 Name = "FAB",
-                Url = "FAB"
+                Url = "FAB",
+                ComponentType = "Buttons & Indicators"
             },
             new NavItem()
             {
                 Name = "Expansion Panel",
-                Url = "ExpansionPanel"
+                Url = "ExpansionPanel",
+                ComponentType = "Layout"
             },
             new NavItem()
             {
                 Name = "Toast",
-                Url = "Toast"
+                Url = "Toast",
+                ComponentType = "Popups & Modals"
             },
             new NavItem()
             {
                 Name = "Tooltip",
-                Url = "Tooltip"
+                Url = "Tooltip",
+                ComponentType = "Popups & Modals"
             },
             new NavItem()
             {
                 Name = "Hidden",
-                Url = "Hidden"
+                Url = "Hidden",
+                ComponentType = "Form Controls"
             },
             new NavItem()
             {
                 Name = "NumericUpDownField",
-                Url = "NumericUpDownField"
+                Url = "NumericUpDownField",
+                ComponentType = "Form Controls"
             },
+            new NavItem()
+            {
+                Name = "Nav Menu",
+                Url = "NavMenu",
+                ComponentType = "Navigation"
+            }
         }.OrderBy(i => i.Name).ToArray();
     }
-
 }

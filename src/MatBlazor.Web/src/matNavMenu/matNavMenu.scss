@@ -1,0 +1,37 @@
+.mdc-nav-menu {
+    margin: 0;
+    padding: 0;
+}
+.mat-accordion .mdc-nav-menu {
+    .mat-expansion-panel__summary {
+        padding: 0;
+    }
+
+    .mat-expansion-panel__content {
+        padding: 0 0 0 13px;
+    }
+
+    .mat-expansion-panel__content .mdc-list-item {
+        font-weight: 300;
+    }
+
+    .mat-expansion-panel{
+        border-bottom: none;
+        background-color: transparent;
+    }
+}
+
+.mdc-nav-item{
+    flex-grow: 1;
+}
+
+.mdc-sub-menu-icon {
+    position: absolute;
+    right: 24px;
+    top: 25%;
+}
+
+.mdc-expansion-panel--selected .mat-expansion-panel__summary::before{
+    background-color: var(--mdc-theme-primary, #6200ee);
+    opacity: 0.04;
+}
