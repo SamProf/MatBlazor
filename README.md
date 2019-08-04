@@ -311,6 +311,11 @@ If you think that this project helped you or your company in any way, you can co
 ## Roadmap
 
 In the near future we plan to maximize the count and features of the components inspired by other frameworks like Angular Material, React Material UI and Vue Material.
+1) Implementation of  base functionality from MDC Web
+2) Implementation of  first versions of more rich components, like Table, AutoComplete, Accordion (Expansion Panel), Calendar, DatePicker and etc.
+3) Improvement existing component's functionality. Make API near the same as Angular Material (or React, Vue)
+4) JS-less. Implement components as much as possible without using JS.
+
 
 ## License
 
