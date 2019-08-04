@@ -34,4 +34,5 @@
 .mdc-expansion-panel--selected .mat-expansion-panel__summary::before{
     background-color: var(--mdc-theme-primary, #6200ee);
     opacity: 0.04;
+    transition: opacity 0.4s ease-in-out;
 }
