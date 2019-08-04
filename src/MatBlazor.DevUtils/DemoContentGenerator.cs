@@ -31,35 +31,24 @@ namespace MatBlazor.DevUtils
         [Test]
         public void GenerateNews()
         {
-            var config = Config.GetConfig();
-            var lines = File.ReadAllLines(Path.Combine(config.RepositoryPath, "README.md"));
-
-            lines = lines.SkipWhile(i => !i.Trim().Equals("## News", StringComparison.InvariantCultureIgnoreCase))
-                .ToArray();
-
-            lines = lines.TakeWhile((i, index) => !(i.Trim().StartsWith("## ") && index > 0)).ToArray();
-
-            var text = string.Join("\r\n", lines);
-
-            Console.WriteLine(text);
-
-            var result = CommonMark.CommonMarkConverter.Convert(text);
-
-            result = result.Replace("@", "@@");
-
-            Console.WriteLine(result);
-
-            var newsFile = Path.Combine(config.Path, "MatBlazor.Demo", "Shared", "News.razor");
-
-            if (!File.Exists(newsFile))
+            var gen = new MDInfoGenerator()
             {
-                throw new Exception("News file not exists");
-            }
+                Header = "News",
+                TargetFile = "News.razor"
+            };
+            gen.Generate();
+        }
 
-            result = "<!-- THIS IS AUTO GENERATED FILE!!! -->\r\n\r\n" + result;
 
-
-            File.WriteAllText(newsFile, result);
+        [Test]
+        public void GenerateSponsors()
+        {
+            var gen = new MDInfoGenerator()
+            {
+                Header = "Sponsors & Backers",
+                TargetFile = "Sponsors.razor"
+            };
+            gen.Generate();
         }
 
 
