@@ -120,10 +120,12 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ### In progress MatBlazor 1.4.0
 - NavMenu - new component (Thanks to [enkodellc](https://github.com/enkodellc))
+- PR: NumericUpDown to preview7. Fix tabindex #161 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
+- PR: Outlined #162 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
 
 ### MatBlazor 1.3.0
 - Update to .NET Core 3.0 Preview 7
-- All components supports @@Attributes and Id parameter
+- All components supports @Attributes and Id parameter
 - MatDatePicker parameters: Label, Dense, Outlined, Required, Disabled
 - PR: Fixed up the helper text functionality in MatTextField. #121 (Thanks to [jorgy343](https://github.com/jorgy343))
 - PR: MatSelect Updates #124 (Thanks to [jorgy343](https://github.com/jorgy343))

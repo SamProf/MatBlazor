@@ -43,7 +43,9 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        @using Microsoft.AspNetCore.Components
+
         <MatNavMenu>
             <MatNavItem>Item 1</MatNavItem>
             <MatNavItem Disabled=""true"">Item 2</MatNavItem>
@@ -73,6 +75,7 @@
             <MatNavItem Href=""https://blazorboilerplate.com/"">Blazor Boilerplate</MatNavItem>
             <MatNavItem Href=""https://www.matblazor.com/"">MatBlazor</MatNavItem>
         </MatNavMenu>
+
 
         @functions
         {

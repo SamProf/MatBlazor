@@ -45,6 +45,8 @@ namespace MatBlazor.DevUtils
 
             var result = CommonMark.CommonMarkConverter.Convert(text);
 
+            result = result.Replace("@", "@@");
+
             Console.WriteLine(result);
 
             var newsFile = Path.Combine(config.Path, "MatBlazor.Demo", "Shared", "News.razor");
