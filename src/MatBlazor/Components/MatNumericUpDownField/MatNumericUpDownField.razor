@@ -25,13 +25,13 @@
 
     <i style="left: initial; right: 20px; background: none; top: 3px; bottom: initial; user-select: none;"
        class="material-icons mdc-text-field__icon"
-       tabindex="-1" @onclick="@Increase" role="button"
+       tabindex="0" @onclick="@Increase" role="button"
        disabled=@Disabled readonly="@ReadOnly">
         @MinusIcon
     </i>
 
     <i style="left: initial; right: 20px; background: none; top: initial; bottom: 3px; user-select: none;"
-       class="material-icons mdc-text-field__icon" tabindex="-1"
+       class="material-icons mdc-text-field__icon" tabindex="0"
        @onclick="@Decrease" role="button"
        disabled=@Disabled readonly="@ReadOnly">
         @PlusIcon
