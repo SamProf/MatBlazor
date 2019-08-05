@@ -104,8 +104,12 @@ If you think that this project helped you or your company in any way, you can co
 
 ## News
 
-### In progress MatBlazor 1.4.0
-- NavMenu - new component (Thanks to [enkodellc](https://github.com/enkodellc))
+### In progress MatBlazor 1.5.0
+- MatCard improvements
+- MatTypography improvements
+
+### MatBlazor 1.4.0
+- New NavMenu - new component (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: NumericUpDown to preview7. Fix tabindex #161 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
 - PR: Outlined #162 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
 

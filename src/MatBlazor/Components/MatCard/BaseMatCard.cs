@@ -3,7 +3,7 @@
 namespace MatBlazor
 {
     /// <summary>
-    /// Cards contain content and actions about a single subject.
+    /// Card component for Blazor contain content and actions about a single subject. 
     /// </summary>
     public class BaseMatCard : BaseMatDomComponent
     {
