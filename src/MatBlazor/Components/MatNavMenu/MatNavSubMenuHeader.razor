@@ -1,4 +1,4 @@
-﻿@namespace MatBlazor
+@namespace MatBlazor
 @using Microsoft.AspNetCore.Components
 @inherits BaseMatDomComponent
 
@@ -18,7 +18,10 @@
     protected override void OnInit()
     {
         base.OnInit();
-        ClassMapper.Add("mat-expansion-panel__summary").Add("mdc-ripple-surface");
+        ClassMapper.Add("mat-expansion-panel__summary")
+                   .Add("mdc-ripple-surface")
+                   .Add("mdc-nav-sub-menu-header")
+                   .Add("mdc-list--non-interactive");
         CallAfterRender(async () => { await Js.InvokeAsync<object>("matBlazor.matAccordion.initSummary", Ref); });
     }
 
