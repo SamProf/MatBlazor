@@ -19,8 +19,6 @@ namespace MatBlazor
                 if (value != _value)
                 {
                     _value = value;
-                    LabelClassMapper.MakeDirty();
-                    InputClassMapper.MakeDirty();
                     ValueChanged.InvokeAsync(value);
                 }
             }
@@ -114,7 +112,6 @@ namespace MatBlazor
             set
             {
                 _inputClass = value;
-                InputClassMapper.MakeDirty();
             }
         }
 

@@ -62,10 +62,7 @@ namespace MatBlazor
             if (changedValue) await ValueChanged.InvokeAsync(value);
 
             // set mappers.
-            LabelClassMapper.MakeDirty();
-            InputClassMapper.MakeDirty();
             
-
             firstSet = false;
         }
 
@@ -229,7 +226,6 @@ namespace MatBlazor
             set
             {
                 _inputClass = value;
-                InputClassMapper.MakeDirty();
             }
         }
 

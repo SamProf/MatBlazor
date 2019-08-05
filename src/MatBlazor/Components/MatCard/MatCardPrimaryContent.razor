@@ -1,0 +1,24 @@
+﻿@namespace MatBlazor
+@inherits BaseMatDomComponent
+
+<div class="@ClassMapper.Class" style="@Style" @attributes="Attributes" Id="@Id" @ref="Ref">
+         @ChildContent
+     </div>
+
+     @code
+     {
+
+         [Parameter]
+         protected RenderFragment ChildContent { get; set; }
+
+         [Parameter]
+         protected bool Unbounded { get; set; }
+
+
+         protected override async Task OnInitAsync()
+         {
+             await base.OnInitAsync();
+             ClassMapper.Add("mdc-card__primary-action");
+         }
+
+     }

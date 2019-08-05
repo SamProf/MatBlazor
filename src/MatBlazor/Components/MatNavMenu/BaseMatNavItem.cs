@@ -29,7 +29,7 @@ namespace MatBlazor
         public async Task ToggleSelectedAsync()
         {
             this.Selected = !this.Selected;
-            ClassMapper.MakeDirty();
+            
             await SelectedChanged.InvokeAsync(this.Selected);
 
             if (MatNavMenu != null)

@@ -4,16 +4,18 @@
 
 <DemoContainer>
     <Content>
-        <MatCard>
-            <h1>Header</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+        <MatCard Class='mdc-card demo-card'>
+            <MatCardPrimaryContent Class='demo-card__primary-action'>
+                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
+            </MatCardPrimaryContent>
         </MatCard>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatCard>
-            <h1>Header</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+        <MatCard Class='mdc-card demo-card'>
+            <MatCardPrimaryContent Class='demo-card__primary-action'>
+                <MatCardMedia Wide=""true"" ImageUrl=""https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg""></MatCardMedia>
+            </MatCardPrimaryContent>
         </MatCard>
     ")></BlazorFiddle>
     </SourceContent>

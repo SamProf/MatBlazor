@@ -50,11 +50,7 @@ namespace MatBlazor
         public string Class
         {
             get => _class;
-            set
-            {
-                _class = value;
-                ClassMapper.MakeDirty();
-            }
+            set { _class = value; }
         }
 
 
@@ -70,6 +66,12 @@ namespace MatBlazor
                 _style = value;
                 this.StateHasChanged();
             }
+        }
+
+
+        protected virtual string GenerateStyle()
+        {
+            return Style;
         }
 
         private string _class;

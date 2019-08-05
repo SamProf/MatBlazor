@@ -10,6 +10,7 @@ namespace MatBlazor
         public BaseMatCard()
         {
             ClassMapper
+                .Add("mat-card")
                 .Add("mdc-card")
                 .If("mdc-card--stroked", () => this.Stroke);
         }
@@ -21,7 +22,6 @@ namespace MatBlazor
             set
             {
                 _stroke = value;
-                ClassMapper.MakeDirty();
             }
         }
 

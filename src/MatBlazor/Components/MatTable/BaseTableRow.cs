@@ -28,7 +28,6 @@ namespace MatBlazor
         public async Task ToggleSelectedAsync()
         {
             this.Selected = !this.Selected;
-            ClassMapper.MakeDirty();
             await SelectedChanged.InvokeAsync(this.Selected);
             await this.Table.ToggleSelectedAsync(this);
             this.StateHasChanged();            
