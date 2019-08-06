@@ -8,6 +8,7 @@
 [![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://www.matblazor.com)
 [![MIT](https://img.shields.io/github/license/SamProf/MatBlazor.svg)](LICENSE)
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url)
+[![Patreon](https://img.shields.io/badge/Patreon-donation-blue)](https://www.patreon.com/SamProf)
 
 MatBlazor comprises a range of components which implement common interaction patterns according to the Material Design specification.
 
@@ -88,34 +89,35 @@ app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);
 } 
 ```
 
+## Sponsors & Backers
+MatBlazor does not run under the umbrella of any company or anything like that.
+It is an independent project created in spare time.
+The development is active and we are working hard to release great things for you.
 
-## Questions
+If you think that this project helped you or your company in any way, you can consider becoming a backer/sponsor.
+- [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url)
+- [Patreon](https://www.patreon.com/SamProf)
 
-For *how-to* questions and other non-issues, for now you can use issues or you can use [![Gitter](https://badges.gitter.im/MatBlazor/community.svg)](https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
+### Backers:
+- [MaurizioVerde](https://github.com/MaurizioVerde)
 
-## Contributing
-
-We'd greatly appreciate any contribution you make. :)
-
-## Roadmap
-
-In the near future we plan to maximize the count and features of the components inspired by other frameworks like Angular Material, React Material UI and Vue Material.
-
-## License
-
-This project is licensed under the terms of the [MIT license](LICENSE).
-
-## Thank you
-- [Blazor](https://blazor.net)
-- [MDC Web](https://material.io/components/)
-- [flatpickr.js](https://flatpickr.js.org/)
-- [toast](https://github.com/sotsera/sotsera.blazor.toaster)
 
 ## News
 
-### In progress MatBlazor 1.3.0
+### MatBlazor 1.5.0
+- MatCard improvements
+
+### MatBlazor 1.4.1
+- MatTypography improvements
+
+### MatBlazor 1.4.0
+- New NavMenu - new component (Thanks to [enkodellc](https://github.com/enkodellc))
+- PR: NumericUpDown to preview7. Fix tabindex #161 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
+- PR: Outlined #162 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
+
+### MatBlazor 1.3.0
 - Update to .NET Core 3.0 Preview 7
-- All components supports @@Attributes and Id parameter
+- All components supports @Attributes and Id parameter
 - MatDatePicker parameters: Label, Dense, Outlined, Required, Disabled
 - PR: Fixed up the helper text functionality in MatTextField. #121 (Thanks to [jorgy343](https://github.com/jorgy343))
 - PR: MatSelect Updates #124 (Thanks to [jorgy343](https://github.com/jorgy343))
@@ -304,3 +306,33 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 ### MatBlazor 0.4.3
 - Upgrade to Blazor 0.7.0
 - MatDrawer in progress
+
+
+
+## Questions
+
+For *how-to* questions and other non-issues, for now you can use issues or you can use [![Gitter](https://badges.gitter.im/MatBlazor/community.svg)](https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
+
+
+## Contributing
+We'd greatly appreciate any contribution you make. :)
+
+
+## Roadmap
+
+In the near future we plan to maximize the count and features of the components inspired by other frameworks like Angular Material, React Material UI and Vue Material.
+1) Implementation of  base functionality from MDC Web
+2) Implementation of  first versions of more rich components, like Table, AutoComplete, Accordion (Expansion Panel), Calendar, DatePicker and etc.
+3) Improvement existing component's functionality. Make API near the same as Angular Material (or React, Vue)
+4) JS-less. Implement components as much as possible without using JS.
+
+
+## License
+
+This project is licensed under the terms of the [MIT license](LICENSE).
+
+## Thank you
+- [Blazor](https://blazor.net)
+- [MDC Web](https://material.io/components/)
+- [flatpickr.js](https://flatpickr.js.org/)
+- [toast](https://github.com/sotsera/sotsera.blazor.toaster)

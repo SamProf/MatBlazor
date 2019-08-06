@@ -178,7 +178,7 @@
         </member>
         <member name="T:MatBlazor.BaseMatCard">
             <summary>
-            Cards contain content and actions about a single subject.
+            Card component for Blazor contain content and actions about a single subject. 
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatCheckbox">
@@ -294,6 +294,21 @@
         <member name="T:MatBlazor.BaseMatMenu">
             <summary>
             Menus display a list of choices on a transient sheet of material.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.BaseMatNavItem">
+            <summary>
+            Nav Item is a menu item in the Nav Menu. Inherits from Mat List Item.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.BaseMatNavMenu">
+            <summary>
+            MatNavMenu provides a navigation container
+            </summary>
+        </member>
+        <member name="T:MatBlazor.BaseMatNavSubMenu">
+            <summary>
+            MatNavSubMenu provides an expandable panel for child navigation lists.
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatNumericUpDownField">

@@ -20,7 +20,6 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<bool> ExpandedChanged { get; set; }
 
-
         public async Task ToggleAsync()
         {
             this.Expanded = !this.Expanded;
@@ -34,7 +33,7 @@ namespace MatBlazor
             ClassMapper
                 .Add("mat-expansion-panel")
                 .Add("mdc-elevation--z3")
-                .If("mat-expansion-panel-expanded", () => Expanded);
+                .If("mat-expansion-panel--expanded", () => Expanded);
         }
     }
 }

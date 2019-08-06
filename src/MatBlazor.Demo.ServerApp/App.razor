@@ -18,4 +18,16 @@
     {
     };
 
+    private string _test1;
+
+    [Parameter]
+    public string Test1
+    {
+        get => _test1;
+        set
+        {
+            _test1 = value;
+        }
+    }
+
 }

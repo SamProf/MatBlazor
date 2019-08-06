@@ -8,10 +8,18 @@
         <i class="material-icons mdc-text-field__icon" tabindex="0" onclick="@IconOnClick">@Icon</i>
     }
 
-    <input style="@InputStyle; padding: 20px 48px 6px 48px;" @ref="InputRef" type="text" placeholder="@PlaceHolder" required=@Required
-           class="@InputClassMapper.Class" id="@Id" @bind="@UiBindedValue" aria-label="@Label"
+    <input style="@InputStyle; padding: 20px 48px 6px 48px;" 
+           @ref="InputRef" 
+           type="text" 
+           placeholder="@PlaceHolder" 
+           required=@Required
+           class="@InputClassMapper.Class" 
+           id="@Id" 
+           @bind="@UiBindedValue" 
+           aria-label="@Label"
            oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus"
-           disabled=@Disabled readonly="@ReadOnly"
+           disabled=@Disabled 
+           readonly="@ReadOnly"
            @attributes="Attributes"
            />
 

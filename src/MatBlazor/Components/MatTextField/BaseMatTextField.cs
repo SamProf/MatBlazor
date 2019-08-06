@@ -19,8 +19,6 @@ namespace MatBlazor
                 if (value != _value)
                 {
                     _value = value;
-                    LabelClassMapper.MakeDirty();
-                    InputClassMapper.MakeDirty();
                     ValueChanged.InvokeAsync(value);
                 }
             }
@@ -114,7 +112,6 @@ namespace MatBlazor
             set
             {
                 _inputClass = value;
-                InputClassMapper.MakeDirty();
             }
         }
 
@@ -151,6 +148,7 @@ namespace MatBlazor
 
             LabelClassMapper
                 .Add("mdc-floating-label")
+                .If("mat-floating-label--float-above-outlined", () => Outlined && !string.IsNullOrEmpty(Value))
                 .If("mdc-floating-label--float-above", () => !string.IsNullOrEmpty(Value));
 
             InputClassMapper

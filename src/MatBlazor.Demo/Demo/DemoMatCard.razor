@@ -4,16 +4,265 @@
 
 <DemoContainer>
     <Content>
-        <MatCard>
-            <h1>Header</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+        <style>
+            .demo-mat-card {
+                max-width: 400px;
+            }
+
+            .demo-mat-card-content {
+                padding: 1rem;
+            }
+
+            .demo-mat-card-clean-margin {
+                margin: 0px;
+            }
+        </style>
+        <MatCard class="demo-mat-card">
+            <MatCardContent>
+                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
+                <div class="demo-mat-card-content">
+                    <MatHeadline6 class="demo-mat-card-clean-margin">
+                        Our Changing Planet
+                    </MatHeadline6>
+                    <MatSubtitle2 class="demo-mat-card-clean-margin">
+                        by Kurt Wagner
+                    </MatSubtitle2>
+                </div>
+
+                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
+                    Visit ten places on our planet that are undergoing the biggest changes today.
+                </MatBody2>
+            </MatCardContent>
         </MatCard>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatCard>
-            <h1>Header</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+        <style>
+            .demo-mat-card {
+                max-width: 400px;
+            }
+
+            .demo-mat-card-content {
+                padding: 1rem;
+            }
+
+            .demo-mat-card-clean-margin {
+                margin: 0px;
+            }
+        </style>
+        <MatCard class=""demo-mat-card"">
+            <MatCardContent>
+                <MatCardMedia Wide=""true"" ImageUrl=""https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg""></MatCardMedia>
+                <div class=""demo-mat-card-content"">
+                    <MatHeadline6 class=""demo-mat-card-clean-margin"">
+                        Our Changing Planet
+                    </MatHeadline6>
+                    <MatSubtitle2 class=""demo-mat-card-clean-margin"">
+                        by Kurt Wagner
+                    </MatSubtitle2>
+                </div>
+
+                <MatBody2 class=""demo-mat-card-content demo-mat-card-clean-margin"">
+                    Visit ten places on our planet that are undergoing the biggest changes today.
+                </MatBody2>
+            </MatCardContent>
+        </MatCard>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+
+<MatH5>Material Design Card example with actions</MatH5>
+
+<DemoContainer>
+    <Content>
+        <style>
+        </style>
+        <MatCard class="demo-mat-card">
+            <MatCardContent>
+                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
+                <div class="demo-mat-card-content">
+                    <MatHeadline6 class="demo-mat-card-clean-margin">
+                        Our Changing Planet
+                    </MatHeadline6>
+                    <MatSubtitle2 class="demo-mat-card-clean-margin">
+                        by Kurt Wagner
+                    </MatSubtitle2>
+                </div>
+
+                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
+                    Visit ten places on our planet that are undergoing the biggest changes today.
+                </MatBody2>
+            </MatCardContent>
+            <MatCardActions>
+                <MatButton>Read</MatButton>
+                <MatButton>Bookmark</MatButton>
+            </MatCardActions>
+        </MatCard>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <style>
+        </style>
+        <MatCard class=""demo-mat-card"">
+            <MatCardContent>
+                <MatCardMedia Wide=""true"" ImageUrl=""https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg""></MatCardMedia>
+                <div class=""demo-mat-card-content"">
+                    <MatHeadline6 class=""demo-mat-card-clean-margin"">
+                        Our Changing Planet
+                    </MatHeadline6>
+                    <MatSubtitle2 class=""demo-mat-card-clean-margin"">
+                        by Kurt Wagner
+                    </MatSubtitle2>
+                </div>
+
+                <MatBody2 class=""demo-mat-card-content demo-mat-card-clean-margin"">
+                    Visit ten places on our planet that are undergoing the biggest changes today.
+                </MatBody2>
+            </MatCardContent>
+            <MatCardActions>
+                <MatButton>Read</MatButton>
+                <MatButton>Bookmark</MatButton>
+            </MatCardActions>
+        </MatCard>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<MatH5>Material Design Card example with action buttons and icons</MatH5>
+
+<DemoContainer>
+    <Content>
+        <style>
+        </style>
+        <MatCard class="demo-mat-card">
+            <MatCardContent>
+                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
+                <div class="demo-mat-card-content">
+                    <MatHeadline6 class="demo-mat-card-clean-margin">
+                        Our Changing Planet
+                    </MatHeadline6>
+                    <MatSubtitle2 class="demo-mat-card-clean-margin">
+                        by Kurt Wagner
+                    </MatSubtitle2>
+                </div>
+
+                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
+                    Visit ten places on our planet that are undergoing the biggest changes today.
+                </MatBody2>
+            </MatCardContent>
+            <MatCardActions>
+                <MatCardActionButtons>
+                    <MatButton>Read</MatButton>
+                    <MatButton>Bookmark</MatButton>
+                </MatCardActionButtons>
+
+                <MatCardActionIcons>
+                    <MatIconButton Icon="@MatIconNames.Favorite"></MatIconButton>
+                    <MatIconButton Icon="@MatIconNames.Dashboard"></MatIconButton>
+                </MatCardActionIcons>
+            </MatCardActions>
+        </MatCard>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <style>
+        </style>
+        <MatCard class=""demo-mat-card"">
+            <MatCardContent>
+                <MatCardMedia Wide=""true"" ImageUrl=""https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg""></MatCardMedia>
+                <div class=""demo-mat-card-content"">
+                    <MatHeadline6 class=""demo-mat-card-clean-margin"">
+                        Our Changing Planet
+                    </MatHeadline6>
+                    <MatSubtitle2 class=""demo-mat-card-clean-margin"">
+                        by Kurt Wagner
+                    </MatSubtitle2>
+                </div>
+
+                <MatBody2 class=""demo-mat-card-content demo-mat-card-clean-margin"">
+                    Visit ten places on our planet that are undergoing the biggest changes today.
+                </MatBody2>
+            </MatCardContent>
+            <MatCardActions>
+                <MatCardActionButtons>
+                    <MatButton>Read</MatButton>
+                    <MatButton>Bookmark</MatButton>
+                </MatCardActionButtons>
+
+                <MatCardActionIcons>
+                    <MatIconButton Icon=""@MatIconNames.Favorite""></MatIconButton>
+                    <MatIconButton Icon=""@MatIconNames.Dashboard""></MatIconButton>
+                </MatCardActionIcons>
+            </MatCardActions>
+        </MatCard>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<MatH5>Material Design Card example with text over media</MatH5>
+
+<DemoContainer>
+    <Content>
+        <MatCard class="demo-mat-card">
+            <MatCardContent>
+                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
+                    <div class="demo-mat-card-content" style="color: white;">
+                        <MatHeadline6 class="demo-mat-card-clean-margin">
+                            Our Changing Planet
+                        </MatHeadline6>
+                        <MatSubtitle2 class="demo-mat-card-clean-margin">
+                            by Kurt Wagner
+                        </MatSubtitle2>
+                    </div>
+                </MatCardMedia>
+                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
+                    Visit ten places on our planet that are undergoing the biggest changes today.
+                </MatBody2>
+            </MatCardContent>
+            <MatCardActions>
+                <MatCardActionButtons>
+                    <MatButton>Read</MatButton>
+                    <MatButton>Bookmark</MatButton>
+                </MatCardActionButtons>
+
+                <MatCardActionIcons>
+                    <MatIconButton Icon="@MatIconNames.Favorite"></MatIconButton>
+                    <MatIconButton Icon="@MatIconNames.Dashboard"></MatIconButton>
+                </MatCardActionIcons>
+            </MatCardActions>
+        </MatCard>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatCard class=""demo-mat-card"">
+            <MatCardContent>
+                <MatCardMedia Wide=""true"" ImageUrl=""https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"">
+                    <div class=""demo-mat-card-content"" style=""color: white;"">
+                        <MatHeadline6 class=""demo-mat-card-clean-margin"">
+                            Our Changing Planet
+                        </MatHeadline6>
+                        <MatSubtitle2 class=""demo-mat-card-clean-margin"">
+                            by Kurt Wagner
+                        </MatSubtitle2>
+                    </div>
+                </MatCardMedia>
+                <MatBody2 class=""demo-mat-card-content demo-mat-card-clean-margin"">
+                    Visit ten places on our planet that are undergoing the biggest changes today.
+                </MatBody2>
+            </MatCardContent>
+            <MatCardActions>
+                <MatCardActionButtons>
+                    <MatButton>Read</MatButton>
+                    <MatButton>Bookmark</MatButton>
+                </MatCardActionButtons>
+
+                <MatCardActionIcons>
+                    <MatIconButton Icon=""@MatIconNames.Favorite""></MatIconButton>
+                    <MatIconButton Icon=""@MatIconNames.Dashboard""></MatIconButton>
+                </MatCardActionIcons>
+            </MatCardActions>
         </MatCard>
     ")></BlazorFiddle>
     </SourceContent>

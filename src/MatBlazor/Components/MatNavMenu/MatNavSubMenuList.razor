@@ -1,0 +1,13 @@
+﻿@namespace MatBlazor
+@using Microsoft.AspNetCore.Components
+@inherits BaseMatDomComponent
+
+<ul class="@ClassMapper.Class mat-expansion-panel__content" style="@Style" @ref ="Ref" @attributes="Attributes" Id="@Id">
+    @ChildContent
+</ul>
+
+@functions
+{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}
