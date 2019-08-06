@@ -4,17 +4,30 @@
 
 <DemoContainer>
     <Content>
-        <MatCard>
+        <style>
+            .demo-mat-card {
+                max-width: 400px;
+            }
+            .demo-mat-card-content {
+                padding: 1rem;
+            }
+            .demo-mat-card-clean-margin {
+                margin: 0px;
+            }
+        </style>
+        <MatCard class="demo-mat-card">
             <MatCardPrimaryContent>
                 <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
-                <MatHeadline6>
-                    Our Changing Planet
-                </MatHeadline6>
-                <MatSubtitle2>
-                    by Kurt Wagner
-                </MatSubtitle2>
+                <div class="demo-mat-card-content">
+                    <MatHeadline6 class="demo-mat-card-clean-margin">
+                        Our Changing Planet
+                    </MatHeadline6>
+                    <MatSubtitle2 class="demo-mat-card-clean-margin">
+                        by Kurt Wagner
+                    </MatSubtitle2>
+                </div>
 
-                <MatBody2>
+                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
                     Visit ten places on our planet that are undergoing the biggest changes today.
                 </MatBody2>
             </MatCardPrimaryContent>
@@ -22,17 +35,30 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatCard>
+        <style>
+            .demo-mat-card {
+                max-width: 400px;
+            }
+            .demo-mat-card-content {
+                padding: 1rem;
+            }
+            .demo-mat-card-clean-margin {
+                margin: 0px;
+            }
+        </style>
+        <MatCard class=""demo-mat-card"">
             <MatCardPrimaryContent>
                 <MatCardMedia Wide=""true"" ImageUrl=""https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg""></MatCardMedia>
-                <MatHeadline6>
-                    Our Changing Planet
-                </MatHeadline6>
-                <MatSubtitle2>
-                    by Kurt Wagner
-                </MatSubtitle2>
+                <div class=""demo-mat-card-content"">
+                    <MatHeadline6 class=""demo-mat-card-clean-margin"">
+                        Our Changing Planet
+                    </MatHeadline6>
+                    <MatSubtitle2 class=""demo-mat-card-clean-margin"">
+                        by Kurt Wagner
+                    </MatSubtitle2>
+                </div>
 
-                <MatBody2>
+                <MatBody2 class=""demo-mat-card-content demo-mat-card-clean-margin"">
                     Visit ten places on our planet that are undergoing the biggest changes today.
                 </MatBody2>
             </MatCardPrimaryContent>
