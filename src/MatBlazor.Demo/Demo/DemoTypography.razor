@@ -1,9 +1,108 @@
 <h3 class="mat-h3">Typography</h3>
 
-<p class="mat-body1">Roboto is the standard typeface on Android and Chrome.</p>
+<p class="mat-body1">Material Design Roboto Typography for Blazor is the standard typeface on Android and Chrome.</p>
 
 <h5 class="mat-h5">Example</h5>
+<DemoContainer>
+    <Content>
+        <MatHeadline1>Headline 1</MatHeadline1>
+        <MatH1>Headline 1 short syntax</MatH1>
 
+        <MatHeadline2>Headline 2</MatHeadline2>
+        <MatH2>Headline 2 short syntax</MatH2>
+
+        <MatHeadline3>Headline 3</MatHeadline3>
+        <MatH3>Headline 3 short syntax</MatH3>
+
+        <MatHeadline4>Headline 4</MatHeadline4>
+        <MatH4>Headline 4 short syntax</MatH4>
+
+        <MatHeadline5>Headline 5</MatHeadline5>
+        <MatH5>Headline 5 short syntax</MatH5>
+
+        <MatHeadline6>Headline 6</MatHeadline6>
+        <MatH6>Headline 6 short syntax</MatH6>
+
+        <MatSubtitle1>Subtitle 1</MatSubtitle1>
+
+        <MatSubtitle2>Subtitle 2</MatSubtitle2>
+
+        <MatBody1>Body 1</MatBody1>
+        <MatBody2>Body 2</MatBody2>
+
+        <MatCaption>Caption</MatCaption>
+
+        <MatOverline>Overline</MatOverline>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatHeadline1>Headline 1</MatHeadline1>
+        <MatH1>Headline 1 short syntax</MatH1>
+
+        <MatHeadline2>Headline 2</MatHeadline2>
+        <MatH2>Headline 2 short syntax</MatH2>
+
+        <MatHeadline3>Headline 3</MatHeadline3>
+        <MatH3>Headline 3 short syntax</MatH3>
+
+        <MatHeadline4>Headline 4</MatHeadline4>
+        <MatH4>Headline 4 short syntax</MatH4>
+
+        <MatHeadline5>Headline 5</MatHeadline5>
+        <MatH5>Headline 5 short syntax</MatH5>
+
+        <MatHeadline6>Headline 6</MatHeadline6>
+        <MatH6>Headline 6 short syntax</MatH6>
+
+        <MatSubtitle1>Subtitle 1</MatSubtitle1>
+
+        <MatSubtitle2>Subtitle 2</MatSubtitle2>
+
+        <MatBody1>Body 1</MatBody1>
+        <MatBody2>Body 2</MatBody2>
+
+        <MatCaption>Caption</MatCaption>
+
+        <MatOverline>Overline</MatOverline>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">Customization</h5>
+<DemoContainer>
+    <Content>
+        <!-- Change tag for every Typography component -->
+        <MatHeadline1 Tag="div">Headline 1</MatHeadline1>
+
+
+        <!-- Add id, class, style attributes for  Typography component-->
+        <MatHeadline1 id="my-demo-id" class="my-demo-class" style="color: red;">Headline 1</MatHeadline1>
+
+        <!-- Add any other custom @@attributes for  Typography component-->
+        <MatHeadline1 data-test1="test data value">Headline 1</MatHeadline1>
+
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <!-- Change tag for every Typography component -->
+        <MatHeadline1 Tag=""div"">Headline 1</MatHeadline1>
+
+
+        <!-- Add id, class, style attributes for  Typography component-->
+        <MatHeadline1 id=""my-demo-id"" class=""my-demo-class"" style=""color: red;"">Headline 1</MatHeadline1>
+
+        <!-- Add any other custom @@attributes for  Typography component-->
+        <MatHeadline1 data-test1=""test data value"">Headline 1</MatHeadline1>
+
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">Example with css classes</h5>
 <DemoContainer>
     <Content>
         <div class="mat">Sets the font to Roboto</div>

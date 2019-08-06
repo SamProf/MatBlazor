@@ -1,0 +1,42 @@
+@using MatBlazor.Demo.Models
+@implements IDisposable
+@inject UserAppModel UserAppModel;
+
+<title>@(GenerateTitle())</title>
+
+@code
+{
+
+
+    string GenerateTitle()
+    {
+        var title = "MatBlazor - Material Design components for Blazor and Razor Components";
+        if (string.IsNullOrEmpty(UserAppModel.Title))
+        {
+            return title;
+        }
+        else
+        {
+            return $"{UserAppModel.Title} - {title}";
+        }
+    }
+
+    protected override void OnInit()
+    {
+        base.OnInit();
+        this.UserAppModel.TitleChanged += TitleChanged;
+    }
+
+
+    void TitleChanged(object s, EventArgs e)
+    {
+        this.Invoke(() => { this.StateHasChanged(); });
+    }
+
+
+    public void Dispose()
+    {
+        this.UserAppModel.TitleChanged -= TitleChanged;
+    }
+
+}

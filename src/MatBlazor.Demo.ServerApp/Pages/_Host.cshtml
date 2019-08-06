@@ -1,38 +1,9 @@
 ﻿@page "/"
-@using EmbeddedBlazorContent
 @namespace MatBlazor.Demo.ServerApp.Pages
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="google-site-verification" content="b5tpBm_UuXTuO3p8LX3juSZvjRB147_B5_FduGXt-ZU"/>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width">
-    <title>MatBlazor - Material Design components for Blazor and Razor Components</title>
-    <base href="~/"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/favicon-32x32.png">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+@{
+    Layout = "_Layout";
+}
 
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138065618-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() { dataLayer.push(arguments); }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-138065618-1');
-    </script>
-
-
-    @Html.EmbeddedBlazorContent()
-
-</head>
-<body class="mat">
-<app style="display: flex;">@(await Html.RenderComponentAsync<App>())</app>
-
-<script src="_framework/blazor.server.js"></script>
-</body>
-</html>
+@(await Html.RenderComponentAsync<App>())
