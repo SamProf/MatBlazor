@@ -106,6 +106,8 @@ If you think that this project helped you or your company in any way, you can co
 
 ### In progress MatBlazor 1.5.0
 - MatCard improvements
+
+### In progress MatBlazor 1.4.1
 - MatTypography improvements
 
 ### MatBlazor 1.4.0

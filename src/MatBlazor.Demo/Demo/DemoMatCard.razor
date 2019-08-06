@@ -4,17 +4,37 @@
 
 <DemoContainer>
     <Content>
-        <MatCard Class='mdc-card demo-card'>
-            <MatCardPrimaryContent Class='demo-card__primary-action'>
+        <MatCard>
+            <MatCardPrimaryContent>
                 <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
+                <MatHeadline6>
+                    Our Changing Planet
+                </MatHeadline6>
+                <MatSubtitle2>
+                    by Kurt Wagner
+                </MatSubtitle2>
+
+                <MatBody2>
+                    Visit ten places on our planet that are undergoing the biggest changes today.
+                </MatBody2>
             </MatCardPrimaryContent>
         </MatCard>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatCard Class='mdc-card demo-card'>
-            <MatCardPrimaryContent Class='demo-card__primary-action'>
+        <MatCard>
+            <MatCardPrimaryContent>
                 <MatCardMedia Wide=""true"" ImageUrl=""https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg""></MatCardMedia>
+                <MatHeadline6>
+                    Our Changing Planet
+                </MatHeadline6>
+                <MatSubtitle2>
+                    by Kurt Wagner
+                </MatSubtitle2>
+
+                <MatBody2>
+                    Visit ten places on our planet that are undergoing the biggest changes today.
+                </MatBody2>
             </MatCardPrimaryContent>
         </MatCard>
     ")></BlazorFiddle>
