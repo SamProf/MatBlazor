@@ -4,44 +4,14 @@ using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace MatBlazor
 {
-    public abstract class BaseMatTypography : BaseMatDomComponent
+    public abstract class BaseMatTypography : BaseMatContainerComponent
     {
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
-
-        [Parameter]
-        public string Tag { get; set; }
-
-        private readonly string className;
-
         protected BaseMatTypography(string tag, string className)
         {
             this.Tag = tag;
-            this.className = className;
-        }
-
-
-        protected override async Task OnInitAsync()
-        {
-            await base.OnInitAsync();
             ClassMapper
                 .Add("mat")
                 .Add(className);
-        }
-
-        protected override void BuildRenderTree(RenderTreeBuilder builder)
-        {
-            builder.OpenElement(0, Tag);
-            builder.AddAttribute(1, "class", ClassMapper.Class);
-            builder.AddAttribute(2, "style", GenerateStyle());
-            builder.AddMultipleAttributes(3,
-                RuntimeHelpers
-                    .TypeCheck<global::System.Collections.Generic.IEnumerable<
-                        global::System.Collections.Generic.KeyValuePair<string, object>>>(Attributes));
-            builder.AddAttribute(4, "Id", Id);
-            builder.AddElementReferenceCapture(5, (__value) => { Ref = __value; });
-            builder.AddContent(7, ChildContent);
-            builder.CloseElement();
         }
     }
 

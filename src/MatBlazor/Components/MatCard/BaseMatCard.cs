@@ -19,10 +19,7 @@ namespace MatBlazor
         protected bool Stroke
         {
             get => _stroke;
-            set
-            {
-                _stroke = value;
-            }
+            set { _stroke = value; }
         }
 
         [Parameter]
