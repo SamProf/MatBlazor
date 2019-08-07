@@ -6,10 +6,13 @@ namespace MatBlazor
     /// <summary>
     /// MatNavSubMenu provides an expandable panel for child navigation lists.
     /// </summary>
-    public class BaseMatNavSubMenu : BaseMatDomComponent
+    public class BaseMatNavSubMenu : BaseMatDomComponent, IMatNavSubMenuToggler
     {
         [CascadingParameter]
         public BaseMatNavMenu MatNavMenu { get; set; }
+
+        [CascadingParameter]
+        public BaseMatNavSubMenu ParentSubMenu { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
@@ -26,14 +29,32 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<bool> ExpandedChanged { get; set; }
 
+        public BaseMatNavSubMenu CurrentNavSubMenu { get; private set; }
+
         public async Task ToggleAsync()
         {
             this.Expanded = !this.Expanded;
             await ExpandedChanged.InvokeAsync(this.Expanded);
-            await this.MatNavMenu.ToggleAsync(this);
+            await ((IMatNavSubMenuToggler)this.ParentSubMenu ?? this.MatNavMenu).ToggleSubMenuAsync(this);
             this.StateHasChanged();
         }
 
+        public async Task ToggleSubMenuAsync(BaseMatNavSubMenu subMenu)
+        {
+            if (!MatNavMenu.Multi)
+            {
+                if (subMenu.Expanded)
+                {
+                    var current = CurrentNavSubMenu;
+                    CurrentNavSubMenu = subMenu;
+
+                    if (current != null && current != subMenu && current.Expanded)
+                    {
+                        await current.ToggleAsync();
+                    }
+                }
+            }
+        }
         public async Task ToggleSelectedAsync()
         {
             this.Selected = !this.Selected;

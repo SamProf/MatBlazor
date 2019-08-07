@@ -6,7 +6,7 @@ namespace MatBlazor
     /// <summary>
     /// MatNavMenu provides a navigation container
     /// </summary>
-    public class BaseMatNavMenu : BaseMatDomComponent
+    public class BaseMatNavMenu : BaseMatDomComponent, IMatNavSubMenuToggler
     {
         [Parameter]
         public RenderFragment ChildContent { get; set; }
@@ -20,7 +20,7 @@ namespace MatBlazor
 
 
 
-        public async Task ToggleAsync(BaseMatNavSubMenu subMenu)
+        public async Task ToggleSubMenuAsync(BaseMatNavSubMenu subMenu)
         {
             if (!Multi)
             {

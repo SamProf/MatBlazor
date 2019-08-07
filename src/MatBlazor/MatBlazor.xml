@@ -311,6 +311,12 @@
             MatNavSubMenu provides an expandable panel for child navigation lists.
             </summary>
         </member>
+        <member name="T:MatBlazor.IMatNavSubMenuToggler">
+            <summary>
+            Defines interface for a container component that
+            can toggle the expansion state of its sub menus.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatNumericUpDownField">
             <summary>
             Text fields allow users to input, edit, and select text.

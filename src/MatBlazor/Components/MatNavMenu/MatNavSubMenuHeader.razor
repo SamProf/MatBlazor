@@ -4,7 +4,8 @@
 
 <div class="@ClassMapper.Class" @ref="Ref" style="@Style" @onclick="OnClickHandler" @attributes="Attributes" Id="@Id">
     @ChildContent
-    <span class="after material-icon mdc-sub-menu-icon">&#58131;</span>
+    <span class="after material-icon mdc-sub-menu-icon"
+          style="@ToggleIconStyle">&#58131;</span>
 </div>
 
 @functions
@@ -14,6 +15,9 @@
 
     [CascadingParameter]
     public BaseMatNavSubMenu NavSubMenu { get; set; }
+
+    // Forces the toggle icon to collapsed state even when parent is expanded
+    protected string ToggleIconStyle => NavSubMenu.Expanded ? "" : "transform: none !important";
 
     protected override void OnInit()
     {
