@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
@@ -31,12 +32,43 @@ namespace MatBlazor
 
         public BaseMatNavSubMenu CurrentNavSubMenu { get; private set; }
 
+        public event EventHandler<bool> AllSubMenusToggled;
+
+        protected override Task OnInitAsync()
+        {
+            var parent = (IMatNavSubMenuToggler)ParentSubMenu ?? MatNavMenu;
+            parent.AllSubMenusToggled += OnAllSubMenusToggled;
+            return base.OnInitAsync();
+        }
+
+        public override void Dispose()
+        {
+            var parent = (IMatNavSubMenuToggler)ParentSubMenu ?? MatNavMenu;
+            parent.AllSubMenusToggled -= OnAllSubMenusToggled;
+            base.Dispose();
+        }
+
+        private void OnAllSubMenusToggled(object source, bool expanded)
+        {
+            if (this.Expanded != expanded)
+            {
+                this.Expanded = expanded;
+                this.StateHasChanged();
+            }
+            ToggleAllSubMenus(expanded);
+        }
+
         public async Task ToggleAsync()
         {
             this.Expanded = !this.Expanded;
             await ExpandedChanged.InvokeAsync(this.Expanded);
             await ((IMatNavSubMenuToggler)this.ParentSubMenu ?? this.MatNavMenu).ToggleSubMenuAsync(this);
             this.StateHasChanged();
+        }
+
+        public void ToggleAllSubMenus(bool expanded)
+        {
+            AllSubMenusToggled?.Invoke(this, expanded);
         }
 
         public async Task ToggleSubMenuAsync(BaseMatNavSubMenu subMenu)

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
@@ -18,7 +19,7 @@ namespace MatBlazor
         [Parameter]
         public bool Multi { get; set; }
 
-
+        public event EventHandler<bool> AllSubMenusToggled;
 
         public async Task ToggleSubMenuAsync(BaseMatNavSubMenu subMenu)
         {
@@ -35,6 +36,11 @@ namespace MatBlazor
                     }
                 }
             }
+        }
+
+        public void ToggleAllSubMenus(bool expanded)
+        {
+            AllSubMenusToggled?.Invoke(this, expanded);
         }
 
         public async Task ToggleSelectedAsync(BaseMatNavItem navItem, BaseMatNavSubMenu navSubMenu)

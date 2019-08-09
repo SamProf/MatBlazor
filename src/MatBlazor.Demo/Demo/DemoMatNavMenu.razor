@@ -94,8 +94,10 @@
 
         <div class="mat-elevation-z4" style="padding: 10px;">
             <MatSlideToggle @bind-Checked="MultiChecked" Label="@("Multi: " + MultiChecked)" />
+            <MatButton OnClick="@(() => navMenu.ToggleAllSubMenus(true))">Expand All</MatButton>
+            <MatButton OnClick="@(() => navMenu.ToggleAllSubMenus(false))">Collapse All</MatButton>
         </div>
-        <MatNavMenu Multi="MultiChecked">
+        <MatNavMenu @ref="navMenu" Multi="MultiChecked">
             <MatNavItem>Level 1 Item A</MatNavItem>
             <MatNavItem>Level 1 Item B</MatNavItem>
 
@@ -186,6 +188,7 @@
 
         @code {
             bool MultiChecked { get; set; }
+            MatNavMenu navMenu;
         }
     </Content>
     <SourceContent>
@@ -194,12 +197,14 @@
 
         <div class=""mat-elevation-z4"" style=""padding: 10px;"">
             <MatSlideToggle @bind-Checked=""MultiChecked"" Label=""@(""Multi: "" + MultiChecked)"" />
+            <MatButton OnClick=""@(() => navMenu.ToggleAllSubMenus(true))"">Expand All</MatButton>
+            <MatButton OnClick=""@(() => navMenu.ToggleAllSubMenus(false))"">Collapse All</MatButton>
         </div>
-        <MatNavMenu Multi=""MultiChecked"">
+        <MatNavMenu @ref=""navMenu"" Multi=""MultiChecked"">
             <MatNavItem>Level 1 Item A</MatNavItem>
             <MatNavItem>Level 1 Item B</MatNavItem>
 
-           <MatNavSubMenu>
+            <MatNavSubMenu>
                 <MatNavSubMenuHeader>
                     <MatNavItem AllowSelection=""false"">
                         <MatIcon Icon=""folder"" />&nbsp;Level 1 Sub Menu A
@@ -212,6 +217,7 @@
                 </MatNavSubMenuList>
 
             </MatNavSubMenu>
+
 
             <MatNavSubMenu>
                 <MatNavSubMenuHeader>
@@ -285,6 +291,7 @@
 
         @code {
             bool MultiChecked { get; set; }
+            MatNavMenu navMenu;
         }
         ")></BlazorFiddle>
     </SourceContent>
