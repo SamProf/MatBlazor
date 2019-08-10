@@ -4,6 +4,16 @@ namespace MatBlazor
 {
     public class BaseMatOption : BaseMatDomComponent
     {
+        public BaseMatOption()
+        {
+            ClassMapper
+                .Add("mdc-list-item")
+                .If("mdc-list-item--disabled", ()=>Disabled);
+        }
+
+        [CascadingParameter()]
+        public BaseMatSelect Parent { get; set; }
+
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 

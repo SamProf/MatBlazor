@@ -31,7 +31,7 @@ namespace MatBlazor
         protected RenderFragment ChildContent { get; set; }
 
         [Parameter]
-        protected bool Enhanced { get; set; } = false;
+        public bool Enhanced { get; set; } = false;
 
         [Parameter]
         public bool Outlined { get; set; }

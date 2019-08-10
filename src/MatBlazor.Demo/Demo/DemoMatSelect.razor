@@ -5,16 +5,18 @@
 <h5 class="mat-h5">Enhanced</h5>
 <DemoContainer>
     <Content>
-        <MatSelect Label="Pick a Food Group" Enhanced="true">
-            @* <MatOption Value=""></MatOption> *@
-            @* <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption> *@
-            @* <MatOption Value="vegetables">Vegetables</MatOption> *@
-            @* <MatOption Value="fruit">Fruit</MatOption> *@
+        <MatSelect Label="Pick a Food Group" Enhanced="true" @bind-Value="ValEnhanced">
+            <MatOption Value=""></MatOption>
+            <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
+            <MatOption Value="vegetables">Vegetables</MatOption>
+            <MatOption Value="fruit">Fruit</MatOption>
         </MatSelect>
+
+        <span>@ValEnhanced</span>
 
         @functions
         {
-//            public string Val {get; set; }
+            public string ValEnhanced {get; set; }
         }
     </Content>
     <SourceContent>
