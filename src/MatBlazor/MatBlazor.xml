@@ -19,6 +19,43 @@
             Specifies an inline style for an DOM element.
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatInputComponent`1">
+            <summary>
+            Base class for any input control that optionally supports an <see cref="P:MatBlazor.BaseMatInputComponent`1.EditContext"/>.
+            </summary>
+            <typeparam name="T">the natural type of the input's value</typeparam>
+        </member>
+        <member name="P:MatBlazor.BaseMatInputComponent`1.EditContext">
+            <summary>
+            Gets the associated <see cref="T:Microsoft.AspNetCore.Components.Forms.EditContext"/>.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatInputComponent`1.FieldIdentifier">
+            <summary>
+            Gets the <see cref="P:MatBlazor.BaseMatInputComponent`1.FieldIdentifier"/> for the bound value.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatInputComponent`1.FieldClass">
+            <summary>
+            Gets a string that indicates the status of the field being edited. This will include
+            some combination of "modified", "valid", or "invalid", depending on the status of the field.
+            </summary>
+        </member>
+        <member name="M:MatBlazor.BaseMatInputComponent`1.NotifyFieldChanged">
+            <summary>
+            Should be invoked by whenever a bound value is changed, such
+            as right after the value's corresponding <i>ValueChanged</i>
+            EventCallback is invoked.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatInputComponent`1.ValueExpression">
+            <summary>
+            Gets or sets an expression that identifies the bound value.
+            </summary>
+        </member>
+        <member name="M:MatBlazor.BaseMatInputComponent`1.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterCollection)">
+            <inheritdoc />
+        </member>
         <member name="T:MatBlazor.BaseMatExpansionPanel">
             <summary>
             MatExpansionPanel provides an expandable details-summary view.
