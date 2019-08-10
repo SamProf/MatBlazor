@@ -882,3 +882,97 @@
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
+
+<h5 class="mat-h5">Optional Support for Validation via EditContext</h5>
+
+<DemoContainer>
+    <Content>
+        @using System.ComponentModel.DataAnnotations
+        <EditForm Model="myModel" OnValidSubmit="Success">
+            <DataAnnotationsValidator />
+            <p><MatTextField Label="Username" @bind-Value="myModel.Username" />
+               <ValidationMessage For="@(() => myModel.Username)" /></p>
+            <p><MatTextField Label="Password" @bind-Value="myModel.Password" Type="password" />
+               <ValidationMessage For="@(() => myModel.Password)" /></p>
+            <p><MatTextField Label="MFA" @bind-Value="myModel.MFA" />
+               <ValidationMessage For="@(() => myModel.MFA)" /></p>
+            <ValidationSummary />
+            <MatButton Type="submit">Login</MatButton>
+        </EditForm>
+
+        @code {
+            [Inject] IJSRuntime JS { get; set; }
+
+            async Task Success() =>
+                await JS.InvokeAsync<object>("alert", "Successful login!");
+
+            LoginModel myModel = new LoginModel();
+
+            public class LoginModel
+            {
+                [Required]
+                public string Username { get; set; }
+
+                [Required]
+                [MinLength(8)]
+                public string Password { get; set; }
+
+                [Required]
+                [CustomValidation(typeof(LoginModel), nameof(ValidateMFA))]
+                public string MFA { get; set; }
+
+                public static ValidationResult ValidateMFA(string mfa, ValidationContext vc)
+                {
+                    return string.Equals("654321", mfa)
+                        ? ValidationResult.Success
+                        : new ValidationResult("Incorrect MFA OTP", new[] { vc.MemberName });
+                }
+            }
+        }
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        @using System.ComponentModel.DataAnnotations
+        <EditForm Model=""myModel"" OnValidSubmit=""Success"">
+            <DataAnnotationsValidator />
+            <p><MatTextField Label=""Username"" @bind-Value=""myModel.Username"" />
+               <ValidationMessage For=""@(() => myModel.Username)"" /></p>
+            <p><MatTextField Label=""Password"" @bind-Value=""myModel.Password"" Type=""password"" />
+               <ValidationMessage For=""@(() => myModel.Password)"" /></p>
+            <p><MatTextField Label=""MFA"" @bind-Value=""myModel.MFA"" />
+               <ValidationMessage For=""@(() => myModel.MFA)"" /></p>
+            <ValidationSummary />
+            <MatButton Type=""submit"">Login</MatButton>
+        </EditForm>
+
+        @code {
+            [Inject] IJSRuntime JS { get; set; }
+            async Task Success() =>
+                await JS.InvokeAsync<object>(""alert"", ""Successful login!"");
+
+            LoginModel myModel = new LoginModel();
+            public class LoginModel
+            {
+                [Required]
+                public string Username { get; set; }
+
+                [Required]
+                [MinLength(8)]
+                public string Password { get; set; }
+
+                [Required]
+                [CustomValidation(typeof(LoginModel), nameof(ValidateMFA))]
+                public string MFA { get; set; }
+
+                public static ValidationResult ValidateMFA(string mfa, ValidationContext vc)
+                {
+                    return string.Equals(""654321"", mfa)
+                        ? ValidationResult.Success
+                        : new ValidationResult(""Incorrect MFA OTP"", new[] { vc.MemberName });
+                }
+            }
+        }
+    ")></BlazorFiddle>
+
+    </SourceContent>
+</DemoContainer>
