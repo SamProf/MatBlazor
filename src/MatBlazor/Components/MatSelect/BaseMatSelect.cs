@@ -30,7 +30,7 @@ namespace MatBlazor
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 
-//        [Parameter]
+        [Parameter]
         protected bool Enhanced { get; set; } = false;
 
         [Parameter]

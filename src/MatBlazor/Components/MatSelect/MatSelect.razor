@@ -2,68 +2,70 @@
 @inherits BaseMatSelect
 
 <div class="@ClassMapper.Class" style="@Style" @ref="Ref">
-    @if (!HideDropDownIcon)
-    {
-        <i class="mdc-select__dropdown-icon"></i>
-    }
 
-    @if (Enhanced)
-    {
-        <input type="hidden" name="enhanced-select">
-    }
+         @if (Enhanced)
+         {
+             <input type="hidden" name="enhanced-select">
+         }
+         @if (!HideDropDownIcon)
+         {
+             <i class="mdc-select__dropdown-icon"></i>
+         }
 
-    @if (Icon != null)
-    {
-        <i class="material-icons mdc-select__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
-    }
 
-    @if (Enhanced)
-    {
-        <div class="mdc-select__selected-text"></div>
 
-        <div class="mdc-select__menu mdc-menu mdc-menu-surface" style="width: 400px;">
-            <ul class="mdc-list">
-                <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
-                <li class="mdc-list-item" data-value="grains">
-                    Bread, Cereal, Rice, and Pasta
-                </li>
-                <li class="mdc-list-item" data-value="vegetables">
-                    Vegetables
-                </li>
-                <li class="mdc-list-item" data-value="fruit">
-                    Fruit
-                </li>
-            </ul>
-        </div>
-    }
-    else
-    {
-        <select class="mdc-select__native-control" @bind="@Value" aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled @attributes="Attributes" Id="@Id">
-            @ChildContent
-        </select>
-    }
+         @if (Icon != null)
+         {
+             <i class="material-icons mdc-select__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
+         }
 
-    @if (Outlined)
-    {
-        <div class="mdc-notched-outline">
-            <div class="mdc-notched-outline__leading"></div>
-            @if (Label != null)
-            {
-                <div class="mdc-notched-outline__notch">
-                    <label class="mdc-floating-label">@Label</label>
-                </div>
-            }
-            <div class="mdc-notched-outline__trailing"></div>
-        </div>
-    }
-    else if (Label != null)
-    {
-        <label class="mdc-floating-label">@Label</label>
-    }
+         @if (Enhanced)
+         {
+             <div class="mdc-select__selected-text"></div>
 
-    <div class="mdc-line-ripple"></div>
-</div>
-@if (HelperText != null)
-{
-    <p class="@HelperTextClassMapper.Class" aria-hidden="true">@HelperText</p>
-}
+             <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+                 <ul class="mdc-list">
+                     <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+                     <li class="mdc-list-item" data-value="grains">
+                         Bread, Cereal, Rice, and Pasta
+                     </li>
+                     <li class="mdc-list-item" data-value="vegetables">
+                         Vegetables
+                     </li>
+                     <li class="mdc-list-item" data-value="fruit">
+                         Fruit
+                     </li>
+                 </ul>
+             </div>
+         }
+         else
+         {
+             <select class="mdc-select__native-control" @bind="@Value" aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled @attributes="Attributes" Id="@Id">
+                         @ChildContent
+                     </select>
+         }
+
+                     @if (Outlined)
+                     {
+                         <div class="mdc-notched-outline">
+                             <div class="mdc-notched-outline__leading"></div>
+                             @if (Label != null)
+                             {
+                                 <div class="mdc-notched-outline__notch">
+                                     <label class="mdc-floating-label">@Label</label>
+                                 </div>
+                             }
+                             <div class="mdc-notched-outline__trailing"></div>
+                         </div>
+                     }
+                     else if (Label != null)
+                     {
+                         <label class="mdc-floating-label">@Label</label>
+                     }
+
+                     <div class="mdc-line-ripple"></div>
+                     </div>
+                     @if (HelperText != null)
+                     {
+                         <p class="@HelperTextClassMapper.Class" aria-hidden="true">@HelperText</p>
+                     }

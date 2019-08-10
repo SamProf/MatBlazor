@@ -25,9 +25,69 @@
 
 
 
+<div class="mdc-select" id="ref1">
+    <input type="hidden" name="enhanced-select">
+    <i class="mdc-select__dropdown-icon"></i>
+
+    <div class="mdc-select__selected-text"></div>
+    <div class="dc-select__menu mdc-menu mdc-menu-surface">
+        <ul class="mdc-list">
+            <li class="mdc-list-item mdc-list-item--selected" data-value aria-selected="true"></li>
+            <li class="mdc-list-item" data-value="grains">
+                Bread, Cereal, Rice, and Pasta
+            </li>
+            <li class="mdc-list-item" data-value="vegetables">
+                Vegetables
+            </li>
+            <li class="mdc-list-item" data-value="fruit">
+                Fruit
+            </li>
+        </ul>
+    </div>
+
+    <label class="mdc-floating-label">Pick a Food Group</label>
+
+    <div class="mdc-line-ripple"></div>
+</div>
+
+
+<div class="mdc-select demo-width-class" id="ref2">
+    <input type="hidden" name="enhanced-select">
+    <i class="mdc-select__dropdown-icon"></i>
+    <div class="mdc-select__selected-text"></div>
+    <div class="mdc-select__menu mdc-menu mdc-menu-surface demo-width-class">
+        <ul class="mdc-list">
+            <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+            <li class="mdc-list-item" data-value="grains">
+                Bread, Cereal, Rice, and Pasta
+            </li>
+            <li class="mdc-list-item" data-value="vegetables">
+                Vegetables
+            </li>
+            <li class="mdc-list-item" data-value="fruit">
+                Fruit
+            </li>
+        </ul>
+    </div>
+    <span class="mdc-floating-label">Pick a Food Group</span>
+    <div class="mdc-line-ripple"></div>
+</div>
+
+
+
+
+
 
 <script type="text/javascript">
-  var ref = document.getElementById('ref');
+  var ref1 = document.getElementById('ref1');
+  var ref2 = document.getElementById('ref2');
+
+  var select2 = new mdc.select.MDCSelect(ref2);
+  var select1 = new mdc.select.MDCSelect(ref1);
+
+  // select.listen('MDCSelect:change', () => {
+  //   alert(`Selected option at index ${select.selectedIndex} with value "${select.value}"`);
+  // });
 
 
 
