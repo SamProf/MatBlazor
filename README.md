@@ -104,6 +104,9 @@ If you think that this project helped you or your company in any way, you can co
 
 ## News
 
+### MatBlazor 1.5.2
+- PR: Adding example for nested sub menus and new "toggle all" feature #176 (Thanks to [ebekker](https://github.com/ebekker))
+
 ### MatBlazor 1.5.1
 - PR: Adding support for nested NavSubMenus #174 (Thanks to [ebekker](https://github.com/ebekker))
 
