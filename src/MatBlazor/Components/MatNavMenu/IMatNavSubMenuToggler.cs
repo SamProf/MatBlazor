@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 
 namespace MatBlazor
@@ -8,6 +9,10 @@ namespace MatBlazor
     /// </summary>
     public interface IMatNavSubMenuToggler
     {
+        event EventHandler<bool> AllSubMenusToggled;
+
         Task ToggleSubMenuAsync(BaseMatNavSubMenu subMenu);
+
+        void ToggleAllSubMenus(bool expanded);
     }
 }

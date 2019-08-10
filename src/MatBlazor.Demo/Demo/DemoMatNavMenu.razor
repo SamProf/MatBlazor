@@ -85,3 +85,214 @@
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
+
+
+<h5 class="mat-h5">Nested Sub Menus</h5>
+<DemoContainer>
+    <Content>
+        @using Microsoft.AspNetCore.Components
+
+        <div class="mat-elevation-z4" style="padding: 10px;">
+            <MatSlideToggle @bind-Checked="MultiChecked" Label="@("Multi: " + MultiChecked)" />
+            <MatButton OnClick="@(() => navMenu.ToggleAllSubMenus(true))">Expand All</MatButton>
+            <MatButton OnClick="@(() => navMenu.ToggleAllSubMenus(false))">Collapse All</MatButton>
+        </div>
+        <MatNavMenu @ref="navMenu" Multi="MultiChecked">
+            <MatNavItem>Level 1 Item A</MatNavItem>
+            <MatNavItem>Level 1 Item B</MatNavItem>
+
+            <MatNavSubMenu>
+                <MatNavSubMenuHeader>
+                    <MatNavItem AllowSelection="false">
+                        <MatIcon Icon="folder" />&nbsp;Level 1 Sub Menu A
+                    </MatNavItem>
+                </MatNavSubMenuHeader>
+
+                <MatNavSubMenuList>
+                    <MatNavItem>Level 2 Item A.A</MatNavItem>
+                    <MatNavItem>Level 2 Item A.B</MatNavItem>
+                </MatNavSubMenuList>
+
+            </MatNavSubMenu>
+
+
+            <MatNavSubMenu>
+                <MatNavSubMenuHeader>
+                    <MatNavItem AllowSelection="false">
+                        <MatIcon Icon="folder" />&nbsp;Level 1 Sub Menu B
+                    </MatNavItem>
+                </MatNavSubMenuHeader>
+
+                <MatNavSubMenuList>
+                    <MatNavItem>Level 2 Item B.A</MatNavItem>
+                    <MatNavItem>Level 2 Item B.B</MatNavItem>
+
+                    <MatNavSubMenu>
+                        <MatNavSubMenuHeader>
+                            <MatNavItem AllowSelection="false">
+                                <MatIcon Icon="folder_open" />&nbsp;Level 2 Sub Menu B.A
+                            </MatNavItem>
+                        </MatNavSubMenuHeader>
+
+                        <MatNavSubMenuList>
+                            <MatNavItem>Level 3 Item B.A.A</MatNavItem>
+                            <MatNavItem>Level 3 Item B.A.B</MatNavItem>
+                        </MatNavSubMenuList>
+                    </MatNavSubMenu>
+
+                    <MatNavSubMenu>
+                        <MatNavSubMenuHeader>
+                            <MatNavItem AllowSelection="false">
+                                <MatIcon Icon="folder_open" />&nbsp;Level 2 Sub Menu B.B
+                            </MatNavItem>
+                        </MatNavSubMenuHeader>
+
+                        <MatNavSubMenuList>
+                            <MatNavItem>Level 3 Item B.B.A</MatNavItem>
+                            <MatNavItem>Level 3 Item B.B.B</MatNavItem>
+
+                            <MatNavSubMenu>
+                                <MatNavSubMenuHeader>
+                                    <MatNavItem AllowSelection="false">
+                                        <MatIcon Icon="group" />&nbsp;Level 3 Sub Menu B.B.A
+                                    </MatNavItem>
+                                </MatNavSubMenuHeader>
+
+                                <MatNavSubMenuList>
+                                    <MatNavItem><MatIcon Icon="face" />&nbsp;Level 4 Item B.B.A.A</MatNavItem>
+                                    <MatNavItem><MatIcon Icon="face" />&nbsp;Level 4 Item B.B.A.B</MatNavItem>
+                                </MatNavSubMenuList>
+
+                            </MatNavSubMenu>
+
+                            <MatNavSubMenu>
+                                <MatNavSubMenuHeader>
+                                    <MatNavItem AllowSelection="false">
+                                        <MatIcon Icon="group" />&nbsp;Level 3 Sub Menu B.B.B
+                                    </MatNavItem>
+                                </MatNavSubMenuHeader>
+
+                                <MatNavSubMenuList>
+                                    <MatNavItem><MatIcon Icon="face" />&nbsp;Level 4 Item B.B.B.A</MatNavItem>
+                                    <MatNavItem><MatIcon Icon="face" />&nbsp;Level 4 Item B.B.B.B</MatNavItem>
+                                </MatNavSubMenuList>
+
+                            </MatNavSubMenu>
+                        </MatNavSubMenuList>
+
+                    </MatNavSubMenu>
+                </MatNavSubMenuList>
+
+            </MatNavSubMenu>
+        </MatNavMenu>
+
+        @code {
+            bool MultiChecked { get; set; }
+            MatNavMenu navMenu;
+        }
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        @using Microsoft.AspNetCore.Components
+
+        <div class=""mat-elevation-z4"" style=""padding: 10px;"">
+            <MatSlideToggle @bind-Checked=""MultiChecked"" Label=""@(""Multi: "" + MultiChecked)"" />
+            <MatButton OnClick=""@(() => navMenu.ToggleAllSubMenus(true))"">Expand All</MatButton>
+            <MatButton OnClick=""@(() => navMenu.ToggleAllSubMenus(false))"">Collapse All</MatButton>
+        </div>
+        <MatNavMenu @ref=""navMenu"" Multi=""MultiChecked"">
+            <MatNavItem>Level 1 Item A</MatNavItem>
+            <MatNavItem>Level 1 Item B</MatNavItem>
+
+            <MatNavSubMenu>
+                <MatNavSubMenuHeader>
+                    <MatNavItem AllowSelection=""false"">
+                        <MatIcon Icon=""folder"" />&nbsp;Level 1 Sub Menu A
+                    </MatNavItem>
+                </MatNavSubMenuHeader>
+
+                <MatNavSubMenuList>
+                    <MatNavItem>Level 2 Item A.A</MatNavItem>
+                    <MatNavItem>Level 2 Item A.B</MatNavItem>
+                </MatNavSubMenuList>
+
+            </MatNavSubMenu>
+
+
+            <MatNavSubMenu>
+                <MatNavSubMenuHeader>
+                    <MatNavItem AllowSelection=""false"">
+                        <MatIcon Icon=""folder"" />&nbsp;Level 1 Sub Menu B
+                    </MatNavItem>
+                </MatNavSubMenuHeader>
+
+                <MatNavSubMenuList>
+                    <MatNavItem>Level 2 Item B.A</MatNavItem>
+                    <MatNavItem>Level 2 Item B.B</MatNavItem>
+
+                    <MatNavSubMenu>
+                        <MatNavSubMenuHeader>
+                            <MatNavItem AllowSelection=""false"">
+                                <MatIcon Icon=""folder_open"" />&nbsp;Level 2 Sub Menu B.A
+                            </MatNavItem>
+                        </MatNavSubMenuHeader>
+
+                        <MatNavSubMenuList>
+                            <MatNavItem>Level 3 Item B.A.A</MatNavItem>
+                            <MatNavItem>Level 3 Item B.A.B</MatNavItem>
+                        </MatNavSubMenuList>
+                    </MatNavSubMenu>
+
+                    <MatNavSubMenu>
+                        <MatNavSubMenuHeader>
+                            <MatNavItem AllowSelection=""false"">
+                                <MatIcon Icon=""folder_open"" />&nbsp;Level 2 Sub Menu B.B
+                            </MatNavItem>
+                        </MatNavSubMenuHeader>
+
+                        <MatNavSubMenuList>
+                            <MatNavItem>Level 3 Item B.B.A</MatNavItem>
+                            <MatNavItem>Level 3 Item B.B.B</MatNavItem>
+
+                            <MatNavSubMenu>
+                                <MatNavSubMenuHeader>
+                                    <MatNavItem AllowSelection=""false"">
+                                        <MatIcon Icon=""group"" />&nbsp;Level 3 Sub Menu B.B.A
+                                    </MatNavItem>
+                                </MatNavSubMenuHeader>
+
+                                <MatNavSubMenuList>
+                                    <MatNavItem><MatIcon Icon=""face"" />&nbsp;Level 4 Item B.B.A.A</MatNavItem>
+                                    <MatNavItem><MatIcon Icon=""face"" />&nbsp;Level 4 Item B.B.A.B</MatNavItem>
+                                </MatNavSubMenuList>
+
+                            </MatNavSubMenu>
+
+                            <MatNavSubMenu>
+                                <MatNavSubMenuHeader>
+                                    <MatNavItem AllowSelection=""false"">
+                                        <MatIcon Icon=""group"" />&nbsp;Level 3 Sub Menu B.B.B
+                                    </MatNavItem>
+                                </MatNavSubMenuHeader>
+
+                                <MatNavSubMenuList>
+                                    <MatNavItem><MatIcon Icon=""face"" />&nbsp;Level 4 Item B.B.B.A</MatNavItem>
+                                    <MatNavItem><MatIcon Icon=""face"" />&nbsp;Level 4 Item B.B.B.B</MatNavItem>
+                                </MatNavSubMenuList>
+
+                            </MatNavSubMenu>
+                        </MatNavSubMenuList>
+
+                    </MatNavSubMenu>
+                </MatNavSubMenuList>
+
+            </MatNavSubMenu>
+        </MatNavMenu>
+
+        @code {
+            bool MultiChecked { get; set; }
+            MatNavMenu navMenu;
+        }
+        ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>    
