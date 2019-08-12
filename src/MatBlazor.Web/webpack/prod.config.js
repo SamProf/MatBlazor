@@ -1,5 +1,5 @@
 var path = require("path");
-const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: "./src/main.js",
@@ -43,17 +43,16 @@ module.exports = {
   },
 
   plugins: [
-    new UglifyJsPlugin({
-
-        compress: {},
-        mangle: true,
-        output: {
-          comments: false,
-          beautify: false,
-
-        },
-
-
-    })
+      new UglifyJsPlugin({
+          parallel: true,
+          uglifyOptions: {
+              compress: {},
+              mangle: true,
+              output: {
+                  comments: false,
+                  beautify: false
+              }
+          }
+    }),
   ],
 };

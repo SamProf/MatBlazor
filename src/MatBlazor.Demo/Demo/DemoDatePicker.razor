@@ -31,7 +31,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatDatePicker @bind-Value=""@Date1""></MatDatePicker>
         </p>
@@ -83,7 +83,7 @@
         </p>
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatDatePicker Label=""With Label""></MatDatePicker>
         </p>
@@ -98,6 +98,38 @@
         </p>
         <p>
             <MatDatePicker Label=""Disabled"" Disabled=""true""></MatDatePicker>
+        </p>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">Time picker</h5>
+<DemoContainer>
+    <Content>
+        <p>
+            @*Enable time on an normal AM/PM calendar*@
+            <MatDatePicker EnableTime="true"></MatDatePicker>
+        </p>
+        <p>
+            @*Enable time on an calendar with 24 hours option*@
+            <MatDatePicker EnableTime="true" Enable24hours="true"></MatDatePicker>
+        </p>
+        <p>
+            @*Enable time picker with AM/PM*@
+            <MatDatePicker NoCalendar="true" EnableTime="true"></MatDatePicker>
+        </p>
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatDatePicker EnableTime=""true""></MatDatePicker>
+        </p>
+        <p>
+            <MatDatePicker EnableTime=""true"" Enable24hours=""true""></MatDatePicker>
+        </p>
+        <p>
+            <MatDatePicker NoCalendar=""true"" EnableTime=""true""></MatDatePicker>
         </p>
     ")></BlazorFiddle>
     </SourceContent>
