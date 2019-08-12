@@ -6,7 +6,7 @@ namespace MatBlazor
     /// <summary>
     /// Text fields allow users to input, edit, and select text.
     /// </summary>
-    public class BaseMatTextField : BaseMatDomComponent
+    public class BaseMatTextField : BaseMatInputComponent<string>
     {
         public ElementRef InputRef { get; set; }
 
@@ -19,7 +19,8 @@ namespace MatBlazor
                 if (value != _value)
                 {
                     _value = value;
-                    ValueChanged.InvokeAsync(value);
+                    _ = ValueChanged.InvokeAsync(value);
+                    NotifyFieldChanged();
                 }
             }
         }
