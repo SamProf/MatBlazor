@@ -233,6 +233,11 @@
             Datetime picker based on flatpickr.js
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatDatePicker.flatpickrOptions">
+            <summary>
+            The options from https://flatpickr.js.org/options/
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatDialog">
             <summary>
             Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.

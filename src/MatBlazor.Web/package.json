@@ -41,9 +41,11 @@
     "@material/top-app-bar": "^2.3.0",
     "@material/typography": "^2.3.0",
     "babel-polyfill": "^6.26.0",
-    "flatpickr": "^4.5.7",
+    "flatpickr": "^4.6.2",
     "install": "^0.12.2",
-    "npm": "^6.9.0"
+    "mini-css-extract-plugin": "^0.8.0",
+    "npm": "^6.9.0",
+    "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -60,7 +62,6 @@
     "eslint": "^4.2.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.13.0",
-    "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.29.0",
     "json-loader": "^0.5.4",
@@ -70,7 +71,8 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.1.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
     "webpack-merge": "^4.1.0"
   }
 }
