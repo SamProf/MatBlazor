@@ -64,6 +64,30 @@ namespace MatBlazor
         public bool EnableWeekNumbers { get; set; }
 
         [Parameter]
+        public bool AllowInput { get; set; }
+
+        [Parameter]
+        public bool DisableMobile { get; set; }
+
+        [Parameter]
+        public bool Inline { get; set; }
+
+        [Parameter]
+        public string Position { get; set; } = "auto";
+
+        [Parameter]
+        public string Mode { get; set; } = "single";
+
+        [Parameter]
+        public string DateFormat { get; set; } = "Y-m-d";
+
+        [Parameter]
+        public string AltInputClass { get; set; } = "";
+
+        [Parameter]
+        public string AltFormat { get; set; } = "F j, Y";
+
+        [Parameter]
         public EventCallback<DateTime?> ValueChanged { get; set; }
 
         public virtual ElementRef Ref
@@ -86,7 +110,16 @@ namespace MatBlazor
                     NoCalendar = this.NoCalendar,
                     Enable24hours = this.Enable24hours,
                     EnableSeconds = this.EnableSeconds,
-                    EnableWeekNumbers = this.EnableWeekNumbers
+                    EnableWeekNumbers = this.EnableWeekNumbers,
+
+                    AllowInput = this.AllowInput,
+                    AltFormat = this.AltFormat,
+                    AltInputClass = this.AltInputClass,
+                    DateFormat = this.DateFormat,
+                    DisableMobile = this.DisableMobile,
+                    Inline = this.Inline,
+                    Mode = this.Mode,
+                    Position = this.Position
                 });
             });
         }
@@ -118,6 +151,9 @@ namespace MatBlazor
             }
         }
 
+        /// <summary>
+        /// The options from https://flatpickr.js.org/options/
+        /// </summary>
         public class flatpickrOptions
         {
             public bool EnableTime { get; set; } = false;
@@ -130,7 +166,21 @@ namespace MatBlazor
 
             public bool EnableWeekNumbers { get; set; } = false;
 
-            public string DateFormat { get; set; } = "Y-m-d H:i";
+            public string DateFormat { get; set; } = "Y-m-d";
+
+            public bool AllowInput { get; set; } = false;
+
+            public bool DisableMobile { get; set; } = false;
+
+            public bool Inline { get; set; } = false;
+
+            public string Position { get; set; } = "auto";
+
+            public string Mode { get; set; } = "single";
+
+            public string AltInputClass { get; set; } = "";
+
+            public string AltFormat { get; set; } = "F j, Y";
         }
     }
 }

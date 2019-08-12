@@ -13,6 +13,15 @@ export function init(ref, cmp, defaultDate, options) {
         noCalendar: options.noCalendar,
         enableSeconds: options.enableSeconds,
         weekNumbers: options.enableWeekNumbers,
+
+        allowInput: options.allowInput,
+        altFormat: options.altFormat,
+        mode: options.mode,
+        position: options.position,
+        inline: options.inline,
+        altInputClass: options.altInputClass,
+        disableMobile: options.disableMobile,
+
         // wrap: true,
         // allowInput: true,
         // clickOpens: false,
