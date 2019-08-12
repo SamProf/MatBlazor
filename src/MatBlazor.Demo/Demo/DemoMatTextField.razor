@@ -931,7 +931,7 @@
         }
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         @using System.ComponentModel.DataAnnotations
         <EditForm Model=""myModel"" OnValidSubmit=""Success"">
             <DataAnnotationsValidator />
@@ -947,10 +947,12 @@
 
         @code {
             [Inject] IJSRuntime JS { get; set; }
+
             async Task Success() =>
                 await JS.InvokeAsync<object>(""alert"", ""Successful login!"");
 
             LoginModel myModel = new LoginModel();
+
             public class LoginModel
             {
                 [Required]
@@ -973,6 +975,5 @@
             }
         }
     ")></BlazorFiddle>
-
     </SourceContent>
 </DemoContainer>

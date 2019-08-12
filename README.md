@@ -105,6 +105,10 @@ If you think that this project helped you or your company in any way, you can co
 
 ## News
 
+### MatBlazor 1.5.3
+- PR: Add flatpickr options to MatDatePicker #182 (Thanks to [djinnet](https://github.com/djinnet))
+- PR: Initial support for EditContext-based validation #178 (Thanks to [ebekker](https://github.com/ebekker))
+
 ### MatBlazor 1.5.2
 - PR: Adding example for nested sub menus and new "toggle all" feature #176 (Thanks to [ebekker](https://github.com/ebekker))
 
