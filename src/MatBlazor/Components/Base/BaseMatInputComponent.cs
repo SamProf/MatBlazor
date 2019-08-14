@@ -14,12 +14,34 @@ namespace MatBlazor
     /// <typeparam name="T">the natural type of the input's value</typeparam>
     public abstract class BaseMatInputComponent<T> : BaseMatDomComponent
     {
+        private T _value;
+
+        [Parameter]
+        public T Value
+        {
+            get => _value;
+            set
+            {
+                if (!EqualityComparer<T>.Default.Equals(value, _value))
+                {
+                    _value = value;
+                    ValueChanged.InvokeAsync(value);
+                    NotifyFieldChanged();
+                }
+            }
+        }
+
+
+        [Parameter]
+        public EventCallback<T> ValueChanged { get; set; }
+
         // This is like InputBase from Microsoft.AspNetCore.Components.Forms,
         // except that it treats [CascadingParameter] EditContext as optional.
 
         private bool _hasSetInitialParameters;
 
-        [CascadingParameter] EditContext CascadedEditContext { get; set; }
+        [CascadingParameter]
+        EditContext CascadedEditContext { get; set; }
 
         /// <summary>
         /// Gets the associated <see cref="Microsoft.AspNetCore.Components.Forms.EditContext"/>.
@@ -50,7 +72,8 @@ namespace MatBlazor
         /// <summary>
         /// Gets or sets an expression that identifies the bound value.
         /// </summary>
-        [Parameter] public Expression<Func<T>> ValueExpression { get; private set; }
+        [Parameter]
+        public Expression<Func<T>> ValueExpression { get; private set; }
 
         /// <inheritdoc />
         public override Task SetParametersAsync(ParameterCollection parameters)
@@ -68,11 +91,12 @@ namespace MatBlazor
                     if (ValueExpression == null)
                     {
                         throw new InvalidOperationException($"{GetType()} requires a value for the 'ValueExpression' " +
-                            $"parameter. Normally this is provided automatically when using 'bind-Value'.");
+                                                            $"parameter. Normally this is provided automatically when using 'bind-Value'.");
                     }
 
                     FieldIdentifier = FieldIdentifier.Create(ValueExpression);
                 }
+
                 _hasSetInitialParameters = true;
             }
             else if (CascadedEditContext != EditContext)
@@ -83,7 +107,7 @@ namespace MatBlazor
                 // handlers for the previous one, and there's no strong use case. If a strong use case
                 // emerges, we can consider changing this.
                 throw new InvalidOperationException($"{GetType()} does not support changing the " +
-                    $"{nameof(EditContext)} dynamically.");
+                                                    $"{nameof(EditContext)} dynamically.");
             }
 
             // For derived components, retain the usual lifecycle with OnInit/OnParametersSet/etc.

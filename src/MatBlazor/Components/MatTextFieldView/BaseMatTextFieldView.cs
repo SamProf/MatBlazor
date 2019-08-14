@@ -6,9 +6,31 @@ namespace MatBlazor
     /// <summary>
     /// Text fields allow users to input, edit, and select text.
     /// </summary>
-    public class BaseMatTextField : BaseMatInputComponent<string>
+    public class BaseMatTextFieldView : BaseMatDomComponent
     {
         public ElementRef InputRef { get; set; }
+
+        [Parameter]
+        public string Value
+        {
+            get => _value;
+            set
+            {
+                if (value != _value)
+                {
+                    _value = value;
+                }
+            }
+        }
+
+        protected async Task ValueChangedHandler(UIChangeEventArgs e)
+        {
+            Value = e.Value?.ToString();
+            await ValueChanged.InvokeAsync(value);
+        }
+
+        [Parameter]
+        public EventCallback<string> ValueChanged { get; set; }
 
         [Parameter]
         public EventCallback<UIMouseEventArgs> IconOnClick { get; set; }
@@ -92,10 +114,7 @@ namespace MatBlazor
         public string InputClass
         {
             get => _inputClass;
-            set
-            {
-                _inputClass = value;
-            }
+            set { _inputClass = value; }
         }
 
         /// <summary>
@@ -111,7 +130,7 @@ namespace MatBlazor
         private string _value;
         private string _inputClass;
 
-        public BaseMatTextField()
+        public BaseMatTextFieldView()
         {
             ClassMapper
                 .Add("mdc-text-field")

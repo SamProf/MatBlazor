@@ -895,7 +895,11 @@
             <p><MatTextField Label="Password" @bind-Value="myModel.Password" Type="password" />
                <ValidationMessage For="@(() => myModel.Password)" /></p>
             <p><MatTextField Label="MFA" @bind-Value="myModel.MFA" />
-               <ValidationMessage For="@(() => myModel.MFA)" /></p>
+               <ValidationMessage For="@(() => myModel.MFA)" /></p>            
+            <p><MatTextField Label="Comment" @bind-Value="myModel.Comment" />
+               <ValidationMessage For="@(() => myModel.Comment)" /></p>
+            
+            <p><MatDatePicker Label="Date" @bind-Value="myModel.EndDate" /></p>
             <ValidationSummary />
             <MatButton Type="submit">Login</MatButton>
         </EditForm>
@@ -910,12 +914,18 @@
 
             public class LoginModel
             {
+
                 [Required]
                 public string Username { get; set; }
 
                 [Required]
                 [MinLength(8)]
                 public string Password { get; set; }
+
+                [Required]
+                public DateTime? EndDate { get; set; }
+
+                public string Comment { get; set; }
 
                 [Required]
                 [CustomValidation(typeof(LoginModel), nameof(ValidateMFA))]
@@ -940,7 +950,11 @@
             <p><MatTextField Label=""Password"" @bind-Value=""myModel.Password"" Type=""password"" />
                <ValidationMessage For=""@(() => myModel.Password)"" /></p>
             <p><MatTextField Label=""MFA"" @bind-Value=""myModel.MFA"" />
-               <ValidationMessage For=""@(() => myModel.MFA)"" /></p>
+               <ValidationMessage For=""@(() => myModel.MFA)"" /></p>            
+            <p><MatTextField Label=""Comment"" @bind-Value=""myModel.Comment"" />
+               <ValidationMessage For=""@(() => myModel.Comment)"" /></p>
+            
+            <p><MatDatePicker Label=""Date"" @bind-Value=""myModel.EndDate"" /></p>
             <ValidationSummary />
             <MatButton Type=""submit"">Login</MatButton>
         </EditForm>
@@ -955,12 +969,18 @@
 
             public class LoginModel
             {
+
                 [Required]
                 public string Username { get; set; }
 
                 [Required]
                 [MinLength(8)]
                 public string Password { get; set; }
+
+                [Required]
+                public DateTime? EndDate { get; set; }
+
+                public string Comment { get; set; }
 
                 [Required]
                 [CustomValidation(typeof(LoginModel), nameof(ValidateMFA))]
