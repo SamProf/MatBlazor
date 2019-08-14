@@ -63,7 +63,7 @@ namespace MatBlazor
         public string PagingRecordsCountPropertyName { get; set; }
 
         [Parameter]
-        protected string SearchTermParamName { get; set; }
+        public string SearchTermParamName { get; set; }
 
         #endregion
 
@@ -89,7 +89,7 @@ namespace MatBlazor
         /// Specifies whether to Request the API only once.
         /// </summary>
         [Parameter]
-        protected bool RequestApiOnlyOnce { get; set; }
+        public bool RequestApiOnlyOnce { get; set; }
 
         /// <summary>
         /// Specifies the delay duration between user input on the Search Term Field. Default 800
@@ -157,7 +157,7 @@ namespace MatBlazor
         /// The number of rows per page.
         /// </summary>
         [Parameter]
-        protected int PageSize { get; set; } = 5;
+        public int PageSize { get; set; } = 5;
 
         public BaseMatTable()
         {

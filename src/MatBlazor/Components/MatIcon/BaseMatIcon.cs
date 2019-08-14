@@ -12,7 +12,7 @@ namespace MatBlazor
 
 
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         public BaseMatIcon()
         {

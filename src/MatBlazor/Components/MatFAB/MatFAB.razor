@@ -2,7 +2,7 @@
 @inherits BaseMatFAB
 
 
-<button class="@ClassMapper.Class" style="@Style" @onclick="OnClick" @ref="Ref" @attributes="Attributes" Id="@Id">
+<button class="@ClassMapper.Class" style="@Style" @onclick="OnClick" @ref="Ref" @ref:suppressField @attributes="Attributes" Id="@Id">
     @ChildContent
     @if (Icon != null)
     {

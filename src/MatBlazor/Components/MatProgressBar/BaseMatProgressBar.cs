@@ -13,16 +13,16 @@ namespace MatBlazor
         private double _buffer;
 
         [Parameter]
-        protected bool Indeterminate { get; set; }
+        public bool Indeterminate { get; set; }
 
         [Parameter]
-        protected bool Reversed { get; set; }
+        public bool Reversed { get; set; }
 
         [Parameter]
-        protected bool Closed { get; set; }
+        public bool Closed { get; set; }
 
         [Parameter]
-        protected double Progress
+        public double Progress
         {
             get => _progress;
             set
@@ -39,7 +39,7 @@ namespace MatBlazor
         }
 
         [Parameter]
-        protected double Buffer
+        public double Buffer
         {
             get => _buffer;
             set

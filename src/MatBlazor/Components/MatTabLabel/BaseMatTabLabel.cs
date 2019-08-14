@@ -7,7 +7,7 @@ namespace MatBlazor
     public class BaseMatTabLabel : BaseMatDomComponent, IDisposable
     {
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
 
         [CascadingParameter]
@@ -24,7 +24,7 @@ namespace MatBlazor
                 .If("mdc-tab--active", () => IsActive);
         }
 
-        protected override void OnInit()
+        protected override void OnInitialized()
         {
             Parent.Tabs.Add(this);
             if (Parent.Active == null)

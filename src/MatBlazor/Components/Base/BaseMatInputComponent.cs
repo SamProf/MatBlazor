@@ -76,14 +76,14 @@ namespace MatBlazor
         public Expression<Func<T>> ValueExpression { get; private set; }
 
         /// <inheritdoc />
-        public override Task SetParametersAsync(ParameterCollection parameters)
+        public override Task SetParametersAsync(ParameterView parameters)
         {
             parameters.SetParameterProperties(this);
 
             if (!_hasSetInitialParameters)
             {
                 // This is the first run -- could put this logic in OnInit, but nice
-                // to avoid forcing people who override OnInit to call base.OnInit()
+                // to avoid forcing people who override OnInitialized to call base.OnInitialized()
 
                 EditContext = CascadedEditContext;
                 if (EditContext != null)
@@ -110,8 +110,8 @@ namespace MatBlazor
                                                     $"{nameof(EditContext)} dynamically.");
             }
 
-            // For derived components, retain the usual lifecycle with OnInit/OnParametersSet/etc.
-            return base.SetParametersAsync(ParameterCollection.Empty);
+            // For derived components, retain the usual lifecycle with OnInitialized/OnParametersSet/etc.
+            return base.SetParametersAsync(ParameterView.Empty);
         }
     }
 }

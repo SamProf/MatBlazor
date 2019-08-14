@@ -14,7 +14,7 @@
     <MatTextField class="mdc-table-filter" OnInput="@((e) => OnInput(e))" Placeholder="@SearchTermFieldPlaceHolder" Label="@SearchTermFieldLabel" Value="@SearchTerm" Icon="filter_list"></MatTextField>
 }
 <CascadingValue Value="@this">
-    <table class="@ClassMapper.Class" style="@Style" @ref="Ref" @attributes="Attributes" Id="@Id">
+    <table class="@ClassMapper.Class" style="@Style" @ref="Ref" @ref:suppressField @attributes="Attributes" Id="@Id">
         <thead>
             <tr class="mdc-table-header-row @(HeaderRowClass)">@MatTableHeader</tr>
         </thead>
@@ -55,8 +55,8 @@
                     <div class="mdc-paginator-range-actions">
                         <span class="mdc-paginator-range-label">Page @CurrentPage of @TotalPages</span>
                         <div class="mdc-paginator-range-buttons">
-                            <MatIconButton Icon="first_page" onclick=@(async () => NavigateToPage(PageDirection.First)) Disabled=@(CurrentPage <= 1)></MatIconButton>
-                            <MatIconButton Icon="navigate_before" onclick=@(async () => NavigateToPage(PageDirection.Previous)) Disabled=@(CurrentPage <= 1)></MatIconButton>
+                            <MatIconButton Icon="first_page" OnClick=@(async () => NavigateToPage(PageDirection.First)) Disabled=@(CurrentPage <= 1)></MatIconButton>
+                            <MatIconButton Icon="navigate_before" OnClick=@(async () => NavigateToPage(PageDirection.Previous)) Disabled=@(CurrentPage <= 1)></MatIconButton>
                             @*@for (int i = StartPage; i <= EndPage; i++)
                                 {
                                     var currentPage = i;
@@ -64,8 +64,8 @@
                                         @currentPage
                                     </MatIconButton>
                                 }*@
-                            <MatIconButton Icon="navigate_next" onclick="@(async () => NavigateToPage(PageDirection.Next))" Disabled="@(CurrentPage == EndPage)"></MatIconButton>
-                            <MatIconButton Icon="last_page" onclick=@(async () => NavigateToPage(PageDirection.Last)) Disabled=@(CurrentPage == EndPage)></MatIconButton>
+                            <MatIconButton Icon="navigate_next" OnClick="@(async () => NavigateToPage(PageDirection.Next))" Disabled="@(CurrentPage == EndPage)"></MatIconButton>
+                            <MatIconButton Icon="last_page" OnClick=@(async () => NavigateToPage(PageDirection.Last)) Disabled=@(CurrentPage == EndPage)></MatIconButton>
                         </div>
                     </div>
                 </div>
@@ -90,10 +90,10 @@
             }
 
             [Parameter]
-            RenderFragment MatTableHeader { get; set; }
+            public RenderFragment MatTableHeader { get; set; }
 
             [Parameter]
-            RenderFragment<TableItem> MatTableRow { get; set; }
+            public RenderFragment<TableItem> MatTableRow { get; set; }
 
             /// <summary>
             /// Not Functioning
@@ -105,11 +105,11 @@
             /// Specifies the data for the table.
             /// </summary>
             [Parameter]
-            protected IEnumerable<TableItem> Items { get; set; }
+            public IEnumerable<TableItem> Items { get; set; }
 
             protected IEnumerable<TableItem> ItemList { get; set; }
 
-            protected override async Task OnInitAsync()
+            protected override async Task OnInitializedAsync()
             {
                 if (DebounceMilliseconds <= 0)
                 {
@@ -146,7 +146,7 @@
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine("Error OnInit: " + ex.Message);
+                        Console.WriteLine("Error OnInitialized: " + ex.Message);
                         ErrorMessage = ex.Message;
                     }
                 }
@@ -206,7 +206,7 @@
                     Console.WriteLine("Error LoadData: " + ex.Message);
                     ErrorMessage = ex.Message;
                 }
-                await base.Invoke(StateHasChanged);
+                await base.InvokeAsync(StateHasChanged);
             }
 
             async Task SearchData()

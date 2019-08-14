@@ -7,7 +7,7 @@ namespace MatBlazor
         private string _value;
 
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
 
         [Parameter]

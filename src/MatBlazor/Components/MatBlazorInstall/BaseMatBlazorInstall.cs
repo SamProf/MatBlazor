@@ -14,11 +14,11 @@ namespace MatBlazor
         protected IJSRuntime Js { get; set; }
 
         [Parameter]
-        protected Assembly[] Assemblies { get; set; }
+        public Assembly[] Assemblies { get; set; }
 
-        protected override void OnInit()
+        protected override void OnInitialized()
         {
-            base.OnInit();
+            base.OnInitialized();
             if (!(Js is MonoWebAssemblyJSRuntime))
             {
                 var assemblies = new[] {this.GetType().Assembly}.Union(Assemblies ?? new Assembly[0]);

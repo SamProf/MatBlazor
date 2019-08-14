@@ -13,7 +13,7 @@ namespace MatBlazor
         internal List<BaseMatTabLabel> Tabs = new List<BaseMatTabLabel>();
 
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         [Parameter]
         public BaseMatTabLabel Active

@@ -8,7 +8,7 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatTextFieldView : BaseMatDomComponent
     {
-        public ElementRef InputRef { get; set; }
+        public ElementReference InputRef { get; set; }
 
         [Parameter]
         public string Value
@@ -19,6 +19,7 @@ namespace MatBlazor
                 if (value != _value)
                 {
                     _value = value;
+                    ValueChanged.InvokeAsync(_value);
                 }
             }
         }
@@ -26,7 +27,6 @@ namespace MatBlazor
         protected async Task ValueChangedHandler(UIChangeEventArgs e)
         {
             Value = e.Value?.ToString();
-            await ValueChanged.InvokeAsync(value);
         }
 
         [Parameter]

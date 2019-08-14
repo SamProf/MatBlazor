@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatNumericUpDownField
 
-<div class="@ClassMapper.Class" style="@Style" @ref="Ref">
+<div class="@ClassMapper.Class" style="@Style" @ref="Ref" @ref:suppressField>
 
     @if (Icon != null)
     {
@@ -10,6 +10,7 @@
 
     <input style="@InputStyle; padding: 20px 48px 6px 48px;" 
            @ref="InputRef" 
+           @ref:suppressField
            type="text" 
            placeholder="@PlaceHolder" 
            required=@Required

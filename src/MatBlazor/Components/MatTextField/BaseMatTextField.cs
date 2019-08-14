@@ -8,7 +8,7 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatTextField : BaseMatInputComponent<string>
     {
-        public ElementRef InputRef { get; set; }
+        public ElementReference InputRef { get; set; }
 
         [Parameter]
         public EventCallback<UIMouseEventArgs> IconOnClick { get; set; }

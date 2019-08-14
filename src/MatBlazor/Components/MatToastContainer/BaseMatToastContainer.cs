@@ -32,9 +32,9 @@ namespace MatBlazor
                 .Get(() => MatToatsPositionConvertor.Convert(Toaster.Configuration.Position));
         }
 
-        protected override void OnInit()
+        protected override void OnInitialized()
         {
-            base.OnInit();
+            base.OnInitialized();
             Toaster.OnToastsUpdated += InvokeStateHasChanged;
         }
 

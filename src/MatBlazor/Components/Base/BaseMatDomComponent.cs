@@ -12,15 +12,15 @@ namespace MatBlazor
         public string Id { get; set; } = IdGeneratorHelper.Generate("matBlazor_id_");
 
         [Parameter(CaptureUnmatchedValues = true)]
-        protected Dictionary<string, object> Attributes { get; set; }
+        public Dictionary<string, object> Attributes { get; set; }
 
 
-        private ElementRef _ref;
+        private ElementReference _ref;
 
         /// <summary>
         /// Returned ElementRef reference for DOM element.
         /// </summary>
-        public virtual ElementRef Ref
+        public virtual ElementReference Ref
         {
             get => _ref;
             set

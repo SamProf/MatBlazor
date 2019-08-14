@@ -81,7 +81,7 @@ namespace MatBlazor
         public string AltFormat { get; set; } = "F j, Y";
 
         
-        public virtual ElementRef Ref
+        public virtual ElementReference Ref
         {
             get => TextFieldRef.InputRef;
         }
@@ -132,7 +132,7 @@ namespace MatBlazor
         }
 
 
-        public async override Task SetParametersAsync(ParameterCollection parameters)
+        public async override Task SetParametersAsync(ParameterView parameters)
         {
             var valueIsChanged = this.ParameterIsChanged(parameters, nameof(Value), Value);
             await base.SetParametersAsync(parameters);

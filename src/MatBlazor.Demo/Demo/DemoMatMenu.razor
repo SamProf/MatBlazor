@@ -8,7 +8,7 @@
 
         <p>
             <MatButton Label="Menu" OnClick="@OnClick" RefBack="@buttonForwardRef"></MatButton>
-            <MatMenu @ref="Menu" TargetForwardRef="@buttonForwardRef">
+            <MatMenu @ref="Menu" @ref:suppressField TargetForwardRef="@buttonForwardRef">
                 <MatList>
                     <MatListItem>Item 1</MatListItem>
                     <MatListItem>Item 2</MatListItem>
@@ -38,7 +38,7 @@
 
         <p>
             <MatButton Label=""Menu"" OnClick=""@OnClick"" RefBack=""@buttonForwardRef""></MatButton>
-            <MatMenu @ref=""Menu"" TargetForwardRef=""@buttonForwardRef"">
+            <MatMenu @ref=""Menu"" @ref:suppressField TargetForwardRef=""@buttonForwardRef"">
                 <MatList>
                     <MatListItem>Item 1</MatListItem>
                     <MatListItem>Item 2</MatListItem>
@@ -72,8 +72,8 @@
         @using Microsoft.AspNetCore.Components
 
         <p>
-            <MatButton Label="Menu" OnClick="@OnClick2" @ref="Button2"></MatButton>
-            <MatMenu @ref="Menu2">
+            <MatButton Label="Menu" OnClick="@OnClick2" @ref="Button2" @ref:suppressField></MatButton>
+            <MatMenu @ref="Menu2" @ref:suppressField>
                 <MatList>
                     <MatListItem>Item 1</MatListItem>
                     <MatListItem>Item 2</MatListItem>
@@ -102,8 +102,8 @@
         @using Microsoft.AspNetCore.Components
 
         <p>
-            <MatButton Label=""Menu"" OnClick=""@OnClick2"" @ref=""Button2""></MatButton>
-            <MatMenu @ref=""Menu2"">
+            <MatButton Label=""Menu"" OnClick=""@OnClick2"" @ref=""Button2"" @ref:suppressField></MatButton>
+            <MatMenu @ref=""Menu2"" @ref:suppressField>
                 <MatList>
                     <MatListItem>Item 1</MatListItem>
                     <MatListItem>Item 2</MatListItem>

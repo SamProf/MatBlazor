@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatTextFieldView
 
-<div class="@ClassMapper.Class" style="@Style" @ref="Ref">
+<div class="@ClassMapper.Class" style="@Style" @ref="Ref" @ref:suppressField>
     @if (Icon != null)
     {
         <i class="material-icons mdc-text-field__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
@@ -9,11 +9,11 @@
 
     @if (TextArea)
     {
-        <textarea style="@InputStyle" @ref="InputRef" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@Id" value="@Value" @onchange="ValueChangedHandler" aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" @attributes="Attributes" />
+        <textarea style="@InputStyle" @ref="InputRef" @ref:suppressField placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@Id" value="@Value" @onchange="ValueChangedHandler" aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" @attributes="Attributes" />
     }
     else
     {
-        <input style="@InputStyle" @ref="InputRef" type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@Id" value="@Value" @onchange="ValueChangedHandler" aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" @attributes="Attributes" />
+        <input style="@InputStyle" @ref="InputRef" @ref:suppressField type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.Class" id="@Id" value="@Value" @onchange="ValueChangedHandler" aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled readonly="@ReadOnly" @attributes="Attributes" />
     }
 
     @if (!FullWidth && Outlined)

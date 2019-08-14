@@ -18,13 +18,13 @@ namespace MatBlazor
         }
 
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
 
         [Parameter]
         public ForwardRef TargetForwardRef { get; set; }
 
-        public async Task OpenAsync(ElementRef anchorElement)
+        public async Task OpenAsync(ElementReference anchorElement)
         {
             await Js.InvokeAsync<object>("matBlazor.matMenu.open", Ref, anchorElement);
         }

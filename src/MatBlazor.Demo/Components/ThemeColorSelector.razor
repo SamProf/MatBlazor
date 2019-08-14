@@ -25,7 +25,7 @@
         <div>
             @foreach (var shadow in color.Shadows.Values)
             {
-                <div class="demo-mat-blazor-theme-color-item @(Value == shadow.Value ? "mat-elevation-z10" : "")" style="background: @(shadow.Value)" onclick="@(_ => Value = shadow.Value)">
+                <div class="demo-mat-blazor-theme-color-item @(Value == shadow.Value ? "mat-elevation-z10" : "")" style="background: @(shadow.Value)" @onclick="(_ => Value = shadow.Value)">
                     @if (Value == shadow.Value)
                     {
                         <MatIcon>check_circle</MatIcon>

@@ -2,7 +2,7 @@
 @inherits BaseMatSlider
 
 
-<div @ref="Ref" class="@ClassMapper.Class" style="@Style" tabindex="0" role="slider"
+<div @ref="Ref" @ref:suppressField class="@ClassMapper.Class" style="@Style" tabindex="0" role="slider"
      aria-valuemin="@ValueMin" aria-valuemax="@ValueMax" aria-valuenow="@Value"
      aria-label="@Label" aria-disabled="@Disabled"
      @attributes="Attributes" Id="@Id"

@@ -34,30 +34,30 @@ namespace MatBlazor
         ///  Event occurs when the user clicks on an element.
         /// </summary>
         [Parameter]
-        protected EventCallback<UIMouseEventArgs> OnClick { get; set; }
+        public EventCallback<UIMouseEventArgs> OnClick { get; set; }
 
         /// <summary>
         ///  Command executed when the user clicks on an element.
         /// </summary>
         [Parameter]
-        protected ICommand Command { get; set; }
+        public ICommand Command { get; set; }
 
 
         [Parameter]
-        protected string Type { get; set; } = null;
+        public string Type { get; set; } = null;
 
         [Parameter]
-        protected string Name { get; set; } = null;
+        public string Name { get; set; } = null;
 
         [Parameter]
-        protected string Value { get; set; } = null;
+        public string Value { get; set; } = null;
 
 
         /// <summary>
         ///  Command parameter.
         /// </summary>
         [Parameter]
-        protected object CommandParameter { get; set; }
+        public object CommandParameter { get; set; }
 
         /// <summary>
         /// Link to a url when clicked.
@@ -172,7 +172,7 @@ namespace MatBlazor
         /// Inline label of Button.
         /// </summary>
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         protected void OnClickHandler(UIMouseEventArgs ev)
         {

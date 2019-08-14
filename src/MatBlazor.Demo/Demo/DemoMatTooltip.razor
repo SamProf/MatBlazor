@@ -48,26 +48,26 @@
 
 
 <h5 class="mat-h5">ForwardRef Concept for Html elements</h5>
-<p>All Html DOM elements just should return ElementRef reference to @@context.Current</p>.
+<p>All Html DOM elements just should return ElementReference reference to @@context.Current</p>.
 <style>
     .mat-blazor-demo-tooltip-refstore-html > * { padding-right: 10px; }
 </style>
 <DemoContainer class="mat-blazor-demo-tooltip-refstore-html">
     <Content>
         <MatTooltip Tooltip="My tooltip">
-            <span @ref="@context.Current">SPAN</span>
+            <span @ref="@context.Current" @ref:suppressField>SPAN</span>
         </MatTooltip>
 
         <MatTooltip Tooltip="My tooltip">
-            <input type="text" @ref="@context.Current" value="Text input"/>
+            <input type="text" @ref="context.Current" @ref:suppressField value="Text input"/>
         </MatTooltip>
 
         <MatTooltip Tooltip="My tooltip">
-            <button @ref="@context.Current" value="Button">Button</button>
+            <button @ref="context.Current" @ref:suppressField value="Button">Button</button>
         </MatTooltip>
 
         <MatTooltip Tooltip="My tooltip">
-            <div @ref="@context.Current" style="display: inline-block;">
+            <div @ref="context.Current" @ref:suppressField style="display: inline-block;">
                 <h1>Complex</h1>
                 <p>Any Html structures can have tooltips</p>
             </div>
@@ -76,19 +76,19 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTooltip Tooltip=""My tooltip"">
-            <span @ref=""@context.Current"">SPAN</span>
+            <span @ref=""@context.Current"" @ref:suppressField>SPAN</span>
         </MatTooltip>
 
         <MatTooltip Tooltip=""My tooltip"">
-            <input type=""text"" @ref=""@context.Current"" value=""Text input""/>
+            <input type=""text"" @ref=""context.Current"" @ref:suppressField value=""Text input""/>
         </MatTooltip>
 
         <MatTooltip Tooltip=""My tooltip"">
-            <button @ref=""@context.Current"" value=""Button"">Button</button>
+            <button @ref=""context.Current"" @ref:suppressField value=""Button"">Button</button>
         </MatTooltip>
 
         <MatTooltip Tooltip=""My tooltip"">
-            <div @ref=""@context.Current"" style=""display: inline-block;"">
+            <div @ref=""context.Current"" @ref:suppressField style=""display: inline-block;"">
                 <h1>Complex</h1>
                 <p>Any Html structures can have tooltips</p>
             </div>

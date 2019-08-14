@@ -53,7 +53,7 @@
             Gets or sets an expression that identifies the bound value.
             </summary>
         </member>
-        <member name="M:MatBlazor.BaseMatInputComponent`1.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterCollection)">
+        <member name="M:MatBlazor.BaseMatInputComponent`1.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)">
             <inheritdoc />
         </member>
         <member name="T:MatBlazor.BaseMatExpansionPanel">

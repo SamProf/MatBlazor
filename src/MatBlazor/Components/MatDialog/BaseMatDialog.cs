@@ -12,10 +12,10 @@ namespace MatBlazor
         private bool _isOpen;
 
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         [Parameter]
-        protected bool IsOpen
+        public bool IsOpen
         {
             get => _isOpen;
             set

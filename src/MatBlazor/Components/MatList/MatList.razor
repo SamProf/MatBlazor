@@ -1,6 +1,6 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatList
 
-<ul class="@ClassMapper.Class" style="@Style" aria-orientation="vertical" @ref="Ref" @attributes="Attributes" Id="@Id">
+<ul class="@ClassMapper.Class" style="@Style" aria-orientation="vertical" @ref="Ref" @ref:suppressField @attributes="Attributes" Id="@Id">
     @ChildContent
 </ul>
