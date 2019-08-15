@@ -890,18 +890,56 @@
         @using System.ComponentModel.DataAnnotations
         <EditForm Model="myModel" OnValidSubmit="Success">
             <DataAnnotationsValidator />
-            <p><MatTextField Label="Username" @bind-Value="myModel.Username" />
-               <ValidationMessage For="@(() => myModel.Username)" /></p>
-            <p><MatTextField Label="Password" @bind-Value="myModel.Password" Type="password" />
-               <ValidationMessage For="@(() => myModel.Password)" /></p>
-            <p><MatTextField Label="MFA" @bind-Value="myModel.MFA" />
-               <ValidationMessage For="@(() => myModel.MFA)" /></p>            
-            <p><MatTextField Label="Comment" @bind-Value="myModel.Comment" />
-               <ValidationMessage For="@(() => myModel.Comment)" /></p>
-            
-            <p><MatDatePicker Label="Date" @bind-Value="myModel.EndDate" /></p>
-            <ValidationSummary />
-            <MatButton Type="submit">Login</MatButton>
+
+            <div class="mat-layout-grid">
+                <div class="mat-layout-grid-inner">
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                        Summary-level Validation Messages
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                        Field-level Validation Messages
+                    </div>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                        <p><MatTextField Label="Username" @bind-Value="myModel.Username" /></p>
+                        <p><MatTextField Label="Password" @bind-Value="myModel.Password" Type="password" /></p>
+                        <p><MatTextField Label="MFA" @bind-Value="myModel.MFA" /></p>
+                        <p><MatTextField Label="Comment" @bind-Value="myModel.Comment" /></p>
+                        <p><MatDatePicker Label="Date" @bind-Value="myModel.EndDate" /></p>
+                        <ValidationSummary />
+                    </div>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4"
+                         style="text-align: center;">
+                        -or-
+                    </div>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                        <p><MatTextField Label="Username" @bind-Value="myModel.Username" />
+                           <ValidationMessage For="@(() => myModel.Username)" /></p>
+                        <p><MatTextField Label="Password" @bind-Value="myModel.Password" Type="password" />
+                           <ValidationMessage For="@(() => myModel.Password)" /></p>
+                        <p><MatTextField Label="MFA" @bind-Value="myModel.MFA" />
+                           <ValidationMessage For="@(() => myModel.MFA)" /></p>            
+                        <p><MatTextField Label="Comment" @bind-Value="myModel.Comment" />
+                           <ValidationMessage For="@(() => myModel.Comment)" /></p>
+                        <p><MatDatePicker Label="Date" @bind-Value="myModel.EndDate" />
+                           <ValidationMessage For="@(() => myModel.EndDate)" /></p>
+                    </div>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                        <MatButton Type="submit" Raised="true">Login</MatButton>
+                        <MatButton Raised="true" OnClick="Reset">Reset</MatButton>
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                    </div>
+                </div>
+            </div>
+
         </EditForm>
 
         @code {
@@ -911,6 +949,15 @@
                 await JS.InvokeAsync<object>("alert", "Successful login!");
 
             LoginModel myModel = new LoginModel();
+
+            void Reset()
+            {
+                myModel.Username = null;
+                myModel.Password = null;
+                myModel.MFA = null;
+                myModel.EndDate = null;
+                myModel.Comment = null;
+            }
 
             public class LoginModel
             {
@@ -945,18 +992,56 @@
         @using System.ComponentModel.DataAnnotations
         <EditForm Model=""myModel"" OnValidSubmit=""Success"">
             <DataAnnotationsValidator />
-            <p><MatTextField Label=""Username"" @bind-Value=""myModel.Username"" />
-               <ValidationMessage For=""@(() => myModel.Username)"" /></p>
-            <p><MatTextField Label=""Password"" @bind-Value=""myModel.Password"" Type=""password"" />
-               <ValidationMessage For=""@(() => myModel.Password)"" /></p>
-            <p><MatTextField Label=""MFA"" @bind-Value=""myModel.MFA"" />
-               <ValidationMessage For=""@(() => myModel.MFA)"" /></p>            
-            <p><MatTextField Label=""Comment"" @bind-Value=""myModel.Comment"" />
-               <ValidationMessage For=""@(() => myModel.Comment)"" /></p>
-            
-            <p><MatDatePicker Label=""Date"" @bind-Value=""myModel.EndDate"" /></p>
-            <ValidationSummary />
-            <MatButton Type=""submit"">Login</MatButton>
+
+            <div class=""mat-layout-grid"">
+                <div class=""mat-layout-grid-inner"">
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-5"">
+                        Summary-level Validation Messages
+                    </div>
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-2"">
+                    </div>
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-5"">
+                        Field-level Validation Messages
+                    </div>
+
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-5"">
+                        <p><MatTextField Label=""Username"" @bind-Value=""myModel.Username"" /></p>
+                        <p><MatTextField Label=""Password"" @bind-Value=""myModel.Password"" Type=""password"" /></p>
+                        <p><MatTextField Label=""MFA"" @bind-Value=""myModel.MFA"" /></p>
+                        <p><MatTextField Label=""Comment"" @bind-Value=""myModel.Comment"" /></p>
+                        <p><MatDatePicker Label=""Date"" @bind-Value=""myModel.EndDate"" /></p>
+                        <ValidationSummary />
+                    </div>
+
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-2""
+                         style=""text-align: center;"">
+                        -or-
+                    </div>
+
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-5"">
+                        <p><MatTextField Label=""Username"" @bind-Value=""myModel.Username"" />
+                           <ValidationMessage For=""@(() => myModel.Username)"" /></p>
+                        <p><MatTextField Label=""Password"" @bind-Value=""myModel.Password"" Type=""password"" />
+                           <ValidationMessage For=""@(() => myModel.Password)"" /></p>
+                        <p><MatTextField Label=""MFA"" @bind-Value=""myModel.MFA"" />
+                           <ValidationMessage For=""@(() => myModel.MFA)"" /></p>            
+                        <p><MatTextField Label=""Comment"" @bind-Value=""myModel.Comment"" />
+                           <ValidationMessage For=""@(() => myModel.Comment)"" /></p>
+                        <p><MatDatePicker Label=""Date"" @bind-Value=""myModel.EndDate"" />
+                           <ValidationMessage For=""@(() => myModel.EndDate)"" /></p>
+                    </div>
+
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
+                    </div>
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
+                        <MatButton Type=""submit"" Raised=""true"">Login</MatButton>
+                        <MatButton Raised=""true"" OnClick=""Reset"">Reset</MatButton>
+                    </div>
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
+                    </div>
+                </div>
+            </div>
+
         </EditForm>
 
         @code {
@@ -966,6 +1051,15 @@
                 await JS.InvokeAsync<object>(""alert"", ""Successful login!"");
 
             LoginModel myModel = new LoginModel();
+
+            void Reset()
+            {
+                myModel.Username = null;
+                myModel.Password = null;
+                myModel.MFA = null;
+                myModel.EndDate = null;
+                myModel.Comment = null;
+            }
 
             public class LoginModel
             {
