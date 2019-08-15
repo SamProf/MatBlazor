@@ -2,7 +2,7 @@
 @inherits BaseMatDatePicker
 
 
-<MatTextField
+<MatTextFieldView
     RefBack="@RefBack"
     Class="@Class"
     Style="@Style"
@@ -19,5 +19,6 @@
     ReadOnly="@ReadOnly"
     Attributes="@Attributes"
     Id="@Id"
-    @ref ="TextFieldRef">
-</MatTextField>
+    @ref="TextFieldRef"
+    @ref:suppressField>
+</MatTextFieldView>

@@ -9,7 +9,7 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatNumericUpDownField : BaseMatDomComponent
     {
-        public ElementRef InputRef { get; set; }
+        public ElementReference InputRef { get; set; }
 
         bool firstSet = true;
         protected bool InvalidInput { get; private set; }
@@ -149,7 +149,7 @@ namespace MatBlazor
         public int DecimalPlaces { get; set; } = 0;
 
         [Parameter]
-        protected Decimal Step { get; set; } = 1m;
+        public Decimal Step { get; set; } = 1m;
 
         [Parameter]
         public EventCallback<decimal?> ValueChanged { get; set; }

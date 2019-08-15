@@ -9,18 +9,11 @@ namespace MatBlazor
     /// <summary>
     /// Datetime picker based on flatpickr.js
     /// </summary>
-    public class BaseMatDatePicker : BaseMatDomComponent
+    public class BaseMatDatePicker : BaseMatInputComponent<DateTime?>
     {
-        protected BaseMatTextField TextFieldRef;
-        private DateTime? _value;
+        protected BaseMatTextFieldView TextFieldRef;
+       
 
-        [Parameter]
-        public DateTime? Value
-        {
-            get => _value;
-            set { _value = value; }
-        }
-        
         [Parameter]
         public string Label { get; set; }
 
@@ -30,7 +23,7 @@ namespace MatBlazor
         [Parameter]
         public bool Outlined { get; set; }
 
-//        [Parameter]
+        //        [Parameter]
         public bool FullWidth { get; set; }
 
         [Parameter]
@@ -39,20 +32,56 @@ namespace MatBlazor
         [Parameter]
         public bool Disabled { get; set; }
 
-//        [Parameter]
+        //        [Parameter]
         public bool ReadOnly { get; set; }
 
-//        [Parameter]
+        //        [Parameter]
         public string PlaceHolder { get; set; }
 
-//        [Parameter]
+        //        [Parameter]
         public string HelperText { get; set; }
 
+        [Parameter]
+        public bool EnableTime { get; set; }
 
         [Parameter]
-        public EventCallback<DateTime?> ValueChanged { get; set; }
+        public bool EnableSeconds { get; set; }
 
-        public virtual ElementRef Ref
+        [Parameter]
+        public bool NoCalendar { get; set; }
+
+        [Parameter]
+        public bool Enable24hours { get; set; }
+
+        [Parameter]
+        public bool EnableWeekNumbers { get; set; }
+
+        [Parameter]
+        public bool AllowInput { get; set; }
+
+        [Parameter]
+        public bool DisableMobile { get; set; }
+
+        [Parameter]
+        public bool Inline { get; set; }
+
+        [Parameter]
+        public string Position { get; set; } = "auto";
+
+        [Parameter]
+        public string Mode { get; set; } = "single";
+
+        [Parameter]
+        public string DateFormat { get; set; } = "Y-m-d";
+
+        [Parameter]
+        public string AltInputClass { get; set; } = "";
+
+        [Parameter]
+        public string AltFormat { get; set; } = "F j, Y";
+
+        
+        public virtual ElementReference Ref
         {
             get => TextFieldRef.InputRef;
         }
@@ -65,7 +94,24 @@ namespace MatBlazor
             CallAfterRender(async () =>
             {
                 dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
-                Js.InvokeAsync<object>("matBlazor.matDatePicker.init", Ref, dotNetObjectRef, Value);
+
+                Js.InvokeAsync<object>("matBlazor.matDatePicker.init", Ref, dotNetObjectRef, Value, new flatpickrOptions
+                {
+                    EnableTime = this.EnableTime,
+                    NoCalendar = this.NoCalendar,
+                    Enable24hours = this.Enable24hours,
+                    EnableSeconds = this.EnableSeconds,
+                    EnableWeekNumbers = this.EnableWeekNumbers,
+
+                    AllowInput = this.AllowInput,
+                    AltFormat = this.AltFormat,
+                    AltInputClass = this.AltInputClass,
+                    DateFormat = this.DateFormat,
+                    DisableMobile = this.DisableMobile,
+                    Inline = this.Inline,
+                    Mode = this.Mode,
+                    Position = this.Position
+                });
             });
         }
 
@@ -86,7 +132,7 @@ namespace MatBlazor
         }
 
 
-        public async override Task SetParametersAsync(ParameterCollection parameters)
+        public async override Task SetParametersAsync(ParameterView parameters)
         {
             var valueIsChanged = this.ParameterIsChanged(parameters, nameof(Value), Value);
             await base.SetParametersAsync(parameters);
@@ -94,6 +140,38 @@ namespace MatBlazor
             {
                 CallAfterRender(async () => { Js.InvokeAsync<object>("matBlazor.matDatePicker.setDate", Ref, Value); });
             }
+        }
+
+        /// <summary>
+        /// The options from https://flatpickr.js.org/options/
+        /// </summary>
+        public class flatpickrOptions
+        {
+            public bool EnableTime { get; set; } = false;
+
+            public bool EnableSeconds { get; set; } = false;
+
+            public bool NoCalendar { get; set; } = false;
+
+            public bool Enable24hours { get; set; } = false;
+
+            public bool EnableWeekNumbers { get; set; } = false;
+
+            public string DateFormat { get; set; } = "Y-m-d";
+
+            public bool AllowInput { get; set; } = false;
+
+            public bool DisableMobile { get; set; } = false;
+
+            public bool Inline { get; set; } = false;
+
+            public string Position { get; set; } = "auto";
+
+            public string Mode { get; set; } = "single";
+
+            public string AltInputClass { get; set; } = "";
+
+            public string AltFormat { get; set; } = "F j, Y";
         }
     }
 }

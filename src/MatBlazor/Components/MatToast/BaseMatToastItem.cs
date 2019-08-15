@@ -11,7 +11,7 @@ namespace MatBlazor
     public class BaseMatToastItem : BaseMatDomComponent, IDisposable
     {
         [Parameter]
-        protected MatToast Toast { get; set; }
+        public MatToast Toast { get; set; }
 
         protected RenderFragment Css;
 
@@ -58,7 +58,7 @@ namespace MatBlazor
         }
 
 
-        public override async Task SetParametersAsync(ParameterCollection parameters)
+        public override async Task SetParametersAsync(ParameterView parameters)
         {
             foreach (var p in parameters)
             {
@@ -95,7 +95,7 @@ namespace MatBlazor
 
         private void ToastUpdated()
         {
-            Invoke(StateHasChanged);
+            InvokeAsync(StateHasChanged);
         }
 
         public override void Dispose()
@@ -110,7 +110,7 @@ namespace MatBlazor
         }
 
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         [Parameter]
         public string Icon { get; set; }

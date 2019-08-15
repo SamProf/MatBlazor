@@ -34,11 +34,11 @@ namespace MatBlazor
 
         public event EventHandler<bool> AllSubMenusToggled;
 
-        protected override Task OnInitAsync()
+        protected override Task OnInitializedAsync()
         {
             var parent = (IMatNavSubMenuToggler)ParentSubMenu ?? MatNavMenu;
             parent.AllSubMenusToggled += OnAllSubMenusToggled;
-            return base.OnInitAsync();
+            return base.OnInitializedAsync();
         }
 
         public override void Dispose()

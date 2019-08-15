@@ -44,9 +44,9 @@
     NavItem[] navItems;
     string[] componentTypes;
 
-    protected async override Task OnInitAsync()
+    protected async override Task OnInitializedAsync()
     {
-        await base.OnInitAsync();
+        await base.OnInitializedAsync();
 
         componentTypes = new string[]{"Form Controls", "Navigation", "Layout", "Buttons & Indicators", "Popups & Modals"};
         navItems = new[]

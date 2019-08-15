@@ -6,7 +6,7 @@ namespace MatBlazor
     public class BaseMatChipSet : BaseMatDomComponent
     {
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         protected async override Task OnFirstAfterRenderAsync()
         {

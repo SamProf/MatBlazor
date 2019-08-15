@@ -76,23 +76,23 @@ namespace MatBlazor
         ///  Command executed when the user clicks on an element.
         /// </summary>
         [Parameter]
-        protected ICommand Command { get; set; }
+        public ICommand Command { get; set; }
 
         /// <summary>
         ///  Command parameter.
         /// </summary>
         [Parameter]
-        protected object CommandParameter { get; set; }
+        public object CommandParameter { get; set; }
 
         /// <summary>
         ///  Event occurs when the user clicks on an element.
         /// </summary>
         [Parameter]
-        protected EventCallback<UIMouseEventArgs> OnClick { get; set; }
+        public EventCallback<UIMouseEventArgs> OnClick { get; set; }
 
 
         [Parameter]
-        protected EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
+        public EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
 
         protected async override Task OnFirstAfterRenderAsync()
         {

@@ -11,7 +11,7 @@ namespace MatBlazor
         [CascadingParameter()]
         protected BaseMatRadioGroup Group { get; set; }
 
-        protected ElementRef FormFieldRef;
+        protected ElementReference FormFieldRef;
 
         private bool _disabled;
 

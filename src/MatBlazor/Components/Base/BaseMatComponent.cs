@@ -66,7 +66,7 @@ namespace MatBlazor
 
         protected void InvokeStateHasChanged()
         {
-            Invoke(StateHasChanged);
+            InvokeAsync(StateHasChanged);
         }
 
 

@@ -9,19 +9,19 @@ namespace MatBlazor
     public class BaseMatListItem : BaseMatDomComponent
     {
         [Parameter]
-        protected EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
+        public EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
 
         [Parameter]
-        protected EventCallback<UIMouseEventArgs> OnClick { get; set; }
+        public EventCallback<UIMouseEventArgs> OnClick { get; set; }
 
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         /// <summary>
         /// The URL of the List Item
         /// </summary>
         [Parameter]
-        protected string Href { get; set; }
+        public string Href { get; set; }
 
         /// <summary>
         /// List Item is disabled.

@@ -1,4 +1,4 @@
-﻿@inherits Microsoft.AspNetCore.Components.Layouts.LayoutComponentBase
+﻿@inherits LayoutComponentBase
 @implements IDisposable
 @using System.Reflection
 @using MatBlazor.Demo.Models
@@ -15,7 +15,7 @@
             <MatAppBarTitle>MatBlazor - Material Design components for Blazor and Razor Components</MatAppBarTitle>
         </MatAppBarSection>
         <MatAppBarSection Align="@MatAppBarSectionAlign.End">
-            <MatIconButton @ref="themeButton" Icon="invert_colors" OnClick="@OnClick">
+            <MatIconButton @ref="themeButton" @ref:suppressField Icon="invert_colors" OnClick="@OnClick">
             </MatIconButton>
             <MatIconButton Link="http://samprof.com" Target="_blank">
                 <i class="fa fa-user-circle" aria-hidden="true"></i>
@@ -23,7 +23,7 @@
             <MatIconButton Link="https://github.com/SamProf/MatBlazor">
                 <i class="fa fa-github" aria-hidden="true"></i>
             </MatIconButton>
-            <MatMenu @ref="Menu" style="z-index: 100;">
+            <MatMenu @ref="Menu" @ref:suppressField style="z-index: 100;">
                 <ThemeColorSelector @bind-Value="@ThemePrimary"></ThemeColorSelector>
             </MatMenu>
 
@@ -117,9 +117,9 @@
     {
     }
 
-    protected async override Task OnInitAsync()
+    protected async override Task OnInitializedAsync()
     {
-        await base.OnInitAsync();
+        await base.OnInitializedAsync();
 
         Task.Delay(TimeSpan.FromSeconds(5))
             .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });

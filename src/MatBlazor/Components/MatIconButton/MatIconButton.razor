@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatIconButton
 
-<button class="@ClassMapper.Class" style="@Style" @ref ="Ref" disabled=@Disabled @onclick="OnClickHandler" @onmousedown="OnMouseDown" href=@Link @attributes="Attributes" Id="@Id">
+<button class="@ClassMapper.Class" style="@Style" @ref="Ref" @ref:suppressField disabled=@Disabled @onclick="OnClickHandler" @onmousedown="OnMouseDown" href=@Link @attributes="Attributes" Id="@Id">
     @if (Icon != null)
     {
         @if (ToggleIcon != null && Toggled)

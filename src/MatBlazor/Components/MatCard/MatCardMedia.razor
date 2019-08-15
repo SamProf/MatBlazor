@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatDomComponent
 
-<div class="@ClassMapper.AsString()" style="@GenerateStyle()" @attributes="Attributes" Id="@Id" @ref="Ref">
+<div class="@ClassMapper.AsString()" style="@GenerateStyle()" @attributes="Attributes" Id="@Id" @ref="Ref" @ref:suppressField>
          @if (ChildContent != null)
          {
              <div class="@ContentClassMapper.AsString()">
@@ -14,19 +14,19 @@
      {
 
          [Parameter]
-         protected RenderFragment ChildContent { get; set; }
+         public RenderFragment ChildContent { get; set; }
 
          [Parameter]
-         protected bool Square { get; set; }
+         public bool Square { get; set; }
 
          [Parameter]
-         protected bool Wide { get; set; }
+         public bool Wide { get; set; }
 
          [Parameter]
-         protected string ContentClass { get; set; }
+         public string ContentClass { get; set; }
 
          [Parameter]
-         protected string ImageUrl { get; set; }
+         public string ImageUrl { get; set; }
 
 
          ClassMapper ContentClassMapper = new ClassMapper();
@@ -45,9 +45,9 @@
          }
 
 
-         protected override async Task OnInitAsync()
+         protected override async Task OnInitializedAsync()
          {
-             await base.OnInitAsync();
+             await base.OnInitializedAsync();
              ClassMapper
                  .Add("mat-card-media")
                  .Add("mdc-card__media")

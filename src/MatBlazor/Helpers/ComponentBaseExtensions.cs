@@ -5,7 +5,7 @@ namespace MatBlazor
 {
     public static class ComponentBaseExtensions
     {
-        public static bool ParameterIsChanged<T>(this ComponentBase cmp, ParameterCollection parameters,
+        public static bool ParameterIsChanged<T>(this ComponentBase cmp, ParameterView parameters,
             string parameterName, T value)
         {
             T newValue;

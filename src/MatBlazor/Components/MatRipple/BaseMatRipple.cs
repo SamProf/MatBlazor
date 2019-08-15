@@ -8,10 +8,10 @@ namespace MatBlazor
     public class BaseMatRipple : BaseMatDomComponent
     {
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         [Parameter]
-        protected MatRippleColor Color { get; set; }
+        public MatRippleColor Color { get; set; }
 
         public BaseMatRipple()
         {

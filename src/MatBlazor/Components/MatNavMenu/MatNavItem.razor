@@ -2,7 +2,7 @@
 @inherits BaseMatNavItem
 
 <CascadingValue Value="@this">
-    <li class="@ClassMapper.Class" @onmousedown="OnMouseDown" @onclick="OnClickHandler" style="@Style" @ref="Ref" @attributes="Attributes" Id="@Id">
+    <li class="@ClassMapper.Class" @onmousedown="OnMouseDown" @onclick="OnClickHandler" style="@Style" @ref="Ref" @ref:suppressField @attributes="Attributes" Id="@Id">
         @ChildContent
     </li>    
 </CascadingValue>

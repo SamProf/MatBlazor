@@ -28,7 +28,7 @@ namespace MatBlazor
         protected ClassMapper HelperTextClassMapper { get; } = new ClassMapper();
 
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         [Parameter]
         public bool Enhanced { get; set; } = false;

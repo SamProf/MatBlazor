@@ -9,10 +9,10 @@ namespace MatBlazor.Demo.BlazorFiddle
     public class BaseBlazorFiddle : BaseMatDomComponent
     {
         [Parameter]
-        protected string Code { get; set; }
+        public string Code { get; set; }
 
         [Parameter]
-        protected string Template { get; set; } = null;
+        public string Template { get; set; } = null;
 
         protected async override Task OnFirstAfterRenderAsync()
         {

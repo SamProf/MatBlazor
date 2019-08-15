@@ -21,7 +21,7 @@
 <h5 class="mat-h5">Capture of Reference of the component</h5>
 <DemoContainer>
     <Content>
-        <MatButton @ref="ButtonRef" OnClick="@Click">Get me Ref</MatButton>
+        <MatButton @ref="ButtonRef" @ref:suppressField OnClick="@Click">Get me Ref</MatButton>
 
         @functions
         {
@@ -38,7 +38,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatButton @ref=""ButtonRef"" OnClick=""@Click"">Get me Ref</MatButton>
+        <MatButton @ref=""ButtonRef"" @ref:suppressField OnClick=""@Click"">Get me Ref</MatButton>
 
         @functions
         {

@@ -8,7 +8,7 @@ namespace MatBlazor
     public class BaseMatTooltip : BaseMatDomComponent
     {
         [Parameter]
-        protected RenderFragment<ForwardRef> ChildContent { get; set; }
+        public RenderFragment<ForwardRef> ChildContent { get; set; }
 
         [Parameter]
         public RenderFragment TooltipContent { get; set; }

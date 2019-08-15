@@ -9,13 +9,13 @@ namespace MatBlazor
     public class BaseMatList : BaseMatDomComponent
     {
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         [Parameter]
-        protected bool SingleSelection { get; set; }
+        public bool SingleSelection { get; set; }
 
         [Parameter]
-        protected bool TwoLine { get; set; }
+        public bool TwoLine { get; set; }
 
         public BaseMatList()
         {

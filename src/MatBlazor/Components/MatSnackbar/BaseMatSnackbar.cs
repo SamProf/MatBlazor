@@ -12,16 +12,16 @@ namespace MatBlazor
         private bool _isOpen;
 
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         [Parameter]
-        protected bool Stacked { get; set; }
+        public bool Stacked { get; set; }
 
         [Parameter]
-        protected bool Leading { get; set; }
+        public bool Leading { get; set; }
 
         [Parameter]
-        protected bool IsOpen
+        public bool IsOpen
         {
             get => _isOpen;
             set

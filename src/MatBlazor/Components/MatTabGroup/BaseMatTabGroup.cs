@@ -15,7 +15,7 @@ namespace MatBlazor
         private BaseMatTabLabel _active;
 
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         public BaseMatTabLabel Active
         {

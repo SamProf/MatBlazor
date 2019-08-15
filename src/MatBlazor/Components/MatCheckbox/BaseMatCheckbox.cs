@@ -9,7 +9,7 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatCheckbox : BaseMatDomComponent
     {
-        protected ElementRef ComponentRef;
+        protected ElementReference ComponentRef;
 
         public BaseMatCheckbox()
         {
@@ -17,16 +17,16 @@ namespace MatBlazor
         }
 
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
         [Parameter]
-        protected bool Checked { get; set; }
+        public bool Checked { get; set; }
 
         [Parameter]
         public string Label { get; set; }
 
         [Parameter]
-        protected Action<bool> CheckedChanged { get; set; }
+        public Action<bool> CheckedChanged { get; set; }
 //
 //        [Parameter]
 //        public bool Indeterminate { get; set; }

@@ -53,7 +53,7 @@
             Gets or sets an expression that identifies the bound value.
             </summary>
         </member>
-        <member name="M:MatBlazor.BaseMatInputComponent`1.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterCollection)">
+        <member name="M:MatBlazor.BaseMatInputComponent`1.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)">
             <inheritdoc />
         </member>
         <member name="T:MatBlazor.BaseMatExpansionPanel">
@@ -231,6 +231,11 @@
         <member name="T:MatBlazor.BaseMatDatePicker">
             <summary>
             Datetime picker based on flatpickr.js
+            </summary>
+        </member>
+        <member name="T:MatBlazor.BaseMatDatePicker.flatpickrOptions">
+            <summary>
+            The options from https://flatpickr.js.org/options/
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatDialog">
@@ -497,6 +502,26 @@
         <member name="T:MatBlazor.BaseTableRow">
             <summary>
             Mat Table Row display a table row   
+            </summary>
+        </member>
+        <member name="T:MatBlazor.BaseMatTextFieldView">
+            <summary>
+            Text fields allow users to input, edit, and select text.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTextFieldView.ReadOnly">
+            <summary>
+            When true, it specifies that an input field is read-only.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTextFieldView.InputClass">
+            <summary>
+            Css class of input element
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTextFieldView.InputStyle">
+            <summary>
+            Style attribute of input element
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatTextField">

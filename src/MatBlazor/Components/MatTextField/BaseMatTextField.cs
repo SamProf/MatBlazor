@@ -8,25 +8,7 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatTextField : BaseMatInputComponent<string>
     {
-        public ElementRef InputRef { get; set; }
-
-        [Parameter]
-        public string Value
-        {
-            get => _value;
-            set
-            {
-                if (value != _value)
-                {
-                    _value = value;
-                    _ = ValueChanged.InvokeAsync(value);
-                    NotifyFieldChanged();
-                }
-            }
-        }
-
-        [Parameter]
-        public EventCallback<string> ValueChanged { get; set; }
+        public ElementReference InputRef { get; set; }
 
         [Parameter]
         public EventCallback<UIMouseEventArgs> IconOnClick { get; set; }

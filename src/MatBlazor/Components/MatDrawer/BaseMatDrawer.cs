@@ -13,7 +13,7 @@ namespace MatBlazor
         private bool _opened;
 
         [Parameter]
-        protected RenderFragment ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
 
 
         [Parameter]
@@ -81,9 +81,9 @@ namespace MatBlazor
             OpenedChanged.InvokeAsync(false);
         }
 
-        protected async override Task OnInitAsync()
+        protected async override Task OnInitializedAsync()
         {
-            await base.OnInitAsync();
+            await base.OnInitializedAsync();
         }
     }
 }

@@ -97,7 +97,7 @@
             <MatButton OnClick="@(() => navMenu.ToggleAllSubMenus(true))">Expand All</MatButton>
             <MatButton OnClick="@(() => navMenu.ToggleAllSubMenus(false))">Collapse All</MatButton>
         </div>
-        <MatNavMenu @ref="navMenu" Multi="MultiChecked">
+        <MatNavMenu @ref="navMenu" @ref:suppressField Multi="MultiChecked">
             <MatNavItem>Level 1 Item A</MatNavItem>
             <MatNavItem>Level 1 Item B</MatNavItem>
 
@@ -200,7 +200,7 @@
             <MatButton OnClick=""@(() => navMenu.ToggleAllSubMenus(true))"">Expand All</MatButton>
             <MatButton OnClick=""@(() => navMenu.ToggleAllSubMenus(false))"">Collapse All</MatButton>
         </div>
-        <MatNavMenu @ref=""navMenu"" Multi=""MultiChecked"">
+        <MatNavMenu @ref=""navMenu"" @ref:suppressField Multi=""MultiChecked"">
             <MatNavItem>Level 1 Item A</MatNavItem>
             <MatNavItem>Level 1 Item B</MatNavItem>
 
