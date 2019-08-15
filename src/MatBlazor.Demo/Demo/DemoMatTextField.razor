@@ -908,6 +908,12 @@
                         <p><MatTextField Label="MFA" @bind-Value="myModel.MFA" /></p>
                         <p><MatTextField Label="Comment" @bind-Value="myModel.Comment" /></p>
                         <p><MatDatePicker Label="Date" @bind-Value="myModel.EndDate" /></p>
+                        
+                        <MatDivider />
+                        <p><MatTextField Label="Username" @bind-Value="myModel.Username"
+                                         ValidationDisabled="true"
+                                         HelperText="Not Validated" HelperTextPersistent="true" /></p>
+                        
                         <ValidationSummary />
                     </div>
 
