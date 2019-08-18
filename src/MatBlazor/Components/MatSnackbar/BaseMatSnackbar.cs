@@ -31,7 +31,7 @@ namespace MatBlazor
                     _isOpen = value;
                     CallAfterRender(async () =>
                     {
-                        await Js.InvokeAsync<object>("matBlazor.matSnackbar.setIsOpen", Ref, value);
+                        await JsInvokeAsync<object>("matBlazor.matSnackbar.setIsOpen", Ref, value);
                     });
                 }
             }
@@ -52,7 +52,7 @@ namespace MatBlazor
             CallAfterRender(async () =>
             {
                 dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
-                await Js.InvokeAsync<object>("matBlazor.matSnackbar.init", Ref, dotNetObjectRef);
+                await JsInvokeAsync<object>("matBlazor.matSnackbar.init", Ref, dotNetObjectRef);
             });
         }
 

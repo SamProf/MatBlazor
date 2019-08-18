@@ -26,7 +26,7 @@ namespace MatBlazor
 
         public async Task OpenAsync(ElementReference anchorElement)
         {
-            await Js.InvokeAsync<object>("matBlazor.matMenu.open", Ref, anchorElement);
+            await JsInvokeAsync<object>("matBlazor.matMenu.open", Ref, anchorElement);
         }
 
         public async Task OpenAsync()
@@ -37,7 +37,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("matBlazor.matMenu.init", Ref);
+            await JsInvokeAsync<object>("matBlazor.matMenu.init", Ref);
         }
     }
 }

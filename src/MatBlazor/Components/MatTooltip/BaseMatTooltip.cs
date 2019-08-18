@@ -33,7 +33,7 @@ namespace MatBlazor
             ClassMapper.Add("mat-tooltip");
             CallAfterRender(async () =>
             {
-                await Js.InvokeAsync<object>("matBlazor.matTooltip.init", Ref, TargetForwardRef?.Current, TargetId,
+                await JsInvokeAsync<object>("matBlazor.matTooltip.init", Ref, TargetForwardRef?.Current, TargetId,
                     CreateJSOptions());
             });
         }

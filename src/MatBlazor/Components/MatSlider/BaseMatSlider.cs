@@ -27,7 +27,7 @@ namespace MatBlazor
             CallAfterRender(async () =>
             {
                 dotNetObjectRef = dotNetObjectRef??CreateDotNetObjectRef(jsHelper);
-                await Js.InvokeAsync<object>("matBlazor.matSlider.init", Ref, dotNetObjectRef);
+                await JsInvokeAsync<object>("matBlazor.matSlider.init", Ref, dotNetObjectRef);
             });
         }
 

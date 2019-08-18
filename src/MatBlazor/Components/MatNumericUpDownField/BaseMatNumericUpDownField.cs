@@ -42,7 +42,7 @@ namespace MatBlazor
             if (_uiBindedValue == _newUiBindedValue)
             {
                 // option JS:
-                await Js.InvokeAsync<object>("matBlazor.matNumericUpDownField.setValue", Ref, _newUiBindedValue);
+                await JsInvokeAsync<object>("matBlazor.matNumericUpDownField.setValue", Ref, _newUiBindedValue);
                 return;
 
                 // option Blazor:
@@ -278,7 +278,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("matBlazor.matNumericUpDownField.init", Ref);
+            await JsInvokeAsync<object>("matBlazor.matNumericUpDownField.init", Ref);
         }
     }
 }

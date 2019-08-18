@@ -47,7 +47,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("matBlazor.matRadioButton.init", Ref, FormFieldRef);
+            await JsInvokeAsync<object>("matBlazor.matRadioButton.init", Ref, FormFieldRef);
         }
 
         public BaseMatRadioButton()

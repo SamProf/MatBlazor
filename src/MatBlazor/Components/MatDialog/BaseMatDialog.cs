@@ -25,7 +25,7 @@ namespace MatBlazor
                     _isOpen = value;
                     CallAfterRender(async () =>
                     {
-                        await Js.InvokeAsync<object>("matBlazor.matDialog.setIsOpen", Ref, value);
+                        await JsInvokeAsync<object>("matBlazor.matDialog.setIsOpen", Ref, value);
                     });
                 }
             }
@@ -43,7 +43,7 @@ namespace MatBlazor
             CallAfterRender(async () =>
             {
                 dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
-                await Js.InvokeAsync<object>("matBlazor.matDialog.init", Ref, dotNetObjectRef);
+                await JsInvokeAsync<object>("matBlazor.matDialog.init", Ref, dotNetObjectRef);
             });
         }
 

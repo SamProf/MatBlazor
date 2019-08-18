@@ -11,7 +11,6 @@ namespace MatBlazor
         [Parameter]
         public ForwardRef RefBack { get; set; }
 
-        
 
         private Queue<Func<Task>> afterRenderCallQuene = new Queue<Func<Task>>();
 
@@ -72,6 +71,28 @@ namespace MatBlazor
 
         [Inject]
         protected IJSRuntime Js { get; set; }
+
+        [Inject]
+        protected IComponentContext ComponentContext { get; set; }
+
+        protected async Task<T> JsInvokeAsync<T>(string code, params object[] args)
+        {
+            if (ComponentContext.IsConnected)
+            {
+                try
+                {
+                    return await Js.InvokeAsync<T>(code, args);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+                
+            }
+
+            return default(T);
+        }
 
         #region Hack to fix https://github.com/aspnet/AspNetCore/issues/11159
 

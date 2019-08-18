@@ -32,7 +32,7 @@ namespace MatBlazor
                     _progress = value;
                     CallAfterRender(async () =>
                     {
-                        await Js.InvokeAsync<object>("matBlazor.matProgressBar.setProgress", Ref, value);
+                        await JsInvokeAsync<object>("matBlazor.matProgressBar.setProgress", Ref, value);
                     });
                 }
             }
@@ -50,7 +50,7 @@ namespace MatBlazor
 
                     CallAfterRender(async () =>
                     {
-                        await Js.InvokeAsync<object>("matBlazor.matProgressBar.setBuffer", Ref, value);
+                        await JsInvokeAsync<object>("matBlazor.matProgressBar.setBuffer", Ref, value);
                     });
                 }
             }
@@ -64,7 +64,7 @@ namespace MatBlazor
                 .If("mdc-linear-progress--indeterminate", () => this.Indeterminate)
                 .If("mdc-linear-progress--reversed", () => this.Reversed)
                 .If("mdc-linear-progress--closed", () => Closed);
-            CallAfterRender(async () => { await Js.InvokeAsync<object>("matBlazor.matProgressBar.init", Ref); });
+            CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matProgressBar.init", Ref); });
         }
 
         protected override Task OnParametersSetAsync()

@@ -27,7 +27,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("matBlazor.matList.init", this.Ref, new MatListJsOptions()
+            await JsInvokeAsync<object>("matBlazor.matList.init", this.Ref, new MatListJsOptions()
             {
                 SingleSelection = SingleSelection
             });

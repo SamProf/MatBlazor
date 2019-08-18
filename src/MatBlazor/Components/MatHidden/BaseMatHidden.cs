@@ -33,7 +33,7 @@ namespace MatBlazor
 
         protected async Task UpdateVisible()
         {
-            var innerWidth = await Js.InvokeAsync<decimal>("matBlazor.utils.windowInnerWidth");
+            var innerWidth = await JsInvokeAsync<decimal>("matBlazor.utils.windowInnerWidth");
             await UpdateVisibleFromValue(innerWidth);
         }
 
@@ -56,7 +56,7 @@ namespace MatBlazor
             CallAfterRender(async () =>
             {
                 dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
-                await Js.InvokeAsync<object>("matBlazor.matHidden.init", Id, dotNetObjectRef);
+                await JsInvokeAsync<object>("matBlazor.matHidden.init", Id, dotNetObjectRef);
                 await UpdateVisible();
             });
         }
@@ -72,7 +72,7 @@ namespace MatBlazor
         {
             base.Dispose();
             DisposeDotNetObjectRef(dotNetObjectRef);
-            Js.InvokeAsync<object>("matBlazor.matHidden.destroy", Id);
+            JsInvokeAsync<object>("matBlazor.matHidden.destroy", Id);
         }
     }
 }

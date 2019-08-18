@@ -1,6 +1,7 @@
 ﻿@page "/Test"
 @using Microsoft.AspNetCore.Components
 @inject IJSRuntime JsRuntime;
+@inject IComponentContext ComponentContext
 
 
 <MatButton OnClick="@(_=>Test1())"></MatButton>
@@ -15,13 +16,16 @@
 
     public void Test1()
     {
-        
+
         Console.WriteLine("Test1");
         callback = EventCallback.Factory.Create(this, () =>
         {
             Console.WriteLine("Inside callback");
         });
-        JsRuntime.InvokeAsync<object>("matBlazorDemo.test", callback);
+        if (ComponentContext.IsConnected)
+        {
+            JsRuntime.InvokeAsync<object>("matBlazorDemo.test", callback);
+        }
     }
 
 

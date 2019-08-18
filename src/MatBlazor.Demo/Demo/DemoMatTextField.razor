@@ -883,6 +883,75 @@
     </SourceContent>
 </DemoContainer>
 
+<h5 class="mat-h5">Binding with Events</h5>
+
+<DemoContainer>
+    <Content>
+        <MatTextField @bind-Value="@Text" ValueEvent="oninput" Label="Text"></MatTextField>
+
+         <h1>@Text</h1>
+
+         @code
+         {
+            string Text;
+         }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTextField OnFocus=""@OnFocusHandler"" OnFocusOut=""OnFocusOutHandler"" OnKeyPress=""@OnKeyPressHandler"" OnKeyDown=""@OnKeyDownHandler"" OnKeyUp=""@OnKeyUpHandler"" OnInput=""@OnInputHandler""></MatTextField>
+
+        <div>@eventLog</div>
+
+
+        @functions
+        {
+
+            string eventLog = """";
+
+            void AddLog(string line)
+            {
+                eventLog += ""\r\n"" + line;
+                this.StateHasChanged();
+            }
+
+            void OnFocusHandler(UIFocusEventArgs e)
+            {
+                this.AddLog(""OnFocus"");
+            }
+
+            void OnFocusOutHandler(UIFocusEventArgs e)
+            {
+                this.AddLog(""OnFocusOut"");
+            }
+
+            void OnKeyPressHandler(UIKeyboardEventArgs e)
+            {
+                this.AddLog(""OnKeyPress "" + e.Key);
+            }
+
+            void OnKeyDownHandler(UIKeyboardEventArgs e)
+            {
+                this.AddLog(""OnKeyDown "" + e.Key);
+            }
+
+            void OnKeyUpHandler(UIKeyboardEventArgs e)
+            {
+                this.AddLog(""OnKeyUp "" + e.Key);
+            }
+
+            void OnInputHandler(UIChangeEventArgs e)
+            {
+                this.AddLog(""OnInput"");
+            }
+
+        }
+
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
 <h5 class="mat-h5">Optional Support for Validation via EditContext</h5>
 
 <DemoContainer>
@@ -890,15 +959,23 @@
         @using System.ComponentModel.DataAnnotations
         <EditForm Model="myModel" OnValidSubmit="Success">
             <DataAnnotationsValidator />
-            <p><MatTextField Label="Username" @bind-Value="myModel.Username" />
-               <ValidationMessage For="@(() => myModel.Username)" /></p>
-            <p><MatTextField Label="Password" @bind-Value="myModel.Password" Type="password" />
-               <ValidationMessage For="@(() => myModel.Password)" /></p>
-            <p><MatTextField Label="MFA" @bind-Value="myModel.MFA" />
-               <ValidationMessage For="@(() => myModel.MFA)" /></p>            
-            <p><MatTextField Label="Comment" @bind-Value="myModel.Comment" />
-               <ValidationMessage For="@(() => myModel.Comment)" /></p>
-            
+            <p>
+                <MatTextField Label="Username" @bind-Value="myModel.Username" />
+                <ValidationMessage For="@(() => myModel.Username)" />
+            </p>
+            <p>
+                <MatTextField Label="Password" @bind-Value="myModel.Password" Type="password" />
+                <ValidationMessage For="@(() => myModel.Password)" />
+            </p>
+            <p>
+                <MatTextField Label="MFA" @bind-Value="myModel.MFA" />
+                <ValidationMessage For="@(() => myModel.MFA)" />
+            </p>
+            <p>
+                <MatTextField Label="Comment" @bind-Value="myModel.Comment" />
+                <ValidationMessage For="@(() => myModel.Comment)" />
+            </p>
+
             <p><MatDatePicker Label="Date" @bind-Value="myModel.EndDate" /></p>
             <ValidationSummary />
             <MatButton Type="submit">Login</MatButton>
@@ -906,9 +983,15 @@
 
         @code {
             [Inject] IJSRuntime JS { get; set; }
+            [Inject] IComponentContext ComponentContext { get; set; }
 
-            async Task Success() =>
-                await JS.InvokeAsync<object>("alert", "Successful login!");
+            async Task Success()
+            {
+                if (ComponentContext.IsConnected)
+                {
+                    await JS.InvokeAsync<object>("alert", "Successful login!");
+                }
+            }
 
             LoginModel myModel = new LoginModel();
 

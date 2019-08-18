@@ -46,7 +46,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("matBlazor.matCheckbox.init", ComponentRef, Ref);
+            await JsInvokeAsync<object>("matBlazor.matCheckbox.init", ComponentRef, Ref);
         }
     }
 }

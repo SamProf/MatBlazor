@@ -50,7 +50,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await Js.InvokeAsync<object>("matBlazor.matSlideToggle.init", Ref);
+            await JsInvokeAsync<object>("matBlazor.matSlideToggle.init", Ref);
         }
     }
 }

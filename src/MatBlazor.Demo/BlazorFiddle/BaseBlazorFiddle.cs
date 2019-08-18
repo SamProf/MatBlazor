@@ -19,7 +19,7 @@ namespace MatBlazor.Demo.BlazorFiddle
             await base.OnFirstAfterRenderAsync();
             try
             {
-                await Js.InvokeAsync<object>("blazorFiddle.create", Ref, new
+                await JsInvokeAsync<object>("blazorFiddle.create", Ref, new
                 {
                     Text = this.Code,
                     Template = this.Template,

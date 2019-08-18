@@ -95,7 +95,7 @@ namespace MatBlazor
             {
                 dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
 
-                Js.InvokeAsync<object>("matBlazor.matDatePicker.init", Ref, dotNetObjectRef, Value, new flatpickrOptions
+                await JsInvokeAsync<object>("matBlazor.matDatePicker.init", Ref, dotNetObjectRef, Value, new flatpickrOptions
                 {
                     EnableTime = this.EnableTime,
                     NoCalendar = this.NoCalendar,
@@ -138,7 +138,10 @@ namespace MatBlazor
             await base.SetParametersAsync(parameters);
             if (valueIsChanged)
             {
-                CallAfterRender(async () => { Js.InvokeAsync<object>("matBlazor.matDatePicker.setDate", Ref, Value); });
+                CallAfterRender(async () =>
+                {
+                    await JsInvokeAsync<object>("matBlazor.matDatePicker.setDate", Ref, Value);
+                });
             }
         }
 

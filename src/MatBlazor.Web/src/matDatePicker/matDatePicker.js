@@ -32,7 +32,7 @@ export function init(ref, cmp, defaultDate, options) {
     });
 
 
-    ref.$iconRef = iconRef;
+    // ref.$iconRef = iconRef;
 
     // ref.addEventListener('focus', (i) => {
     //

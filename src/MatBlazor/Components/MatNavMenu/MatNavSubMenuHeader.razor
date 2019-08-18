@@ -26,7 +26,7 @@
                    .Add("mdc-ripple-surface")
                    .Add("mdc-nav-sub-menu-header")
                    .Add("mdc-list--non-interactive");
-        CallAfterRender(async () => { await Js.InvokeAsync<object>("matBlazor.matAccordion.initSummary", Ref); });
+        CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matAccordion.initSummary", Ref); });
     }
 
     protected async void OnClickHandler(UIMouseEventArgs e)
