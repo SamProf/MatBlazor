@@ -27,3 +27,39 @@ div.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea)>i
 {
     background-color:  var(--mdc-theme-surface, #fff) !important;
 }
+
+
+/* For EditForm validation messages */
+.validation-message {
+    color: red;
+}
+
+/* For TextField */
+.mdc-text-field__input.valid.modified {
+    border-bottom: 2px solid #10b510 !important;
+}
+
+.mdc-text-field__input.invalid {
+    border-bottom: 2px solid red !important;
+}
+
+.mdc-dialog__content > .mdc-text-field {
+    display: block;
+    margin: 1rem 0;
+}
+
+.mdc-dialog__content > .mdc-text-field + .validation-message {
+    margin-top: -0.8rem;
+    margin-bottom: 0.7rem;
+    font-size: 0.9rem;
+}
+
+/* For DatePicker */
+.valid.modified > .mdc-text-field__input {
+    border-bottom: 2px solid #10b510 !important;
+}
+
+.invalid > .mdc-text-field__input {
+    border-bottom: 2px solid red !important;
+}
+
