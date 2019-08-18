@@ -32,7 +32,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         @using Microsoft.AspNetCore.Components
 
         <h4 class=""mat-subtitle1"">Simple use</h4>
@@ -48,7 +48,10 @@
 
             public void RunOnClick(UIMouseEventArgs e)
             {
-                JsRuntime.InvokeAsync<object>(""window.alert"", ""Test"");
+                if (ComponentContext.IsConnected)
+                {
+                    JsRuntime.InvokeAsync<object>(""window.alert"", ""Test"");
+                }
             }
 
         }
@@ -79,7 +82,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatButton OnClick=""@Click"">Text @ButtonState</MatButton>
         <MatButton Raised=""true"">Raised</MatButton>
         <MatButton Unelevated=""true"">Unelevated</MatButton>
@@ -111,7 +114,7 @@
         <MatButton Dense="true" Disabled="true">Dense</MatButton>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatButton Disabled=""true"">Text</MatButton>
         <MatButton Raised=""true"" Disabled=""true"">Raised</MatButton>
         <MatButton Unelevated=""true"" Disabled=""true"">Unelevated</MatButton>
@@ -132,7 +135,7 @@
         <MatButton Dense="true" Icon="favorite">Dense</MatButton>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatButton Icon=""favorite"">Text</MatButton>
         <MatButton Raised=""true"" Icon=""favorite"">Raised</MatButton>
         <MatButton Unelevated=""true"" Icon=""favorite"">Unelevated</MatButton>
@@ -152,7 +155,7 @@
         <MatButton Dense="true" TrailingIcon="favorite">Dense</MatButton>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatButton TrailingIcon=""favorite"">Text</MatButton>
         <MatButton Raised=""true"" TrailingIcon=""favorite"">Raised</MatButton>
         <MatButton Unelevated=""true"" TrailingIcon=""favorite"">Unelevated</MatButton>
@@ -171,7 +174,7 @@
         </form>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <form>
             <MatButton type=""submit"" name=""action"">OK</MatButton>
         </form>

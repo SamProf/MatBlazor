@@ -105,6 +105,11 @@ If you think that this project helped you or your company in any way, you can co
 
 ## News
 
+### MatBlazor 1.6.1
+- Check ComponentContext.IsConnected for all Js-Invoke's
+    - This should have solved the problem with the `RenderStaticComponentAsync`, but did not.
+    - You should use `RenderComponentAsync`, also because in Preview 9 `RenderStaticComponentAsync` will be removed ([https://github.com/aspnet/AspNetCore/issues/12245](https://github.com/aspnet/AspNetCore/issues/12245)).
+- PR: Incorporate validation styling and improve EditContext demo #190 (Thanks to [ebekker](https://github.com/ebekker))
 
 ### MatBlazor 1.6.0
 - Update to .NET Core 3.0 Preview 8

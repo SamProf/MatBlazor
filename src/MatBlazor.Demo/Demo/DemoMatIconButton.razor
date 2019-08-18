@@ -41,7 +41,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         @using Microsoft.AspNetCore.Components
 
 
@@ -67,7 +67,10 @@
 
             public void RunOnClick(UIMouseEventArgs e)
             {
-                JsRuntime.InvokeAsync<object>(""window.alert"", ""Test"");
+                if (ComponentContext.IsConnected)
+                {
+                    JsRuntime.InvokeAsync<object>(""window.alert"", ""Test"");
+                }
             }
 
         }

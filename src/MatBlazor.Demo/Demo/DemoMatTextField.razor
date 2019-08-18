@@ -1001,30 +1001,36 @@
 
             <div class=""mat-layout-grid"">
                 <div class=""mat-layout-grid-inner"">
-                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-5"">
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
                         Summary-level Validation Messages
                     </div>
-                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-2"">
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
                     </div>
-                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-5"">
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
                         Field-level Validation Messages
                     </div>
 
-                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-5"">
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
                         <p><MatTextField Label=""Username"" @bind-Value=""myModel.Username"" /></p>
                         <p><MatTextField Label=""Password"" @bind-Value=""myModel.Password"" Type=""password"" /></p>
                         <p><MatTextField Label=""MFA"" @bind-Value=""myModel.MFA"" /></p>
                         <p><MatTextField Label=""Comment"" @bind-Value=""myModel.Comment"" /></p>
                         <p><MatDatePicker Label=""Date"" @bind-Value=""myModel.EndDate"" /></p>
+                        
+                        <MatDivider />
+                        <p><MatTextField Label=""Username"" @bind-Value=""myModel.Username""
+                                         ValidationDisabled=""true""
+                                         HelperText=""Not Validated"" HelperTextPersistent=""true"" /></p>
+                        
                         <ValidationSummary />
                     </div>
 
-                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-2""
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4""
                          style=""text-align: center;"">
                         -or-
                     </div>
 
-                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-5"">
+                    <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
                         <p><MatTextField Label=""Username"" @bind-Value=""myModel.Username"" />
                            <ValidationMessage For=""@(() => myModel.Username)"" /></p>
                         <p><MatTextField Label=""Password"" @bind-Value=""myModel.Password"" Type=""password"" />
