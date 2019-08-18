@@ -31,6 +31,13 @@ namespace MatBlazor
             }
         }
 
+        /// <summary>
+        /// When contained within an <see cref="EditContext"/> disables this control's
+        /// participation in validation checking.  This means that this control will not
+        /// reflect the validation state of the underlying data binding.
+        /// </summary>
+        [Parameter]
+        public bool ValidationDisabled { get; set; }
 
         [Parameter]
         public EventCallback<T> ValueChanged { get; set; }
@@ -38,7 +45,7 @@ namespace MatBlazor
         // This is like InputBase from Microsoft.AspNetCore.Components.Forms,
         // except that it treats [CascadingParameter] EditContext as optional.
 
-        private bool _hasSetInitialParameters;
+        private bool _hasSetInitialEditContext;
 
         [CascadingParameter]
         EditContext CascadedEditContext { get; set; }
@@ -80,34 +87,37 @@ namespace MatBlazor
         {
             parameters.SetParameterProperties(this);
 
-            if (!_hasSetInitialParameters)
+            if (!ValidationDisabled)
             {
-                // This is the first run -- could put this logic in OnInit, but nice
-                // to avoid forcing people who override OnInitialized to call base.OnInitialized()
-
-                EditContext = CascadedEditContext;
-                if (EditContext != null)
+                if (!_hasSetInitialEditContext)
                 {
-                    if (ValueExpression == null)
+                    // This is the first run -- could put this logic in OnInit, but nice
+                    // to avoid forcing people who override OnInitialized to call base.OnInitialized()
+
+                    EditContext = CascadedEditContext;
+                    if (EditContext != null)
                     {
-                        throw new InvalidOperationException($"{GetType()} requires a value for the 'ValueExpression' " +
-                                                            $"parameter. Normally this is provided automatically when using 'bind-Value'.");
+                        if (ValueExpression == null)
+                        {
+                            throw new InvalidOperationException($"{GetType()} requires a value for the 'ValueExpression' " +
+                                                                $"parameter. Normally this is provided automatically when using 'bind-Value'.");
+                        }
+
+                        FieldIdentifier = FieldIdentifier.Create(ValueExpression);
                     }
 
-                    FieldIdentifier = FieldIdentifier.Create(ValueExpression);
+                    _hasSetInitialEditContext = true;
                 }
+                else if (CascadedEditContext != EditContext)
+                {
+                    // Not the first run
 
-                _hasSetInitialParameters = true;
-            }
-            else if (CascadedEditContext != EditContext)
-            {
-                // Not the first run
-
-                // We don't support changing EditContext because it's messy to be clearing up state and event
-                // handlers for the previous one, and there's no strong use case. If a strong use case
-                // emerges, we can consider changing this.
-                throw new InvalidOperationException($"{GetType()} does not support changing the " +
-                                                    $"{nameof(EditContext)} dynamically.");
+                    // We don't support changing EditContext because it's messy to be clearing up state and event
+                    // handlers for the previous one, and there's no strong use case. If a strong use case
+                    // emerges, we can consider changing this.
+                    throw new InvalidOperationException($"{GetType()} does not support changing the " +
+                                                        $"{nameof(EditContext)} dynamically.");
+                }
             }
 
             // For derived components, retain the usual lifecycle with OnInitialized/OnParametersSet/etc.

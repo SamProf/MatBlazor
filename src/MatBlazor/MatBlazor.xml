@@ -25,6 +25,13 @@
             </summary>
             <typeparam name="T">the natural type of the input's value</typeparam>
         </member>
+        <member name="P:MatBlazor.BaseMatInputComponent`1.ValidationDisabled">
+            <summary>
+            When contained within an <see cref="P:MatBlazor.BaseMatInputComponent`1.EditContext"/> disables this control's
+            participation in validation checking.  This means that this control will not
+            reflect the validation state of the underlying data binding.
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatInputComponent`1.EditContext">
             <summary>
             Gets the associated <see cref="T:Microsoft.AspNetCore.Components.Forms.EditContext"/>.
