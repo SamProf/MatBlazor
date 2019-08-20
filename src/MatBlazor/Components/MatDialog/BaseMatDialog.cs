@@ -60,5 +60,13 @@ namespace MatBlazor
             await IsOpenChanged.InvokeAsync(false);
             this.StateHasChanged();
         }
+
+        [JSInvokable]
+        public async Task MatDialogOpenedHandler()
+        {
+            _isOpen = true;
+            await IsOpenChanged.InvokeAsync(true);
+            this.StateHasChanged();
+        }
     }
 }
