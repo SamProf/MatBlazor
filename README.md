@@ -105,6 +105,9 @@ If you think that this project helped you or your company in any way, you can co
 
 ## News
 
+### In progress
+- Fixed: MatTooltip: Position inside `<table>` is off #195
+
 ### MatBlazor 1.6.1
 - Check ComponentContext.IsConnected for all Js-Invoke's
     - This should have solved the problem with the `RenderStaticComponentAsync`, but did not.

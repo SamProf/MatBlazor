@@ -48,33 +48,49 @@ class MatTooltip {
   }
 
 
+  offset(elem) {
+    if(!elem) elem = this;
+
+    var x = elem.offsetLeft;
+    var y = elem.offsetTop;
+
+    while (elem = elem.offsetParent) {
+      x += elem.offsetLeft;
+      y += elem.offsetTop;
+    }
+
+    return { left: x, top: y };
+  }
+
   calculatePos(position) {
     var xy = {};
     // console.log(this.targetRef);
     // console.log(this.ref);
 
+    var targetOffsset = this.targetRef.getBoundingClientRect();
+
     switch (position) {
       case TooltipPosition.top: {
-        xy.x = this.targetRef.offsetLeft + (this.targetRef.offsetWidth / 2) - (this.ref.offsetWidth / 2);
-        xy.y = this.targetRef.offsetTop - this.ref.offsetHeight - 10;
+        xy.x = targetOffsset.left + (this.targetRef.offsetWidth / 2) - (this.ref.offsetWidth / 2);
+        xy.y = targetOffsset.top - this.ref.offsetHeight - 10;
         break;
       }
 
       case TooltipPosition.bottom: {
-        xy.x = this.targetRef.offsetLeft + (this.targetRef.offsetWidth / 2) - (this.ref.offsetWidth / 2);
-        xy.y = this.targetRef.offsetTop + this.targetRef.offsetHeight + 10;
+        xy.x = targetOffsset.left + (this.targetRef.offsetWidth / 2) - (this.ref.offsetWidth / 2);
+        xy.y = targetOffsset.top + this.targetRef.offsetHeight + 10;
         break;
       }
 
       case TooltipPosition.right: {
-        xy.x = this.targetRef.offsetLeft + this.targetRef.offsetWidth + 10;
-        xy.y = this.targetRef.offsetTop + (this.targetRef.offsetHeight / 2) - (this.ref.offsetHeight / 2);
+        xy.x = targetOffsset.lefteft + this.targetRef.offsetWidth + 10;
+        xy.y = targetOffsset.top + (this.targetRef.offsetHeight / 2) - (this.ref.offsetHeight / 2);
         break;
       }
 
       case TooltipPosition.left: {
-        xy.x = this.targetRef.offsetLeft - (this.ref.offsetWidth) - 10;
-        xy.y = this.targetRef.offsetTop + (this.targetRef.offsetHeight / 2) - (this.ref.offsetHeight / 2);
+        xy.x = targetOffsset.left - (this.ref.offsetWidth) - 10;
+        xy.y = targetOffsset.top + (this.targetRef.offsetHeight / 2) - (this.ref.offsetHeight / 2);
         break;
       }
     }
@@ -84,6 +100,7 @@ class MatTooltip {
 
 
   show() {
+    // debugger;
     // if (window.innerWidth < this.ref.offsetWidth * 1.5) {
     //   this.ref.style.maxWidth = (window.innerWidth / 2) + 'px';
     // } else {

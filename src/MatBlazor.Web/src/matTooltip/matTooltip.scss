@@ -19,7 +19,7 @@
 
 
 @mixin mdl-tooltip {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   //margin-top: 14px;
   //left: 50%;

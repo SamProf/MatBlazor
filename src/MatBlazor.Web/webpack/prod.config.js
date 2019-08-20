@@ -3,6 +3,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: "./src/main.js",
+  // optimization: {
+  //   minimize: false
+  // },
   output: {
     filename: "matBlazor.js",
     // path: path.resolve(__dirname, '../dist'),
