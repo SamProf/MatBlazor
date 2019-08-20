@@ -36,6 +36,7 @@
     "@material/snackbar": "^2.3.0",
     "@material/switch": "^2.3.0",
     "@material/tab-bar": "^2.3.0",
+    "@material/tab-scroller": "^2.3.0",
     "@material/textfield": "^2.3.0",
     "@material/theme": "^1.1.0",
     "@material/top-app-bar": "^2.3.0",
