@@ -81,7 +81,7 @@
                 {
                     PageSize = Convert.ToInt32(value);
                     CurrentPage = 1;
-                    TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+                    TotalPages = Math.Max(1, (int)Math.Ceiling(Items.Count() / (decimal)PageSize));
                     EndPage = TotalPages;
                     StartPage = 1;
                     SetPageSize(PageDirection.Next);
@@ -216,7 +216,7 @@
                     Items = await Http.GetJsonAsync<TableItem[]>(ApiUrl + SearchTermParam(SearchTerm));
                     ItemList = Items.Skip(RecordsFrom).Take(PageSize);
                     RecordsCount = Items.Count();
-                    TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+                    TotalPages = Math.Max(1, (int)Math.Ceiling(Items.Count() / (decimal)PageSize));
                     EndPage = TotalPages;
                     RecordsFrom = (CurrentPage - 1) * PageSize;
                     RecordsTo = RecordsFrom + PageSize;
@@ -234,7 +234,7 @@
                 RecordsFrom = (CurrentPage - 1) * PageSize;
                 RecordsTo = RecordsFrom + PageSize;
                 ItemList = Items.Skip(RecordsFrom).Take(PageSize);
-                TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+                TotalPages = Math.Max(1, (int)Math.Ceiling(Items.Count() / (decimal)PageSize));
                 EndPage = TotalPages;
                 SetPageSize(PageDirection.Next);
             }
@@ -256,7 +256,7 @@
                 RecordsFrom = (CurrentPage - 1) * PageSize;
                 RecordsTo = (RecordsFrom + PageSize < Count) ? RecordsFrom + PageSize : Count;
                 ItemList = Items;
-                TotalPages = (int)Math.Ceiling(Count / (decimal)PageSize);
+                TotalPages = Math.Max(1, (int)Math.Ceiling(Count / (decimal)PageSize));
                 EndPage = TotalPages;
                 SetPageSize(PageDirection.First);
             }
@@ -294,7 +294,7 @@
 
                         RecordsFilteredCount = filteredCollection.Count;
                         RecordsTo = (RecordsFrom + PageSize < RecordsFilteredCount) ? RecordsFrom + PageSize : RecordsFilteredCount;
-                        TotalPages = (int)Math.Ceiling(RecordsFilteredCount / (decimal)PageSize);
+                        TotalPages = Math.Max(1, (int)Math.Ceiling(RecordsFilteredCount / (decimal)PageSize));
                         EndPage = TotalPages;
 
                         if (PageSize <= 0)
@@ -317,7 +317,7 @@
                             ItemList = Items.Skip(RecordsFrom).Take(PageSize);
                         }
                         RecordsTo = (RecordsFrom + PageSize < Items.Count()) ? RecordsFrom + PageSize : Items.Count();
-                        TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+                        TotalPages = Math.Max(1, (int)Math.Ceiling(Items.Count() / (decimal)PageSize));
                         EndPage = TotalPages;
                     }
                     SetPageSize(PageDirection.Next);
