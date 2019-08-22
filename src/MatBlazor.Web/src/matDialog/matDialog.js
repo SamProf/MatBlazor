@@ -9,6 +9,10 @@ export function init(ref, component) {
   ref.addEventListener('MDCDialog:closed', () => {
     component.invokeMethodAsync('MatDialogClosedHandler');
   });
+  
+  ref.addEventListener('MDCDialog:opened', () => {
+    component.invokeMethodAsync('MatDialogOpenedHandler');
+  });
 }
 
 
