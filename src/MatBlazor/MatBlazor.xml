@@ -250,6 +250,11 @@
             Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatDialog.IsOpenChanged">
+            <summary>
+            Event occurs when the dialog is opened or closed.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatDivider">
             <summary>
             MatDivider is a component that allows for Material styling of a line separator with various orientation options. 

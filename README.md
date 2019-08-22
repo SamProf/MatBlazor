@@ -30,10 +30,9 @@ Don't know what Blazor is? Read [here](https://github.com/aspnet/Blazor)
 
 Complete all Blazor dependencies.
 
-- .NET Core 3.0 Preview 4 SDK (3.0.0-preview4-19216-03)
-- Visual Studio 2019 Preview 4 with the ASP.NET and web development workload selected.
+- .NET Core 3.0 Preview 9 SDK
+- Visual Studio 2019 Preview with the ASP.NET and web development workload selected.
 - The latest Blazor extension from the Visual Studio Marketplace.
-- The Blazor templates on the command-line: dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview4-19216-03
 
 ## Installation 
 
@@ -104,6 +103,10 @@ If you think that this project helped you or your company in any way, you can co
 
 
 ## News
+
+### MatBlazor 1.6.3
+- MatTable: Fix broken paginator when infinite items selected #202 (Thanks to [dga711](https://github.com/dga711))
+- MatDialog.IsOpenChanged now also fires on open #200 (Thanks to [dga711](https://github.com/dga711)
 
 ### MatBlazor 1.6.2
 - Fixed: MatTooltip: Position inside `<table>` is off #195

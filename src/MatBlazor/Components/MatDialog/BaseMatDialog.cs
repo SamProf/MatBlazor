@@ -31,6 +31,9 @@ namespace MatBlazor
             }
         }
 
+        /// <summary>
+        /// Event occurs when the dialog is opened or closed.
+        /// </summary>
         [Parameter]
         public EventCallback<bool> IsOpenChanged { get; set; }
 
