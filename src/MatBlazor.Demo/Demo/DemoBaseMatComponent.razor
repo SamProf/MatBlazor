@@ -23,7 +23,7 @@
     <Content>
         <MatButton @ref="ButtonRef" @ref:suppressField OnClick="@Click">Get me Ref</MatButton>
 
-        @functions
+        @code
         {
             BaseMatButton ButtonRef;
 
@@ -40,7 +40,7 @@
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatButton @ref=""ButtonRef"" @ref:suppressField OnClick=""@Click"">Get me Ref</MatButton>
 
-        @functions
+        @code
         {
             BaseMatButton ButtonRef;
 
