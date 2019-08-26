@@ -182,6 +182,7 @@ namespace MatBlazor
         public void ClearText(UIMouseEventArgs e)
         {
             Value = default;
+            StringValue = string.Empty;
             StateHasChanged();
         }
 
