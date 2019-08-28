@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
+using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
@@ -98,7 +99,19 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await JsInvokeAsync<object>("matBlazor.matSelect.init", Ref);
+
+            if (!ComponentContext.IsConnected)
+            {
+                return;
+            }
+            
+            await JsInvokeAsync<object>("matBlazor.matSelect.init", Ref, DotNetObjectRef.Create(this));
+        }
+
+        [JSInvokable]
+        public void SetValue(string value)
+        {
+            Value = value;
         }
     }
 }
