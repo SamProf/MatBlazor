@@ -3,14 +3,15 @@ import {MDCSelect} from '@material/select';
 
 
 export class MatSelect {
-  constructor(ref) {
+  constructor(ref, component) {
     this.select = new MDCSelect(ref);
+	this.select.listen('MDCSelect:change', () => component.invokeMethodAsync("SetValue", this.select.value));
   }
 }
 
 
-export function init(ref) {
-  ref.__matBlazor_component = new MatSelect(ref);
+export function init(ref, component) {
+  ref.__matBlazor_component = new MatSelect(ref, component);
 }
 
 
