@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace MatBlazor
@@ -32,7 +32,7 @@ namespace MatBlazor
         /// <param name="title">The optional toast tile</param>
         /// <param name="icon">The optional toast icon</param>
         /// <param name="configure">An action for configuring a <see cref="MatToastOptions"/> instance already containing the globally configured settings</param>
-        void Add(string message, MatToastType type, string title = null, string icon = null,
+        MatToast Add(string message, MatToastType type, string title = null, string icon = null,
             Action<MatToastOptions> configure = null);
 
         /// <summary>

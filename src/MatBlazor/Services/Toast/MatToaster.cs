@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,16 +16,16 @@ namespace MatBlazor
             Configuration.OnUpdate += ConfigurationUpdated;
         }
 
-        public void Add(string message, MatToastType type, string title, string icon, Action<MatToastOptions> configure)
+        public MatToast Add(string message, MatToastType type, string title, string icon, Action<MatToastOptions> configure)
         {
-            if (string.IsNullOrEmpty(message)) return;
+            if (string.IsNullOrEmpty(message)) return null;
 
             message = message.Trim();
             title = string.IsNullOrEmpty(title) ? "" : title.Trim();
 
             if (Configuration.PreventDuplicates && ToastAlreadyPresent(message, title, type))
             {
-                return;
+                return null;
             }
 
             var options = new MatToastOptions(type, Configuration);
@@ -36,6 +36,8 @@ namespace MatBlazor
             Toasts.Add(toast);
 
             OnToastsUpdated?.Invoke();
+
+            return toast;
         }
 
         public void Clear()
