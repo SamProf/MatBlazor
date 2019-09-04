@@ -5,16 +5,10 @@
 
     <div class="@ClassMapper.Class" style="@Style" @ref="Ref" @ref:suppressField>
 
-             @if (Enhanced)
-             {
-                 <input type="hidden" name="enhanced-select" @bind="@Value"/>
-             }
              @if (!HideDropDownIcon)
              {
                  <i class="mdc-select__dropdown-icon"></i>
              }
-
-
 
              @if (Icon != null)
              {
@@ -27,16 +21,7 @@
 
                  <div class="mdc-select__menu mdc-menu mdc-menu-surface">
                      <ul class="mdc-list">
-                         <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
-                         <li class="mdc-list-item" data-value="grains">
-                             Bread, Cereal, Rice, and Pasta
-                         </li>
-                         <li class="mdc-list-item" data-value="vegetables">
-                             Vegetables
-                         </li>
-                         <li class="mdc-list-item" data-value="fruit">
-                             Fruit
-                         </li>
+                         @ChildContent
                      </ul>
                  </div>
              }
