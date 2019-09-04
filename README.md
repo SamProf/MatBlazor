@@ -98,11 +98,18 @@ If you think that this project helped you or your company in any way, you can co
 - [Patreon](https://www.patreon.com/SamProf)
 
 ### Backers:
-- [MaurizioVerde](https://github.com/MaurizioVerde)
+- Yevhen Shmakov
+- [Maurizio Verde](https://github.com/MaurizioVerde)
 - Jacobus Terhorst
+- Xiao Song
 
 
 ## News
+
+### MatBlazor 1.6.4
+- Fix: MatAutocomplete StringValue clearing #216 (Thanks to [lukblazewicz](https://github.com/lukblazewicz))
+- Fix: MatSelect option list in enhanced mode showing example list #221 (Thanks to [aviezzi](https://github.com/aviezzi))
+
 
 ### MatBlazor 1.6.3
 - MatTable: Fix broken paginator when infinite items selected #202 (Thanks to [dga711](https://github.com/dga711))
