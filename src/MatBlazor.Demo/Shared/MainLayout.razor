@@ -113,8 +113,9 @@
     }
 
 
-    protected override async Task OnAfterRenderAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        await base.OnAfterRenderAsync(firstRender);
     }
 
     protected async override Task OnInitializedAsync()

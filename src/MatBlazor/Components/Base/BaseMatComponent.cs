@@ -14,20 +14,18 @@ namespace MatBlazor
 
         private Queue<Func<Task>> afterRenderCallQuene = new Queue<Func<Task>>();
 
-        private bool isRendered = false;
-
-        protected void CallAfterRender(Func<Task> action)
+       protected void CallAfterRender(Func<Task> action)
         {
             afterRenderCallQuene.Enqueue(action);
         }
 
 
-        protected async override Task OnAfterRenderAsync()
+        protected async override Task OnAfterRenderAsync(bool firstRender)
         {
-            if (!isRendered)
+            await base.OnAfterRenderAsync(firstRender);
+            if (firstRender)
             {
                 await OnFirstAfterRenderAsync();
-                isRendered = true;
             }
 
             if (afterRenderCallQuene.Count > 0)
