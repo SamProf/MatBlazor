@@ -16,5 +16,5 @@ jobs:
     - name: Build with dotnet
       run: |
         cd ./src/MatBlazor
-        dotnet build --configuration Release /p:AssemblyVersion=1.2.3.${{GITHUB_SHA}} /p:Version=1.2.3.${{GITHUB_SHA}} /p:FileVersion=1.2.3.${{GITHUB_SHA}}
+        dotnet build --configuration Release /p:AssemblyVersion=1.2.3.${{ GITHUB_SHA }} /p:Version=1.2.3.${{ GITHUB_SHA }} /p:FileVersion=1.2.3.${{ GITHUB_SHA }}
         dotnet pack
