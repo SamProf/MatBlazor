@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatButton
 
-<button class="@ClassMapper.Class" style="@Style" @onclick="OnClickHandler" disabled=@Disabled aria-label="@(Label ?? Icon)" @ref="Ref" @ref:suppressField type="@Type" name="@Name" value="@Value" @attributes="Attributes" Id="@Id">
+<button class="@ClassMapper.Class" style="@Style" @onclick="OnClickHandler" disabled=@Disabled aria-label="@(Label ?? Icon)" @ref="Ref"  type="@Type" name="@Name" value="@Value" @attributes="Attributes" Id="@Id">
     @if (Icon != null)
     {
         <span class="material-icons mdc-button__icon">@Icon</span>

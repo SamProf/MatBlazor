@@ -1,8 +1,8 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatCheckbox
 
-<div class="mdc-form-field" @ref="Ref" @ref:suppressField>
-    <div class="@ClassMapper.Class" style="@Style" @ref="ComponentRef" @ref:suppressField>
+<div class="mdc-form-field" @ref="Ref" >
+    <div class="@ClassMapper.Class" style="@Style" @ref="ComponentRef" >
         <input type="checkbox"
                class="mdc-checkbox__native-control"
                @onchange="ChangeHandler"

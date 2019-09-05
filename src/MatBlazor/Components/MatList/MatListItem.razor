@@ -3,13 +3,13 @@
 
 @if (Href == null || Disabled)
 {
-    <li class="@ClassMapper.Class" @onmousedown="OnMouseDown" @onclick="OnClick" style="@Style" @ref="Ref" @ref:suppressField @attributes="Attributes" Id="@Id">
+    <li class="@ClassMapper.Class" @onmousedown="OnMouseDown" @onclick="OnClick" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
         @ChildContent
     </li>
 }
 else
 {
-    <a class="@ClassMapper.Class" href="@Href" @onmousedown="OnMouseDown" @onclick="OnClick" style="@Style" @ref="Ref" @ref:suppressField @attributes="Attributes" Id="@Id">
+    <a class="@ClassMapper.Class" href="@Href" @onmousedown="OnMouseDown" @onclick="OnClick" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
         @ChildContent
     </a>
 }

@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatDomComponent
 
-<div class="@ClassMapper.AsString()" style="@GenerateStyle()" @attributes="Attributes" Id="@Id" @ref="Ref" @ref:suppressField>
+<div class="@ClassMapper.AsString()" style="@GenerateStyle()" @attributes="Attributes" Id="@Id" @ref="Ref" >
          @if (ChildContent != null)
          {
              <div class="@ContentClassMapper.AsString()">
