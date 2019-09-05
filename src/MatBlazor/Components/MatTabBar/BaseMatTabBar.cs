@@ -29,9 +29,10 @@ namespace MatBlazor
                 }
 
                 _active = value;
+
+                this.InvokeStateHasChanged();
                 if (!Disposed)
                 {
-                    this.StateHasChanged();
                     ActiveChanged.InvokeAsync(value);
                 }
             }
@@ -39,18 +40,21 @@ namespace MatBlazor
 
         internal async Task TabDisposed(BaseMatTabLabel tab)
         {
-            await InvokeAsync(() =>
+            if (!Disposed)
             {
-                Tabs.Remove(tab);
-                if (this.Active == tab)
+                await InvokeAsync(() =>
                 {
-                    this.Active = this.Tabs.FirstOrDefault();
-                }
-                else
-                {
-                    this.ActiveChanged.InvokeAsync(this.Active);
-                }
-            });
+                    Tabs.Remove(tab);
+                    if (this.Active == tab)
+                    {
+                        this.Active = this.Tabs.FirstOrDefault();
+                    }
+                    else
+                    {
+                        this.ActiveChanged.InvokeAsync(this.Active);
+                    }
+                });
+            }
         }
 
 

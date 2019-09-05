@@ -45,8 +45,9 @@ namespace MatBlazor
             }
         }
 
-        protected async virtual Task OnFirstAfterRenderAsync()
+        protected virtual Task OnFirstAfterRenderAsync()
         {
+            return Task.CompletedTask;
         }
 
         protected BaseMatComponent()
@@ -60,10 +61,15 @@ namespace MatBlazor
 
         protected bool Disposed { get; private set; }
 
-
         protected void InvokeStateHasChanged()
         {
-            InvokeAsync(StateHasChanged);
+            InvokeAsync(() =>
+            {
+                if (!Disposed)
+                {
+                    StateHasChanged();
+                }
+            });
         }
 
 

@@ -23,7 +23,7 @@ namespace MatBlazor
             set
             {
                 _active = value;
-                this.StateHasChanged();
+                this.InvokeStateHasChanged();
             }
         }
     }
