@@ -78,7 +78,7 @@ app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);
 <MatButton Outlined="true">Outlined</MatButton>
 <MatButton Dense="true">Dense</MatButton> 
 
-@functions
+@code
 {
   string ButtonState = "";
   void Click(UIMouseEventArgs e)
