@@ -49,7 +49,7 @@ namespace MatBlazor
             }
         }
 
-        private DotNetObjectRef<BaseMatHidden> dotNetObjectRef;
+        private DotNetObjectReference<BaseMatHidden> dotNetObjectRef;
         public BaseMatHidden()
         {
             

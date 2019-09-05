@@ -15,7 +15,7 @@ namespace MatBlazor
         private decimal _value;
 
 
-        private DotNetObjectRef<JsHelper> dotNetObjectRef;
+        private DotNetObjectReference<JsHelper> dotNetObjectRef;
 
         public BaseMatSlider()
         {

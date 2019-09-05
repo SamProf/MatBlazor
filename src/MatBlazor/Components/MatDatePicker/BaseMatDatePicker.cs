@@ -87,7 +87,7 @@ namespace MatBlazor
         }
 
 
-        private DotNetObjectRef<BaseMatDatePicker> dotNetObjectRef;
+        private DotNetObjectReference<BaseMatDatePicker> dotNetObjectRef;
 
         public BaseMatDatePicker()
         {

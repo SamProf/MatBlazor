@@ -41,7 +41,7 @@ namespace MatBlazor
         public EventCallback<bool> IsOpenChanged { get; set; }
 
 
-        private DotNetObjectRef<BaseMatSnackbar> dotNetObjectRef;
+        private DotNetObjectReference<BaseMatSnackbar> dotNetObjectRef;
 
         public BaseMatSnackbar()
         {

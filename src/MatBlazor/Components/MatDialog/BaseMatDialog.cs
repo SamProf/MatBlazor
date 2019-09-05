@@ -37,7 +37,7 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<bool> IsOpenChanged { get; set; }
 
-        private DotNetObjectRef<BaseMatDialog> dotNetObjectRef;
+        private DotNetObjectReference<BaseMatDialog> dotNetObjectRef;
 
         public BaseMatDialog()
         {

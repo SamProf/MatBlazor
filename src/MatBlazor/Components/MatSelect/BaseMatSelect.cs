@@ -106,7 +106,7 @@ namespace MatBlazor
                 return;
             }
             
-            await JsInvokeAsync<object>("matBlazor.matSelect.init", Ref, DotNetObjectRef.Create(this));
+            await JsInvokeAsync<object>("matBlazor.matSelect.init", Ref, DotNetObjectReference.Create(this));
         }
 
         [JSInvokable]

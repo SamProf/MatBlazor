@@ -98,16 +98,16 @@ namespace MatBlazor
 
         public static object CreateDotNetObjectRefSyncObj = new object();
 
-        protected DotNetObjectRef<T> CreateDotNetObjectRef<T>(T value) where T : class
+        protected DotNetObjectReference<T> CreateDotNetObjectRef<T>(T value) where T : class
         {
             lock (CreateDotNetObjectRefSyncObj)
             {
                 JSRuntime.SetCurrentJSRuntime(Js);
-                return DotNetObjectRef.Create(value);
+                return DotNetObjectReference.Create(value);
             }
         }
 
-        protected void DisposeDotNetObjectRef<T>(DotNetObjectRef<T> value) where T : class
+        protected void DisposeDotNetObjectRef<T>(DotNetObjectReference<T> value) where T : class
         {
             if (value != null)
             {

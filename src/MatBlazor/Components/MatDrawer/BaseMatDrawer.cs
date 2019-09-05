@@ -48,7 +48,7 @@ namespace MatBlazor
         public EventCallback<bool> OpenedChanged { get; set; }
 
 
-        private DotNetObjectRef<BaseMatDrawer> dotNetObjectRef;
+        private DotNetObjectReference<BaseMatDrawer> dotNetObjectRef;
         public BaseMatDrawer()
         {
             
