@@ -9,7 +9,7 @@ namespace MatBlazor
     public class BaseMatNavItem : BaseMatListItem
     {
         [Inject]
-        public IUriHelper UriHelper { get; set; }
+        public NavigationManager UriHelper { get; set; }
 
         [CascadingParameter]
         public BaseMatNavMenu MatNavMenu { get; set; }

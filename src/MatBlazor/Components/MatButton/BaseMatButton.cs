@@ -11,7 +11,7 @@ namespace MatBlazor
     public class BaseMatButton : BaseMatDomComponent
     {
         [Inject]
-        public Microsoft.AspNetCore.Components.IUriHelper UriHelper { get; set; }
+        public Microsoft.AspNetCore.Components.NavigationManager UriHelper { get; set; }
 
 
         protected async override Task OnFirstAfterRenderAsync()

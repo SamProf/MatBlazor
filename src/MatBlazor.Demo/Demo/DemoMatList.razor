@@ -222,7 +222,7 @@
 </h5>
 <DemoContainer>
     <Content>
-        @inject IUriHelper Url
+        @inject NavigationManager Url
         <MatList>
             <MatListItem Href="http://google.com">
                 Google
@@ -234,7 +234,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        @inject IUriHelper Url
+        @inject NavigationManager Url
         <MatList>
             <MatListItem Href=""http://google.com"">
                 Google

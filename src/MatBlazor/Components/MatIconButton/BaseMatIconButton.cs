@@ -10,7 +10,7 @@ namespace MatBlazor
     public class BaseMatIconButton : BaseMatDomComponent
     {
         [Inject]
-        public Microsoft.AspNetCore.Components.IUriHelper UriHelper { get; set; }
+        public Microsoft.AspNetCore.Components.NavigationManager UriHelper { get; set; }
 
         private bool _disabled;
         private bool _toggled = false;
