@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
@@ -72,7 +73,14 @@ namespace MatBlazor
         {
             base.Dispose();
             DisposeDotNetObjectRef(dotNetObjectRef);
-            JsInvokeAsync<object>("matBlazor.matHidden.destroy", Id);
+            try
+            {
+                JsInvokeAsync<object>("matBlazor.matHidden.destroy", Id);
+            }
+            catch (Exception e)
+            {
+            }
+            
         }
     }
 }

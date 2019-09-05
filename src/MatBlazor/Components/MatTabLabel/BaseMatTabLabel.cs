@@ -38,15 +38,7 @@ namespace MatBlazor
         public void Dispose()
         {
             disposed = true;
-            Parent.Tabs.Remove(this);
-            if (Parent.Active == this)
-            {
-                Parent.Active = Parent.Tabs.FirstOrDefault();
-            }
-            else
-            {
-                Parent.ActiveChanged.InvokeAsync(Parent.Active);
-            }
+            Parent.TabDisposed(this);
         }
 
         public bool IsActive

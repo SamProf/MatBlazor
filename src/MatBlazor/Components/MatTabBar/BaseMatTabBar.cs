@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
@@ -27,10 +29,30 @@ namespace MatBlazor
                 }
 
                 _active = value;
-                this.StateHasChanged();
-                ActiveChanged.InvokeAsync(value);
+                if (!Disposed)
+                {
+                    this.StateHasChanged();
+                    ActiveChanged.InvokeAsync(value);
+                }
             }
         }
+
+        internal async Task TabDisposed(BaseMatTabLabel tab)
+        {
+            await InvokeAsync(() =>
+            {
+                Tabs.Remove(tab);
+                if (this.Active == tab)
+                {
+                    this.Active = this.Tabs.FirstOrDefault();
+                }
+                else
+                {
+                    this.ActiveChanged.InvokeAsync(this.Active);
+                }
+            });
+        }
+
 
         [Parameter]
         public EventCallback<BaseMatTabLabel> ActiveChanged { get; set; }
