@@ -37,7 +37,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         @using Microsoft.AspNetCore.Components
 
 
@@ -63,15 +63,11 @@
 
             public void RunOnClick(MouseEventArgs e)
             {
-                if (ComponentContext.IsConnected)
-                {
-                    JsRuntime.InvokeAsync<object>(""window.alert"", ""Test"");
-                }
+                JsRuntime.InvokeAsync<object>(""window.alert"", ""Test"");
             }
 
         }
 
-    ")>
-        </BlazorFiddle>
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

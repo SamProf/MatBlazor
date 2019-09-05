@@ -64,7 +64,7 @@ namespace MatBlazor
         /// Gets a string that indicates the status of the field being edited. This will include
         /// some combination of "modified", "valid", or "invalid", depending on the status of the field.
         /// </summary>
-        protected string FieldClass => EditContext?.FieldClass(FieldIdentifier) ?? string.Empty;
+        protected string FieldClass => EditContext?.FieldCssClass(FieldIdentifier) ?? string.Empty;
 
         /// <summary>
         /// Should be invoked by whenever a bound value is changed, such
@@ -80,7 +80,7 @@ namespace MatBlazor
         /// Gets or sets an expression that identifies the bound value.
         /// </summary>
         [Parameter]
-        public Expression<Func<T>> ValueExpression { get; private set; }
+        public Expression<Func<T>> ValueExpression { get; set; }
 
         /// <inheritdoc />
         public override Task SetParametersAsync(ParameterView parameters)

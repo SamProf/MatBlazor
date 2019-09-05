@@ -106,6 +106,12 @@ If you think that this project helped you or your company in any way, you can co
 
 ## News
 
+### MatBlazor 1.7.0
+- Update to .NET Core 3.0 Preview 9
+- PR: Return Toast instance on IMatToaster.Add method #228 (Thanks to [Sebbstar](https://github.com/Sebbstar))
+- PR: Replaced all @functions by @code. #233 (Thanks to [SeppPenner](https://github.com/SeppPenner))
+
+
 ### MatBlazor 1.6.4
 - Fix: MatAutocomplete StringValue clearing #216 (Thanks to [lukblazewicz](https://github.com/lukblazewicz))
 - Fix: MatSelect option list in enhanced mode showing example list #221 (Thanks to [aviezzi](https://github.com/aviezzi))
