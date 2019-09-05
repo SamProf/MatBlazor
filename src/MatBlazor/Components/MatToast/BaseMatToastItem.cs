@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 
 
 namespace MatBlazor
@@ -19,8 +20,8 @@ namespace MatBlazor
 
         public string Message => Toast.Message;
 
-        public void Clicked(UIMouseEventArgs args) => Clicked(false);
-        public void CloseIconClicked(UIEventArgs args) => Clicked(true);
+        public void Clicked(MouseEventArgs args) => Clicked(false);
+        public void CloseIconClicked(EventArgs args) => Clicked(true);
 
 
         protected ClassMapper ContainerClassMapper = new ClassMapper();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace MatBlazor
 {
@@ -167,7 +168,7 @@ namespace MatBlazor
             IsOpened = false;
         }
 
-        public void OnValueChanged(UIChangeEventArgs ev)
+        public void OnValueChanged(ChangeEventArgs ev)
         {
             StringValue = (string) ev.Value;
             StateHasChanged();
@@ -179,7 +180,7 @@ namespace MatBlazor
             StateHasChanged();
         }
 
-        public void ClearText(UIMouseEventArgs e)
+        public void ClearText(MouseEventArgs e)
         {
             Value = default;
             StringValue = string.Empty;

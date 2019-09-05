@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace MatBlazor
 {
@@ -88,11 +89,11 @@ namespace MatBlazor
         ///  Event occurs when the user clicks on an element.
         /// </summary>
         [Parameter]
-        public EventCallback<UIMouseEventArgs> OnClick { get; set; }
+        public EventCallback<MouseEventArgs> OnClick { get; set; }
 
 
         [Parameter]
-        public EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
+        public EventCallback<MouseEventArgs> OnMouseDown { get; set; }
 
         protected async override Task OnFirstAfterRenderAsync()
         {
@@ -100,7 +101,7 @@ namespace MatBlazor
             await JsInvokeAsync<object>("matBlazor.matIconButton.init", Ref);
         }
 
-        protected void OnClickHandler(UIMouseEventArgs ev)
+        protected void OnClickHandler(MouseEventArgs ev)
         {
             _toggled = !_toggled;
 

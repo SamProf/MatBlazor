@@ -19,7 +19,7 @@ namespace MatBlazor
         private bool _checked;
 
 
-        protected void OnChangedHandler(UIChangeEventArgs e)
+        protected void OnChangedHandler(ChangeEventArgs e)
         {
             Checked = (bool) e.Value;
         }

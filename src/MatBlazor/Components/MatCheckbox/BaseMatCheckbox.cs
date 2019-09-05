@@ -37,7 +37,7 @@ namespace MatBlazor
         [Parameter]
         public string Value { get; set; }
 
-        protected void ChangeHandler(UIChangeEventArgs e)
+        protected void ChangeHandler(ChangeEventArgs e)
         {
             Checked = (bool) e.Value;
             CheckedChanged?.Invoke(this.Checked);

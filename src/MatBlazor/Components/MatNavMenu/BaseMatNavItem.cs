@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace MatBlazor
 {
@@ -47,7 +48,7 @@ namespace MatBlazor
                 .If("mdc-list-item--selected", () => Selected);
         }
 
-        protected async void OnClickHandler(UIMouseEventArgs e)
+        protected async void OnClickHandler(MouseEventArgs e)
         {
             if (AllowSelection)
             {

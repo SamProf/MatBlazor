@@ -38,7 +38,7 @@ namespace MatBlazor
         [Parameter]
         public string Label { get; set; }
 
-        protected void OnChangeHandler(UIChangeEventArgs e)
+        protected void OnChangeHandler(ChangeEventArgs e)
         {
             Group.Value = this.Value;
             //Checked = (bool)e.Value;

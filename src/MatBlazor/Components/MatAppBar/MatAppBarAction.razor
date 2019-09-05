@@ -15,7 +15,7 @@
     public RenderFragment ChildContent { get; set; }
 
     [Parameter]
-    public EventCallback<UIMouseEventArgs> OnClick { get; set; }
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
 
     [Parameter]
     public string Icon { get; set; }
@@ -23,7 +23,7 @@
     [Parameter]
     public string Label { get; set; }
 
-    private void OnClickHandler(UIMouseEventArgs e)
+    private void OnClickHandler(MouseEventArgs e)
     {
         OnClick.InvokeAsync(e);
     }

@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace MatBlazor
 {
@@ -24,7 +25,7 @@ namespace MatBlazor
             }
         }
 
-        protected async Task ValueChangedHandler(UIChangeEventArgs e)
+        protected async Task ValueChangedHandler(ChangeEventArgs e)
         {
             Value = e.Value?.ToString();
         }
@@ -33,25 +34,25 @@ namespace MatBlazor
         public EventCallback<string> ValueChanged { get; set; }
 
         [Parameter]
-        public EventCallback<UIMouseEventArgs> IconOnClick { get; set; }
+        public EventCallback<MouseEventArgs> IconOnClick { get; set; }
 
         [Parameter]
-        public EventCallback<UIFocusEventArgs> OnFocus { get; set; }
+        public EventCallback<FocusEventArgs> OnFocus { get; set; }
 
         [Parameter]
-        public EventCallback<UIFocusEventArgs> OnFocusOut { get; set; }
+        public EventCallback<FocusEventArgs> OnFocusOut { get; set; }
 
         [Parameter]
-        public EventCallback<UIKeyboardEventArgs> OnKeyPress { get; set; }
+        public EventCallback<KeyboardEventArgs> OnKeyPress { get; set; }
 
         [Parameter]
-        public EventCallback<UIKeyboardEventArgs> OnKeyDown { get; set; }
+        public EventCallback<KeyboardEventArgs> OnKeyDown { get; set; }
 
         [Parameter]
-        public EventCallback<UIKeyboardEventArgs> OnKeyUp { get; set; }
+        public EventCallback<KeyboardEventArgs> OnKeyUp { get; set; }
 
         [Parameter]
-        public EventCallback<UIChangeEventArgs> OnInput { get; set; }
+        public EventCallback<ChangeEventArgs> OnInput { get; set; }
 
         [Parameter]
         public string Label { get; set; }

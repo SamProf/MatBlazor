@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace MatBlazor
 {
@@ -34,7 +35,7 @@ namespace MatBlazor
         ///  Event occurs when the user clicks on an element.
         /// </summary>
         [Parameter]
-        public EventCallback<UIMouseEventArgs> OnClick { get; set; }
+        public EventCallback<MouseEventArgs> OnClick { get; set; }
 
         /// <summary>
         ///  Command executed when the user clicks on an element.
@@ -174,7 +175,7 @@ namespace MatBlazor
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        protected void OnClickHandler(UIMouseEventArgs ev)
+        protected void OnClickHandler(MouseEventArgs ev)
         {
             if (Link != null)
             {

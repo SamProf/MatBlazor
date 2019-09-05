@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace MatBlazor
 {
@@ -20,7 +21,7 @@ namespace MatBlazor
         public RenderFragment ChildContent { get; set; }
 
         [Parameter]
-        public EventCallback<UIMouseEventArgs> OnClick { get; set; }
+        public EventCallback<MouseEventArgs> OnClick { get; set; }
 
         public BaseMatFAB()
         {

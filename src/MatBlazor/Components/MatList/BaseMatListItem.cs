@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace MatBlazor
 {
@@ -9,10 +10,10 @@ namespace MatBlazor
     public class BaseMatListItem : BaseMatDomComponent
     {
         [Parameter]
-        public EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
+        public EventCallback<MouseEventArgs> OnMouseDown { get; set; }
 
         [Parameter]
-        public EventCallback<UIMouseEventArgs> OnClick { get; set; }
+        public EventCallback<MouseEventArgs> OnClick { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }

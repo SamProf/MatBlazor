@@ -169,7 +169,7 @@
                 await LoadData();
             }
 
-            async Task OnPageSizeChange(UIChangeEventArgs eventArgs)
+            async Task OnPageSizeChange(ChangeEventArgs eventArgs)
             {
                 PageSize = Convert.ToInt32(eventArgs.Value?.ToString());
                 CurrentPage = 1;
@@ -405,11 +405,11 @@
                 await UpdateList(CurrentPage);
             }
 
-            void OnInput(UIChangeEventArgs eventArgs)
+            void OnInput(ChangeEventArgs eventArgs)
             {
                 Debounce(eventArgs, DebounceMilliseconds, async (e) =>
                 {
-                    SearchTerm = ((UIChangeEventArgs)e).Value?.ToString();
+                    SearchTerm = ((ChangeEventArgs)e).Value?.ToString();
                     CurrentPage = 1;
                     await LoadData();
                 });
