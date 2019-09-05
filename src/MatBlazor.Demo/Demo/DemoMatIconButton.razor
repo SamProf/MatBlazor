@@ -1,5 +1,4 @@
 @inject IJSRuntime JsRuntime
-@inject IComponentContext ComponentContext
 
 <DocMatIconButton></DocMatIconButton>
 
@@ -31,17 +30,14 @@
 
             public void RunOnClick(MouseEventArgs e)
             {
-                if (ComponentContext.IsConnected)
-                {
-                    JsRuntime.InvokeAsync<object>("window.alert", "Test");
-                }
+                JsRuntime.InvokeAsync<object>("window.alert", "Test");
             }
 
         }
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         @using Microsoft.AspNetCore.Components
 
 
@@ -75,6 +71,7 @@
 
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>

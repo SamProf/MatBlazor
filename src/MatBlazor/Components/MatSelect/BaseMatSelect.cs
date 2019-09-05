@@ -101,11 +101,6 @@ namespace MatBlazor
         {
             await base.OnFirstAfterRenderAsync();
 
-            if (!ComponentContext.IsConnected)
-            {
-                return;
-            }
-            
             await JsInvokeAsync<object>("matBlazor.matSelect.init", Ref, DotNetObjectReference.Create(this));
         }
 

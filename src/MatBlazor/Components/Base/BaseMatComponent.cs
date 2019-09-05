@@ -14,7 +14,7 @@ namespace MatBlazor
 
         private Queue<Func<Task>> afterRenderCallQuene = new Queue<Func<Task>>();
 
-       protected void CallAfterRender(Func<Task> action)
+        protected void CallAfterRender(Func<Task> action)
         {
             afterRenderCallQuene.Enqueue(action);
         }
@@ -70,24 +70,18 @@ namespace MatBlazor
         [Inject]
         protected IJSRuntime Js { get; set; }
 
-        [Inject]
-        protected IComponentContext ComponentContext { get; set; }
-
         protected async Task<T> JsInvokeAsync<T>(string code, params object[] args)
         {
-            if (ComponentContext.IsConnected)
+            try
             {
-                try
-                {
-                    return await Js.InvokeAsync<T>(code, args);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
-                
+                return await Js.InvokeAsync<T>(code, args);
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
 
             return default(T);
         }
@@ -98,23 +92,12 @@ namespace MatBlazor
 
         protected DotNetObjectReference<T> CreateDotNetObjectRef<T>(T value) where T : class
         {
-            lock (CreateDotNetObjectRefSyncObj)
-            {
-                JSRuntime.SetCurrentJSRuntime(Js);
-                return DotNetObjectReference.Create(value);
-            }
+            return DotNetObjectReference.Create(value);
         }
 
         protected void DisposeDotNetObjectRef<T>(DotNetObjectReference<T> value) where T : class
         {
-            if (value != null)
-            {
-                lock (CreateDotNetObjectRefSyncObj)
-                {
-                    JSRuntime.SetCurrentJSRuntime(Js);
-                    value.Dispose();
-                }
-            }
+            value?.Dispose();
         }
 
         #endregion
