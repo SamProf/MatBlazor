@@ -15,6 +15,4 @@ jobs:
         dotnet-version: 3.0.100-preview9-014004
     - name: Build with dotnet
       run: |
-        cd ./src/MatBlazor
-        dotnet build --configuration Release
-        dotnet pack
+        dotnet build --configuration Release      
