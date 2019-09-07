@@ -68,122 +68,122 @@
     <Content>
         <p>
             <MatAutocomplete Collection="@options2" ItemType="Car" Label="Select car" CustomStringSelector="@(i => i.Name)" @bind-Value="@value">
-                <ItemTemplate>
-                    <div style="display: flex; flex-direction: row; width: 100%;">
-                        <div style="flex: 1;">@context.Name</div>
-                        <div style="width: 150px;">@context.Price$</div>
-                    </div>
-                </ItemTemplate>
-            </MatAutocomplete>
-        </p>
-        <p>
-            Selected value: @(value?.Name)
-        </p>
+                                 <ItemTemplate>
+                                     <div style="display: flex; flex-direction: row; width: 100%;">
+                                         <div style="flex: 1;">@context.Name</div>
+                                         <div style="width: 150px;">@context.Price$</div>
+                                     </div>
+                                 </ItemTemplate>
+                             </MatAutocomplete>
+                             </p>
+                             <p>
+                                 Selected value: @(value?.Name)
+                             </p>
 
-        @code
-        {
+                             @code
+                             {
 
-            public class Car
-            {
-                public string Name { get; set; }
-                public double Price { get; set; }
+                                 public class Car
+                                 {
+                                     public string Name { get; set; }
+                                     public double Price { get; set; }
 
-                public Car(string name, double price)
-                {
-                    Name = name;
-                    Price = price;
-                }
-            }
+                                     public Car(string name, double price)
+                                     {
+                                         Name = name;
+                                         Price = price;
+                                     }
+                                 }
 
-            Car value = null;
+                                 Car value = null;
 
-            Car[] options2 = new[]
-            {
-                new Car("Volkswagen Golf", 10000),
-                new Car("Volkswagen Passat", 11000),
-                new Car("Volkswagen Polo", 12000),
-                new Car("Ford Focus", 13000),
-                new Car("Ford Fiesta", 14000),
-                new Car("Ford Fusion", 15000),
-                new Car("Ford Mondeo", 16000),
-            };
+                                 Car[] options2 = new[]
+                                 {
+                                     new Car("Volkswagen Golf", 10000),
+                                     new Car("Volkswagen Passat", 11000),
+                                     new Car("Volkswagen Polo", 12000),
+                                     new Car("Ford Focus", 13000),
+                                     new Car("Ford Fiesta", 14000),
+                                     new Car("Ford Fusion", 15000),
+                                     new Car("Ford Mondeo", 16000),
+                                 };
 
-        }
+                             }
 
-    </Content>
+                             </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatAutocomplete Collection=""@options2"" ItemType=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"" @bind-Value=""@value"">
-                <ItemTemplate>
-                    <div style=""display: flex; flex-direction: row; width: 100%;"">
-                        <div style=""flex: 1;"">@context.Name</div>
-                        <div style=""width: 150px;"">@context.Price$</div>
-                    </div>
-                </ItemTemplate>
-            </MatAutocomplete>
-        </p>
-        <p>
-            Selected value: @(value?.Name)
-        </p>
+                                 <ItemTemplate>
+                                     <div style=""display: flex; flex-direction: row; width: 100%;"">
+                                         <div style=""flex: 1;"">@context.Name</div>
+                                         <div style=""width: 150px;"">@context.Price$</div>
+                                     </div>
+                                 </ItemTemplate>
+                             </MatAutocomplete>
+                             </p>
+                             <p>
+                                 Selected value: @(value?.Name)
+                             </p>
 
-        @code
-        {
+                             @code
+                             {
 
-            public class Car
-            {
-                public string Name { get; set; }
-                public double Price { get; set; }
+                                 public class Car
+                                 {
+                                     public string Name { get; set; }
+                                     public double Price { get; set; }
 
-                public Car(string name, double price)
-                {
-                    Name = name;
-                    Price = price;
-                }
-            }
+                                     public Car(string name, double price)
+                                     {
+                                         Name = name;
+                                         Price = price;
+                                     }
+                                 }
 
-            Car value = null;
+                                 Car value = null;
 
-            Car[] options2 = new[]
-            {
-                new Car(""Volkswagen Golf"", 10000),
-                new Car(""Volkswagen Passat"", 11000),
-                new Car(""Volkswagen Polo"", 12000),
-                new Car(""Ford Focus"", 13000),
-                new Car(""Ford Fiesta"", 14000),
-                new Car(""Ford Fusion"", 15000),
-                new Car(""Ford Mondeo"", 16000),
-            };
+                                 Car[] options2 = new[]
+                                 {
+                                     new Car(""Volkswagen Golf"", 10000),
+                                     new Car(""Volkswagen Passat"", 11000),
+                                     new Car(""Volkswagen Polo"", 12000),
+                                     new Car(""Ford Focus"", 13000),
+                                     new Car(""Ford Fiesta"", 14000),
+                                     new Car(""Ford Fusion"", 15000),
+                                     new Car(""Ford Mondeo"", 16000),
+                                 };
 
-        }
+                             }
 
-    ")></BlazorFiddle>
+                             ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
 
-<h5 class="mat-h5">With Full Width</h5>
-<DemoContainer>
-    <Content>
-        <MatAutocomplete Collection="@options2" FullWidth="true" ItemType="Car" Label="Select car" CustomStringSelector="@(i => i.Name)">
-            <ItemTemplate>
-                <div style="display: flex; flex-direction: row; width: 100%;">
-                    <div style="flex: 1;">@context.Name</div>
-                    <div style="width: 150px;">@context.Price$</div>
-                </div>
-            </ItemTemplate>
-        </MatAutocomplete>
-    </Content>
-    <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatAutocomplete Collection=""@options2"" FullWidth=""true"" ItemType=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"">
-            <ItemTemplate>
-                <div style=""display: flex; flex-direction: row; width: 100%;"">
-                    <div style=""flex: 1;"">@context.Name</div>
-                    <div style=""width: 150px;"">@context.Price$</div>
-                </div>
-            </ItemTemplate>
-        </MatAutocomplete>
-    ")></BlazorFiddle>
-    </SourceContent>
+                             <h5 class="mat-h5">With Full Width</h5>
+                             <DemoContainer>
+                                 <Content>
+                                     <MatAutocomplete Collection="@options2" FullWidth="true" ItemType="Car" Label="Select car" CustomStringSelector="@(i => i.Name)">
+                                         <ItemTemplate>
+                                             <div style="display: flex; flex-direction: row; width: 100%;">
+                                                 <div style="flex: 1;">@context.Name</div>
+                                                 <div style="width: 150px;">@context.Price$</div>
+                                             </div>
+                                         </ItemTemplate>
+                                     </MatAutocomplete>
+                                 </Content>
+                                 <SourceContent>
+                                 	<BlazorFiddle Template="MatBlazor" Code=@(@"
+                                     <MatAutocomplete Collection=""@options2"" FullWidth=""true"" ItemType=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"">
+                                         <ItemTemplate>
+                                             <div style=""display: flex; flex-direction: row; width: 100%;"">
+                                                 <div style=""flex: 1;"">@context.Name</div>
+                                                 <div style=""width: 150px;"">@context.Price$</div>
+                                             </div>
+                                         </ItemTemplate>
+                                     </MatAutocomplete>
+                                 ")></BlazorFiddle>
+                                 </SourceContent>
 </DemoContainer>
