@@ -18,13 +18,15 @@ namespace MatBlazor
         private string stringValue;
         private ItemType _value;
 
+        public BaseMatDomComponent TextFieldRef;
+
         protected IEnumerable<AutocompleteElementWrapper<ItemType>> GetFilteredCollection(string searchText)
         {
             return Collection.Select(x => new AutocompleteElementWrapper<ItemType>()
-                {
-                    StringValue = ComputeStringValue(x),
-                    Element = x
-                })
+            {
+                StringValue = ComputeStringValue(x),
+                Element = x
+            })
                 .Where(x => x != null &&
                             (string.IsNullOrEmpty(searchText) || x.StringValue.ToLowerInvariant()
                                  .Contains(searchText.ToLowerInvariant())))
@@ -170,7 +172,7 @@ namespace MatBlazor
 
         public void OnValueChanged(ChangeEventArgs ev)
         {
-            StringValue = (string) ev.Value;
+            StringValue = (string)ev.Value;
             StateHasChanged();
         }
 
@@ -203,7 +205,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await JsInvokeAsync<object>("matBlazor.matAutocomplete.init", Ref);
+            await JsInvokeAsync<object>("matBlazor.matAutocomplete.init", TextFieldRef.Ref);
         }
     }
 }
