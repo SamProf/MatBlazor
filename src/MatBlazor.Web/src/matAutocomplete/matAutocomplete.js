@@ -55,11 +55,11 @@ export class MatAutocomplete {
     }
   }
 
-  constructor(ref) {
-    ref.onkeydown = (e) => this.handleKeyEvent(e);
+  constructor(textFieldRef) {
+    textFieldRef.onkeydown = (e) => this.handleKeyEvent(e);
   }
 }
 
-export function init(textRef) {
-  new MatAutocomplete(textRef);
+export function init(textFieldRef) {
+  new MatAutocomplete(textFieldRef);
 }
