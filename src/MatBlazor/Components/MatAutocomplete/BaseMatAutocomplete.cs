@@ -18,7 +18,7 @@ namespace MatBlazor
         private string stringValue;
         private ItemType _value;
 
-        public BaseMatDomComponent TextFieldRef;
+        public BaseMatDomComponent ListRef;
 
         protected IEnumerable<AutocompleteElementWrapper<ItemType>> GetFilteredCollection(string searchText)
         {
@@ -176,6 +176,24 @@ namespace MatBlazor
             StateHasChanged();
         }
 
+        public void OnKeyDown(KeyboardEventArgs ev)
+        {
+            switch (ev.Key)
+            {
+                case "ArrowDown":
+                    JsInvokeAsync<object>("matBlazor.matList.moveThroughList", ListRef.Ref, true);
+                    break;
+                case "ArrowUp":
+                    JsInvokeAsync<object>("matBlazor.matList.moveThroughList", ListRef.Ref, false);
+                    break;
+                case "Enter":
+                    JsInvokeAsync<object>("matBlazor.matList.confirmSelection", ListRef.Ref);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public void ItemClicked(ItemType selectedObject)
         {
             Value = selectedObject;
@@ -205,7 +223,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await JsInvokeAsync<object>("matBlazor.matAutocomplete.init", TextFieldRef.Ref);
+            await JsInvokeAsync<object>("matBlazor.matAutocomplete.init", Ref);
         }
     }
 }
