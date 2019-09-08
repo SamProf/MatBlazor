@@ -6,7 +6,8 @@
     <IsPackable>true</IsPackable>
     <LangVersion>8.0</LangVersion>
     <RazorLangVersion>3.0</RazorLangVersion>
-    <Version>1.7.2</Version>
+    <VersionPrefix>1.7.3</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
     <Description>Material Design components for Blazor and Razor Components</Description>
     <PackageProjectUrl>https://github.com/SamProf/MatBlazor</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SamProf/MatBlazor</RepositoryUrl>

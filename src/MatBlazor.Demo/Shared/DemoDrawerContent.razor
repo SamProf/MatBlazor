@@ -1,22 +1,20 @@
 @using Microsoft.AspNetCore.Components
 @inject NavigationManager Url
 <style>
-    .mdc-drawer {
-        box-shadow: 2px 0px 2px 0px rgba(199,199,199,0.29);
-    }
+    .mdc-drawer { box-shadow: 2px 0px 2px 0px rgba(199, 199, 199, 0.29); }
 </style>
 
 <MatNavMenu Multi="true">
     <MatNavItem Href="@Url.ToAbsoluteUri("").AbsoluteUri"><MatIcon Icon="home"></MatIcon>&nbsp; Home</MatNavItem>
 
-    @foreach (string type in componentTypes)
+    @foreach (var groupModel in model)
     {
         <MatNavSubMenu Expanded="true">
             <MatNavSubMenuHeader>
-                <MatNavItem AllowSelection="false">@type</MatNavItem>
+                <MatNavItem AllowSelection="false">@groupModel.Group.Name</MatNavItem>
             </MatNavSubMenuHeader>
             <MatNavSubMenuList>
-                @foreach (var navItem in navItems.Where(n => n.ComponentType == @type))
+                @foreach (var navItem in groupModel.Items)
                 {
                     <MatNavItem Href="@Url.ToAbsoluteUri(navItem.Url).AbsoluteUri">
                         @navItem.Name
@@ -24,244 +22,290 @@
                 }
             </MatNavSubMenuList>
         </MatNavSubMenu>
-        <MatDivider></MatDivider>
     }
 
-    <MatNavItem Href="@Url.ToAbsoluteUri("BaseComponent").AbsoluteUri">
-        Base Component
-    </MatNavItem>
+
 </MatNavMenu>
 
 @code
 {
+
     class NavItem
     {
-        public string ComponentType;
+        public NavGroup Group;
         public string Name;
         public string Url;
     }
 
-    NavItem[] navItems;
-    string[] componentTypes;
+    class NavGroup
+    {
+        public string Name;
+        public int Order;
+
+        public NavGroup(string name, int order = int.MaxValue)
+        {
+            Name = name;
+            Order = order;
+        }
+    }
+
+    class NavGroupModel
+    {
+        public NavGroup Group;
+        public NavItem[] Items;
+    }
+
+    NavGroupModel[] model;
 
     protected async override Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-
-        componentTypes = new string[]{"Form Controls", "Navigation", "Layout", "Buttons & Indicators", "Popups & Modals"};
-        navItems = new[]
+    //"Form Controls", "Navigation", "Layout", "Buttons & Indicators", "Popups & Modals"
+        var groups = new
+        {
+            FormControls = new NavGroup("Form Controls", 1),
+            Navigation = new NavGroup("Navigation", 2),
+            Layout = new NavGroup("Layout", 3),
+            ButtonsAndIndicators = new NavGroup("Buttons & Indicators", 4),
+            PopupsAndModals = new NavGroup("Popups & Modals", 5),
+            Other = new NavGroup("Other", 6),
+        };
+        var navItems = new[]
         {
             new NavItem()
             {
                 Name = "Autocomplete",
                 Url = "Autocomplete",
-                ComponentType = "Form Controls"
+                Group = groups.FormControls,
             },
             new NavItem()
             {
                 Name = "Checkbox",
                 Url = "Checkbox",
-                ComponentType = "Form Controls"
+                Group = groups.FormControls,
             },
             new NavItem()
             {
                 Name = "TextField",
                 Url = "TextField",
-                ComponentType = "Form Controls"
+                Group = groups.FormControls,
             },
             new NavItem()
             {
                 Name = "RadioButton",
                 Url = "RadioButton",
-                ComponentType = "Form Controls"
+                Group = groups.FormControls,
             },
             new NavItem()
             {
                 Name = "Select",
                 Url = "Select",
-                ComponentType = "Form Controls"
+                Group = groups.FormControls,
             },
             new NavItem()
             {
                 Name = "Slider",
                 Url = "Slider",
-                ComponentType = "Form Controls"
+                Group = groups.FormControls,
             },
             new NavItem()
             {
                 Name = "SlideToggle",
                 Url = "SlideToggle",
-                ComponentType = "Form Controls"
+                Group = groups.FormControls,
             },
             new NavItem()
             {
                 Name = "Drawer",
                 Url = "Drawer",
-                ComponentType = "Navigation"
+                Group = groups.Navigation
             },
             new NavItem()
             {
                 Name = "AppBar",
                 Url = "AppBar",
-                ComponentType = "Navigation"
+                Group = groups.Navigation
             },
             new NavItem()
             {
                 Name = "Dialog",
                 Url = "Dialog",
-                ComponentType = "Popups & Modals"
+                Group = groups.PopupsAndModals
             },
             new NavItem()
             {
                 Name = "Snackbar",
                 Url = "Snackbar",
-                ComponentType = "Popups & Modals"
+                Group = groups.PopupsAndModals
             },
             new NavItem()
             {
                 Name = "Menu",
                 Url = "Menu",
-                ComponentType = "Layout"
+                Group = groups.Layout
             },
             new NavItem()
             {
                 Name = "Card",
                 Url = "Card",
-                ComponentType = "Layout"
+                Group = groups.Layout
             },
             new NavItem()
             {
                 Name = "Divider",
                 Url = "Divider",
-                ComponentType = "Layout"
+                Group = groups.Layout
             },
             new NavItem()
             {
                 Name = "List",
                 Url = "List",
-                ComponentType = "Layout"
+                Group = groups.Layout
             },
             new NavItem()
             {
                 Name = "Button",
                 Url = "Button",
-                ComponentType = "Buttons & Indicators"
+                Group = groups.ButtonsAndIndicators
             },
             new NavItem()
             {
                 Name = "Ripple",
                 Url = "Ripple",
-                ComponentType = "Buttons & Indicators"
+                Group = groups.ButtonsAndIndicators
             },
             new NavItem()
             {
                 Name = "IconButton",
                 Url = "IconButton",
-                ComponentType = "Buttons & Indicators"
+                Group = groups.ButtonsAndIndicators
             },
             new NavItem()
             {
                 Name = "Icon",
                 Url = "Icon",
-                ComponentType = "Buttons & Indicators"
+                Group = groups.ButtonsAndIndicators
             },
             new NavItem()
             {
                 Name = "Chip",
                 Url = "Chip",
-                ComponentType = "Buttons & Indicators"
+                Group = groups.ButtonsAndIndicators
             },
             new NavItem()
             {
                 Name = "ProgressBar",
                 Url = "ProgressBar",
-                ComponentType = "Buttons & Indicators"
+                Group = groups.ButtonsAndIndicators
             },
             new NavItem()
             {
                 Name = "Elevation",
                 Url = "Elevation",
-                ComponentType = "Layout"
+                Group = groups.Layout
             },
             new NavItem()
             {
                 Name = "Typography",
                 Url = "Typography",
-                ComponentType = "Layout"
+                Group = groups.Layout
             },
             new NavItem()
             {
                 Name = "Layout Grid",
                 Url = "LayoutGrid",
-                ComponentType = "Layout"
+                Group = groups.Layout
             },
             new NavItem()
             {
                 Name = "Table",
                 Url = "Table",
-                ComponentType = "Layout"
+                Group = groups.Layout
             },
             new NavItem()
             {
                 Name = "Tab",
                 Url = "Tab",
-                ComponentType = "Layout"
+                Group = groups.Layout
             },
             new NavItem()
             {
                 Name = "DatePicker",
                 Url = "DatePicker",
-                ComponentType = "Form Controls"
+                Group = groups.FormControls
             },
             new NavItem()
             {
                 Name = "Themes",
                 Url = "Themes",
-                ComponentType = "Layout"
-
+                Group = groups.Layout
             },
             new NavItem()
             {
                 Name = "FAB",
                 Url = "FAB",
-                ComponentType = "Buttons & Indicators"
+                Group = groups.ButtonsAndIndicators
             },
             new NavItem()
             {
                 Name = "Expansion Panel",
                 Url = "ExpansionPanel",
-                ComponentType = "Layout"
+                Group = groups.Layout
             },
             new NavItem()
             {
                 Name = "Toast",
                 Url = "Toast",
-                ComponentType = "Popups & Modals"
+                Group = groups.PopupsAndModals
             },
             new NavItem()
             {
                 Name = "Tooltip",
                 Url = "Tooltip",
-                ComponentType = "Popups & Modals"
+                Group = groups.PopupsAndModals
             },
             new NavItem()
             {
                 Name = "Hidden",
                 Url = "Hidden",
-                ComponentType = "Form Controls"
+                Group = groups.Layout
             },
             new NavItem()
             {
                 Name = "NumericUpDownField",
                 Url = "NumericUpDownField",
-                ComponentType = "Form Controls"
+                Group = groups.FormControls
             },
             new NavItem()
             {
                 Name = "Nav Menu",
                 Url = "NavMenu",
-                ComponentType = "Navigation"
+                Group = groups.Navigation
+            },
+            new NavItem()
+            {
+                Name = "BaseComponent",
+                Url = "BaseComponent",
+                Group = groups.Other
             }
-        }.OrderBy(i => i.Name).ToArray();
+        };
+
+
+        model = navItems
+            .GroupBy(i => i.Group)
+            .OrderBy(i => i.Key.Order)
+            .ThenBy(i => i.Key.Name)
+            .Select(g =>
+            {
+                return new NavGroupModel()
+                {
+                    Group = g.Key,
+                    Items = g
+                        .OrderBy(i => i.Name)
+                        .ToArray(),
+                };
+            })
+            .ToArray();
     }
+
 }
