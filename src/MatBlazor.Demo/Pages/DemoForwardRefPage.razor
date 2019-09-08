@@ -1,8 +1,213 @@
 ﻿@page "/ForwardRef";
 
-<h3 class="mat-h3">RefBack concept</h3>
+<h3 class="mat-h3">ForwardRef and RefBack technique</h3>
 
-<p>ForwardRef is a technique for automatically passing a ElementRef through a component to one of its children or back from children to parent or among independent components. </p>
-<p>This is typically not necessary for most components in the application. </p>
-<p>However, it can be useful for some kinds of components, especially in reusable component libraries. </p>
-<p>The most common scenarios are described <a target="_blank" href="https://www.samprof.com/2019/06/03/blazor-forwardref" style="font-weight: bold;">here</a>.</p>
+<p>Original of this article is <a target="_blank" href="https://www.samprof.com/2019/06/03/blazor-forwardref" style="font-weight: bold;">here</a>.</p>
+
+
+<p>
+    ForwardRef is a technique for automatically passing a ElementRef through a component to one of its children or back from children to parent or among independent components.
+    This is typically not necessary for most components in the application. However, it can be useful for some kinds of components, especially in reusable component libraries. The most common scenarios are described below.
+</p>
+
+<h4 id="capture-references-to-elements">Capture references to elements</h4>
+<p>From Blazor documentation we know that you can capture references to HTML elements in a component using the following approach:</p>
+
+<ul>
+    <li>Add a <code class="highlighter-rouge">ref</code> attribute to the HTML element.</li>
+    <li>
+        Define a field of type <code class="highlighter-rouge">ElementRef</code> whose name matches the value of the <code class="highlighter-rouge">ref</code> attribute.
+        The following example shows capturing a reference to the <code class="highlighter-rouge">username</code> <code class="highlighter-rouge">&lt;input&gt;</code> element:
+    </li>
+</ul>
+
+<div class="language-html highlighter-rouge">
+    <div class="highlight">
+        <pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">ref=</span><span class="s">"username"</span> <span class="err">...</span> <span class="nt">/&gt;</span>
+
+@@functions {
+    ElementRef username;
+}
+</code></pre>
+    </div>
+</div>
+
+<h3 id="problematics">Problematics</h3>
+
+<h3 id="problem-in-passing-a-elementref-to-its-children-or-another-component">Problem in passing a ElementRef to its children or another component</h3>
+<p>
+    If you try to pass the <code class="highlighter-rouge">ElementRef</code> to another component (children or neighbor), it will not work.
+    Because <code class="highlighter-rouge">ref</code> returns the value at the Render moment after the parameters have been applied.
+    The value can be applied after the following <code class="highlighter-rouge">StateHasChanged()</code>.
+</p>
+
+<div class="language-html highlighter-rouge">
+    <div class="highlight">
+        <pre class="highlight"><code><span class="nt">&lt;MyTooltipComponent</span> <span class="na">targetRef=</span><span class="s">"@@username"</span><span class="nt">&gt;&lt;/MyTooltipComponent&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">ref=</span><span class="s">"username"</span> <span class="err">...</span> <span class="nt">/&gt;</span>
+
+@@functions {
+    ElementRef username;
+}
+</code></pre>
+    </div>
+</div>
+
+<h3 id="problem-in-passing-a-child-elementref-to-its-parent-in-blazor">Problem in passing a child ElementRef to its parent in Blazor</h3>
+<p>The same problem is reproduced when you need to get the ElementRef from the ChildContent, especially when ChildContent is not an HTML Element, but Blazor Component.</p>
+<div class="language-html highlighter-rouge">
+    <div class="highlight">
+        <pre class="highlight"><code><span class="nt">&lt;MyTooltipComponent</span> <span class="na">Tooltip=</span><span class="s">"My tooltip for h1 element"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1&gt;&lt;/h1&gt;</span>
+<span class="nt">&lt;/MyTooltipComponent&gt;</span>
+
+<span class="nt">&lt;MyTooltipComponent</span> <span class="na">Tooltip=</span><span class="s">"My tooltip for MatBlazor Button"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;MatButton&gt;</span>Click me<span class="nt">&lt;/MatButton&gt;</span>
+<span class="nt">&lt;/MyTooltipComponent&gt;</span>
+</code></pre>
+    </div>
+</div>
+
+<h2 id="solution-forwardref">Solution <code class="highlighter-rouge">ForwardRef</code></h2>
+<p>The solution is to create a store for the ElementRef and pass this as parameter to all components.</p>
+<div class="highlighter-rouge">
+    <div class="highlight">
+        <pre class="highlight"><code>public class ForwardRef
+{
+    private ElementRef _current;
+    
+    public ElementRef Current
+    {
+        get =&gt; _current;
+        set =&gt; Set(value);
+    }
+    public void Set(ElementRef value)
+    {
+        _current = value;
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+<h3 id="solution-for-passing-a-elementref-to-its-children-or-another-component">Solution for passing a ElementRef to its children or another component</h3>
+<p>When the current component wants to pass its <code class="highlighter-rouge">ElementRef</code> and pass it on to others, you should create ForwardRef instance and pass it to others components in parameters.</p>
+
+<h4 id="indexrazor">Index.razor</h4>
+<div class="language-html highlighter-rouge">
+    <div class="highlight">
+        <pre class="highlight"><code><span class="nt">&lt;MyTooltipComponent</span> <span class="na">targetForwardRef=</span><span class="s">"@@usernameForwardRef"</span> <span class="na">Tooltip=</span><span class="s">"My tooltip"</span><span class="nt">&gt;&lt;/MyTooltipComponent&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">ref=</span><span class="s">"usernameForwardRef.Current"</span> <span class="err">...</span> <span class="nt">/&gt;</span>
+
+@@functions {
+    ForwardRef usernameForwardRef = new ForwardRef();
+}
+</code></pre>
+    </div>
+</div>
+
+<h4 id="mytooltipcomponentrazor">MyTooltipComponent.razor</h4>
+<div class="language-html highlighter-rouge">
+    <div class="highlight">
+        <pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"my-tooltip"</span><span class="nt">&gt;</span>@@Tooltip<span class="nt">&lt;/div&gt;</span>
+
+@@functions {
+    [Parameter]
+    protected ForwardRef TargetForwardRef {get;set;}
+    
+    [Parameter]
+    protected string Tooltip {get;set;}
+    
+    protected override async Task OnAfterRenderAsync()
+    {
+        // TargetForwardRef.Current will contain reference to target ElementRef 
+        await js.InvokeAsync<span class="nt">&lt;object&gt;</span>("initTooltip", TargetForwardRef.Current);
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+<h3 id="solution-in-passing-a-child-elementref-to-its-parent-in-blazor">Solution in passing a child ElementRef to its parent in Blazor</h3>
+<p>If you want to get a reference to a <code class="highlighter-rouge">ElementRef</code> of child, you should pass the <code class="highlighter-rouge">ForwardRef</code> to the child in which the child returns <code class="highlighter-rouge">ElementRef</code> to itself.</p>
+
+<h4 id="mytooltipcomponentrazor-1">MyTooltipComponent.razor</h4>
+<div class="language-html highlighter-rouge">
+    <div class="highlight">
+        <pre class="highlight"><code>@@ChildContent(TargetForwardRef)
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"my-tooltip"</span><span class="nt">&gt;</span>@@Tooltip<span class="nt">&lt;/div&gt;</span>
+
+@@functions {
+    private ForwardRef TargetForwardRef {get;set;} = new ForwardRef();
+    
+    [Parameter]
+    protected string Tooltip {get;set;}
+    
+    [Parameter]
+    protected RenderFragment<span class="nt">&lt;ForwardRef&gt;</span> ChildContent {get;set;}   
+    
+    
+    protected override async Task OnAfterRenderAsync()
+    {
+        // TargetForwardRef.Current will contain reference to target ElementRef 
+        await js.InvokeAsync<span class="nt">&lt;object&gt;</span>("initTooltip", TargetForwardRef.Current);
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+<p>To obtain a <code class="highlighter-rouge">ElementRef</code> to the Html Element.</p>
+<h4 id="indexrazor-1">Index.razor</h4>
+<div class="language-html highlighter-rouge">
+    <div class="highlight">
+        <pre class="highlight"><code><span class="nt">&lt;MyTooltipComponent</span> <span class="na">Tooltip=</span><span class="s">"My tooltip"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">ref=</span><span class="s">"@@context.Current"</span> <span class="err">...</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/MyTooltipComponent&gt;</span>
+</code></pre>
+    </div>
+</div>
+
+<p>To obtain a <code class="highlighter-rouge">ElementRef</code> to the Custom Blazor Component your component should get <code class="highlighter-rouge">ForwardRef</code> as a parameter.</p>
+
+<h4 id="mycustomcomponentrazor">MyCustomComponent.razor</h4>
+<div class="language-html highlighter-rouge">
+    <div class="highlight">
+        <pre class="highlight"><code><span class="nt">&lt;MyCustomComponent&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">ref=</span><span class="s">"ForwardRef.Current"</span> <span class="err">...</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/MyTooltipComponent&gt;</span>
+
+@@functions {
+    [Parameter]
+    protected ForwardRef RefBack {get;set;}
+    
+    protected ElementRef Ref
+    {
+        set 
+        {
+            RefBack?.Set(value);
+        }
+    }
+}
+</code></pre>
+    </div>
+</div>
+<h4 id="indexrazor-2">Index.razor</h4>
+<div class="language-html highlighter-rouge">
+    <div class="highlight">
+        <pre class="highlight"><code><span class="nt">&lt;MyTooltipComponent</span> <span class="na">Tooltip=</span><span class="s">"My tooltip"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;MyCustomComponent</span> <span class="na">RefBack=</span><span class="s">"@@context"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/MyTooltipComponent&gt;</span>
+</code></pre>
+    </div>
+</div>
+
+<h3 id="summary">Summary</h3>
+<p>
+    In my opinion, this is one of the best <code class="highlighter-rouge">ElementRef</code> transfer techniques among the components.
+    Of course, in the class, you can add events with subscription and unsubscribe, and much more, for example Observable.
+    That we used in the development of the MatBlazor components for <a href="/Tooltip">Tooltip</a> and <a href="/Menu">Menu</a>.
+</p>

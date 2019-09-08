@@ -60,7 +60,7 @@
     protected async override Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-    //"Form Controls", "Navigation", "Layout", "Buttons & Indicators", "Popups & Modals"
+   
         var groups = new
         {
             FormControls = new NavGroup("Form Controls", 1),
@@ -287,7 +287,13 @@
                 Name = "BaseComponent",
                 Url = "BaseComponent",
                 Group = groups.Other
-            }
+            },
+            new NavItem()
+            {
+                Name = "ForwardRef & RefBack",
+                Url = "ForwardRef",
+                Group = groups.Other
+            },
         };
 
 
