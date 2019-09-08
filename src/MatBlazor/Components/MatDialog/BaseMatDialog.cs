@@ -11,6 +11,9 @@ namespace MatBlazor
     {
         private bool _isOpen;
 
+        // true is the mdc default
+        private bool _canBeClosed = true;
+
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
@@ -37,11 +40,31 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<bool> IsOpenChanged { get; set; }
 
+        /// <summary>
+        /// Indicates if the user is able to close the dialog via Escape or click on the Scrim.
+        /// </summary>
+        [Parameter]
+        public bool CanBeClosed
+        {
+            get => _canBeClosed;
+            set
+            {
+                if (CanBeClosed != value)
+                {
+                    _canBeClosed = value;
+                    CallAfterRender(async () =>
+                    {
+                        await JsInvokeAsync<object>("matBlazor.matDialog.setCanBeClosed", Ref, value);
+                    });
+                }
+            }
+        }
+
         private DotNetObjectReference<BaseMatDialog> dotNetObjectRef;
 
         public BaseMatDialog()
         {
-            
+
             ClassMapper.Add("mdc-dialog");
             CallAfterRender(async () =>
             {
