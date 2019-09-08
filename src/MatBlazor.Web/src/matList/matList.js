@@ -15,10 +15,13 @@ export function init(ref, options) {
   ref.$list = list;
 }
 
-export function moveThroughList(ref, isForward) {
+export function getSelectedIndex(ref) {
   let currentIndex = ref.$list.foundation_.getSelectedIndex();
-  currentIndex += ((isForward) ? 1 : -1);
-  ref.$list.foundation_.setSelectedIndex(currentIndex);
+  return currentIndex;
+}
+
+export function setSelectedIndex(ref, index) {
+  ref.$list.foundation_.setSelectedIndex(index);
 }
 
 export function confirmSelection(ref) {

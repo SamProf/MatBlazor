@@ -18,7 +18,7 @@ namespace MatBlazor
         private string stringValue;
         private ItemType _value;
 
-        public BaseMatDomComponent ListRef;
+        public MatList ListRef;
 
         protected IEnumerable<AutocompleteElementWrapper<ItemType>> GetFilteredCollection(string searchText)
         {
@@ -176,21 +176,17 @@ namespace MatBlazor
             StateHasChanged();
         }
 
-        public void OnKeyDown(KeyboardEventArgs ev)
+        public async void OnKeyDown(KeyboardEventArgs ev)
         {
-            switch (ev.Key)
+            if (ev.Key == "ArrowDown" || ev.Key == "ArrowUp")
             {
-                case "ArrowDown":
-                    JsInvokeAsync<object>("matBlazor.matList.moveThroughList", ListRef.Ref, true);
-                    break;
-                case "ArrowUp":
-                    JsInvokeAsync<object>("matBlazor.matList.moveThroughList", ListRef.Ref, false);
-                    break;
-                case "Enter":
-                    JsInvokeAsync<object>("matBlazor.matList.confirmSelection", ListRef.Ref);
-                    break;
-                default:
-                    break;
+                int currentIndex = await ListRef.GetSelectedIndex();
+                int nextIndex = (ev.Key == "ArrowDown") ? currentIndex++ : currentIndex--;
+                await ListRef.SetSelectedIndex(currentIndex);
+            }
+            else if (ev.Key == "Enter")
+            {
+                await JsInvokeAsync<object>("matBlazor.matList.confirmSelection", ListRef.Ref);
             }
         }
 
