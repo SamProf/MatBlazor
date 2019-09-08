@@ -4,5 +4,23 @@
 
 
 <p>
-    <MatDatePicker Inline="true"></MatDatePicker>
+    <MatDatePicker @bind-Value="@Date1" Label="something"></MatDatePicker>
+</p>        
+<p>            
+    <MatTextField  @bind-Value="@TextField" Label="text" Outlined="true" />
 </p>
+   
+<button type="button" class="btn btn-primary" @onclick="Update">Update</button>
+
+
+        @functions
+        {
+            public DateTime? Date1 { get; set; } 
+            public String TextField { get; set; } = "";
+       
+            public void  Update() {
+                Date1 = DateTime.Now.AddDays(-10);
+                TextField = "something";
+                this.StateHasChanged(); 
+            }
+        }

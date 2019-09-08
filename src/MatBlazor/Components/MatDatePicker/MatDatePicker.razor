@@ -3,7 +3,7 @@
 
 
 <MatTextFieldView
-    RefBack="@RefBack"
+    RefBack="@TextViewForwardRef"
     Class="@($"{Class} {FieldClass}")"
     Style="@Style"
     Icon="@MatIconNames.Calendar_today"
@@ -20,5 +20,10 @@
     Attributes="@Attributes"
     Id="@Id"
     @ref="TextFieldRef"
-    >
+    IconOnClick="OnClickIconHandler"
+    Value="@ValueAsString"
+    ValueChanged="@InputValueChangedHandler">
+    <AfterInputTemplate>
+        <input @ref="flatpickrInput" style="display: none;"/>
+    </AfterInputTemplate>
 </MatTextFieldView>

@@ -108,6 +108,9 @@ namespace MatBlazor
         [Parameter]
         public string Type { get; set; } = "text";
 
+        [Parameter]
+        public RenderFragment AfterInputTemplate { get; set; }
+
         /// <summary>
         /// Css class of input element
         /// </summary>

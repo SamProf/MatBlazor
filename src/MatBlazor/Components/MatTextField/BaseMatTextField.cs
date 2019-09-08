@@ -152,5 +152,12 @@ namespace MatBlazor
             await base.OnFirstAfterRenderAsync();
             await JsInvokeAsync<object>("matBlazor.matTextField.init", Ref);
         }
+
+        public override string ValueAsString
+        {
+            get { return Value; }
+            set { Value = value; }
+        }
+    
     }
 }

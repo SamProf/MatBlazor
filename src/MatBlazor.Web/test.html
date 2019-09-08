@@ -10,80 +10,51 @@
 <body>
 
 
-<!--<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>-->
-<script src="/MatBlazor.Web/dist/matBlazor.js"></script>
-<!--<link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">-->
-<!--<script src="https://unpkg.com/js-datepicker"></script>-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 
 <style>
 
 
-
-
 </style>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
+<br />
+<br />
+<br />
+<br />
 
-<table>
-    <tr>
-        <td>1</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-            <span id="ref1">111</span>
-            <div class="mat-tooltip" id="ref2">vrvreerver</div>
-        </td>
-    </tr>
-</table>
+<div class="mdc-text-field" id="ref3">
+    <input type="text" id="my-text-field" class="mdc-text-field__input" id="ref2">
+    <input style="display: none;" id="ref">
+    <label class="mdc-floating-label" for="my-text-field">Hint text</label>
+    <div class="mdc-line-ripple"></div>
+</div>
 
-
-
+<button onclick="test1()">111</button>
 
 
 <script type="text/javascript">
-  // var ref1 = document.getElementById('ref1');
 
-  var ref1 = document.getElementById('ref1');
+
+  var ref = document.getElementById('ref');
   var ref2 = document.getElementById('ref2');
+  var ref3 = document.getElementById('ref3');
+  var f = flatpickr(ref, {
+    clickOpens: false,
+    positionElement: ref3,
+    //appendTo: ref3,
 
-  matBlazor.matTooltip.init(ref2, ref1, null, {});
-  //
-  // var select2 = new mdc.select.MDCSelect(ref2);
-  // var select1 = new mdc.select.MDCSelect(ref1);
+  });
 
-  // select.listen('MDCSelect:change', () => {
-  //   alert(`Selected option at index ${select.selectedIndex} with value "${select.value}"`);
-  // });
-
+  // f._positionElement =  ref2;
+  function test1()
+  {
+    f.open();
+  }
 
 
-  // setTimeout(()=>{
-  //   ref.classList.add("mdc-drawer--open");
-  //   ref.classList.add("mdc-drawer--opening");
-  // }, 2000);
-  // var tooltip = document.getElementById('tRef');
-  //
-  // var d = new mdc.drawer.MDCDrawer(ref);
 
-  // setInterval(()=>{
-  //   d.open = !d.open;
-  // }, 3000);
 
 </script>
 

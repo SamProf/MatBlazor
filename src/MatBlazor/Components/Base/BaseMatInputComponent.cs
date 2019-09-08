@@ -27,9 +27,20 @@ namespace MatBlazor
                     _value = value;
                     ValueChanged.InvokeAsync(value);
                     NotifyFieldChanged();
+                    AfterValueChanged();
                 }
             }
         }
+
+
+
+        public virtual void AfterValueChanged()
+        {
+        }
+
+
+        public abstract string ValueAsString { get; set; }
+        
 
         /// <summary>
         /// When contained within an <see cref="EditContext"/> disables this control's

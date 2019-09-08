@@ -8,6 +8,9 @@ namespace MatBlazor
 {
     public abstract class BaseMatComponent : ComponentBase, IBaseMatComponent, IDisposable
     {
+        protected ForwardRef TextViewForwardRef = new ForwardRef();
+
+
         [Parameter]
         public ForwardRef RefBack { get; set; }
 
