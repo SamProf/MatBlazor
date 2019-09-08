@@ -106,6 +106,13 @@ If you think that this project helped you or your company in any way, you can co
 
 ## News
 
+### MatBlazor 1.7.2
+- PR: Add some padding to toasts #238 (Thanks to [dga711](https://github.com/dga711))
+- PR: AutoComplete list cleaner look #239 (Thanks to [dga711](https://github.com/dga711))
+
+### MatBlazor 1.7.1
+- Change info in Nuget package
+
 ### MatBlazor 1.7.0
 - Update to .NET Core 3.0 Preview 9
 - PR: Return Toast instance on IMatToaster.Add method #228 (Thanks to [Sebbstar](https://github.com/Sebbstar))
