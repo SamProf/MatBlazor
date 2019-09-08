@@ -18,10 +18,51 @@
 </DemoContainer>
 
 
+<h5 class="mat-h5">Capture of Reference of the component using <a href="/ForwardRef">ForwardRef</a></h5>
+<DemoContainer>
+    <Content>
+
+
+        <MatButton RefBack="buttonRefBack" OnClick="@Click2">Get me Ref</MatButton>
+
+        @code
+        {
+            ForwardRef buttonRefBack = new ForwardRef();
+
+            void Click2(MouseEventArgs e)
+            {
+            // buttonRefBack.Current - Reference for Dom Element of button
+            }
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+
+
+        <MatButton RefBack=""buttonRefBack"" OnClick=""@Click2"">Get me Ref</MatButton>
+
+        @code
+        {
+            ForwardRef buttonRefBack = new ForwardRef();
+
+            void Click2(MouseEventArgs e)
+            {
+            // buttonRefBack.Current - Reference for Dom Element of button
+            }
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
 <h5 class="mat-h5">Capture of Reference of the component</h5>
 <DemoContainer>
     <Content>
-        <MatButton @ref="ButtonRef"  OnClick="@Click">Get me Ref</MatButton>
+        <MatButton @ref="ButtonRef" OnClick="@Click">Get me Ref</MatButton>
 
         @code
         {
@@ -38,7 +79,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatButton @ref=""ButtonRef""  OnClick=""@Click"">Get me Ref</MatButton>
+        <MatButton @ref=""ButtonRef"" OnClick=""@Click"">Get me Ref</MatButton>
 
         @code
         {
