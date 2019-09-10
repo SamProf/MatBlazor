@@ -2,25 +2,46 @@
 @using Microsoft.AspNetCore.Components
 @inject IJSRuntime JsRuntime;
 
+<MatTextField @bind-Value="@DateStr"></MatTextField>
+
+<MatButton OnClick="@Test2">123</MatButton>
+
 
 <p>
     <MatDatePicker @bind-Value="@Date1" Label="something"></MatDatePicker>
-</p>        
-<p>            
-    <MatTextField  @bind-Value="@TextField" Label="text" Outlined="true" />
 </p>
-   
+<p>
+    <MatTextField @bind-Value="@TextField" Label="text" Outlined="true"/>
+</p>
+
 <button type="button" class="btn btn-primary" @onclick="Update">Update</button>
 
 
         @functions
         {
-            public DateTime? Date1 { get; set; } 
+
+            public string DateStr { get; set; }
+
+            public DateTime? Date1 { get; set; }
             public String TextField { get; set; } = "";
-       
-            public void  Update() {
+
+            public void Update()
+            {
                 Date1 = DateTime.Now.AddDays(-10);
                 TextField = "something";
-                this.StateHasChanged(); 
+                this.StateHasChanged();
             }
+
+
+            public void Test2()
+            {
+                var d = DateTime.Parse(DateStr);
+                Console.WriteLine(d.ToString());
+                Console.WriteLine(d.ToLocalTime().ToString());
+                
+                d = DateTime.Now;
+                Console.WriteLine(d.ToString());
+                Console.WriteLine(d.ToLocalTime().ToString());
+            }
+
         }
