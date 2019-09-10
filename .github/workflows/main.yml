@@ -1,56 +1,16 @@
 name: ASP.NET Core CI
 
-on:
-    push:
-        branches:
-            - releases/*    
+on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    
+    build:
+        runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.0.100-preview9-014004
-    - name: Build with dotnet
-      run: |
-        cd src 
-        dotnet build --configuration Release      
-    - name: Publish MatBlazor.Demo.ServerApp
-      run: |
-        cd src
-        dotnet publish MatBlazor.Demo.ServerApp -o ./publish/MatBlazor.Demo.ServerApp        
-    - name: Deploy MatBlazor.Demo.ServerApp
-      env:
-        PRIVATE_KEY: ${{ secrets.ssh_key }}
-        HOST: srv4.samprof.com
-        USER: root
-      run: |
-        cd src
-        set -e
-
-        SSH_PATH="$HOME/.ssh"
-
-        mkdir -p "$SSH_PATH"
-        touch "$SSH_PATH/known_hosts"
-
-        echo "$PRIVATE_KEY" > "$SSH_PATH/deploy_key"
-
-        chmod 700 "$SSH_PATH"
-        chmod 600 "$SSH_PATH/known_hosts"
-        chmod 600 "$SSH_PATH/deploy_key"
-
-        eval $(ssh-agent)
-        ssh-add "$SSH_PATH/deploy_key"
-
-        ssh-keyscan -t rsa $HOST >> "$SSH_PATH/known_hosts"
-
-        ssh -o StrictHostKeyChecking=no -A -tt -p ${PORT:-22} $USER@$HOST "systemctl stop www.matblazor.com.service"
-        scp -r ./publish/MatBlazor.Demo.ServerApp/* $USER@$HOST:/var/host/www.matblazor.com
-        ssh -o StrictHostKeyChecking=no -A -tt -p ${PORT:-22} $USER@$HOST "systemctl stop www.matblazor.com.service"
-        
-        ssh -o StrictHostKeyChecking=no -A -tt -p ${PORT:-22} $USER@$HOST "systemctl start www.matblazor.com.service"
-     
+        - uses: actions/checkout@v1
+        - uses: actions/setup-dotnet@v1
+        with:
+            -version: 3.0.100-preview9-014004
+        - name: Build
+        run: |
+            cd src 
+            dotnet build --configuration Release         
