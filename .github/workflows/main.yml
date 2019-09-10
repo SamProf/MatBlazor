@@ -3,7 +3,7 @@ name: ASP.NET Core CI
 on:
     push:
         branches:
-            - 'releases/*'    
+            - releases/*    
 
 jobs:
   build:
