@@ -16,3 +16,9 @@ jobs:
     - name: Build with dotnet
       run: |
         dotnet build --configuration Release      
+    - name: Stop matblazor service
+      env:
+        ssh_key: ${{ secrets.ssh_key }}
+      run: |
+        echo $ssh_key
+     
