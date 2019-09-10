@@ -2,7 +2,9 @@ name: ASP.NET Core CI
 
 on:
     push:
-        - master    
+        branches:
+            - master
+    
 
 jobs:
   build:
