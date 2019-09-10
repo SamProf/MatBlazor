@@ -15,6 +15,7 @@ jobs:
         dotnet-version: 3.0.100-preview9-014004
     - name: Build with dotnet
       run: |
+        cd src 
         dotnet build --configuration Release      
     - name: Publish MatBlazor.Demo.ServerApp
       run: |
