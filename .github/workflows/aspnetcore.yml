@@ -19,6 +19,7 @@ jobs:
         dotnet build --configuration Release      
     - name: Publish MatBlazor.Demo.ServerApp
       run: |
+        cd src
         dotnet publish MatBlazor.Demo.ServerApp -o ./publish/MatBlazor.Demo.ServerApp        
     - name: Deploy MatBlazor.Demo.ServerApp
       env:
@@ -26,6 +27,7 @@ jobs:
         HOST: srv4.samprof.com
         USER: root
       run: |
+        cd src
         set -e
 
         SSH_PATH="$HOME/.ssh"
