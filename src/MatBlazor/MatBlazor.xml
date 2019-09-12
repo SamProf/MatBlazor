@@ -330,6 +330,18 @@
             Lists present multiple line items vertically as a single continuous element. 
             </summary>
         </member>
+        <member name="M:MatBlazor.BaseMatList.GetSelectedIndex">
+            <summary>
+            Gets the index of the selected item in the list.
+            </summary>
+            <returns>The index.</returns>
+        </member>
+        <member name="M:MatBlazor.BaseMatList.SetSelectedIndex(System.Int32)">
+            <summary>
+            Sets the selected item in the list by index.
+            </summary>
+            <param name="index">The index of the item to select.</param>
+        </member>
         <member name="T:MatBlazor.BaseMatListItem">
             <summary>
             Lists present multiple line items vertically as a single continuous element.
