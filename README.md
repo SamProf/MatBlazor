@@ -106,6 +106,11 @@ If you think that this project helped you or your company in any way, you can co
 
 ## News
 
+### MatBlazor 1.7.4
+- Support arrow keys and Enter in Autocomplete #237 (Thanks to [dga711](https://github.com/dga711))
+- MatDialog: New CanBeClosed property #241 (Thanks to [dga711](https://github.com/dga711))
+- Fix: Enhanced MatSelect throws exception(#231) #242 (Thanks to [aviezzi](https://github.com/aviezzi))
+
 ### MatBlazor 1.7.2
 - PR: Add some padding to toasts #238 (Thanks to [dga711](https://github.com/dga711))
 - PR: AutoComplete list cleaner look #239 (Thanks to [dga711](https://github.com/dga711))
