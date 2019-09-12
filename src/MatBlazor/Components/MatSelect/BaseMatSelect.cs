@@ -68,6 +68,7 @@ namespace MatBlazor
                 if (value != _value)
                 {
                     _value = value;
+                    CallAfterRender(async () => await JsInvokeAsync<object>("matBlazor.matSelect.setValue", Ref, value));
                     ValueChanged.InvokeAsync(value);
                 }
             }
