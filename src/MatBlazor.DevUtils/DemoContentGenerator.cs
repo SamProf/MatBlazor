@@ -15,6 +15,17 @@ namespace MatBlazor.DevUtils
     [TestFixture]
     public class DemoContentGenerator
     {
+
+
+        public void Run()
+        {
+            this.GenerateDocumentation();
+            this.GenerateNews();
+            this.GenerateSponsors();
+            this.Generate();
+        }
+
+
         [Test]
         public void GenerateDocumentation()
         {

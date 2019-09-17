@@ -1,7 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <StartupObject>MatBlazor.DevUtils.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
