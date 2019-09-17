@@ -106,6 +106,9 @@ If you think that this project helped you or your company in any way, you can co
 
 ## News
 
+### MatBlazor 1.8.0
+- Update to .NET Core 3.0 RC 1
+
 ### MatBlazor 1.7.4
 - Support arrow keys and Enter in Autocomplete #237 (Thanks to [dga711](https://github.com/dga711))
 - MatDialog: New CanBeClosed property #241 (Thanks to [dga711](https://github.com/dga711))

@@ -333,3 +333,6 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 /src/MatBlazor.Web/package-lock.json
+/src/Deploy/MatBlazor.Demo.ClientApp
+/src/Deploy/MatBlazor.Demo.ServerApp
+/src/Deploy/Nuget
