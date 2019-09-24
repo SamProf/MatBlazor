@@ -106,6 +106,9 @@ If you think that this project helped you or your company in any way, you can co
 
 ## News
 
+### MatBlazor 1.9.0
+- Update to .NET Core 3.0
+
 ### MatBlazor 1.8.0
 - Update to .NET Core 3.0 RC 1
 
