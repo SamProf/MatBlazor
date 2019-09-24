@@ -12,7 +12,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.0.100-rc1-014190
+        dotnet-version: 3.0.100
     - name: Build with dotnet
       run: |
         cd src 

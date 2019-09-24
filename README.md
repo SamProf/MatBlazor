@@ -30,7 +30,7 @@ Don't know what Blazor is? Read [here](https://github.com/aspnet/Blazor)
 
 Complete all Blazor dependencies.
 
-- .NET Core 3.0 Preview 9 SDK
+- .NET Core 3.0
 - Visual Studio 2019 Preview with the ASP.NET and web development workload selected.
 - The latest Blazor extension from the Visual Studio Marketplace.
 
