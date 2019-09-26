@@ -1,8 +1,22 @@
 ﻿@namespace MatBlazor
+@using Microsoft.AspNetCore.Components.Routing;
 @inherits BaseMatNavItem
 
-<CascadingValue Value="@this">
-    <li class="@ClassMapper.Class" @onmousedown="OnMouseDown" @onclick="OnClickHandler" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
-        @ChildContent
-    </li>    
-</CascadingValue>
+    <CascadingValue Value="@this">
+
+        @if (string.IsNullOrEmpty(Href))
+        {
+            <li class="@ClassMapper.Class" @onmousedown="OnMouseDown" style="@Style" @ref="Ref" @attributes="Attributes" Id="@Id">
+                @ChildContent
+            </li>
+        }
+        else
+        {
+            <li class="mdc-nav-li" @ref="Ref" @attributes="Attributes" Id="@Id">
+                <NavLink class="@ClassMapper.Class" style="@Style" href="@Href" @onclick="OnClickHandler" Match="NavLinkMatch.All" ActiveClass="mdc-list-item--selected">
+                    @ChildContent
+                </NavLink>
+            </li>
+        }
+
+    </CascadingValue>
