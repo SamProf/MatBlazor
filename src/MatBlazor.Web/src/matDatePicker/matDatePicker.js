@@ -42,11 +42,12 @@ export function init(ref, cmp, defaultDate, options) {
 
 
 export function init2(ref, flatpickrRef, cmp) {
-    console.log(ref);
-    console.log(flatpickrRef);
+    // console.log(ref);
+    // console.log(flatpickrRef);
     ref.$flatpickr = flatpickr(flatpickrRef, {
         positionElement: ref,
         onChange: function (value) {
+            // console.log(value);
             cmp.invokeMethodAsync('MatDatePickerOnChangeHandler', value);
         }
     });
