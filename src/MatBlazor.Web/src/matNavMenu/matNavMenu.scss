@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 .mat-accordion .mdc-nav-menu {
     .mat-expansion-panel__summary {
         padding: 0;
@@ -11,7 +12,8 @@
         padding: 0 0 0 13px;
     }
 
-    .mat-expansion-panel__content .mdc-list-item {
+    .mat-expansion-panel__content .mdc-list-item,
+    .mat-expansion-panel__content .mdc-nav-link {
         font-weight: 300;
     }
 
@@ -21,8 +23,9 @@
     }
 }
 
-.mdc-nav-item{
+.mdc-nav-item, .mdc-nav-li{
     flex-grow: 1;
+    list-style: none;
 }
 
 .mdc-sub-menu-icon {
