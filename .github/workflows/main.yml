@@ -1,4 +1,4 @@
-name: ASP.NET Core CI
+name: MatBlazror Build CI
 
 on: [push]
 
@@ -12,7 +12,8 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.0.100-preview9-014004
+        dotnet-version: 3.0.100
     - name: Build with dotnet
       run: |
-        dotnet build --configuration Release      
+        cd src 
+        dotnet build --configuration Release 

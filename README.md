@@ -30,7 +30,7 @@ Don't know what Blazor is? Read [here](https://github.com/aspnet/Blazor)
 
 Complete all Blazor dependencies.
 
-- .NET Core 3.0 Preview 9 SDK
+- .NET Core 3.0
 - Visual Studio 2019 Preview with the ASP.NET and web development workload selected.
 - The latest Blazor extension from the Visual Studio Marketplace.
 
@@ -105,6 +105,20 @@ If you think that this project helped you or your company in any way, you can co
 
 
 ## News
+
+### In progres MatBlazor 1.9.1
+- Auto-Active MatNatItem #268 (Thanks to [enkodellc](https://github.com/enkodellc))
+
+### MatBlazor 1.9.0
+- Update to .NET Core 3.0
+
+### MatBlazor 1.8.0
+- Update to .NET Core 3.0 RC 1
+
+### MatBlazor 1.7.4
+- Support arrow keys and Enter in Autocomplete #237 (Thanks to [dga711](https://github.com/dga711))
+- MatDialog: New CanBeClosed property #241 (Thanks to [dga711](https://github.com/dga711))
+- Fix: Enhanced MatSelect throws exception(#231) #242 (Thanks to [aviezzi](https://github.com/aviezzi))
 
 ### MatBlazor 1.7.2
 - PR: Add some padding to toasts #238 (Thanks to [dga711](https://github.com/dga711))

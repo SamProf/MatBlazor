@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EmbeddedBlazorContent" Version="1.7.0" />
+    <PackageReference Include="EmbeddedBlazorContent" Version="1.9.0" />
   </ItemGroup>
   
   <ItemGroup>

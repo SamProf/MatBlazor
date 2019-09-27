@@ -18,13 +18,15 @@ namespace MatBlazor
         private string stringValue;
         private ItemType _value;
 
+        public MatList ListRef;
+
         protected IEnumerable<AutocompleteElementWrapper<ItemType>> GetFilteredCollection(string searchText)
         {
             return Collection.Select(x => new AutocompleteElementWrapper<ItemType>()
-                {
-                    StringValue = ComputeStringValue(x),
-                    Element = x
-                })
+            {
+                StringValue = ComputeStringValue(x),
+                Element = x
+            })
                 .Where(x => x != null &&
                             (string.IsNullOrEmpty(searchText) || x.StringValue.ToLowerInvariant()
                                  .Contains(searchText.ToLowerInvariant())))
@@ -170,8 +172,22 @@ namespace MatBlazor
 
         public void OnValueChanged(ChangeEventArgs ev)
         {
-            StringValue = (string) ev.Value;
+            StringValue = (string)ev.Value;
             StateHasChanged();
+        }
+
+        public async void OnKeyDown(KeyboardEventArgs ev)
+        {
+            if (ev.Key == "ArrowDown" || ev.Key == "ArrowUp")
+            {
+                int currentIndex = await ListRef.GetSelectedIndex();
+                int nextIndex = (ev.Key == "ArrowDown") ? currentIndex++ : currentIndex--;
+                await ListRef.SetSelectedIndex(currentIndex);
+            }
+            else if (ev.Key == "Enter")
+            {
+                await JsInvokeAsync<object>("matBlazor.matList.confirmSelection", ListRef.Ref);
+            }
         }
 
         public void ItemClicked(ItemType selectedObject)

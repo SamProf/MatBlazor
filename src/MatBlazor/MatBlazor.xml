@@ -255,6 +255,11 @@
             Event occurs when the dialog is opened or closed.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatDialog.CanBeClosed">
+            <summary>
+            Indicates if the user is able to close the dialog via Escape or click on the Scrim.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatDivider">
             <summary>
             MatDivider is a component that allows for Material styling of a line separator with various orientation options. 
@@ -329,6 +334,18 @@
             <summary>
             Lists present multiple line items vertically as a single continuous element. 
             </summary>
+        </member>
+        <member name="M:MatBlazor.BaseMatList.GetSelectedIndex">
+            <summary>
+            Gets the index of the selected item in the list.
+            </summary>
+            <returns>The index.</returns>
+        </member>
+        <member name="M:MatBlazor.BaseMatList.SetSelectedIndex(System.Int32)">
+            <summary>
+            Sets the selected item in the list by index.
+            </summary>
+            <param name="index">The index of the item to select.</param>
         </member>
         <member name="T:MatBlazor.BaseMatListItem">
             <summary>

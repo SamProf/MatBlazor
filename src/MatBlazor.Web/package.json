@@ -4,7 +4,7 @@
   "description": "MatBlazor.Web",
   "scripts": {
     "start": "webpack --config webpack/prod.config.js --watch",
-    "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --color"
+    "build": "webpack --config webpack/prod.config.js"
   },
   "keywords": [
     "matblazor",
