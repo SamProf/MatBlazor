@@ -23,7 +23,7 @@ namespace MatBlazor
         public virtual ElementReference Ref
         {
             get => _ref;
-            set
+            protected set
             {
                 _ref = value;
                 RefBack?.Set(value);

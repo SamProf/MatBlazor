@@ -19,7 +19,6 @@ namespace MatBlazor
             afterRenderCallQuene.Enqueue(action);
         }
 
-
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
             await base.OnAfterRenderAsync(firstRender);
@@ -87,14 +86,7 @@ namespace MatBlazor
                 Console.WriteLine(e);
                 throw;
             }
-
-
-            return default(T);
         }
-
-        #region Hack to fix https://github.com/aspnet/AspNetCore/issues/11159
-
-        public static object CreateDotNetObjectRefSyncObj = new object();
 
         protected DotNetObjectReference<T> CreateDotNetObjectRef<T>(T value) where T : class
         {
@@ -105,7 +97,5 @@ namespace MatBlazor
         {
             value?.Dispose();
         }
-
-        #endregion
     }
 }

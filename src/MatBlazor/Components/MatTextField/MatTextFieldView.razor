@@ -1,0 +1,47 @@
+﻿@namespace MatBlazor
+@inherits BaseMatTextFieldView
+
+<div class="@ClassMapper.Class" style="@Style" @ref="Ref" >
+    @if (Model.Icon != null)
+    {
+        <i class="material-icons mdc-text-field__icon" tabindex="@(Model.IconOnClick.HasDelegate ? "0" : null)" onclick="@Model.IconOnClick">@Model.Icon</i>
+    }
+
+    @if (Model.TextArea)
+    {
+        <textarea style="@Model.InputStyle" @ref="Model.InputRef"  placeholder="@Model.PlaceHolder" required="@Model.Required" class="@InputClassMapper.Class" id="@Id" @bind="@Model.CurrentValueAsString" aria-label="@Model.Label" @oninput="@Model.OnInput" @onkeydown="@Model.OnKeyDown" @onkeyup="@Model.OnKeyUp" @onfocusout="@Model.OnFocusOut" @onkeypress="@Model.OnKeyPress" @onfocus="@Model.OnFocus" disabled="@Model.Disabled" readonly="@Model.ReadOnly" @attributes="Attributes" />
+    }
+    else
+    {
+        <input style="@Model.InputStyle" @ref="Model.InputRef"  type="@Model.Type" placeholder="@Model.PlaceHolder" required="@Model.Required" class="@InputClassMapper.Class" id="@Id" @bind="@Model.CurrentValueAsString" aria-label="@Model.Label" @oninput="@Model.OnInput" @onkeydown="@Model.OnKeyDown" @onkeyup="@Model.OnKeyUp" @onfocusout="@Model.OnFocusOut" @onkeypress="@Model.OnKeyPress" @onfocus="@Model.OnFocus" disabled="@Model.Disabled" readonly="@Model.ReadOnly" @attributes="Attributes" />
+    }
+
+    @if (!Model.FullWidth && Model.Outlined)
+    {
+        <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            @if (Model.Label != null)
+            {
+                <div class="mdc-notched-outline__notch">
+                    <label class="@LabelClassMapper.Class" for="@Id">@Model.Label</label>
+                </div>
+            }
+            <div class="mdc-notched-outline__trailing"></div>
+        </div>
+    }
+    else
+    {
+        if (Model.Label != null)
+        {
+            <label class="@LabelClassMapper.Class" for="@Id">@Model.Label</label>
+        }
+        <div class="mdc-line-ripple"></div>
+    }
+
+</div>
+@if (Model.HelperText != null)
+{
+    <div class="mdc-text-field-helper-line">
+        <div class="@HelperTextClassMapper.Class" aria-hidden="@(!Model.HelperTextPersistent)">@Model.HelperText</div>
+    </div>
+}

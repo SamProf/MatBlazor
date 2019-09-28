@@ -5,11 +5,10 @@
     <div class="@ClassMapper.Class" style="@Style" @ref="ComponentRef" >
         <input type="checkbox"
                class="mdc-checkbox__native-control"
-               @onchange="ChangeHandler"
-               checked="@Checked"
+               @onchange="ChangeHandlerAsync"
+               checked="@CurrentValue"
                disabled=@Disabled
-               value="@Value"
-               id="@(Id)"
+               id="@Id"
                @attributes="Attributes"/>
         <div class="mdc-checkbox__background">
             <svg class="mdc-checkbox__checkmark"

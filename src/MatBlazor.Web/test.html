@@ -10,7 +10,7 @@
 <body>
 
 
-<!--<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>-->
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 <script src="/MatBlazor.Web/dist/matBlazor.js"></script>
 <!--<link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">-->
 <!--<script src="https://unpkg.com/js-datepicker"></script>-->
@@ -22,47 +22,50 @@
 
 
 </style>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
 
-<table>
-    <tr>
-        <td>1</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-            <span id="ref1">111</span>
-            <div class="mat-tooltip" id="ref2">vrvreerver</div>
-        </td>
-    </tr>
-</table>
+<div class="mdc-text-field" id="ref1">
+    <input type="text" id="my-text-field" class="mdc-text-field__input">
+    <label class="mdc-floating-label" for="my-text-field">Hint text</label>
+    <div class="mdc-line-ripple"></div>
+
+
+    <div class="mdc-select demo-width-class">
+
+        <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+            <ul class="mdc-list">
+                <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+                <li class="mdc-list-item" data-value="grains">
+                    Bread, Cereal, Rice, and Pasta
+                </li>
+                <li class="mdc-list-item" data-value="vegetables">
+                    Vegetables
+                </li>
+                <li class="mdc-list-item" data-value="fruit">
+                    Fruit
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+
 
 
 
 
 
 <script type="text/javascript">
-  // var ref1 = document.getElementById('ref1');
-
   var ref1 = document.getElementById('ref1');
-  var ref2 = document.getElementById('ref2');
 
-  matBlazor.matTooltip.init(ref2, ref1, null, {});
+  new mdc.textField.MDCTextField(ref1);
+
+  // var ref1 = document.getElementById('ref1');
+  // var ref2 = document.getElementById('ref2');
+
+  // matBlazor.matTextField.init(ref2, ref1, null, {});
   //
   // var select2 = new mdc.select.MDCSelect(ref2);
   // var select1 = new mdc.select.MDCSelect(ref1);

@@ -1,139 +1,139 @@
-<DocMatDatePicker></DocMatDatePicker>
-
-
-<h5 class="mat-h5">Example</h5>
-<DemoContainer>
-    <Content>
-        <p>
-            <MatDatePicker @bind-Value="@Date1"></MatDatePicker>
-        </p>
-        <MatButton OnClick="@(_ =>
-                              {
-                                  Date1 = DateTime.Now;
-                                  this.StateHasChanged();
-                              })">
-            Now
-        </MatButton>
-        <MatButton OnClick="@(_ =>
-                              {
-                                  Date1 = null;
-                                  this.StateHasChanged();
-                              })">
-            Empty
-        </MatButton>
-
-        <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : "")</span>
-
-        @code
-        {
-            public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
-        }
-
-    </Content>
-    <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <p>
-            <MatDatePicker @bind-Value=""@Date1""></MatDatePicker>
-        </p>
-        <MatButton OnClick=""@(_ =>
-                              {
-                                  Date1 = DateTime.Now;
-                                  this.StateHasChanged();
-                              })"">
-            Now
-        </MatButton>
-        <MatButton OnClick=""@(_ =>
-                              {
-                                  Date1 = null;
-                                  this.StateHasChanged();
-                              })"">
-            Empty
-        </MatButton>
-
-        <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : """")</span>
-
-        @code
-        {
-            public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
-        }
-
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
-
-
-
-<h5 class="mat-h5">Variants</h5>
-<DemoContainer>
-    <Content>
-        <p>
-            <MatDatePicker Label="With Label"></MatDatePicker>
-        </p>
-        <p>
-            <MatDatePicker Label="Dense" Dense="true"></MatDatePicker>
-        </p>
-        <p>
-            <MatDatePicker Label="Outlined" Outlined="true"></MatDatePicker>
-        </p>
-        <p>
-            <MatDatePicker Label="Required" Required="true"></MatDatePicker>
-        </p>
-        <p>
-            <MatDatePicker Label="Disabled" Disabled="true"></MatDatePicker>
-        </p>
-    </Content>
-    <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <p>
-            <MatDatePicker Label=""With Label""></MatDatePicker>
-        </p>
-        <p>
-            <MatDatePicker Label=""Dense"" Dense=""true""></MatDatePicker>
-        </p>
-        <p>
-            <MatDatePicker Label=""Outlined"" Outlined=""true""></MatDatePicker>
-        </p>
-        <p>
-            <MatDatePicker Label=""Required"" Required=""true""></MatDatePicker>
-        </p>
-        <p>
-            <MatDatePicker Label=""Disabled"" Disabled=""true""></MatDatePicker>
-        </p>
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
-
-
-<h5 class="mat-h5">Date Time picker</h5>
-<DemoContainer>
-    <Content>
-        <p>
-            @*Enable time on an normal AM/PM calendar*@
-            <MatDatePicker EnableTime="true" DateFormat="Y-m-d H:i"></MatDatePicker>
-        </p>
-        <p>
-            @*Enable time on an calendar with 24 hours option*@
-            <MatDatePicker EnableTime="true" Enable24hours="true" DateFormat="Y-m-d H:i"></MatDatePicker>
-        </p>
-        <p>
-            @*Enable time picker with AM/PM*@
-            <MatDatePicker NoCalendar="true" EnableTime="true" DateFormat="H:i"></MatDatePicker>
-        </p>
-    </Content>
-    <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <p>
-            @*Enable time on an normal AM/PM calendar*@
-            <MatDatePicker EnableTime=""true"" DateFormat=""Y-m-d H:i""></MatDatePicker>
-        </p>
-        <p>
-            @*Enable time on an calendar with 24 hours option*@
-            <MatDatePicker EnableTime=""true"" Enable24hours=""true"" DateFormat=""Y-m-d H:i""></MatDatePicker>
-        </p>
-        <p>
-            @*Enable time picker with AM/PM*@
-            <MatDatePicker NoCalendar=""true"" EnableTime=""true"" DateFormat=""H:i""></MatDatePicker>
-        </p>
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
+@* <DocMatDatePicker></DocMatDatePicker> *@
+@* *@
+@* *@
+@* <h5 class="mat-h5">Example</h5> *@
+@* <DemoContainer> *@
+@*     <Content> *@
+@*         <p> *@
+@*             <MatDatePicker @bind-Value="@Date1"></MatDatePicker> *@
+@*         </p> *@
+@*         <MatButton OnClick="@(_ => *@
+@*                               { *@
+@*                                   Date1 = DateTime.Now; *@
+@*                                   this.StateHasChanged(); *@
+@*                               })"> *@
+@*             Now *@
+@*         </MatButton> *@
+@*         <MatButton OnClick="@(_ => *@
+@*                               { *@
+@*                                   Date1 = null; *@
+@*                                   this.StateHasChanged(); *@
+@*                               })"> *@
+@*             Empty *@
+@*         </MatButton> *@
+@* *@
+@*         <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : "")</span> *@
+@* *@
+@*         @code *@
+@*         { *@
+@*             public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10); *@
+@*         } *@
+@* *@
+@*     </Content> *@
+@*     <SourceContent> *@
+@*     	<BlazorFiddle Template="MatBlazor" Code=@(@" *@
+@*         <p> *@
+@*             <MatDatePicker @bind-Value=""@Date1""></MatDatePicker> *@
+@*         </p> *@
+@*         <MatButton OnClick=""@(_ => *@
+@*                               { *@
+@*                                   Date1 = DateTime.Now; *@
+@*                                   this.StateHasChanged(); *@
+@*                               })""> *@
+@*             Now *@
+@*         </MatButton> *@
+@*         <MatButton OnClick=""@(_ => *@
+@*                               { *@
+@*                                   Date1 = null; *@
+@*                                   this.StateHasChanged(); *@
+@*                               })""> *@
+@*             Empty *@
+@*         </MatButton> *@
+@* *@
+@*         <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : """")</span> *@
+@* *@
+@*         @code *@
+@*         { *@
+@*             public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10); *@
+@*         } *@
+@* *@
+@*     ")></BlazorFiddle> *@
+@*     </SourceContent> *@
+@* </DemoContainer> *@
+@* *@
+@* *@
+@* *@
+@* <h5 class="mat-h5">Variants</h5> *@
+@* <DemoContainer> *@
+@*     <Content> *@
+@*         <p> *@
+@*             <MatDatePicker Label="With Label"></MatDatePicker> *@
+@*         </p> *@
+@*         <p> *@
+@*             <MatDatePicker Label="Dense" Dense="true"></MatDatePicker> *@
+@*         </p> *@
+@*         <p> *@
+@*             <MatDatePicker Label="Outlined" Outlined="true"></MatDatePicker> *@
+@*         </p> *@
+@*         <p> *@
+@*             <MatDatePicker Label="Required" Required="true"></MatDatePicker> *@
+@*         </p> *@
+@*         <p> *@
+@*             <MatDatePicker Label="Disabled" Disabled="true"></MatDatePicker> *@
+@*         </p> *@
+@*     </Content> *@
+@*     <SourceContent> *@
+@*     	<BlazorFiddle Template="MatBlazor" Code=@(@" *@
+@*         <p> *@
+@*             <MatDatePicker Label=""With Label""></MatDatePicker> *@
+@*         </p> *@
+@*         <p> *@
+@*             <MatDatePicker Label=""Dense"" Dense=""true""></MatDatePicker> *@
+@*         </p> *@
+@*         <p> *@
+@*             <MatDatePicker Label=""Outlined"" Outlined=""true""></MatDatePicker> *@
+@*         </p> *@
+@*         <p> *@
+@*             <MatDatePicker Label=""Required"" Required=""true""></MatDatePicker> *@
+@*         </p> *@
+@*         <p> *@
+@*             <MatDatePicker Label=""Disabled"" Disabled=""true""></MatDatePicker> *@
+@*         </p> *@
+@*     ")></BlazorFiddle> *@
+@*     </SourceContent> *@
+@* </DemoContainer> *@
+@* *@
+@* *@
+@* <h5 class="mat-h5">Date Time picker</h5> *@
+@* <DemoContainer> *@
+@*     <Content> *@
+@*         <p> *@
+@*             $1$Enable time on an normal AM/PM calendar#1# *@
+@*             <MatDatePicker EnableTime="true" DateFormat="Y-m-d H:i"></MatDatePicker> *@
+@*         </p> *@
+@*         <p> *@
+@*             $1$Enable time on an calendar with 24 hours option#1# *@
+@*             <MatDatePicker EnableTime="true" Enable24hours="true" DateFormat="Y-m-d H:i"></MatDatePicker> *@
+@*         </p> *@
+@*         <p> *@
+@*             $1$Enable time picker with AM/PM#1# *@
+@*             <MatDatePicker NoCalendar="true" EnableTime="true" DateFormat="H:i"></MatDatePicker> *@
+@*         </p> *@
+@*     </Content> *@
+@*     <SourceContent> *@
+@*     	<BlazorFiddle Template="MatBlazor" Code=@(@" *@
+@*         <p> *@
+@*             @*Enable time on an normal AM/PM calendar*@ 
+@*             <MatDatePicker EnableTime=""true"" DateFormat=""Y-m-d H:i""></MatDatePicker> *@
+@*         </p> *@
+@*         <p> *@
+@*             @*Enable time on an calendar with 24 hours option*@
+@*             <MatDatePicker EnableTime=""true"" Enable24hours=""true"" DateFormat=""Y-m-d H:i""></MatDatePicker> *@
+@*         </p> *@
+@*         <p> *@
+@*             @*Enable time picker with AM/PM*@
+@*             <MatDatePicker NoCalendar=""true"" EnableTime=""true"" DateFormat=""H:i""></MatDatePicker> *@
+@*         </p> *@
+@*     ")></BlazorFiddle> *@
+@*     </SourceContent> *@
+@* </DemoContainer> *@
