@@ -22,6 +22,7 @@
     <Authors>Vladimir Samoilenko</Authors>
     <PackageIconUrl>https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/icon.ico</PackageIconUrl>
     <Company>SamProf</Company>
+    <Version>2.0.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -11,7 +11,7 @@
 
 
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-<script src="/MatBlazor.Web/dist/matBlazor.js"></script>
+<!--<script src="/MatBlazor.Web/dist/matBlazor.js"></script>-->
 <!--<link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">-->
 <!--<script src="https://unpkg.com/js-datepicker"></script>-->
 
@@ -19,48 +19,128 @@
 <style>
 
 
-
-
 </style>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <div class="mdc-text-field" id="ref1">
-    <input type="text" id="my-text-field" class="mdc-text-field__input">
+    <input type="text" id="my-text-field" class="mdc-text-field__input" onfocus="onfocus2()" onblur="onblur2()">
     <label class="mdc-floating-label" for="my-text-field">Hint text</label>
     <div class="mdc-line-ripple"></div>
+</div>
 
+<div class="mdc-menu mdc-menu-surface" id="ref2">
+    <ul class="mdc-list">
+        <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+        <li class="mdc-list-item" data-value="grains">
+            Bread, Cereal, Rice, and Pasta
+        </li>
+        <li class="mdc-list-item" data-value="vegetables">
+            Vegetables
+        </li>
+        <li class="mdc-list-item" data-value="vegetables">
+            Vegetables
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
+        <li class="mdc-list-item" data-value="fruit">
+            Fruit
+        </li>
 
-    <div class="mdc-select demo-width-class">
-
-        <div class="mdc-select__menu mdc-menu mdc-menu-surface">
-            <ul class="mdc-list">
-                <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
-                <li class="mdc-list-item" data-value="grains">
-                    Bread, Cereal, Rice, and Pasta
-                </li>
-                <li class="mdc-list-item" data-value="vegetables">
-                    Vegetables
-                </li>
-                <li class="mdc-list-item" data-value="fruit">
-                    Fruit
-                </li>
-            </ul>
-        </div>
-    </div>
+    </ul>
 
 </div>
 
 
-
-
-
-
-
-
 <script type="text/javascript">
   var ref1 = document.getElementById('ref1');
+  var ref2 = document.getElementById('ref2');
 
   new mdc.textField.MDCTextField(ref1);
+  var m = new mdc.menu.MDCMenu(ref2);
+  m.hoistMenuToBody();
+
+
+  function onfocus2()
+  {
+    m.wrapFocus = true;
+    m.setAnchorElement(ref1);
+    m.setAnchorCorner(mdc.menu.Corner.BOTTOM_START);
+    m.open = true;
+  }
+
+  function onblur2() {
+    m.open = false;
+  }
 
   // var ref1 = document.getElementById('ref1');
   // var ref2 = document.getElementById('ref2');
@@ -73,7 +153,6 @@
   // select.listen('MDCSelect:change', () => {
   //   alert(`Selected option at index ${select.selectedIndex} with value "${select.value}"`);
   // });
-
 
 
   // setTimeout(()=>{
