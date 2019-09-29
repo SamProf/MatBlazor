@@ -565,6 +565,26 @@
             Mat Table Row display a table row   
             </summary>
         </member>
+        <member name="T:MatBlazor.BaseMatTextField">
+            <summary>
+            Text fields allow users to input, edit, and select text.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTextField.ReadOnly">
+            <summary>
+            When true, it specifies that an input field is read-only.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTextField.InputClass">
+            <summary>
+            Css class of input element
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTextField.InputStyle">
+            <summary>
+            Style attribute of input element
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatTextFieldType`1">
             <summary>
                 Text fields allow users to input, edit, and select text.
