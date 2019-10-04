@@ -6,10 +6,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using MatBlazor.Components.MatTextFieldView;
 
 namespace MatBlazor
 {
-    public class BaseMatInputComponent<TValue> : BaseMatDomComponent
+    public abstract class BaseMatInputComponent<TValue> : BaseMatComponent, IBaseMatDomComponent, IMatInputViewModel<T>
     {
         private bool _previousParsingAttemptFailed;
         private ValidationMessageStore _parsingValidationMessages;
@@ -40,7 +41,7 @@ namespace MatBlazor
         public Expression<Func<TValue>> ValueExpression { get; set; }
 
         /// <summary>
-        /// Gets the associated <see cref="Forms.EditContext"/>.
+        /// Gets the associated <see cref="Microsoft.AspNetCore.Components.Forms.EditContext"/>.
         /// </summary>
         protected EditContext EditContext { get; set; }
 
@@ -70,7 +71,7 @@ namespace MatBlazor
         /// <summary>
         /// Gets or sets the current value of the input, represented as a string.
         /// </summary>
-        protected string CurrentValueAsString
+        public string CurrentValueAsString
         {
             get => FormatValueAsString(CurrentValue);
             set
@@ -132,25 +133,7 @@ namespace MatBlazor
         private string FieldClass
             => EditContext.FieldCssClass(FieldIdentifier);
 
-        /// <summary>
-        /// Gets a CSS class string that combines the <c>class</c> attribute and <see cref="FieldClass"/>
-        /// properties. Derived components should typically use this value for the primary HTML element's
-        /// 'class' attribute.
-        /// </summary>
-        protected string CssClass
-        {
-            get
-            {
-                if (Attributes != null &&
-                    Attributes.TryGetValue("class", out var @class) &&
-                    !string.IsNullOrEmpty(Convert.ToString(@class)))
-                {
-                    return $"{@class} {FieldClass}";
-                }
-
-                return FieldClass; // Never null or empty
-            }
-        }
+        
 
 
         /// <inheritdoc />
@@ -217,5 +200,19 @@ namespace MatBlazor
                 return false;
             }
         }
+
+        [Parameter]
+        public string Id { get; set; } = IdGeneratorHelper.Generate("");
+
+        [Parameter(CaptureUnmatchedValues = true)]
+        public Dictionary<string, object> Attributes { get; set; }
+
+        public abstract ElementReference Ref { get; }
+
+        [Parameter]
+        public string Class { get; set; }
+
+        [Parameter]
+        public string Style { get; set; }
     }
 }

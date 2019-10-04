@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatTextFieldView
 
-<div class="@ClassMapper.Class" style="@Style" @ref="Ref" >
+<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" id="@Id">
     @if (Model.Icon != null)
     {
         <i class="material-icons mdc-text-field__icon" tabindex="@(Model.IconOnClick.HasDelegate ? "0" : null)" onclick="@Model.IconOnClick">@Model.Icon</i>

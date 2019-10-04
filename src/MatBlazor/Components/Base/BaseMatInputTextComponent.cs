@@ -4,10 +4,8 @@ using Microsoft.AspNetCore.Components.Web;
 
 namespace MatBlazor
 {
-    public class BaseMatTextInputComponent<T> : BaseMatInputComponent<T>, IMatTextFieldViewModel
+    public class BaseMatInputTextComponent<T> : BaseMatInputElementComponent<T>, IMatInputTextViewModel
     {
-        public ElementReference InputRef { get; set; }
-
         [Parameter]
         public EventCallback<MouseEventArgs> IconOnClick { get; set; }
 
@@ -79,26 +77,5 @@ namespace MatBlazor
 
         [Parameter]
         public bool HideClearButton { get; set; }
-
-        [Parameter]
-        public string Type { get; set; } = "text";
-
-        /// <summary>
-        /// Css class of input element
-        /// </summary>
-        [Parameter]
-        public string InputClass { get; set; }
-
-        /// <summary>
-        /// Style attribute of input element
-        /// </summary>
-        [Parameter]
-        public string InputStyle { get; set; }
-
-        public string CurrentValueAsString
-        {
-            get => base.CurrentValueAsString;
-            set => base.CurrentValueAsString = value;
-        }
     }
 }

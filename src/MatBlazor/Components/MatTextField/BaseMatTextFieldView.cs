@@ -11,7 +11,7 @@ namespace MatBlazor
     public class BaseMatTextFieldView : BaseMatDomComponent
     {
         [Parameter]
-        public IMatTextFieldViewModel Model { get; set; }
+        public IMatInputTextViewModel Model { get; set; }
 
 
         protected ClassMapper LabelClassMapper = new ClassMapper();

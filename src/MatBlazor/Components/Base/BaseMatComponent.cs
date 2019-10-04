@@ -6,7 +6,7 @@ using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
-    public abstract class BaseMatComponent : ComponentBase, IBaseMatComponent, IDisposable
+    public abstract class BaseMatComponent : ComponentBase, IBaseMatComponent
     {
         [Parameter]
         public ForwardRef RefBack { get; set; }

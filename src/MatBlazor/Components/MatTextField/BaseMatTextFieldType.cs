@@ -5,12 +5,9 @@ namespace MatBlazor
     /// <summary>
     ///     Text fields allow users to input, edit, and select text.
     /// </summary>
-    public class BaseMatTextFieldType<T> : BaseMatTextInputComponent<T>
+    public class BaseMatTextFieldType<T> : BaseMatInputTextComponent<T>
     {
         protected MatTextFieldView TextFieldView { get; set; }
-        public override ElementReference Ref
-        {
-            get => TextFieldView.Ref;
-        }
+        public override ElementReference Ref => TextFieldView.Ref;
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
-    public abstract class BaseMatDomComponent : BaseMatComponent
+    public abstract class BaseMatDomComponent : BaseMatComponent, IBaseMatDomComponent
     {
         [Parameter]
         public string Id { get; set; } = IdGeneratorHelper.Generate("matBlazor_id_");
@@ -34,47 +34,27 @@ namespace MatBlazor
         public MatTheme Theme { get; set; }
 
         protected ClassMapper ClassMapper { get; } = new ClassMapper();
-
+        protected StyleMapper StyleMapper { get; } = new StyleMapper();
 
         protected BaseMatDomComponent()
         {
             ClassMapper
                 .Get(() => this.Class)
                 .Get(() => this.Theme?.GetClass());
+            StyleMapper.Get(() => Style);
         }
 
         /// <summary>
         /// Specifies one or more classnames for an DOM element.
         /// </summary>
         [Parameter]
-        public string Class
-        {
-            get => _class;
-            set { _class = value; }
-        }
+        public string Class { get; set; }
 
 
         /// <summary>
         /// Specifies an inline style for an DOM element.
         /// </summary>
         [Parameter]
-        public string Style
-        {
-            get => _style;
-            set
-            {
-                _style = value;
-                this.StateHasChanged();
-            }
-        }
-
-
-        protected virtual string GenerateStyle()
-        {
-            return Style;
-        }
-
-        private string _class;
-        private string _style;
+        public string Style { get; set; }
     }
 }

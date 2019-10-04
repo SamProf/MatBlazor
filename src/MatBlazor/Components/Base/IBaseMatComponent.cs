@@ -1,6 +1,9 @@
-﻿namespace MatBlazor
+﻿using System;
+
+namespace MatBlazor
 {
-    public interface IBaseMatComponent
+    public interface IBaseMatComponent : IDisposable
     {
+        ForwardRef RefBack { get; set; }
     }
 }

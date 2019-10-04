@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatDomComponent
 
-<div class="@ClassMapper.AsString()" style="@GenerateStyle()" @attributes="Attributes" Id="@Id" @ref="Ref" >
+<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @attributes="Attributes" Id="@Id" @ref="Ref" >
          @if (ChildContent != null)
          {
              <div class="@ContentClassMapper.AsString()">
@@ -31,20 +31,7 @@
 
          ClassMapper ContentClassMapper = new ClassMapper();
 
-         protected override string GenerateStyle()
-         {
-             var s = base.GenerateStyle();
-             if (ImageUrl == null)
-             {
-                 return s;
-             }
-             else
-             {
-                 return $"{s}; background-image: url(\"{ImageUrl}\")";
-             }
-         }
-
-
+        
          protected override async Task OnInitializedAsync()
          {
              await base.OnInitializedAsync();
@@ -54,6 +41,17 @@
                  .If("mdc-card__media--16-9", () => Wide)
                  .If("mdc-card__media--square", () => Square);
 
+             StyleMapper.Get(() =>
+             {
+                 if (ImageUrl == null)
+                 {
+                     return (string)null;
+                 }
+                 else
+                 {
+                     return $"background-image: url(\"{ImageUrl}\")";
+                 }
+             });
 
              ContentClassMapper
                  .Add("mat-card-media-content")

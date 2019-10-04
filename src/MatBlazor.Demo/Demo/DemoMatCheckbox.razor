@@ -5,48 +5,40 @@
 <DemoContainer>
     <Content>
         <div>
-            <MatCheckbox @bind-Value="@Checked1" Label="@(getLabel(Checked1))"></MatCheckbox>
+            <MatCheckbox @bind-Value="@checked1" Label="@(getLabel(checked1))"></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox @bind-Value="@Checked2" Label="@(getLabel(Checked2))"></MatCheckbox>
+            <MatCheckbox @bind-Value="@checked2" Label="@(getLabel(checked2))"></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox Disabled="true" @bind-Value="@Checked1" Label="Disabled"></MatCheckbox>
+            <MatCheckbox Disabled="true" @bind-Value="@checked1" Label="Disabled"></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox @bind-Value="@Checked2">Inline Label</MatCheckbox>
+            <MatCheckbox @bind-Value="@checked2">Inline Label</MatCheckbox>
+        </div>
+        
+        <div>
+            <MatCheckboxIndeterminate @bind-Value="@checked3">Indeterminate</MatCheckboxIndeterminate>
+            <span>@(checked3.HasValue ? checked3.Value.ToString() : "null")</span>
+            <MatButton OnClick="SetNull">Null</MatButton>
         </div>
 
         @code
         {
             bool checked1 = true;
             bool checked2 = false;
+            bool? checked3 = null;
 
-            public bool Checked1
-            {
-                get { return checked1; }
-                set
-                {
-                    checked1 = value;
-                    StateHasChanged();
-                }
-            }
-
-            public bool Checked2
-            {
-                get { return checked2; }
-                set
-                {
-                    checked2 = value;
-                    StateHasChanged();
-                }
-            }
 
             string getLabel(bool val)
             {
                 return !val ? "Check me!" : "Uncheck me?";
             }
 
+            void SetNull()
+            {
+                checked3 = null;
+            }
         }
 
     </Content>

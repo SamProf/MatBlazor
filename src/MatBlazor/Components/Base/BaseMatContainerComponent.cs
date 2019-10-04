@@ -16,8 +16,8 @@ namespace MatBlazor
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
             builder.OpenElement(0, Tag);
-            builder.AddAttribute(1, "class", ClassMapper.Class);
-            builder.AddAttribute(2, "style", GenerateStyle());
+            builder.AddAttribute(1, "class", ClassMapper.AsString());
+            builder.AddAttribute(2, "style", StyleMapper.AsString());
             builder.AddMultipleAttributes(3,
                 RuntimeHelpers
                     .TypeCheck<global::System.Collections.Generic.IEnumerable<

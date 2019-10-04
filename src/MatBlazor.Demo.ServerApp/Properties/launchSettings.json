@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "EditContext",
+      "launchUrl": "Checkbox",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

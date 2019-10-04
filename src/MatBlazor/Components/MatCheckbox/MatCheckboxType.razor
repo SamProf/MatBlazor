@@ -1,0 +1,34 @@
+﻿@namespace MatBlazor
+@typeparam T
+@inherits BaseMatCheckboxType<T>
+
+
+<div class="@ClassMapper.AsString()" @ref="Ref" style="@StyleMapper.AsString()" id="@Id" @attributes="Attributes">
+    <div class="mdc-checkbox" @ref="ComponentRef">
+        <input type="@GetInputType()"
+               class="@inputClassMapper.AsString()"
+               style="@inputStyleMapper.AsString()"
+               @onchange="ChangeHandlerAsync"
+               checked="@CurrentValue"
+               disabled=@Disabled
+               @attributes="InputAttributes"
+               name="@Name"
+               id="@InputId"
+               @ref="InputRef"
+               />
+        <div class="mdc-checkbox__background">
+            <svg class="mdc-checkbox__checkmark"
+                 viewBox="0 0 24 24">
+                <path class="mdc-checkbox__checkmark-path"
+                      fill="none"
+                      d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+            </svg>
+            <div class="mdc-checkbox__mixedmark"></div>
+        </div>
+    </div>
+
+    @if (Label != null || ChildContent != null)
+    {
+        <label for="@InputId">@Label@ChildContent</label>
+    }
+</div>
