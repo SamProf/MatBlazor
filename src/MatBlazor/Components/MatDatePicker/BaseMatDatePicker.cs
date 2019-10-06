@@ -11,8 +11,6 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatDatePicker : BaseMatInputComponent<DateTime?>
     {
-        protected BaseMatTextFieldView TextFieldRef;
-       
 
         [Parameter]
         public string Label { get; set; }
@@ -81,12 +79,6 @@ namespace MatBlazor
         public string AltFormat { get; set; } = "F j, Y";
 
         
-        public virtual ElementReference Ref
-        {
-            get => TextFieldRef.InputRef;
-        }
-
-
         private DotNetObjectReference<BaseMatDatePicker> dotNetObjectRef;
 
         public BaseMatDatePicker()

@@ -1,38 +1,10 @@
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace MatBlazor
 {
-    /// <summary>
-    /// Text fields allow users to input, edit, and select text.
-    /// </summary>
-    public class BaseMatTextFieldView : BaseMatDomComponent
+    public abstract class BaseMatInputTextComponent<T> : BaseMatInputElementComponent<T>
     {
-        public ElementReference InputRef { get; set; }
-
-        [Parameter]
-        public string Value
-        {
-            get => _value;
-            set
-            {
-                if (value != _value)
-                {
-                    _value = value;
-                    ValueChanged.InvokeAsync(_value);
-                }
-            }
-        }
-
-        protected async Task ValueChangedHandler(ChangeEventArgs e)
-        {
-            Value = e.Value?.ToString();
-        }
-
-        [Parameter]
-        public EventCallback<string> ValueChanged { get; set; }
-
         [Parameter]
         public EventCallback<MouseEventArgs> IconOnClick { get; set; }
 
@@ -53,6 +25,7 @@ namespace MatBlazor
 
         [Parameter]
         public EventCallback<ChangeEventArgs> OnInput { get; set; }
+
 
         [Parameter]
         public string Label { get; set; }
@@ -115,7 +88,10 @@ namespace MatBlazor
         public string InputClass
         {
             get => _inputClass;
-            set { _inputClass = value; }
+            set
+            {
+                _inputClass = value;
+            }
         }
 
         /// <summary>
@@ -124,14 +100,14 @@ namespace MatBlazor
         [Parameter]
         public string InputStyle { get; set; }
 
+        private string _value;
+        private string _inputClass;
+
         protected ClassMapper LabelClassMapper = new ClassMapper();
         protected ClassMapper InputClassMapper = new ClassMapper();
         protected ClassMapper HelperTextClassMapper = new ClassMapper();
 
-        private string _value;
-        private string _inputClass;
-
-        public BaseMatTextFieldView()
+        protected BaseMatInputTextComponent()
         {
             ClassMapper
                 .Add("mdc-text-field")
@@ -151,25 +127,25 @@ namespace MatBlazor
 
             LabelClassMapper
                 .Add("mdc-floating-label")
-                .If("mat-floating-label--float-above-outlined", () => Outlined && !string.IsNullOrEmpty(Value))
-                .If("mdc-floating-label--float-above", () => !string.IsNullOrEmpty(Value));
+                .If("mat-floating-label--float-above-outlined", () => Outlined && !string.IsNullOrEmpty(CurrentValueAsString))
+                .If("mdc-floating-label--float-above", () => !string.IsNullOrEmpty(CurrentValueAsString));
 
             InputClassMapper
                 .Get(() => this.InputClass)
+                .Get(() => this.FieldClass)
                 .Add("mdc-text-field__input")
-                .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(Value))
+                .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(CurrentValueAsString))
                 .If("mat-hide-clearbutton", () => this.HideClearButton);
 
             HelperTextClassMapper
                 .Add("mdc-text-field-helper-text")
                 .If("mdc-text-field-helper-text--persistent", () => HelperTextPersistent)
                 .If("mdc-text-field-helper-text--validation-msg", () => HelperTextValidation);
-        }
 
-        protected async override Task OnFirstAfterRenderAsync()
-        {
-            await base.OnFirstAfterRenderAsync();
-            await JsInvokeAsync<object>("matBlazor.matTextField.init", Ref);
+            CallAfterRender(async () =>
+            {
+                await JsInvokeAsync<object>("matBlazor.matTextField.init", Ref);
+            });
         }
     }
 }

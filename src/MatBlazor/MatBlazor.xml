@@ -4,6 +4,11 @@
         <name>MatBlazor</name>
     </assembly>
     <members>
+        <member name="P:MatBlazor.BaseMatDomComponent.Attributes">
+            <summary>
+            Gets or sets a collection of additional attributes that will be applied to the created element.
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatDomComponent.Ref">
             <summary>
             Returned ElementRef reference for DOM element.
@@ -25,11 +30,22 @@
             </summary>
             <typeparam name="T">the natural type of the input's value</typeparam>
         </member>
-        <member name="P:MatBlazor.BaseMatInputComponent`1.ValidationDisabled">
+        <member name="P:MatBlazor.BaseMatInputComponent`1.Value">
             <summary>
-            When contained within an <see cref="P:MatBlazor.BaseMatInputComponent`1.EditContext"/> disables this control's
-            participation in validation checking.  This means that this control will not
-            reflect the validation state of the underlying data binding.
+            Gets or sets the value of the input. This should be used with two-way binding.
+            </summary>
+            <example>
+            @bind-Value="model.PropertyName"
+            </example>
+        </member>
+        <member name="P:MatBlazor.BaseMatInputComponent`1.ValueChanged">
+            <summary>
+            Gets or sets a callback that updates the bound value.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatInputComponent`1.ValueExpression">
+            <summary>
+            Gets or sets an expression that identifies the bound value.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatInputComponent`1.EditContext">
@@ -42,22 +58,37 @@
             Gets the <see cref="P:MatBlazor.BaseMatInputComponent`1.FieldIdentifier"/> for the bound value.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatInputComponent`1.CurrentValue">
+            <summary>
+            Gets or sets the current value of the input.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatInputComponent`1.CurrentValueAsString">
+            <summary>
+            Gets or sets the current value of the input, represented as a string.
+            </summary>
+        </member>
+        <member name="M:MatBlazor.BaseMatInputComponent`1.FormatValueAsString(`0)">
+            <summary>
+            Formats the value as a string. Derived classes can override this to determine the formating used for <see cref="P:MatBlazor.BaseMatInputComponent`1.CurrentValueAsString"/>.
+            </summary>
+            <param name="value">The value to format.</param>
+            <returns>A string representation of the value.</returns>
+        </member>
+        <member name="M:MatBlazor.BaseMatInputComponent`1.TryParseValueFromString(System.String,`0@,System.String@)">
+            <summary>
+            Parses a string to create an instance of <typeparamref name="TValue"/>. Derived classes can override this to change how
+            <see cref="P:MatBlazor.BaseMatInputComponent`1.CurrentValueAsString"/> interprets incoming values.
+            </summary>
+            <param name="value">The string value to be parsed.</param>
+            <param name="result">An instance of <typeparamref name="TValue"/>.</param>
+            <param name="validationErrorMessage">If the value could not be parsed, provides a validation error message.</param>
+            <returns>True if the value could be parsed; otherwise false.</returns>
+        </member>
         <member name="P:MatBlazor.BaseMatInputComponent`1.FieldClass">
             <summary>
             Gets a string that indicates the status of the field being edited. This will include
             some combination of "modified", "valid", or "invalid", depending on the status of the field.
-            </summary>
-        </member>
-        <member name="M:MatBlazor.BaseMatInputComponent`1.NotifyFieldChanged">
-            <summary>
-            Should be invoked by whenever a bound value is changed, such
-            as right after the value's corresponding <i>ValueChanged</i>
-            EventCallback is invoked.
-            </summary>
-        </member>
-        <member name="P:MatBlazor.BaseMatInputComponent`1.ValueExpression">
-            <summary>
-            Gets or sets an expression that identifies the bound value.
             </summary>
         </member>
         <member name="M:MatBlazor.BaseMatInputComponent`1.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)">
@@ -533,44 +564,24 @@
             Mat Table Row display a table row   
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatTextFieldView">
-            <summary>
-            Text fields allow users to input, edit, and select text.
-            </summary>
-        </member>
-        <member name="P:MatBlazor.BaseMatTextFieldView.ReadOnly">
+        <member name="P:MatBlazor.BaseMatInputTextComponent`1.ReadOnly">
             <summary>
             When true, it specifies that an input field is read-only.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTextFieldView.InputClass">
+        <member name="P:MatBlazor.BaseMatInputTextComponent`1.InputClass">
             <summary>
             Css class of input element
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTextFieldView.InputStyle">
+        <member name="P:MatBlazor.BaseMatInputTextComponent`1.InputStyle">
             <summary>
             Style attribute of input element
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatTextField">
+        <member name="T:MatBlazor.MatTextFieldType`1">
             <summary>
             Text fields allow users to input, edit, and select text.
-            </summary>
-        </member>
-        <member name="P:MatBlazor.BaseMatTextField.ReadOnly">
-            <summary>
-            When true, it specifies that an input field is read-only.
-            </summary>
-        </member>
-        <member name="P:MatBlazor.BaseMatTextField.InputClass">
-            <summary>
-            Css class of input element
-            </summary>
-        </member>
-        <member name="P:MatBlazor.BaseMatTextField.InputStyle">
-            <summary>
-            Style attribute of input element
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatThemeProvider">
