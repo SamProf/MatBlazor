@@ -136,10 +136,16 @@ namespace MatBlazor
         public string ApiUrl { get; set; }
 
         /// <summary>
-        /// Specifies the Paging visibility
+        /// Specifies the Paging visibility in the footer area of the table.
         /// </summary>
         [Parameter]
         public bool ShowPaging { get; set; } = true;
+
+        /// <summary>
+        /// Specifies the Paging visibility in the top area (on the right side of the filter/search field) of the table.
+        /// </summary>
+        [Parameter]
+        public bool ShowPagingInHeader { get; set; } = false;
 
         /// <summary>
         /// Specifies the Table Footer visibility.

@@ -1,0 +1,73 @@
+﻿@namespace MatBlazor
+@*@inherits BaseTableRow*@
+
+@using Microsoft.AspNetCore.Components
+@using PageDirection = MatBlazor.BaseMatTable.PageDirection
+@using PageSizeStructure = MatBlazor.BaseMatTable.PageSizeStructure
+
+<div class="mdc-paginator" style="float:right;">
+    <div class="mdc-paginator-container">
+        @if (ShowPagingControls)
+        {
+            <div class="mdc-paginator-page-size">
+                Items per page:
+
+                <MatSelect @bind-Value="@PageSizeStr" OnInput="(() => UpdatePaging.InvokeAsync(PageSizeStr))">
+                    @if (PageSizes != null)
+                    {
+                        foreach (var item in PageSizes)
+                        {
+                            <MatOption Value="@item.Value.ToString()">@item.Text</MatOption>
+                        }
+                    }
+                </MatSelect>
+            </div>
+        }
+        <div class="mdc-paginator-range-actions">
+            <span class="mdc-paginator-range-label">Page @CurrentPage of @TotalPages</span>
+            <div class="mdc-paginator-range-buttons">
+                <MatIconButton Icon="first_page" OnClick=@(async () => ClickFirst.InvokeAsync("")) Disabled=@(CurrentPage <= 1)></MatIconButton>
+                <MatIconButton Icon="navigate_before" OnClick=@(async () => ClickPrevious.InvokeAsync("")) Disabled=@(CurrentPage <= 1)></MatIconButton>
+                @*@for (int i = StartPage; i <= EndPage; i++)
+                    {
+                        var currentPage = i;
+                        <MatIconButton class="@(currentPage == CurrentPage ? "currentpage" : "")" OnClick=@(async () => UpdatePaging.InvokeAsync(currentPage.ToString()))>
+                            @currentPage
+                        </MatIconButton>
+                    }*@
+                <MatIconButton Icon="navigate_next" OnClick=@(async () => ClickNext.InvokeAsync("")) Disabled="@(CurrentPage == EndPage)"></MatIconButton>
+                <MatIconButton Icon="last_page" OnClick=@(async () => ClickLast.InvokeAsync("")) Disabled=@(CurrentPage == EndPage)></MatIconButton>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public EventCallback ClickFirst { get; set; }
+    [Parameter] public EventCallback ClickNext { get; set; }
+    [Parameter] public EventCallback ClickPrevious { get; set; }
+    [Parameter] public EventCallback ClickLast { get; set; }
+
+    [Parameter] public EventCallback<string> UpdatePaging { get; set; }
+
+    [Parameter]
+    public int CurrentPage { get; set; }
+
+    [Parameter]
+    public int EndPage { get; set; }
+
+    [Parameter]
+    public int StartPage { get; set; }
+
+    [Parameter]
+    public int TotalPages { get; set; }
+
+    [Parameter]
+    public bool ShowPagingControls { get; set; }
+
+    [Parameter]
+    public PageSizeStructure[] PageSizes { get; set; }
+
+    [Parameter]
+    public string PageSizeStr { get; set; }
+}
