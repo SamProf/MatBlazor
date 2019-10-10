@@ -125,10 +125,14 @@ namespace MatBlazor
         [JSInvokable]
         public async Task MatDatePickerOnChangeHandler(DateTime?[] value)
         {
-            var v = value.First();
-//            Console.WriteLine(v.Value);
-//            Console.WriteLine(DateTime.Parse("2019-08-19T15:09:04.143Z").ToLocalTime());
-            Value = v;
+            if (value.Count() > 0)
+            {
+                var v = value.First();
+                //            Console.WriteLine(v.Value);
+                //            Console.WriteLine(DateTime.Parse("2019-08-19T15:09:04.143Z").ToLocalTime());
+                Value = v;
+            }
+            else { Value = null; }
             await ValueChanged.InvokeAsync(Value);
             this.StateHasChanged();
         }
