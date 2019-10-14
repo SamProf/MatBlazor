@@ -17,7 +17,7 @@ MatBlazor comprises a range of components which implement common interaction pat
 - [MatBlazor.com - Documentation and demo website](https://www.matblazor.com)
 - [MatBlazor - Documentation and demo website - ClientSideBlazor](https://samprof.github.io/MatBlazor/)
 - [BlazorFiddle example](https://blazorfiddle.com/s/matblazor-news-client)
-- [BlazorBoilerplate](https://blazorboilerplate.com/)
+- [BlazorBoilerplate](https://github.com/enkodellc/blazorboilerplate) - ![GitHub stars](https://img.shields.io/github/stars/enkodellc/blazorboilerplate?style=flat-square&cacheSeconds=604800) A Real World Starter App with Authentication / Authorization built with MatBlazor. [Demo](https://blazorboilerplate.com).
 
 
 ![](content/demo-blazor-news-client.png)
