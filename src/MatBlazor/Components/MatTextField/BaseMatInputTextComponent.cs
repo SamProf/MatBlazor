@@ -6,6 +6,9 @@ namespace MatBlazor
     public abstract class BaseMatInputTextComponent<T> : BaseMatInputElementComponent<T>
     {
         [Parameter]
+        public RenderFragment ChildContent { get; set; }
+
+        [Parameter]
         public EventCallback<MouseEventArgs> IconOnClick { get; set; }
 
         [Parameter]
@@ -106,6 +109,12 @@ namespace MatBlazor
         protected ClassMapper LabelClassMapper = new ClassMapper();
         protected ClassMapper InputClassMapper = new ClassMapper();
         protected ClassMapper HelperTextClassMapper = new ClassMapper();
+
+
+        protected virtual RenderFragment GetChildContent()
+        {
+            return ChildContent;
+        }
 
         protected BaseMatInputTextComponent()
         {

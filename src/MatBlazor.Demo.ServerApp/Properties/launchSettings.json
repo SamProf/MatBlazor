@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "TextField",
+      "launchUrl": "DatePicker",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

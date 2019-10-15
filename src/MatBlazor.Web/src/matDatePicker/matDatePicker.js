@@ -2,7 +2,32 @@ import './matDatePicker.scss';
 
 import flatpickr from 'flatpickr';
 
-export function init(ref, cmp, defaultDate, options) {
+
+export function init(ref, flatpickrInputRef, cmp, options) {
+    // console.log(ref);
+    // console.log(flatpickrRef);
+    ref.$flatpickr = flatpickr(flatpickrInputRef, {
+        positionElement: ref,
+        onChange: function (value) {
+            console.log(value);
+            cmp.invokeMethodAsync('MatDatePickerOnChangeHandler', value);
+        }
+    });
+}
+
+export function open(ref, value) {
+    ref.$flatpickr.setDate(value);
+    ref.$flatpickr.open();
+}
+
+
+export function setDate(ref, value) {
+    ref.$flatpickr.setDate(value);
+}
+
+
+
+export function init_old(ref, cmp, defaultDate, options) {
     console.log('defaultDate', options)
 
     ref.$flatpickr = flatpickr(ref, {
@@ -41,6 +66,3 @@ export function init(ref, cmp, defaultDate, options) {
 }
 
 
-export function setDate(ref, value) {
-    ref.$flatpickr.setDate(value);
-}

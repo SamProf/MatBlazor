@@ -1,0 +1,18 @@
+﻿@namespace MatBlazor
+@typeparam T
+@inherits BaseMatDatePickerType<T>
+
+@base.BuildRenderTree
+
+@code
+{
+
+    protected override RenderFragment GetDatePickerChildContent()
+    {
+        return @<div style="position: absolute; right: 3px; display: flex; flex-direction: row; align-items: center; justify-content: center; height: 100%;">
+                   <input @ref="flatpickrInputRef" style="display: none;"/>
+                   <MatIconButton Icon="@MatIconNames.Calendar_today" OnClick="OnClickIconHandler"></MatIconButton>
+               </div>;
+    }
+
+}

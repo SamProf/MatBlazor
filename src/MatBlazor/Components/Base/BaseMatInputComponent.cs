@@ -71,6 +71,15 @@ namespace MatBlazor
             }
         }
 
+
+        protected object CurrentValueAsObject
+        {
+            get => CurrentValue;
+            set => CurrentValue = (T)Convert.ChangeType(value, typeof(T));
+        }
+
+
+
         /// <summary>
         /// Gets or sets the current value of the input, represented as a string.
         /// </summary>

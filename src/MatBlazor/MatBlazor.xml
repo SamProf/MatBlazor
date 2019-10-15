@@ -266,12 +266,12 @@
             Chips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatDatePicker">
+        <member name="T:MatBlazor.BaseMatDatePickerType`1">
             <summary>
             Datetime picker based on flatpickr.js
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatDatePicker.flatpickrOptions">
+        <member name="T:MatBlazor.BaseMatDatePickerType`1.FlatpickrOptions">
             <summary>
             The options from https://flatpickr.js.org/options/
             </summary>

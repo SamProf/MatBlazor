@@ -31,7 +31,7 @@ namespace MatBlazor.Demo.ServerApp
         {
             services.AddScoped<HttpClient>();
             services.AddRazorPages();
-            services.AddServerSideBlazor();
+            services.AddServerSideBlazor().AddCircuitOptions(o => { o.DetailedErrors = true; });
             //                .AddSignalR().AddHubOptions<ComponentHub>(o =>
             //            {
             //                o.MaximumReceiveMessageSize = 1024 * 1024 * 100;
