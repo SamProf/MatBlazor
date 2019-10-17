@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System;
 using System.Collections.Generic;
@@ -82,6 +82,12 @@ namespace MatBlazor
         [Parameter]
         public Expression<Func<T>> ValueExpression { get; set; }
 
+        /// <summary>
+        /// Gets or sets an expression that identifies the bound value to validate.
+        /// </summary>
+        [Parameter]
+        public Expression<Func<T>> ValidateValueExpression { get; set; }
+
         /// <inheritdoc />
         public override Task SetParametersAsync(ParameterView parameters)
         {
@@ -97,13 +103,13 @@ namespace MatBlazor
                     EditContext = CascadedEditContext;
                     if (EditContext != null)
                     {
-                        if (ValueExpression == null)
+                        if (ValueExpression == null && ValidateValueExpression == null)
                         {
-                            throw new InvalidOperationException($"{GetType()} requires a value for the 'ValueExpression' " +
+                            throw new InvalidOperationException($"{GetType()} requires a value for the 'ValueExpression'" +
                                                                 $"parameter. Normally this is provided automatically when using 'bind-Value'.");
                         }
 
-                        FieldIdentifier = FieldIdentifier.Create(ValueExpression);
+                        FieldIdentifier = FieldIdentifier.Create(ValidateValueExpression ?? ValueExpression);
                     }
 
                     _hasSetInitialEditContext = true;
