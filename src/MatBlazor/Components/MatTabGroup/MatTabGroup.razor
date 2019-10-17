@@ -2,12 +2,11 @@
 @inherits BaseMatTabGroup
 
 <div class="@ClassMapper.Class" @ref="Ref"  style="@Style" @attributes="Attributes" Id="@Id">
-    <MatTabBar @bind-Active="@Active">
+    <MatTabBar @bind-Active="@Active" @bind-ActiveIndex="@ActiveIndex">
         <CascadingValue Value="@this">
             @ChildContent
         </CascadingValue>
     </MatTabBar>
-
     <div class="mat-tab-group-content">
         @Active?.Tab.ChildContent
     </div>

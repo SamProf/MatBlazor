@@ -13,10 +13,25 @@ namespace MatBlazor
         }
 
         private BaseMatTabLabel _active;
+        private int _activeIndex;
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
+        [Parameter]
+        public int ActiveIndex {   
+            get => _activeIndex;
+            set
+            {
+                if (_activeIndex == value) {
+                    return;
+                }
+                _activeIndex = value;
+                this.ActiveIndexChanged.InvokeAsync(value);
+            }
+        }
+        [Parameter]
+        public EventCallback<int> ActiveIndexChanged { get; set; }
         public BaseMatTabLabel Active
         {
             get => _active;
