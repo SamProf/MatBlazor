@@ -106,7 +106,9 @@ If you think that this project helped you or your company in any way, you can co
 
 ## News
 
-### In progres MatBlazor 1.9.1
+
+### MatBlazor 1.10.0
+- Update to .NET Core 3.1 Preview 1
 - Auto-Active MatNatItem #268 (Thanks to [enkodellc](https://github.com/enkodellc))
 
 ### MatBlazor 1.9.0
