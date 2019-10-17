@@ -122,8 +122,10 @@ If you think that this project helped you or your company in any way, you can co
 
 ### MatBlazor 1.10.0
 - Update to .NET Core 3.1 Preview 1
+- Added an active index to the MatTabGroup and MatTabBar #289 (Thanks to [chris1411](https://github.com/chris1411))
 - Auto-Active MatNatItem #268 (Thanks to [enkodellc](https://github.com/enkodellc))
 - Update Readme.md (EmbeddedBlazorContent) #270 (Thanks to [manuel3108](https://github.com/manuel3108))
+
 
 ### MatBlazor 1.9.0
 - Update to .NET Core 3.0
