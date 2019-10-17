@@ -6,6 +6,8 @@
 
 @if (!Secondary) {<h3 class="mat-h3">MatDatePicker</h3> } else { <h5 class="mat-h5">MatDatePicker</h5> }
 
+<p>Datetime picker based on flatpickr.js</p>
+
 <div><table class="article-table mat-elevation-z5">
 	<tr>
 		<th>Name</th>
@@ -18,19 +20,19 @@
 		<td></td>
 	</tr>
 	<tr>
-		<td>Attributes</td>
-		<td>Dictionary&lt;String,Object&gt;</td>
-		<td>Gets or sets a collection of additional attributes that will be applied to the created element.</td>
-	</tr>
-	<tr>
-		<td>Box</td>
-		<td>Boolean</td>
+		<td>AltFormat</td>
+		<td>String</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>ChildContent</td>
-		<td>RenderFragment</td>
-		<td>Child content of MatDatePicker</td>
+		<td>AltInputClass</td>
+		<td>String</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Attributes</td>
+		<td>Dictionary&lt;String,Object&gt;</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>Class</td>
@@ -44,11 +46,6 @@
 	</tr>
 	<tr>
 		<td>Dense</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>DisableCalendar</td>
 		<td>Boolean</td>
 		<td></td>
 	</tr>
@@ -83,46 +80,6 @@
 		<td></td>
 	</tr>
 	<tr>
-		<td>FullWidth</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>HelperText</td>
-		<td>String</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>HelperTextPersistent</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>HelperTextValidation</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>HideClearButton</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>Icon</td>
-		<td>String</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>IconOnClick</td>
-		<td>EventCallback&lt;MouseEventArgs&gt;</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>IconTrailing</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
 		<td>Id</td>
 		<td>String</td>
 		<td></td>
@@ -131,16 +88,6 @@
 		<td>Inline</td>
 		<td>Boolean</td>
 		<td></td>
-	</tr>
-	<tr>
-		<td>InputClass</td>
-		<td>String</td>
-		<td>Css class of input element</td>
-	</tr>
-	<tr>
-		<td>InputStyle</td>
-		<td>String</td>
-		<td>Style attribute of input element</td>
 	</tr>
 	<tr>
 		<td>Label</td>
@@ -153,33 +100,8 @@
 		<td></td>
 	</tr>
 	<tr>
-		<td>OnFocus</td>
-		<td>EventCallback&lt;FocusEventArgs&gt;</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>OnFocusOut</td>
-		<td>EventCallback&lt;FocusEventArgs&gt;</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>OnInput</td>
-		<td>EventCallback&lt;ChangeEventArgs&gt;</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>OnKeyDown</td>
-		<td>EventCallback&lt;KeyboardEventArgs&gt;</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>OnKeyPress</td>
-		<td>EventCallback&lt;KeyboardEventArgs&gt;</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>OnKeyUp</td>
-		<td>EventCallback&lt;KeyboardEventArgs&gt;</td>
+		<td>NoCalendar</td>
+		<td>Boolean</td>
 		<td></td>
 	</tr>
 	<tr>
@@ -188,19 +110,9 @@
 		<td></td>
 	</tr>
 	<tr>
-		<td>PlaceHolder</td>
-		<td>String</td>
-		<td></td>
-	</tr>
-	<tr>
 		<td>Position</td>
 		<td>String</td>
 		<td></td>
-	</tr>
-	<tr>
-		<td>ReadOnly</td>
-		<td>Boolean</td>
-		<td>When true, it specifies that an input field is read-only.</td>
 	</tr>
 	<tr>
 		<td>RefBack</td>
@@ -218,24 +130,19 @@
 		<td>Specifies an inline style for an DOM element.</td>
 	</tr>
 	<tr>
-		<td>TextArea</td>
+		<td>ValidationDisabled</td>
 		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>Type</td>
-		<td>String</td>
-		<td></td>
+		<td>When contained within an  disables this control&#39;s<br/>participation in validation checking.  This means that this control will not<br/>reflect the validation state of the underlying data binding.</td>
 	</tr>
 	<tr>
 		<td>Value</td>
 		<td>Nullable&lt;DateTime&gt;</td>
-		<td>Gets or sets the value of the input. This should be used with two-way binding.</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>ValueChanged</td>
 		<td>EventCallback&lt;Nullable&lt;DateTime&gt;&gt;</td>
-		<td>Gets or sets a callback that updates the bound value.</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>ValueExpression</td>
@@ -245,6 +152,6 @@
 	<tr>
 		<td>Ref</td>
 		<td>ElementReference</td>
-		<td>Returned ElementRef reference for DOM element.</td>
+		<td></td>
 	</tr>
 </table></div>

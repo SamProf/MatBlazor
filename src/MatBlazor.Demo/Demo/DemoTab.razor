@@ -215,35 +215,35 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatButton OnClick=""@ChangeTab"">Change Tab</MatButton>
-            <div>
-                Active tab index: @tabIndex 
-            </div>
-            <MatTabGroup @bind-ActiveIndex=""@tabIndex"">
-                <MatTab Label=""First"">
-                    First Content
-                </MatTab>
-                <MatTab Label=""Second"">
-                    Second Content
-                </MatTab>
-                <MatTab Label=""Third"">
-                    Third Content
-                </MatTab>
-                <MatTab Label=""Fourth"">
-                    Fourth Content
-                </MatTab>
+        <MatButton OnClick=""@ChangeTab"">Change Tab</MatButton>
+        <div>
+            Active tab index: @tabIndex 
+        </div>
+        <MatTabGroup @bind-ActiveIndex=""@tabIndex"">
+            <MatTab Label=""First"">
+                First Content
+            </MatTab>
+            <MatTab Label=""Second"">
+                Second Content
+            </MatTab>
+           <MatTab Label=""Third"">
+                Third Content
+            </MatTab>
+            <MatTab Label=""Fourth"">
+                Fourth Content
+            </MatTab>
 
-            </MatTabGroup>
+        </MatTabGroup>
 
-            @code
+        @code
+        {
+            public int tabIndex = 0;
+
+            void ChangeTab(MouseEventArgs e)
             {
-                public int tabIndex = 0;
-
-                void ChangeTab(MouseEventArgs e)
-                {
-                    tabIndex = tabIndex < 3 ? tabIndex + 1 : 0;
-                }
+                tabIndex = tabIndex < 3 ? tabIndex + 1 : 0;
             }
+        }
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
