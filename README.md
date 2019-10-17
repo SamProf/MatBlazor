@@ -126,6 +126,7 @@ If you think that this project helped you or your company in any way, you can co
 - Auto-Active MatNatItem #268 (Thanks to [enkodellc](https://github.com/enkodellc))
 - Fixed "Items per Page" #290 (Thanks to [msitconsulting](https://github.com/msitconsulting))
 - Update Readme.md (EmbeddedBlazorContent) #270 (Thanks to [manuel3108](https://github.com/manuel3108))
+- Update BlazorBoilerplate description #299 (Thanks to [enkodellc](https://github.com/enkodellc))
 
 
 ### MatBlazor 1.9.0
