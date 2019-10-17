@@ -179,6 +179,74 @@
     </SourceContent>
 </DemoContainer>
 
+<h5 class="mat-h5">Dynamically set tab index</h5>
+
+<DemoContainer>
+    <Content>
+        <MatButton OnClick="@ChangeTab">Change Tab</MatButton>
+        <div>
+            Active tab index: @tabIndex 
+        </div>
+        <MatTabGroup @bind-ActiveIndex="@tabIndex">
+            <MatTab Label="First">
+                First Content
+            </MatTab>
+            <MatTab Label="Second">
+                Second Content
+            </MatTab>
+           <MatTab Label="Third">
+                Third Content
+            </MatTab>
+            <MatTab Label="Fourth">
+                Fourth Content
+            </MatTab>
+
+        </MatTabGroup>
+
+        @code
+        {
+            public int tabIndex = 0;
+
+            void ChangeTab(MouseEventArgs e)
+            {
+                tabIndex = tabIndex < 3 ? tabIndex + 1 : 0;
+            }
+        }
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatButton OnClick=""@ChangeTab"">Change Tab</MatButton>
+        <div>
+            Active tab index: @tabIndex 
+        </div>
+        <MatTabGroup @bind-ActiveIndex=""@tabIndex"">
+            <MatTab Label=""First"">
+                First Content
+            </MatTab>
+            <MatTab Label=""Second"">
+                Second Content
+            </MatTab>
+           <MatTab Label=""Third"">
+                Third Content
+            </MatTab>
+            <MatTab Label=""Fourth"">
+                Fourth Content
+            </MatTab>
+
+        </MatTabGroup>
+
+        @code
+        {
+            public int tabIndex = 0;
+
+            void ChangeTab(MouseEventArgs e)
+            {
+                tabIndex = tabIndex < 3 ? tabIndex + 1 : 0;
+            }
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
 
 <DocMatTabBar></DocMatTabBar>
 <DocMatTabLabel Secondary="true"></DocMatTabLabel>

@@ -11,7 +11,7 @@ namespace MatBlazor
     public class BaseMatTabBar : BaseMatDomComponent
     {
         private BaseMatTabLabel _active;
-
+        private int _activeIndex;
         internal List<BaseMatTabLabel> Tabs = new List<BaseMatTabLabel>();
 
         [Parameter]
@@ -29,12 +29,30 @@ namespace MatBlazor
                 }
 
                 _active = value;
+                _activeIndex = this.Tabs.IndexOf(_active);
 
                 this.InvokeStateHasChanged();
                 if (!Disposed)
                 {
                     ActiveChanged.InvokeAsync(value);
+                    ActiveIndexChanged.InvokeAsync(_activeIndex);
                 }
+            }
+        }
+
+        [Parameter]
+        public int ActiveIndex 
+        {
+            get => _activeIndex;
+            set
+            {
+                var tab = this.Tabs?.ElementAtOrDefault(value);
+                if (tab == null)
+                {
+                    return;
+                }
+                _activeIndex = value;
+                Active = tab;
             }
         }
 
@@ -52,6 +70,7 @@ namespace MatBlazor
                     else
                     {
                         this.ActiveChanged.InvokeAsync(this.Active);
+                        this.ActiveIndexChanged.InvokeAsync(this.ActiveIndex);
                     }
                 });
             }
@@ -60,6 +79,9 @@ namespace MatBlazor
 
         [Parameter]
         public EventCallback<BaseMatTabLabel> ActiveChanged { get; set; }
+
+        [Parameter]
+        public EventCallback<int> ActiveIndexChanged { get; set; }
 
         public BaseMatTabBar()
         {

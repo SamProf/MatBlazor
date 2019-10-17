@@ -17,7 +17,7 @@ MatBlazor comprises a range of components which implement common interaction pat
 - [MatBlazor.com - Documentation and demo website](https://www.matblazor.com)
 - [MatBlazor - Documentation and demo website - ClientSideBlazor](https://samprof.github.io/MatBlazor/)
 - [BlazorFiddle example](https://blazorfiddle.com/s/matblazor-news-client)
-- [BlazorBoilerplate](https://blazorboilerplate.com/)
+- [BlazorBoilerplate](https://github.com/enkodellc/blazorboilerplate) - ![GitHub stars](https://img.shields.io/github/stars/enkodellc/blazorboilerplate?style=flat-square&cacheSeconds=604800) A Real World Starter App with Authentication / Authorization built with MatBlazor. [Demo](https://blazorboilerplate.com).
 
 
 ![](content/demo-blazor-news-client.png)
@@ -51,10 +51,23 @@ dotnet add package MatBlazor
 
 ## MatBlazor components for server-side Blazor (Razor Components)
 
-Used [EmbeddedBlazorContent](https://github.com/SamProf/EmbeddedBlazorContent) library:  [![NuGet](https://img.shields.io/nuget/v/EmbeddedBlazorContent.svg)](https://www.nuget.org/packages/EmbeddedBlazorContent/)
+Install [EmbeddedBlazorContent](https://github.com/SamProf/EmbeddedBlazorContent) library:  [![NuGet](https://img.shields.io/nuget/v/EmbeddedBlazorContent.svg)](https://www.nuget.org/packages/EmbeddedBlazorContent/)
 
+To Install 
+
+```
+Install-Package EmbeddedBlazorContent
+```
+or 
+```
+dotnet add package EmbeddedBlazorContent
+```
+
+Change the following to files:
 - Startup.cs
 ```
+using EmbeddedBlazorContent;
+...
 app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);
 ```
 - _Host.cshtml (head section)  
@@ -106,8 +119,15 @@ If you think that this project helped you or your company in any way, you can co
 
 ## News
 
-### In progres MatBlazor 1.9.1
+
+### MatBlazor 1.10.1
+- Update to .NET Core 3.1 Preview 1
+- Added an active index to the MatTabGroup and MatTabBar #289 (Thanks to [chris1411](https://github.com/chris1411))
 - Auto-Active MatNatItem #268 (Thanks to [enkodellc](https://github.com/enkodellc))
+- Fixed "Items per Page" #290 (Thanks to [msitconsulting](https://github.com/msitconsulting))
+- Update Readme.md (EmbeddedBlazorContent) #270 (Thanks to [manuel3108](https://github.com/manuel3108))
+- Update BlazorBoilerplate description #299 (Thanks to [enkodellc](https://github.com/enkodellc))
+
 
 ### MatBlazor 1.9.0
 - Update to .NET Core 3.0
