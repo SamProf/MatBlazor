@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
@@ -41,21 +42,24 @@ namespace MatBlazor
         [Parameter]
         public string Mode { get; set; } = "single";
 
-        [Parameter]
-        public string DateFormat { get; set; } = "Y-m-d";
-
         private DotNetObjectReference<MatDatePickerTypeJsHelper> dotNetObjectRef;
         private MatDatePickerTypeJsHelper dotNetObject;
         protected ElementReference flatpickrInputRef;
 
+
+        private MatTypeConverter<DateTime?, T> typeConverterChange;
         public BaseMatDatePickerType()
         {
+
+            ClassMapper.Add("mat-date-picker");
+            typeConverterChange = MatTypeConverterManager.Get<DateTime?, T>();
+
             dotNetObject = new MatDatePickerTypeJsHelper()
             {
                 OnChangeAction = (value) =>
                 {
                     var v = value.FirstOrDefault();
-                    CurrentValueAsObject = v;
+                    CurrentValue = typeConverterChange(v, Format);
                     InvokeStateHasChanged();
                 },
             };
@@ -76,7 +80,7 @@ namespace MatBlazor
                         AllowInput = this.AllowInput,
 //                    AltFormat = this.AltFormat,
 //                    AltInputClass = this.AltInputClass,
-                        DateFormat = this.DateFormat,
+//                        DateFormat = this.DateFormat,
                         DisableMobile = this.DisableMobile,
                         Inline = this.Inline,
                         Mode = this.Mode,
@@ -92,19 +96,7 @@ namespace MatBlazor
         }
 
 
-       
-
-
-        protected override RenderFragment GetChildContent()
-        {
-            return (builder) =>
-            {
-                builder.AddContent(0, base.GetChildContent());
-                builder.AddContent(1, GetDatePickerChildContent());
-            };
-        }
-
-        protected abstract RenderFragment GetDatePickerChildContent();
+        
 
         protected async Task OnClickIconHandler()
         {
@@ -157,8 +149,6 @@ namespace MatBlazor
 
             public string AltFormat { get; set; } = "F j, Y";
         }
-
-
-        
     }
+    
 }

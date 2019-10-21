@@ -10,14 +10,12 @@
         <MatButton OnClick="@(_ =>
                               {
                                   Date1 = DateTime.Now;
-                                  this.StateHasChanged();
                               })">
             Now
         </MatButton>
         <MatButton OnClick="@(_ =>
                               {
                                   Date1 = null;
-                                  this.StateHasChanged();
                               })">
             Empty
         </MatButton>
@@ -27,6 +25,59 @@
         @code
         {
             public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatDatePicker @bind-Value=""@Date1""></MatDatePicker>
+        </p>
+        <MatButton OnClick=""@(_ =>
+                              {
+                                  Date1 = DateTime.Now;
+                                  this.StateHasChanged();
+                              })"">
+            Now
+        </MatButton>
+        <MatButton OnClick=""@(_ =>
+                              {
+                                  Date1 = null;
+                                  this.StateHasChanged();
+                              })"">
+            Empty
+        </MatButton>
+
+        <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : """")</span>
+
+        @code
+        {
+            public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+
+<MatH5>Generic types</MatH5>
+<DemoContainer>
+    <Content>
+        <p>
+            <MatDatePickerType @bind-Value="@DateTimeTest"></MatDatePickerType>
+        </p>
+        <p>
+            <MatDatePickerType @bind-Value="@DateTimeNullableTest"></MatDatePickerType>
+        </p>
+
+        <span>@(DateTimeTest.ToLocalTime().ToString())</span>
+        <span>@(DateTimeNullableTest?.ToLocalTime().ToString())</span>
+
+        @code
+        {
+            public DateTime DateTimeTest { get; set; }
+            public DateTime? DateTimeNullableTest { get; set; }
         }
 
     </Content>

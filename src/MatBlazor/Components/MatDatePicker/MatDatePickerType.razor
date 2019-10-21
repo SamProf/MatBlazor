@@ -7,12 +7,17 @@
 @code
 {
 
-    protected override RenderFragment GetDatePickerChildContent()
+
+    protected override RenderFragment GetChildContent()
     {
-        return @<div style="position: absolute; right: 3px; display: flex; flex-direction: row; align-items: center; justify-content: center; height: 100%;">
-                   <input @ref="flatpickrInputRef" style="display: none;"/>
-                   <MatIconButton Icon="@MatIconNames.Calendar_today" OnClick="OnClickIconHandler"></MatIconButton>
-               </div>;
+        return (builder) =>
+        {
+            builder.AddContent(0, base.GetChildContent());
+            builder.AddContent(1, @<div class="mat-date-picker-icon-container">
+                                      <input @ref="flatpickrInputRef" style="display: none;"/>
+                                      <MatIconButton Icon="@MatIconNames.Calendar_today" OnClick="OnClickIconHandler"></MatIconButton>
+                                  </div>);
+        };
     }
 
 }

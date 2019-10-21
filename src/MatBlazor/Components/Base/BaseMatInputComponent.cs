@@ -15,6 +15,15 @@ namespace MatBlazor
     /// <typeparam name="T">the natural type of the input's value</typeparam>
     public abstract class BaseMatInputComponent<T> : BaseMatDomComponent
     {
+        protected MatTypeConverter<T, string> typeConverterToString;
+        protected MatTypeConverter<string, T> typeConverterFromString;
+
+        protected BaseMatInputComponent()
+        {
+            typeConverterToString = MatTypeConverterManager.Get<T, string>();
+            typeConverterFromString = MatTypeConverterManager.Get<string, T>();
+        }
+
         private bool _previousParsingAttemptFailed;
         private ValidationMessageStore _parsingValidationMessages;
         private Type _nullableUnderlyingType;
@@ -65,21 +74,14 @@ namespace MatBlazor
                 if (hasChanged)
                 {
                     Value = value;
-                    _ = ValueChanged.InvokeAsync(value);
+                    ValueChanged.InvokeAsync(value);
                     EditContext?.NotifyFieldChanged(FieldIdentifier);
                 }
             }
         }
 
 
-        protected object CurrentValueAsObject
-        {
-            get => CurrentValue;
-            set => CurrentValue = (T)Convert.ChangeType(value, typeof(T));
-        }
-
-
-
+      
         /// <summary>
         /// Gets or sets the current value of the input, represented as a string.
         /// </summary>
@@ -92,15 +94,7 @@ namespace MatBlazor
 
                 bool parsingFailed;
 
-                if (_nullableUnderlyingType != null && string.IsNullOrEmpty(value))
-                {
-                    // Assume if it's a nullable type, null/empty inputs should correspond to default(T)
-                    // Then all subclasses get nullable support almost automatically (they just have to
-                    // not reject Nullable<T> based on the type itself).
-                    parsingFailed = false;
-                    CurrentValue = default;
-                }
-                else if (TryParseValueFromString(value, out var parsedValue, out var validationErrorMessage))
+                if (TryParseValueFromString(value, out var parsedValue, out var validationErrorMessage))
                 {
                     parsingFailed = false;
                     CurrentValue = parsedValue;
@@ -129,13 +123,18 @@ namespace MatBlazor
             }
         }
 
+        [Parameter]
+        public string Format { get; set; } = null;
+
         /// <summary>
         /// Formats the value as a string. Derived classes can override this to determine the formating used for <see cref="CurrentValueAsString"/>.
         /// </summary>
         /// <param name="value">The value to format.</param>
         /// <returns>A string representation of the value.</returns>
         protected virtual string FormatValueAsString(T value)
-            => value?.ToString();
+        {
+            return typeConverterToString(value, Format);
+        }
 
         /// <summary>
         /// Parses a string to create an instance of <typeparamref name="TValue"/>. Derived classes can override this to change how
@@ -149,8 +148,7 @@ namespace MatBlazor
         {
             try
             {
-                var converter = TypeDescriptor.GetConverter(typeof(T));
-                result = (T)converter.ConvertFromString(value);
+                result = typeConverterFromString(value, Format);
                 validationErrorMessage = null;
                 return true;
             }

@@ -142,6 +142,7 @@ namespace MatBlazor
             InputClassMapper
                 .Get(() => this.InputClass)
                 .Get(() => this.FieldClass)
+                .Add("mat-text-field-input")
                 .Add("mdc-text-field__input")
                 .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(CurrentValueAsString))
                 .If("mat-hide-clearbutton", () => this.HideClearButton);
