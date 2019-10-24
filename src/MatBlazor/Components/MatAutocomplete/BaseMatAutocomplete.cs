@@ -82,6 +82,18 @@ namespace MatBlazor
         }
 
         /// <summary>
+        /// This value is only returned for use in ValueExpression (required to make MatAutocomplete work inside EditForms).
+        /// </summary>
+        protected string DummyValue
+        {
+            get
+            {
+                return " ";
+            }
+            set { }
+        }
+
+        /// <summary>
         /// The value to be used to pre-select an item from the list
         /// </summary>
         [Parameter]

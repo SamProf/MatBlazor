@@ -5,7 +5,6 @@
 
 
 <div class="@WrapperClassMapper.Class">
-    <MatTextField Icon="@Icon" OnFocus="@OpenPopup" HideClearButton="true" FullWidth="@FullWidth" OnFocusOut="@ClosePopup" Label="@Label" Value=@StringValue OnInput=@OnValueChanged OnKeyDown="@OnKeyDown" Outlined="@Outlined" Attributes="@Attributes" Id="@Id"></MatTextField>
     @if (IsShowingClearButton)
     {
         <div class="mat-autocomplete-clearbutton">
@@ -32,4 +31,5 @@
             </MatList>
         </div>
     }
+    <MatTextField Icon="@Icon" OnFocus="@OpenPopup" HideClearButton="true" FullWidth="@FullWidth" OnFocusOut="@ClosePopup" Label="@Label" Value="@StringValue" OnInput=@OnValueChanged OnKeyDown="@OnKeyDown" Outlined="@Outlined" Attributes="@Attributes" Id="@Id" ValueExpression="@(() => DummyValue)"></MatTextField>
 </div>
