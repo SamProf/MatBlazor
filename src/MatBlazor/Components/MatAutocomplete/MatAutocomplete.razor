@@ -1,4 +1,4 @@
-﻿@namespace MatBlazor
+@namespace MatBlazor
 @typeparam ItemType
 @inherits BaseMatAutocomplete<ItemType>
 @using System.Collections;
@@ -6,10 +6,11 @@
 
 <div class="@WrapperClassMapper.Class">
     <MatTextField Icon="@Icon" OnFocus="@OpenPopup" HideClearButton="true" FullWidth="@FullWidth" OnFocusOut="@ClosePopup" Label="@Label" Value=@StringValue OnInput=@OnValueChanged OnKeyDown="@OnKeyDown" Outlined="@Outlined" Attributes="@Attributes" Id="@Id"></MatTextField>
+
     @if (IsShowingClearButton)
     {
         <div class="mat-autocomplete-clearbutton">
-            <MatIconButton Icon="clear" OnMouseDown="@ClearText"></MatIconButton>
+            <MatIconButton Icon="clear" type="button" OnMouseDown="@ClearText"></MatIconButton>
         </div>
     }
     @if (Collection != null && IsOpened)
