@@ -43,6 +43,12 @@ namespace MatBlazor
         [Parameter]
         public bool OnClickStopPropagation { get; set; }
 
+        /// <summary>        
+        /// Event occurs when the user focuses on an element
+        /// </summary>
+        [Parameter]
+        public EventCallback<FocusEventArgs> OnFocus { get; set; }
+
         /// <summary>
         ///  Command executed when the user clicks on an element.
         /// </summary>
@@ -195,6 +201,15 @@ namespace MatBlazor
                     Command.Execute(CommandParameter);
                 }
             }
+        }
+
+        /// <summary>
+        /// Event handler for focus event
+        /// </summary>
+        /// <param name="ev"></param>
+        protected void OnFocusHandler(FocusEventArgs ev)
+        {
+            OnFocus.InvokeAsync(ev);
         }
 
         private bool _raised;

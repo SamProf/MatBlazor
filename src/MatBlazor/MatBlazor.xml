@@ -221,6 +221,11 @@
             Stop propagation of the OnClick event
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatButton.OnFocus">
+            <summary>
+            Event occurs when the user focuses on an element
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatButton.Command">
             <summary>
              Command executed when the user clicks on an element.
@@ -280,6 +285,12 @@
             <summary>
             Inline label of Button.
             </summary>
+        </member>
+        <member name="M:MatBlazor.BaseMatButton.OnFocusHandler(Microsoft.AspNetCore.Components.Web.FocusEventArgs)">
+            <summary>
+            Event handler for focus event
+            </summary>
+            <param name="ev"></param>
         </member>
         <member name="T:MatBlazor.BaseMatCard">
             <summary>
