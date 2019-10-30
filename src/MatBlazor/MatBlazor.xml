@@ -204,6 +204,12 @@
             <summary>
             ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
             </summary>
+        <member>
+        <member name="M:MatBlazor.BaseMatAutocomplete`1.ClearText(System.EventArgs)">
+            <summary>
+            Clears current value of the autocomplete text
+            </summary>
+            <param name="e"></param>
         </member>
         <member name="T:MatBlazor.BaseMatButton">
             <summary>

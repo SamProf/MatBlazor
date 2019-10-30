@@ -9,7 +9,7 @@
     @if (IsShowingClearButton)
     {
         <div class="mat-autocomplete-list-clearbutton">
-            <MatIconButton Icon="clear" OnMouseDown="@ClearText"></MatIconButton>
+            <MatIconButton Icon="clear" OnMouseDown="@ClearText" OnClick="@ClearText"></MatIconButton>
         </div>
     }
     @if (Items != null && IsOpened)
