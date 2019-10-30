@@ -363,6 +363,12 @@
             Icon to use when Button is clicked
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatIconButton.Type">
+            <summary>
+            The default behavior of the button. Possible values are:
+            "button", "reset", "submit"
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatIconButton.Link">
             <summary>
             Navigate to this url when clicked.
