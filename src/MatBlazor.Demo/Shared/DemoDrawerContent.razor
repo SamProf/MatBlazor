@@ -35,6 +35,7 @@
         public NavGroup Group;
         public string Name;
         public string Url;
+        public int Order;
     }
 
     class NavGroup
@@ -72,6 +73,13 @@
         };
         var navItems = new[]
         {
+            new NavItem()
+            {
+                Name = "Validation via EditContext",
+                Url = "EditContext",
+                Group = groups.FormControls,
+                Order = 1
+            },
             new NavItem()
             {
                 Name = "Autocomplete",
@@ -307,7 +315,8 @@
                 {
                     Group = g.Key,
                     Items = g
-                        .OrderBy(i => i.Name)
+                        .OrderBy(i=>i.Order)
+                        .ThenBy(i => i.Name)
                         .ToArray(),
                 };
             })
