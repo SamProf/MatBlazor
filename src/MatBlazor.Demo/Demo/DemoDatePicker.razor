@@ -60,6 +60,37 @@
 
 
 
+<AnchorHeader Text="Features"/>
+<DemoContainer>
+    <Content>
+        <p><b>DateTime format</b></p>
+        <p>Full support of <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings?view=netframework-4.8" target="_blank">.NET DateTime formats</a></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Format="MM-dd-yy"></MatDatePicker>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Format="MMMM dd, yyyy"></MatDatePicker>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Format="MM/dd/yy H:mm:ss"></MatDatePicker>
+        @code
+        {
+            DateTime? FeaturesDateTime = DateTime.Now;
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p><b>DateTime format</b></p>
+        <p>Full support of <a href=""https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings?view=netframework-4.8"" target=""_blank"">.NET DateTime formats</a></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" Format=""MM-dd-yy""></MatDatePicker>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" Format=""MMMM dd, yyyy""></MatDatePicker>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" Format=""MM/dd/yy H:mm:ss""></MatDatePicker>
+        @code
+        {
+            DateTime? FeaturesDateTime = DateTime.Now;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
 <AnchorHeader Text="Generic types"/>
 <DemoContainer>
     <Content>

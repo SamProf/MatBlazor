@@ -15,8 +15,6 @@
 
         public bool EnableWeekNumbers { get; set; } = false;
 
-        public string DateFormat { get; set; } = "Y-m-d";
-
         public bool AllowInput { get; set; } = false;
 
         public bool DisableMobile { get; set; } = false;
