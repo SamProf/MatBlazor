@@ -1,4 +1,4 @@
-﻿<MatH3>Validation via EditContext</MatH3>
+<MatH3>Validation via EditContext</MatH3>
 
 <DemoContainer>
     <Content>
@@ -140,7 +140,7 @@
         }
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         @using System.ComponentModel.DataAnnotations
         <EditForm Model=""myModel"" OnValidSubmit=""Success"">
             <DataAnnotationsValidator />
@@ -161,12 +161,15 @@
                         <p><MatTextField Label=""Password"" @bind-Value=""myModel.Password"" Type=""password"" /></p>
                         <p><MatTextField Label=""MFA"" @bind-Value=""myModel.MFA"" /></p>
                         <p><MatTextField Label=""Comment"" @bind-Value=""myModel.Comment"" /></p>
-                        <p><MatDatePicker Label=""Date"" @bind-Value=""myModel.EndDate"" /></p>
+                        <p><MatDatePickerType Label=""Start Date"" @bind-Value=""myModel.StartDate"" /></p>
+                        <p><MatDatePicker Label=""End Date"" @bind-Value=""myModel.EndDate"" /></p>
 
                         <MatDivider />
-                        <p><MatTextField Label=""Username"" @bind-Value=""myModel.Username""
-                                         ValidationDisabled=""true""
-                                         HelperText=""Not Validated"" HelperTextPersistent=""true"" /></p>
+                        <p>
+                            <MatTextField Label=""Username"" @bind-Value=""myModel.Username""
+                                          ValidationDisabled=""true""
+                                          HelperText=""Not Validated"" HelperTextPersistent=""true"" />
+                        </p>
 
                         <ValidationSummary />
                     </div>
@@ -177,16 +180,32 @@
                     </div>
 
                     <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
-                        <p><MatTextField Label=""Username"" @bind-Value=""myModel.Username"" />
-                           <ValidationMessage For=""@(() => myModel.Username)"" /></p>
-                        <p><MatTextField Label=""Password"" @bind-Value=""myModel.Password"" Type=""password"" />
-                           <ValidationMessage For=""@(() => myModel.Password)"" /></p>
-                        <p><MatTextField Label=""MFA"" @bind-Value=""myModel.MFA"" />
-                           <ValidationMessage For=""@(() => myModel.MFA)"" /></p>
-                        <p><MatTextField Label=""Comment"" @bind-Value=""myModel.Comment"" />
-                           <ValidationMessage For=""@(() => myModel.Comment)"" /></p>
-                        <p><MatDatePicker Label=""Date"" @bind-Value=""myModel.EndDate"" />
-                           <ValidationMessage For=""@(() => myModel.EndDate)"" /></p>
+                        <p>
+                            <MatTextField Label=""Username"" @bind-Value=""myModel.Username"" />
+                            <ValidationMessage For=""@(() => myModel.Username)"" />
+                        </p>
+                        <p>
+                            <MatTextField Label=""Password"" @bind-Value=""myModel.Password"" Type=""password"" />
+                            <ValidationMessage For=""@(() => myModel.Password)"" />
+                        </p>
+                        <p>
+                            <MatTextField Label=""MFA"" @bind-Value=""myModel.MFA"" />
+                            <ValidationMessage For=""@(() => myModel.MFA)"" />
+                        </p>
+                        <p>
+                            <MatTextField Label=""Comment"" @bind-Value=""myModel.Comment"" />
+                            <ValidationMessage For=""@(() => myModel.Comment)"" />
+                        </p>
+                        <p>
+                            <MatDatePickerType Label=""Start Date"" @bind-Value=""myModel.StartDate"" />
+                            <ValidationMessage For=""@(() => myModel.StartDate)"" />
+                        </p>
+                        <p>
+                            <MatDatePicker Label=""eND Date"" @bind-Value=""myModel.EndDate"" />
+                            <ValidationMessage For=""@(() => myModel.EndDate)"" />
+                        </p>
+                        
+                        
                     </div>
 
                     <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
@@ -215,6 +234,7 @@
                 myModel.Username = null;
                 myModel.Password = null;
                 myModel.MFA = null;
+                myModel.StartDate = DateTime.MinValue;
                 myModel.EndDate = null;
                 myModel.Comment = null;
             }
@@ -230,6 +250,10 @@
                 public string Password { get; set; }
 
                 [Required]
+                [CustomValidation(typeof(LoginModel), nameof(RequiredDateTime))]
+                public DateTime StartDate { get; set; }
+                
+                [Required]
                 public DateTime? EndDate { get; set; }
 
                 public string Comment { get; set; }
@@ -243,6 +267,13 @@
                     return string.Equals(""654321"", mfa)
                         ? ValidationResult.Success
                         : new ValidationResult(""Incorrect MFA OTP"", new[] { vc.MemberName });
+                }
+                
+                public static ValidationResult RequiredDateTime(DateTime value, ValidationContext vc)
+                {
+                    return value > DateTime.MinValue
+                        ? ValidationResult.Success
+                        : new ValidationResult($""The {vc.MemberName} field is required."", new[] { vc.MemberName });
                 }
             }
         }

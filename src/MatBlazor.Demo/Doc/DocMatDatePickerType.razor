@@ -4,9 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatTextFieldView</h3> } else { <h5 class="mat-h5">MatTextFieldView</h5> }
-
-<p>Text fields allow users to input, edit, and select text.</p>
+@if (!Secondary) {<h3 class="mat-h3">MatDatePickerType</h3> } else { <h5 class="mat-h5">MatDatePickerType</h5> }
 
 <div><table class="article-table mat-elevation-z5">
 	<tr>
@@ -15,14 +13,29 @@
 		<th>Description</th>
 	</tr>
 	<tr>
+		<td style="font-weight: bold;">T</td>
+		<td>Generic argument</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>AllowInput</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>Attributes</td>
 		<td>Dictionary&lt;String,Object&gt;</td>
-		<td></td>
+		<td>Gets or sets a collection of additional attributes that will be applied to the created element.</td>
 	</tr>
 	<tr>
 		<td>Box</td>
 		<td>Boolean</td>
 		<td></td>
+	</tr>
+	<tr>
+		<td>ChildContent</td>
+		<td>RenderFragment</td>
+		<td>Child content of MatDatePickerType</td>
 	</tr>
 	<tr>
 		<td>Class</td>
@@ -35,8 +48,43 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>DisableCalendar</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>Disabled</td>
 		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>DisableMobile</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Enable24hours</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>EnableSeconds</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>EnableTime</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>EnableWeekNumbers</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Format</td>
+		<td>String</td>
 		<td></td>
 	</tr>
 	<tr>
@@ -85,6 +133,11 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>Inline</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>InputClass</td>
 		<td>String</td>
 		<td>Css class of input element</td>
@@ -96,6 +149,11 @@
 	</tr>
 	<tr>
 		<td>Label</td>
+		<td>String</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Mode</td>
 		<td>String</td>
 		<td></td>
 	</tr>
@@ -140,6 +198,11 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>Position</td>
+		<td>String</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>ReadOnly</td>
 		<td>Boolean</td>
 		<td>When true, it specifies that an input field is read-only.</td>
@@ -171,13 +234,18 @@
 	</tr>
 	<tr>
 		<td>Value</td>
-		<td>String</td>
-		<td></td>
+		<td>T</td>
+		<td>Gets or sets the value of the input. This should be used with two-way binding.</td>
 	</tr>
 	<tr>
 		<td>ValueChanged</td>
-		<td>EventCallback&lt;String&gt;</td>
-		<td></td>
+		<td>EventCallback&lt;T&gt;</td>
+		<td>Gets or sets a callback that updates the bound value.</td>
+	</tr>
+	<tr>
+		<td>ValueExpression</td>
+		<td>Expression&lt;Func&lt;T&gt;&gt;</td>
+		<td>Gets or sets an expression that identifies the bound value.</td>
 	</tr>
 	<tr>
 		<td>Ref</td>

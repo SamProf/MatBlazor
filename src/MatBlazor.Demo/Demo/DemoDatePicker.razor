@@ -37,14 +37,12 @@
         <MatButton OnClick=""@(_ =>
                               {
                                   Date1 = DateTime.Now;
-                                  this.StateHasChanged();
                               })"">
             Now
         </MatButton>
         <MatButton OnClick=""@(_ =>
                               {
                                   Date1 = null;
-                                  this.StateHasChanged();
                               })"">
             Empty
         </MatButton>
@@ -85,28 +83,19 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            <MatDatePicker @bind-Value=""@Date1""></MatDatePicker>
+            <MatDatePickerType @bind-Value=""@DateTimeTest""></MatDatePickerType>
         </p>
-        <MatButton OnClick=""@(_ =>
-                              {
-                                  Date1 = DateTime.Now;
-                                  this.StateHasChanged();
-                              })"">
-            Now
-        </MatButton>
-        <MatButton OnClick=""@(_ =>
-                              {
-                                  Date1 = null;
-                                  this.StateHasChanged();
-                              })"">
-            Empty
-        </MatButton>
+        <p>
+            <MatDatePickerType @bind-Value=""@DateTimeNullableTest""></MatDatePickerType>
+        </p>
 
-        <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : """")</span>
+        <span>@(DateTimeTest.ToLocalTime().ToString())</span>
+        <span>@(DateTimeNullableTest?.ToLocalTime().ToString())</span>
 
         @code
         {
-            public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
+            public DateTime DateTimeTest { get; set; }
+            public DateTime? DateTimeNullableTest { get; set; }
         }
 
     ")></BlazorFiddle>
@@ -186,6 +175,44 @@
             @*Enable time picker with AM/PM*@
             <MatDatePicker NoCalendar=""true"" EnableTime=""true"" DateFormat=""H:i""></MatDatePicker>
         </p>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<AnchorHeader Text="Wrong TimeZone?" />
+<p>
+    To display dates you need to use <code>.ToLocalTime()</code>
+</p>
+<p>
+    But at this time, the latest version of the client-side Blazor doesn't contain any time zone info, and local time zone is always UTC wherever.<br />
+    To solve this problem, use <a href="https://github.com/jsakamoto/Toolbelt.Blazor.TimeZoneKit" target="_blank">Toolbelt.Blazor.TimeZoneKit</a>. <br />
+    You can make sure this solution works here: <a href="https://samprof.github.io/MatBlazor/DatePicker" target="_blank">Client-side MatBlazor</a>
+</p>
+<DemoContainer>
+    <Content>
+        <p>
+            Current time: @CurrentTime.ToString()
+        </p>
+        <p>
+            Current local time: @CurrentTime.ToLocalTime().ToString()
+        </p>
+        @code
+        {
+            DateTime CurrentTime = DateTime.Now;
+        }
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            Current time: @CurrentTime.ToString()
+        </p>
+        <p>
+            Current local time: @CurrentTime.ToLocalTime().ToString()
+        </p>
+        @code
+        {
+            DateTime CurrentTime = DateTime.Now;
+        }
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

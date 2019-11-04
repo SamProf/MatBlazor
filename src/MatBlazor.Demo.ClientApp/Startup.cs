@@ -1,6 +1,7 @@
 using MatBlazor.Demo.Models;
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Toolbelt.Blazor.Extensions.DependencyInjection;
 
 namespace MatBlazor.Demo.ClientApp
 {
@@ -23,6 +24,7 @@ namespace MatBlazor.Demo.ClientApp
         public void Configure(IComponentsApplicationBuilder app)
         {
             app.AddComponent<App>("app");
+            app.UseLocalTimeZone();
         }
     }
 }

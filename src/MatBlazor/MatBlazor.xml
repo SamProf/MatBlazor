@@ -271,7 +271,7 @@
             Datetime picker based on flatpickr.js
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatDatePickerType`1.FlatpickrOptions">
+        <member name="T:MatBlazor.FlatpickrOptions">
             <summary>
             The options from https://flatpickr.js.org/options/
             </summary>
