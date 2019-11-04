@@ -1,0 +1,32 @@
+﻿@inject NavigationManager NavigationManager
+
+@* todo: Will be implemented in nearest future *@
+@* https://community.devexpress.com/blogs/aspnet/archive/2019/08/28/blazor-components-free-anchor-navigation-tool.aspx *@
+
+
+<MatH5>@Text</MatH5>
+
+@code
+{
+
+    private string GetUrl()
+    {
+        var url = NavigationManager.Uri;
+        if (url != null)
+        {
+            var hp = url.IndexOf("#");
+            if (hp>=0)
+            {
+                url = url.Substring(0, hp);
+            }
+        }
+        else
+        {
+            url = "";
+        }
+        return $"{url}#{Text}";
+    }
+
+    [Parameter]
+    public string Text { get; set; }
+}
