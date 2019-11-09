@@ -12,7 +12,7 @@ namespace MatBlazor
     public class BaseMatDatePicker : BaseMatInputComponent<DateTime?>
     {
         protected BaseMatTextFieldView TextFieldRef;
-       
+
 
         [Parameter]
         public string Label { get; set; }
@@ -80,7 +80,13 @@ namespace MatBlazor
         [Parameter]
         public string AltFormat { get; set; } = "F j, Y";
 
-        
+        [Parameter]
+        public DateTime? MinDate { get; set; } = null;
+
+        [Parameter]
+        public DateTime? MaxDate { get; set; } = null;
+
+
         public virtual ElementReference Ref
         {
             get => TextFieldRef.InputRef;
@@ -110,7 +116,11 @@ namespace MatBlazor
                     DisableMobile = this.DisableMobile,
                     Inline = this.Inline,
                     Mode = this.Mode,
-                    Position = this.Position
+                    Position = this.Position,
+
+                    // TODO : Formatting must be same with DateFormat
+                    MinDate = this.MinDate?.ToString("yyyy-MM-dd"),
+                    MaxDate = this.MaxDate?.ToString("yyyy-MM-dd")
                 });
             });
         }
@@ -126,8 +136,8 @@ namespace MatBlazor
         public async Task MatDatePickerOnChangeHandler(DateTime?[] value)
         {
             var v = value.First();
-//            Console.WriteLine(v.Value);
-//            Console.WriteLine(DateTime.Parse("2019-08-19T15:09:04.143Z").ToLocalTime());
+            //            Console.WriteLine(v.Value);
+            //            Console.WriteLine(DateTime.Parse("2019-08-19T15:09:04.143Z").ToLocalTime());
             Value = v;
             await ValueChanged.InvokeAsync(Value);
             this.StateHasChanged();
@@ -177,6 +187,10 @@ namespace MatBlazor
             public string AltInputClass { get; set; } = "";
 
             public string AltFormat { get; set; } = "F j, Y";
+
+            public string MinDate { get; set; } = null;
+
+            public string MaxDate { get; set; } = null;
         }
     }
 }

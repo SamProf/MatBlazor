@@ -22,6 +22,9 @@ export function init(ref, cmp, defaultDate, options) {
         altInputClass: options.altInputClass,
         disableMobile: options.disableMobile,
 
+        minDate: options.minDate,
+        maxDate: options.maxDate,
+
         // wrap: true,
         // allowInput: true,
         // clickOpens: false,

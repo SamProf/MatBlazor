@@ -5,7 +5,7 @@
 <DemoContainer>
     <Content>
         <p>
-            <MatDatePicker @bind-Value="@Date1"></MatDatePicker>
+            <MatDatePicker MinDate="@DateTime.Now.AddDays(-15)" MaxDate="@DateTime.Now.AddDays(1)" @bind-Value="@Date1"></MatDatePicker>
         </p>
         <MatButton OnClick="@(_ =>
                               {
@@ -33,7 +33,7 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            <MatDatePicker @bind-Value=""@Date1""></MatDatePicker>
+            <MatDatePicker MinDate=""@DateTime.Now.AddDays(-15)"" MaxDate=""@DateTime.Now.AddDays(1)"" @bind-Value=""@Date1""></MatDatePicker>
         </p>
         <MatButton OnClick=""@(_ =>
                               {
