@@ -13,10 +13,10 @@ namespace MatBlazor
     public abstract class BaseMatDatePickerType<T> : MatInputTextComponent<T>
     {
         [Parameter]
-        public bool EnableTime { get; set; }
+        public bool EnableTime { get; set; } = false;
 
         [Parameter]
-        public bool EnableSeconds { get; set; }
+        public bool EnableSeconds { get; set; } = false;
 
         [Parameter]
         public bool DisableCalendar { get; set; }
@@ -28,18 +28,15 @@ namespace MatBlazor
         public bool EnableWeekNumbers { get; set; }
 
         [Parameter]
-        public bool AllowInput { get; set; }
+        public bool AllowInput { get; set; } = true;
 
         [Parameter]
         public bool DisableMobile { get; set; }
-
-        [Parameter]
-        public bool Inline { get; set; }
-
-        [Parameter]
+       
+//        [Parameter]
         public string Position { get; set; } = "auto";
 
-        [Parameter]
+//        [Parameter]
         public string Mode { get; set; } = "single";
 
         private DotNetObjectReference<MatDatePickerTypeJsHelper> dotNetObjectRef;
@@ -48,11 +45,19 @@ namespace MatBlazor
 
 
         private MatTypeConverter<DateTime?, T> typeConverterChange;
+        private MatTypeConverter<T, DateTime?> toDateTypeConverter;
+
+        protected override bool InputTextReadOnly()
+        {
+            return base.InputTextReadOnly() || !AllowInput;
+        }
+
         public BaseMatDatePickerType()
         {
 
             ClassMapper.Add("mat-date-picker");
             typeConverterChange = MatTypeConverterManager.Get<DateTime?, T>();
+            toDateTypeConverter = MatTypeConverterManager.Get<T, DateTime?>();
 
             dotNetObject = new MatDatePickerTypeJsHelper()
             {
@@ -63,30 +68,6 @@ namespace MatBlazor
                     InvokeStateHasChanged();
                 },
             };
-
-            CallAfterRender(async () =>
-            {
-                dotNetObjectRef ??= CreateDotNetObjectRef(dotNetObject);
-
-                await JsInvokeAsync<object>("matBlazor.matDatePicker.init", Ref, flatpickrInputRef, dotNetObjectRef,
-                    Value, new FlatpickrOptions
-                    {
-                        EnableTime = this.EnableTime,
-                        NoCalendar = this.DisableCalendar,
-                        Enable24hours = this.Enable24hours,
-                        EnableSeconds = this.EnableSeconds,
-                        EnableWeekNumbers = this.EnableWeekNumbers,
-
-                        AllowInput = this.AllowInput,
-//                    AltFormat = this.AltFormat,
-//                    AltInputClass = this.AltInputClass,
-//                        DateFormat = this.DateFormat,
-                        DisableMobile = this.DisableMobile,
-                        Inline = this.Inline,
-                        Mode = this.Mode,
-                        Position = this.Position
-                    });
-            });
         }
 
         public override void Dispose()
@@ -102,20 +83,40 @@ namespace MatBlazor
         {
             this.InvokeStateHasChanged();
 
-            CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matDatePicker.open", Ref, Value); });
+            if (!DisableCalendar && !Disabled && !ReadOnly)
+            {
+
+                CallAfterRender(async () =>
+                {
+                    dotNetObjectRef ??= CreateDotNetObjectRef(dotNetObject);
+
+                    await JsInvokeAsync<object>("matBlazor.matDatePicker.open", Ref, flatpickrInputRef, dotNetObjectRef,
+                        new FlatpickrOptions
+                        {
+                            EnableTime = this.EnableTime,
+                            Enable24hours = this.Enable24hours,
+                            EnableSeconds = this.EnableSeconds,
+                            EnableWeekNumbers = this.EnableWeekNumbers,
+                            DisableMobile = this.DisableMobile,
+                            Mode = this.Mode,
+                            Position = Position,
+                            DefaultDate = toDateTypeConverter(Value, Format),
+                        });
+                });
+            }
         }
 
         public async override Task SetParametersAsync(ParameterView parameters)
         {
-            var valueIsChanged = this.ParameterIsChanged(parameters, nameof(Value), Value);
+//            var valueIsChanged = this.ParameterIsChanged(parameters, nameof(Value), Value);
             await base.SetParametersAsync(parameters);
-            if (valueIsChanged)
-            {
-                CallAfterRender(async () =>
-                {
-                    await JsInvokeAsync<object>("matBlazor.matDatePicker.setDate", Ref, Value);
-                });
-            }
+//            if (valueIsChanged)
+//            {
+//                CallAfterRender(async () =>
+//                {
+//                    await JsInvokeAsync<object>("matBlazor.matDatePicker.setDate", Ref, Value);
+//                });
+//            }
         }
 
        

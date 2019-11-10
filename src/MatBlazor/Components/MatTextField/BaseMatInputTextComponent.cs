@@ -60,6 +60,12 @@ namespace MatBlazor
         [Parameter]
         public bool ReadOnly { get; set; }
 
+
+        protected virtual bool InputTextReadOnly()
+        {
+            return ReadOnly;
+        }
+
         [Parameter]
         public bool FullWidth { get; set; }
 

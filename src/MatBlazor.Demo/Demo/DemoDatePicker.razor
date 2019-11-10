@@ -68,11 +68,39 @@
         <MatDatePicker @bind-Value="FeaturesDateTime" Format="MM-dd-yy"></MatDatePicker>
         <MatDatePicker @bind-Value="FeaturesDateTime" Format="MMMM dd, yyyy"></MatDatePicker>
         <MatDatePicker @bind-Value="FeaturesDateTime" Format="MM/dd/yy H:mm:ss"></MatDatePicker>
+
+
+        <p><b>EnableTime</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" EnableTime="true"></MatDatePicker>
+        
+        <p><b>EnableSeconds</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" EnableTime="true" EnableSeconds="true"></MatDatePicker>
+        
+        <p><b>Enable24hours</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" EnableTime="true" Enable24hours="true"></MatDatePicker>
+        
+        <p><b>EnableWeekNumbers</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" EnableWeekNumbers="true"></MatDatePicker>
+        
+        <p><b>EnableWeekNumbers</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" DisableMobile="true"></MatDatePicker>
+        
+        <p><b>DisableCalendar</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" DisableCalendar="true"></MatDatePicker>
+        
+        <p><b>AllowInput</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" AllowInput="false"></MatDatePicker>
+        
+        <p><b>Disabled</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Disabled="true"></MatDatePicker>
+        
+        <p><b>ReadOnly</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" ReadOnly="true"></MatDatePicker>
+
         @code
         {
             DateTime? FeaturesDateTime = DateTime.Now;
         }
-
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
@@ -175,40 +203,6 @@
     </SourceContent>
 </DemoContainer>
 
-
-<AnchorHeader Text="Date Time picker" />
-<DemoContainer>
-    <Content>
-        <p>
-            @*Enable time on an normal AM/PM calendar*@
-            <MatDatePicker EnableTime="true" DateFormat="Y-m-d H:i"></MatDatePicker>
-        </p>
-        <p>
-            @*Enable time on an calendar with 24 hours option*@
-            <MatDatePicker EnableTime="true" Enable24hours="true" DateFormat="Y-m-d H:i"></MatDatePicker>
-        </p>
-        <p>
-            @*Enable time picker with AM/PM*@
-            <MatDatePicker NoCalendar="true" EnableTime="true" DateFormat="H:i"></MatDatePicker>
-        </p>
-    </Content>
-    <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <p>
-            @*Enable time on an normal AM/PM calendar*@
-            <MatDatePicker EnableTime=""true"" DateFormat=""Y-m-d H:i""></MatDatePicker>
-        </p>
-        <p>
-            @*Enable time on an calendar with 24 hours option*@
-            <MatDatePicker EnableTime=""true"" Enable24hours=""true"" DateFormat=""Y-m-d H:i""></MatDatePicker>
-        </p>
-        <p>
-            @*Enable time picker with AM/PM*@
-            <MatDatePicker NoCalendar=""true"" EnableTime=""true"" DateFormat=""H:i""></MatDatePicker>
-        </p>
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
 
 <AnchorHeader Text="Wrong TimeZone?" />
 <p>
