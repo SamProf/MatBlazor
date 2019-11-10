@@ -14,7 +14,7 @@ namespace MatBlazor
         {
             Converters = new Dictionary<Type, Dictionary<Type, MatTypeConverter>>();
             Register<string, string>((value, format) => value);
-          
+
             Register<DateTime, string>((value, format) =>
             {
                 if (value == DateTime.MinValue)
@@ -42,14 +42,15 @@ namespace MatBlazor
                     return null;
                 }
 
-                if (DateTime.TryParseExact(value, format, CultureInfo.CurrentCulture, DateTimeStyles.AssumeLocal, out var result))
+                if (DateTime.TryParseExact(value, format, CultureInfo.CurrentCulture, DateTimeStyles.AssumeLocal,
+                    out var result))
                 {
                     return result;
                 }
 
                 return DateTime.Parse(value, CultureInfo.CurrentCulture, DateTimeStyles.AssumeLocal);
             });
-            
+
             Register<string, DateTime>((value, format) =>
             {
                 if (string.IsNullOrEmpty(value))
@@ -57,7 +58,8 @@ namespace MatBlazor
                     return DateTime.MinValue;
                 }
 
-                if (DateTime.TryParseExact(value, format, CultureInfo.CurrentCulture, DateTimeStyles.AssumeLocal, out var result))
+                if (DateTime.TryParseExact(value, format, CultureInfo.CurrentCulture, DateTimeStyles.AssumeLocal,
+                    out var result))
                 {
                     return result;
                 }
@@ -85,7 +87,31 @@ namespace MatBlazor
 
                 return value;
             });
+
+            Register<decimal, decimal>((value, format) => value);
+            Register<decimal, string>((value, format) => value.ToString(format));
+            Register<string, decimal>((value, format) => decimal.Parse(value, NumberStyles.Any));
+            Register<decimal, decimal?>((value, format) => value == default(Decimal) ? (decimal?)null : value);
+            Register<decimal?, decimal>((value, format) => value ?? default);
+            Register<decimal?, string>((value, format) =>
+            {
+                if (value.HasValue)
+                {
+                    return value.Value.ToString(format);
+                }
+
+                return null;
+            });
             
+            Register<string, decimal?>((value, format) =>
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    return null;
+                }
+
+                return decimal.Parse(value);
+            });
         }
 
 //        public static MatTypeConverter GetConverter(Type typeFrom, Type typeTo)
@@ -117,7 +143,7 @@ namespace MatBlazor
         public static MatTypeConverter<TFROM, TTO> Get<TFROM, TTO>()
         {
             var converter = Get(typeof(TFROM), typeof(TTO));
-            return (value, format) => (TTO)converter(value, format);
+            return (value, format) => (TTO) converter(value, format);
         }
 
         public static MatTypeConverter Get(Type typeFrom, Type typeTo)
@@ -140,5 +166,6 @@ namespace MatBlazor
 
 
     public delegate object MatTypeConverter(object value, string format);
+
     public delegate TTO MatTypeConverter<TFROM, TTO>(TFROM value, string format);
 }

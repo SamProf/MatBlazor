@@ -1,0 +1,19 @@
+﻿@namespace MatBlazor
+@typeparam T
+@inherits BaseMatNumericUpDownFieldType<T>
+
+@base.BuildRenderTree
+
+@code
+{
+
+    protected override RenderFragment GetChildContent()
+    {
+        return (builder) =>
+        {
+            builder.AddContent(0, base.GetChildContent());
+        };
+    }
+
+}
+
