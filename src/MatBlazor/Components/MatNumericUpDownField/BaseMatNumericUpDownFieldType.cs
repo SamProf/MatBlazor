@@ -120,19 +120,19 @@ namespace MatBlazor
 //            return Math.Round(value.Value, DecimalPlaces);
 //        }
 
-//        protected async void Increase()
-//        {
+        protected async Task Increase()
+        {
 //            decimal? value = (Value ?? -this.Step) + this.Step;
 //            value = Sanitize(value);
 //            ReduxSetValue(value);
-//        }
-//
-//        protected async void Decrease()
-//        {
+        }
+
+        protected async Task Decrease()
+        {
 //            decimal? value = (Value ?? +this.Step) - this.Step;
 //            value = Sanitize(value);
 //            ReduxSetValue(value);
-//        }
+        }
 
 //        [Parameter]
 //        public string Icon { get; set; }
@@ -247,6 +247,8 @@ namespace MatBlazor
 
         public BaseMatNumericUpDownFieldType()
         {
+            ClassMapper.Add("mat-numeric-up-down-field");
+            ClassMapper.Add("mat-text-field-with-actions-container");
 //            ClassMapper
 //                .Add("mat-numericUpDownField")
 //                .Add("mdc-text-field")
