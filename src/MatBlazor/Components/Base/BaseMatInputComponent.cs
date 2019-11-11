@@ -15,13 +15,10 @@ namespace MatBlazor
     /// <typeparam name="T">the natural type of the input's value</typeparam>
     public abstract class BaseMatInputComponent<T> : BaseMatDomComponent
     {
-        protected MatTypeConverter<T, string> typeConverterToString;
-        protected MatTypeConverter<string, T> typeConverterFromString;
+        protected MatBlazorSwitchT<T> SwitchT = MatBlazorSwitchT<T>.Get();
 
         protected BaseMatInputComponent()
         {
-            typeConverterToString = MatTypeConverterManager.Get<T, string>();
-            typeConverterFromString = MatTypeConverterManager.Get<string, T>();
         }
 
         private bool _previousParsingAttemptFailed;
@@ -65,7 +62,7 @@ namespace MatBlazor
         /// <summary>
         /// Gets or sets the current value of the input.
         /// </summary>
-        protected T CurrentValue
+        protected virtual T CurrentValue
         {
             get => Value;
             set
@@ -133,7 +130,7 @@ namespace MatBlazor
         /// <returns>A string representation of the value.</returns>
         protected virtual string FormatValueAsString(T value)
         {
-            return typeConverterToString(value, Format);
+            return SwitchT.FormatValueAsString(value, Format);
         }
 
         /// <summary>
@@ -148,7 +145,7 @@ namespace MatBlazor
         {
             try
             {
-                result = typeConverterFromString(value, Format);
+                result = SwitchT.ParseFromString(value, Format);
                 validationErrorMessage = null;
                 return true;
             }

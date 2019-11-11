@@ -32,19 +32,20 @@
     justify-content: center;
     height: 100%;
     z-index: 1;
-
+    top: 0px;
   }
 }
 
 .mat-numeric-up-down-field {
   .mat-text-field-actions-container {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
     .mat-numeric-up-down-field-button {
-        user-select: none;
-        flex: 1;
-        margin: 3px;
+      user-select: none;
+      flex: 1;
+      margin: 3px;
+      position: initial;
     }
   }
 }

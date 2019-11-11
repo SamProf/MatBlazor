@@ -4,13 +4,18 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatNumericUpDownField</h3> } else { <h5 class="mat-h5">MatNumericUpDownField</h5> }
+@if (!Secondary) {<h3 class="mat-h3">MatNumericUpDownFieldType</h3> } else { <h5 class="mat-h5">MatNumericUpDownFieldType</h5> }
 
 <div><table class="article-table mat-elevation-z5">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
 		<th>Description</th>
+	</tr>
+	<tr>
+		<td style="font-weight: bold;">T</td>
+		<td>Generic argument</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>AllowInput</td>
@@ -30,7 +35,7 @@
 	<tr>
 		<td>ChildContent</td>
 		<td>RenderFragment</td>
-		<td>Child content of MatNumericUpDownField</td>
+		<td>Child content of MatNumericUpDownFieldType</td>
 	</tr>
 	<tr>
 		<td>Class</td>
@@ -119,12 +124,12 @@
 	</tr>
 	<tr>
 		<td>Maximum</td>
-		<td>Nullable&lt;Decimal&gt;</td>
+		<td>T</td>
 		<td></td>
 	</tr>
 	<tr>
 		<td>Minimum</td>
-		<td>Nullable&lt;Decimal&gt;</td>
+		<td>T</td>
 		<td></td>
 	</tr>
 	<tr>
@@ -184,7 +189,7 @@
 	</tr>
 	<tr>
 		<td>Step</td>
-		<td>Nullable&lt;Decimal&gt;</td>
+		<td>T</td>
 		<td></td>
 	</tr>
 	<tr>
@@ -204,17 +209,17 @@
 	</tr>
 	<tr>
 		<td>Value</td>
-		<td>Nullable&lt;Decimal&gt;</td>
+		<td>T</td>
 		<td>Gets or sets the value of the input. This should be used with two-way binding.</td>
 	</tr>
 	<tr>
 		<td>ValueChanged</td>
-		<td>EventCallback&lt;Nullable&lt;Decimal&gt;&gt;</td>
+		<td>EventCallback&lt;T&gt;</td>
 		<td>Gets or sets a callback that updates the bound value.</td>
 	</tr>
 	<tr>
 		<td>ValueExpression</td>
-		<td>Expression&lt;Func&lt;Nullable&lt;Decimal&gt;&gt;&gt;</td>
+		<td>Expression&lt;Func&lt;T&gt;&gt;</td>
 		<td>Gets or sets an expression that identifies the bound value.</td>
 	</tr>
 	<tr>

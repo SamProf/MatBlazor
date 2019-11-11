@@ -55,6 +55,14 @@
 
         <p>
             <MatNumericUpDownField
+                Label="AllowInput - false"
+                @bind-Value="@testingNullableDecimal4"
+                AllowInput="false">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField
                 Label="Full width"
                 @bind-Value=@testingNullableDecimal4
                 DecimalPlaces=0
@@ -63,6 +71,8 @@
                 Minimum=null Maximum=null>
             </MatNumericUpDownField>
         </p>
+        
+        
 
 
         @code
@@ -137,6 +147,14 @@
 
         <p>
             <MatNumericUpDownField
+                Label=""AllowInput - false""
+                @bind-Value=""@testingNullableDecimal4""
+                AllowInput=""false"">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField
                 Label=""Full width""
                 @bind-Value=@testingNullableDecimal4
                 DecimalPlaces=0
@@ -145,6 +163,8 @@
                 Minimum=null Maximum=null>
             </MatNumericUpDownField>
         </p>
+        
+        
 
 
         @code
@@ -163,6 +183,243 @@
                 testingNullableDecimal2 += 100;
             }
 
+        }
+
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<AnchorHeader Text="Generic types"></AnchorHeader>
+<p>MatNumericUpDownField supports different generic types</p>
+<DemoContainer>
+    <Content>
+       
+        <p>
+            <MatNumericUpDownFieldType
+                Label="sbyte"
+                @bind-Value="@v1">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label="byte"
+                @bind-Value="@v2">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label="short"
+                @bind-Value="@v3">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label="ushort"
+                @bind-Value="@v4">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label="int"
+                @bind-Value="@v5">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label="uint"
+                @bind-Value="@v6">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label="long"
+                @bind-Value="@v7">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label="ulong"
+                @bind-Value="@v8">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label="char"
+                @bind-Value="@v9">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label="float"
+                @bind-Value="@v10">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label="double"
+                @bind-Value="@v11">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label="decimal"
+                @bind-Value="@v12">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label="decimal?"
+                @bind-Value="@v13">
+            </MatNumericUpDownFieldType>
+        </p>
+
+      
+
+
+        @code
+        {
+            sbyte v1;
+            byte v2;
+            short v3;
+            ushort v4;
+            int v5;
+            uint v6;
+            long v7;
+            ulong v8;
+            char v9;
+            float v10;
+            double v11;
+            decimal v12;
+            decimal? v13;
+        }
+
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+       
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""sbyte""
+                @bind-Value=""@v1"">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""byte""
+                @bind-Value=""@v2"">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""short""
+                @bind-Value=""@v3"">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""ushort""
+                @bind-Value=""@v4"">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""int""
+                @bind-Value=""@v5"">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""uint""
+                @bind-Value=""@v6"">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""long""
+                @bind-Value=""@v7"">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""ulong""
+                @bind-Value=""@v8"">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""char""
+                @bind-Value=""@v9"">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""float""
+                @bind-Value=""@v10"">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""double""
+                @bind-Value=""@v11"">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""decimal""
+                @bind-Value=""@v12"">
+            </MatNumericUpDownFieldType>
+        </p>
+        
+        <p>
+            <MatNumericUpDownFieldType
+                Label=""decimal?""
+                @bind-Value=""@v13"">
+            </MatNumericUpDownFieldType>
+        </p>
+
+      
+
+
+        @code
+        {
+            sbyte v1;
+            byte v2;
+            short v3;
+            ushort v4;
+            int v5;
+            uint v6;
+            long v7;
+            ulong v8;
+            char v9;
+            float v10;
+            double v11;
+            decimal v12;
+            decimal? v13;
         }
 
 

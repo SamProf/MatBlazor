@@ -109,11 +109,39 @@
         <MatDatePicker @bind-Value=""FeaturesDateTime"" Format=""MM-dd-yy""></MatDatePicker>
         <MatDatePicker @bind-Value=""FeaturesDateTime"" Format=""MMMM dd, yyyy""></MatDatePicker>
         <MatDatePicker @bind-Value=""FeaturesDateTime"" Format=""MM/dd/yy H:mm:ss""></MatDatePicker>
+
+
+        <p><b>EnableTime</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" EnableTime=""true""></MatDatePicker>
+        
+        <p><b>EnableSeconds</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" EnableTime=""true"" EnableSeconds=""true""></MatDatePicker>
+        
+        <p><b>Enable24hours</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" EnableTime=""true"" Enable24hours=""true""></MatDatePicker>
+        
+        <p><b>EnableWeekNumbers</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" EnableWeekNumbers=""true""></MatDatePicker>
+        
+        <p><b>EnableWeekNumbers</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" DisableMobile=""true""></MatDatePicker>
+        
+        <p><b>DisableCalendar</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" DisableCalendar=""true""></MatDatePicker>
+        
+        <p><b>AllowInput</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" AllowInput=""false""></MatDatePicker>
+        
+        <p><b>Disabled</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" Disabled=""true""></MatDatePicker>
+        
+        <p><b>ReadOnly</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" ReadOnly=""true""></MatDatePicker>
+
         @code
         {
             DateTime? FeaturesDateTime = DateTime.Now;
         }
-
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

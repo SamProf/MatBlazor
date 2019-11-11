@@ -43,10 +43,6 @@ namespace MatBlazor
         private MatDatePickerTypeJsHelper dotNetObject;
         protected ElementReference flatpickrInputRef;
 
-
-        private MatTypeConverter<DateTime?, T> typeConverterChange;
-        private MatTypeConverter<T, DateTime?> toDateTypeConverter;
-
         protected override bool InputTextReadOnly()
         {
             return base.InputTextReadOnly() || !AllowInput;
@@ -56,15 +52,14 @@ namespace MatBlazor
         {
 
             ClassMapper.Add("mat-date-picker");
-            typeConverterChange = MatTypeConverterManager.Get<DateTime?, T>();
-            toDateTypeConverter = MatTypeConverterManager.Get<T, DateTime?>();
+            ClassMapper.Add("mat-text-field-with-actions-container");
 
             dotNetObject = new MatDatePickerTypeJsHelper()
             {
                 OnChangeAction = (value) =>
                 {
                     var v = value.FirstOrDefault();
-                    CurrentValue = typeConverterChange(v, Format);
+                    CurrentValue = SwitchT.FromDateTimeNull(v);
                     InvokeStateHasChanged();
                 },
             };
@@ -100,7 +95,7 @@ namespace MatBlazor
                             DisableMobile = this.DisableMobile,
                             Mode = this.Mode,
                             Position = Position,
-                            DefaultDate = toDateTypeConverter(Value, Format),
+                            DefaultDate = SwitchT.ToDateTimeNull(Value),
                         });
                 });
             }

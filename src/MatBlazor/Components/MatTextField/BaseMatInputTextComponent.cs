@@ -90,6 +90,14 @@ namespace MatBlazor
         [Parameter]
         public string Type { get; set; } = "text";
 
+
+
+        protected virtual EventCallback<KeyboardEventArgs> OnKeyDownEvent()
+        {
+            return this.OnKeyDown;
+        }
+
+
         /// <summary>
         /// Css class of input element
         /// </summary>
