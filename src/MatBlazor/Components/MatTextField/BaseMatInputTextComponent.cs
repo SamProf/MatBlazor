@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.Web;
 
 namespace MatBlazor
 {
-    public abstract class BaseMatInputTextComponent<T> : BaseMatInputElementComponent<T>
+    public abstract class BaseMatInputTextComponent<T> : BaseMatInputTextElementComponent<T>
     {
         [Parameter]
         public RenderFragment ChildContent { get; set; }

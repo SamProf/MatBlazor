@@ -65,5 +65,10 @@ namespace MatBlazor
         {
             throw new NotImplementedException();
         }
+
+        public override decimal? FromBoolNull(bool? v, bool indeterminate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

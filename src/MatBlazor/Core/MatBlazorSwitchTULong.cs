@@ -46,5 +46,10 @@ namespace MatBlazor
         {
             throw new NotImplementedException();
         }
+
+        public override ulong FromBoolNull(bool? v, bool indeterminate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -23,6 +23,8 @@ namespace MatBlazor
         public abstract T FromDateTimeNull(DateTime? v);
         public abstract DateTime? ToDateTimeNull(T v);
 
+        public abstract T FromBoolNull(bool? v, bool indeterminate);
+
 
         private static readonly MatSwitchT Ts = new MatSwitchT()
             .Case<MatBlazorSwitchT<sbyte>>(new MatBlazorSwitchTSByte())
@@ -41,11 +43,15 @@ namespace MatBlazor
             .Case<MatBlazorSwitchT<string>>(new MatBlazorSwitchTString())
             .Case<MatBlazorSwitchT<DateTime>>(new MatBlazorSwitchTDateTime())
             .Case<MatBlazorSwitchT<DateTime?>>(new MatBlazorSwitchTDateTimeNull())
+            .Case<MatBlazorSwitchT<bool>>(new MatBlazorSwitchTBool())
+            .Case<MatBlazorSwitchT<bool?>>(new MatBlazorSwitchTBoolNull())
             ;
 
         public static MatBlazorSwitchT<T> Get()
         {
             return Ts.Get<MatBlazorSwitchT<T>>();
         }
+
+        
     }
 }

@@ -42,5 +42,10 @@ namespace MatBlazor
         {
             throw new NotImplementedException();
         }
+
+        public override string FromBoolNull(bool? v, bool indeterminate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -119,10 +119,10 @@
                         <MatTextField Label="Max visible toasts" Type="number" @bind-Value="_maxDisplayedToasts"></MatTextField>
                     </p>
                     <p>
-                        <MatCheckbox Label="Newest on Top" @bind-Checked="@Toaster.Configuration.NewestOnTop"></MatCheckbox>
+                        <MatCheckbox Label="Newest on Top" @bind-Value="@Toaster.Configuration.NewestOnTop"></MatCheckbox>
                     </p>
                     <p>
-                        <MatCheckbox Label="Prevent duplicates" @bind-Checked="@Toaster.Configuration.PreventDuplicates"></MatCheckbox>
+                        <MatCheckbox Label="Prevent duplicates" @bind-Value="@Toaster.Configuration.PreventDuplicates"></MatCheckbox>
                     </p>
                 </div>
                 <div class="mat-layout-grid-cell">
@@ -131,16 +131,16 @@
                         <MatTextField Label="Max opacity (%)" Type="number" @bind-Value="_maximumOpacity"></MatTextField>
                     </p>
                     <p>
-                        <MatCheckbox Label="Require interaction" @bind-Checked="@_requireInteraction"></MatCheckbox>
+                        <MatCheckbox Label="Require interaction" @bind-Value="@_requireInteraction"></MatCheckbox>
                     </p>
                     <p>
-                        <MatCheckbox Label="Progress bar" @bind-Checked="@_showProgressBar"></MatCheckbox>
+                        <MatCheckbox Label="Progress bar" @bind-Value="@_showProgressBar"></MatCheckbox>
                     </p>
                     <p>
-                        <MatCheckbox Label="Close Button" @bind-Checked="@_showCloseButton"></MatCheckbox>
+                        <MatCheckbox Label="Close Button" @bind-Value="@_showCloseButton"></MatCheckbox>
                     </p>
                     <p>
-                        <MatCheckbox Label="Action on click (message in console)" @bind-Checked="@_actionOnClick"></MatCheckbox>
+                        <MatCheckbox Label="Action on click (message in console)" @bind-Value="@_actionOnClick"></MatCheckbox>
                     </p>
                 </div>
             </div>

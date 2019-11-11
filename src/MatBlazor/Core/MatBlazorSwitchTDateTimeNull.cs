@@ -66,5 +66,10 @@ namespace MatBlazor
         {
             return v;
         }
+
+        public override DateTime? FromBoolNull(bool? v, bool indeterminate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

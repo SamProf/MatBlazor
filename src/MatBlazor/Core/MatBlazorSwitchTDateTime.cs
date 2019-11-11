@@ -61,5 +61,10 @@ namespace MatBlazor
         {
             return v != DateTime.MinValue ? v : (DateTime?)null;
         }
+
+        public override DateTime FromBoolNull(bool? v, bool indeterminate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

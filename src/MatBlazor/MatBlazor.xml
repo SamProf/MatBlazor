@@ -63,28 +63,6 @@
             Gets or sets the current value of the input.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatInputComponent`1.CurrentValueAsString">
-            <summary>
-            Gets or sets the current value of the input, represented as a string.
-            </summary>
-        </member>
-        <member name="M:MatBlazor.BaseMatInputComponent`1.FormatValueAsString(`0)">
-            <summary>
-            Formats the value as a string. Derived classes can override this to determine the formating used for <see cref="P:MatBlazor.BaseMatInputComponent`1.CurrentValueAsString"/>.
-            </summary>
-            <param name="value">The value to format.</param>
-            <returns>A string representation of the value.</returns>
-        </member>
-        <member name="M:MatBlazor.BaseMatInputComponent`1.TryParseValueFromString(System.String,`0@,System.String@)">
-            <summary>
-            Parses a string to create an instance of <typeparamref name="TValue"/>. Derived classes can override this to change how
-            <see cref="P:MatBlazor.BaseMatInputComponent`1.CurrentValueAsString"/> interprets incoming values.
-            </summary>
-            <param name="value">The string value to be parsed.</param>
-            <param name="result">An instance of <typeparamref name="TValue"/>.</param>
-            <param name="validationErrorMessage">If the value could not be parsed, provides a validation error message.</param>
-            <returns>True if the value could be parsed; otherwise false.</returns>
-        </member>
         <member name="P:MatBlazor.BaseMatInputComponent`1.FieldClass">
             <summary>
             Gets a string that indicates the status of the field being edited. This will include
@@ -93,6 +71,28 @@
         </member>
         <member name="M:MatBlazor.BaseMatInputComponent`1.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)">
             <inheritdoc />
+        </member>
+        <member name="P:MatBlazor.BaseMatInputTextElementComponent`1.CurrentValueAsString">
+            <summary>
+            Gets or sets the current value of the input, represented as a string.
+            </summary>
+        </member>
+        <member name="M:MatBlazor.BaseMatInputTextElementComponent`1.FormatValueAsString(`0)">
+            <summary>
+            Formats the value as a string. Derived classes can override this to determine the formating used for <see cref="P:MatBlazor.BaseMatInputTextElementComponent`1.CurrentValueAsString"/>.
+            </summary>
+            <param name="value">The value to format.</param>
+            <returns>A string representation of the value.</returns>
+        </member>
+        <member name="M:MatBlazor.BaseMatInputTextElementComponent`1.TryParseValueFromString(System.String,`0@,System.String@)">
+            <summary>
+            Parses a string to create an instance of <typeparamref name="TValue"/>. Derived classes can override this to change how
+            <see cref="P:MatBlazor.BaseMatInputTextElementComponent`1.CurrentValueAsString"/> interprets incoming values.
+            </summary>
+            <param name="value">The string value to be parsed.</param>
+            <param name="result">An instance of <typeparamref name="TValue"/>.</param>
+            <param name="validationErrorMessage">If the value could not be parsed, provides a validation error message.</param>
+            <returns>True if the value could be parsed; otherwise false.</returns>
         </member>
         <member name="T:MatBlazor.BaseMatExpansionPanel">
             <summary>
@@ -256,7 +256,7 @@
             Card component for Blazor contain content and actions about a single subject. 
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatCheckbox">
+        <member name="T:MatBlazor.BaseMatCheckboxType`1">
             <summary>
             Checkboxes allow the user to select multiple options from a set.
             </summary>
