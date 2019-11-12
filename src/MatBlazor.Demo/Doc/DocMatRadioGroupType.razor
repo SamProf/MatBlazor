@@ -4,13 +4,18 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatCheckbox</h3> } else { <h5 class="mat-h5">MatCheckbox</h5> }
+@if (!Secondary) {<h3 class="mat-h3">MatRadioGroupType</h3> } else { <h5 class="mat-h5">MatRadioGroupType</h5> }
 
 <div><table class="article-table mat-elevation-z5">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
 		<th>Description</th>
+	</tr>
+	<tr>
+		<td style="font-weight: bold;">T</td>
+		<td>Generic argument</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>Attributes</td>
@@ -20,7 +25,7 @@
 	<tr>
 		<td>ChildContent</td>
 		<td>RenderFragment</td>
-		<td>Child content of MatCheckbox</td>
+		<td>Child content of MatRadioGroupType</td>
 	</tr>
 	<tr>
 		<td>Class</td>
@@ -28,28 +33,18 @@
 		<td>Specifies one or more classnames for an DOM element.</td>
 	</tr>
 	<tr>
-		<td>Disabled</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
 		<td>Id</td>
 		<td>String</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>Indeterminate</td>
-		<td>Boolean</td>
+		<td>Items</td>
+		<td>IEnumerable&lt;T&gt;</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>InputValue</td>
-		<td>String</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>Label</td>
-		<td>String</td>
+		<td>ItemTemplate</td>
+		<td>RenderFragment&lt;T&gt;</td>
 		<td></td>
 	</tr>
 	<tr>
@@ -64,17 +59,17 @@
 	</tr>
 	<tr>
 		<td>Value</td>
-		<td>Boolean</td>
+		<td>T</td>
 		<td>Gets or sets the value of the input. This should be used with two-way binding.</td>
 	</tr>
 	<tr>
 		<td>ValueChanged</td>
-		<td>EventCallback&lt;Boolean&gt;</td>
+		<td>EventCallback&lt;T&gt;</td>
 		<td>Gets or sets a callback that updates the bound value.</td>
 	</tr>
 	<tr>
 		<td>ValueExpression</td>
-		<td>Expression&lt;Func&lt;Boolean&gt;&gt;</td>
+		<td>Expression&lt;Func&lt;T&gt;&gt;</td>
 		<td>Gets or sets an expression that identifies the bound value.</td>
 	</tr>
 	<tr>

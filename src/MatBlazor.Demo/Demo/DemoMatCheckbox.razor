@@ -62,22 +62,31 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <div>
-            <MatCheckbox @bind-Checked=""@Checked1"" Label=""@(getLabel(Checked1))""></MatCheckbox>
+            <MatCheckbox @bind-Value=""@Checked1"" Label=""@(getLabel(Checked1))""></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox @bind-Checked=""@Checked2"" Label=""@(getLabel(Checked2))""></MatCheckbox>
+            <MatCheckbox @bind-Value=""@Checked2"" Label=""@(getLabel(Checked2))""></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox Disabled=""true"" @bind-Checked=""@Checked1"" Label=""Disabled""></MatCheckbox>
+            <MatCheckbox Disabled=""true"" @bind-Value=""@Checked1"" Label=""Disabled""></MatCheckbox>
         </div>
         <div>
-            <MatCheckbox @bind-Checked=""@Checked2"">Inline Label</MatCheckbox>
+            <MatCheckbox @bind-Value=""@Checked2"">Inline Label</MatCheckbox>
+        </div>
+        
+        <div>
+            <MatCheckboxType @bind-Value=""@checked3"" Indeterminate=""true"">Indeterminate</MatCheckboxType>
+            <MatButton OnClick=""@(_ =>
+                                 {
+                                     checked3 = null;
+                                 })"">Clear</MatButton>
         </div>
 
         @code
         {
             bool checked1 = true;
             bool checked2 = false;
+            bool? checked3 = null;
 
             public bool Checked1
             {

@@ -19,7 +19,12 @@ namespace MatBlazor
 
         public T Get<T>()
         {
-            return (T) dictionary[typeof(T)];
+            if (dictionary.TryGetValue(typeof(T), out var result))
+            {
+                return (T) result;
+            }
+
+            return (T)(object)null;
         }
     }
 }

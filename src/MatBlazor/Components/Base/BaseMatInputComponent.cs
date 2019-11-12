@@ -15,8 +15,6 @@ namespace MatBlazor
     /// <typeparam name="T">the natural type of the input's value</typeparam>
     public abstract class BaseMatInputComponent<T> : BaseMatDomComponent
     {
-        protected MatBlazorSwitchT<T> SwitchT = MatBlazorSwitchT<T>.Get();
-
         protected Type _nullableUnderlyingType;
 
         protected BaseMatInputComponent()
