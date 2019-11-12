@@ -2,19 +2,22 @@
 @typeparam T
 @inherits BaseMatRadioGroupType<T>
 <CascadingValue Value="@this">
+
+
     @if (Items != null)
     {
         foreach (var item in Items)
         {
-            if (ItemTemplate == null)
-            {
-                <MatRadioButtonType T="T" Value="item">@item</MatRadioButtonType>
-            }
-            else
+            if (ItemTemplate != null)
             {
                 @ItemTemplate(item)
             }
+            else
+            {
+                <MatRadioButtonType T="T" Value="@item">@item</MatRadioButtonType>
+            }
         }
     }
+
     @ChildContent
 </CascadingValue>
