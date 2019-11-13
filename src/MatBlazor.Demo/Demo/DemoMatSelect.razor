@@ -2,31 +2,66 @@
 <DocMatOption Secondary="true"></DocMatOption>
 
 
-<h5 class="mat-h5">Enhanced</h5>
+
+<div>
+    <table class="article-table mat-elevation-z5 article-table-same">
+        <tr>
+            <th>Purpose</th>
+            <th>string</th>
+            <th>Generic</th>
+        </tr>
+        <tr>
+            <td>
+                <MatAnchorLink href="#MatSelectNative">
+                    Select values from list of values
+                </MatAnchorLink>
+            </td>
+            <td>
+                <code>
+                    @("<MatSelect @bind-Value=\"v\" Items=\"items\"/>")
+                </code>
+            </td>
+            <td>
+                <code>
+                    @("<MatSelectType @bind-Value=\"v\" Items=\"items\"/>")
+                </code>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+
+
+<MatAnchorContainer Anchor="MatSelectNative">
+    <MatH5>MatSelectNative</MatH5>
+</MatAnchorContainer>
+
+<p>Using this components you can </p>
 <DemoContainer>
     <Content>
-        <MatSelect Label="Pick a Food Group" Enhanced="true" @bind-Value="ValEnhanced">
-            <MatOption Value=""></MatOption>
-            <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
-            <MatOption Value="vegetables">Vegetables</MatOption>
-            <MatOption Value="fruit">Fruit</MatOption>
-        </MatSelect>
-
-        <span>@ValEnhanced</span>
-
+        <p>
+            <MatSelectNative Label="Pick a Food Group" @bind-Value="@val1">
+                <MatOption Value=""></MatOption>
+                <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
+                <MatOption Value="vegetables">Vegetables</MatOption>
+                <MatOption Value="fruit">Fruit</MatOption>
+            </MatSelectNative>
+        </p>
+        <p>Selected value: @val1</p>
         @code
         {
-            public string ValEnhanced {get; set; }
+            public string val1;
         }
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelect Label=""Pick a Food Group"" Enhanced=""true"" @bind-Value=""ValEnhanced"">
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelectNative Label=""Pick a Food Group"" Enhanced=""true"" @bind-Value=""ValEnhanced"">
             <MatOption Value=""""></MatOption>
             <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
             <MatOption Value=""vegetables"">Vegetables</MatOption>
             <MatOption Value=""fruit"">Fruit</MatOption>
-        </MatSelect>
+        </MatSelectNative>
 
         <span>@ValEnhanced</span>
 
@@ -38,65 +73,206 @@
     </SourceContent>
 </DemoContainer>
 
-<h5 class="mat-h5">Normal</h5>
+<h5 class="mat-h5">SelectNative Normal</h5>
 <DemoContainer>
     <Content>
-        <MatSelect Label="Pick a Food Group" @bind-Value="@Val">
+        <MatSelectNative Label="Pick a Food Group" @bind-Value="@Val">
             <MatOption Value=""></MatOption>
             <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
             <MatOption Value="vegetables">Vegetables</MatOption>
             <MatOption Value="fruit">Fruit</MatOption>
-        </MatSelect>
+        </MatSelectNative>
+
+        <span>@Val</span>
 
         @code
         {
-            public string Val {get; set; }
+            public string Val { get; set; }
         }
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelect Label=""Pick a Food Group"" @bind-Value=""@Val"">
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelectNative Label=""Pick a Food Group"" @bind-Value=""@Val"">
             <MatOption Value=""""></MatOption>
             <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
             <MatOption Value=""vegetables"">Vegetables</MatOption>
             <MatOption Value=""fruit"">Fruit</MatOption>
-        </MatSelect>
+        </MatSelectNative>
+
+        <span>@Val</span>
 
         @code
         {
-            public string Val {get; set; }
+            public string Val { get; set; }
         }
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
+
+
+<h5 class="mat-h5">SelectNative Generic Enhanced</h5>
+<DemoContainer>
+    <Content>
+        <MatSelectNativeType Label="Pick a Food Group" Enhanced="true" @bind-Value="ValEnhancedInt">
+            <MatOptionType Value="0"></MatOptionType>
+            <MatOptionType Value="1">Bread, Cereal, Rice, and Pasta</MatOptionType>
+            <MatOptionType Value="2">Vegetables</MatOptionType>
+            <MatOptionType Value="3">Fruit</MatOptionType>
+        </MatSelectNativeType>
+
+        <span>@ValEnhancedInt</span>
+
+        @code
+        {
+            public int ValEnhancedInt { get; set; }
+        }
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelectNativeType Label=""Pick a Food Group"" Enhanced=""true"" @bind-Value=""ValEnhancedInt"">
+            <MatOptionType Value=""0""></MatOptionType>
+            <MatOptionType Value=""1"">Bread, Cereal, Rice, and Pasta</MatOptionType>
+            <MatOptionType Value=""2"">Vegetables</MatOptionType>
+            <MatOptionType Value=""3"">Fruit</MatOptionType>
+        </MatSelectNativeType>
+
+        <span>@ValEnhancedInt</span>
+
+        @code
+        {
+            public int ValEnhancedInt {get; set; }
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">SelectNative Generic Normal</h5>
+<DemoContainer>
+    <Content>
+        <MatSelectNativeType Label="Pick a Food Group" @bind-Value="@ValInt">
+            <MatOptionType Value="0"></MatOptionType>
+            <MatOptionType Value="1">Bread, Cereal, Rice, and Pasta</MatOptionType>
+            <MatOptionType Value="2">Vegetables</MatOptionType>
+            <MatOptionType Value="3">Fruit</MatOptionType>
+        </MatSelectNativeType>
+
+        <span>@ValInt</span>
+
+        @code
+        {
+            public int ValInt { get; set; }
+        }
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelectNativeType Label=""Pick a Food Group"" @bind-Value=""@ValInt"">
+            <MatOptionType Value=""0""></MatOptionType>
+            <MatOptionType Value=""1"">Bread, Cereal, Rice, and Pasta</MatOptionType>
+            <MatOptionType Value=""2"">Vegetables</MatOptionType>
+            <MatOptionType Value=""3"">Fruit</MatOptionType>
+        </MatSelectNativeType>
+
+        <span>@ValInt</span>
+
+        @code
+        {
+            public int ValInt { get; set; }
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+
+<h5 class="mat-h5">Select Enhanced</h5>
+<DemoContainer>
+    <Content>
+        <MatSelect Label="Pick a Food Group" Enhanced="true" @bind-Value="ValEnhanced2" Items="@ValEnhanced2Items">
+        </MatSelect>
+
+        <span>@ValEnhanced2</span>
+
+        @code
+        {
+            string ValEnhanced2;
+            string[] ValEnhanced2Items = new[] { null, "Grains", "Vegetables", "Fruit" };
+        }
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelect Label=""Pick a Food Group"" Enhanced=""true"" @bind-Value=""ValEnhanced2"" Items=""@ValEnhanced2Items"">
+        </MatSelect>
+
+        <span>@ValEnhanced2</span>
+
+        @code
+        {
+            string ValEnhanced2;
+            string[] ValEnhanced2Items = new[] {null, ""Grains"", ""Vegetables"", ""Fruit""};
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">Select</h5>
+<DemoContainer>
+    <Content>
+        <MatSelect Label="Pick a Food Group" @bind-Value="Val2" Items="@Val2Items">
+        </MatSelect>
+
+        <span>@Val2</span>
+
+        @code
+        {
+            string Val2;
+            string[] Val2Items = new[] { null, "Grains", "Vegetables", "Fruit" };
+        }
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelect Label=""Pick a Food Group"" @bind-Value=""Val2"" Items=""@Val2Items"">
+        </MatSelect>
+
+        <span>@Val2</span>
+
+        @code
+        {
+            string Val2;
+            string[] Val2Items = new[] {null, ""Grains"", ""Vegetables"", ""Fruit""};
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
 
 
 <h5 class="mat-h5">Helper Text</h5>
 <DemoContainer>
     <Content>
         <p>
-            <MatSelect HelperText="Helper Text" Label="Pick a Food Group" @bind-Value="@Val1">
+            <MatSelectNative HelperText="Helper Text" Label="Pick a Food Group" @bind-Value="@Val1">
                 <MatOption Value=""></MatOption>
                 <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
                 <MatOption Value="vegetables">Vegetables</MatOption>
                 <MatOption Value="fruit">Fruit</MatOption>
-            </MatSelect>
+            </MatSelectNative>
         </p>
         <p>
-            <MatSelect HelperText="Helper Text Persistent" HelperTextPersistent="true" Label="Pick a Food Group" @bind-Value="@Val1">
+            <MatSelectNative HelperText="Helper Text Persistent" HelperTextPersistent="true" Label="Pick a Food Group" @bind-Value="@Val1">
                 <MatOption Value=""></MatOption>
                 <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
                 <MatOption Value="vegetables">Vegetables</MatOption>
                 <MatOption Value="fruit">Fruit</MatOption>
-            </MatSelect>
+            </MatSelectNative>
         </p>
         <p>
-            <MatSelect HelperText="Helper Text Validation" HelperTextPersistent="true" HelperTextValidation="true" Label="Pick a Food Group" @bind-Value="@Val1">
+            <MatSelectNative HelperText="Helper Text Validation" HelperTextPersistent="true" HelperTextValidation="true" Label="Pick a Food Group" @bind-Value="@Val1">
                 <MatOption Value=""></MatOption>
                 <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
                 <MatOption Value="vegetables">Vegetables</MatOption>
                 <MatOption Value="fruit">Fruit</MatOption>
-            </MatSelect>
+            </MatSelectNative>
         </p>
 
         @code
@@ -106,30 +282,30 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            <MatSelect HelperText=""Helper Text"" Label=""Pick a Food Group"" @bind-Value=""@Val1"">
+            <MatSelectNative HelperText=""Helper Text"" Label=""Pick a Food Group"" @bind-Value=""@Val1"">
                 <MatOption Value=""""></MatOption>
                 <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
                 <MatOption Value=""vegetables"">Vegetables</MatOption>
                 <MatOption Value=""fruit"">Fruit</MatOption>
-            </MatSelect>
+            </MatSelectNative>
         </p>
         <p>
-            <MatSelect HelperText=""Helper Text Persistent"" HelperTextPersistent=""true"" Label=""Pick a Food Group"" @bind-Value=""@Val1"">
+            <MatSelectNative HelperText=""Helper Text Persistent"" HelperTextPersistent=""true"" Label=""Pick a Food Group"" @bind-Value=""@Val1"">
                 <MatOption Value=""""></MatOption>
                 <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
                 <MatOption Value=""vegetables"">Vegetables</MatOption>
                 <MatOption Value=""fruit"">Fruit</MatOption>
-            </MatSelect>
+            </MatSelectNative>
         </p>
         <p>
-            <MatSelect HelperText=""Helper Text Validation"" HelperTextPersistent=""true"" HelperTextValidation=""true"" Label=""Pick a Food Group"" @bind-Value=""@Val1"">
+            <MatSelectNative HelperText=""Helper Text Validation"" HelperTextPersistent=""true"" HelperTextValidation=""true"" Label=""Pick a Food Group"" @bind-Value=""@Val1"">
                 <MatOption Value=""""></MatOption>
                 <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
                 <MatOption Value=""vegetables"">Vegetables</MatOption>
                 <MatOption Value=""fruit"">Fruit</MatOption>
-            </MatSelect>
+            </MatSelectNative>
         </p>
 
         @code
@@ -145,21 +321,21 @@
 <h5 class="mat-h5">Outlined</h5>
 <DemoContainer>
     <Content>
-        <MatSelect Label="Pick a Food Group" Outlined="true">
+        <MatSelectNative Label="Pick a Food Group" Outlined="true">
             <MatOption Value=""></MatOption>
             <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
             <MatOption Value="vegetables">Vegetables</MatOption>
             <MatOption Value="fruit">Fruit</MatOption>
-        </MatSelect>
+        </MatSelectNative>
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelect Label=""Pick a Food Group"" Outlined=""true"">
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelectNative Label=""Pick a Food Group"" Outlined=""true"">
             <MatOption Value=""""></MatOption>
             <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
             <MatOption Value=""vegetables"">Vegetables</MatOption>
             <MatOption Value=""fruit"">Fruit</MatOption>
-        </MatSelect>
+        </MatSelectNative>
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
@@ -168,21 +344,21 @@
 <h5 class="mat-h5">Disabled</h5>
 <DemoContainer>
     <Content>
-        <MatSelect Label="Pick a Food Group" Disabled="true">
+        <MatSelectNative Label="Pick a Food Group" Disabled="true">
             <MatOption Value=""></MatOption>
             <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
             <MatOption Value="vegetables">Vegetables</MatOption>
             <MatOption Value="fruit">Fruit</MatOption>
-        </MatSelect>
+        </MatSelectNative>
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelect Label=""Pick a Food Group"" Disabled=""true"">
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelectNative Label=""Pick a Food Group"" Disabled=""true"">
             <MatOption Value=""""></MatOption>
             <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
             <MatOption Value=""vegetables"">Vegetables</MatOption>
             <MatOption Value=""fruit"">Fruit</MatOption>
-        </MatSelect>
+        </MatSelectNative>
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
@@ -191,21 +367,21 @@
 <h5 class="mat-h5">Disabled Option</h5>
 <DemoContainer>
     <Content>
-        <MatSelect Label="Pick a Food Group">
+        <MatSelectNative Label="Pick a Food Group">
             <MatOption Value=""></MatOption>
             <MatOption Value="grains">Bread, Cereal, Rice, and Pasta</MatOption>
             <MatOption Value="vegetables" Disabled="true">Vegetables</MatOption>
             <MatOption Value="fruit">Fruit</MatOption>
-        </MatSelect>
+        </MatSelectNative>
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelect Label=""Pick a Food Group"">
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelectNative Label=""Pick a Food Group"">
             <MatOption Value=""""></MatOption>
             <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
             <MatOption Value=""vegetables"" Disabled=""true"">Vegetables</MatOption>
             <MatOption Value=""fruit"">Fruit</MatOption>
-        </MatSelect>
+        </MatSelectNative>
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

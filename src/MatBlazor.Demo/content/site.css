@@ -11,6 +11,10 @@
     width: 100%
 }
 
+.article-table.article-table-same th, .article-table.article-table-same td { width: 33%; }
+
+.article-table.article-table-same { display: table; }
+
 
 .article-table th {
     font-family: Roboto, sans-serif;
@@ -130,4 +134,9 @@
         -webkit-transform: scale3D(0, 0, 1);
         transform: scale3D(0, 0, 1);
     }
+}
+
+.blazor-fiddle {
+    white-space: nowrap;
+    overflow: auto;
 }

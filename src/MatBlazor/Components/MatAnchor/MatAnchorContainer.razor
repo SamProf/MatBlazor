@@ -1,0 +1,24 @@
+﻿@namespace MatBlazor
+
+@inject NavigationManager NavigationManager
+
+
+<a @attributes="@Attributes" href="@GetHref()" id="@Anchor">@ChildContent</a>
+
+@code {
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> Attributes { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string Anchor { get; set; }
+
+    string GetHref()
+    {
+        return NavigationManager.ToAbsoluteUri(NavigationManager.Uri).GetLeftPart(UriPartial.Path) + "#"+ Anchor;
+    }
+
+}

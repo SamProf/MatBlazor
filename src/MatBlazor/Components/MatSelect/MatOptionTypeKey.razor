@@ -1,0 +1,17 @@
+﻿@namespace MatBlazor
+@typeparam T
+@typeparam TK
+@inherits BaseMatOptionTypeKey<T, TK>
+
+@if (Parent.Enhanced)
+{
+    <li data-value="@StringValue()" class="@ClassMapper.Class" style="@GenerateStyle()" @ref="Ref" @attributes="Attributes" Id="@Id">
+        @ChildContent
+    </li>
+}
+else
+{
+    <option value="@StringValue()" disabled=@Disabled class="@ClassMapper.Class" style="@GenerateStyle()" @ref="Ref" @attributes="Attributes" Id="@Id">
+        @ChildContent
+    </option>
+}

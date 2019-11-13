@@ -4,13 +4,18 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatSelect</h3> } else { <h5 class="mat-h5">MatSelect</h5> }
+@if (!Secondary) {<h3 class="mat-h3">MatSelectType</h3> } else { <h5 class="mat-h5">MatSelectType</h5> }
 
 <div><table class="article-table mat-elevation-z5">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
 		<th>Description</th>
+	</tr>
+	<tr>
+		<td style="font-weight: bold;">T</td>
+		<td>Generic argument</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>Attributes</td>
@@ -69,12 +74,12 @@
 	</tr>
 	<tr>
 		<td>Items</td>
-		<td>IEnumerable&lt;String&gt;</td>
+		<td>IEnumerable&lt;T&gt;</td>
 		<td></td>
 	</tr>
 	<tr>
 		<td>ItemTemplate</td>
-		<td>RenderFragment&lt;String&gt;</td>
+		<td>RenderFragment&lt;T&gt;</td>
 		<td></td>
 	</tr>
 	<tr>
@@ -129,17 +134,17 @@
 	</tr>
 	<tr>
 		<td>Value</td>
-		<td>String</td>
+		<td>T</td>
 		<td>Gets or sets the value of the input. This should be used with two-way binding.</td>
 	</tr>
 	<tr>
 		<td>ValueChanged</td>
-		<td>EventCallback&lt;String&gt;</td>
+		<td>EventCallback&lt;T&gt;</td>
 		<td>Gets or sets a callback that updates the bound value.</td>
 	</tr>
 	<tr>
 		<td>ValueExpression</td>
-		<td>Expression&lt;Func&lt;String&gt;&gt;</td>
+		<td>Expression&lt;Func&lt;T&gt;&gt;</td>
 		<td>Gets or sets an expression that identifies the bound value.</td>
 	</tr>
 	<tr>

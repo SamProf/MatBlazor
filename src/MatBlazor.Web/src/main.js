@@ -33,6 +33,7 @@ import * as matAccordion from './matAccordion/matAccordion';
 import * as matTooltip from './matTooltip/matTooltip';
 import * as utils from './utils/utils';
 import * as matHidden from './matHidden/matHidden';
+import * as matAnchor from './matAnchor/matAnchor';
 
 
 window.matBlazor = {
@@ -65,6 +66,7 @@ window.matBlazor = {
   matAccordion,
   matTooltip,
   matHidden,
+  matAnchor,
   utils,
 };
 
