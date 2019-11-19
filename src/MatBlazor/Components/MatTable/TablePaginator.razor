@@ -12,7 +12,7 @@
             <div class="mdc-paginator-page-size">
                 Items per page:
 
-                <MatSelect @bind-Value="@PageSizeStr" OnInput="(() => UpdatePaging.InvokeAsync(PageSizeStr))">
+                <MatSelect Value="@PageSizeStr" ValueChanged="UpdatePaging">
                     @if (PageSizes != null)
                     {
                         foreach (var item in PageSizes)
