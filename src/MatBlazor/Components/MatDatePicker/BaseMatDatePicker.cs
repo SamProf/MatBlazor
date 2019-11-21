@@ -79,13 +79,14 @@ namespace MatBlazor
 
         [Parameter]
         public string AltFormat { get; set; } = "F j, Y";
-
+        
+        [Parameter]
+        public string Locale { get; set; } = "";
         
         public virtual ElementReference Ref
         {
             get => TextFieldRef.InputRef;
         }
-
 
         private DotNetObjectReference<BaseMatDatePicker> dotNetObjectRef;
 
@@ -110,7 +111,8 @@ namespace MatBlazor
                     DisableMobile = this.DisableMobile,
                     Inline = this.Inline,
                     Mode = this.Mode,
-                    Position = this.Position
+                    Position = this.Position,
+                    Locale = this.Locale
                 });
             });
         }
@@ -177,6 +179,8 @@ namespace MatBlazor
             public string AltInputClass { get; set; } = "";
 
             public string AltFormat { get; set; } = "F j, Y";
+            
+            public string Locale { get; set; } = "";
         }
     }
 }
