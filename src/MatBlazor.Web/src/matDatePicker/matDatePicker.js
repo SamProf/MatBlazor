@@ -21,7 +21,8 @@ export function init(ref, cmp, defaultDate, options) {
         inline: options.inline,
         altInputClass: options.altInputClass,
         disableMobile: options.disableMobile,
-
+        locale: options.locale,
+        
         // wrap: true,
         // allowInput: true,
         // clickOpens: false,
