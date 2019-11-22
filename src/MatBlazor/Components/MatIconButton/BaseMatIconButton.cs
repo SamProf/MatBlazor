@@ -55,6 +55,13 @@ namespace MatBlazor
         public string Link { get; set; }
 
         /// <summary>
+        /// Force browser to redirect outside component router-space.
+        /// </summary>
+        /// 
+        [Parameter]
+        public bool ForceLoad { get; set; }
+
+        /// <summary>
         /// Button is disabled.
         /// </summary>
         [Parameter]
@@ -111,7 +118,7 @@ namespace MatBlazor
 
             if (Link != null)
             {
-                UriHelper.NavigateTo(Link);
+                UriHelper.NavigateTo(Link, ForceLoad);
             }
             else
             {

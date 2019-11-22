@@ -236,6 +236,12 @@
             Link to a url when clicked.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatButton.ForceLoad">
+            <summary>
+            Force browser to redirect outside component router-space.
+            </summary>
+            
+        </member>
         <member name="P:MatBlazor.BaseMatButton.Raised">
             <summary>
             Button has raised style.
@@ -367,6 +373,12 @@
             <summary>
             Navigate to this url when clicked.
             </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatIconButton.ForceLoad">
+            <summary>
+            Force browser to redirect outside component router-space.
+            </summary>
+            
         </member>
         <member name="P:MatBlazor.BaseMatIconButton.Disabled">
             <summary>
