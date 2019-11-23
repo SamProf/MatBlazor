@@ -51,5 +51,10 @@ namespace MatBlazor
         {
             throw new NotImplementedException();
         }
+
+        public override ulong FromDecimal(decimal v)
+        {
+            return (ulong) v;
+        }
     }
 }

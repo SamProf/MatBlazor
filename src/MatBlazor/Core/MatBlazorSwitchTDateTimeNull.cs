@@ -71,5 +71,10 @@ namespace MatBlazor
         {
             throw new NotImplementedException();
         }
+
+        public override DateTime? FromDecimal(decimal v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

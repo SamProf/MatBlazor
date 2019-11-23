@@ -47,5 +47,10 @@ namespace MatBlazor
         {
             throw new NotImplementedException();
         }
+
+        public override string FromDecimal(decimal v)
+        {
+            return v.ToString();
+        }
     }
 }

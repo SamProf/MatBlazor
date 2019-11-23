@@ -50,5 +50,10 @@ namespace MatBlazor
         {
             return v ?? false;
         }
+
+        public override bool FromDecimal(decimal v)
+        {
+            return v > 0;
+        }
     }
 }

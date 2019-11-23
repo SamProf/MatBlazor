@@ -444,7 +444,7 @@
             Selects allow users to select from a single-option menu. It functions as a wrapper around the browser's native select element.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatSlider">
+        <member name="T:MatBlazor.BaseMatSlider`1">
             <summary>
             Sliders let users select from a range of values by moving the slider thumb. 
             </summary>

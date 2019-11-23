@@ -25,6 +25,7 @@ namespace MatBlazor
 
         public abstract T FromBoolNull(bool? v, bool indeterminate);
 
+        public abstract T FromDecimal(decimal v);
 
         private static readonly MatSwitchT Ts = new MatSwitchT()
             .Case<MatBlazorSwitchT<sbyte>>(new MatBlazorSwitchTSByte())
@@ -51,6 +52,7 @@ namespace MatBlazor
         {
             return Ts.Get<MatBlazorSwitchT<T>>();
         }
+
 
         
     }

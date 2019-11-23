@@ -51,5 +51,10 @@ namespace MatBlazor
         {
             throw new NotImplementedException();
         }
+
+        public override char FromDecimal(decimal v)
+        {
+            return (char) v;
+        }
     }
 }

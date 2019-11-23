@@ -50,5 +50,10 @@ namespace MatBlazor
         {
             throw new NotImplementedException();
         }
+
+        public override byte FromDecimal(decimal v)
+        {
+            return (byte) v;
+        }
     }
 }

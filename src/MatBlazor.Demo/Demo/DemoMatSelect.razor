@@ -12,24 +12,67 @@
         </tr>
         <tr>
             <td>
-                <MatAnchorLink href="#MatSelectNative">
-                    Select values from list of values
-                </MatAnchorLink>
+                Select values from list of values
             </td>
             <td>
-                <code>
-                    @("<MatSelect @bind-Value=\"v\" Items=\"items\"/>")
-                </code>
+                
+                <p>
+                    <code>
+                        @("<MatSelect @bind-Value=\"v\" Items=\"items\"/>")
+                    </code>
+                </p>
+                <p style="text-align: end">
+                    <MatAnchorLink href="#MatSelect">Example</MatAnchorLink>
+                </p>
             </td>
             <td>
-                <code>
-                    @("<MatSelectType @bind-Value=\"v\" Items=\"items\"/>")
-                </code>
+                <p>
+                    <code>
+                        @("<MatSelectType @bind-Value=\"v\" Items=\"items\"/>")
+                    </code>
+                </p>
+                <p style="text-align: end">
+                    <MatAnchorLink href="#MatSelectNative">Example</MatAnchorLink>
+                </p>
             </td>
         </tr>
-
     </table>
 </div>
+
+
+
+<MatAnchorContainer Anchor="MatSelect">
+    <MatH5>MatSelect</MatH5>
+</MatAnchorContainer>
+<DemoContainer>
+    <Content>
+        <MatSelect Label="Pick a Food Group" @bind-Value="Val2" Items="@Val2Items">
+        </MatSelect>
+
+        <span>@Val2</span>
+
+        @code
+        {
+            string Val2;
+            string[] Val2Items = new[] { null, "Grains", "Vegetables", "Fruit" };
+        }
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelect Label=""Pick a Food Group"" @bind-Value=""Val2"" Items=""@Val2Items"">
+        </MatSelect>
+
+        <span>@Val2</span>
+
+        @code
+        {
+            string Val2;
+            string[] Val2Items = new[] {null, ""Grains"", ""Vegetables"", ""Fruit""};
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
 
 
 
@@ -184,66 +227,7 @@
 
 
 
-<h5 class="mat-h5">Select Enhanced</h5>
-<DemoContainer>
-    <Content>
-        <MatSelect Label="Pick a Food Group" Enhanced="true" @bind-Value="ValEnhanced2" Items="@ValEnhanced2Items">
-        </MatSelect>
 
-        <span>@ValEnhanced2</span>
-
-        @code
-        {
-            string ValEnhanced2;
-            string[] ValEnhanced2Items = new[] { null, "Grains", "Vegetables", "Fruit" };
-        }
-    </Content>
-    <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelect Label=""Pick a Food Group"" Enhanced=""true"" @bind-Value=""ValEnhanced2"" Items=""@ValEnhanced2Items"">
-        </MatSelect>
-
-        <span>@ValEnhanced2</span>
-
-        @code
-        {
-            string ValEnhanced2;
-            string[] ValEnhanced2Items = new[] {null, ""Grains"", ""Vegetables"", ""Fruit""};
-        }
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
-
-
-<h5 class="mat-h5">Select</h5>
-<DemoContainer>
-    <Content>
-        <MatSelect Label="Pick a Food Group" @bind-Value="Val2" Items="@Val2Items">
-        </MatSelect>
-
-        <span>@Val2</span>
-
-        @code
-        {
-            string Val2;
-            string[] Val2Items = new[] { null, "Grains", "Vegetables", "Fruit" };
-        }
-    </Content>
-    <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelect Label=""Pick a Food Group"" @bind-Value=""Val2"" Items=""@Val2Items"">
-        </MatSelect>
-
-        <span>@Val2</span>
-
-        @code
-        {
-            string Val2;
-            string[] Val2Items = new[] {null, ""Grains"", ""Vegetables"", ""Fruit""};
-        }
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
 
 
 
