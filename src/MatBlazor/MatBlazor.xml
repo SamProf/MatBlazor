@@ -449,7 +449,7 @@
             Sliders let users select from a range of values by moving the slider thumb. 
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatSlideToggle">
+        <member name="T:MatBlazor.BaseMatSlideToggle`1">
             <summary>
             Component for on/off control that can be toggled via clicking or dragging.
             </summary>

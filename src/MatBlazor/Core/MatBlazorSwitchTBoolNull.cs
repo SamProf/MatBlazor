@@ -5,6 +5,16 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTBoolNull : MatBlazorSwitchT<bool?>
     {
+        public override bool? FromBool(bool v)
+        {
+            return v;
+        }
+
+        public override bool ToBool(bool? v)
+        {
+            return v ?? false;
+        }
+
         public override bool? Increase(bool? v, bool? step, bool? max)
         {
             return !(v ?? false);

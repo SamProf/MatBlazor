@@ -93,7 +93,7 @@
         @using Microsoft.AspNetCore.Components
 
         <div class="mat-elevation-z4" style="padding: 10px;">
-            <MatSlideToggle @bind-Checked="MultiChecked" Label="@("Multi: " + MultiChecked)" />
+            <MatSlideToggle @bind-Value="MultiChecked" Label="@("Multi: " + MultiChecked)" />
             <MatButton OnClick="@(() => navMenu.ToggleAllSubMenus(true))">Expand All</MatButton>
             <MatButton OnClick="@(() => navMenu.ToggleAllSubMenus(false))">Collapse All</MatButton>
         </div>

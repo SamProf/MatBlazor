@@ -4,9 +4,9 @@
 
 <DemoContainer>
     <Content>
-        <MatSlideToggle @bind-Checked="@Val1"></MatSlideToggle>
+        <MatSlideToggle @bind-Value="@Val1"></MatSlideToggle>
         <span>@Val1</span>
-        <MatSlideToggle @bind-Checked="@Val2"></MatSlideToggle>
+        <MatSlideToggle @bind-Value="@Val2"></MatSlideToggle>
         <span>@Val2</span>
 
         @code
@@ -38,7 +38,7 @@
 
 <DemoContainer>
     <Content>
-        <MatSlideToggle Label="off/on"></MatSlideToggle>
+        <MatSlideToggle TValue="bool" Label="off/on"></MatSlideToggle>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
@@ -52,7 +52,7 @@
 
 <DemoContainer>
     <Content>
-        <MatSlideToggle Disabled="true"></MatSlideToggle>
+        <MatSlideToggle TValue="bool" Disabled="true"></MatSlideToggle>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"

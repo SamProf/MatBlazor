@@ -54,6 +54,14 @@ namespace MatBlazor
         }
 
 
+        public virtual bool ToBool(T v)
+        {
+            throw new NotImplementedException();
+        }
         
+        public virtual T FromBool(bool v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
