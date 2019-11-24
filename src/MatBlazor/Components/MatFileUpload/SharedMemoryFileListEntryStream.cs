@@ -17,7 +17,7 @@ namespace MatBlazor
         private static MethodInfo _cachedInvokeUnmarshalledMethodInfo;
 
         public SharedMemoryFileListEntryStream(IJSRuntime jsRuntime, ElementReference inputFileElement,
-            MatFileEntryImpl matFile)
+            MatFileEntry matFile)
             : base(jsRuntime, inputFileElement, matFile)
         {
         }

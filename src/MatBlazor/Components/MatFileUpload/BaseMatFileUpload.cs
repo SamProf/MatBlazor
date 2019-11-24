@@ -10,8 +10,14 @@ namespace MatBlazor
 {
     public class BaseMatFileUpload : BaseMatDomComponent
     {
+
+        protected ElementReference InputRef;
+
         [Parameter]
         public EventCallback<IMatFileEntry[]> OnChange { get; set; }
+
+        [Parameter]
+        public string Label { get; set; } = "Drop files here or Browse";
 
         [Parameter]
         public int MaxMessageSize { get; set; } = 20 * 1024; // TODO: Use SignalR default
@@ -24,12 +30,15 @@ namespace MatBlazor
 
         public BaseMatFileUpload()
         {
+            ClassMapper
+                .Add("mat-file-upload")
+                .Add("mdc-ripple-surface");
             jsHelper = new MatDotNetObjectReference<BaseMatFileUpload>(this, false);
         }
 
 
         [JSInvokable]
-        public Task NotifyChange(MatFileEntryImpl[] files)
+        public Task NotifyChange(MatFileEntry[] files)
         {
             foreach (var file in files)
             {
@@ -44,15 +53,15 @@ namespace MatBlazor
         {
             if (firstRender)
             {
-                await Js.InvokeAsync<object>("matBlazor.matFileUpload.init", Ref, jsHelper.Reference);
+                await Js.InvokeAsync<object>("matBlazor.matFileUpload.init", Ref, InputRef, jsHelper.Reference);
             }
         }
 
-        internal Stream OpenFileStream(MatFileEntryImpl matFile)
+        internal Stream OpenFileStream(MatFileEntry matFile)
         {
             return SharedMemoryFileListEntryStream.IsSupported(Js)
-                ? (Stream) new SharedMemoryFileListEntryStream(Js, Ref, matFile)
-                : new RemoteFileListEntryStream(Js, Ref, matFile, MaxMessageSize, MaxBufferSize);
+                ? (Stream) new SharedMemoryFileListEntryStream(Js, InputRef, matFile)
+                : new RemoteFileListEntryStream(Js, InputRef, matFile, MaxMessageSize, MaxBufferSize);
         }
 
         public override void Dispose()

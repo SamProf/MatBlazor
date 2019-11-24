@@ -22,10 +22,10 @@ namespace MatBlazor
     {
         protected readonly IJSRuntime _jsRuntime;
         protected readonly ElementReference _inputFileElement;
-        protected readonly MatFileEntryImpl MatFile;
+        protected readonly MatFileEntry MatFile;
         private long _position;
 
-        public FileListEntryStream(IJSRuntime jsRuntime, ElementReference inputFileElement, MatFileEntryImpl matFile)
+        public FileListEntryStream(IJSRuntime jsRuntime, ElementReference inputFileElement, MatFileEntry matFile)
         {
             _jsRuntime = jsRuntime;
             _inputFileElement = inputFileElement;

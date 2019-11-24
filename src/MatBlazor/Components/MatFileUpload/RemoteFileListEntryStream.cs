@@ -28,7 +28,7 @@ namespace MatBlazor
         private byte[] _currentBlockDecodingBuffer;
         private int _currentBlockDecodingBufferConsumedLength;
 
-        public RemoteFileListEntryStream(IJSRuntime jsRuntime, ElementReference inputFileElement, MatFileEntryImpl matFile, int maxMessageSize, int maxBufferSize)
+        public RemoteFileListEntryStream(IJSRuntime jsRuntime, ElementReference inputFileElement, MatFileEntry matFile, int maxMessageSize, int maxBufferSize)
             : base(jsRuntime, inputFileElement, matFile)
         {
             _maxMessageSize = maxMessageSize;

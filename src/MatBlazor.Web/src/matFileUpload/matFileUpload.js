@@ -1,4 +1,11 @@
-export function init(elem, componentInstance) {
+import * as styles from './matFileUpload.scss';
+import * as matRipple from '../matRipple/matRipple';
+
+
+export function init(ref, elem, componentInstance) {
+
+  matRipple.init(ref);
+
   var nextFileId = 0;
 
   elem._blazorFilesById = {};
