@@ -1,0 +1,20 @@
+<h5 class="mat-h5">Example</h5>
+<DemoContainer>
+    <Content>
+        <MatFileUpload OnChange="@FilesReady"></MatFileUpload>
+
+        @foreach(var f in list)
+        {
+            <div>@f.Name - @f.Size</div>
+        }
+        @code
+        {
+            List<IMatFileEntry> list = new List<IMatFileEntry>();
+
+            void FilesReady(IMatFileEntry[] files)
+            {
+                list.AddRange(files);
+            }
+        }
+    </Content>
+</DemoContainer>

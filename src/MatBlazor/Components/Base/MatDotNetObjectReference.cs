@@ -8,12 +8,14 @@ namespace MatBlazor
 {
     public class MatDotNetObjectReference<T> : IDisposable where T:class
     {
+        private readonly bool _disposeValue;
         private DotNetObjectReference<T> _reference;
         public T Value { get; }
 
 
-        public MatDotNetObjectReference(T value)
+        public MatDotNetObjectReference(T value, bool disposeValue = true)
         {
+            _disposeValue = disposeValue;
             Value = value;
         }
 
@@ -33,7 +35,10 @@ namespace MatBlazor
         public void Dispose()
         {
             _reference?.Dispose();
-            (Value as IDisposable)?.Dispose();
+            if (_disposeValue)
+            {
+                (Value as IDisposable)?.Dispose();
+            }
         }
     }
 }

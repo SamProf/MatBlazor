@@ -306,6 +306,16 @@
             A floating action button represents the primary action in an application.
             </summary>
         </member>
+        <member name="M:MatBlazor.FileListEntryExtensions.ReadAllAsync(MatBlazor.IFileListEntry,System.Int32)">
+            <summary>
+            Reads the entire uploaded file into a <see cref="T:System.IO.MemoryStream"/>. This will allocate
+            however much memory is needed to hold the entire file, or will throw if the client
+            tries to supply more than <paramref name="maxSizeBytes"/> bytes. Be careful not to
+            let clients allocate too much memory on the server.
+            </summary>
+            <param name="fileListEntry">The <see cref="T:MatBlazor.IFileListEntry"/>.</param>
+            <param name="maxSizeBytes">The maximum amount of data to accept.</param>
+        </member>
         <member name="T:MatBlazor.BaseMatHidden">
             <summary>
             Quickly and responsively toggle the visibility value of components and more with our hidden utilities.
