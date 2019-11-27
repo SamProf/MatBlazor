@@ -26,10 +26,10 @@ namespace MatBlazor
         public string Label { get; set; }
 
         [Parameter]
-        public Action<bool> CheckedChanged { get; set; }
-//
-//        [Parameter]
-//        public bool Indeterminate { get; set; }
+        public EventCallback<bool> CheckedChanged { get; set; }
+        //
+        //        [Parameter]
+        //        public bool Indeterminate { get; set; }
 
         [Parameter]
         public bool Disabled { get; set; }
@@ -37,10 +37,10 @@ namespace MatBlazor
         [Parameter]
         public string Value { get; set; }
 
-        protected void ChangeHandler(ChangeEventArgs e)
+        protected async Task ChangeHandler(ChangeEventArgs e)
         {
-            Checked = (bool) e.Value;
-            CheckedChanged?.Invoke(this.Checked);
+            Checked = (bool)e.Value;
+            await CheckedChanged.InvokeAsync(this.Checked);
         }
 
         protected async override Task OnFirstAfterRenderAsync()
