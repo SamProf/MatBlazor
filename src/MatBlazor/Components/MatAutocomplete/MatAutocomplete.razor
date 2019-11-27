@@ -4,12 +4,41 @@
 @using System.Collections;
 
 
-<div class="@WrapperClassMapper.Class">
+<!-- <div class="@WrapperClassMapper.Class">
     <MatTextField Icon="@Icon" OnFocus="@OpenPopup" HideClearButton="true" FullWidth="@FullWidth" OnFocusOut="@ClosePopup" Label="@Label" Value=@StringValue OnInput=@OnValueChanged OnKeyDown="@OnKeyDown" Outlined="@Outlined" Attributes="@Attributes" Id="@Id"></MatTextField>
     @if (IsShowingClearButton)
     {
         <div class="mat-autocomplete-clearbutton">
             <MatIconButton Icon="clear" OnMouseDown="@ClearText"></MatIconButton>
+        </div>
+    }
+    @if (Collection != null && IsOpened)
+    {
+        <div class="mat-autocomplete-popup">
+            <MatList @ref="ListRef" SingleSelection="true">
+                @foreach (var elementWrapper in GetFilteredCollection(StringValue))
+                {
+                    <MatListItem OnMouseDown="@((e) => ItemClicked(elementWrapper.Element))">
+                        @if (ItemTemplate != null)
+                        {
+                            @ItemTemplate(elementWrapper.Element)
+                        }
+                        else
+                        {
+                            <MatListItemText>@(elementWrapper.StringValue)</MatListItemText>
+                        }
+                    </MatListItem>
+                }
+            </MatList>
+        </div>
+    } -->
+<div class="@WrapperClassMapper.Class">
+    <MatTextField Icon="@Icon" OnFocus="@OpenPopup" HideClearButton="true" FullWidth="@FullWidth" OnFocusOut="@ClosePopup" Label="@Label" Value="@StringValue" OnInput=@OnValueChanged OnKeyDown="@OnKeyDown" Outlined="@Outlined" Attributes="@Attributes" Id="@Id" ValueExpression="@(() => DummyValue)"></MatTextField>
+
+    @if (IsShowingClearButton)
+    {
+        <div class="mat-autocomplete-clearbutton">
+            <MatIconButton Icon="clear" type="button" OnMouseDown="@ClearText"></MatIconButton>
         </div>
     }
     @if (Collection != null && IsOpened)

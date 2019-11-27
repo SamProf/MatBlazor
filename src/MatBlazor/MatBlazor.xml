@@ -99,6 +99,11 @@
             The StringValue displayed in the TextField
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.DummyValue">
+            <summary>
+            This value is only returned for use in ValueExpression (required to make MatAutocomplete work inside EditForms).
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatAutocomplete`1.Value">
             <summary>
             The value to be used to pre-select an item from the list
@@ -510,7 +515,12 @@
         </member>
         <member name="P:MatBlazor.BaseMatTable.ShowPaging">
             <summary>
-            Specifies the Paging visibility
+            Specifies the Paging visibility in the footer area of the table.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTable.ShowPagingInHeader">
+            <summary>
+            Specifies the Paging visibility in the top area (on the right side of the filter/search field) of the table.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatTable.ShowFooter">
