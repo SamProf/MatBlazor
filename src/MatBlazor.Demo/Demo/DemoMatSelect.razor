@@ -58,7 +58,7 @@
         }
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSelect Label=""Pick a Food Group"" @bind-Value=""Val2"" Items=""@Val2Items"">
         </MatSelect>
 
@@ -67,7 +67,7 @@
         @code
         {
             string Val2;
-            string[] Val2Items = new[] {null, ""Grains"", ""Vegetables"", ""Fruit""};
+            string[] Val2Items = new[] { null, ""Grains"", ""Vegetables"", ""Fruit"" };
         }
     ")></BlazorFiddle>
     </SourceContent>
@@ -98,19 +98,19 @@
         }
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelectNative Label=""Pick a Food Group"" Enhanced=""true"" @bind-Value=""ValEnhanced"">
-            <MatOption Value=""""></MatOption>
-            <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
-            <MatOption Value=""vegetables"">Vegetables</MatOption>
-            <MatOption Value=""fruit"">Fruit</MatOption>
-        </MatSelectNative>
-
-        <span>@ValEnhanced</span>
-
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatSelectNative Label=""Pick a Food Group"" @bind-Value=""@val1"">
+                <MatOption Value=""""></MatOption>
+                <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
+                <MatOption Value=""vegetables"">Vegetables</MatOption>
+                <MatOption Value=""fruit"">Fruit</MatOption>
+            </MatSelectNative>
+        </p>
+        <p>Selected value: @val1</p>
         @code
         {
-            public string ValEnhanced {get; set; }
+            public string val1;
         }
     ")></BlazorFiddle>
     </SourceContent>
@@ -134,7 +134,7 @@
         }
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSelectNative Label=""Pick a Food Group"" @bind-Value=""@Val"">
             <MatOption Value=""""></MatOption>
             <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
@@ -171,7 +171,7 @@
         }
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSelectNativeType Label=""Pick a Food Group"" Enhanced=""true"" @bind-Value=""ValEnhancedInt"">
             <MatOptionType Value=""0""></MatOptionType>
             <MatOptionType Value=""1"">Bread, Cereal, Rice, and Pasta</MatOptionType>
@@ -183,7 +183,7 @@
 
         @code
         {
-            public int ValEnhancedInt {get; set; }
+            public int ValEnhancedInt { get; set; }
         }
     ")></BlazorFiddle>
     </SourceContent>
@@ -207,7 +207,7 @@
         }
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSelectNativeType Label=""Pick a Food Group"" @bind-Value=""@ValInt"">
             <MatOptionType Value=""0""></MatOptionType>
             <MatOptionType Value=""1"">Bread, Cereal, Rice, and Pasta</MatOptionType>
@@ -266,7 +266,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatSelectNative HelperText=""Helper Text"" Label=""Pick a Food Group"" @bind-Value=""@Val1"">
                 <MatOption Value=""""></MatOption>
@@ -313,7 +313,7 @@
         </MatSelectNative>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSelectNative Label=""Pick a Food Group"" Outlined=""true"">
             <MatOption Value=""""></MatOption>
             <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
@@ -336,7 +336,7 @@
         </MatSelectNative>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSelectNative Label=""Pick a Food Group"" Disabled=""true"">
             <MatOption Value=""""></MatOption>
             <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>
@@ -359,7 +359,7 @@
         </MatSelectNative>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSelectNative Label=""Pick a Food Group"">
             <MatOption Value=""""></MatOption>
             <MatOption Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOption>

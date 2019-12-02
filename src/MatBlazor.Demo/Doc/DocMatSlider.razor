@@ -6,13 +6,16 @@
 
 @if (!Secondary) {<h3 class="mat-h3">MatSlider</h3> } else { <h5 class="mat-h5">MatSlider</h5> }
 
-<p>Sliders let users select from a range of values by moving the slider thumb.</p>
-
 <div><table class="article-table mat-elevation-z5">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
 		<th>Description</th>
+	</tr>
+	<tr>
+		<td style="font-weight: bold;">TValue</td>
+		<td>Generic argument</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>Attributes</td>
@@ -35,6 +38,11 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>EnableStep</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>Id</td>
 		<td>String</td>
 		<td></td>
@@ -51,7 +59,7 @@
 	</tr>
 	<tr>
 		<td>Step</td>
-		<td>Decimal</td>
+		<td>TValue</td>
 		<td></td>
 	</tr>
 	<tr>
@@ -61,22 +69,27 @@
 	</tr>
 	<tr>
 		<td>Value</td>
-		<td>Decimal</td>
-		<td></td>
+		<td>TValue</td>
+		<td>Gets or sets the value of the input. This should be used with two-way binding.</td>
 	</tr>
 	<tr>
 		<td>ValueChanged</td>
-		<td>EventCallback&lt;Decimal&gt;</td>
-		<td></td>
+		<td>EventCallback&lt;TValue&gt;</td>
+		<td>Gets or sets a callback that updates the bound value.</td>
+	</tr>
+	<tr>
+		<td>ValueExpression</td>
+		<td>Expression&lt;Func&lt;TValue&gt;&gt;</td>
+		<td>Gets or sets an expression that identifies the bound value.</td>
 	</tr>
 	<tr>
 		<td>ValueMax</td>
-		<td>Decimal</td>
+		<td>TValue</td>
 		<td></td>
 	</tr>
 	<tr>
 		<td>ValueMin</td>
-		<td>Decimal</td>
+		<td>TValue</td>
 		<td></td>
 	</tr>
 	<tr>

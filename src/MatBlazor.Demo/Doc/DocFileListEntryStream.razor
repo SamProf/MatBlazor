@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">AutocompleteElementWrapper</h3> } else { <h5 class="mat-h5">AutocompleteElementWrapper</h5> }
+@if (!Secondary) {<h3 class="mat-h3">FileListEntryStream</h3> } else { <h5 class="mat-h5">FileListEntryStream</h5> }
 
 <div><table class="article-table mat-elevation-z5">
 	<tr>
@@ -13,18 +13,28 @@
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td style="font-weight: bold;">TItem</td>
-		<td>Generic argument</td>
+		<td>CanRead</td>
+		<td>Boolean</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>Element</td>
-		<td>TItem</td>
+		<td>CanSeek</td>
+		<td>Boolean</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>StringValue</td>
-		<td>String</td>
+		<td>CanWrite</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Length</td>
+		<td>Int64</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Position</td>
+		<td>Int64</td>
 		<td></td>
 	</tr>
 </table></div>

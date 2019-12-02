@@ -10,22 +10,22 @@ namespace MatBlazor
     /// <summary>
     /// The autocomplete is a normal text input enhanced by a panel of suggested options.
     /// </summary>
-    /// <typeparam name="ItemType">Type of element type.</typeparam>
-    public class BaseMatAutocomplete<ItemType> : BaseMatDomComponent
+    /// <typeparam name="TItem">Type of element type.</typeparam>
+    public class BaseMatAutocompleteList<TItem> : BaseMatDomComponent
     {
         protected const int DefaultsElementsInPopup = 10;
         private bool isOpened;
         private string stringValue;
-        private ItemType _value;
+        private TItem _value;
 
         public MatList ListRef;
 
-        protected IEnumerable<AutocompleteElementWrapper<ItemType>> GetFilteredCollection(string searchText)
+        protected IEnumerable<MatAutocompleteListItem<TItem>> GetFilteredCollection(string searchText)
         {
-            return Collection.Select(x => new AutocompleteElementWrapper<ItemType>()
+            return Items.Select(x => new MatAutocompleteListItem<TItem>()
             {
                 StringValue = ComputeStringValue(x),
-                Element = x
+                Item = x
             })
                 .Where(x => x != null &&
                             (string.IsNullOrEmpty(searchText) || x.StringValue.ToLowerInvariant()
@@ -85,7 +85,7 @@ namespace MatBlazor
         /// The value to be used to pre-select an item from the list
         /// </summary>
         [Parameter]
-        public ItemType Value
+        public TItem Value
         {
             get { return _value; }
             set
@@ -96,39 +96,39 @@ namespace MatBlazor
                 }
 
                 _value = value;
-                StringValue = EqualValues(Value, default(ItemType)) ? string.Empty : ComputeStringValue(Value);
+                StringValue = EqualValues(Value, default(TItem)) ? string.Empty : ComputeStringValue(Value);
                 ValueChanged.InvokeAsync(_value);
             }
         }
 
-        private static bool EqualValues(ItemType a1, ItemType a2)
+        private static bool EqualValues(TItem a1, TItem a2)
         {
-            return EqualityComparer<ItemType>.Default.Equals(a1, a2);
+            return EqualityComparer<TItem>.Default.Equals(a1, a2);
         }
 
         /// <summary>
         /// ValueChanged is fired when the value is selected(by clicking on an element in the popup)
         /// </summary>
         [Parameter]
-        public EventCallback<ItemType> ValueChanged { get; set; }
+        public EventCallback<TItem> ValueChanged { get; set; }
 
         /// <summary>
         /// ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
         /// </summary>
         [Parameter]
-        public RenderFragment<ItemType> ItemTemplate { get; set; }
+        public RenderFragment<TItem> ItemTemplate { get; set; }
 
         /// <summary>
         /// This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.
         /// </summary>
         [Parameter]
-        public Func<ItemType, string> CustomStringSelector { get; set; }
+        public Func<TItem, string> CustomStringSelector { get; set; }
 
         /// <summary>
         /// The collection which should be rendered and filtered
         /// </summary>
         [Parameter]
-        public IEnumerable<ItemType> Collection { get; set; }
+        public IEnumerable<TItem> Items { get; set; }
 
         /// <summary>
         /// If this parameter is true then the style of the textbox is outlined see `MatTextfield`
@@ -190,7 +190,7 @@ namespace MatBlazor
             }
         }
 
-        public void ItemClicked(ItemType selectedObject)
+        public void ItemClicked(TItem selectedObject)
         {
             Value = selectedObject;
             StateHasChanged();
@@ -205,21 +205,23 @@ namespace MatBlazor
 
         protected ClassMapper WrapperClassMapper = new ClassMapper();
 
-        public BaseMatAutocomplete()
+        public BaseMatAutocompleteList()
         {
-            WrapperClassMapper.Add("mat-autocomplete-wrapper")
-                .If("mat-autocomplete-wrapper-fullwidth", () => FullWidth);
+            WrapperClassMapper
+                .Add("mat-autocomplete-list")
+                .Add("mat-autocomplete-list-wrapper")
+                .If("mat-autocomplete-list-wrapper-fullwidth", () => FullWidth);
         }
 
-        private string ComputeStringValue(ItemType obj)
+        private string ComputeStringValue(TItem obj)
         {
             return CustomStringSelector?.Invoke(obj) ?? obj?.ToString();
         }
 
-        protected async override Task OnFirstAfterRenderAsync()
-        {
-            await base.OnFirstAfterRenderAsync();
-            await JsInvokeAsync<object>("matBlazor.matAutocomplete.init", Ref);
-        }
+//        protected async override Task OnFirstAfterRenderAsync()
+//        {
+//            await base.OnFirstAfterRenderAsync();
+//            await JsInvokeAsync<object>("matBlazor.matAutocomplete.init", Ref);
+//        }
     }
 }

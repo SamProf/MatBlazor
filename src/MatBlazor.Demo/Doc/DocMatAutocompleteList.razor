@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatAutocomplete</h3> } else { <h5 class="mat-h5">MatAutocomplete</h5> }
+@if (!Secondary) {<h3 class="mat-h3">MatAutocompleteList</h3> } else { <h5 class="mat-h5">MatAutocompleteList</h5> }
 
 <div><table class="article-table mat-elevation-z5">
 	<tr>
@@ -13,7 +13,7 @@
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td style="font-weight: bold;">ItemType</td>
+		<td style="font-weight: bold;">TItem</td>
 		<td>Generic argument</td>
 		<td></td>
 	</tr>
@@ -28,13 +28,8 @@
 		<td>Specifies one or more classnames for an DOM element.</td>
 	</tr>
 	<tr>
-		<td>Collection</td>
-		<td>IEnumerable&lt;ItemType&gt;</td>
-		<td>The collection which should be rendered and filtered</td>
-	</tr>
-	<tr>
 		<td>CustomStringSelector</td>
-		<td>Func&lt;ItemType,String&gt;</td>
+		<td>Func&lt;TItem,String&gt;</td>
 		<td>This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.</td>
 	</tr>
 	<tr>
@@ -53,8 +48,13 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>Items</td>
+		<td>IEnumerable&lt;TItem&gt;</td>
+		<td>The collection which should be rendered and filtered</td>
+	</tr>
+	<tr>
 		<td>ItemTemplate</td>
-		<td>RenderFragment&lt;ItemType&gt;</td>
+		<td>RenderFragment&lt;TItem&gt;</td>
 		<td>ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..</td>
 	</tr>
 	<tr>
@@ -104,12 +104,12 @@
 	</tr>
 	<tr>
 		<td>Value</td>
-		<td>ItemType</td>
+		<td>TItem</td>
 		<td>The value to be used to pre-select an item from the list</td>
 	</tr>
 	<tr>
 		<td>ValueChanged</td>
-		<td>EventCallback&lt;ItemType&gt;</td>
+		<td>EventCallback&lt;TItem&gt;</td>
 		<td>ValueChanged is fired when the value is selected(by clicking on an element in the popup)</td>
 	</tr>
 	<tr>

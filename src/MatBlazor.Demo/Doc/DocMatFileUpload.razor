@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatOverline</h3> } else { <h5 class="mat-h5">MatOverline</h5> }
+@if (!Secondary) {<h3 class="mat-h3">MatFileUpload</h3> } else { <h5 class="mat-h5">MatFileUpload</h5> }
 
 <div><table class="article-table mat-elevation-z5">
 	<tr>
@@ -13,24 +13,9 @@
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td>Anchor</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>AnchorId</td>
-		<td>String</td>
-		<td></td>
-	</tr>
-	<tr>
 		<td>Attributes</td>
 		<td>Dictionary&lt;String,Object&gt;</td>
 		<td>Gets or sets a collection of additional attributes that will be applied to the created element.</td>
-	</tr>
-	<tr>
-		<td>ChildContent</td>
-		<td>RenderFragment</td>
-		<td>Child content of MatOverline</td>
 	</tr>
 	<tr>
 		<td>Class</td>
@@ -43,6 +28,26 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>Label</td>
+		<td>String</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>MaxBufferSize</td>
+		<td>Int32</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>MaxMessageSize</td>
+		<td>Int32</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>OnChange</td>
+		<td>EventCallback&lt;IMatFileEntry[]&gt;</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>RefBack</td>
 		<td>ForwardRef</td>
 		<td></td>
@@ -51,11 +56,6 @@
 		<td>Style</td>
 		<td>String</td>
 		<td>Specifies an inline style for an DOM element.</td>
-	</tr>
-	<tr>
-		<td>Tag</td>
-		<td>String</td>
-		<td></td>
 	</tr>
 	<tr>
 		<td>Ref</td>
