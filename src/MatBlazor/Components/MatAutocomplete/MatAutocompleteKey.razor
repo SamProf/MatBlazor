@@ -4,3 +4,16 @@
 @inherits BaseMatAutocompleteKey<TValue, TItem>
 
 @base.BuildRenderTree
+
+@code
+{
+
+    protected override RenderFragment BuildRenderTreeChildContent()
+    {
+        return builder =>
+        {
+            builder.AddContent(0, base.BuildRenderTreeChildContent());
+        };
+    }
+
+}

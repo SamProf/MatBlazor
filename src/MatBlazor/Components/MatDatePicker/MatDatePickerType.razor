@@ -7,11 +7,11 @@
 @code
 {
 
-    protected override RenderFragment GetChildContent()
+    protected override RenderFragment BuildRenderTreeChildContent()
     {
         return (builder) =>
         {
-            builder.AddContent(0, base.GetChildContent());
+            builder.AddContent(0, base.BuildRenderTreeChildContent());
             if (!DisableCalendar)
             {
                 builder.AddContent(1, @<div class="mat-text-field-actions-container">

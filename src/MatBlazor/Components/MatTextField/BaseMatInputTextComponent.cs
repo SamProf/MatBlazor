@@ -125,7 +125,7 @@ namespace MatBlazor
         protected ClassMapper HelperTextClassMapper = new ClassMapper();
 
 
-        protected virtual RenderFragment GetChildContent()
+        protected virtual RenderFragment BuildRenderTreeChildContent()
         {
             return ChildContent;
         }
