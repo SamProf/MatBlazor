@@ -1,0 +1,45 @@
+<DocMatAutocomplete></DocMatAutocomplete>
+
+
+<h5 class="mat-h5">Example</h5>
+<DemoContainer>
+    <Content>
+        <MatAutocompleteKey Items="@options" Label="Pick one" @bind-Value="@value"></MatAutocompleteKey>
+
+        @code
+        {
+
+            string value;
+
+            string[] options = new[]
+            {
+                "One",
+                "Two",
+                "Three"
+            };
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatAutocompleteKey Items=""@options"" Label=""Pick one"" @bind-Value=""@value""></MatAutocompleteKey>
+
+        @code
+        {
+
+            string value;
+
+            string[] options = new[]
+            {
+                ""One"",
+                ""Two"",
+                ""Three""
+            };
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
