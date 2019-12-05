@@ -3,7 +3,10 @@
 @typeparam TItem
 @inherits BaseMatAutocompleteKey<TValue, TItem>
 
+
 @base.BuildRenderTree
+
+
 
 @code
 {
@@ -13,6 +16,32 @@
         return builder =>
         {
             builder.AddContent(0, base.BuildRenderTreeChildContent());
+            builder.AddContent(1,
+                @<div>
+                    @if (Items != null && IsOpened)
+                    {
+                        <div class="mat-autocomplete-list-popup">
+                            <MatList @ref="ListRef" SingleSelection="true">
+                                @foreach (var elementWrapper in GetFilteredCollection(CurrentValueAsString))
+                                {
+                                    <MatListItem OnMouseDown="@( (e) => ItemClicked(elementWrapper))">
+                                        @if (ItemTemplate != null)
+                                        {
+                                            @ItemTemplate(elementWrapper.Item)
+                                        }
+                                        else
+                                        {
+                                            <MatListItemText>@( elementWrapper.Value?.ToString())</MatListItemText>
+                                        }
+
+                                    </MatListItem>
+                                }
+
+                            </MatList>
+                        </div>
+                    }
+
+                </div>);
         };
     }
 
