@@ -118,7 +118,7 @@ If you think that this project helped you or your company in any way, you can co
 
 
 ## News
-
+### Announcement: MatBlazor 2.0.0 - 9 December (Reinvention MatBlazor Forms)
 
 ### MatBlazor 1.10.1
 - Update to .NET Core 3.1 Preview 1
