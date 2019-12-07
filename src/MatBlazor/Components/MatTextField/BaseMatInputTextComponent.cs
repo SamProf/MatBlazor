@@ -14,8 +14,12 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<FocusEventArgs> OnFocus { get; set; }
 
+        protected MatEventCallback<FocusEventArgs> OnFocusEvent;
+
         [Parameter]
         public EventCallback<FocusEventArgs> OnFocusOut { get; set; }
+
+        protected MatEventCallback<FocusEventArgs> OnFocusOutEvent;
 
         [Parameter]
         public EventCallback<KeyboardEventArgs> OnKeyPress { get; set; }
@@ -132,6 +136,9 @@ namespace MatBlazor
 
         protected BaseMatInputTextComponent()
         {
+            OnFocusEvent = new MatEventCallback<FocusEventArgs>(this, () => OnFocus);
+            OnFocusOutEvent = new MatEventCallback<FocusEventArgs>(this, () => OnFocusOut);
+
             ClassMapper
                 .Add("mdc-text-field")
                 .Add("_mdc-text-field--upgraded")

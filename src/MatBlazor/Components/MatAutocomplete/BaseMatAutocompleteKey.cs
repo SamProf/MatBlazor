@@ -8,6 +8,8 @@ namespace MatBlazor
 {
     public class BaseMatAutocompleteKey<TValue, TItem> : MatInputTextComponent<TValue>
     {
+        protected BaseMatMenu MenuRef;
+
         protected const int DefaultsElementsInPopup = 10;
 
         protected BaseMatList ListRef;
@@ -16,6 +18,28 @@ namespace MatBlazor
         public IEnumerable<TItem> Items { get; set; }
         
         public bool IsOpened { get; set; }
+
+
+        public BaseMatAutocompleteKey()
+        {
+            OnFocusEvent.Event += OnFocusEvent_Event;
+            OnFocusOutEvent.Event += OnFocusOutEvent_Event;
+//            ClassMapper.Add("mat-autocomplete");
+        }
+
+        private void OnFocusEvent_Event(object sender, Microsoft.AspNetCore.Components.Web.FocusEventArgs e)
+        {
+            IsOpened = true;
+            CallAfterRender(async () =>
+            {
+                await MenuRef.OpenAsync(InputRef);
+            });
+        }
+        
+        private void OnFocusOutEvent_Event(object sender, Microsoft.AspNetCore.Components.Web.FocusEventArgs e)
+        {
+//            IsOpened = false;
+        }
 
 
         /// <summary>
