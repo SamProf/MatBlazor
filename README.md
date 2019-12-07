@@ -119,7 +119,10 @@ If you think that this project helped you or your company in any way, you can co
 
 
 ## News
-### Announcement: MatBlazor 2.0.0 - 9 December (Reinvention MatBlazor Forms)
+### MatBlazor 2.0.0 (Reinvention MatBlazor Forms) (In progress - 9 December)
+- This release contain a lot of breaking changes, sorry for that. [Upgrade to Version 2](UpgaradeTo2.md).
+- The main goal of this release was to unify all components for forms, generic type support, reduction of dependence of JS, active use of OOP and the possibility of more active expansion in the future.
+- Update to .NET Core 3.1 Preview 4
 
 ### MatBlazor 1.10.1
 - Update to .NET Core 3.1 Preview 1
