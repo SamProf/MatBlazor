@@ -2,7 +2,7 @@
 
 namespace MatBlazor
 {
-    public class MatDatePicker : MatDatePickerType<DateTime?>
+    public class MatDatePicker<TValue> : MatDatePickerInternal<TValue>
     {
     }
 }

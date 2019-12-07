@@ -10,7 +10,7 @@ namespace MatBlazor
     /// <summary>
     /// Datetime picker based on flatpickr.js
     /// </summary>
-    public abstract class BaseMatDatePickerType<T> : MatInputTextComponent<T>
+    public abstract class BaseMatDatePickerInternal<TValue> : MatInputTextComponent<TValue>
     {
         [Parameter]
         public bool EnableTime { get; set; } = false;
@@ -33,14 +33,14 @@ namespace MatBlazor
         [Parameter]
         public bool DisableMobile { get; set; }
        
-//        [Parameter]
-        public string Position { get; set; } = "auto";
+        [Parameter]
+        public MatDatePickerPosition Position { get; set; } = MatDatePickerPosition.Auto;
 
 //        [Parameter]
         public string Mode { get; set; } = "single";
 
-        private DotNetObjectReference<MatDatePickerTypeJsHelper> dotNetObjectRef;
-        private MatDatePickerTypeJsHelper dotNetObject;
+        private DotNetObjectReference<MatDatePickerJsHelper> dotNetObjectRef;
+        private MatDatePickerJsHelper dotNetObject;
         protected ElementReference flatpickrInputRef;
 
         protected override bool InputTextReadOnly()
@@ -48,13 +48,13 @@ namespace MatBlazor
             return base.InputTextReadOnly() || !AllowInput;
         }
 
-        public BaseMatDatePickerType()
+        public BaseMatDatePickerInternal()
         {
 
             ClassMapper.Add("mat-date-picker");
             ClassMapper.Add("mat-text-field-with-actions-container");
 
-            dotNetObject = new MatDatePickerTypeJsHelper()
+            dotNetObject = new MatDatePickerJsHelper()
             {
                 OnChangeAction = (value) =>
                 {
@@ -94,7 +94,7 @@ namespace MatBlazor
                             EnableWeekNumbers = this.EnableWeekNumbers,
                             DisableMobile = this.DisableMobile,
                             Mode = this.Mode,
-                            Position = Position,
+                            Position = Position.ToString().ToLower(),
                             DefaultDate = SwitchT.ToDateTimeNull(Value),
                         });
                 });
