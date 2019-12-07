@@ -273,7 +273,7 @@
         </member>
         <member name="T:MatBlazor.BaseMatCheckboxInternal`1">
             <summary>
-            Checkboxes allow the user to select multiple options from a set. 
+            Material Design Checkboxes for Blazor, allow the user to select multiple options from a set. 
             </summary>
             <typeparam name="TValue">bool, bool?</typeparam>
         </member>
@@ -284,8 +284,9 @@
         </member>
         <member name="T:MatBlazor.BaseMatDatePickerInternal`1">
             <summary>
-            Datetime picker based on flatpickr.js
+            Material Design Datetime picker for Blazor
             </summary>
+            <typeparam name="TValue">DateTime, DateTime?</typeparam>
         </member>
         <member name="T:MatBlazor.FlatpickrOptions">
             <summary>

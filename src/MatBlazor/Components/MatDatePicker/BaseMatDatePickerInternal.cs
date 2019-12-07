@@ -8,8 +8,9 @@ using Microsoft.JSInterop;
 namespace MatBlazor
 {
     /// <summary>
-    /// Datetime picker based on flatpickr.js
+    /// Material Design Datetime picker for Blazor
     /// </summary>
+    /// <typeparam name="TValue">DateTime, DateTime?</typeparam>
     public abstract class BaseMatDatePickerInternal<TValue> : MatInputTextComponent<TValue>
     {
         [Parameter]

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 namespace MatBlazor
 {
     /// <summary>
-    /// Checkboxes allow the user to select multiple options from a set. 
+    /// Material Design Checkboxes for Blazor, allow the user to select multiple options from a set. 
     /// </summary>
     /// <typeparam name="TValue">bool, bool?</typeparam>
     public class BaseMatCheckboxInternal<TValue> : BaseMatInputElementComponent<TValue>
