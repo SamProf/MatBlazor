@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MatBlazor
 {
-    public class MatRadioGroup : MatRadioGroupType<string>
+    public class MatRadioGroup<TValue> : MatRadioGroupInternal<TValue>
     {
     }
 }

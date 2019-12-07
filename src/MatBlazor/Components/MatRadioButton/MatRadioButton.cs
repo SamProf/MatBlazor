@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MatBlazor
 {
-    public class MatRadioButton : MatRadioButtonType<string>
+    public class MatRadioButton<TValue> : MatRadioButtonInternal<TValue>
     {
     }
 }

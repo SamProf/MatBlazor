@@ -3,18 +3,18 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatRadioGroupType<T> : BaseMatInputComponent<T>
+    public class BaseMatRadioGroupInternal<TValue> : BaseMatInputComponent<TValue>
     {
         [Parameter]
-        public RenderFragment<T> ItemTemplate { get; set; }
+        public RenderFragment<TValue> ItemTemplate { get; set; }
 
         [Parameter]
-        public IEnumerable<T> Items { get; set; }
+        public IEnumerable<TValue> Items { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        public void SetCurrentValue(T value)
+        public void SetCurrentValue(TValue value)
         {
             this.CurrentValue = value;
         }

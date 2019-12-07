@@ -5,28 +5,28 @@
 <DemoContainer>
     <Content>
         <MatH5>Gender</MatH5>
-        <MatRadioGroup @bind-Value="@Val1">
-            <MatRadioButton Value="">Default</MatRadioButton>
-            <MatRadioButton Value="f" Label="Female"></MatRadioButton>
-            <MatRadioButton Value="m">Male</MatRadioButton>
-            <MatRadioButton Value="d" Disabled="true">Disabled</MatRadioButton>
+        <MatRadioGroup @bind-Value="@Val1" TValue="string">
+            <MatRadioButton Value="@string.Empty" TValue="string">Default</MatRadioButton>
+            <MatRadioButton Value="@("f")" Label="Female" TValue="string"></MatRadioButton>
+            <MatRadioButton Value="@("m")" TValue="string">Male</MatRadioButton>
+            <MatRadioButton Value="@("d")" Disabled="true" TValue="string">Disabled</MatRadioButton>
         </MatRadioGroup>
         <div>
             <b>Selected value: </b>
             <b>@Val1</b>
             <MatButton OnClick="@((e) => { Val1 = "m"; })">Set Male</MatButton>
         </div>
-        
+
         <h3>Items: @Val3</h3>
         <MatRadioGroup @bind-Value="@Val3" Items="@Val3Items">
         </MatRadioGroup>
-        
+
         <h3>Items with ItemTemplate: @Val3</h3>
         <MatRadioGroup @bind-Value="@Val3" Items="@Val3Items">
             <ItemTemplate>
                 <div>
-                   <MatIcon>@MatIconNames.Arrow_forward</MatIcon>
-                   <MatRadioButton Value="@context">@context</MatRadioButton>
+                    <MatIcon>@MatIconNames.Arrow_forward</MatIcon>
+                    <MatRadioButton Value="@context">@context</MatRadioButton>
                 </div>
             </ItemTemplate>
         </MatRadioGroup>
@@ -36,9 +36,11 @@
         {
 
             protected string Val1;
-            
+
             protected string Val3;
-            protected string[] Val3Items = {
+
+            protected string[] Val3Items =
+            {
                 "Winter",
                 "Spring",
                 "Summer",
@@ -49,7 +51,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatH5>Gender</MatH5>
         <MatRadioGroup @bind-Value=""@Val1"">
             <MatRadioButton Value="""">Default</MatRadioButton>
@@ -93,28 +95,28 @@
 
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
-
 
 
 <h5 class="mat-h5">Custom Class</h5>
 <DemoContainer>
     <Content>
-     
+
         <h3>Car Items: @carValue?.Name</h3>
-        <MatRadioGroupType @bind-Value="@carValue" Items="@carOptions">
-        </MatRadioGroupType>
-        
+        <MatRadioGroup @bind-Value="@carValue" Items="@carOptions">
+        </MatRadioGroup>
+
         <h3>Car Items with ItemTemplate: @carValue?.Name</h3>
-        <MatRadioGroupType @bind-Value="@carValue" Items="@carOptions">
+        <MatRadioGroup @bind-Value="@carValue" Items="@carOptions">
             <ItemTemplate>
                 <div>
                     <MatRadioButtonType Value="@context">@context.Name : @context.Price</MatRadioButtonType>
                 </div>
             </ItemTemplate>
-        </MatRadioGroupType>
+        </MatRadioGroup>
 
 
         @code
@@ -155,7 +157,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
      
         <h3>Car Items: @carValue?.Name</h3>
         <MatRadioGroupType @bind-Value=""@carValue"" Items=""@carOptions"">
@@ -207,7 +209,8 @@
 
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -215,8 +218,8 @@
 <h5 class="mat-h5">Enum</h5>
 <DemoContainer>
     <Content>
-        <MatRadioGroupType @bind-Value="@sex" Items="@(Enum.GetValues(typeof(Sex)).Cast<Sex>())">
-        </MatRadioGroupType>
+        <MatRadioGroup @bind-Value="@sex" Items="@(Enum.GetValues(typeof(Sex)).Cast<Sex>())">
+        </MatRadioGroup>
 
 
         @code
@@ -232,9 +235,10 @@
             }
 
         }
+
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatRadioGroupType @bind-Value=""@sex"" Items=""@(Enum.GetValues(typeof(Sex)).Cast<Sex>())"">
         </MatRadioGroupType>
 
@@ -252,6 +256,7 @@
             }
 
         }
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>

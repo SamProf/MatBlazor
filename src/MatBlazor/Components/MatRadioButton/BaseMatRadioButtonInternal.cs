@@ -7,14 +7,14 @@ namespace MatBlazor
     /// <summary>
     /// Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
     /// </summary>
-    public class BaseMatRadioButtonType<T> : BaseMatDomComponent
+    public class BaseMatRadioButtonInternal<TValue> : BaseMatDomComponent
     {
 
-        protected MatBlazorSwitchT<T> SwitchT = MatBlazorSwitchT<T>.Get();
+        protected MatBlazorSwitchT<TValue> SwitchT = MatBlazorSwitchT<TValue>.Get();
 
 
         [CascadingParameter()]
-        protected BaseMatRadioGroupType<T> Group { get; set; }
+        protected BaseMatRadioGroupInternal<TValue> Group { get; set; }
         
         [Parameter()]
         public RenderFragment ChildContent{ get; set; }
@@ -23,7 +23,7 @@ namespace MatBlazor
 
         protected bool Checked
         {
-            get => EqualityComparer<T>.Default.Equals(Group.Value, Value);
+            get => EqualityComparer<TValue>.Default.Equals(Group.Value, Value);
         }
 
 
@@ -31,7 +31,7 @@ namespace MatBlazor
         public bool Disabled { get; set; }
 
         [Parameter]
-        public T Value { get; set; }
+        public TValue Value { get; set; }
 
 
         protected string ValueAsString
@@ -62,7 +62,7 @@ namespace MatBlazor
             await JsInvokeAsync<object>("matBlazor.matRadioButton.init", Ref, FormFieldRef);
         }
 
-        public BaseMatRadioButtonType()
+        public BaseMatRadioButtonInternal()
         {
             ClassMapper
                 .Add("mdc-radio")

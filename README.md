@@ -142,6 +142,9 @@ If you think that this project helped you or your company in any way, you can co
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
   - Supported types: `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`, `decimal`, `decimal?`
   - Supports Blazor validation using `EditContext`
+- MatRadioButton
+  - Generic type supports: `TValue` parameter should be defined if he is not inferred.
+  - Supports Blazor validation using `EditContext`
 
 
 ### MatBlazor 1.10.1
