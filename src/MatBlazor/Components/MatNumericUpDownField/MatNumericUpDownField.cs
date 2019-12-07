@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MatBlazor
 {
-    public class MatNumericUpDownField : MatNumericUpDownFieldType<decimal?>
+    public class MatNumericUpDownField<TValue> : MatNumericUpDownFieldInternal<TValue>
     {
     }
 }

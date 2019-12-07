@@ -446,10 +446,11 @@
             can toggle the expansion state of its sub menus.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatNumericUpDownFieldType`1">
+        <member name="T:MatBlazor.BaseMatNumericUpDownFieldInternal`1">
             <summary>
-            Text fields allow users to input, edit, and select text.
+            Material Design NumericUpDown for Blazor, text fields allow users to input, edit, and select text.
             </summary>
+            <typeparam name="TValue">sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?</typeparam>
         </member>
         <member name="T:MatBlazor.BaseMatProgressBar">
             <summary>
