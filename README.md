@@ -133,8 +133,12 @@ If you think that this project helped you or your company in any way, you can co
   - Unmatched `Attributes` is appended to main component HtmlElement (not InputElement). Use `InputAttributes` instead.
 - MatDatePicker
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
-  - Supported types: `DateTime`, `DateTime?`  
+  - Supported types: `DateTime`, `DateTime?`
   - Supports Blazor validation using `EditContext`
+  - `DateFormat` renamed to `Format`, and this is **full .NET formatting of DateTime**
+  - `NoCalendar` renamed to `DisableCalendar`
+  - `AltFormat`, `AltInputClass`, `Inline` removed
+  
 
 
 ### MatBlazor 1.10.1
