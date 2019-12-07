@@ -12,7 +12,7 @@ export class MatMenu extends MDCMenu {
 export function init(ref) {
   try {
     var menu = new MatMenu(ref);
-    //menu.hoistMenuToBody();
+    menu.hoistMenuToBody();
     ref.matBlazorRef = menu;
   } catch (e) {
     debugger;

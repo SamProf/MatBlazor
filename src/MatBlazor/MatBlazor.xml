@@ -271,10 +271,11 @@
             Card component for Blazor contain content and actions about a single subject. 
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatCheckboxType`1">
+        <member name="T:MatBlazor.BaseMatCheckboxInternal`1">
             <summary>
-            Checkboxes allow the user to select multiple options from a set.
+            Checkboxes allow the user to select multiple options from a set. 
             </summary>
+            <typeparam name="TValue">bool, bool?</typeparam>
         </member>
         <member name="T:MatBlazor.BaseMatChip">
             <summary>

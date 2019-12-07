@@ -4,7 +4,7 @@
 
 
 <div class="mdc-form-field" @ref="FormFieldRef">
-    <div class="@ClassMapper.Class" style="@Style" @ref="Ref">
+    <div class="@ClassMapper.AsString()" style="@Style" @ref="Ref">
         <input class="mdc-radio__native-control" type="radio" name="@Group.Id" checked="@Checked" value="@ValueAsString"
                @onchange="((e) => OnChangeHandler(e))" id="@Id" disabled=@Disabled @attributes="Attributes" />
         <div class="mdc-radio__background">

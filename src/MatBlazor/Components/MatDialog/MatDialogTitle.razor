@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @using Microsoft.AspNetCore.Components
 @inherits BaseMatDomComponent
-<h2 class="@ClassMapper.Class" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
+<h2 class="@ClassMapper.AsString()" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
     @ChildContent
 </h2>
 

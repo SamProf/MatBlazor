@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.Components
 
 @* mdc-top-app-bar__action-item *@
-<a aria-label="@Label" alt="@Label" @onclick="OnClickHandler" class="@ClassMapper.Class material-icons mdc-top-app-bar__action-item" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
+<a aria-label="@Label" alt="@Label" @onclick="OnClickHandler" class="@ClassMapper.AsString() material-icons mdc-top-app-bar__action-item" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
     @Icon
 </a>
 

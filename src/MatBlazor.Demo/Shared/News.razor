@@ -1,6 +1,23 @@
 @* THIS IS AUTO GENERATED FILE!!! *@
 
 <h2>News</h2>
+<h3>MatBlazor 2.0.0 (Reinvention MatBlazor Forms) (In progress - 9 December)</h3>
+<ul>
+<li>This release contain a lot of breaking changes, sorry for that.</li>
+<li>The main goal of this release was to unify all components for forms, generic type support, reduction of dependence of JS, active use of OOP and the possibility of more active expansion in the future.</li>
+<li>Update to .NET Core 3.1 Preview 4</li>
+<li>MatCheckbox
+<ul>
+<li>Generic type supports: <code>TValue</code> parameter should be defined if he is not inferred.</li>
+<li>Supported types: <code>bool</code>, <code>bool?</code></li>
+<li>Indeterminate mode</li>
+<li>Supports Blazor validation using <code>EditContext</code></li>
+<li><code>Checked</code> renamed to <code>Value</code></li>
+<li><code>CheckedChanged</code> renamed to <code>ValueChanged</code></li>
+<li>Unmatched <code>Attributes</code> is appended to main component HtmlElement (not InputElement). Use <code>InputAttributes</code> instead.</li>
+</ul>
+</li>
+</ul>
 <h3>MatBlazor 1.10.1</h3>
 <ul>
 <li>Update to .NET Core 3.1 Preview 1</li>

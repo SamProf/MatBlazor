@@ -38,9 +38,15 @@ namespace MatBlazor.DevUtils.Core
 //                }
 
 
-                    if (type.Name.StartsWith("Base"))
+                    if (type.Name.StartsWith("Base") || type.Name.EndsWith("Internal") || type.Name.EndsWith("Internal`1"))
                     {
                         continue;
+                    }
+
+
+                    if (type == typeof(MatCheckbox<>))
+                    {
+
                     }
 
                     var typeName = GetTypeName(type, true);
@@ -171,7 +177,7 @@ namespace MatBlazor.DevUtils.Core
                 {
                     while (type != null && type.Assembly == Assembly)
                     {
-                        var key = $"T:{type.FullName}";
+                        var key = $"T:{type.Namespace}.{type.Name}";
                         var el = membersEl.Elements("member").FirstOrDefault(i => i.Attribute("name").Value == key);
                         if (el != null)
                         {
@@ -198,7 +204,7 @@ namespace MatBlazor.DevUtils.Core
             if (xml.Root != null)
             {
                 var membersEl = xml.Root.Element("members");
-                if (membersEl != null)
+                if (membersEl != null) 
                 {
                     string key;
                     if (member.DeclaringType.IsGenericType)

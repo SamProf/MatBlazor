@@ -1,8 +1,8 @@
 ﻿@namespace MatBlazor
-@typeparam T
-@inherits BaseMatCheckboxType<T>
+@typeparam TValue
+@inherits BaseMatCheckboxInternal<TValue>
 
-<div class="@ClassMapper.AsString()" style="@Style" @ref="Ref">
+<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="@Attributes">
     <div class="mdc-checkbox" @ref="ComponentRef" >
         <input @ref="@InputRef"
                type="checkbox"
@@ -12,7 +12,8 @@
                disabled=@Disabled
                value="@InputValue"
                id="@(Id)"
-               @attributes="Attributes"/>
+               @attributes="@GetInputAttributes()"/>
+
         <div class="mdc-checkbox__background">
             <svg class="mdc-checkbox__checkmark"
                  viewBox="0 0 24 24">

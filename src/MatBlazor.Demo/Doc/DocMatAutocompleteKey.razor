@@ -6,6 +6,8 @@
 
 @if (!Secondary) {<h3 class="mat-h3">MatAutocompleteKey</h3> } else { <h5 class="mat-h5">MatAutocompleteKey</h5> }
 
+<p>Base class for any input control that optionally supports an .</p>
+
 <div><table class="article-table mat-elevation-z5">
 	<tr>
 		<th>Name</th>
@@ -103,6 +105,11 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>InputAttributes</td>
+		<td>IDictionary&lt;String,Object&gt;</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>InputClass</td>
 		<td>String</td>
 		<td>Css class of input element</td>
@@ -118,9 +125,24 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>ItemTemplate</td>
+		<td>RenderFragment&lt;TItem&gt;</td>
+		<td>ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..</td>
+	</tr>
+	<tr>
+		<td>ItemValueSelector</td>
+		<td>Func&lt;TItem,TValue&gt;</td>
+		<td>This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.</td>
+	</tr>
+	<tr>
 		<td>Label</td>
 		<td>String</td>
 		<td></td>
+	</tr>
+	<tr>
+		<td>NumberOfElementsInPopup</td>
+		<td>Nullable&lt;Int32&gt;</td>
+		<td>Maximum number of elements displayed in the popup</td>
 	</tr>
 	<tr>
 		<td>OnFocus</td>

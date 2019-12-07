@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Components
 @inherits BaseMatDomComponent
 
-<div class="@ClassMapper.Class mat-expansion-panel__header" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
+<div class="@ClassMapper.AsString() mat-expansion-panel__header" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
     @ChildContent
 </div>
 

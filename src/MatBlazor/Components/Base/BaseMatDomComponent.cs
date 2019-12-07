@@ -44,6 +44,8 @@ namespace MatBlazor
             ClassMapper
                 .Get(() => this.Class)
                 .Get(() => this.Theme?.GetClass());
+            
+            StyleMapper.Get(() => Style);
         }
 
         /// <summary>
@@ -64,18 +66,11 @@ namespace MatBlazor
         public string Style
         {
             get => _style;
-            set
-            {
-                _style = value;
-                this.StateHasChanged();
-            }
+            set { _style = value; }
         }
 
 
-        protected virtual string GenerateStyle()
-        {
-            return Style;
-        }
+        protected StyleMapper StyleMapper = new StyleMapper();
 
         private string _class;
         private string _style;

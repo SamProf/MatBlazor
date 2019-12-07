@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Components
 @inherits BaseMatDomComponent
 
-<div class="@ClassMapper.Class" @ref="Ref"  style="@Style" @onclick="OnClickHandler" @attributes="Attributes" Id="@Id">
+<div class="@ClassMapper.AsString()" @ref="Ref"  style="@Style" @onclick="OnClickHandler" @attributes="Attributes" Id="@Id">
     @ChildContent
     <span class="after material-icon mdc-sub-menu-icon"
           style="@ToggleIconStyle">&#58131;</span>

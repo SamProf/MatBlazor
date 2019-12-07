@@ -5,7 +5,7 @@
 
 <CascadingValue Value="@this">
 
-    <div class="@ClassMapper.Class" style="@Style" @ref="Ref">
+    <div class="@ClassMapper.AsString()" style="@Style" @ref="Ref">
 
              @if (!HideDropDownIcon)
              {
@@ -56,6 +56,6 @@
     </div>
      @if (HelperText != null)
      {
-         <p class="@HelperTextClassMapper.Class" aria-hidden="true">@HelperText</p>
+         <p class="@HelperTextClassMapper.AsString()" aria-hidden="true">@HelperText</p>
      }
 </CascadingValue>

@@ -24,7 +24,7 @@
             @if (Label != null)
             {
                 <div class="mdc-notched-outline__notch">
-                    <label class="@LabelClassMapper.Class" for="@Id">@Label</label>
+                    <label class="@LabelClassMapper.AsString()" for="@Id">@Label</label>
                 </div>
             }
             <div class="mdc-notched-outline__trailing"></div>
@@ -34,7 +34,7 @@
     {
         if (Label != null)
         {
-            <label class="@LabelClassMapper.Class" for="@Id">@Label</label>
+            <label class="@LabelClassMapper.AsString()" for="@Id">@Label</label>
         }
         <div class="mdc-line-ripple"></div>
     }
@@ -45,6 +45,6 @@
 @if (HelperText != null)
 {
     <div class="mdc-text-field-helper-line">
-        <div class="@HelperTextClassMapper.Class" aria-hidden="@(!HelperTextPersistent)">@HelperText</div>
+        <div class="@HelperTextClassMapper.AsString()" aria-hidden="@(!HelperTextPersistent)">@HelperText</div>
     </div>
 }

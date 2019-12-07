@@ -5,14 +5,14 @@ using Microsoft.AspNetCore.Components;
 namespace MatBlazor
 {
     /// <summary>
-    /// Checkboxes allow the user to select multiple options from a set.
+    /// Checkboxes allow the user to select multiple options from a set. 
     /// </summary>
-    public class BaseMatCheckboxType<T> : BaseMatInputElementComponent<T>
+    /// <typeparam name="TValue">bool, bool?</typeparam>
+    public class BaseMatCheckboxInternal<TValue> : BaseMatInputElementComponent<TValue>
     {
-
         protected ElementReference ComponentRef { get; set; }
 
-        public BaseMatCheckboxType()
+        public BaseMatCheckboxInternal()
         {
             ClassMapper
                 .Add("mat-checkbox")
@@ -26,11 +26,11 @@ namespace MatBlazor
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
-       
+
         [Parameter]
         public string Label { get; set; }
 
-        
+
         [Parameter]
         public bool Indeterminate { get; set; }
 
@@ -47,7 +47,8 @@ namespace MatBlazor
             {
                 CallAfterRender(async () =>
                 {
-                    await JsInvokeAsync<object>("matBlazor.matCheckbox.setIndeterminate", Ref, CurrentValue, Indeterminate);
+                    await JsInvokeAsync<object>("matBlazor.matCheckbox.setIndeterminate", Ref, CurrentValue,
+                        Indeterminate);
                 });
             }
         }
@@ -56,7 +57,5 @@ namespace MatBlazor
         {
             CurrentValue = SwitchT.FromBoolNull((bool) e.Value, Indeterminate);
         }
-
-        
     }
 }

@@ -5,13 +5,13 @@
 
 @if (Parent.Enhanced)
 {
-    <li data-value="@StringValue()" class="@ClassMapper.Class" style="@GenerateStyle()" @ref="Ref" @attributes="Attributes" Id="@Id">
+    <li data-value="@StringValue()" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
         @ChildContent
     </li>
 }
 else
 {
-    <option value="@StringValue()" disabled=@Disabled class="@ClassMapper.Class" style="@GenerateStyle()" @ref="Ref" @attributes="Attributes" Id="@Id">
+    <option value="@StringValue()" disabled=@Disabled class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
         @ChildContent
     </option>
 }

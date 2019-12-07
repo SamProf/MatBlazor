@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatFileUpload
 
-<div @ref="@Ref" @attributes="@Attributes" class="@ClassMapper.AsString()" style="@GenerateStyle()" id="@Id">
+<div @ref="@Ref" @attributes="@Attributes" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" id="@Id">
     <input type="file" @ref="@InputRef"/>
     <div class="mat-file-upload-content">
         <span>@Label</span>

@@ -14,7 +14,7 @@
     <MatTextField class="mdc-table-filter" OnInput="@((e) => OnInput(e))" Placeholder="@SearchTermFieldPlaceHolder" Label="@SearchTermFieldLabel" Value="@SearchTerm" Icon="filter_list"></MatTextField>
 }
 <CascadingValue Value="@this">
-    <table class="@ClassMapper.Class" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
+    <table class="@ClassMapper.AsString()" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
         <thead>
             <tr class="mdc-table-header-row @(HeaderRowClass)">@MatTableHeader</tr>
         </thead>

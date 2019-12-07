@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Components
 @inherits BaseMatDomComponent
 
-<div class="@ClassMapper.Class mdc-top-app-bar--fixed-adjust" @ref="Ref"  style="@(Style) width: 100%; height: 100%; box-sizing: border-box;" @attributes="Attributes" Id="@Id">
+<div class="@ClassMapper.AsString() mdc-top-app-bar--fixed-adjust" @ref="Ref"  style="@(Style) width: 100%; height: 100%; box-sizing: border-box;" @attributes="Attributes" Id="@Id">
     @ChildContent
 </div>
 

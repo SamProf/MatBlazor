@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MatBlazor
 {
-    public class MatCheckbox : MatCheckboxType<bool>
+    public class MatCheckbox<TValue> : MatCheckboxInternal<TValue>
     {
     }
 }
