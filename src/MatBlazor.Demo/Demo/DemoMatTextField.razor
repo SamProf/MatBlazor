@@ -2,62 +2,114 @@
 
 <DocMatTextField></DocMatTextField>
 
-<h5 class="mat-h5">Filled</h5>
+<h5 class="mat-h5">Example</h5>
 <DemoContainer>
     <Content>
         <p>
-            <MatTextField @bind-Value="@MyString" Label="Standard"></MatTextField>
+            <MatTextField @bind-Value="@myStringValue" Label="Standard"></MatTextField>
         </p>
         <p>
-            <MatTextField @bind-Value="@MyString" Dense="true" Label="Dense"></MatTextField>
+            <MatTextField @bind-Value="@myStringValue" Dense="true" Label="Dense"></MatTextField>
         </p>
-        <div class="text-field-container">
-            <MatTextField @bind-Value="@MyString" Label="Label"></MatTextField>
-        </div>
+        <p>
+            <MatTextField @bind-Value="@myStringValue" Label="Label"></MatTextField>
+        </p>
+
+        <p>
+            <MatTextField @bind-Value="@myIntValue" Label="Int Field"></MatTextField>
+        </p>
+
+        <p>
+            <MatTextField @bind-Value="@myDateTimeNullValue" Label="DateTime? Field"></MatTextField>
+        </p>
+
+        <p>
+            <MatTextField TValue="decimal" Label="decimal Field with TValue"></MatTextField>
+        </p>
 
         @code
         {
 
-            public string MyString
-            {
-                get => _myString;
-                set
-                {
-                    _myString = value;
-                    this.StateHasChanged();
-                }
-            }
-
-            private string _myString;
+            string myStringValue;
+            int myIntValue;
+            DateTime? myDateTimeNullValue;
         }
 
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            <MatTextField @bind-Value=""@MyString"" Label=""Standard""></MatTextField>
+            <MatTextField @bind-Value=""@myStringValue"" Label=""Standard""></MatTextField>
         </p>
         <p>
-            <MatTextField @bind-Value=""@MyString"" Dense=""true"" Label=""Dense""></MatTextField>
+            <MatTextField @bind-Value=""@myStringValue"" Dense=""true"" Label=""Dense""></MatTextField>
         </p>
         <div class=""text-field-container"">
-            <MatTextField @bind-Value=""@MyString"" Label=""Label""></MatTextField>
+            <MatTextField @bind-Value=""@myStringValue"" Label=""Label""></MatTextField>
+        </div>
+
+        <div class=""text-field-container"">
+            <MatTextField @bind-Value=""@myIntValue"" Label=""Int Field""></MatTextField>
+        </div>
+
+        <div class=""text-field-container"">
+            <MatTextField @bind-Value=""@myDateTimeNullValue"" Label=""DateTime? Field""></MatTextField>
+        </div>
+
+        <div class=""text-field-container"">
+            <MatTextField TValue=""decimal"" Label=""decimal Field with TValue""></MatTextField>
         </div>
 
         @code
         {
 
-            public string MyString
-            {
-                get => _myString;
-                set
-                {
-                    _myString = value;
-                    this.StateHasChanged();
-                }
-            }
+            string myStringValue;
+            int myIntValue;
+            DateTime? myDateTimeNullValue;
+        }
 
-            private string _myString;
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">MatStringField</h5>
+<p>It is string only text field component</p>
+<DemoContainer>
+    <Content>
+        <p>
+            <MatStringField @bind-Value="@myStringValue2" Label="Standard"></MatStringField>
+        </p>
+        <p>
+            <MatTextField @bind-Value="@myStringValue2" Dense="true" Label="Dense"></MatTextField>
+        </p>
+        <p>
+            <MatTextField @bind-Value="@myStringValue2" Label="Label"></MatTextField>
+        </p>
+
+        @code
+        {
+
+            string myStringValue2;
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatStringField @bind-Value=""@myStringValue2"" Label=""Standard""></MatStringField>
+        </p>
+        <p>
+            <MatTextField @bind-Value=""@myStringValue2"" Dense=""true"" Label=""Dense""></MatTextField>
+        </p>
+        <div class=""text-field-container"">
+            <MatTextField @bind-Value=""@myStringValue2 Label=""Label""></MatTextField>
+        </div>
+
+        @code
+        {
+
+            string myStringValue2;
         }
 
     ")></BlazorFiddle>
@@ -524,10 +576,10 @@
             <MatTextField @bind-Value="@MyString8" Dense="true" Label="Dense" FullWidth="true"></MatTextField>
         </p>
         <p>
-            <MatTextField @bind-value="@MyString8" Label="Leading Icon" Icon="mail_outline" FullWidth="true" Required="true"></MatTextField>
+            <MatTextField @bind-Value="@MyString8" Label="Leading Icon" Icon="mail_outline" FullWidth="true" Required="true"></MatTextField>
         </p>
         <p>
-            <MatTextField @bind-value="@MyString8" Label="Trailing Icon - Password" Icon="lock_outline" IconTrailing="true" FullWidth="true" Required="true" Type="password"></MatTextField>
+            <MatTextField @bind-Value="@MyString8" Label="Trailing Icon - Password" Icon="lock_outline" IconTrailing="true" FullWidth="true" Required="true" Type="password"></MatTextField>
         </p>
         <p>
             <div class="text-field-container">
@@ -561,10 +613,10 @@
             <MatTextField @bind-Value=""@MyString8"" Dense=""true"" Label=""Dense"" FullWidth=""true""></MatTextField>
         </p>
         <p>
-            <MatTextField @bind-value=""@MyString8"" Label=""Leading Icon"" Icon=""mail_outline"" FullWidth=""true"" Required=""true""></MatTextField>
+            <MatTextField @bind-Value=""@MyString8"" Label=""Leading Icon"" Icon=""mail_outline"" FullWidth=""true"" Required=""true""></MatTextField>
         </p>
         <p>
-            <MatTextField @bind-value=""@MyString8"" Label=""Trailing Icon - Password"" Icon=""lock_outline"" IconTrailing=""true"" FullWidth=""true"" Required=""true"" Type=""password""></MatTextField>
+            <MatTextField @bind-Value=""@MyString8"" Label=""Trailing Icon - Password"" Icon=""lock_outline"" IconTrailing=""true"" FullWidth=""true"" Required=""true"" Type=""password""></MatTextField>
         </p>
         <p>
             <div class=""text-field-container"">
@@ -664,11 +716,11 @@
 <h5 class="mat-h5">PlaceHolder</h5>
 <DemoContainer>
     <Content>
-        <MatTextField PlaceHolder="Test PlaceHolder"></MatTextField>
+        <MatTextField PlaceHolder="Test PlaceHolder" TValue="string"></MatTextField>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatTextField PlaceHolder=""Test PlaceHolder""></MatTextField>
+        <MatTextField PlaceHolder=""Test PlaceHolder"" TValue=""string""></MatTextField>
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
@@ -677,11 +729,11 @@
 
 <DemoContainer>
     <Content>
-        <MatTextField Required="true"></MatTextField>
+        <MatTextField Required="true" TValue="string"></MatTextField>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatTextField Required=""true""></MatTextField>
+        <MatTextField Required=""true"" TValue=""string""></MatTextField>
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
@@ -692,37 +744,37 @@
 <DemoContainer>
     <Content>
         <p>
-            <MatTextField Disabled="true" Value="Disabled" Label="Disabled"></MatTextField>
+            <MatStringField Disabled="true" Value="Disabled" Label="Disabled"></MatStringField>
         </p>
 
         <p>
-            <MatTextField Disabled="true" TextArea="true" Value="Disabled TextArea" Label="Disabled TextArea"></MatTextField>
+            <MatStringField Disabled="true" TextArea="true" Value="Disabled TextArea" Label="Disabled TextArea"></MatStringField>
         </p>
 
         <p>
-            <MatTextField ReadOnly="true" Value="ReadOnly" Label="ReadOnly"></MatTextField>
+            <MatStringField ReadOnly="true" Value="ReadOnly" Label="ReadOnly"></MatStringField>
         </p>
 
         <p>
-            <MatTextField ReadOnly="true" TextArea="true" Value="ReadOnly TextArea" Label="ReadOnly TextArea"></MatTextField>
+            <MatStringField ReadOnly="true" TextArea="true" Value="ReadOnly TextArea" Label="ReadOnly TextArea"></MatStringField>
         </p>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            <MatTextField Disabled=""true"" Value=""Disabled"" Label=""Disabled""></MatTextField>
+            <MatStringField Disabled=""true"" Value=""Disabled"" Label=""Disabled""></MatStringField>
         </p>
 
         <p>
-            <MatTextField Disabled=""true"" TextArea=""true"" Value=""Disabled TextArea"" Label=""Disabled TextArea""></MatTextField>
+            <MatStringField Disabled=""true"" TextArea=""true"" Value=""Disabled TextArea"" Label=""Disabled TextArea""></MatStringField>
         </p>
 
         <p>
-            <MatTextField ReadOnly=""true"" Value=""ReadOnly"" Label=""ReadOnly""></MatTextField>
+            <MatStringField ReadOnly=""true"" Value=""ReadOnly"" Label=""ReadOnly""></MatStringField>
         </p>
 
         <p>
-            <MatTextField ReadOnly=""true"" TextArea=""true"" Value=""ReadOnly TextArea"" Label=""ReadOnly TextArea""></MatTextField>
+            <MatStringField ReadOnly=""true"" TextArea=""true"" Value=""ReadOnly TextArea"" Label=""ReadOnly TextArea""></MatStringField>
         </p>
     ")></BlazorFiddle>
     </SourceContent>
@@ -742,11 +794,11 @@
         </style>
 
         <p>
-            <MatTextField Value="InputClass" Label="Label" InputClass="demo-text-field-class"></MatTextField>
+            <MatStringField Value="InputClass" Label="Label" InputClass="demo-text-field-class"></MatStringField>
         </p>
 
         <p>
-            <MatTextField Value="InputStyle" Label="Label" InputStyle="font-family: monospace; color: green;"></MatTextField>
+            <MatStringField Value="InputStyle" Label="Label" InputStyle="font-family: monospace; color: green;"></MatStringField>
         </p>
 
 
@@ -762,11 +814,11 @@
         </style>
 
         <p>
-            <MatTextField Value=""InputClass"" Label=""Label"" InputClass=""demo-text-field-class""></MatTextField>
+            <MatStringField Value=""InputClass"" Label=""Label"" InputClass=""demo-text-field-class""></MatStringField>
         </p>
 
         <p>
-            <MatTextField Value=""InputStyle"" Label=""Label"" InputStyle=""font-family: monospace; color: green;""></MatTextField>
+            <MatStringField Value=""InputStyle"" Label=""Label"" InputStyle=""font-family: monospace; color: green;""></MatStringField>
         </p>
 
 
@@ -778,7 +830,7 @@
 
 <DemoContainer>
     <Content>
-        <MatTextField OnFocus="@OnFocusHandler" OnFocusOut="OnFocusOutHandler" OnKeyPress="@OnKeyPressHandler" OnKeyDown="@OnKeyDownHandler" OnKeyUp="@OnKeyUpHandler" OnInput="@OnInputHandler"></MatTextField>
+        <MatTextField TValue="string" OnFocus="@OnFocusHandler" OnFocusOut="OnFocusOutHandler" OnKeyPress="@OnKeyPressHandler" OnKeyDown="@OnKeyDownHandler" OnKeyUp="@OnKeyUpHandler" OnInput="@OnInputHandler"></MatTextField>
 
         <div>@eventLog</div>
 
@@ -830,7 +882,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatTextField OnFocus=""@OnFocusHandler"" OnFocusOut=""OnFocusOutHandler"" OnKeyPress=""@OnKeyPressHandler"" OnKeyDown=""@OnKeyDownHandler"" OnKeyUp=""@OnKeyUpHandler"" OnInput=""@OnInputHandler""></MatTextField>
+        <MatTextField TValue=""string"" OnFocus=""@OnFocusHandler"" OnFocusOut=""OnFocusOutHandler"" OnKeyPress=""@OnKeyPressHandler"" OnKeyDown=""@OnKeyDownHandler"" OnKeyUp=""@OnKeyUpHandler"" OnInput=""@OnInputHandler""></MatTextField>
 
         <div>@eventLog</div>
 
@@ -883,3 +935,206 @@
     </SourceContent>
 </DemoContainer>
 
+
+<h5 class="mat-h5">Generic Values</h5>
+
+<DemoContainer>
+    <Content>
+
+        <p>
+            <b>string</b><br/>
+            <MatTextField @bind-Value="@stringValue"></MatTextField> Value: @stringValue
+        </p>
+        <p>
+            <b>sbyte</b><br/>
+            <MatTextField @bind-Value="@sbyteValue"></MatTextField> Value: @sbyteValue
+        </p>
+        <p>
+            <b>byte</b><br/>
+            <MatTextField @bind-Value="@byteValue"></MatTextField> Value: @byteValue
+        </p>
+        <p>
+            <b>short</b><br/>
+            <MatTextField @bind-Value="@shortValue"></MatTextField> Value: @shortValue
+        </p>
+        <p>
+            <b>ushort</b><br/>
+            <MatTextField @bind-Value="@ushortValue"></MatTextField> Value: @ushortValue
+        </p>
+        <p>
+            <b>int</b><br/>
+            <MatTextField @bind-Value="@intValue"></MatTextField> Value: @intValue
+        </p>
+        <p>
+            <b>uint</b><br/>
+            <MatTextField @bind-Value="@uintValue"></MatTextField> Value: @uintValue
+        </p>
+        <p>
+            <b>long</b><br/>
+            <MatTextField @bind-Value="@longValue"></MatTextField> Value: @longValue
+        </p>
+        <p>
+            <b>ulong</b><br/>
+            <MatTextField @bind-Value="@ulongValue"></MatTextField> Value: @ulongValue
+        </p>
+        <p>
+            <b>char</b><br/>
+            <MatTextField @bind-Value="@charValue"></MatTextField> Value: @charValue
+        </p>
+        <p>
+            <b>float</b><br/>
+            <MatTextField @bind-Value="@floatValue"></MatTextField> Value: @floatValue
+        </p>
+        <p>
+            <b>double</b><br/>
+            <MatTextField @bind-Value="@doubleValue"></MatTextField> Value: @doubleValue
+        </p>
+        <p>
+            <b>decimal</b><br/>
+            <MatTextField @bind-Value="@decimalValue"></MatTextField> Value: @decimalValue
+        </p>
+        <p>
+            <b>decimal?</b><br/>
+            <MatTextField @bind-Value="@decimalNullValue"></MatTextField> Value: @decimalNullValue
+        </p>
+        <p>
+            <b>DateTime</b><br/>
+            <MatTextField @bind-Value="@dateTimeValue"></MatTextField> Value: @dateTimeValue
+        </p>
+        <p>
+            <b>DateTime?</b><br/>
+            <MatTextField @bind-Value="@dateTimeNullValue"></MatTextField> Value: @dateTimeNullValue
+        </p>
+        <p>
+            <b>bool</b><br/>
+            <MatTextField @bind-Value="@boolValue"></MatTextField> Value: @boolValue
+        </p>
+        <p>
+            <b>bool?</b><br/>
+            <MatTextField @bind-Value="@boolNullValue"></MatTextField> Value: @boolNullValue
+        </p>
+
+        @code
+        {
+            string stringValue;
+            sbyte sbyteValue;
+            byte byteValue;
+            short shortValue;
+            ushort ushortValue;
+            int intValue;
+            uint uintValue;
+            long longValue;
+            ulong ulongValue;
+            char charValue;
+            float floatValue;
+            double doubleValue;
+            decimal decimalValue;
+            decimal? decimalNullValue;
+            DateTime dateTimeValue;
+            DateTime? dateTimeNullValue;
+            bool boolValue;
+            bool? boolNullValue;
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+
+        <p>
+            <b>string</b><br/>
+            <MatTextField @bind-Value=""@stringValue""></MatTextField> Value: @stringValue
+        </p>
+        <p>
+            <b>sbyte</b><br/>
+            <MatTextField @bind-Value=""@sbyteValue""></MatTextField> Value: @sbyteValue
+        </p>
+        <p>
+            <b>byte</b><br/>
+            <MatTextField @bind-Value=""@byteValue""></MatTextField> Value: @byteValue
+        </p>
+        <p>
+            <b>short</b><br/>
+            <MatTextField @bind-Value=""@shortValue""></MatTextField> Value: @shortValue
+        </p>
+        <p>
+            <b>ushort</b><br/>
+            <MatTextField @bind-Value=""@ushortValue""></MatTextField> Value: @ushortValue
+        </p>
+        <p>
+            <b>int</b><br/>
+            <MatTextField @bind-Value=""@intValue""></MatTextField> Value: @intValue
+        </p>
+        <p>
+            <b>uint</b><br/>
+            <MatTextField @bind-Value=""@uintValue""></MatTextField> Value: @uintValue
+        </p>
+        <p>
+            <b>long</b><br/>
+            <MatTextField @bind-Value=""@longValue""></MatTextField> Value: @longValue
+        </p>
+        <p>
+            <b>ulong</b><br/>
+            <MatTextField @bind-Value=""@ulongValue""></MatTextField> Value: @ulongValue
+        </p>
+        <p>
+            <b>char</b><br/>
+            <MatTextField @bind-Value=""@charValue""></MatTextField> Value: @charValue
+        </p>
+        <p>
+            <b>float</b><br/>
+            <MatTextField @bind-Value=""@floatValue""></MatTextField> Value: @floatValue
+        </p>
+        <p>
+            <b>double</b><br/>
+            <MatTextField @bind-Value=""@doubleValue""></MatTextField> Value: @doubleValue
+        </p>
+        <p>
+            <b>decimal</b><br/>
+            <MatTextField @bind-Value=""@decimalValue""></MatTextField> Value: @decimalValue
+        </p>
+        <p>
+            <b>decimal?</b><br/>
+            <MatTextField @bind-Value=""@decimalNullValue""></MatTextField> Value: @decimalNullValue
+        </p>
+        <p>
+            <b>DateTime</b><br/>
+            <MatTextField @bind-Value=""@dateTimeValue""></MatTextField> Value: @dateTimeValue
+        </p>
+        <p>
+            <b>DateTime?</b><br/>
+            <MatTextField @bind-Value=""@dateTimeNullValue""></MatTextField> Value: @dateTimeNullValue
+        </p>
+        <p>
+            <b>bool</b><br/>
+            <MatTextField @bind-Value=""@boolValue""></MatTextField> Value: @boolValue
+        </p>
+        <p>
+            <b>bool?</b><br/>
+            <MatTextField @bind-Value=""@boolNullValue""></MatTextField> Value: @boolNullValue
+        </p>
+
+        @code
+        {
+            string stringValue;
+            sbyte sbyteValue;
+            byte byteValue;
+            short shortValue;
+            ushort ushortValue;
+            int intValue;
+            uint uintValue;
+            long longValue;
+            ulong ulongValue;
+            char charValue;
+            float floatValue;
+            double doubleValue;
+            decimal decimalValue;
+            decimal? decimalNullValue;
+            DateTime dateTimeValue;
+            DateTime? dateTimeNullValue;
+            bool boolValue;
+            bool? boolNullValue;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

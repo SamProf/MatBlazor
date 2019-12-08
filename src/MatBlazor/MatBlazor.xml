@@ -601,10 +601,11 @@
             Style attribute of input element
             </summary>
         </member>
-        <member name="T:MatBlazor.MatTextFieldType`1">
+        <member name="T:MatBlazor.MatTextField`1">
             <summary>
-            Text fields allow users to input, edit, and select text.
+            Material Design Text Field for Blazor. Text fields allow users to input, edit, and select text.
             </summary>
+            <typeparam name="TValue">string, sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?, DateTime, DateTime?, bool, bool?</typeparam>
         </member>
         <member name="T:MatBlazor.BaseMatThemeProvider">
             <summary>

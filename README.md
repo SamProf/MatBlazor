@@ -156,10 +156,13 @@ If you think that this project helped you or your company in any way, you can co
   - Added `Step` parameter
 - MatSlideToggle
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
+  - Supported types: `bool`, `bool?`
   - Supports Blazor validation using `EditContext`
-- MatTextField
+- MatTextField, MatStringField
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
+  - Supported types: `string`, `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`, `decimal`, `decimal?`, `DateTime`, `DateTime?`, `bool`, `bool?`
   - Supports Blazor validation using `EditContext`
+  - New component `MatStringField` - replacement old `MatTextField` - just for `string` values without generic `TValue` parameter.
 
 
 ### MatBlazor 1.10.1
