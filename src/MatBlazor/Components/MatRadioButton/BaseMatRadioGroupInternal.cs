@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TValue">any</typeparam>
     public class BaseMatRadioGroupInternal<TValue> : BaseMatInputComponent<TValue>
     {
         [Parameter]

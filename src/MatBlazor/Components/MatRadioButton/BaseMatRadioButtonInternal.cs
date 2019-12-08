@@ -7,6 +7,7 @@ namespace MatBlazor
     /// <summary>
     /// Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
     /// </summary>
+    /// <typeparam name="TValue">any</typeparam>
     public class BaseMatRadioButtonInternal<TValue> : BaseMatDomComponent
     {
 

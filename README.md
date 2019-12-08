@@ -144,6 +144,7 @@ If you think that this project helped you or your company in any way, you can co
   - Supports Blazor validation using `EditContext`
 - MatRadioButton
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
+  - Supported types: any
   - Supports Blazor validation using `EditContext`
 - MatSelect
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
