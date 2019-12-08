@@ -5,8 +5,9 @@ using Microsoft.AspNetCore.Components;
 namespace MatBlazor
 {
     /// <summary>
-    /// Sliders let users select from a range of values by moving the slider thumb. 
+    /// Material Design Slider for Blazor. Sliders let users select from a range of values by moving the slider thumb. 
     /// </summary>
+    /// <typeparam name="TValue">sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?</typeparam>
     public class BaseMatSlider<TValue> : BaseMatInputComponent<TValue>
     {
         protected MatDotNetObjectReference<MatSliderJsHelper> jsHelper;
@@ -18,7 +19,7 @@ namespace MatBlazor
             ValueMin = SwitchT.GetMinimum();
             ValueMax = SwitchT.GetMaximum();
             Step = SwitchT.GetStep();
-            
+
             ClassMapper
                 .Add("mat-slider")
                 .Add("mdc-slider")
@@ -56,7 +57,7 @@ namespace MatBlazor
 
         [Parameter]
         public TValue Step { get; set; }
-        
+
         [Parameter]
         public bool EnableStep { get; set; }
 

@@ -151,7 +151,9 @@ If you think that this project helped you or your company in any way, you can co
   - Supports Blazor validation using `EditContext`
 - MatSlider
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
+  - Supported types: `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`, `decimal`, `decimal?`
   - Supports Blazor validation using `EditContext`
+  - Added `Step` parameter
 - MatSlideToggle
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
   - Supports Blazor validation using `EditContext`

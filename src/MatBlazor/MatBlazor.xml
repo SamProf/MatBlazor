@@ -481,8 +481,9 @@
         </member>
         <member name="T:MatBlazor.BaseMatSlider`1">
             <summary>
-            Sliders let users select from a range of values by moving the slider thumb. 
+            Material Design Slider for Blazor. Sliders let users select from a range of values by moving the slider thumb. 
             </summary>
+            <typeparam name="TValue">sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?</typeparam>
         </member>
         <member name="T:MatBlazor.BaseMatSlideToggle`1">
             <summary>
