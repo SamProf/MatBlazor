@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-
 namespace MatBlazor
 {
     public abstract class MatBlazorSwitchT<T>
@@ -13,9 +12,9 @@ namespace MatBlazor
         public abstract T Decrease(T v, T step, T min);
         public abstract T Round(T v, int dp);
 
-        public abstract T Minimum { get; }
-        public abstract T Maximum { get; }
-        public abstract T Step { get; }
+        public abstract T GetMinimum();
+        public abstract T GetMaximum();
+        public abstract T GetStep();
 
         public abstract string FormatValueAsString(T v, string format);
         public abstract T ParseFromString(string v, string format);
@@ -26,6 +25,16 @@ namespace MatBlazor
         public abstract T FromBoolNull(bool? v, bool indeterminate);
 
         public abstract T FromDecimal(decimal v);
+
+        public virtual bool ToBool(T v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual T FromBool(bool v)
+        {
+            throw new NotImplementedException();
+        }
 
         private static readonly MatSwitchT Ts = new MatSwitchT()
             .Case<MatBlazorSwitchT<sbyte>>(new MatBlazorSwitchTSByte())
@@ -45,23 +54,11 @@ namespace MatBlazor
             .Case<MatBlazorSwitchT<DateTime>>(new MatBlazorSwitchTDateTime())
             .Case<MatBlazorSwitchT<DateTime?>>(new MatBlazorSwitchTDateTimeNull())
             .Case<MatBlazorSwitchT<bool>>(new MatBlazorSwitchTBool())
-            .Case<MatBlazorSwitchT<bool?>>(new MatBlazorSwitchTBoolNull())
-            ;
+            .Case<MatBlazorSwitchT<bool?>>(new MatBlazorSwitchTBoolNull());
 
         public static MatBlazorSwitchT<T> Get()
         {
             return Ts.Get<MatBlazorSwitchT<T>>();
-        }
-
-
-        public virtual bool ToBool(T v)
-        {
-            throw new NotImplementedException();
-        }
-        
-        public virtual T FromBool(bool v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

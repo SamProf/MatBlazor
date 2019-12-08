@@ -30,11 +30,11 @@ namespace MatBlazor
             return v;
         }
 
-        public override bool Minimum => false;
+        public override bool GetMinimum() => false;
 
-        public override bool Maximum => true;
+        public override bool GetMaximum() => true;
 
-        public override bool Step => true;
+        public override bool GetStep() => true;
 
         public override string FormatValueAsString(bool v, string format)
         {

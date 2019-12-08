@@ -20,10 +20,10 @@ namespace MatBlazor
             return (float)Math.Round(v, dp);
         }
 
-        public override float Minimum => float.MinValue;
-        public override float Maximum => float.MaxValue;
+        public override float GetMinimum() => float.MinValue;
+        public override float GetMaximum() => float.MaxValue;
 
-        public override float Step => 1;
+        public override float GetStep() => 1;
 
         public override string FormatValueAsString(float v, string format)
         {

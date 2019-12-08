@@ -20,10 +20,10 @@ namespace MatBlazor
             return Math.Round(v, dp);
         }
 
-        public override double Minimum => double.MinValue;
-        public override double Maximum => double.MaxValue;
+        public override double GetMinimum() => double.MinValue;
+        public override double GetMaximum() => double.MaxValue;
 
-        public override double Step => 1;
+        public override double GetStep() => 1;
 
         public override string FormatValueAsString(double v, string format)
         {

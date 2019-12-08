@@ -23,10 +23,10 @@ namespace MatBlazor
             return Math.Round(v, dp);
         }
 
-        public override decimal Minimum => decimal.MinValue;
-        public override decimal Maximum => decimal.MaxValue;
+        public override decimal GetMinimum() => decimal.MinValue;
+        public override decimal GetMaximum() => decimal.MaxValue;
 
-        public override decimal Step => 1;
+        public override decimal GetStep() => 1;
 
         public override string FormatValueAsString(decimal v, string format)
         {

@@ -22,10 +22,10 @@ namespace MatBlazor
             return v;
         }
 
-        public override ulong Minimum => ulong.MinValue;
-        public override ulong Maximum => ulong.MaxValue;
+        public override ulong GetMinimum() => ulong.MinValue;
+        public override ulong GetMaximum() => ulong.MaxValue;
 
-        public override ulong Step => 1;
+        public override ulong GetStep() => 1;
 
         public override string FormatValueAsString(ulong v, string format)
         {

@@ -22,10 +22,10 @@ namespace MatBlazor
             return v;
         }
 
-        public override long Minimum => long.MinValue;
-        public override long Maximum => long.MaxValue;
+        public override long GetMinimum() => long.MinValue;
+        public override long GetMaximum() => long.MaxValue;
 
-        public override long Step => 1;
+        public override long GetStep() => 1;
 
         public override string FormatValueAsString(long v, string format)
         {

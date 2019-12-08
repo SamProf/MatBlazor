@@ -146,7 +146,7 @@ If you think that this project helped you or your company in any way, you can co
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
   - Supported types: any
   - Supports Blazor validation using `EditContext`
-- MatSelect
+- MatSelect, MatSelectItem, MatSelectValue
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
   - Supports Blazor validation using `EditContext`
 - MatSlider

@@ -15,9 +15,9 @@ namespace MatBlazor
         {
             jsHelper = new MatDotNetObjectReference<MatSliderJsHelper>(new MatSliderJsHelper());
             jsHelper.Value.OnChangeEvent += Value_OnChangeEvent;
-            ValueMin = SwitchT.Minimum;
-            ValueMax = SwitchT.Maximum;
-            Step = SwitchT.Step;
+            ValueMin = SwitchT.GetMinimum();
+            ValueMax = SwitchT.GetMaximum();
+            Step = SwitchT.GetStep();
             
             ClassMapper
                 .Add("mat-slider")

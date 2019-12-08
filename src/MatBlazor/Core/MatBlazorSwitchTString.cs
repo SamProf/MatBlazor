@@ -19,9 +19,9 @@ namespace MatBlazor
             throw new System.NotImplementedException();
         }
 
-        public override string Minimum => throw new System.NotImplementedException();
-        public override string Maximum => throw new System.NotImplementedException();
-        public override string Step => throw new System.NotImplementedException();
+        public override string GetMinimum() => throw new System.NotImplementedException();
+        public override string GetMaximum() => throw new System.NotImplementedException();
+        public override string GetStep() => throw new System.NotImplementedException();
 
         public override string FormatValueAsString(string v, string format)
         {

@@ -37,9 +37,9 @@ namespace MatBlazor
             return v;
         }
 
-        public override decimal? Minimum => null;
-        public override decimal? Maximum => null;
-        public override decimal? Step => 1;
+        public override decimal? GetMinimum() => null;
+        public override decimal? GetMaximum() => null;
+        public override decimal? GetStep() => 1;
 
         public override string FormatValueAsString(decimal? v, string format)
         {

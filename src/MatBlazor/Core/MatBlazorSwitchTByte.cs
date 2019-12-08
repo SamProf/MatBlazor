@@ -22,10 +22,11 @@ namespace MatBlazor
             return v;
         }
 
-        public override byte Minimum => byte.MinValue;
-        public override byte Maximum => byte.MaxValue;
+        public override byte GetMinimum() => byte.MinValue;
+        public override byte GetMaximum() => byte.MaxValue;
 
-        public override byte Step => 1;
+        public override byte GetStep() => 1;
+
         public override string FormatValueAsString(byte v, string format)
         {
             return v.ToString(format);

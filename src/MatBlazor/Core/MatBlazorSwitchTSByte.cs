@@ -22,10 +22,10 @@ namespace MatBlazor
             return v;
         }
 
-        public override sbyte Minimum => sbyte.MinValue;
-        public override sbyte Maximum => sbyte.MaxValue;
+        public override sbyte GetMinimum() => sbyte.MinValue;
+        public override sbyte GetMaximum() => sbyte.MaxValue;
 
-        public override sbyte Step => 1;
+        public override sbyte GetStep() => 1;
 
         public override string FormatValueAsString(sbyte v, string format)
         {

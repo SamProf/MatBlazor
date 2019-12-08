@@ -20,11 +20,11 @@ namespace MatBlazor
             throw new NotImplementedException();
         }
 
-        public override DateTime? Minimum => throw new NotImplementedException();
+        public override DateTime? GetMinimum() => throw new NotImplementedException();
 
-        public override DateTime? Maximum => throw new NotImplementedException();
+        public override DateTime? GetMaximum() => throw new NotImplementedException();
 
-        public override DateTime? Step => throw new NotImplementedException();
+        public override DateTime? GetStep() => throw new NotImplementedException();
 
         public override string FormatValueAsString(DateTime? v, string format)
         {
