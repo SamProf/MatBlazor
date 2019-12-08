@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Components
 @inherits BaseMatDomComponent
 @* mdc-top-app-bar__navigation-icon *@
-<a class="@ClassMapper.AsString() material-icons mdc-top-app-bar__navigation-icon" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id" @onclick="OnClickHandler">menu</a>
+<a class="@ClassMapper.AsString() material-icons mdc-top-app-bar__navigation-icon" style="@StyleMapper.AsString()" @ref="Ref"  @attributes="Attributes" Id="@Id" @onclick="OnClickHandler">menu</a>
 
 @code
 {

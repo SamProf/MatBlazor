@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatTabGroup
 
-<div class="@ClassMapper.AsString()" @ref="Ref"  style="@Style" @attributes="Attributes" Id="@Id">
+<div class="@ClassMapper.AsString()" @ref="Ref"  style="@StyleMapper.AsString()" @attributes="Attributes" Id="@Id">
     <MatTabBar @bind-Active="@Active" @bind-ActiveIndex="@ActiveIndex">
         <CascadingValue Value="@this">
             @ChildContent

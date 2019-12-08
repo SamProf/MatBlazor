@@ -2,7 +2,7 @@
 @typeparam T
 @inherits BaseMatInputTextComponent<T>
 
-<div class="@ClassMapper.AsString()" style="@Style" @ref="Ref" >
+<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" >
     @if (Icon != null)
     {
         <i class="material-icons mdc-text-field__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>

@@ -19,7 +19,7 @@ else
     </div>
 }
 
-<div class="@ClassMapper.AsString()" @ref="Ref"  style="@Style" @attributes="Attributes" Id="@Id">
+<div class="@ClassMapper.AsString()" @ref="Ref"  style="@StyleMapper.AsString()" @attributes="Attributes" Id="@Id">
     @if (TooltipContent != null)
     {
         @TooltipContent
