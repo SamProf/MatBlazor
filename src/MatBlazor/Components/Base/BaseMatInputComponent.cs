@@ -23,7 +23,7 @@ namespace MatBlazor
         {
         }
 
-       
+
         [CascadingParameter]
         EditContext CascadedEditContext { get; set; }
 
@@ -67,7 +67,7 @@ namespace MatBlazor
             set
             {
                 var hasChanged = !EqualityComparer<T>.Default.Equals(value, Value);
-                if (hasChanged)
+                if (hasChanged && ValidateCurrentValue(value))
                 {
                     Value = value;
                     ValueChanged.InvokeAsync(value);
@@ -77,8 +77,11 @@ namespace MatBlazor
         }
 
 
-      
-        
+        protected virtual bool ValidateCurrentValue(T value)
+        {
+            return true;
+        }
+
 
         /// <summary>
         /// Gets a string that indicates the status of the field being edited. This will include

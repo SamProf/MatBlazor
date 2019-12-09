@@ -72,6 +72,15 @@
 
         <p><b>EnableTime</b></p>
         <MatDatePicker @bind-Value="FeaturesDateTime" EnableTime="true"></MatDatePicker>
+
+        <p><b>Minimum</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Minimum="@DateTime.Now.AddDays(-10)"></MatDatePicker>
+
+        <p><b>Maximum</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Maximum="@DateTime.Now.AddDays(10)"></MatDatePicker>
+
+        <p><b>Minimum and Maximum</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Minimum="@DateTime.Now.AddDays(-10)" Maximum="@DateTime.Now.AddDays(10)"></MatDatePicker>
         
         <p><b>EnableSeconds</b></p>
         <MatDatePicker @bind-Value="FeaturesDateTime" EnableTime="true" EnableSeconds="true"></MatDatePicker>

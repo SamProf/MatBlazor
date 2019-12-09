@@ -20,9 +20,9 @@ namespace MatBlazor
             throw new NotImplementedException();
         }
 
-        public override DateTime GetMinimum() => throw new NotImplementedException();
+        public override DateTime GetMinimum() => DateTime.MinValue;
 
-        public override DateTime GetMaximum() => throw new NotImplementedException();
+        public override DateTime GetMaximum() => DateTime.MaxValue;
 
         public override DateTime GetStep() => throw new NotImplementedException();
 

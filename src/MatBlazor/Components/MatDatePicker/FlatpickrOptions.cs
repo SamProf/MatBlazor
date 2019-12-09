@@ -22,5 +22,9 @@ namespace MatBlazor
         public string Mode { get; set; } = "single";
 
         public DateTime? DefaultDate { get; set; }
+
+        public DateTime? Minimum { get; set; }
+        
+        public DateTime? Maximum { get; set; }
     }
 }

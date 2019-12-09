@@ -26,6 +26,8 @@ export function open(ref, flatpickrInputRef, cmp, options) {
     mode: options.mode,
     position: options.position,
     positionElement: ref,
+    minDate: options.minimum,
+    maxDate: options.maximum,
     onChange: function (value) {
       // console.log("onChange", value)
       cmp.invokeMethodAsync('MatDatePickerOnChangeHandler', value);

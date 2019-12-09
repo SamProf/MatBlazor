@@ -119,10 +119,25 @@ If you think that this project helped you or your company in any way, you can co
 
 
 ## News
+
+### Roadmap
+
+#### MatBlazor 2.5.0 ( ~ December 2019 - January 2020)
+- Complete new `MatTable` component
+
+#### MatBlazor 2.1.0 ( ~ December 2019)
+- New implementation of `MatAutocomplete` component
+- `MatDatePicker` improvements
+
 ### MatBlazor 2.0.0 (Reinvention MatBlazor Forms) (In progress - 9 December)
 - This release contain a lot of breaking changes, sorry for that.
 - The main goal of this release was to unify all components for forms, generic type support, reduction of dependence of JS, active use of OOP and the possibility of more active expansion in the future.
 - Update to .NET Core 3.1 Preview 4
+- MatAutocomplete
+  - `MatAutocomplete` renamed to `MatAutocompleteList`
+  - `ItemType` renamed to `TItem`
+  - `Collection` renamed to `Items`
+  - new `MatAutocomplete` component will be in 2.1.0
 - MatCheckbox
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
   - Supported types: `bool`, `bool?`
@@ -136,6 +151,7 @@ If you think that this project helped you or your company in any way, you can co
   - Supported types: `DateTime`, `DateTime?`
   - Supports Blazor validation using `EditContext`
   - `DateFormat` renamed to `Format`, and this is **full .NET formatting of DateTime**
+  - `Minimum`, `Maximum` paramneteres added
   - `NoCalendar` renamed to `DisableCalendar`
   - `AltFormat`, `AltInputClass`, `Inline` removed
 - MatNumericUpDownField
@@ -158,7 +174,7 @@ If you think that this project helped you or your company in any way, you can co
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
   - Supported types: `bool`, `bool?`
   - Supports Blazor validation using `EditContext`
-- MatTextField, MatStringField
+- MatTextField, **MatStringField**
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
   - Supported types: `string`, `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`, `decimal`, `decimal?`, `DateTime`, `DateTime?`, `bool`, `bool?`
   - Supports Blazor validation using `EditContext`
@@ -446,7 +462,7 @@ For *how-to* questions and other non-issues, for now you can use issues or you c
 We'd greatly appreciate any contribution you make. :)
 
 
-## Roadmap
+## Vision
 
 In the near future we plan to maximize the count and features of the components inspired by other frameworks like Angular Material, React Material UI and Vue Material.
 1) Implementation of  base functionality from MDC Web

@@ -19,6 +19,13 @@ namespace MatBlazor
         [Parameter]
         public bool EnableSeconds { get; set; } = false;
 
+
+        [Parameter]
+        public DateTime? Maximum { get; set; }
+
+        [Parameter]
+        public DateTime? Minimum { get; set; }
+
         [Parameter]
         public bool DisableCalendar { get; set; }
 
@@ -33,7 +40,7 @@ namespace MatBlazor
 
         [Parameter]
         public bool DisableMobile { get; set; }
-       
+
         [Parameter]
         public MatDatePickerPosition Position { get; set; } = MatDatePickerPosition.Auto;
 
@@ -51,7 +58,6 @@ namespace MatBlazor
 
         public BaseMatDatePickerInternal()
         {
-
             ClassMapper.Add("mat-date-picker");
             ClassMapper.Add("mat-text-field-with-actions-container");
 
@@ -73,7 +79,30 @@ namespace MatBlazor
         }
 
 
-        
+        protected override bool ValidateCurrentValue(TValue value)
+        {
+            if (!base.ValidateCurrentValue(value))
+            {
+                return false;
+            }
+
+
+            var dateValue = SwitchT.ToDateTimeNull(value);
+            if (dateValue.HasValue)
+            {
+                if (Minimum.HasValue && Minimum.Value > dateValue.Value)
+                {
+                    return false;
+                }
+
+                if (Maximum.HasValue && Maximum.Value < dateValue.Value)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
 
         protected async Task OnClickIconHandler()
         {
@@ -81,7 +110,6 @@ namespace MatBlazor
 
             if (!DisableCalendar && !Disabled && !ReadOnly)
             {
-
                 CallAfterRender(async () =>
                 {
                     dotNetObjectRef ??= CreateDotNetObjectRef(dotNetObject);
@@ -97,6 +125,8 @@ namespace MatBlazor
                             Mode = this.Mode,
                             Position = Position.ToString().ToLower(),
                             DefaultDate = SwitchT.ToDateTimeNull(Value),
+                            Minimum = Minimum,
+                            Maximum = Maximum,
                         });
                 });
             }
@@ -114,7 +144,5 @@ namespace MatBlazor
 //                });
 //            }
         }
-
-       
     }
 }
