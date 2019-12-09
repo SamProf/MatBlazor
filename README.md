@@ -123,13 +123,25 @@ If you think that this project helped you or your company in any way, you can co
 ### Roadmap
 
 #### MatBlazor 2.5.0 ( ~ December 2019 - January 2020)
-- Complete new `MatTable` component
+- `MatTable` - complete new component
+
+#### MatBlazor 2.2.0 ( ~ December 2019)
+- `MatAutocomplete` - new implementation of component
+- `MatDatePicker` - improvements
 
 #### MatBlazor 2.1.0 ( ~ December 2019)
-- New implementation of `MatAutocomplete` component
-- `MatDatePicker` improvements
+- MatSelectItem`<TValue>`
+  - Populate options using Items collections and optional `ItemTemplate`
+  - Generic type supports: `TValue` parameter should be defined if he is not inferred.
+  - Supports Blazor validation using `EditContext`
+  - Supported types: **any**  
+- MatSelectValue`<TItem, TValue> `
+  - Populate options using Items collections and optional `ItemTemplate` using `ValueSelector`
+  - Generic type supports: `TValue` parameter should be defined if he is not inferred.
+  - Supports Blazor validation using `EditContext`
+  - Supported types: **any**
 
-### MatBlazor 2.0.0 (Reinvention MatBlazor Forms) (In progress - 9 December)
+### MatBlazor 2.0.0 (Reinvention MatBlazor Forms)
 - This release contain a lot of breaking changes, sorry for that.
 - The main goal of this release was to unify all components for forms, generic type support, reduction of dependence of JS, active use of OOP and the possibility of more active expansion in the future.
 - Update to .NET Core 3.1 Preview 4
@@ -162,9 +174,12 @@ If you think that this project helped you or your company in any way, you can co
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
   - Supported types: any
   - Supports Blazor validation using `EditContext`
-- MatSelect, MatSelectItem, MatSelectValue
+- MatSelect  
+  - Populate options using `MatOption` component manually
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
   - Supports Blazor validation using `EditContext`
+  - Supported types: `string`, `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`, `decimal`, `decimal?`, `DateTime`, `DateTime?`, `bool`, `bool?`
+  - For string values - **`MatSelectString`**, **`MatOptionString`**  
 - MatSlider
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
   - Supported types: `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`, `decimal`, `decimal?`

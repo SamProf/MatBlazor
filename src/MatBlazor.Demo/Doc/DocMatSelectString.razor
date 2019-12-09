@@ -4,9 +4,9 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatDatePicker</h3> } else { <h5 class="mat-h5">MatDatePicker</h5> }
+@if (!Secondary) {<h3 class="mat-h3">MatSelectString</h3> } else { <h5 class="mat-h5">MatSelectString</h5> }
 
-<p>Material Design Datetime picker for Blazor</p>
+<p>Selects allow users to select from a single-option menu. It functions as a wrapper around the browser&#39;s native select element.</p>
 
 <div><table class="article-table mat-elevation-z5">
 	<tr>
@@ -15,29 +15,14 @@
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td style="font-weight: bold;">TValue</td>
-		<td>Generic argument</td>
-		<td>DateTime, DateTime?</td>
-	</tr>
-	<tr>
-		<td>AllowInput</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
 		<td>Attributes</td>
 		<td>Dictionary&lt;String,Object&gt;</td>
 		<td>Gets or sets a collection of additional attributes that will be applied to the created element.</td>
 	</tr>
 	<tr>
-		<td>Box</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
 		<td>ChildContent</td>
 		<td>RenderFragment</td>
-		<td>Child content of MatDatePicker</td>
+		<td>Child content of MatSelectString</td>
 	</tr>
 	<tr>
 		<td>Class</td>
@@ -45,52 +30,12 @@
 		<td>Specifies one or more classnames for an DOM element.</td>
 	</tr>
 	<tr>
-		<td>Dense</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>DisableCalendar</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
 		<td>Disabled</td>
 		<td>Boolean</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>DisableMobile</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>Enable24hours</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>EnableSeconds</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>EnableTime</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>EnableWeekNumbers</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>Format</td>
-		<td>String</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>FullWidth</td>
+		<td>Enhanced</td>
 		<td>Boolean</td>
 		<td></td>
 	</tr>
@@ -110,7 +55,7 @@
 		<td></td>
 	</tr>
 	<tr>
-		<td>HideClearButton</td>
+		<td>HideDropDownIcon</td>
 		<td>Boolean</td>
 		<td></td>
 	</tr>
@@ -125,43 +70,13 @@
 		<td></td>
 	</tr>
 	<tr>
-		<td>IconTrailing</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
 		<td>Id</td>
 		<td>String</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>InputAttributes</td>
-		<td>IDictionary&lt;String,Object&gt;</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>InputClass</td>
-		<td>String</td>
-		<td>Css class of input element</td>
-	</tr>
-	<tr>
-		<td>InputStyle</td>
-		<td>String</td>
-		<td>Style attribute of input element</td>
-	</tr>
-	<tr>
 		<td>Label</td>
 		<td>String</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>Maximum</td>
-		<td>Nullable&lt;DateTime&gt;</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>Minimum</td>
-		<td>Nullable&lt;DateTime&gt;</td>
 		<td></td>
 	</tr>
 	<tr>
@@ -200,28 +115,8 @@
 		<td></td>
 	</tr>
 	<tr>
-		<td>PlaceHolder</td>
-		<td>String</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>Position</td>
-		<td>MatDatePickerPosition</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>ReadOnly</td>
-		<td>Boolean</td>
-		<td>When true, it specifies that an input field is read-only.</td>
-	</tr>
-	<tr>
 		<td>RefBack</td>
 		<td>ForwardRef</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>Required</td>
-		<td>Boolean</td>
 		<td></td>
 	</tr>
 	<tr>
@@ -230,28 +125,18 @@
 		<td>Specifies an inline style for an DOM element.</td>
 	</tr>
 	<tr>
-		<td>TextArea</td>
-		<td>Boolean</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>Type</td>
-		<td>String</td>
-		<td></td>
-	</tr>
-	<tr>
 		<td>Value</td>
-		<td>TValue</td>
+		<td>String</td>
 		<td>Gets or sets the value of the input. This should be used with two-way binding.</td>
 	</tr>
 	<tr>
 		<td>ValueChanged</td>
-		<td>EventCallback&lt;TValue&gt;</td>
+		<td>EventCallback&lt;String&gt;</td>
 		<td>Gets or sets a callback that updates the bound value.</td>
 	</tr>
 	<tr>
 		<td>ValueExpression</td>
-		<td>Expression&lt;Func&lt;TValue&gt;&gt;</td>
+		<td>Expression&lt;Func&lt;String&gt;&gt;</td>
 		<td>Gets or sets an expression that identifies the bound value.</td>
 	</tr>
 	<tr>

@@ -1,11 +1,48 @@
 @* THIS IS AUTO GENERATED FILE!!! *@
 
 <h2>News</h2>
-<h3>MatBlazor 2.0.0 (Reinvention MatBlazor Forms) (In progress - 9 December)</h3>
+<h3>Roadmap</h3>
+<h4>MatBlazor 2.5.0 ( ~ December 2019 - January 2020)</h4>
+<ul>
+<li><code>MatTable</code> - complete new component</li>
+</ul>
+<h4>MatBlazor 2.2.0 ( ~ December 2019)</h4>
+<ul>
+<li><code>MatAutocomplete</code> - new implementation of component</li>
+<li><code>MatDatePicker</code> - improvements</li>
+</ul>
+<h4>MatBlazor 2.1.0 ( ~ December 2019)</h4>
+<ul>
+<li>MatSelectItem<code>&lt;TValue&gt;</code>
+<ul>
+<li>Populate options using Items collections and optional <code>ItemTemplate</code></li>
+<li>Generic type supports: <code>TValue</code> parameter should be defined if he is not inferred.</li>
+<li>Supports Blazor validation using <code>EditContext</code></li>
+<li>Supported types: <strong>any</strong></li>
+</ul>
+</li>
+<li>MatSelectValue<code>&lt;TItem, TValue&gt;</code>
+<ul>
+<li>Populate options using Items collections and optional <code>ItemTemplate</code> using <code>ValueSelector</code></li>
+<li>Generic type supports: <code>TValue</code> parameter should be defined if he is not inferred.</li>
+<li>Supports Blazor validation using <code>EditContext</code></li>
+<li>Supported types: <strong>any</strong></li>
+</ul>
+</li>
+</ul>
+<h3>MatBlazor 2.0.0 (Reinvention MatBlazor Forms)</h3>
 <ul>
 <li>This release contain a lot of breaking changes, sorry for that.</li>
 <li>The main goal of this release was to unify all components for forms, generic type support, reduction of dependence of JS, active use of OOP and the possibility of more active expansion in the future.</li>
 <li>Update to .NET Core 3.1 Preview 4</li>
+<li>MatAutocomplete
+<ul>
+<li><code>MatAutocomplete</code> renamed to <code>MatAutocompleteList</code></li>
+<li><code>ItemType</code> renamed to <code>TItem</code></li>
+<li><code>Collection</code> renamed to <code>Items</code></li>
+<li>new <code>MatAutocomplete</code> component will be in 2.1.0</li>
+</ul>
+</li>
 <li>MatCheckbox
 <ul>
 <li>Generic type supports: <code>TValue</code> parameter should be defined if he is not inferred.</li>
@@ -23,6 +60,7 @@
 <li>Supported types: <code>DateTime</code>, <code>DateTime?</code></li>
 <li>Supports Blazor validation using <code>EditContext</code></li>
 <li><code>DateFormat</code> renamed to <code>Format</code>, and this is <strong>full .NET formatting of DateTime</strong></li>
+<li><code>Minimum</code>, <code>Maximum</code> paramneteres added</li>
 <li><code>NoCalendar</code> renamed to <code>DisableCalendar</code></li>
 <li><code>AltFormat</code>, <code>AltInputClass</code>, <code>Inline</code> removed</li>
 </ul>
@@ -41,10 +79,13 @@
 <li>Supports Blazor validation using <code>EditContext</code></li>
 </ul>
 </li>
-<li>MatSelect, MatSelectItem, MatSelectValue
+<li>MatSelect
 <ul>
+<li>Populate options using <code>MatOption</code> component manually</li>
 <li>Generic type supports: <code>TValue</code> parameter should be defined if he is not inferred.</li>
 <li>Supports Blazor validation using <code>EditContext</code></li>
+<li>Supported types: <code>string</code>, <code>sbyte</code>, <code>byte</code>, <code>short</code>, <code>ushort</code>, <code>int</code>, <code>uint</code>, <code>long</code>, <code>ulong</code>, <code>char</code>, <code>float</code>, <code>double</code>, <code>decimal</code>, <code>decimal?</code>, <code>DateTime</code>, <code>DateTime?</code>, <code>bool</code>, <code>bool?</code></li>
+<li>For string values - <strong><code>MatSelectString</code></strong>, <strong><code>MatOptionString</code></strong></li>
 </ul>
 </li>
 <li>MatSlider
@@ -62,7 +103,7 @@
 <li>Supports Blazor validation using <code>EditContext</code></li>
 </ul>
 </li>
-<li>MatTextField
+<li>MatTextField, <strong>MatStringField</strong>
 <ul>
 <li>Generic type supports: <code>TValue</code> parameter should be defined if he is not inferred.</li>
 <li>Supported types: <code>string</code>, <code>sbyte</code>, <code>byte</code>, <code>short</code>, <code>ushort</code>, <code>int</code>, <code>uint</code>, <code>long</code>, <code>ulong</code>, <code>char</code>, <code>float</code>, <code>double</code>, <code>decimal</code>, <code>decimal?</code>, <code>DateTime</code>, <code>DateTime?</code>, <code>bool</code>, <code>bool?</code></li>

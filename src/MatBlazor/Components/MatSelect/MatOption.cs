@@ -5,7 +5,11 @@ using System.Threading.Tasks;
 
 namespace MatBlazor
 {
-    public class MatOption : MatOptionType<string>
+    public class MatOption<TValue> : MatOptionType<TValue>
+    {
+    }
+    
+    public class MatOptionString : MatOptionType<string>
     {
     }
 }

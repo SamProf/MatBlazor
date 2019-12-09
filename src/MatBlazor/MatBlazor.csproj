@@ -22,6 +22,8 @@
     <Authors>Vladimir Samoilenko</Authors>
     <PackageIconUrl>https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/icon.ico</PackageIconUrl>
     <Company>SamProf</Company>
+    <PackageVersion>2.0.0</PackageVersion>
+    <Version>2.0.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -38,6 +40,10 @@
   <ItemGroup>
     <None Remove="content\MatBlazor.js" />
     <None Remove="content\MaterialIcons.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="content\dist\matBlazor.js" />
   </ItemGroup>
 
   <ItemGroup>

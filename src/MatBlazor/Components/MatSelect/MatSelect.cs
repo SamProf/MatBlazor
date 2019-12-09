@@ -5,11 +5,15 @@ using System.Threading.Tasks;
 
 namespace MatBlazor
 {
-    public class MatSelect : MatSelectType<string>
+    public class MatSelect<TValue> : MatSelectNativeType<TValue>
     {
     }
-    
-    public class MatSelectNative : MatSelectNativeType<string>
+
+    public class MatSelectString : MatSelect<string>
+    {
+    }
+
+    public class MatSelectItem<TValue> : MatSelectType<TValue>
     {
     }
 }
