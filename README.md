@@ -49,34 +49,10 @@ or
 dotnet add package MatBlazor
 ```
 
-## MatBlazor components for server-side Blazor (Razor Components)
+For client-side and server-side Blazor - add script section to index.html or _Host.cshtml (head section) 
 
-Install [EmbeddedBlazorContent](https://github.com/SamProf/EmbeddedBlazorContent) library:  [![NuGet](https://img.shields.io/nuget/v/EmbeddedBlazorContent.svg)](https://www.nuget.org/packages/EmbeddedBlazorContent/)
-
-To Install 
-
-```
-Install-Package EmbeddedBlazorContent
-```
-or 
-```
-dotnet add package EmbeddedBlazorContent
-```
-
-Change the following to files:
-- Startup.cs
-```
-using EmbeddedBlazorContent;
-...
-app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);
-```
-- _Host.cshtml (head section)  
-```html
-@using EmbeddedBlazorContent
-<head>
-    ...
-    @Html.EmbeddedBlazorContent()
-</head>
+...html
+<script src="_content/MatBlazor/dist/matBlazor.js"></script>
 ```
 
 
@@ -194,6 +170,7 @@ If you think that this project helped you or your company in any way, you can co
   - Supported types: `string`, `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `char`, `float`, `double`, `decimal`, `decimal?`, `DateTime`, `DateTime?`, `bool`, `bool?`
   - Supports Blazor validation using `EditContext`
   - New component `MatStringField` - replacement old `MatTextField` - just for `string` values without generic `TValue` parameter.
+- `MatBlazorInstall` - removed
 
 
 ### MatBlazor 1.10.1

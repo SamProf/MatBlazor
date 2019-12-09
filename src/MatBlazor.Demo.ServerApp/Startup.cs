@@ -75,9 +75,9 @@ namespace MatBlazor.Demo.ServerApp
             app.UseStaticFiles();
 
 
-            app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatDomComponent).Assembly);
-
-            app.UseEmbeddedBlazorContent(typeof(MatBlazor.Demo.Pages.Index).Assembly);
+//            app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatDomComponent).Assembly);
+//
+//            app.UseEmbeddedBlazorContent(typeof(MatBlazor.Demo.Pages.Index).Assembly);
 
             app.UseRouting();
 
