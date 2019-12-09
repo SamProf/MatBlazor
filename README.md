@@ -117,6 +117,9 @@ If you think that this project helped you or your company in any way, you can co
   - Supports Blazor validation using `EditContext`
   - Supported types: **any**
 
+#### MatBlazor 2.0.5 ( 10-11 December 2019)
+- MatFileUpload
+
 ### MatBlazor 2.0.0 (Reinvention MatBlazor Forms)
 - This release contain a lot of breaking changes, sorry for that.
 - The main goal of this release was to unify all components for forms, generic type support, reduction of dependence of JS, active use of OOP and the possibility of more active expansion in the future.
