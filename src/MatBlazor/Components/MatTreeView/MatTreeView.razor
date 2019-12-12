@@ -1,0 +1,15 @@
+﻿@namespace  MatBlazor
+@using Microsoft.AspNetCore.Components.Web
+@*@implements IDisposable*@
+@typeparam TNode
+
+
+<CascadingValue Value="@this">
+    <ul class="lt-tree-view">
+        @foreach (TNode rootNode in this.RootNodes)
+        {
+            <MatTreeNode @key="@rootNode" TNode="TNode"
+                         IsSelected="@IsNodeSelected(rootNode)" Node="@rootNode" />
+        }
+    </ul>
+</CascadingValue>

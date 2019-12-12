@@ -35,7 +35,7 @@ namespace MatBlazor
 
         private bool disposed = false;
 
-        public void Dispose()
+        public override void Dispose()
         {
             disposed = true;
             Parent.TabDisposed(this);
