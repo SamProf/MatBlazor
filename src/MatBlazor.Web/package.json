@@ -4,9 +4,7 @@
   "description": "MatBlazor.Web",
   "scripts": {
     "start": "webpack --config webpack/prod.config.js --watch",
-    "build": "webpack --config webpack/prod.config.js",
-    "audit": "npm audit",
-    "audit-fix": "npm audit fix"
+    "build": "webpack --config webpack/prod.config.js"
   },
   "keywords": [
     "matblazor",
