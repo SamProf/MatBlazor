@@ -1,4 +1,3 @@
-import './matDrawer.scss';
 import {MDCDrawer} from '@material/drawer/index';
 
 

@@ -1,4 +1,3 @@
-import * as styles from './matAccordion.scss';
 import {MDCRipple} from '@material/ripple/component';
 
 export function init(ref) {

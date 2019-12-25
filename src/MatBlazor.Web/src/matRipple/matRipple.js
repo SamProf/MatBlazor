@@ -1,4 +1,3 @@
-import './matRipple.scss';
 import {MDCRipple} from '@material/ripple/component';
 
 

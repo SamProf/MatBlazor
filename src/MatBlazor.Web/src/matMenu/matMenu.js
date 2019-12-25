@@ -1,4 +1,3 @@
-import './matMenu.scss';
 import {MDCMenu} from '@material/menu';
 import {Corner} from '@material/menu-surface/constants';
 

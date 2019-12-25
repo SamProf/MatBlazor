@@ -1,4 +1,3 @@
-import './matSelect.scss';
 import {MDCSelect} from '@material/select';
 
 

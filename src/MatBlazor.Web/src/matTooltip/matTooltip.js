@@ -1,6 +1,3 @@
-import * as styles from './matTooltip.scss';
-
-
 export const matTooltipRefKey = '$matBlazor.matTooltipRef';
 export const matTooltipTargetRefKey = '$matBlazor.matTooltipTargetRef';
 

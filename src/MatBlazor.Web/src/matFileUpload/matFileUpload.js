@@ -1,4 +1,3 @@
-import * as styles from './matFileUpload.scss';
 import * as matRipple from '../matRipple/matRipple';
 
 

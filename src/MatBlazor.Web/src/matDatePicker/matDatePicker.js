@@ -1,5 +1,3 @@
-import './matDatePicker.scss';
-
 import flatpickr from 'flatpickr';
 import {getMatBlazorInstance, setMatBlazorInstance} from '../utils/base';
 
