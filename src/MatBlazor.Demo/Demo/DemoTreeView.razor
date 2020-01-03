@@ -228,7 +228,7 @@
                      RootNode="@MyRootNode"
                      GetChildNodesCallback="@((n)=>n.Nodes)"
                      @bind-SelectedNode="@SelectedNode"
-                     @bind-SelectedNode:event="SelectedChanged">
+                     @bind-SelectedNode:event="SelectedNodeChanged">
             <NodeTemplate>
                 @context.Name
             </NodeTemplate>
@@ -256,7 +256,7 @@
                      RootNode=""@MyRootNode""
                      GetChildNodesCallback=""@((n)=>n.Nodes)""
                      @bind-SelectedNode=""@SelectedNode""
-                     @bind-SelectedNode:event=""SelectedChanged"">
+                     @bind-SelectedNode:event=""SelectedNodeChanged"">
             <NodeTemplate>
                 @context.Name
             </NodeTemplate>

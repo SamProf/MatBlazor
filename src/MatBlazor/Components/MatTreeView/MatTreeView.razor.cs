@@ -166,7 +166,7 @@ namespace MatBlazor
         /// An event raised when the selected node changes
         /// </summary>
         [Parameter]
-        public EventCallback<TNode> SelectedChanged { get; set; }
+        public EventCallback<TNode> SelectedNodeChanged { get; set; }
 
         protected override async Task OnParametersSetAsync()
         {
@@ -177,12 +177,14 @@ namespace MatBlazor
             // ensure everything is expanded up to the selected node
             List<TNode> pathToSelected = new List<TNode>();
             BuildPathToSelected(this.RootNodes, pathToSelected);
-            if (pathToSelected.Count > 0) pathToSelected.RemoveAt(0); // don't expand the selected node
-            pathToSelected.Reverse();
+            //if (pathToSelected.Count > 0) pathToSelected.RemoveAt(0); // don't expand the selected node
             foreach (TNode pathNode in pathToSelected)
             {
-                this._expandedNodes[pathNode] = true;
-                await ExpandStateChanged.InvokeAsync(new ExpandedStateChangedArgs<TNode>(pathNode, true));
+                if (this.IsNodeExpanded(pathNode) == false)
+                {
+                    this._expandedNodes[pathNode] = true;
+                    await ExpandStateChanged.InvokeAsync(new ExpandedStateChangedArgs<TNode>(pathNode, true));
+                }
             }
 
             await base.OnParametersSetAsync();
@@ -227,17 +229,22 @@ namespace MatBlazor
         /// <returns></returns>
         private Task EnsureSelectedNodeIsVisible()
         {
-            List<TNode> pathToExpanded = new List<TNode>();
-            BuildPathToSelected(this.RootNodes, pathToExpanded);
-            pathToExpanded.Reverse();
-            foreach (var node in pathToExpanded)
+            List<TNode> pathToSelected = new List<TNode>();
+            if (BuildPathToSelected(this.RootNodes, pathToSelected))
             {
-                if (IsNodeExpanded(node) == false)
+                foreach (var node in pathToSelected)
                 {
-                    return SetSelectedNodeAsync(node);
+                    if (IsNodeExpanded(node) == false)
+                    {
+                        return SetSelectedNodeAsync(node);
+                    }
                 }
+                return Task.CompletedTask;
             }
-            return SetSelectedNodeAsync(null);
+            else
+            {
+                return SetSelectedNodeAsync(null);
+            }
         }
 
 
@@ -251,14 +258,13 @@ namespace MatBlazor
             {
                 if (node == this.SelectedNode)
                 {
-                    path.Add(node);
                     return true;
                 }
                 else
                 {
                     if (BuildPathToSelected(GetChildNodesCallback(node), path))
                     {
-                        path.Add(node);
+                        path.Insert(0, node);
                         return true;
                     }
                 }
@@ -269,7 +275,7 @@ namespace MatBlazor
         internal async Task SetSelectedNodeAsync(TNode node)
         {
             this.SelectedNode = node;
-            await SelectedChanged.InvokeAsync(node);
+            await SelectedNodeChanged.InvokeAsync(node);
             StateHasChanged();
         }
 

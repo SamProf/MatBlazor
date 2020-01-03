@@ -842,7 +842,7 @@
             An event raised when the expanded state of a node changes
             </summary>
         </member>
-        <member name="P:MatBlazor.MatTreeView`1.SelectedChanged">
+        <member name="P:MatBlazor.MatTreeView`1.SelectedNodeChanged">
             <summary>
             An event raised when the selected node changes
             </summary>
