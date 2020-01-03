@@ -1,4 +1,3 @@
-import './matCheckbox.scss';
 import {MDCFormField} from '@material/form-field';
 import {MDCCheckbox} from '@material/checkbox';
 import {getMatBlazorInstance, setMatBlazorInstance} from '../utils/base';

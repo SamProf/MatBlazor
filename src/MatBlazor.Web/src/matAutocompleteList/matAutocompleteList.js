@@ -1,5 +1,3 @@
-import './matAutocompleteList.scss';
-
 // export class MatAutocompleteList {
 //
 // }

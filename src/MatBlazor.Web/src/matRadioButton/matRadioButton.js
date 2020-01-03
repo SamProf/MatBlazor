@@ -1,4 +1,3 @@
-import './matRadioButton.scss';
 import {MDCFormField} from '@material/form-field';
 import {MDCRadio} from '@material/radio';
 

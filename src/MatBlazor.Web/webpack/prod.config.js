@@ -1,8 +1,15 @@
 var path = require("path");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 
 module.exports = {
-  entry: "./src/main.js",
+  entry: {
+    'matBlazor': [
+      './src/main.js',
+      './src/main.scss'
+    ]
+  },
   // optimization: {
   //   minimize: false
   // },
@@ -11,7 +18,6 @@ module.exports = {
     // path: path.resolve(__dirname, '../dist'),
     path: path.resolve(__dirname, '../../MatBlazor/content/dist'),
   },
-
   module: {
     rules: [
       {
@@ -26,18 +32,16 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: "style-loader" // creates style nodes from JS strings
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader" // translates CSS into CommonJS
           },
           {
             loader: "sass-loader", // compiles Sass to CSS
             options: {
-              "includePaths": [
-                path.resolve(__dirname, '../node_modules')
-              ]
+              sassOptions: {
+                includePaths: [path.resolve(__dirname, '../node_modules')]
+              }
             }
           }
         ]
@@ -46,16 +50,20 @@ module.exports = {
   },
 
   plugins: [
-      new UglifyJsPlugin({
-          parallel: true,
-          uglifyOptions: {
-              compress: {},
-              mangle: true,
-              output: {
-                  comments: false,
-                  beautify: false
-              }
-          }
+    new MiniCssExtractPlugin({
+      filename: 'matBlazor.css',
+      path: path.resolve(__dirname, '../../MatBlazor/content/dist')
+    }),
+    new UglifyJsPlugin({
+      parallel: true,
+      uglifyOptions: {
+        compress: {},
+        mangle: true,
+        output: {
+          comments: false,
+          beautify: false
+        }
+      }
     }),
   ],
 };

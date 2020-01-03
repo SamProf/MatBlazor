@@ -1,4 +1,3 @@
-import './matList.scss';
 import {MDCList} from '@material/list';
 import {MDCRipple} from '@material/ripple';
 
