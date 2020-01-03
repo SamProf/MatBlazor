@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "MatBlazor.Web",
   "scripts": {
-    "start": "webpack --config webpack/prod.config.js --watch",
+    "start": "webpack --config webpack/prod.config.js --watch --progress",
     "build": "webpack --config webpack/prod.config.js"
   },
   "keywords": [
@@ -71,6 +71,8 @@
     "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.3",
     "url-loader": "^0.5.9",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",

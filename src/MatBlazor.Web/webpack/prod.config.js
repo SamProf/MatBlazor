@@ -1,7 +1,12 @@
 var path = require("path");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var ProgressPlugin = require('webpack/lib/ProgressPlugin');
 
 module.exports = {
+
+  // stats: 'verbose',
+
+
   entry: "./src/main.js",
   // optimization: {
   //   minimize: false
@@ -9,11 +14,24 @@ module.exports = {
   output: {
     filename: "matBlazor.js",
     // path: path.resolve(__dirname, '../dist'),
-    path: path.resolve(__dirname, '../../MatBlazor/content/dist'),
+    path: path.resolve(__dirname, '../../MatBlazor/wwwroot/dist'),
   },
+
+
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".css", ".scss"]
+  },
+
+
+
 
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
       {
         test: /\.js$/,
         use: {

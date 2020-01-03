@@ -10,7 +10,9 @@ export class MatSlider {
 //                        debugger;
       try {
         jsHelper.invokeMethodAsync('OnChangeHandler', this.slider.value)
-          .then(r => console.log(r));
+          .then(r => {
+             // console.log(r);
+          });
       } catch (e) {
         debugger;
         throw e;

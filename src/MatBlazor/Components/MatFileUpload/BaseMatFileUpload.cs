@@ -10,11 +10,10 @@ namespace MatBlazor
 {
     public class BaseMatFileUpload : BaseMatDomComponent
     {
-
         protected ElementReference InputRef;
 
         [Parameter]
-        public EventCallback<IMatFileEntry[]> OnChange { get; set; }
+        public EventCallback<IMatFileUploadEntry[]> OnChange { get; set; }
 
         [Parameter]
         public string Label { get; set; } = "Drop files here or Browse";
@@ -38,12 +37,11 @@ namespace MatBlazor
 
 
         [JSInvokable]
-        public Task NotifyChange(MatFileEntry[] files)
+        public Task NotifyChange(MatFileUploadEntry[] files)
         {
             foreach (var file in files)
             {
-                // So that method invocations on the file can be dispatched back here
-                file.Owner = (BaseMatFileUpload) (object) this;
+                file.Init(this);
             }
 
             return OnChange.InvokeAsync(files);
@@ -57,17 +55,22 @@ namespace MatBlazor
             }
         }
 
-        internal Stream OpenFileStream(MatFileEntry matFile)
-        {
-            return SharedMemoryFileListEntryStream.IsSupported(Js)
-                ? (Stream) new SharedMemoryFileListEntryStream(Js, InputRef, matFile)
-                : new RemoteFileListEntryStream(Js, InputRef, matFile, MaxMessageSize, MaxBufferSize);
-        }
+        // internal async Task<Stream> ReadAsStreamAsync(MatFileUploadEntry entry)
+        // {
+        //     // SharedMemoryMatBlazorStream.IsSupported(Js)
+        //     // ? (BaseMatBlazorStream)new SharedMemoryMatBlazorStream(Js, InputRef, entry)
+        //     
+        // }
 
         public override void Dispose()
         {
             base.Dispose();
             jsHelper?.Dispose();
+        }
+
+        public async Task<Stream> ReadAsStreamAsync(MatFileUploadEntry matFileUploadEntry)
+        {
+            return new MatBlazorRemoteStream(Js, Ref, matFileUploadEntry);
         }
     }
 }

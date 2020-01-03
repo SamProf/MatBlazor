@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace MatBlazor
 {
-    public interface IMatFileEntry
+    public interface IMatFileUploadEntry
     {
         DateTime LastModified { get; }
 
@@ -13,8 +14,8 @@ namespace MatBlazor
 
         string Type { get; }
 
-        Stream Data { get; }
+        Task<Stream> ReadAsStreamAsync();
 
-        event EventHandler OnDataRead;
+        // event EventHandler OnDataRead;
     }
 }
