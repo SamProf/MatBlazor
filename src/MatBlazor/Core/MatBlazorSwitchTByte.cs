@@ -7,14 +7,14 @@ namespace MatBlazor
     {
         public override byte Increase(byte v, byte step, byte max)
         {
-            var v2 = (byte) (v + step);
-            return v2 <= max ? v2 : max;
+            var result = (v <= max - step) ? (byte)(v + step) : max;
+            return result;
         }
 
         public override byte Decrease(byte v, byte step, byte min)
         {
-            var v2 = (byte) (v - step);
-            return v2 >= min ? v2 : min;
+            var result = (v >= min + step) ? (byte)(v - step) : min;
+            return result;
         }
 
         public override byte Round(byte v, int dp)
@@ -54,7 +54,7 @@ namespace MatBlazor
 
         public override byte FromDecimal(decimal v)
         {
-            return (byte) v;
+            return (byte)v;
         }
     }
 }
