@@ -1,4 +1,3 @@
-import './matMenu.scss';
 import {MDCMenu} from '@material/menu';
 import {Corner} from '@material/menu-surface/constants';
 
@@ -12,7 +11,7 @@ export class MatMenu extends MDCMenu {
 export function init(ref) {
   try {
     var menu = new MatMenu(ref);
-    menu.hoistMenuToBody();
+    menu.setIsHoisted(true);
     ref.matBlazorRef = menu;
   } catch (e) {
     debugger;

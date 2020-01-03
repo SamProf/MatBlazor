@@ -1,4 +1,3 @@
-import './matFileUpload.scss';
 import * as matRipple from '../matRipple/matRipple';
 import '../utils/base';
 import {getMatBlazorInstance, MatBlazorComponent} from "../utils/base";

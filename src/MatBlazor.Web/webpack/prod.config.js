@@ -3,11 +3,12 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 var ProgressPlugin = require('webpack/lib/ProgressPlugin');
 
 module.exports = {
-
-  // stats: 'verbose',
-
-
-  entry: "./src/main.js",
+  entry: {
+    'matBlazor': [
+      './src/main.js',
+      './src/main.scss'
+    ]
+  },
   // optimization: {
   //   minimize: false
   // },
@@ -53,9 +54,11 @@ module.exports = {
           {
             loader: "sass-loader", // compiles Sass to CSS
             options: {
-              "includePaths": [
-                path.resolve(__dirname, '../node_modules')
-              ]
+              sassOptions: {
+                "includePaths": [
+                  path.resolve(__dirname, '../node_modules')
+                ]
+              },
             }
           }
         ]
@@ -64,16 +67,16 @@ module.exports = {
   },
 
   plugins: [
-      new UglifyJsPlugin({
-          parallel: true,
-          uglifyOptions: {
-              compress: {},
-              mangle: true,
-              output: {
-                  comments: false,
-                  beautify: false
-              }
-          }
+    new UglifyJsPlugin({
+      parallel: true,
+      uglifyOptions: {
+        compress: {},
+        mangle: true,
+        output: {
+          comments: false,
+          beautify: false
+        }
+      }
     }),
   ],
 };

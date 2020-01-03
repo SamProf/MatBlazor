@@ -1,8 +1,4 @@
-// global css
-import './theme/theme.scss';
-import './matTable/matTable.scss';
-import './matToast/matToast.scss';
-import './matNavMenu/matNavMenu.scss';
+// global js
 import * as matButton from './matButton/matButton';
 import * as matCheckbox from './matCheckbox/matCheckbox';
 import * as matTextField from './matTextField/matTextField';

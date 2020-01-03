@@ -1,4 +1,3 @@
-import './matSlider.scss';
 import {MDCSlider} from '@material/slider';
 
 export class MatSlider {

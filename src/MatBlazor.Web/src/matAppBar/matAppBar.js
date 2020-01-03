@@ -1,4 +1,3 @@
-import './matAppBar.scss';
 import {MDCTopAppBar} from '@material/top-app-bar';
 
 

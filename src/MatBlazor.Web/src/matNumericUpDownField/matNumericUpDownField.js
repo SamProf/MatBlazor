@@ -1,4 +1,3 @@
-import './matNumericUpDownField.scss';
 import {MDCTextField} from '@material/textfield';
 
 export class MatNumericUpDownField {

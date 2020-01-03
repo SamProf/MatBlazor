@@ -1,5 +1,3 @@
-import './matDialog.scss';
-
 import { MDCDialog } from '@material/dialog';
 
 

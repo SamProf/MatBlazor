@@ -1,4 +1,3 @@
-import './matChipSet.scss';
 import {MDCChipSet} from '@material/chips';
 
 

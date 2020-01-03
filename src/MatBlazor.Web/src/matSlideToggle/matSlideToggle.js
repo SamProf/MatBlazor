@@ -1,4 +1,3 @@
-import './matSlideToggle.scss';
 import {MDCSwitch} from '@material/switch';
 
 

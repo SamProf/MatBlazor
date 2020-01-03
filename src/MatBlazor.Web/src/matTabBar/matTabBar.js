@@ -1,4 +1,3 @@
-import './matTabBar.scss';
 import {MDCTabBar} from '@material/tab-bar/component';
 import {MDCTabScroller} from '@material/tab-scroller/component';
 

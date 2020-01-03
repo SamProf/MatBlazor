@@ -1,4 +1,3 @@
-import './matSnackbar.scss';
 import {MDCSnackbar} from '@material/snackbar/component';
 
 
