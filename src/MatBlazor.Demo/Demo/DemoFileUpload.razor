@@ -25,25 +25,28 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatFileUpload OnChange=""@FilesReady""></MatFileUpload>
 
-        @foreach(var f in list)
+        @foreach (var f in list)
         {
-            <div>@f.Name - @f.Size</div>
+            <div>@f</div>
         }
+
         @code
         {
-            string v;
-            List<IMatFileEntry> list = new List<IMatFileEntry>();
+            List<string> list = new List<string>();
 
-            void FilesReady(IMatFileEntry[] files)
+            void FilesReady(IMatFileUploadEntry[] files)
             {
-                list.AddRange(files);
+                foreach (var file in files)
+                {
+                    list.Add($""Name: {file.Name} - Size: {file.Size}"");
+                }
             }
         }
-    ")>
-        </BlazorFiddle>
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -87,5 +90,42 @@
 
 
     </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatFileUpload OnChange=""@FilesReadyForContent""></MatFileUpload>
+        <textarea style=""width: 100%; max-height: 300px;"">@fileContent</textarea>
 
+        @code
+        {
+
+            string fileContent;
+
+            async Task FilesReadyForContent(IMatFileUploadEntry[] files)
+            {
+                try
+                {
+                    var file = files.First();
+                    if (file.Size > 1024 * 1024)
+                    {
+                        throw new Exception(""File is too big for demo."");
+                    }
+
+                    var stream = await file.ReadAsStreamAsync();
+
+                    using (var reader = new StreamReader(stream))
+                    {
+                        fileContent = await reader.ReadToEndAsync();
+                    }
+                }
+
+                catch (Exception e)
+                {
+                    fileContent = $""Error:\r\n{e.Message}\r\n{e.StackTrace}"";
+                }
+            }
+        }
+
+
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>

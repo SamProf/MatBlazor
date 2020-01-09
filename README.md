@@ -92,20 +92,21 @@ If you think that this project helped you or your company in any way, you can co
 - Jacobus Terhorst
 - Xiao Song
 - Radu Tomuleasa
-
+- Martin Friesenbichler
+- SmartView Systems
 
 ## News
 
 ### Roadmap
 
-#### MatBlazor 2.5.0 ( ~ December 2019 - January 2020)
+#### MatBlazor 2.5.0 (In progress ~ January - February 2020)
 - `MatTable` - complete new component
 
-#### MatBlazor 2.2.0 ( ~ December 2019)
+#### MatBlazor 2.2.0 (In progress ~ January 2020)
 - `MatAutocomplete` - new implementation of component
 - `MatDatePicker` - improvements
 
-#### MatBlazor 2.1.0 ( ~ December 2019)
+#### MatBlazor 2.1.0 (In progress ~ January 2020)
 - MatSelectItem`<TValue>`
   - Populate options using Items collections and optional `ItemTemplate`
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
@@ -117,7 +118,7 @@ If you think that this project helped you or your company in any way, you can co
   - Supports Blazor validation using `EditContext`
   - Supported types: **any**
 
-#### MatBlazor 2.0.5 ( 10-11 December 2019)
+#### MatBlazor 2.0.5 (In progress ~ January 2020)
 - MatFileUpload
 
 ### MatBlazor 2.0.0 (Reinvention MatBlazor Forms)
