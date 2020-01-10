@@ -51,7 +51,7 @@ dotnet add package MatBlazor
 
 For client-side and server-side Blazor - add script section to index.html or _Host.cshtml (head section) 
 
-...html
+```html
 <script src="_content/MatBlazor/dist/matBlazor.js"></script>
 ```
 
