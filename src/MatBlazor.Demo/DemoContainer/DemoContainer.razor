@@ -1,4 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Components
+@inject IJSRuntime JsRuntime
+
 <div style="display: flex; flex-direction: column; padding: 10px;" class="mat-elevation-z5">
     <div style="padding: 5px; border: 1px solid white;" class="@Class">
         @Content
@@ -7,6 +9,15 @@
         <div>
             @SourceContent
         </div>
+    </div>
+    <div style="overflow: hidden; padding-top: 5px;">
+        <ins class="adsbygoogle"
+             style="display:block; text-align:center;"
+             data-ad-layout="in-article"
+             data-ad-format="fluid"
+             data-ad-client="ca-pub-3904134905954949"
+             data-ad-slot="7908819923">
+        </ins>
     </div>
 </div>
 
@@ -25,5 +36,14 @@
 
     [Parameter]
     public string SourcePath { get; set; }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        if (firstRender)
+        {
+            JsRuntime.InvokeAsync<object>("matBlazorDemo.initAd");
+        }
+    }
 
 }
