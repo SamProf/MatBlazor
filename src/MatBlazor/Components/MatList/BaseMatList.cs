@@ -8,7 +8,7 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatList : BaseMatDomComponent
     {
-        private int _selectedIndex;
+        private int _selectedIndex = -1;
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
