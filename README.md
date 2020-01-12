@@ -121,6 +121,9 @@ If you think that this project helped you or your company in any way, you can co
 #### MatBlazor 2.0.5 (In progress ~ January 2020)
 - MatFileUpload
 
+#### MatBlazor 2.0.1 (In Progress)
+- PR: Matlist selectedIndex default value set to -1 #354 (Thanks to [radutomy](https://github.com/radutomy))
+
 ### MatBlazor 2.0.0 (Reinvention MatBlazor Forms)
 - This release contain a lot of breaking changes, sorry for that.
 - The main goal of this release was to unify all components for forms, generic type support, reduction of dependence of JS, active use of OOP and the possibility of more active expansion in the future.
