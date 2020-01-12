@@ -123,6 +123,7 @@ If you think that this project helped you or your company in any way, you can co
 
 #### MatBlazor 2.0.1 (In Progress)
 - PR: Added MatTreeView #360 (Thanks to [sprotty](https://github.com/sprotty))
+- PR: Prevent circular overflow on MatNumericUpDownField #378 (Thanks to [sebestyn168](https://github.com/sebestyn168))
 - PR: Added @key attribute to MatTable table row #361  (Thanks to [plebnz](https://github.com/plebnz))
 - PR: Matlist selectedIndex default value set to -1 #354 (Thanks to [radutomy](https://github.com/radutomy))
 - 
