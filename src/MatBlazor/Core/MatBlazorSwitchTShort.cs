@@ -7,14 +7,14 @@ namespace MatBlazor
     {
         public override short Increase(short v, short step, short max)
         {
-            var v2 = (short) (v + step);
-            return v2 <= max ? v2 : max;
+            var result = (v <= max - step) ? (short)(v + step) : max;
+            return result;
         }
 
         public override short Decrease(short v, short step, short min)
         {
-            var v2 = (short) (v - step);
-            return v2 >= min ? v2 : min;
+            var result = (v >= min + step) ? (short)(v - step) : min;
+            return result;
         }
 
         public override short Round(short v, int dp)
@@ -53,7 +53,7 @@ namespace MatBlazor
 
         public override short FromDecimal(decimal v)
         {
-            return (short) v;
+            return (short)v;
         }
     }
 }
