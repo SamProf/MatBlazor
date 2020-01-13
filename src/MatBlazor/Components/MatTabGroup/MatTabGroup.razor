@@ -7,7 +7,7 @@
             @ChildContent
         </CascadingValue>
     </MatTabBar>
-    <div class="mat-tab-group-content">
+    <div class="mat-tab-group-content" @key="@ActiveIndex">
         @Active?.Tab.ChildContent
     </div>
 </div>
