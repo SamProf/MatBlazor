@@ -4,7 +4,7 @@
 
     <CascadingValue Value="@this">
 
-        @if (string.IsNullOrEmpty(Href))
+        @if (string.IsNullOrEmpty(Href) || @Disabled)
         {
             <li class="@ClassMapper.AsString()" @onmousedown="OnMouseDown" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
                 @ChildContent
