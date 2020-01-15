@@ -420,6 +420,16 @@
             Nav Item is a menu item in the Nav Menu. Inherits from Mat List Item.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatNavItem.Selected">
+            <summary>
+             Command parameter.
+            </summary>
+        </member>
+        <member name="M:MatBlazor.BaseMatNavItem.OnClickHandler(Microsoft.AspNetCore.Components.Web.MouseEventArgs)">
+            <summary>
+             OnClick Handler parameter.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatNavMenu">
             <summary>
             MatNavMenu provides a navigation container
