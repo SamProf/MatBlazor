@@ -34,6 +34,9 @@ namespace MatBlazor
         [Parameter]
         public bool Selected { get; set; }
 
+        /// <summary>
+        /// Specifies weather you the Nav Item can be selected / active.
+        /// </summary>
         [Parameter]
         public bool AllowSelection { get; set; } = true;
 
@@ -58,7 +61,7 @@ namespace MatBlazor
         {
             ClassMapper
                 .Add("mdc-nav-item")
-                .If("mdc-list-item--selected", () => Selected);
+                .If("mdc-list-item--selected", () => (Selected && AllowSelection));
         }
 
         /// <summary>
@@ -80,10 +83,10 @@ namespace MatBlazor
             else
             {
                 await OnClick.InvokeAsync(e);
-                //if (Command?.CanExecute(CommandParameter) ?? false)
-                //{
-                //    Command.Execute(CommandParameter);
-                //}
+                if (Command?.CanExecute(CommandParameter) ?? false)
+                {
+                    Command.Execute(CommandParameter);
+                }
             }
         }
     }
