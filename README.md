@@ -94,6 +94,8 @@ If you think that this project helped you or your company in any way, you can co
 - Radu Tomuleasa
 - Martin Friesenbichler
 - SmartView Systems
+- [Apply Solutions GmbH](https://www.apply-solutions.com/)
+- 
 
 ## News
 
@@ -123,8 +125,11 @@ If you think that this project helped you or your company in any way, you can co
 
 #### MatBlazor 2.0.1 (In Progress)
 - PR: Added MatTreeView #360 (Thanks to [sprotty](https://github.com/sprotty))
+- PR: Filtering on multiple columns #384 (Thanks to [VDSYannick](https://github.com/VDSYannick))
+- PR: Fix #393, Fix #319, MatNavItem still clickable when disabled=true. Add OnClick to MatNavItem #394 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: Prevent circular overflow on MatNumericUpDownField #378 (Thanks to [sebestyn168](https://github.com/sebestyn168))
 - PR: Added @key attribute to MatTable table row #361  (Thanks to [plebnz](https://github.com/plebnz))
+- PR: added @key attribute to MatTab content #395 (Thanks to [chris1411](https://github.com/chris1411))
 - PR: Matlist selectedIndex default value set to -1 #354 (Thanks to [radutomy](https://github.com/radutomy))
 - 
 
