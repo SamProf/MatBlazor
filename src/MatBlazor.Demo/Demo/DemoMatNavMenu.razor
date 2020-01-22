@@ -6,7 +6,7 @@
         @using Microsoft.AspNetCore.Components
 
         <MatNavMenu>
-            <MatNavItem>Item 1</MatNavItem>
+            <MatNavItem OnClick="ClickMe">Item 1 - OnClick</MatNavItem>
             <MatNavItem Disabled="true">Item 2</MatNavItem>
             <MatNavSubMenu @bind-Expanded="@navSubMenuOpenState">
                 <MatNavSubMenuHeader>
@@ -31,14 +31,22 @@
                     <MatNavItem>Item 6.C</MatNavItem>
                 </MatNavSubMenuList>
             </MatNavSubMenu>
-            <MatNavItem Href="https://blazorboilerplate.com/">Blazor Boilerplate</MatNavItem>
-            <MatNavItem Href="https://www.matblazor.com/">MatBlazor</MatNavItem>
+            <MatNavItem Href="https://blazorboilerplate.com/">Blazor Boilerplate - Href</MatNavItem>
+            <MatNavItem Href="https://www.matblazor.com/">MatBlazor - Href</MatNavItem>
         </MatNavMenu>
 
 
         @code
         {
+            [Inject] IJSRuntime JS { get; set; }
+
             bool navSubMenuOpenState;
+
+            async Task ClickMe()
+            {
+                Console.WriteLine("test");
+                await JS.InvokeAsync<object>("alert", "Successful OnClick!");
+            }
         }
 
     </Content>
@@ -47,7 +55,7 @@
         @using Microsoft.AspNetCore.Components
 
         <MatNavMenu>
-            <MatNavItem>Item 1</MatNavItem>
+            <MatNavItem OnClick=""ClickMe"">Item 1 - OnClick</MatNavItem>
             <MatNavItem Disabled=""true"">Item 2</MatNavItem>
             <MatNavSubMenu @bind-Expanded=""@navSubMenuOpenState"">
                 <MatNavSubMenuHeader>
@@ -72,14 +80,18 @@
                     <MatNavItem>Item 6.C</MatNavItem>
                 </MatNavSubMenuList>
             </MatNavSubMenu>
-            <MatNavItem Href=""https://blazorboilerplate.com/"">Blazor Boilerplate</MatNavItem>
-            <MatNavItem Href=""https://www.matblazor.com/"">MatBlazor</MatNavItem>
+            <MatNavItem Href=""https://blazorboilerplate.com/"">Blazor Boilerplate  - Href</MatNavItem>
+            <MatNavItem Href=""https://www.matblazor.com/"">MatBlazor  - Href</MatNavItem>
         </MatNavMenu>
 
 
         @code
         {
+            [Inject] IJSRuntime JS { get; set; }
             bool navSubMenuOpenState;
+
+            async Task ClickMe() =>
+                await JS.InvokeAsync<object>(""alert"", ""Successful OnClick!"");
         }
 
     ")></BlazorFiddle>
