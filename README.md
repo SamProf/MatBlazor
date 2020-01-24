@@ -86,16 +86,21 @@ If you think that this project helped you or your company in any way, you can co
 - [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url)
 - [Patreon](https://www.patreon.com/SamProf)
 
+### Sponsors:
+- Phil Parkin
+
+
 ### Backers:
-- Yevhen Shmakov
+- Oyvind Habberstad
+- [Apply Solutions GmbH](https://www.apply-solutions.com/)
+- Radu Tomuleasa
 - [Maurizio Verde](https://github.com/MaurizioVerde)
+- SmartView Systems
+- Yevhen Shmakov
 - Jacobus Terhorst
 - Xiao Song
-- Radu Tomuleasa
 - Martin Friesenbichler
-- SmartView Systems
-- [Apply Solutions GmbH](https://www.apply-solutions.com/)
-- 
+
 
 ## News
 
