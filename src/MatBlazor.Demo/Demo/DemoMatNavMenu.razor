@@ -80,18 +80,22 @@
                     <MatNavItem>Item 6.C</MatNavItem>
                 </MatNavSubMenuList>
             </MatNavSubMenu>
-            <MatNavItem Href=""https://blazorboilerplate.com/"">Blazor Boilerplate  - Href</MatNavItem>
-            <MatNavItem Href=""https://www.matblazor.com/"">MatBlazor  - Href</MatNavItem>
+            <MatNavItem Href=""https://blazorboilerplate.com/"">Blazor Boilerplate - Href</MatNavItem>
+            <MatNavItem Href=""https://www.matblazor.com/"">MatBlazor - Href</MatNavItem>
         </MatNavMenu>
 
 
         @code
         {
             [Inject] IJSRuntime JS { get; set; }
+
             bool navSubMenuOpenState;
 
-            async Task ClickMe() =>
+            async Task ClickMe()
+            {
+                Console.WriteLine(""test"");
                 await JS.InvokeAsync<object>(""alert"", ""Successful OnClick!"");
+            }
         }
 
     ")></BlazorFiddle>
