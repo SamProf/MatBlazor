@@ -7,7 +7,7 @@
 <DemoContainer>
     <Content>
         <MatSelect Label="Pick a Food Group" @bind-Value="value1">
-            <MatOptionString></MatOptionString>
+            <MatOptionString Value="1"></MatOptionString>
             <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString>
             <MatOptionString Value="vegetables">Vegetables</MatOptionString>
             <MatOptionString Value="fruit">Fruit</MatOptionString>
@@ -17,7 +17,7 @@
 
         @code
         {
-            string value1;
+            string value1 = "grains";
         }
     </Content>
     <SourceContent>
@@ -40,180 +40,180 @@
 </DemoContainer>
 
 
-<MatAnchorContainer Anchor="MatSelectInt">
-    <MatH5>MatSelect int</MatH5>
-</MatAnchorContainer>
-<DemoContainer>
-    <Content>
-        <MatSelect Label="Pick a Food Group" @bind-Value="@intValue">
-            <MatOption TValue="int" Value="0"></MatOption>
-            <MatOption TValue="int" Value="1">Bread, Cereal, Rice, and Pasta</MatOption>
-            <MatOption TValue="int" Value="2">Vegetables</MatOption>
-            <MatOption TValue="int" Value="3">Fruit</MatOption>
-        </MatSelect>
-
-        <span>@intValue</span>
-
-        @code
-        {
-            int intValue;
-        }
-    </Content>
-    <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelect Label=""Pick a Food Group"" @bind-Value=""@intValue"">
-            <MatOption TValue=""int"" Value=""0""></MatOption>
-            <MatOption TValue=""int"" Value=""1"">Bread, Cereal, Rice, and Pasta</MatOption>
-            <MatOption TValue=""int"" Value=""2"">Vegetables</MatOption>
-            <MatOption TValue=""int"" Value=""3"">Fruit</MatOption>
-        </MatSelect>
-
-        <span>@intValue</span>
-
-        @code
-        {
-            int intValue;
-        }
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
-
-
-<h5 class="mat-h5">Helper Text</h5>
-<DemoContainer>
-    <Content>
-        <p>
-            <MatSelect HelperText="Helper Text" Label="Pick a Food Group" @bind-Value="@Val1">
-                <MatOptionString></MatOptionString>
-                <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString>
-                <MatOptionString Value="vegetables">Vegetables</MatOptionString>
-                <MatOptionString Value="fruit">Fruit</MatOptionString>
-            </MatSelect>
-        </p>
-        <p>
-            <MatSelect HelperText="Helper Text Persistent" HelperTextPersistent="true" Label="Pick a Food Group" @bind-Value="@Val1">
-                <MatOptionString ></MatOptionString>
-                <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString>
-                <MatOptionString Value="vegetables">Vegetables</MatOptionString>
-                <MatOptionString Value="fruit">Fruit</MatOptionString>
-            </MatSelect>
-        </p>
-        <p>
-            <MatSelect HelperText="Helper Text Validation" HelperTextPersistent="true" HelperTextValidation="true" Label="Pick a Food Group" @bind-Value="@Val1">
-                <MatOptionString ></MatOptionString>
-                <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString>
-                <MatOptionString Value="vegetables">Vegetables</MatOptionString>
-                <MatOptionString Value="fruit">Fruit</MatOptionString>
-            </MatSelect>
-        </p>
-
-        @code
-        {
-            public string Val1 { get; set; }
-        }
-
-    </Content>
-    <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <p>
-            <MatSelect HelperText=""Helper Text"" Label=""Pick a Food Group"" @bind-Value=""@Val1"">
-                <MatOptionString></MatOptionString>
-                <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString>
-                <MatOptionString Value=""vegetables"">Vegetables</MatOptionString>
-                <MatOptionString Value=""fruit"">Fruit</MatOptionString>
-            </MatSelect>
-        </p>
-        <p>
-            <MatSelect HelperText=""Helper Text Persistent"" HelperTextPersistent=""true"" Label=""Pick a Food Group"" @bind-Value=""@Val1"">
-                <MatOptionString ></MatOptionString>
-                <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString>
-                <MatOptionString Value=""vegetables"">Vegetables</MatOptionString>
-                <MatOptionString Value=""fruit"">Fruit</MatOptionString>
-            </MatSelect>
-        </p>
-        <p>
-            <MatSelect HelperText=""Helper Text Validation"" HelperTextPersistent=""true"" HelperTextValidation=""true"" Label=""Pick a Food Group"" @bind-Value=""@Val1"">
-                <MatOptionString ></MatOptionString>
-                <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString>
-                <MatOptionString Value=""vegetables"">Vegetables</MatOptionString>
-                <MatOptionString Value=""fruit"">Fruit</MatOptionString>
-            </MatSelect>
-        </p>
-
-        @code
-        {
-            public string Val1 { get; set; }
-        }
-
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
-
-
-<h5 class="mat-h5">Outlined</h5>
-<DemoContainer>
-    <Content>
-        <MatSelect Label="Pick a Food Group" Outlined="true" TValue="string">
-            <MatOptionString ></MatOptionString>
-            <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString>
-            <MatOptionString Value="vegetables">Vegetables</MatOptionString>
-            <MatOptionString Value="fruit">Fruit</MatOptionString>
-        </MatSelect>
-    </Content>
-    <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelect Label=""Pick a Food Group"" Outlined=""true"" TValue=""string"">
-            <MatOptionString ></MatOptionString>
-            <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString>
-            <MatOptionString Value=""vegetables"">Vegetables</MatOptionString>
-            <MatOptionString Value=""fruit"">Fruit</MatOptionString>
-        </MatSelect>
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
-
-
-<h5 class="mat-h5">Disabled</h5>
-<DemoContainer>
-    <Content>
-        <MatSelect Label="Pick a Food Group" Disabled="true" TValue="string">
-            <MatOptionString ></MatOptionString>
-            <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString>
-            <MatOptionString Value="vegetables">Vegetables</MatOptionString>
-            <MatOptionString Value="fruit">Fruit</MatOptionString>
-        </MatSelect>
-    </Content>
-    <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelect Label=""Pick a Food Group"" Disabled=""true"" TValue=""string"">
-            <MatOptionString ></MatOptionString>
-            <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString>
-            <MatOptionString Value=""vegetables"">Vegetables</MatOptionString>
-            <MatOptionString Value=""fruit"">Fruit</MatOptionString>
-        </MatSelect>
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
-
-
-<h5 class="mat-h5">Disabled Option</h5>
-<DemoContainer>
-    <Content>
-        <MatSelect Label="Pick a Food Group" TValue="string">
-            <MatOptionString ></MatOptionString>
-            <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString>
-            <MatOptionString Value="vegetables" Disabled="true">Vegetables</MatOptionString>
-            <MatOptionString Value="fruit">Fruit</MatOptionString>
-        </MatSelect>
-    </Content>
-    <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelect Label=""Pick a Food Group"" TValue=""string"">
-            <MatOptionString ></MatOptionString>
-            <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString>
-            <MatOptionString Value=""vegetables"" Disabled=""true"">Vegetables</MatOptionString>
-            <MatOptionString Value=""fruit"">Fruit</MatOptionString>
-        </MatSelect>
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
+@* <MatAnchorContainer Anchor="MatSelectInt"> *@
+@*     <MatH5>MatSelect int</MatH5> *@
+@* </MatAnchorContainer> *@
+@* <DemoContainer> *@
+@*     <Content> *@
+@*         <MatSelect Label="Pick a Food Group" @bind-Value="@intValue"> *@
+@*             <MatOption TValue="int" Value="0"></MatOption> *@
+@*             <MatOption TValue="int" Value="1">Bread, Cereal, Rice, and Pasta</MatOption> *@
+@*             <MatOption TValue="int" Value="2">Vegetables</MatOption> *@
+@*             <MatOption TValue="int" Value="3">Fruit</MatOption> *@
+@*         </MatSelect> *@
+@* *@
+@*         <span>@intValue</span> *@
+@* *@
+@*         @code *@
+@*         { *@
+@*             int intValue; *@
+@*         } *@
+@*     </Content> *@
+@*     <SourceContent> *@
+@*     	<BlazorFiddle Template="MatBlazor" Code=@(@" *@
+@*         <MatSelect Label=""Pick a Food Group"" @bind-Value=""@intValue""> *@
+@*             <MatOption TValue=""int"" Value=""0""></MatOption> *@
+@*             <MatOption TValue=""int"" Value=""1"">Bread, Cereal, Rice, and Pasta</MatOption> *@
+@*             <MatOption TValue=""int"" Value=""2"">Vegetables</MatOption> *@
+@*             <MatOption TValue=""int"" Value=""3"">Fruit</MatOption> *@
+@*         </MatSelect> *@
+@* *@
+@*         <span>@intValue</span> *@
+@* *@
+@*         @code *@
+@*         { *@
+@*             int intValue; *@
+@*         } *@
+@*     ")></BlazorFiddle> *@
+@*     </SourceContent> *@
+@* </DemoContainer> *@
+@* *@
+@* *@
+@* <h5 class="mat-h5">Helper Text</h5> *@
+@* <DemoContainer> *@
+@*     <Content> *@
+@*         <p> *@
+@*             <MatSelect HelperText="Helper Text" Label="Pick a Food Group" @bind-Value="@Val1"> *@
+@*                 <MatOptionString></MatOptionString> *@
+@*                 <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString> *@
+@*                 <MatOptionString Value="vegetables">Vegetables</MatOptionString> *@
+@*                 <MatOptionString Value="fruit">Fruit</MatOptionString> *@
+@*             </MatSelect> *@
+@*         </p> *@
+@*         <p> *@
+@*             <MatSelect HelperText="Helper Text Persistent" HelperTextPersistent="true" Label="Pick a Food Group" @bind-Value="@Val1"> *@
+@*                 <MatOptionString ></MatOptionString> *@
+@*                 <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString> *@
+@*                 <MatOptionString Value="vegetables">Vegetables</MatOptionString> *@
+@*                 <MatOptionString Value="fruit">Fruit</MatOptionString> *@
+@*             </MatSelect> *@
+@*         </p> *@
+@*         <p> *@
+@*             <MatSelect HelperText="Helper Text Validation" HelperTextPersistent="true" HelperTextValidation="true" Label="Pick a Food Group" @bind-Value="@Val1"> *@
+@*                 <MatOptionString ></MatOptionString> *@
+@*                 <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString> *@
+@*                 <MatOptionString Value="vegetables">Vegetables</MatOptionString> *@
+@*                 <MatOptionString Value="fruit">Fruit</MatOptionString> *@
+@*             </MatSelect> *@
+@*         </p> *@
+@* *@
+@*         @code *@
+@*         { *@
+@*             public string Val1 { get; set; } *@
+@*         } *@
+@* *@
+@*     </Content> *@
+@*     <SourceContent> *@
+@*     	<BlazorFiddle Template="MatBlazor" Code=@(@" *@
+@*         <p> *@
+@*             <MatSelect HelperText=""Helper Text"" Label=""Pick a Food Group"" @bind-Value=""@Val1""> *@
+@*                 <MatOptionString></MatOptionString> *@
+@*                 <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString> *@
+@*                 <MatOptionString Value=""vegetables"">Vegetables</MatOptionString> *@
+@*                 <MatOptionString Value=""fruit"">Fruit</MatOptionString> *@
+@*             </MatSelect> *@
+@*         </p> *@
+@*         <p> *@
+@*             <MatSelect HelperText=""Helper Text Persistent"" HelperTextPersistent=""true"" Label=""Pick a Food Group"" @bind-Value=""@Val1""> *@
+@*                 <MatOptionString ></MatOptionString> *@
+@*                 <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString> *@
+@*                 <MatOptionString Value=""vegetables"">Vegetables</MatOptionString> *@
+@*                 <MatOptionString Value=""fruit"">Fruit</MatOptionString> *@
+@*             </MatSelect> *@
+@*         </p> *@
+@*         <p> *@
+@*             <MatSelect HelperText=""Helper Text Validation"" HelperTextPersistent=""true"" HelperTextValidation=""true"" Label=""Pick a Food Group"" @bind-Value=""@Val1""> *@
+@*                 <MatOptionString ></MatOptionString> *@
+@*                 <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString> *@
+@*                 <MatOptionString Value=""vegetables"">Vegetables</MatOptionString> *@
+@*                 <MatOptionString Value=""fruit"">Fruit</MatOptionString> *@
+@*             </MatSelect> *@
+@*         </p> *@
+@* *@
+@*         @code *@
+@*         { *@
+@*             public string Val1 { get; set; } *@
+@*         } *@
+@* *@
+@*     ")></BlazorFiddle> *@
+@*     </SourceContent> *@
+@* </DemoContainer> *@
+@* *@
+@* *@
+@* <h5 class="mat-h5">Outlined</h5> *@
+@* <DemoContainer> *@
+@*     <Content> *@
+@*         <MatSelect Label="Pick a Food Group" Outlined="true" TValue="string"> *@
+@*             <MatOptionString ></MatOptionString> *@
+@*             <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString> *@
+@*             <MatOptionString Value="vegetables">Vegetables</MatOptionString> *@
+@*             <MatOptionString Value="fruit">Fruit</MatOptionString> *@
+@*         </MatSelect> *@
+@*     </Content> *@
+@*     <SourceContent> *@
+@*     	<BlazorFiddle Template="MatBlazor" Code=@(@" *@
+@*         <MatSelect Label=""Pick a Food Group"" Outlined=""true"" TValue=""string""> *@
+@*             <MatOptionString ></MatOptionString> *@
+@*             <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString> *@
+@*             <MatOptionString Value=""vegetables"">Vegetables</MatOptionString> *@
+@*             <MatOptionString Value=""fruit"">Fruit</MatOptionString> *@
+@*         </MatSelect> *@
+@*     ")></BlazorFiddle> *@
+@*     </SourceContent> *@
+@* </DemoContainer> *@
+@* *@
+@* *@
+@* <h5 class="mat-h5">Disabled</h5> *@
+@* <DemoContainer> *@
+@*     <Content> *@
+@*         <MatSelect Label="Pick a Food Group" Disabled="true" TValue="string"> *@
+@*             <MatOptionString ></MatOptionString> *@
+@*             <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString> *@
+@*             <MatOptionString Value="vegetables">Vegetables</MatOptionString> *@
+@*             <MatOptionString Value="fruit">Fruit</MatOptionString> *@
+@*         </MatSelect> *@
+@*     </Content> *@
+@*     <SourceContent> *@
+@*     	<BlazorFiddle Template="MatBlazor" Code=@(@" *@
+@*         <MatSelect Label=""Pick a Food Group"" Disabled=""true"" TValue=""string""> *@
+@*             <MatOptionString ></MatOptionString> *@
+@*             <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString> *@
+@*             <MatOptionString Value=""vegetables"">Vegetables</MatOptionString> *@
+@*             <MatOptionString Value=""fruit"">Fruit</MatOptionString> *@
+@*         </MatSelect> *@
+@*     ")></BlazorFiddle> *@
+@*     </SourceContent> *@
+@* </DemoContainer> *@
+@* *@
+@* *@
+@* <h5 class="mat-h5">Disabled Option</h5> *@
+@* <DemoContainer> *@
+@*     <Content> *@
+@*         <MatSelect Label="Pick a Food Group" TValue="string"> *@
+@*             <MatOptionString ></MatOptionString> *@
+@*             <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString> *@
+@*             <MatOptionString Value="vegetables" Disabled="true">Vegetables</MatOptionString> *@
+@*             <MatOptionString Value="fruit">Fruit</MatOptionString> *@
+@*         </MatSelect> *@
+@*     </Content> *@
+@*     <SourceContent> *@
+@*     	<BlazorFiddle Template="MatBlazor" Code=@(@" *@
+@*         <MatSelect Label=""Pick a Food Group"" TValue=""string""> *@
+@*             <MatOptionString ></MatOptionString> *@
+@*             <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString> *@
+@*             <MatOptionString Value=""vegetables"" Disabled=""true"">Vegetables</MatOptionString> *@
+@*             <MatOptionString Value=""fruit"">Fruit</MatOptionString> *@
+@*         </MatSelect> *@
+@*     ")></BlazorFiddle> *@
+@*     </SourceContent> *@
+@* </DemoContainer> *@

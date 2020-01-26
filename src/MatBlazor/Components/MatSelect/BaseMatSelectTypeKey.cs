@@ -16,6 +16,9 @@ namespace MatBlazor
         private DotNetObjectReference<MatSelectJsHelper> jsHelperReference;
 
         internal MatBlazorSwitchT<TK> switchTK = MatBlazorSwitchT<TK>.Get();
+        private bool _enhanced = true;
+
+        private bool initialized = false;
 
         public BaseMatSelectTypeKey()
         {
@@ -37,8 +40,10 @@ namespace MatBlazor
 
             CallAfterRender(async () =>
             {
-                jsHelperReference??= DotNetObjectReference.Create(jsHelper);
-                await JsInvokeAsync<object>("matBlazor.matSelect.init", Ref, jsHelperReference);
+                jsHelperReference ??= DotNetObjectReference.Create(jsHelper);
+                await JsInvokeAsync<object>("matBlazor.matSelect.init", Ref, jsHelperReference,
+                    switchTK.FormatValueAsString(GetKeyFromValue(CurrentValue), null));
+                initialized = true;
             });
         }
 
@@ -46,14 +51,14 @@ namespace MatBlazor
         {
             SetValueEvent(value);
         }
-        
-        
-        protected void OnChangeEventHandler(ChangeEventArgs  e)
+
+
+        protected void OnChangeEventHandler(ChangeEventArgs e)
         {
-            SetValueEvent((string)e.Value);
+            SetValueEvent((string) e.Value);
         }
-        
-        
+
+
         protected void SetValueEvent(string value)
         {
             CurrentValue = GetValueFromKey(switchTK.ParseFromString(value, null));
@@ -81,7 +86,15 @@ namespace MatBlazor
         }
 
         [Parameter]
-        public bool Enhanced { get; set; } = false;
+        public bool Enhanced
+        {
+            get => _enhanced;
+            set
+            {
+                //_enhanced = value; Important - nothing, because MDC now support only Enhanced select's
+            }
+        }
+
 
         [Parameter]
         public bool Outlined { get; set; }
@@ -130,7 +143,8 @@ namespace MatBlazor
         {
             await base.SetParametersAsync(parameters);
             object valueKey;
-            if (parameters.TryGetValue(nameof(Value), out valueKey))
+
+            if (Rendered && parameters.TryGetValue(nameof(Value), out valueKey))
             {
                 CallAfterRender(async () =>
                 {

@@ -10,6 +10,8 @@ namespace MatBlazor
     {
         [Parameter]
         public ForwardRef RefBack { get; set; }
+        
+        protected bool Rendered { get; private set; }
 
 
         private Queue<Func<Task>> afterRenderCallQuene = new Queue<Func<Task>>();
@@ -22,6 +24,7 @@ namespace MatBlazor
 
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
+            Rendered = true;
             await base.OnAfterRenderAsync(firstRender);
             if (firstRender)
             {

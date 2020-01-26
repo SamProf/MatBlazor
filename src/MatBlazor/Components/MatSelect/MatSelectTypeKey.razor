@@ -6,56 +6,57 @@
 <CascadingValue Value="@this">
 
     <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref">
+        <div class="mdc-select__anchor demo-width-class">
+            @if (!HideDropDownIcon)
+            {
+                <i class="mdc-select__dropdown-icon"></i>
+            }
+            <div class="mdc-select__selected-text"></div>
+            @if (Label != null)
+            {
+                <span class="mdc-floating-label">@Label</span>
+            }
+            <div class="mdc-line-ripple"></div>
 
-             @if (!HideDropDownIcon)
-             {
-                 <i class="mdc-select__dropdown-icon"></i>
-             }
+            @if (Icon != null)
+            {
+                <i class="material-icons mdc-select__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
+            }
+        </div>
 
-             @if (Icon != null)
-             {
-                 <i class="material-icons mdc-select__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
-             }
 
-             @if (Enhanced)
-             {
-                 <div class="mdc-select__selected-text"></div>
-
-                 <div class="mdc-select__menu mdc-menu mdc-menu-surface">
-                     <ul class="mdc-list">
-                         @GetChildContent()
-                     </ul>
-                 </div>
-             }
-             else
-             {
-                <select class="mdc-select__native-control" value="@Value" @onchange="@OnChangeEventHandler" aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled @attributes="Attributes" Id="@Id">
+        @if (Enhanced)
+        {
+            <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+                <ul class="mdc-list">
                     @GetChildContent()
-                </select>
-             }
+                </ul>
+            </div>
+        }
+        else
+        {
+            <select class="mdc-select__native-control" value="@Value" @onchange="@OnChangeEventHandler" aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled @attributes="Attributes" Id="@Id">
+                @GetChildContent()
+            </select>
+        }
 
-             @if (Outlined)
-             {
-                 <div class="mdc-notched-outline">
-                     <div class="mdc-notched-outline__leading"></div>
-                     @if (Label != null)
-                     {
-                         <div class="mdc-notched-outline__notch">
-                             <label class="mdc-floating-label">@Label</label>
-                         </div>
-                     }
-                     <div class="mdc-notched-outline__trailing"></div>
-                 </div>
-             }
-             else if (Label != null)
-             {
-                 <label class="mdc-floating-label">@Label</label>
-             }
+        @*         @if (Outlined) *@
+        @*         { *@
+        @*             <div class="mdc-notched-outline"> *@
+        @*                 <div class="mdc-notched-outline__leading"></div> *@
+        @*                 @if (Label != null) *@
+        @*                 { *@
+        @*                     <div class="mdc-notched-outline__notch"> *@
+        @*                         <label class="mdc-floating-label">@Label</label> *@
+        @*                     </div> *@
+        @*                 } *@
+        @*                 <div class="mdc-notched-outline__trailing"></div> *@
+        @*             </div> *@
+        @*         } *@
 
-             <div class="mdc-line-ripple"></div>
     </div>
-     @if (HelperText != null)
-     {
-         <p class="@HelperTextClassMapper.AsString()" aria-hidden="true">@HelperText</p>
-     }
+    @if (HelperText != null)
+    {
+        <p class="@HelperTextClassMapper.AsString()" aria-hidden="true">@HelperText</p>
+    }
 </CascadingValue>
