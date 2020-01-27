@@ -18,6 +18,7 @@ namespace MatBlazor
         protected MatBlazorSwitchT<T> SwitchT = MatBlazorSwitchT<T>.Get();
 
         protected Type _nullableUnderlyingType;
+        private T _value;
 
         protected BaseMatInputComponent()
         {
@@ -34,7 +35,20 @@ namespace MatBlazor
         /// @bind-Value="model.PropertyName"
         /// </example>
         [Parameter]
-        public T Value { get; set; }
+        public T Value
+        {
+            get => _value;
+            set
+            {
+                OnValueChanged(!EqualityComparer<T>.Default.Equals(_value, value));
+                _value = value;
+            }
+        }
+
+
+        protected virtual void OnValueChanged(bool changed)
+        {
+        }
 
         /// <summary>
         /// Gets or sets a callback that updates the bound value.
@@ -63,13 +77,13 @@ namespace MatBlazor
         /// </summary>
         protected virtual T CurrentValue
         {
-            get => Value;
+            get => _value;
             set
             {
                 var hasChanged = !EqualityComparer<T>.Default.Equals(value, Value);
                 if (hasChanged && ValidateCurrentValue(value))
                 {
-                    Value = value;
+                    _value = value;
                     ValueChanged.InvokeAsync(value);
                     EditContext?.NotifyFieldChanged(FieldIdentifier);
                 }

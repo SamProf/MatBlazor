@@ -129,6 +129,7 @@ If you think that this project helped you or your company in any way, you can co
 - MatFileUpload
 
 #### MatBlazor 2.0.1 (In Progress)
+- `MatSelect` fixed, supported only `Enhanced` mode
 - PR: Added MatTreeView #360 (Thanks to [sprotty](https://github.com/sprotty))
 - PR: Filtering on multiple columns #384 (Thanks to [VDSYannick](https://github.com/VDSYannick))
 - PR: Fix #393, Fix #319, MatNavItem still clickable when disabled=true. Add OnClick to MatNavItem #394 (Thanks to [enkodellc](https://github.com/enkodellc))

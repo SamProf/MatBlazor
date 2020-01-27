@@ -64,6 +64,18 @@ namespace MatBlazor
             CurrentValue = GetValueFromKey(switchTK.ParseFromString(value, null));
         }
 
+        protected override void OnValueChanged(bool changed)
+        {
+            base.OnValueChanged(changed);
+            if (changed && Rendered)
+            {
+                CallAfterRender(async () =>
+                {
+                    await JsInvokeAsync<object>("matBlazor.matSelect.setValue", Ref, GetKeyFromValue(CurrentValue));
+                });
+            }
+        }
+
         protected virtual T GetValueFromKey(TK key)
         {
             throw new NotImplementedException();
@@ -137,21 +149,6 @@ namespace MatBlazor
 //
 //        [Parameter]
 //        public EventCallback<string> ValueChanged { get; set; }
-
-
-        public override async Task SetParametersAsync(ParameterView parameters)
-        {
-            await base.SetParametersAsync(parameters);
-            object valueKey;
-
-            if (Rendered && parameters.TryGetValue(nameof(Value), out valueKey))
-            {
-                CallAfterRender(async () =>
-                {
-                    await JsInvokeAsync<object>("matBlazor.matSelect.setValue", Ref, GetKeyFromValue(CurrentValue));
-                });
-            }
-        }
 
         [Parameter]
         public EventCallback<MouseEventArgs> IconOnClick { get; set; }
