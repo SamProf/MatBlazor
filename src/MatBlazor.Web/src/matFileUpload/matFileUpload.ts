@@ -27,7 +27,7 @@ export class MatFileUpload extends MatBlazorComponent {
 
         this.inputRef.addEventListener('change', (event) => {
 
-            console.log('this.inputRef', this.inputRef);
+            // console.log('this.inputRef', this.inputRef);
             var items = Array.from(this.inputRef.files).map((file) => {
                 var info = <IMatFileUploadEntryInfo>{
                     id: this.files.length,

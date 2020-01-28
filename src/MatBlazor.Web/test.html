@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<!--<script src="/MatBlazor.Web/dist/matBlazor.js"></script>-->
+<!--<link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">-->
+<!--<script src="https://unpkg.com/js-datepicker"></script>-->
+
+
+<style>
+
+
+
+</style>
+
+
+
+<div class="mdc-select" id="ref">
+    <div class="mdc-select__anchor demo-width-class">
+        <i class="mdc-select__dropdown-icon"></i>
+        <div class="mdc-select__selected-text"></div>
+        <span class="mdc-floating-label">Pick a Food Group</span>
+        <div class="mdc-line-ripple"></div>
+    </div>
+
+    <div class="mdc-select__menu mdc-menu mdc-menu-surface demo-width-class">
+        <ul class="mdc-list">
+            <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+            <li class="mdc-list-item" data-value="grains">
+                Bread, Cereal, Rice, and Pasta
+            </li>
+            <li class="mdc-list-item mdc-list-item--disabled" data-value="vegetables" aria-selected="true" aria-disabled="true" role="option">
+                Vegetables
+            </li>
+            <li class="mdc-list-item" data-value="fruit">
+                Fruit
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+  var ref = document.getElementById('ref');
+  // debugger;
+  var c = new mdc.select.MDCSelect(ref);
+
+
+  // var tooltip = document.getElementById('tRef');
+  //
+  // new matBlazor.matTooltip.init(tooltip, ref);
+
+</script>
+
+
+</body>
+</html>

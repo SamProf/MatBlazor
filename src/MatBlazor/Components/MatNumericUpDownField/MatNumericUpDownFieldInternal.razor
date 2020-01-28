@@ -13,12 +13,12 @@
         {
             builder.AddContent(0, base.BuildRenderTreeChildContent());
             builder.AddContent(1, @<div class="mat-text-field-actions-container">
-                                      <i class="material-icons mdc-text-field__icon mat-numeric-up-down-field-button"
+                                      <i class="material-icons mat-numeric-up-down-field-button"
                                          tabindex="0" @onclick="Increase" role="button"
                                                       disabled=@Disabled readonly="@ReadOnly">
                                              @MinusIcon
                                          </i>
-                                         <i class="material-icons mdc-text-field__icon mat-numeric-up-down-field-button" tabindex="0"
+                                         <i class="material-icons mat-numeric-up-down-field-button" tabindex="0"
                                             @onclick="Decrease" role="button"
                                             disabled=@Disabled readonly="@ReadOnly">
                                              @PlusIcon

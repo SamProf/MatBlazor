@@ -128,8 +128,8 @@ If you think that this project helped you or your company in any way, you can co
 #### MatBlazor 2.0.5 (In progress ~ January 2020)
 - MatFileUpload
 
-#### MatBlazor 2.0.1 (In Progress)
-- `MatSelect` fixed, supported only `Enhanced` mode
+#### MatBlazor 2.0.1
+- `MatSelect` was rewrited and prepared for `MatSelectItem` and `MatSelectValue`, supported only `Enhanced` mode, Disabled for `MatOption` is temporary not working
 - PR: Added MatTreeView #360 (Thanks to [sprotty](https://github.com/sprotty))
 - PR: Filtering on multiple columns #384 (Thanks to [VDSYannick](https://github.com/VDSYannick))
 - PR: Fix #393, Fix #319, MatNavItem still clickable when disabled=true. Add OnClick to MatNavItem #394 (Thanks to [enkodellc](https://github.com/enkodellc))
@@ -137,7 +137,6 @@ If you think that this project helped you or your company in any way, you can co
 - PR: Added @key attribute to MatTable table row #361  (Thanks to [plebnz](https://github.com/plebnz))
 - PR: added @key attribute to MatTab content #395 (Thanks to [chris1411](https://github.com/chris1411))
 - PR: Matlist selectedIndex default value set to -1 #354 (Thanks to [radutomy](https://github.com/radutomy))
-- 
 
 ### MatBlazor 2.0.0 (Reinvention MatBlazor Forms)
 - This release contain a lot of breaking changes, sorry for that.

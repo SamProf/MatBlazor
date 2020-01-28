@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
-@typeparam T
-@typeparam TK
-@inherits BaseMatSelectTypeKey<T, TK>
+@typeparam TValue
+@typeparam TKey
+@inherits BaseCoreMatSelect<TValue, TKey>
 
 <CascadingValue Value="@this">
 
@@ -45,20 +45,12 @@
         </div>
 
 
-        @if (Enhanced)
-        {
-            <div class="mdc-select__menu mdc-menu mdc-menu-surface">
-                <ul class="mdc-list">
-                    @GetChildContent()
-                </ul>
-            </div>
-        }
-        else
-        {
-            <select class="mdc-select__native-control" value="@Value" @onchange="@OnChangeEventHandler" aria-label="@Label" oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout="@OnFocusOut" onkeypress="@OnKeyPress" onfocus="@OnFocus" disabled=@Disabled @attributes="Attributes" Id="@Id">
+        <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+            <ul class="mdc-list">
                 @GetChildContent()
-            </select>
-        }
+            </ul>
+        </div>
+
 
         @*         @if (Outlined) *@
         @*         { *@

@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatSelectType</h3> } else { <h5 class="mat-h5">MatSelectType</h5> }
+@if (!Secondary) {<h3 class="mat-h3">CoreMatSelect</h3> } else { <h5 class="mat-h5">CoreMatSelect</h5> }
 
 <p>Selects allow users to select from a single-option menu. It functions as a wrapper around the browser&#39;s native select element.</p>
 
@@ -15,7 +15,12 @@
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td style="font-weight: bold;">T</td>
+		<td style="font-weight: bold;">TValue</td>
+		<td>Generic argument</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td style="font-weight: bold;">TKey</td>
 		<td>Generic argument</td>
 		<td></td>
 	</tr>
@@ -75,16 +80,6 @@
 		<td></td>
 	</tr>
 	<tr>
-		<td>Items</td>
-		<td>IEnumerable&lt;T&gt;</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>ItemTemplate</td>
-		<td>RenderFragment&lt;T&gt;</td>
-		<td></td>
-	</tr>
-	<tr>
 		<td>Label</td>
 		<td>String</td>
 		<td></td>
@@ -136,17 +131,17 @@
 	</tr>
 	<tr>
 		<td>Value</td>
-		<td>T</td>
+		<td>TValue</td>
 		<td>Gets or sets the value of the input. This should be used with two-way binding.</td>
 	</tr>
 	<tr>
 		<td>ValueChanged</td>
-		<td>EventCallback&lt;T&gt;</td>
+		<td>EventCallback&lt;TValue&gt;</td>
 		<td>Gets or sets a callback that updates the bound value.</td>
 	</tr>
 	<tr>
 		<td>ValueExpression</td>
-		<td>Expression&lt;Func&lt;T&gt;&gt;</td>
+		<td>Expression&lt;Func&lt;TValue&gt;&gt;</td>
 		<td>Gets or sets an expression that identifies the bound value.</td>
 	</tr>
 	<tr>

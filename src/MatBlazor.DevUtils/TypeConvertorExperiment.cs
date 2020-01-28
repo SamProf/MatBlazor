@@ -14,7 +14,7 @@ namespace MatBlazor.DevUtils
         {
             var q = new Uri("http://localhost:62765/DatePicker#Example");
             Console.WriteLine(q.Fragment);
-            var a = new MatSelectNativeType<int>();
+            
         }
         
         [Test]

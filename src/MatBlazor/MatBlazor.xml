@@ -484,7 +484,7 @@
             Ripples are visual representations used to communicate the status of a component or interactive element. 
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatSelectTypeKey`2">
+        <member name="T:MatBlazor.BaseCoreMatSelect`2">
             <summary>
             Selects allow users to select from a single-option menu. It functions as a wrapper around the browser's native select element.
             </summary>

@@ -10,17 +10,14 @@ namespace MatBlazor
     /// <summary>
     /// Selects allow users to select from a single-option menu. It functions as a wrapper around the browser's native select element.
     /// </summary>
-    public class BaseMatSelectTypeKey<T, TK> : BaseMatInputComponent<T>
+    public class BaseCoreMatSelect<TValue, TKey> : BaseMatInputComponent<TValue>, IBaseCoreMatSelect<TKey>
     {
         private MatSelectJsHelper jsHelper;
         private DotNetObjectReference<MatSelectJsHelper> jsHelperReference;
 
-        internal MatBlazorSwitchT<TK> switchTK = MatBlazorSwitchT<TK>.Get();
-        private bool _enhanced = true;
-
-        private bool initialized = false;
-
-        public BaseMatSelectTypeKey()
+        internal MatBlazorSwitchT<TKey> switchTK = MatBlazorSwitchT<TKey>.Get();
+        
+        public BaseCoreMatSelect()
         {
             jsHelper = new MatSelectJsHelper();
             jsHelper.SetValueEvent += JsHelper_SetValueEvent;
@@ -43,7 +40,6 @@ namespace MatBlazor
                 jsHelperReference ??= DotNetObjectReference.Create(jsHelper);
                 await JsInvokeAsync<object>("matBlazor.matSelect.init", Ref, jsHelperReference,
                     switchTK.FormatValueAsString(GetKeyFromValue(CurrentValue), null));
-                initialized = true;
             });
         }
 
@@ -71,17 +67,17 @@ namespace MatBlazor
             {
                 CallAfterRender(async () =>
                 {
-                    await JsInvokeAsync<object>("matBlazor.matSelect.setValue", Ref, GetKeyFromValue(CurrentValue));
+                    await JsInvokeAsync<object>("matBlazor.matSelect.setValue", Ref, switchTK.FormatValueAsString(GetKeyFromValue(CurrentValue), null));
                 });
             }
         }
 
-        protected virtual T GetValueFromKey(TK key)
+        protected virtual TValue GetValueFromKey(TKey key)
         {
             throw new NotImplementedException();
         }
 
-        protected virtual TK GetKeyFromValue(T value)
+        protected virtual TKey GetKeyFromValue(TValue value)
         {
             throw new NotImplementedException();
         }
@@ -100,7 +96,7 @@ namespace MatBlazor
         [Parameter]
         public bool Enhanced
         {
-            get => _enhanced;
+            get => true;
             set
             {
                 //_enhanced = value; Important - nothing, because MDC now support only Enhanced select's
@@ -170,5 +166,7 @@ namespace MatBlazor
 
         [Parameter]
         public EventCallback<ChangeEventArgs> OnInput { get; set; }
+
+        public MatBlazorSwitchT<TKey> SwitchTypeKey => switchTK;
     }
 }

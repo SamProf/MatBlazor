@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MatBlazor
+﻿namespace MatBlazor
 {
-    public class MatOption<TValue> : MatOptionType<TValue>
-    {
-    }
-    
-    public class MatOptionString : MatOptionType<string>
+    public class MatOption<TValue> : BaseMatOption<TValue>
     {
     }
 }

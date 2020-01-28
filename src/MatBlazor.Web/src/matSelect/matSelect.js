@@ -7,14 +7,14 @@ export class MatSelect {
     this.select.value = value;
     // var firstChange = true;
 	this.select.listen('MDCSelect:change', () => {
-      console.log("MDCSelect:change", this.select.value);
+      // console.log("MDCSelect:change", this.select.value);
 	  // if (firstChange)
       // {
       //   console.log("firstChange", this.select.value);
       //   firstChange = false;
       //   return;
       // }
-	  console.log("invokeMethodAsync", this.select.value);
+	  // console.log("invokeMethodAsync", this.select.value);
 
       return component.invokeMethodAsync('SetValue', this.select.value);
     });
@@ -43,7 +43,7 @@ export function getValue(ref) {
 
 
 export function setValue(ref, value) {
-  console
-    .log('setValue, ',value);
+  // console
+  //   .log('setValue, ',value);
   ref.__matBlazor_component.select.value = value;
 }
