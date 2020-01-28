@@ -6,21 +6,41 @@
 <CascadingValue Value="@this">
 
     <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref">
-        <div class="mdc-select__anchor demo-width-class">
+        <div class="mdc-select__anchor">
+
             @if (!HideDropDownIcon)
             {
                 <i class="mdc-select__dropdown-icon"></i>
             }
-            <div class="mdc-select__selected-text"></div>
-            @if (Label != null)
-            {
-                <span class="mdc-floating-label">@Label</span>
-            }
-            <div class="mdc-line-ripple"></div>
 
-            @if (Icon != null)
+            <div class="mdc-select__selected-text"></div>
+
+
+            @if (Outlined)
             {
-                <i class="material-icons mdc-select__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        @if (Label != null)
+                        {
+                            <span class="mdc-floating-label">@Label</span>
+                        }
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            }
+            else
+            {
+                @if (Label != null)
+                {
+                    <span class="mdc-floating-label">@Label</span>
+                }
+                <div class="mdc-line-ripple"></div>
+
+                @if (Icon != null)
+                {
+                    <i class="material-icons mdc-select__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
+                }
             }
         </div>
 

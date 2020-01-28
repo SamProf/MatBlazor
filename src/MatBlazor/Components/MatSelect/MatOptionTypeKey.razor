@@ -5,7 +5,7 @@
 
 @if (Parent.Enhanced)
 {
-    <li data-value="@StringValue()" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
+    <li data-value="@StringValue()" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id" aria-disabled="@RenderAttributeAriaDisabled()" role="option">
         @ChildContent
     </li>
 }

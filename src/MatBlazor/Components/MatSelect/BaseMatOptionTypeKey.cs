@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System.Diagnostics;
+using System.IO;
+using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
@@ -7,6 +9,12 @@ namespace MatBlazor
         internal string StringValue()
         {
             return this.Parent?.switchTK.FormatValueAsString(Value, null);
+        }
+
+
+        protected string RenderAttributeAriaDisabled()
+        {
+            return (Disabled && (Parent?.Enhanced ?? false)) ? "disabled" : null;
         }
 
         public BaseMatOptionTypeKey()
