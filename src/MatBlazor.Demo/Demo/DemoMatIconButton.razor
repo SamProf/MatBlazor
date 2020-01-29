@@ -21,10 +21,6 @@
             <MatIcon>@MatIconNames.Touch_app</MatIcon>
         </MatIconButton>
 
-        <h5 class="mat-subtitle1">With Toggle</h5>
-        <MatIconButton Icon="favorite_border" ToggleIcon="favorite">
-        </MatIconButton>
-
         @code
         {
 
@@ -54,10 +50,6 @@
             <MatIcon>@MatIconNames.Touch_app</MatIcon>
         </MatIconButton>
 
-        <h5 class=""mat-subtitle1"">With Toggle</h5>
-        <MatIconButton Icon=""favorite_border"" ToggleIcon=""favorite"">
-        </MatIconButton>
-
         @code
         {
 
@@ -66,6 +58,55 @@
                 JsRuntime.InvokeAsync<object>(""window.alert"", ""Test"");
             }
 
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">Toggle Icon Button</h5>
+<DemoContainer>
+    <Content>
+        @using Microsoft.AspNetCore.Components
+
+        <h5 class="mat-subtitle1">Toggled</h5>
+        <MatIconButton Icon="favorite_border" ToggleIcon="favorite">
+        </MatIconButton>
+
+        <h5 class="mat-subtitle1">Set Toggled</h5>
+        <MatIconButton Icon="favorite_border" ToggleIcon="favorite" Toggled="true">
+        </MatIconButton>
+
+        <h5 class="mat-subtitle1">Bind Toggled: @toggledValue</h5>
+        <MatIconButton Icon="favorite_border" ToggleIcon="favorite" @bind-Toggled="@toggledValue">
+        </MatIconButton>
+
+        @code
+        {
+            bool toggledValue;
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        @using Microsoft.AspNetCore.Components
+
+        <h5 class=""mat-subtitle1"">Toggled</h5>
+        <MatIconButton Icon=""favorite_border"" ToggleIcon=""favorite"">
+        </MatIconButton>
+
+        <h5 class=""mat-subtitle1"">Set Toggled</h5>
+        <MatIconButton Icon=""favorite_border"" ToggleIcon=""favorite"" Toggled=""true"">
+        </MatIconButton>
+
+        <h5 class=""mat-subtitle1"">Bind Toggled: @toggledValue</h5>
+        <MatIconButton Icon=""favorite_border"" ToggleIcon=""favorite"" @bind-Toggled=""@toggledValue"">
+        </MatIconButton>
+
+        @code
+        {
+            bool toggledValue;
         }
 
     ")></BlazorFiddle>

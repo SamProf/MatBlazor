@@ -130,6 +130,7 @@ If you think that this project helped you or your company in any way, you can co
 
 
 #### MatBlazor 2.0.2 - In Progress
+- Implemented: Add possibility of initial state of MatIconButton #401. Implemented `Toggled` parameter and `ToggledChanged`.
 - Fixed: Small bug with numeric up/down field #402. Overflow in numeric values.
 
 #### MatBlazor 2.0.1

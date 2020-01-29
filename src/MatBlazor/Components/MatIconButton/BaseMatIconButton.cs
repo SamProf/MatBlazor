@@ -38,14 +38,15 @@ namespace MatBlazor
         public string ToggleIcon { get; set; }
 
 
-        protected bool Toggled
+        [Parameter]
+        public bool Toggled
         {
             get => _toggled;
-            set
-            {
-                _toggled = value;
-            }
+            set { _toggled = value; }
         }
+
+        [Parameter]
+        public EventCallback<bool> ToggledChanged { get; set; }
 
         /// <summary>
         /// Navigate to this url when clicked.
@@ -60,11 +61,7 @@ namespace MatBlazor
         public bool Disabled
         {
             get => _disabled;
-            set
-            {
-                _disabled = value;
-                
-            }
+            set { _disabled = value; }
         }
 
         public BaseMatIconButton()
@@ -101,9 +98,10 @@ namespace MatBlazor
             await JsInvokeAsync<object>("matBlazor.matIconButton.init", Ref);
         }
 
-        protected void OnClickHandler(MouseEventArgs ev)
+        protected async Task OnClickHandler(MouseEventArgs ev)
         {
-            _toggled = !_toggled;
+            Toggled = !Toggled;
+            await ToggledChanged.InvokeAsync(Toggled);
 
             if (Link != null)
             {
