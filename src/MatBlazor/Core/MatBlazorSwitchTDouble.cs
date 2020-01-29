@@ -7,12 +7,34 @@ namespace MatBlazor
     {
         public override double Increase(double v, double step, double max)
         {
-            return Math.Min(v + step, max);
+            checked
+            {
+                try
+                {
+                    var v2 = (double) (v + step);
+                    return v2 <= max ? v2 : max;
+                }
+                catch (OverflowException e)
+                {
+                    return max;
+                }
+            }
         }
 
         public override double Decrease(double v, double step, double min)
         {
-            return Math.Max(v - step, min);
+            checked
+            {
+                try
+                {
+                    var v2 = (double) (v - step);
+                    return v2 >= min ? v2 : min;
+                }
+                catch (OverflowException e)
+                {
+                    return min;
+                }
+            }
         }
 
         public override double Round(double v, int dp)

@@ -128,6 +128,10 @@ If you think that this project helped you or your company in any way, you can co
 #### MatBlazor 2.0.5 (In progress ~ January 2020)
 - MatFileUpload
 
+
+#### MatBlazor 2.0.2 - In Progress
+- Fixed: Small bug with numeric up/down field #402. Overflow in numeric values.
+
 #### MatBlazor 2.0.1
 - `MatSelect` was rewrited and prepared for `MatSelectItem` and `MatSelectValue`, supported only `Enhanced` mode, Disabled for `MatOption` is temporary not working
 - PR: Added MatTreeView #360 (Thanks to [sprotty](https://github.com/sprotty))

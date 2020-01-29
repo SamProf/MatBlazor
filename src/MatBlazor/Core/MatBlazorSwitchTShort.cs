@@ -7,14 +7,34 @@ namespace MatBlazor
     {
         public override short Increase(short v, short step, short max)
         {
-            var result = (v <= max - step) ? (short)(v + step) : max;
-            return result;
+            checked
+            {
+                try
+                {
+                    var v2 = (short) (v + step);
+                    return v2 <= max ? v2 : max;
+                }
+                catch (OverflowException e)
+                {
+                    return max;
+                }
+            }
         }
 
         public override short Decrease(short v, short step, short min)
         {
-            var result = (v >= min + step) ? (short)(v - step) : min;
-            return result;
+            checked
+            {
+                try
+                {
+                    var v2 = (short) (v - step);
+                    return v2 >= min ? v2 : min;
+                }
+                catch (OverflowException e)
+                {
+                    return min;
+                }
+            }
         }
 
         public override short Round(short v, int dp)
@@ -31,6 +51,7 @@ namespace MatBlazor
         {
             return v.ToString(format);
         }
+
         public override short ParseFromString(string v, string format)
         {
             return short.Parse(v, NumberStyles.Any);
@@ -53,7 +74,7 @@ namespace MatBlazor
 
         public override short FromDecimal(decimal v)
         {
-            return (short)v;
+            return (short) v;
         }
     }
 }

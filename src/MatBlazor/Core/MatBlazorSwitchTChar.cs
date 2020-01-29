@@ -6,14 +6,34 @@ namespace MatBlazor
     {
         public override char Increase(char v, char step, char max)
         {
-            var result = (v <= max - step) ? (char)(v + step) : max;
-            return result;
+            checked
+            {
+                try
+                {
+                    var v2 = (char) (v + step);
+                    return v2 <= max ? v2 : max;
+                }
+                catch (OverflowException e)
+                {
+                    return max;
+                }
+            }
         }
 
         public override char Decrease(char v, char step, char min)
         {
-            var result = (v >= min + step) ? (char)(v - step) : min;
-            return result;
+            checked
+            {
+                try
+                {
+                    var v2 = (char)(v - step);
+                    return v2 >= min ? v2 : min;
+                }
+                catch (OverflowException e)
+                {
+                    return min;
+                }
+            }
         }
 
         public override char Round(char v, int dp)

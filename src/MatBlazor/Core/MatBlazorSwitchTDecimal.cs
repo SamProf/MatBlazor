@@ -10,12 +10,34 @@ namespace MatBlazor
     {
         public override decimal Increase(decimal v, decimal step, decimal max)
         {
-            return Math.Min(v + step, max);
+            checked
+            {
+                try
+                {
+                    var v2 = (decimal) (v + step);
+                    return v2 <= max ? v2 : max;
+                }
+                catch (OverflowException e)
+                {
+                    return max;
+                }
+            }
         }
 
         public override decimal Decrease(decimal v, decimal step, decimal min)
         {
-            return Math.Max(v - step, min);
+            checked
+            {
+                try
+                {
+                    var v2 = (decimal) (v - step);
+                    return v2 >= min ? v2 : min;
+                }
+                catch (OverflowException e)
+                {
+                    return min;
+                }
+            }
         }
 
         public override decimal Round(decimal v, int dp)
@@ -32,6 +54,7 @@ namespace MatBlazor
         {
             return v.ToString(format);
         }
+
         public override decimal ParseFromString(string v, string format)
         {
             return decimal.Parse(v, NumberStyles.Any);

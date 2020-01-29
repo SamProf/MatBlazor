@@ -7,14 +7,34 @@ namespace MatBlazor
     {
         public override byte Increase(byte v, byte step, byte max)
         {
-            var result = (v <= max - step) ? (byte)(v + step) : max;
-            return result;
+            checked
+            {
+                try
+                {
+                    var v2 = (byte) (v + step);
+                    return v2 <= max ? v2 : max;
+                }
+                catch (OverflowException e)
+                {
+                    return max;
+                }
+            }
         }
 
         public override byte Decrease(byte v, byte step, byte min)
         {
-            var result = (v >= min + step) ? (byte)(v - step) : min;
-            return result;
+            checked
+            {
+                try
+                {
+                    var v2 = (byte)(v - step);
+                    return v2 >= min ? v2 : min;
+                }
+                catch (OverflowException e)
+                {
+                    return min;
+                }
+            }
         }
 
         public override byte Round(byte v, int dp)

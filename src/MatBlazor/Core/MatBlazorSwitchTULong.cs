@@ -7,14 +7,34 @@ namespace MatBlazor
     {
         public override ulong Increase(ulong v, ulong step, ulong max)
         {
-            var result = (v <= max - step) ? (ulong)(v + step) : max;
-            return result;
+            checked
+            {
+                try
+                {
+                    var v2 = (ulong) (v + step);
+                    return v2 <= max ? v2 : max;
+                }
+                catch (OverflowException e)
+                {
+                    return max;
+                }
+            }
         }
 
         public override ulong Decrease(ulong v, ulong step, ulong min)
         {
-            var result = (v >= min + step) ? (ulong)(v - step) : min;
-            return result;
+            checked
+            {
+                try
+                {
+                    var v2 = (ulong) (v - step);
+                    return v2 >= min ? v2 : min;
+                }
+                catch (OverflowException e)
+                {
+                    return min;
+                }
+            }
         }
 
         public override ulong Round(ulong v, int dp)
@@ -54,7 +74,7 @@ namespace MatBlazor
 
         public override ulong FromDecimal(decimal v)
         {
-            return (ulong)v;
+            return (ulong) v;
         }
     }
 }

@@ -4,5 +4,14 @@
 
 
 <p>
-    <MatDatePicker Inline="true" TValue="DateTime"></MatDatePicker>
+    <MatNumericUpDownField
+        @bind-Value=@value
+         Minimum="0" Maximum="8">
+    </MatNumericUpDownField>
 </p>
+
+
+@code
+{
+    int value = 0;
+}

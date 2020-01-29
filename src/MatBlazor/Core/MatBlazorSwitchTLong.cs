@@ -7,14 +7,34 @@ namespace MatBlazor
     {
         public override long Increase(long v, long step, long max)
         {
-            var result = (v <= max - step) ? (long)(v + step) : max;
-            return result;
+            checked
+            {
+                try
+                {
+                    var v2 = (long) (v + step);
+                    return v2 <= max ? v2 : max;
+                }
+                catch (OverflowException e)
+                {
+                    return max;
+                }
+            }
         }
 
         public override long Decrease(long v, long step, long min)
         {
-            var result = (v >= min + step) ? (long)(v - step) : min;
-            return result;
+            checked
+            {
+                try
+                {
+                    var v2 = (long) (v - step);
+                    return v2 >= min ? v2 : min;
+                }
+                catch (OverflowException e)
+                {
+                    return min;
+                }
+            }
         }
 
         public override long Round(long v, int dp)
@@ -54,7 +74,7 @@ namespace MatBlazor
 
         public override long FromDecimal(decimal v)
         {
-            return (long)v;
+            return (long) v;
         }
     }
 }

@@ -7,14 +7,34 @@ namespace MatBlazor
     {
         public override sbyte Increase(sbyte v, sbyte step, sbyte max)
         {
-            var result = (v <= max - step) ? (sbyte)(v + step) : max;
-            return result;
+            checked
+            {
+                try
+                {
+                    var v2 = (sbyte) (v + step);
+                    return v2 <= max ? v2 : max;
+                }
+                catch (OverflowException e)
+                {
+                    return max;
+                }
+            }
         }
 
         public override sbyte Decrease(sbyte v, sbyte step, sbyte min)
         {
-            var result = (v >= min + step) ? (sbyte)(v - step) : min;
-            return result;
+            checked
+            {
+                try
+                {
+                    var v2 = (sbyte) (v - step);
+                    return v2 >= min ? v2 : min;
+                }
+                catch (OverflowException e)
+                {
+                    return min;
+                }
+            }
         }
 
         public override sbyte Round(sbyte v, int dp)
@@ -54,7 +74,7 @@ namespace MatBlazor
 
         public override sbyte FromDecimal(decimal v)
         {
-            return (sbyte)v;
+            return (sbyte) v;
         }
     }
 }
