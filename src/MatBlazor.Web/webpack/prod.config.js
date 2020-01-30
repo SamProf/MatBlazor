@@ -1,4 +1,5 @@
 var path = require("path");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 var ProgressPlugin = require('webpack/lib/ProgressPlugin');
 
@@ -45,9 +46,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: "style-loader" // creates style nodes from JS strings
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader" // translates CSS into CommonJS
           },
@@ -67,6 +66,10 @@ module.exports = {
   },
 
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'matBlazor.css',
+      path: path.resolve(__dirname, '../../MatBlazor/wwwroot/dist')
+    }),
     new UglifyJsPlugin({
       parallel: true,
       uglifyOptions: {
