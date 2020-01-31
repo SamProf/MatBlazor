@@ -83,12 +83,13 @@ export function init(ref, inputRef, componentRef) {
 
 export async function readDataAsync(ref, fileId: number, position: number, count: number): Promise<string> {
     try {
-        // console.log("readDataAsync", ref, fileId, position, count)
+        // console.log("Request", position.toLocaleString());
         var componentRef = getMatBlazorInstance<MatFileUpload>(ref);
         // console.log("readDataAsync getMatBlazorInstance", componentRef)
         var result = await componentRef.readDataAsync(fileId, position, count);
         // console.log("readDataAsync readDataAsync", result)
         // console.log(result);
+        // console.log("Response", position.toLocaleString());
         return result;
     } catch (e) {
         // console.log('readDataAsync error', e);

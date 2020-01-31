@@ -7,4 +7,8 @@
         <span>@Label</span>
         <MatIcon>@MatIconNames.Attach_file</MatIcon>
     </div>
+    @if (ProgressTotal != 0)
+    {
+        <MatProgressBar Class="mat-file-upload-progress" Progress="@(Math.Round((double)ProgressProgress / ProgressTotal, 2))"></MatProgressBar>
+    }
 </div>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
@@ -21,7 +22,35 @@ namespace MatBlazor
         [Parameter]
         public int MaxMessageSize { get; set; } = 20 * 1024; // TODO: Use SignalR default
 
+        [Parameter]
+        public int MaxMessageLength { get; set; } = 3;
+
         MatDotNetObjectReference<BaseMatFileUpload> jsHelper;
+
+
+        protected long ProgressProgress;
+        protected long ProgressBuffer;
+        protected long ProgressTotal;
+        protected double Progress;
+
+
+        public async Task UpdateProgressAsync(long progressProgress, long progressBuffer, long progressTotal)
+        {
+            // return;
+            await InvokeAsync(() =>
+            {
+                ProgressProgress += progressProgress;
+                ProgressBuffer += progressBuffer;
+                ProgressTotal += progressTotal;
+                var progress = Math.Round((double) ProgressProgress / ProgressTotal, 3);
+                if (Math.Abs(progress - Progress) > double.Epsilon)
+                {
+                    // Console.WriteLine($"Progress\t{progress}\t{ProgressProgress}\t{ProgressBuffer}\t{ProgressTotal}");
+                    Progress = progress;
+                    this.StateHasChanged();
+                }
+            });
+        }
 
         public BaseMatFileUpload()
         {
@@ -64,13 +93,10 @@ namespace MatBlazor
             jsHelper?.Dispose();
         }
 
-        public Task WriteToStreamAsync(MatFileUploadEntry matFileUploadEntry, Stream stream)
+        public async Task WriteToStreamAsync(MatFileUploadEntry matFileUploadEntry, Stream stream)
         {
-            return Task.Run(async () =>
-            {
-                await new MatBlazorRemoteStream(Js, Ref, matFileUploadEntry, MaxMessageSize).CopyToAsync(stream);
-            });
-            
+            await new MatBlazorRemoteStreamReader(Js, Ref, matFileUploadEntry, MaxMessageSize, MaxMessageLength, this)
+                .WriteToStreamAsync(stream, CancellationToken.None);
         }
     }
 }
