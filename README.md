@@ -126,7 +126,7 @@ If you think that this project helped you or your company in any way, you can co
   - Supported types: **any**
 
 
-#### MatBlazor 2.0.5 - In Progress
+#### MatBlazor 2.0.5
 - `MatFileUpload` - inital version of component
 - Implemented: Add possibility of initial state of MatIconButton #401. Implemented `Toggled` parameter and `ToggledChanged`.
 - Fixed: Small bug with numeric up/down field #402. Overflow in numeric values.
