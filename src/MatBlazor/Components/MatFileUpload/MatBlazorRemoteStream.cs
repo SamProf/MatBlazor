@@ -23,7 +23,9 @@ namespace MatBlazor
 
     internal class MatBlazorRemoteStream : BaseMatBlazorStream
     {
-//         private readonly int _maxMessageSize;
+        private readonly int _maxMessageSize;
+
+        //         private readonly int _maxMessageSize;
 //         private readonly PreFetchingSequence<Block> _blockSequence;
 //         private Block? _currentBlock;
 //         private byte[] _currentBlockDecodingBuffer;
@@ -136,14 +138,18 @@ namespace MatBlazor
 //                 LengthBytes = lengthBytes;
 //             }
 //         }
-        public MatBlazorRemoteStream(IJSRuntime jsRuntime, ElementReference reference, MatFileUploadEntry entry)
+        public MatBlazorRemoteStream(IJSRuntime jsRuntime, ElementReference reference, MatFileUploadEntry entry,
+            int maxMessageSize)
             : base(jsRuntime, reference, entry)
         {
+            _maxMessageSize = maxMessageSize;
         }
-        
-        public override async Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+
+        public override async Task<int> ReadAsync(byte[] buffer, int offset, int count,
+            CancellationToken cancellationToken)
         {
-            var base64 = await _jsRuntime.InvokeAsync<string>("matBlazor.matFileUpload.readDataAsync",  _reference, _entry.Id, _position, count);
+            var base64 = await _jsRuntime.InvokeAsync<string>("matBlazor.matFileUpload.readDataAsync", _reference,
+                _entry.Id, _position, _maxMessageSize);
             var buffer2 = Convert.FromBase64String(base64);
             Array.Copy(buffer2, 0, buffer, offset, buffer2.Length);
             Seek(buffer2.Length, SeekOrigin.Current);

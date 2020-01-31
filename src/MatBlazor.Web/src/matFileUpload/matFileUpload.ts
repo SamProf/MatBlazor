@@ -68,7 +68,7 @@ export class MatFileUpload extends MatBlazorComponent {
         var arrayBuffer = await this.readDataAsArrayBufferAsync(entry);
         // console.log('readDataAsync2 2', arrayBuffer);
         var uint8Array = new Uint8Array(arrayBuffer, position, Math.min(count, arrayBuffer.byteLength - position));
-        var data =  uint8ToBase64()(uint8Array);
+        var data = uint8ToBase64()(uint8Array);
         // console.log('readDataAsync 3', data);
         return data;
 
@@ -83,14 +83,15 @@ export function init(ref, inputRef, componentRef) {
 
 export async function readDataAsync(ref, fileId: number, position: number, count: number): Promise<string> {
     try {
+        // console.log("readDataAsync", ref, fileId, position, count)
         var componentRef = getMatBlazorInstance<MatFileUpload>(ref);
+        // console.log("readDataAsync getMatBlazorInstance", componentRef)
         var result = await componentRef.readDataAsync(fileId, position, count);
+        // console.log("readDataAsync readDataAsync", result)
         // console.log(result);
         return result;
-    }
-    catch (e) {
-        // console
-        //     .log(e);
+    } catch (e) {
+        // console.log('readDataAsync error', e);
         throw e;
     }
 }

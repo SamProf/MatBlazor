@@ -21,10 +21,6 @@ namespace MatBlazor
         [Parameter]
         public int MaxMessageSize { get; set; } = 20 * 1024; // TODO: Use SignalR default
 
-        [Parameter]
-        public int MaxBufferSize { get; set; } = 1024 * 1024;
-
-
         MatDotNetObjectReference<BaseMatFileUpload> jsHelper;
 
         public BaseMatFileUpload()
@@ -68,9 +64,13 @@ namespace MatBlazor
             jsHelper?.Dispose();
         }
 
-        public async Task<Stream> ReadAsStreamAsync(MatFileUploadEntry matFileUploadEntry)
+        public Task WriteToStreamAsync(MatFileUploadEntry matFileUploadEntry, Stream stream)
         {
-            return new MatBlazorRemoteStream(Js, Ref, matFileUploadEntry);
+            return Task.Run(async () =>
+            {
+                await new MatBlazorRemoteStream(Js, Ref, matFileUploadEntry, MaxMessageSize).CopyToAsync(stream);
+            });
+            
         }
     }
 }
