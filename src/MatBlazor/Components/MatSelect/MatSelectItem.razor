@@ -1,0 +1,32 @@
+﻿@namespace MatBlazor
+@typeparam TValue
+@inherits BaseMatSelectItem<TValue>
+
+@base.BuildRenderTree
+
+@code
+{
+    protected override RenderFragment GetChildContent()
+    {
+        return
+            @<MatContentWrapper>
+                @if (Items != null)
+                {
+                    for (int i = 0; i < Items.Count; i++)
+                    {
+                        var value = Items[i];
+                        <MatOption Value="@i">
+                            @if (ItemTemplate == null)
+                            {
+                                @value
+                            }
+                            else
+                            {
+                                @ItemTemplate(value);
+                            }
+                        </MatOption>
+                    }
+                }
+            </MatContentWrapper>;
+    }
+}

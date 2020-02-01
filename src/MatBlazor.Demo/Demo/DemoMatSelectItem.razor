@@ -5,11 +5,11 @@
 
 <DemoContainer>
     <Content>
-        @* <MatSelectItem @bind-Value="value1" Items="@value1Items"> *@
-        @*     <ItemTemplate> *@
-        @*         <MatOption Value="@context">(@context?.Name)</MatOption> *@
-        @*     </ItemTemplate> *@
-        @* </MatSelectItem> *@
+        <MatSelectItem @bind-Value="value1" Items="@value1Items">
+            <ItemTemplate>
+                @context?.Name
+            </ItemTemplate>
+        </MatSelectItem>
 
         <span>@(value1?.Name)</span>
 
@@ -41,11 +41,11 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        @* <MatSelectItem @bind-Value=""value1"" Items=""@value1Items""> *@
-        @*     <ItemTemplate> *@
-        @*         <MatOption Value=""@context"">(@context?.Name)</MatOption> *@
-        @*     </ItemTemplate> *@
-        @* </MatSelectItem> *@
+        <MatSelectItem @bind-Value=""value1"" Items=""@value1Items"">
+            <ItemTemplate>
+                @context?.Name
+            </ItemTemplate>
+        </MatSelectItem>
 
         <span>@(value1?.Name)</span>
 
