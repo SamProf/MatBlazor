@@ -53,6 +53,7 @@ For client-side and server-side Blazor - add script section to index.html or _Ho
 
 ```html
 <script src="_content/MatBlazor/dist/matBlazor.js"></script>
+<link href="_content/MatBlazor/dist/matBlazor.css" rel="stylesheet" />
 ```
 
 
@@ -121,7 +122,12 @@ If you think that this project helped you or your company in any way, you can co
 - `MatVirtualScroll` - complete new component
 - `MatAutocomplete` - new implementation of component
 
-#### MatBlazor 2.1.0
+#### MatBlazor 2.1.0 (In progress)
+- Breaking changes - Upgrade an existing project
+  - Add `<link href="_content/MatBlazor/dist/matBlazor.css" rel="stylesheet" />` to html code
+  - Update to `.NET Core 3.2 Preview 1` libraries
+- PR: Update to .NET Core 3.2 Preview 1 #409 (Thanks to [enkodellc](https://github.com/enkodellc))
+- PR: Separation of CSS and JS resources #408 (Thanks to [RonPeters](https://github.com/RonPeters))
 - `MatFileUpload` - progress bar added, improoved performance
 
 #### MatBlazor 2.0.5
