@@ -1,24 +1,78 @@
 <DocMatSelectItem></DocMatSelectItem>
 
 
-<MatH5>Example</MatH5>
+<MatH5>Example MatSelectItem with simple array</MatH5>
 
 <DemoContainer>
     <Content>
-        <MatSelectItem @bind-Value="value1" Items="@value1Items">
+        <p>
+            <MatSelectItem @bind-Value="@value1" Items="@vlaue1Items"></MatSelectItem>
+        </p>
+        <p>
+            Selected value: @value1
+        </p>
+
+
+        @code
+        {
+            string value1 = "Grains";
+
+            string[] vlaue1Items = new[]
+            {
+                "Grains",
+                "Vegetables",
+                "Fruit",
+            };
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatSelectItem @bind-Value=""@value1"" Items=""@vlaue1Items""></MatSelectItem>
+        </p>
+        <p>
+            Selected value: @value1
+        </p>
+
+
+        @code
+        {
+            string value1 = ""Grains"";
+
+            string[] vlaue1Items = new[]
+            {
+                ""Grains"",
+                ""Vegetables"",
+                ""Fruit"",
+            };
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<MatH5>Example MatSelectItem with array</MatH5>
+
+<DemoContainer>
+    <Content>
+        <MatSelectItem @bind-Value="value3" Items="@value3Items">
             <ItemTemplate>
                 @context?.Name
             </ItemTemplate>
         </MatSelectItem>
 
-        <span>@(value1?.Name)</span>
+        <span>@(value3?.Name)</span>
 
         @code
         {
-            ItemType value1;
+            ItemType value3;
 
 
-            ItemType[] value1Items = new[]
+            ItemType[] value3Items = new[]
             {
                 new ItemType(""),
                 new ItemType("Grains"),
@@ -41,20 +95,20 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSelectItem @bind-Value=""value1"" Items=""@value1Items"">
+        <MatSelectItem @bind-Value=""value3"" Items=""@value3Items"">
             <ItemTemplate>
                 @context?.Name
             </ItemTemplate>
         </MatSelectItem>
 
-        <span>@(value1?.Name)</span>
+        <span>@(value3?.Name)</span>
 
         @code
         {
-            ItemType value1;
+            ItemType value3;
 
 
-            ItemType[] value1Items = new[]
+            ItemType[] value3Items = new[]
             {
                 new ItemType(""""),
                 new ItemType(""Grains""),
