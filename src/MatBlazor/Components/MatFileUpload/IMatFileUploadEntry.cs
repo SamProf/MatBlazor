@@ -13,9 +13,6 @@ namespace MatBlazor
         long Size { get; }
 
         string Type { get; }
-
-        Task<Stream> ReadAsStreamAsync();
-
-        // event EventHandler OnDataRead;
+        Task WriteToStreamAsync(Stream stream);
     }
 }

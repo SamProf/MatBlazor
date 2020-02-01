@@ -105,15 +105,6 @@ If you think that this project helped you or your company in any way, you can co
 ## News
 
 ### Roadmap
-
-#### MatBlazor 2.5.0 (In progress ~ January - February 2020)
-- `MatTable` - complete new component
-
-#### MatBlazor 2.2.0 (In progress ~ January 2020)
-- `MatAutocomplete` - new implementation of component
-- `MatDatePicker` - improvements
-
-#### MatBlazor 2.1.0 (In progress ~ January 2020)
 - MatSelectItem`<TValue>`
   - Populate options using Items collections and optional `ItemTemplate`
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
@@ -124,12 +115,17 @@ If you think that this project helped you or your company in any way, you can co
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
   - Supports Blazor validation using `EditContext`
   - Supported types: **any**
+- `MatDatePicker` - improvements
+- `MatTable` - complete new component
+- `MatTreeView` - complete new component
+- `MatVirtualScroll` - complete new component
+- `MatAutocomplete` - new implementation of component
 
-#### MatBlazor 2.0.5 (In progress ~ January 2020)
-- MatFileUpload
+#### MatBlazor 2.1.0
+- `MatFileUpload` - progress bar added, improoved performance
 
-
-#### MatBlazor 2.0.2 - In Progress
+#### MatBlazor 2.0.5
+- `MatFileUpload` - inital version of component
 - Implemented: Add possibility of initial state of MatIconButton #401. Implemented `Toggled` parameter and `ToggledChanged`.
 - Fixed: Small bug with numeric up/down field #402. Overflow in numeric values.
 

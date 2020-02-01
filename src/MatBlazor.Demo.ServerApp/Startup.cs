@@ -31,12 +31,18 @@ namespace MatBlazor.Demo.ServerApp
         {
             services.AddScoped<HttpClient>();
             services.AddRazorPages();
-            services.AddServerSideBlazor().AddCircuitOptions(o => { o.DetailedErrors = true; });
-            //                .AddSignalR().AddHubOptions<ComponentHub>(o =>
-            //            {
-            //                o.MaximumReceiveMessageSize = 1024 * 1024 * 100;
-            //            });
-            //services.AddServerSideBlazor();
+            services.AddServerSideBlazor(c =>
+            {
+                //c.MaxBufferedUnacknowledgedRenderBatches = Int32.MaxValue;
+                c.DetailedErrors = true;
+            });
+            services.AddSignalR(c =>
+            {
+                c.EnableDetailedErrors = true;
+                c.StreamBufferCapacity = Int32.MaxValue;
+                c.MaximumReceiveMessageSize = long.MaxValue;
+                
+            });
 
 
 
@@ -82,16 +88,18 @@ namespace MatBlazor.Demo.ServerApp
             app.UseRouting();
 
 
-//            app.UseSignalR(route => route.MapHub<ComponentHub>(ComponentHub.DefaultPath, o =>
-//            {
-//                o.ApplicationMaxBufferSize = 1024 * 1024 * 100; // larger size
-//                o.TransportMaxBufferSize = 1024 * 1024 * 100; // larger size
-//            }));
+          
 
 
+            
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapBlazorHub();
+                
+                endpoints.MapBlazorHub(c =>
+                {
+                    c.ApplicationMaxBufferSize = long.MaxValue;
+                    c.TransportMaxBufferSize = long.MaxValue;
+                });
                 endpoints.MapFallbackToPage("/_Host");
             });
         }

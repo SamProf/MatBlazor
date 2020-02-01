@@ -1,16 +1,33 @@
-﻿using Microsoft.AspNetCore.Blazor.Hosting;
+﻿using MatBlazor.Demo.Models;
+using Microsoft.AspNetCore.Blazor.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
+using Toolbelt.Blazor.Extensions.DependencyInjection;
 
 namespace MatBlazor.Demo.ClientApp
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
-        }
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.RootComponents.Add<App>("app");
 
-        public static IWebAssemblyHostBuilder CreateHostBuilder(string[] args) =>
-            BlazorWebAssemblyHost.CreateDefaultBuilder()
-                .UseBlazorStartup<Startup>();
+            builder.Services.AddSingleton<AppModel>();
+            builder.Services.AddScoped<UserAppModel>();
+            builder.Services.AddMatToaster(config =>
+            {
+                //example MatToaster customizations
+                config.PreventDuplicates = false;
+                config.NewestOnTop = true;
+                config.ShowCloseButton = true;
+            });
+
+            await builder
+            .Build()
+            .UseLocalTimeZone()
+            .RunAsync();
+
+        }
     }
 }

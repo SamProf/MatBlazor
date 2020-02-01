@@ -9,12 +9,12 @@ namespace MatBlazor
     {
         private BaseMatFileUpload Owner { get; set; }
         
-        public Task<Stream> ReadAsStreamAsync()
+        public async Task WriteToStreamAsync(Stream stream)
         {
-            return Owner.ReadAsStreamAsync(this);
+            await Owner.WriteToStreamAsync(this, stream);
         }
 
-
+        
         // public event EventHandler OnDataRead;
 
         public int Id { get; set; }
