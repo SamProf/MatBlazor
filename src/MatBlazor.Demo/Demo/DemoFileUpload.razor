@@ -68,54 +68,48 @@
 
             async Task FilesReadyForContent(IMatFileUploadEntry[] files)
             {
-                Task.Run(async () =>
+                try
                 {
-                    try
+                    var file = files.FirstOrDefault();
+                    if (file == null)
                     {
-                        var file = files.FirstOrDefault();
-                        if (file == null)
-                        {
-                            return;
-                        }
+                        return;
+                    }
 
-                        using (var stream = new MemoryStream())
+                    using (var stream = new MemoryStream())
+                    {
+                        var sw = Stopwatch.StartNew();
+                        await file.WriteToStreamAsync(stream);
+                        sw.Stop();
+                        if (stream.Length > 1024 * 1024)
                         {
-                            var sw = Stopwatch.StartNew();
-                            await file.WriteToStreamAsync(stream);
-                            sw.Stop();
-                            if (stream.Length > 1024 * 1024)
+                            fileContent = "";
+                            fileContent += $"Name:\t{file.Name}\r\n";
+                            fileContent += $"Type:\t{file.Type}\r\n";
+                            fileContent += $"LastModified:\t{file.LastModified}\r\n";
+                            fileContent += $"Size:\t{file.Size}\r\n";
+                            fileContent += $"Time:\t{sw.Elapsed}\r\n";
+                            fileContent += $"Speed:\t{(stream.Length / sw.Elapsed.TotalSeconds):N0}  b/s\r\n";
+                        }
+                        else
+                        {
+                            stream.Seek(0, SeekOrigin.Begin);
+                            using (var reader = new StreamReader(stream))
                             {
-                                fileContent = "";
-                                fileContent += $"Name:\t{file.Name}\r\n";
-                                fileContent += $"Type:\t{file.Type}\r\n";
-                                fileContent += $"LastModified:\t{file.LastModified}\r\n";
-                                fileContent += $"Size:\t{file.Size}\r\n";
-                                fileContent += $"Time:\t{sw.Elapsed}\r\n";
-                                fileContent += $"Speed:\t{(stream.Length / sw.Elapsed.TotalSeconds):N0}  b/s\r\n";
-                            }
-                            else
-                            {
-                                stream.Seek(0, SeekOrigin.Begin);
-                                using (var reader = new StreamReader(stream))
-                                {
-                                    fileContent = await reader.ReadToEndAsync();
-                                }
+                                fileContent = await reader.ReadToEndAsync();
                             }
                         }
                     }
+                }
 
-                    catch (Exception e)
-                    {
-                        fileContent = $"Error:\r\n{e.Message}\r\n{e.StackTrace}";
-                    }
-                    finally
-                    {
-                        await InvokeAsync(async () =>
-                        {
-                            this.StateHasChanged();
-                        });
-                    }
-                });
+                catch (Exception e)
+                {
+                    fileContent = $"Error:\r\n{e.Message}\r\n{e.StackTrace}";
+                }
+                finally
+                {
+                    await InvokeAsync(async () => { this.StateHasChanged(); });
+                }
             }
         }
 
@@ -135,7 +129,11 @@
             {
                 try
                 {
-                    var file = files.First();
+                    var file = files.FirstOrDefault();
+                    if (file == null)
+                    {
+                        return;
+                    }
 
                     using (var stream = new MemoryStream())
                     {
@@ -169,7 +167,7 @@
                 }
                 finally
                 {
-                    this.StateHasChanged();
+                    await InvokeAsync(async () => { this.StateHasChanged(); });
                 }
             }
         }
