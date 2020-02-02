@@ -44,7 +44,7 @@ namespace MatBlazor.DevUtils.Core
                     }
 
 
-                    if (type == typeof(MatCheckbox<>))
+                    if (type == typeof(MatSelectItem<>))
                     {
 
                     }

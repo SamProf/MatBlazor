@@ -20,4 +20,8 @@
   <ItemGroup>
     <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Doc" />
+  </ItemGroup>
 </Project>

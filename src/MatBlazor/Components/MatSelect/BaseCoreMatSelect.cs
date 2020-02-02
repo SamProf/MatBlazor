@@ -128,44 +128,12 @@ namespace MatBlazor
         [Parameter]
         public bool HideDropDownIcon { get; set; }
 
-//        [Parameter]
-//        public string Value
-//        {
-//            get => _value;
-//            set
-//            {
-//                if (value != _value)
-//                {
-//                    _value = value;
-//                    CallAfterRender(async () => await JsInvokeAsync<object>("matBlazor.matSelect.setValue", Ref, value));
-//                    ValueChanged.InvokeAsync(value);
-//                }
-//            }
-//        }
-//
-//        [Parameter]
-//        public EventCallback<string> ValueChanged { get; set; }
+
 
         [Parameter]
         public EventCallback<MouseEventArgs> IconOnClick { get; set; }
 
-        [Parameter]
-        public EventCallback<FocusEventArgs> OnFocus { get; set; }
-
-        [Parameter]
-        public EventCallback<FocusEventArgs> OnFocusOut { get; set; }
-
-        [Parameter]
-        public EventCallback<KeyboardEventArgs> OnKeyPress { get; set; }
-
-        [Parameter]
-        public EventCallback<KeyboardEventArgs> OnKeyDown { get; set; }
-
-        [Parameter]
-        public EventCallback<KeyboardEventArgs> OnKeyUp { get; set; }
-
-        [Parameter]
-        public EventCallback<ChangeEventArgs> OnInput { get; set; }
+      
 
         public MatBlazorSwitchT<TKey> SwitchTypeKey => switchTK;
     }
