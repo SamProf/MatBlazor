@@ -1,0 +1,19 @@
+﻿@namespace MatBlazor
+@inherits BaseMatDomComponent
+
+<tr class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" id="@Id" @attributes="@Attributes">
+    @ChildContent
+</tr>
+
+
+@code
+{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Add("mdc-data-table__row");
+    }
+}
