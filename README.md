@@ -93,10 +93,10 @@ If you think that this project helped you or your company in any way, you can co
 
 ### Backers:
 - Oyvind Habberstad
+- SmartView Systems
 - [Apply Solutions GmbH](https://www.apply-solutions.com/)
 - Radu Tomuleasa
 - [Maurizio Verde](https://github.com/MaurizioVerde)
-- SmartView Systems
 - Yevhen Shmakov
 - Jacobus Terhorst
 - Xiao Song

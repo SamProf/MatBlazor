@@ -31,6 +31,7 @@ import * as utils from './utils/utils';
 import * as matHidden from './matHidden/matHidden';
 import * as matAnchor from './matAnchor/matAnchor';
 import * as matFileUpload from './matFileUpload/matFileUpload';
+import * as matDataTable from './matTable/matDataTable';
 
 
 window.matBlazor = {
@@ -65,6 +66,7 @@ window.matBlazor = {
   matHidden,
   matAnchor,
   matFileUpload,
+  matDataTable,
   utils,
 };
 
