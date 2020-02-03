@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatDataTable<TItem> : BaseMatDomComponent
+    public class BaseMatDataTable : BaseMatDomComponent
     {
         public BaseMatDataTable()
         {
@@ -16,7 +16,7 @@ namespace MatBlazor
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        [Parameter]
-        public IReadOnlyList<TItem> Items { get; set; }
+        // [Parameter]
+        // public IReadOnlyList<TItem> Items { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿@namespace MatBlazor
-@typeparam TItem
-@inherits BaseMatDataTable<TItem>
+@* @typeparam TItem *@
+@inherits BaseMatDataTable
 
-<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id @attributes="@Attributes">
+<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id" @attributes="@Attributes">
     <table class="mdc-data-table__table">
         @ChildContent
     </table>

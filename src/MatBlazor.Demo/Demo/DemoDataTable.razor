@@ -3,17 +3,24 @@
 <h5 class="mat-h5">Example</h5>
 <DemoContainer>
     <Content>
-        <MatDataTable Items="@cars" class="mat-elevation-z5">
-            @* <MatTableHeader> *@
-            @*     <th>Name</th> *@
-            @*     <th>Price</th> *@
-            @*     <th>Horsepower</th> *@
-            @* </MatTableHeader> *@
-            @* <MatTableRow> *@
-            @*     <td>@context.Name</td> *@
-            @*     <td>@String.Format("${0:f2}", @context.Price)</td> *@
-            @*     <td>@context.Horsepower</td> *@
-            @* </MatTableRow> *@
+        <MatDataTable>
+            <MatDataTableHeader>
+                <MatDataTableHeaderCell>Name</MatDataTableHeaderCell>
+                <MatDataTableHeaderCell>Price</MatDataTableHeaderCell>
+                <MatDataTableHeaderCell>Horse Power</MatDataTableHeaderCell>
+            </MatDataTableHeader>
+
+            <MatDataTableContent>
+                @foreach (var car in cars)
+                {
+                    <MatDataTableRow>
+                        <MatDataTableCell>@car.Name</MatDataTableCell>
+                        <MatDataTableCell>@car.Price</MatDataTableCell>
+                        <MatDataTableCell>@car.Horsepower</MatDataTableCell>
+                    </MatDataTableRow>
+                }
+            </MatDataTableContent>
+
         </MatDataTable>
 
         @code
@@ -48,7 +55,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTable Items=""@cars"" class=""mat-elevation-z5"">
             <MatTableHeader>
                 <th>Name</th>
@@ -92,6 +99,7 @@
 
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
