@@ -3,14 +3,8 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatSelectItem<TValue> : CoreMatSelect<TValue, int>
+    public class BaseMatSelectItem<TValue> : CoreMatSelectValue<TValue, TValue>
     {
-        [Parameter]
-        public IReadOnlyList<TValue> Items { get; set; }
-
-        [Parameter]
-        public RenderFragment<TValue> ItemTemplate { get; set; }
-
         protected override int GetKeyFromValue(TValue value)
         {
             return Items.IndexOf(value);

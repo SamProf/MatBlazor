@@ -106,18 +106,13 @@ If you think that this project helped you or your company in any way, you can co
 ## News
 
 ### Roadmap
-- MatSelectValue`<TItem, TValue> `
-  - Populate options using Items collections and optional `ItemTemplate` using `ValueSelector`
-  - Generic type supports: `TValue` parameter should be defined if he is not inferred.
-  - Supports Blazor validation using `EditContext`
-  - Supported types: **any**
 - `MatDatePicker` - improvements
 - `MatTable` - complete new component
 - `MatTreeView` - complete new component
 - `MatVirtualScroll` - complete new component
 - `MatAutocomplete` - new implementation of component
 
-#### MatBlazor 2.1.0 (In progress)
+#### MatBlazor 2.1.0
 - Breaking changes - Upgrade an existing project
   - Add `<link href="_content/MatBlazor/dist/matBlazor.css" rel="stylesheet" />` to html code
   - Update to `.NET Core 3.2 Preview 1` libraries
@@ -128,6 +123,12 @@ If you think that this project helped you or your company in any way, you can co
   - Generic type supports: `TValue` parameter should be defined if he is not inferred.
   - Supports Blazor validation using `EditContext`
   - Supported types: **any**  
+- MatSelectValue`<TItem, TValue>`
+  - Populate options using Items collections and optional `ItemTemplate` using `ValueSelector`
+  - Generic type supports: `TValue` parameter should be defined if he is not inferred.
+  - Supports Blazor validation using `EditContext`
+  - Supported types: **any**
+
 
 - `MatFileUpload` - progress bar added, improoved performance
 
