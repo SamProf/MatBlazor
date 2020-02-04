@@ -6,8 +6,8 @@
         <MatDataTable>
             <MatDataTableHeader>
                 <MatDataTableHeaderCell>Name</MatDataTableHeaderCell>
-                <MatDataTableHeaderCell>Price</MatDataTableHeaderCell>
-                <MatDataTableHeaderCell>Horse Power</MatDataTableHeaderCell>
+                <MatDataTableHeaderCell Numeric="true">Price</MatDataTableHeaderCell>
+                <MatDataTableHeaderCell Numeric="true">Horse Power</MatDataTableHeaderCell>
             </MatDataTableHeader>
 
             <MatDataTableContent>
@@ -15,8 +15,8 @@
                 {
                     <MatDataTableRow>
                         <MatDataTableCell>@car.Name</MatDataTableCell>
-                        <MatDataTableCell>@car.Price</MatDataTableCell>
-                        <MatDataTableCell>@car.Horsepower</MatDataTableCell>
+                        <MatDataTableCell Numeric="true">@car.Price</MatDataTableCell>
+                        <MatDataTableCell Numeric="true">@car.Horsepower</MatDataTableCell>
                     </MatDataTableRow>
                 }
             </MatDataTableContent>
@@ -55,19 +55,26 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatTable Items=""@cars"" class=""mat-elevation-z5"">
-            <MatTableHeader>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Horsepower</th>
-            </MatTableHeader>
-            <MatTableRow>
-                <td>@context.Name</td>
-                <td>@String.Format(""${0:f2}"", @context.Price)</td>
-                <td>@context.Horsepower</td>
-            </MatTableRow>
-        </MatTable>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatDataTable>
+            <MatDataTableHeader>
+                <MatDataTableHeaderCell>Name</MatDataTableHeaderCell>
+                <MatDataTableHeaderCell Numeric=""true"">Price</MatDataTableHeaderCell>
+                <MatDataTableHeaderCell Numeric=""true"">Horse Power</MatDataTableHeaderCell>
+            </MatDataTableHeader>
+
+            <MatDataTableContent>
+                @foreach (var car in cars)
+                {
+                    <MatDataTableRow>
+                        <MatDataTableCell>@car.Name</MatDataTableCell>
+                        <MatDataTableCell Numeric=""true"">@car.Price</MatDataTableCell>
+                        <MatDataTableCell Numeric=""true"">@car.Horsepower</MatDataTableCell>
+                    </MatDataTableRow>
+                }
+            </MatDataTableContent>
+
+        </MatDataTable>
 
         @code
         {
@@ -99,7 +106,6 @@
 
         }
 
-    ")>
-        </BlazorFiddle>
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
