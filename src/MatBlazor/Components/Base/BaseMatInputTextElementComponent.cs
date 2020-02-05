@@ -6,11 +6,9 @@ namespace MatBlazor
 {
     public abstract class BaseMatInputTextElementComponent<T> : BaseMatInputElementComponent<T>
     {
-
-
         private bool _previousParsingAttemptFailed;
         private ValidationMessageStore _parsingValidationMessages;
-        
+
 
         /// <summary>
         /// Gets or sets the current value of the input, represented as a string.

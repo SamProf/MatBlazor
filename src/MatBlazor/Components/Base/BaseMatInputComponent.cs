@@ -23,6 +23,9 @@ namespace MatBlazor
         protected BaseMatInputComponent()
         {
         }
+        
+        [Parameter]
+        public bool ValidationDisabled { get; set; }
 
 
         [CascadingParameter]
@@ -109,33 +112,38 @@ namespace MatBlazor
         {
             parameters.SetParameterProperties(this);
 
-            if (EditContext == null)
-            {
-                // This is the first run
-                // Could put this logic in OnInit, but its nice to avoid forcing people who override OnInit to call base.OnInit()
 
-                if (CascadedEditContext != null)
+            if (!ValidationDisabled)
+            {
+                if (EditContext == null)
                 {
-                    if (ValueExpression == null)
+                    // This is the first run
+                    // Could put this logic in OnInit, but its nice to avoid forcing people who override OnInit to call base.OnInit()
+
+                    if (CascadedEditContext != null)
                     {
-                        throw new InvalidOperationException($"{GetType()} requires a value for the 'ValueExpression' " +
-                                                            $"parameter. Normally this is provided automatically when using 'bind-Value'.");
+                        if (ValueExpression == null)
+                        {
+                            throw new InvalidOperationException(
+                                $"{GetType()} requires a value for the 'ValueExpression' " +
+                                $"parameter. Normally this is provided automatically when using 'bind-Value'.");
+                        }
+
+                        EditContext = CascadedEditContext;
+                        FieldIdentifier = FieldIdentifier.Create(ValueExpression);
+                        _nullableUnderlyingType = Nullable.GetUnderlyingType(typeof(T));
                     }
-
-                    EditContext = CascadedEditContext;
-                    FieldIdentifier = FieldIdentifier.Create(ValueExpression);
-                    _nullableUnderlyingType = Nullable.GetUnderlyingType(typeof(T));
                 }
-            }
-            else if (CascadedEditContext != EditContext)
-            {
-                // Not the first run
+                else if (CascadedEditContext != EditContext)
+                {
+                    // Not the first run
 
-                // We don't support changing EditContext because it's messy to be clearing up state and event
-                // handlers for the previous one, and there's no strong use case. If a strong use case
-                // emerges, we can consider changing this.
-                throw new InvalidOperationException($"{GetType()} does not support changing the " +
-                                                    $"{nameof(EditContext)} dynamically.");
+                    // We don't support changing EditContext because it's messy to be clearing up state and event
+                    // handlers for the previous one, and there's no strong use case. If a strong use case
+                    // emerges, we can consider changing this.
+                    throw new InvalidOperationException($"{GetType()} does not support changing the " +
+                                                        $"{nameof(EditContext)} dynamically.");
+                }
             }
 
             // For derived components, retain the usual lifecycle with OnInit/OnParametersSet/etc.
