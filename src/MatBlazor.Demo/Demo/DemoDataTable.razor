@@ -15,7 +15,10 @@
                 {
                     <MatDataTableRow>
                         <MatDataTableCell>@car.Name</MatDataTableCell>
-                        <MatDataTableCell Numeric="true">@car.Price</MatDataTableCell>
+                        <MatDataTableCell Numeric="true">
+                            @car.Price
+                            <MatButton OnClick="@(e => car.Price = car.Price + 1)">Click</MatButton>
+                        </MatDataTableCell>
                         <MatDataTableCell Numeric="true">@car.Horsepower</MatDataTableCell>
                     </MatDataTableRow>
                 }
@@ -68,7 +71,10 @@
                 {
                     <MatDataTableRow>
                         <MatDataTableCell>@car.Name</MatDataTableCell>
-                        <MatDataTableCell Numeric=""true"">@car.Price</MatDataTableCell>
+                        <MatDataTableCell Numeric=""true"">
+                            @car.Price
+                            <MatButton OnClick=""@(e => car.Price = car.Price + 1)"">Click</MatButton>
+                        </MatDataTableCell>
                         <MatDataTableCell Numeric=""true"">@car.Horsepower</MatDataTableCell>
                     </MatDataTableRow>
                 }
@@ -106,6 +112,35 @@
 
         }
 
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">Example 2</h5>
+<DemoContainer>
+    <Content>
+        <MatDataTable>
+            <MatDataTableItems Items="@cars">
+               
+                    <MatDataTableColumn Header="Name"></MatDataTableColumn>
+                    <MatDataTableColumn Header="Price"></MatDataTableColumn>
+                    <MatDataTableColumn Header="HP"></MatDataTableColumn>
+               
+            </MatDataTableItems>
+        </MatDataTable>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatDataTable>
+            <MatDataTableItems Items=""@cars"">
+                <Columns Context=""t"">
+                    <MatDataTableColumn Header=""Name"">@t.Name</MatDataTableColumn>
+                    <MatDataTableColumn Header=""Price"">@t.Price</MatDataTableColumn>
+                    <MatDataTableColumn Header=""HP"">@t.Horsepower</MatDataTableColumn>
+                </Columns>
+            </MatDataTableItems>
+        </MatDataTable>
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

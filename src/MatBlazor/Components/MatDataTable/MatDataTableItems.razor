@@ -1,0 +1,56 @@
+﻿@namespace MatBlazor
+@typeparam TItem
+
+<CascadingValue Value="@UpdateColumn" TValue="Action<MatDataTableColumn>">
+    @ChildContent
+</CascadingValue>
+
+@* <MatDataTableHeader> *@
+@*     <CascadingValue Value="@MatDataTableRenderMode.Header"> *@
+@*         @Columns(default(TItem)) *@
+@*     </CascadingValue> *@
+@* </MatDataTableHeader> *@
+
+
+@* <CascadingValue Value="@MatDataTableRenderMode.Row"> *@
+@*     <MatDataTableContent> *@
+@*         @foreach (var item in Items) *@
+@*         { *@
+@*             <MatDataTableRow> *@
+@*                 @Columns(item) *@
+@*             </MatDataTableRow> *@
+@*         } *@
+@*     </MatDataTableContent> *@
+@* </CascadingValue> *@
+
+@code
+{
+    [Parameter]
+    public IReadOnlyList<TItem> Items { get; set; }
+
+    //
+    // [Parameter]
+    // public RenderFragment<TItem> Columns { get; set; }    //
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    void UpdateColumn(MatDataTableColumn column)
+    {
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+    }
+}

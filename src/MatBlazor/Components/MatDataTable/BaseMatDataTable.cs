@@ -5,6 +5,8 @@ namespace MatBlazor
 {
     public class BaseMatDataTable : BaseMatDomComponent
     {
+        internal IMatDataTableItems Items { get; set; }
+
         public BaseMatDataTable()
         {
             ClassMapper

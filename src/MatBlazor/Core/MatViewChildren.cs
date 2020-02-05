@@ -1,0 +1,52 @@
+﻿using System;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Rendering;
+using Microsoft.AspNetCore.Components.RenderTree;
+
+namespace MatBlazor
+{
+    public class MatViewChildren<TSelect> : ComponentBase where TSelect : IComponent
+    {
+        private RenderTreeFrame[] frames;
+
+        [Parameter]
+        public RenderFragment ChildContent { get; set; }
+
+
+        protected override void BuildRenderTree(RenderTreeBuilder builder)
+        {
+            if (ChildContent != null)
+            {
+                builder.AddContent(0, this.ChildContent);
+            }
+        }
+
+        protected override void OnInitialized()
+        {
+            base.OnInitialized();
+        }
+
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            base.OnAfterRender(firstRender);
+        }
+
+
+        // public void Attach(RenderHandle renderHandle)
+        // {
+        //     renderHandle.Render(builder =>
+        //     {
+        //         ChildContent?.Invoke(builder);
+        //         
+        //     });
+        // }
+        //
+        // public async Task SetParametersAsync(ParameterView parameters)
+        // {
+        //     ChildContent = parameters.GetValueOrDefault(nameof(ChildContent), ChildContent);
+        // }
+    }
+}
