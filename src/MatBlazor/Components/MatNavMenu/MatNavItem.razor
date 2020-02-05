@@ -13,7 +13,7 @@
     else
     {
         <li class="mdc-nav-li" @ref="Ref" @attributes="Attributes" Id="@Id">
-            <NavLink class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" href="@Href" @onclick="OnClickHandler" Match="NavLinkMatch.All" ActiveClass="mdc-list-item--selected">
+            <NavLink class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" href="@Href" @onclick="OnClickHandler" Match="NavLinkMatch.Prefix" ActiveClass="mdc-list-item--selected">
                 @ChildContent
             </NavLink>
         </li>
