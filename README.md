@@ -114,7 +114,9 @@ If you think that this project helped you or your company in any way, you can co
 #### MatBlazor 2.1.1
 - MatSelect, MatSelectItem, MatSelectValue components supports EditContext
 - ValidationDisabled parameter added to input components
-- 
+- PR: Update MatBlazor Demo Menu #414 (Thanks to [americanslon](https://github.com/americanslon))
+- PR: Updated prerequisites #413 (Thanks to [NPadrutt](https://github.com/NPadrutt))
+
 #### MatBlazor 2.1.0
 - Breaking changes - Upgrade an existing project
   - Add `<link href="_content/MatBlazor/dist/matBlazor.css" rel="stylesheet" />` to html code
