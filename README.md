@@ -106,12 +106,16 @@ If you think that this project helped you or your company in any way, you can co
 ## News
 
 ### Roadmap
-- `MatDatePicker` - improvements
 - `MatTable` - complete new component
+- `MatDatePicker` - improvements
 - `MatTreeView` - complete new component
 - `MatVirtualScroll` - complete new component
 - `MatAutocomplete` - new implementation of component
 
+#### MatBlazor 2.1.1
+- MatSelect, MatSelectItem, MatSelectValue components supports EditContext
+- ValidationDisabled parameter added to input components
+- 
 #### MatBlazor 2.1.0
 - Breaking changes - Upgrade an existing project
   - Add `<link href="_content/MatBlazor/dist/matBlazor.css" rel="stylesheet" />` to html code
