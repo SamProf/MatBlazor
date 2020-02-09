@@ -130,6 +130,29 @@
                 </Columns>
             </MatDataTableItems>
         </MatDataTable>
+
+
+        <div>
+            <MatPaginator Length="100" @bind-PageSize="@pageSize" @bind-PageIndex="@pageIndex"></MatPaginator>
+        </div>
+
+        <div>
+            pageSize : @pageSize
+        </div>
+
+        <div>
+            pageIndex : @pageIndex
+        </div>
+
+
+        @code
+        {
+            int pageSize = 25;
+            int pageIndex = 0;
+
+        }
+
+
     </Content>
     <SourceContent>
         <BlazorFiddle Template="MatBlazor" Code=@(@"
