@@ -511,11 +511,6 @@
             WARNING: In Development progress
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatTabGroup">
-            <summary>
-            MatTabGroup organize content into separate views where only one view can be visible at a time. Each tab's label is shown in the tab header and the active tab's label is designated with the animated ink bar.
-            </summary>
-        </member>
         <member name="T:MatBlazor.BaseMatTable">
             <summary>
             Mat Table display a table data.
@@ -594,6 +589,11 @@
         <member name="T:MatBlazor.BaseTableRow">
             <summary>
             Mat Table Row display a table row   
+            </summary>
+        </member>
+        <member name="T:MatBlazor.BaseMatTabGroup">
+            <summary>
+            MatTabGroup organize content into separate views where only one view can be visible at a time. Each tab's label is shown in the tab header and the active tab's label is designated with the animated ink bar.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatInputTextComponent`1.ReadOnly">

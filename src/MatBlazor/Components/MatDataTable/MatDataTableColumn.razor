@@ -1,49 +1,36 @@
 ﻿@namespace MatBlazor
 
-<MatDataTableHeaderCell>@Header</MatDataTableHeaderCell>
 
 
-@* @if (Mode == MatDataTableRenderMode.Header) *@
-@* { *@
-@*      *@
-@* } *@
-@* else if (Mode == MatDataTableRenderMode.Row) *@
-@* { *@
-@*     <MatDataTableCell>@ChildContent</MatDataTableCell> *@
-@* } *@
+@if (Mode == MatDataTableRenderMode.Header)
+{
+    <MatDataTableHeaderCell>
+        @if (HeaderTemplate != null)
+        {
+            @HeaderTemplate
+        }
+        else
+        {
+            @Header
+        }
+    </MatDataTableHeaderCell>
+}
+else if (Mode == MatDataTableRenderMode.Row)
+{
+    <MatDataTableCell>@ChildContent</MatDataTableCell>
+}
 
 @code
 {
+    [CascadingParameter()]
+    public MatDataTableRenderMode Mode { get; set; }
+
     [Parameter]
     public RenderFragment ChildContent { get; set; }
 
-
-    [CascadingParameter]
-    public Action<MatDataTableColumn> UpdateParent {
-        get { return updateParent; }
-        set
-        {
-            updateParent = value;
-        }
-    }
-
-    private Action<MatDataTableColumn> updateParent;
-
     [Parameter]
     public string Header { get; set; }
-    
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-    }
 
-    protected override void OnParametersSet()
-    {
-        base.OnParametersSet();
-    }
-    
-    protected override async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
-    }
+    [Parameter]
+    public RenderFragment HeaderTemplate { get; set; }
 }

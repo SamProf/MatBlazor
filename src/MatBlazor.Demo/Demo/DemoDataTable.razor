@@ -58,7 +58,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatDataTable>
             <MatDataTableHeader>
                 <MatDataTableHeaderCell>Name</MatDataTableHeaderCell>
@@ -112,7 +112,8 @@
 
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -122,16 +123,16 @@
     <Content>
         <MatDataTable>
             <MatDataTableItems Items="@cars">
-               
-                    <MatDataTableColumn Header="Name"></MatDataTableColumn>
-                    <MatDataTableColumn Header="Price"></MatDataTableColumn>
-                    <MatDataTableColumn Header="HP"></MatDataTableColumn>
-               
+                <Columns>
+                    <MatDataTableColumn Header="Name">@context.Name</MatDataTableColumn>
+                    <MatDataTableColumn Header="Price">@context.Price</MatDataTableColumn>
+                    <MatDataTableColumn Header="HP">@context.Horsepower</MatDataTableColumn>
+                </Columns>
             </MatDataTableItems>
         </MatDataTable>
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatDataTable>
             <MatDataTableItems Items=""@cars"">
                
@@ -141,6 +142,7 @@
                
             </MatDataTableItems>
         </MatDataTable>
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
