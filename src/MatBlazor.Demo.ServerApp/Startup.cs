@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EmbeddedBlazorContent;
 using MatBlazor.Demo.Models;
+using MatBlazor.Demo.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Hosting;
@@ -48,6 +49,7 @@ namespace MatBlazor.Demo.ServerApp
 
             services.AddSingleton<AppModel>();
             services.AddScoped<UserAppModel>();
+            services.AddScoped<DemoUserService>();
             services.AddMatToaster(config =>
             {
                 //example MatToaster customizations

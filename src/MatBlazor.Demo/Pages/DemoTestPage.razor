@@ -1,17 +1,45 @@
 ﻿@page "/Test"
+@using MatBlazor.Demo.Services
 @using Microsoft.AspNetCore.Components
 @inject IJSRuntime JsRuntime;
+@inject DemoUserService service;
 
 
-<p>
-    <MatNumericUpDownField
-        @bind-Value=@value
-         Minimum="0" Maximum="8">
-    </MatNumericUpDownField>
-</p>
+
+<h1>Selected Tab: @service.ActiveTabIndex</h1>
+
+<MatTabGroup @bind-ActiveIndex="@service.ActiveTabIndex">
+    <MatTab Label="First">
+        First Content
+    </MatTab>
+    <MatTab Label="Second">
+        Second Content
+    </MatTab>
+    <MatTab>
+        <LabelContent>
+            Third <MatIcon Icon="@MatIconNames.Close"></MatIcon>
+        </LabelContent>
+        <ChildContent>
+            Third Content
+        </ChildContent>
+    </MatTab>
+
+</MatTabGroup>
 
 
 @code
 {
-    int value = 0;
+    // int activeTab = 0;
+    //
+    // int ActiveTab
+    // {
+    //     get
+    //     {
+    //         return activeTab;
+    //     }
+    //     set
+    //     {
+    //         activeTab = value;
+    //     }
+    // }
 }

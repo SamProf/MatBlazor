@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Blazor.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
+using MatBlazor.Demo.Services;
 using Toolbelt.Blazor.Extensions.DependencyInjection;
 
 namespace MatBlazor.Demo.ClientApp
@@ -15,6 +16,7 @@ namespace MatBlazor.Demo.ClientApp
 
             builder.Services.AddSingleton<AppModel>();
             builder.Services.AddScoped<UserAppModel>();
+            builder.Services.AddScoped<DemoUserService>();
             builder.Services.AddMatToaster(config =>
             {
                 //example MatToaster customizations
