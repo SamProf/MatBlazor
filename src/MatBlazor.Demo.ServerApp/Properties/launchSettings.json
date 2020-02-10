@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "Test2",
+      "launchUrl": "Paginator",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

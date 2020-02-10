@@ -69,7 +69,8 @@
             Layout = new NavGroup("Layout", 3),
             ButtonsAndIndicators = new NavGroup("Buttons & Indicators", 4),
             PopupsAndModals = new NavGroup("Popups & Modals", 5),
-            Other = new NavGroup("Other", 6),
+            DataTable = new NavGroup("Data Table", 6),
+            Other = new NavGroup("Other", 10),
         };
         var navItems = new[]
         {
@@ -250,12 +251,6 @@
             },
             new NavItem()
             {
-                Name = "Table",
-                Url = "Table",
-                Group = groups.Layout
-            },
-            new NavItem()
-            {
                 Name = "Tab",
                 Url = "Tab",
                 Group = groups.Layout
@@ -322,6 +317,18 @@
             },
             new NavItem()
             {
+                Name = "Table",
+                Url = "Table",
+                Group = groups.DataTable
+            },
+            new NavItem()
+            {
+                Name = "Paginator",
+                Url = "Paginator",
+                Group = groups.DataTable
+            },
+            new NavItem()
+            {
                 Name = "BaseComponent",
                 Url = "BaseComponent",
                 Group = groups.Other
@@ -332,12 +339,12 @@
                 Url = "ForwardRef",
                 Group = groups.Other
             },
-            new NavItem()
-            {
-                Name = "Test",
-                Url = "Test",
-                Group = groups.Other
-            },
+    // new NavItem()
+    // {
+    //     Name = "Test",
+    //     Url = "Test",
+    //     Group = groups.Other
+    // },
         };
 
 

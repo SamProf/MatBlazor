@@ -111,7 +111,8 @@ If you think that this project helped you or your company in any way, you can co
 - `MatVirtualScroll` - complete new component
 - `MatAutocomplete` - new implementation of component
 
-#### MatBlazor 2.1.2 (In progress)
+#### MatBlazor 2.1.2
+- `MatPaginator` - New component
 - Fix: Impelement custom `hoistMenuToBody` for MatSelect and MatMenu - fix #415
 - Fix: Ripple effect for MatButton
 
