@@ -11,7 +11,7 @@ export class MatMenu extends MDCMenu {
 export function init(ref) {
   try {
     var menu = new MatMenu(ref);
-    menu.setIsHoisted(true);
+    hoistMenuToBody(menu);
     ref.matBlazorRef = menu;
   } catch (e) {
     debugger;
@@ -24,4 +24,9 @@ export function open(mdcMenu, anchorElement) {
   var menu = mdcMenu.matBlazorRef;
   menu.setAnchorElement(anchorElement);
   menu.open = true;
+}
+
+export function hoistMenuToBody(menu) {
+  document.body.appendChild(menu.root_);
+  menu.setIsHoisted(true);
 }

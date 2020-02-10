@@ -17,43 +17,125 @@
 
 
 <style>
+    /*.mdc-dialog .mdc-select {*/
+    /*    position: relative !important;*/
+    /*}*/
 
+    /*.mdc-dialog .mdc-select__menu {*/
+    /*    top: inherit !important;*/
+    /*    left: inherit !important;*/
+
+    /*    max-height: calc(100vh - 64px)!important;*/
+
+    /*    margin-top: 44px;*/
+    /*}*/
 
 
 </style>
 
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
-<div class="mdc-select" id="ref">
-    <div class="mdc-select__anchor demo-width-class">
-        <i class="mdc-select__dropdown-icon"></i>
-        <div class="mdc-select__selected-text"></div>
-        <span class="mdc-floating-label">Pick a Food Group</span>
-        <div class="mdc-line-ripple"></div>
-    </div>
+<div style="padding: 100px;height: 60px; max-height: 60px; overflow: auto;">
 
-    <div class="mdc-select__menu mdc-menu mdc-menu-surface demo-width-class">
-        <ul class="mdc-list">
-            <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
-            <li class="mdc-list-item" data-value="grains">
-                Bread, Cereal, Rice, and Pasta
-            </li>
-            <li class="mdc-list-item mdc-list-item--disabled" data-value="vegetables" aria-selected="true" aria-disabled="true" role="option">
-                Vegetables
-            </li>
-            <li class="mdc-list-item" data-value="fruit">
-                Fruit
-            </li>
-        </ul>
-    </div>
+
 </div>
 
 
+<div class="mdc-dialog"
+     id="refDialog"
+     role="alertdialog"
+     aria-modal="true"
+     aria-labelledby="my-dialog-title"
+     aria-describedby="my-dialog-content">
+    <div class="mdc-dialog__container">
+        <div class="mdc-dialog__surface">
+            <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+            <h2 class="mdc-dialog__title" id="my-dialog-title"><!--
+     -->Dialog Title<!--
+   --></h2>
+            <div class="mdc-dialog__content" id="my-dialog-content">
+                Dialog body text goes here.
+
+                <div class="mdc-select" id="ref">
+                    <div class="mdc-select__anchor demo-width-class">
+                        <i class="mdc-select__dropdown-icon"></i>
+                        <div class="mdc-select__selected-text"></div>
+                        <span class="mdc-floating-label">Pick a Food Group</span>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
+
+                    <div class="mdc-select__menu mdc-menu mdc-menu-surface demo-width-class">
+                        <ul class="mdc-list">
+                            <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+                            <li class="mdc-list-item" data-value="grains">
+                                Bread, Cereal, Rice, and Pasta
+                            </li>
+                            <li class="mdc-list-item mdc-list-item--disabled" data-value="vegetables"
+                                aria-selected="true"
+                                aria-disabled="true" role="option">
+                                Vegetables
+                            </li>
+                            <li class="mdc-list-item" data-value="fruit">
+                                Fruit
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <footer class="mdc-dialog__actions">
+                <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="no">
+                    <span class="mdc-button__label">No</span>
+                </button>
+                <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="yes">
+                    <span class="mdc-button__label">Yes</span>
+                </button>
+            </footer>
+        </div>
+    </div>
+    <div class="mdc-dialog__scrim"></div>
+</div>
+
 
 <script type="text/javascript">
+
+
+  class MDCSelectFoundation2 extends mdc.select.MDCSelectFoundation {
+
+
+  }
+
+  var refDialog = document.getElementById('refDialog');
   var ref = document.getElementById('ref');
   // debugger;
   var c = new mdc.select.MDCSelect(ref);
+  debugger;
+  c.menu_.setIsHoisted(true);
+  document.body.appendChild(c.menuElement_);
+  // debugger;
+  // c.menu_.setFixedPosition(true);
+
+
+  var d = new mdc.dialog.MDCDialog(refDialog);
+  setTimeout(() => {
+    d.open();
+  }, 1000);
+
+  // debugger;
+
+  // var oldOpenMenu = c.foundation_.adapter_.openMenu;
+  // c.foundation_.adapter_.openMenu = function () {
+  //   console.log('openMenu');
+  //   c.menu_.setFixedPosition(true);
+  //   oldOpenMenu();
+  // };
 
 
   // var tooltip = document.getElementById('tRef');

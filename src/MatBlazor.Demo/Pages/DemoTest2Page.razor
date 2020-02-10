@@ -1,0 +1,43 @@
+﻿@page "/Test2"
+
+
+<MatButton OnClick="@OpenDialog" Raised="true">OpenDialog</MatButton>
+
+
+<MatDialog @bind-IsOpen="@dialogIsOpen">
+    <MatDialogTitle>Test</MatDialogTitle>
+    <MatDialogContent>
+
+        <MatSelectItem @bind-Value="@value1" Items="@value1Values"></MatSelectItem>
+        <MatSelectItem @bind-Value="@value1" Items="@value1Values"></MatSelectItem>
+
+
+    </MatDialogContent>
+    <MatDialogActions>
+        <MatButton OnClick="@(e => { dialogIsOpen = false; })">No Thanks</MatButton>
+        <MatButton OnClick="@OkClick">OK</MatButton>
+    </MatDialogActions>
+</MatDialog>
+
+@code
+{
+    bool dialogIsOpen = false;
+
+    string value1 = "0";
+    string[] value1Values = Enumerable.Range(0, 100).Select(i => i.ToString()).ToArray();
+
+    string value2 = "0";
+    string[] value2Values = Enumerable.Range(0, 100).Select(i => i.ToString()).ToArray();
+
+
+    void OpenDialog()
+    {
+        dialogIsOpen = true;
+    }
+
+    void OkClick()
+    {
+        dialogIsOpen = false;
+    }
+
+}
