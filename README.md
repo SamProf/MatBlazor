@@ -111,6 +111,10 @@ If you think that this project helped you or your company in any way, you can co
 - `MatVirtualScroll` - complete new component
 - `MatAutocomplete` - new implementation of component
 
+#### MatBlazor 2.1.2 (In progress)
+- Fix: Impelement custom `hoistMenuToBody` for MatSelect and MatMenu - fix #415
+- Fix: Ripple effect for MatButton
+
 #### MatBlazor 2.1.1
 - MatSelect, MatSelectItem, MatSelectValue components supports EditContext
 - ValidationDisabled parameter added to input components
