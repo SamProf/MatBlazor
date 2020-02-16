@@ -26,12 +26,13 @@ export function open(ref, flatpickrInputRef, cmp, options) {
     positionElement: ref,
     minDate: options.minimum,
     maxDate: options.maximum,
+    defaultDate: options.value,
     onChange: function (value) {
       // console.log("onChange", value)
       cmp.invokeMethodAsync('MatDatePickerOnChangeHandler', value);
     },
     onClose: function () {
-      setTimeout(()=>{
+      setTimeout(() => {
         self.flatpickr.destroy();
       });
     }

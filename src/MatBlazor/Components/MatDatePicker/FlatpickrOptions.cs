@@ -24,7 +24,9 @@ namespace MatBlazor
         public DateTime? DefaultDate { get; set; }
 
         public DateTime? Minimum { get; set; }
-        
+
         public DateTime? Maximum { get; set; }
+
+        public DateTime? Value { get; set; }
     }
 }

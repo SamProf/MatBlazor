@@ -127,6 +127,7 @@ namespace MatBlazor
                             DefaultDate = SwitchT.ToDateTimeNull(Value),
                             Minimum = Minimum,
                             Maximum = Maximum,
+                            Value = SwitchT.ToDateTimeNull(CurrentValue),
                         });
                 });
             }
