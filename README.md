@@ -111,6 +111,10 @@ If you think that this project helped you or your company in any way, you can co
 - `MatVirtualScroll` - complete new component
 - `MatAutocomplete` - new implementation of component
 
+
+#### MatBlazor 2.1.3 (In progress)
+- Fix: MatDatePicker always display's current month/year #431
+
 #### MatBlazor 2.1.2
 - `MatPaginator` - New component
 - Fix: Impelement custom `hoistMenuToBody` for MatSelect and MatMenu - fix #415
