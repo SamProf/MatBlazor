@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
@@ -40,6 +41,7 @@ namespace MatBlazor
                 SortId = sortId,
                 Direction = direction
             });
+            this.StateHasChanged();
         }
     }
 }

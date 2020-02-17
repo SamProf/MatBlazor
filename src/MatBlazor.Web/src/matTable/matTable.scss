@@ -172,15 +172,15 @@ tr {
       }
 
       .mat-sort-header-arrow {
-        height: 12px;
-        width: 12px;
-        min-width: 12px;
+        //height: 12px;
+        //width: 12px;
+        //min-width: 12px;
         position: relative;
         display: flex;
-        opacity: 0;
-        margin: 0 0 0 6px;
-        opacity: 0;
+        //margin: 0 0 0 6px;
         color: #757575;
+        width: 1em;
+        height: 1em;
       }
 
     }

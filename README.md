@@ -113,6 +113,7 @@ If you think that this project helped you or your company in any way, you can co
 
 
 #### MatBlazor 2.1.3 (In progress)
+- `MatSortHeader`, `MatSortHeaderRow` - New component
 - Fix: MatDatePicker always display's current month/year #431
 
 #### MatBlazor 2.1.2

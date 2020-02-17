@@ -5,6 +5,10 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
+    
+    /// <summary>
+    /// The MatSortHeader and MatSortHeaderRow are used, respectively, to add sorting state and display to tabular data.
+    /// </summary>
     public class BaseMatSortHeader : BaseMatDomComponent
     {
         public BaseMatSortHeader()
@@ -37,14 +41,14 @@ namespace MatBlazor
                             throw new ArgumentOutOfRangeException();
                     }
                 }
-            }
-            else
-            {
-                sortId = SortId;
-                direction = MatSortDirection.Asc;
-            }
+                else
+                {
+                    sortId = SortId;
+                    direction = MatSortDirection.Asc;
+                }
 
-            await Parent.SetNewSortAsync(sortId, direction);
+                await Parent.SetNewSortAsync(sortId, direction);
+            }
         }
 
 
