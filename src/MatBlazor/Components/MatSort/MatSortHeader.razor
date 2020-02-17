@@ -1,0 +1,15 @@
+﻿@namespace MatBlazor
+@inherits BaseMatSortHeader
+
+@using Microsoft.AspNetCore.Components
+
+
+<th class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
+    <div class="mat-sort-header-container" @onclick="@HeaderClickHandler">
+        <div class="mat-sort-header-button">
+            @ChildContent
+        </div>
+
+        <MatIcon Class="mat-sort-header-arrow" Icon="@GetIcon()"></MatIcon>
+    </div>
+</th>

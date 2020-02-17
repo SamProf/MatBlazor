@@ -1,0 +1,62 @@
+<DocMatSortHeader></DocMatSortHeader>
+<DocMatSortHeaderRow></DocMatSortHeaderRow>
+
+<h5 class="mat-h5">Example</h5>
+
+<DemoContainer >
+    <Content>
+        <table>
+            <MatSortHeaderRow>
+                <MatSortHeader SortId="name">Dessert (100g)</MatSortHeader>
+                <MatSortHeader SortId="calories">Calories</MatSortHeader>
+                <MatSortHeader SortId="fat">Fat (g)</MatSortHeader>
+                <MatSortHeader SortId="carbs">Carbs (g)</MatSortHeader>
+                <MatSortHeader SortId="protein">Protein (g)</MatSortHeader>
+            </MatSortHeaderRow>
+
+            @foreach (var dessert in sortedData)
+            {
+                <tr>
+                    <td>@dessert.Name</td>
+                    <td>@dessert.Calories</td>
+                    <td>@dessert.Fat</td>
+                    <td>@dessert.Carbs</td>
+                    <td>@dessert.Protein</td>
+                </tr>
+            }
+
+
+        </table>
+
+        @code
+        {
+            class Dessert
+            {
+                public int Calories { get; set; }
+                public int Carbs { get; set; }
+                public int Fat { get; set; }
+                public string Name { get; set; }
+                public int Protein { get; set; }
+            }
+
+            Dessert[] desserts = new[]
+            {
+                new Dessert() {Name = "Frozen yogurt", Calories = 159, Fat = 6, Carbs = 24, Protein = 4},
+                new Dessert() {Name = "Ice cream sandwich", Calories = 237, Fat = 9, Carbs = 37, Protein = 4},
+                new Dessert() {Name = "Eclair", Calories = 262, Fat = 16, Carbs = 24, Protein = 6},
+                new Dessert() {Name = "Cupcake", Calories = 305, Fat = 4, Carbs = 67, Protein = 4},
+                new Dessert() {Name = "Gingerbread", Calories = 356, Fat = 16, Carbs = 49, Protein = 4},
+            };
+
+            Dessert[] sortedData = null;
+
+            protected override void OnInitialized()
+            {
+                base.OnInitialized();
+                sortedData = desserts;
+            }
+        }
+
+    </Content>
+
+</DemoContainer>

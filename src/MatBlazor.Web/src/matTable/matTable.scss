@@ -149,3 +149,44 @@ tr {
   }
 
 }
+
+.mat-sort-header-row {
+  .mat-sort-header {
+
+    .mat-sort-header-container {
+      display: flex;
+      cursor: pointer;
+      align-items: center;
+
+
+      .mat-sort-header-button {
+        border: none;
+        background: 0 0;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        cursor: inherit;
+        outline: 0;
+        font: inherit;
+        color: currentColor;
+      }
+
+      .mat-sort-header-arrow {
+        height: 12px;
+        width: 12px;
+        min-width: 12px;
+        position: relative;
+        display: flex;
+        opacity: 0;
+        margin: 0 0 0 6px;
+        opacity: 0;
+        color: #757575;
+      }
+
+    }
+
+
+  }
+
+}
+
