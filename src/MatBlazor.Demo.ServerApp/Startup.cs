@@ -7,7 +7,6 @@ using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using EmbeddedBlazorContent;
 using MatBlazor.Demo.Models;
 using MatBlazor.Demo.Services;
 using Microsoft.AspNetCore.Builder;

@@ -10,10 +10,6 @@
     <Folder Include="Shared\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="EmbeddedBlazorContent" Version="1.10.0" />
-  </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\MatBlazor.Demo\MatBlazor.Demo.csproj" />

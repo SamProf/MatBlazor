@@ -112,7 +112,8 @@ If you think that this project helped you or your company in any way, you can co
 - `MatAutocomplete` - new implementation of component
 
 
-#### MatBlazor 2.1.3 (In progress)
+#### MatBlazor 2.2.0
+- .NET Core 3.1.2 + .NET Core 3.2.0-Preview 1 Releases
 - `MatSortHeader`, `MatSortHeaderRow` - New component
 - Fix: MatDatePicker always display's current month/year #431
 

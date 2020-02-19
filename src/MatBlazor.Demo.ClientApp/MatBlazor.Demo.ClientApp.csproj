@@ -1,21 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <LangVersion>8.0</LangVersion>
-    <RazorLangVersion>3.0</RazorLangVersion>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>8.0</LangVersion>
+        <RazorLangVersion>3.0</RazorLangVersion>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.2.0-preview1.20073.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.2.0-preview1.20073.1" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.2.0-preview1.20073.1" PrivateAssets="all" />
-    <PackageReference Include="Toolbelt.Blazor.TimeZoneKit" Version="6.0.0" />
-  </ItemGroup>
+    <PropertyGroup>
+        <DefineConstants>TRACE;_PREVIEW</DefineConstants>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MatBlazor.Demo\MatBlazor.Demo.csproj" />
-    <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.1.0-preview4.19579.2"/>
+        <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.1.0-preview4.19579.2" PrivateAssets="all"/>
+        <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.1.0-preview4.19579.2" PrivateAssets="all"/>
+        <PackageReference Include="Toolbelt.Blazor.TimeZoneKit" Version="5.0.3"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\MatBlazor.Demo\MatBlazor.Demo.csproj"/>
+        <ProjectReference Include="..\MatBlazor\MatBlazor.csproj"/>
+    </ItemGroup>
 
 </Project>
