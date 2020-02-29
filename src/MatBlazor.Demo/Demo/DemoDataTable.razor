@@ -59,7 +59,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatDataTable>
             <MatDataTableHeader>
                 <MatDataTableHeaderCell>Name</MatDataTableHeaderCell>
@@ -113,8 +113,7 @@
 
         }
 
-    ")>
-        </BlazorFiddle>
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -160,20 +159,43 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatDataTable>
-            <MatDataTableItems Items=""@cars"">
+            <MatDataTableItems Items=""@randomTestCases"">
                 <Columns>
-                    <MatDataTableColumn Header=""Name"">@context.Name</MatDataTableColumn>
-                    <MatDataTableColumn Header=""Price"">@context.Price</MatDataTableColumn>
-                    <MatDataTableColumn Header=""HP"">@context.Horsepower</MatDataTableColumn>
+                    <MatDataTableColumn Header=""Index"">@context.Index</MatDataTableColumn>
+                    <MatDataTableColumn Header=""Value"">@context.Value</MatDataTableColumn>
+                    <MatDataTableColumn Header=""ElapsedTicks"">@context.ElapsedTicks</MatDataTableColumn>
                 </Columns>
             </MatDataTableItems>
-            <MatPaginator PageSize=""5""></MatPaginator>
+            <MatPaginator PageSize=""10""></MatPaginator>
         </MatDataTable>
 
+        @code
+        {
+            class RandomTestCase
+            {
+                public int Index { get; set; }
+                public double Value { get; set; }
+                public long ElapsedTicks { get; set; }
+            }
 
-    ")>
-        </BlazorFiddle>
+            RandomTestCase[] randomTestCases = Enumerable.Range(0, 200).Select(index =>
+            {
+                var s = Stopwatch.StartNew();
+                var rnd = new Random();
+                var value = rnd.NextDouble();
+                s.Stop();
+                return new RandomTestCase()
+                {
+                    Index = index,
+                    Value = value,
+                    ElapsedTicks = s.ElapsedTicks
+                };
+            }).ToArray();
+
+        }
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

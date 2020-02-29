@@ -7,6 +7,11 @@ using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
+    /// <summary>
+    /// The VirtualScroll for Blazor displays large lists of elements performantly by only rendering the items that fit on-screen.
+    /// Loading hundreds of elements can be slow in any browser; virtual scrolling enables a performant way to simulate all items being rendered by making the height of the container element the same as the height of total number of elements to be rendered, and then only rendering the items in view.
+    /// </summary>
+    /// <typeparam name="ItemType"></typeparam>
     public class BaseMatVirtualScroll<ItemType> : BaseMatDomComponent, IMatVirtualScroll
     {
         [Parameter]

@@ -1,13 +1,8 @@
-<h3 class="mat-h3">VirtualScroll</h3>
+<DocVirtualScroll></DocVirtualScroll>
 
 <DemoContainer >
     <Content>
-        <p>
-            The <code>VirtualScroll</code> displays large lists of elements performantly by only rendering the items that fit on-screen. Loading hundreds of elements can be slow in any browser; virtual scrolling enables a performant way to simulate all items being rendered by making the height of the container element the same as the height of total number of elements to be rendered, and then only rendering the items in view.
-        </p>
-
         <h4>VirtualScroll with @items.Count() items</h4>
-
 
         <VirtualScroll style="height: 500px;" ItemType="string" Items="@items" ItemHeight="50">
             <div>@context</div>
@@ -19,5 +14,19 @@
         }
 
     </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <h4>VirtualScroll with @items.Count() items</h4>
 
+        <VirtualScroll style=""height: 500px;"" ItemType=""string"" Items=""@items"" ItemHeight=""50"">
+            <div>@context</div>
+        </VirtualScroll>
+
+        @code
+        {
+            public IEnumerable<string> items = Enumerable.Range(0, 333000).Select(i => i.ToString()).ToArray();
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>
