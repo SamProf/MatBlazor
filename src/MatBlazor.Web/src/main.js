@@ -32,6 +32,7 @@ import * as matHidden from './matHidden/matHidden';
 import * as matAnchor from './matAnchor/matAnchor';
 import * as matFileUpload from './matFileUpload/matFileUpload';
 import * as matDataTable from './matTable/matDataTable';
+import * as matVirtualScroll from './matVirtualScroll/matVirtualScroll';
 
 
 window.matBlazor = {
@@ -67,6 +68,7 @@ window.matBlazor = {
   matAnchor,
   matFileUpload,
   matDataTable,
+  matVirtualScroll,
   utils,
 };
 
