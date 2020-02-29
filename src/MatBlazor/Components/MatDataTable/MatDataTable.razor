@@ -2,11 +2,13 @@
 @* @typeparam TItem *@
 @inherits BaseMatDataTable
 
-<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id" @attributes="@Attributes">
-    <table class="mdc-data-table__table">
-        @ChildContent
-    </table>
-</div>
+<CascadingValue Value="@this">
+    <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id" @attributes="@Attributes">
+        <table class="mdc-data-table__table">
+            @ChildContent
+        </table>
+    </div>
+</CascadingValue>
 
 
 @code

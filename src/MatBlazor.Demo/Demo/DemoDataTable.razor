@@ -1,3 +1,4 @@
+@using System.Diagnostics
 <DocMatDataTable></DocMatDataTable>
 
 <h5 class="mat-h5">Example</h5>
@@ -58,7 +59,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatDataTable>
             <MatDataTableHeader>
                 <MatDataTableHeaderCell>Name</MatDataTableHeaderCell>
@@ -112,7 +113,8 @@
 
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -121,40 +123,44 @@
 <DemoContainer>
     <Content>
         <MatDataTable>
-            <MatDataTableItems Items="@cars">
+            <MatDataTableItems Items="@randomTestCases">
                 <Columns>
-                    <MatDataTableColumn Header="Name">@context.Name</MatDataTableColumn>
-                    <MatDataTableColumn Header="Price">@context.Price</MatDataTableColumn>
-                    <MatDataTableColumn Header="HP">@context.Horsepower</MatDataTableColumn>
+                    <MatDataTableColumn Header="Index">@context.Index</MatDataTableColumn>
+                    <MatDataTableColumn Header="Value">@context.Value</MatDataTableColumn>
+                    <MatDataTableColumn Header="ElapsedTicks">@context.ElapsedTicks</MatDataTableColumn>
                 </Columns>
             </MatDataTableItems>
+            <MatPaginator PageSize="10"></MatPaginator>
         </MatDataTable>
-
-
-        <div>
-            <MatPaginator Length="100" @bind-PageSize="@pageSize" @bind-PageIndex="@pageIndex"></MatPaginator>
-        </div>
-
-        <div>
-            pageSize : @pageSize
-        </div>
-
-        <div>
-            pageIndex : @pageIndex
-        </div>
-
 
         @code
         {
-            int pageSize = 25;
-            int pageIndex = 0;
+            class RandomTestCase
+            {
+                public int Index { get; set; }
+                public double Value { get; set; }
+                public long ElapsedTicks { get; set; }
+            }
+
+            RandomTestCase[] randomTestCases = Enumerable.Range(0, 200).Select(index =>
+            {
+                var s = Stopwatch.StartNew();
+                var rnd = new Random();
+                var value = rnd.NextDouble();
+                s.Stop();
+                return new RandomTestCase()
+                {
+                    Index = index,
+                    Value = value,
+                    ElapsedTicks = s.ElapsedTicks
+                };
+            }).ToArray();
 
         }
 
-
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatDataTable>
             <MatDataTableItems Items=""@cars"">
                 <Columns>
@@ -163,30 +169,11 @@
                     <MatDataTableColumn Header=""HP"">@context.Horsepower</MatDataTableColumn>
                 </Columns>
             </MatDataTableItems>
+            <MatPaginator PageSize=""5""></MatPaginator>
         </MatDataTable>
 
 
-        <div>
-            <MatPaginator Length=""100"" @bind-PageSize=""@pageSize"" @bind-PageIndex=""@pageIndex""></MatPaginator>
-        </div>
-
-        <div>
-            pageSize : @pageSize
-        </div>
-
-        <div>
-            pageIndex : @pageIndex
-        </div>
-
-
-        @code
-        {
-            int pageSize = 25;
-            int pageIndex = 0;
-
-        }
-
-
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>

@@ -5,7 +5,9 @@ namespace MatBlazor
 {
     public class BaseMatDataTable : BaseMatDomComponent
     {
-        internal IMatDataTableItems Items { get; set; }
+        internal IMatDataTableItems ItemsComponent { get; set; }
+
+        internal BaseMatPaginator PaginatorComponent { get; set; }
 
         public BaseMatDataTable()
         {
@@ -14,11 +16,12 @@ namespace MatBlazor
                 .Add("mdc-data-table");
         }
 
-
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        // [Parameter]
-        // public IReadOnlyList<TItem> Items { get; set; }
+        public void Update()
+        {
+            this.ItemsComponent?.MarkStateHasChanged();
+        }
     }
 }

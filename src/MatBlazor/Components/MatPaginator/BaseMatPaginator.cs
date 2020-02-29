@@ -8,6 +8,11 @@ namespace MatBlazor
 {
     public class BaseMatPaginator : BaseMatDomComponent
     {
+        private int _pageSize;
+
+        [CascadingParameter]
+        public BaseMatDataTable ParentDataTable { get; set; }
+
         [Parameter]
         public EventCallback<MatPaginatorPageEvent> Page { get; set; }
 
@@ -19,13 +24,17 @@ namespace MatBlazor
 
 
         [Parameter]
-        public int PageSize { get; set; }
+        public int PageSize
+        {
+            get => _pageSize;
+            set => _pageSize = value;
+        }
 
 
         [Parameter]
         public int Length { get; set; }
 
-        protected int CurrentPageIndex { get; set; }
+        public int PageIndex { get; set; }
 
         protected int TotalPages { get; set; }
 
@@ -37,7 +46,25 @@ namespace MatBlazor
         protected override void OnParametersSet()
         {
             base.OnParametersSet();
+            Update();
+        }
+
+
+        public void Update()
+        {
+            Length = ParentDataTable?.ItemsComponent?.Length() ?? Length;
             TotalPages = CalculateTotalPages(PageSize);
+        }
+
+        protected override void OnInitialized()
+        {
+            base.OnInitialized();
+            if (ParentDataTable != null)
+            {
+                ParentDataTable.PaginatorComponent = this;
+            }
+
+            this.Update();
         }
 
         protected int CalculateTotalPages(int pageSize)
@@ -50,17 +77,18 @@ namespace MatBlazor
             return Math.Max(0, (int) Math.Ceiling((decimal) Length / PageSize));
         }
 
+
         public async Task NavigateToPage(MatPaginatorAction direction, int pageSize)
         {
             var pageSizeChanged = pageSize != PageSize;
             var totalPages = CalculateTotalPages(pageSize);
-            var page = CurrentPageIndex;
+            var page = PageIndex;
 
             if (pageSizeChanged)
             {
                 try
                 {
-                    page = ((CurrentPageIndex * PageSize) / pageSize);
+                    page = ((PageIndex * PageSize) / pageSize);
                 }
                 catch (OverflowException e)
                 {
@@ -106,9 +134,9 @@ namespace MatBlazor
                 page = TotalPages == 0 ? 0 : TotalPages - 1;
             }
 
-            if (CurrentPageIndex != page || pageSize != PageSize)
+            if (PageIndex != page || pageSize != PageSize)
             {
-                CurrentPageIndex = page;
+                PageIndex = page;
                 PageSize = pageSize;
                 await Page.InvokeAsync(new MatPaginatorPageEvent()
                 {
@@ -116,6 +144,7 @@ namespace MatBlazor
                     PageSize = pageSize,
                     Length = Length,
                 });
+                ParentDataTable?.Update();
             }
         }
 
