@@ -8,7 +8,7 @@ namespace MatBlazor
     {
         internal BaseMatPaginator PaginatorComponent { get; set; } = null;
 
-        MatVirtualScrollHelper VirtualScrollHelper { get; set; } = null;
+        protected MatVirtualScrollHelper VirtualScrollHelper { get; set; } = null;
 
         public BaseMatDataTable()
         {
@@ -19,6 +19,9 @@ namespace MatBlazor
                 .Add("mdc-data-table")
                 .If("mat-data-table__sticky-header", () => StickyHeader)
                 .Get(() => VirtualScrollHelper.GetClass());
+            
+            
+            CallAfterRender(async () => { await VirtualScrollHelper.InitAsync(Js, Ref); });
         }
 
         [Parameter]
@@ -75,9 +78,25 @@ namespace MatBlazor
             return e;
         }
 
-        public bool VirtualScrollIsEnabled()
+        public bool GetVirtualScrollIsEnabled()
         {
             return VirtualScroll;
+        }
+
+        public int GetVirtualScrollItemHeight()
+        {
+            return 52;
+        }
+
+        public void MarkStateHasChanged()
+        {
+            this.StateHasChanged();
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            VirtualScrollHelper?.Dispose();
         }
     }
 }

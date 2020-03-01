@@ -4,8 +4,8 @@
 
 
 <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id" @attributes="@Attributes">
-    <table class="mdc-data-table__table">
-        <MatDataTableHeader>
+    <table class="mdc-data-table__table" style="@VirtualScrollHelper.GetContentStyle(PreparedItems())">
+        <MatDataTableHeader Style="@VirtualScrollHelper.GetContentStyle(PreparedItems(), -1)">
             <CascadingValue Value="@MatDataTableRenderMode.Header">
                 @Columns(default(TItem))
             </CascadingValue>
@@ -13,7 +13,7 @@
 
         <MatDataTableContent>
             <CascadingValue Value="@MatDataTableRenderMode.Row">
-                @foreach (var item in PreparedItems())
+                @foreach (var item in VirtualScrollHelper.GetContentItems(PreparedItems()))
                 {
                     <MatDataTableRow>
                         @Columns(item)
@@ -22,4 +22,5 @@
             </CascadingValue>
         </MatDataTableContent>
     </table>
+    <div class="mat-virtual-scroll-spacer" style="@(VirtualScrollHelper.GetScrollSpacerStyle(PreparedItems()))"></div>
 </div>

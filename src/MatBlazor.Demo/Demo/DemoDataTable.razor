@@ -4,7 +4,7 @@
 <h5 class="mat-h5">Example</h5>
 <DemoContainer >
     <Content>
-        <MatDataTable Items="@randomTestCases" Style="max-height: 300px;" StickyHeader="true">
+        <MatDataTable Items="@randomTestCases" Style="max-height: 300px;" StickyHeader="true" VirtualScroll="true">
             <Columns>
                 <MatDataTableColumn Header="Index">@context.Index</MatDataTableColumn>
                 <MatDataTableColumn Header="Value">@context.Value</MatDataTableColumn>

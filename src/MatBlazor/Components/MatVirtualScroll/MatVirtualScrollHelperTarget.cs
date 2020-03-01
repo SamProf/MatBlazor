@@ -2,6 +2,8 @@
 {
     public interface IMatVirtualScrollHelperTarget
     {
-        bool VirtualScrollIsEnabled();
+        bool GetVirtualScrollIsEnabled();
+        int GetVirtualScrollItemHeight();
+        void MarkStateHasChanged();
     }
 }
