@@ -6,11 +6,11 @@
 <div class="@(ClassMapper.AsString())" style="@StyleMapper.AsString()" @ref="@Ref">
     @if (ScrollViewResult != null)
     {
-        <div class="mat-virtual-scroll-content" style="height: @(ScrollViewResult.Height)px">
+        <div class="mat-virtual-scroll-content" style="height: @(ScrollViewResult.Height - ScrollViewResult.SkipItems * ItemHeight)px; padding-top:  @(ScrollViewResult.SkipItems * ItemHeight)px;">
 
             @foreach (var item in Items.Skip(ScrollViewResult.SkipItems).Take(ScrollViewResult.TakeItems).Select((item, index) => new {item, index}))
             {
-                <div style="height: @(ItemHeight)px; top: @((ScrollViewResult.SkipItems + item.index) * ItemHeight)px;" class="mat-virtual-scroll-item">
+                <div style="height: @(ItemHeight)px;" class="mat-virtual-scroll-item">
                     @ChildContent(item.item)
                 </div>
             }
@@ -18,10 +18,6 @@
     }
 </div>
 
-@functions
+@code
 {
-
-
-
-
 }
