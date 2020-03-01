@@ -11,7 +11,7 @@
             @foreach (var item in GetContentItems())
             {
                 <div style="height: @(ItemHeight)px;" class="mat-virtual-scroll-item">
-                    @ChildContent(item)
+                    @ItemTemplate(item)
                 </div>
             }
         </div>

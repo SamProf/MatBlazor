@@ -3,4 +3,30 @@
 
 .mat-data-table {
   width: 100%;
+  background-color: #fff;
+
+  &.mat-data-table__sticky-header {
+
+    .mdc-data-table__table {
+      background-color: inherit;
+
+      thead {
+        background-color: inherit;
+
+        tr {
+          background-color: inherit;
+
+          th {
+            background-color: inherit;
+            position: sticky;
+            top: 0px;
+          }
+        }
+
+      }
+
+    }
+
+
+  }
 }

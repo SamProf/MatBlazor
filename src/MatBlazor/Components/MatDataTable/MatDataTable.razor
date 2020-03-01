@@ -1,20 +1,25 @@
 ﻿@namespace MatBlazor
-@* @typeparam TItem *@
-@inherits BaseMatDataTable
-
-<CascadingValue Value="@this">
-    <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id" @attributes="@Attributes">
-        <table class="mdc-data-table__table">
-            @ChildContent
-        </table>
-    </div>
-</CascadingValue>
+@typeparam TItem
+@inherits BaseMatDataTable<TItem>
 
 
-@code
-{
-    protected override void OnAfterRender(bool firstRender)
-    {
-        base.OnAfterRender(firstRender);
-    }
-}
+<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id" @attributes="@Attributes">
+    <table class="mdc-data-table__table">
+        <MatDataTableHeader>
+            <CascadingValue Value="@MatDataTableRenderMode.Header">
+                @Columns(default(TItem))
+            </CascadingValue>
+        </MatDataTableHeader>
+
+        <MatDataTableContent>
+            <CascadingValue Value="@MatDataTableRenderMode.Row">
+                @foreach (var item in PreparedItems())
+                {
+                    <MatDataTableRow>
+                        @Columns(item)
+                    </MatDataTableRow>
+                }
+            </CascadingValue>
+        </MatDataTableContent>
+    </table>
+</div>

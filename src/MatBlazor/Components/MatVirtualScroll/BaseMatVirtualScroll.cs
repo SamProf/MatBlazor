@@ -21,7 +21,10 @@ namespace MatBlazor
         public bool Disabled { get; set; }
 
         [Parameter]
-        public RenderFragment<TItem> ChildContent { get; set; }
+        public RenderFragment ChildContent { get; set; }
+        
+        [Parameter]
+        public RenderFragment<TItem> ItemTemplate { get; set; }
 
         [Parameter]
         public IEnumerable<TItem> Items { get; set; }
