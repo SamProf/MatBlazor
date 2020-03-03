@@ -3,10 +3,13 @@
 @inherits BaseMatDomComponent
 
 
-<div class="@ClassMapper.AsString()" @ref="Ref"  style="@StyleMapper.AsString()" @onclick="OnClickHandler" @attributes="Attributes" Id="@Id">
+<div class="@ClassMapper.AsString()" @ref="Ref" style="@StyleMapper.AsString()" @onclick="OnClickHandler" @attributes="Attributes" Id="@Id">
     @ChildContent
 
-    <span class="after material-icon">&#58131;</span>
+    @if (!ExpansionPanel.HideToggle)
+    {
+        <span class="after material-icon">&#58131;</span>
+    }
 </div>
 
 @code
