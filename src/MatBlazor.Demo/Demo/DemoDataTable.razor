@@ -1,7 +1,7 @@
 @using System.Diagnostics
 <DocMatDataTable></DocMatDataTable>
 
-<h5 class="mat-h5">Example</h5>
+<h5 class="mat-h5">Data Table with virtual scrolling and sticky header</h5>
 <DemoContainer >
     <Content>
         <MatDataTable Items="@randomTestCases" Style="max-height: 300px;" StickyHeader="true" VirtualScroll="true">
@@ -28,6 +28,88 @@
                 var value = rnd.NextDouble();
                 s.Stop();
                 return new RandomTestCase()
+                {
+                    Index = index,
+                    Value = value,
+                    ElapsedTicks = s.ElapsedTicks
+                };
+            }).ToArray();
+
+        }
+
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatDataTable>
+            <MatDataTableItems Items=""@randomTestCases"">
+                <Columns>
+                    <MatDataTableColumn Header=""Index"">@context.Index</MatDataTableColumn>
+                    <MatDataTableColumn Header=""Value"">@context.Value</MatDataTableColumn>
+                    <MatDataTableColumn Header=""ElapsedTicks"">@context.ElapsedTicks</MatDataTableColumn>
+                </Columns>
+            </MatDataTableItems>
+            <MatPaginator PageSize=""10""></MatPaginator>
+        </MatDataTable>
+
+        @code
+        {
+            class RandomTestCase
+            {
+                public int Index { get; set; }
+                public double Value { get; set; }
+                public long ElapsedTicks { get; set; }
+            }
+
+            RandomTestCase[] randomTestCases = Enumerable.Range(0, 200).Select(index =>
+            {
+                var s = Stopwatch.StartNew();
+                var rnd = new Random();
+                var value = rnd.NextDouble();
+                s.Stop();
+                return new RandomTestCase()
+                {
+                    Index = index,
+                    Value = value,
+                    ElapsedTicks = s.ElapsedTicks
+                };
+            }).ToArray();
+
+        }
+
+    ")>
+        </BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+
+<h5 class="mat-h5">Data Table with virtual scrolling</h5>
+<DemoContainer >
+    <Content>
+        <MatDataTable Items="@randomTestCases2" Style="max-height: 300px;" VirtualScroll="true">
+            <Columns>
+                <MatDataTableColumn Header="Index">@context.Index</MatDataTableColumn>
+                <MatDataTableColumn Header="Value">@context.Value</MatDataTableColumn>
+                <MatDataTableColumn Header="ElapsedTicks">@context.ElapsedTicks</MatDataTableColumn>
+            </Columns>
+        </MatDataTable>
+
+        @code
+        {
+            class RandomTestCase2
+            {
+                public int Index { get; set; }
+                public double Value { get; set; }
+                public long ElapsedTicks { get; set; }
+            }
+
+            RandomTestCase2[] randomTestCases2 = Enumerable.Range(0, 100).Select(index =>
+            {
+                var s = Stopwatch.StartNew();
+                var rnd = new Random();
+                var value = rnd.NextDouble();
+                s.Stop();
+                return new RandomTestCase2()
                 {
                     Index = index,
                     Value = value,

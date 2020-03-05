@@ -21,7 +21,7 @@ namespace MatBlazor
         }
 
 
-        public MatVirtualScrollViewResult GetResult<TItem>(IEnumerable<TItem> e, int itemHeight, int topHeight)
+        public MatVirtualScrollViewResult GetResult<TItem>(IEnumerable<TItem> e, int itemHeight, int topHeight, bool topSticky)
         {
             var itemsCount = e.Count();
 
@@ -32,7 +32,7 @@ namespace MatBlazor
 
             if (Enabled && _view != null)
             {
-                skipItems = Math.Max(0, _view.ScrollTop) / itemHeight;
+                skipItems = Math.Max(0, _view.ScrollTop - (topSticky ? 0 : topHeight)) / itemHeight;
                 takeItems =
                     (int) Math.Ceiling(
                         (double) (_view.ScrollTop + _view.ClientHeight - topHeight) / (double) itemHeight) - skipItems +

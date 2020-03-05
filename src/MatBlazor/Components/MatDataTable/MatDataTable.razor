@@ -4,7 +4,7 @@
 
 @{
     var e = PreparedItems();
-    var scrollResult = VirtualScrollHelper.GetResult(e, 52, 56);
+    var scrollResult = VirtualScrollHelper.GetResult(e, 52, 56, StickyHeader);
 }
 
 <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id" @attributes="@Attributes">
@@ -17,7 +17,6 @@
             </MatDataTableHeader>
 
             <MatDataTableContent>
-                <div class="mat-data-table-virtual-scroll-space"></div>
                 <CascadingValue Value="@MatDataTableRenderMode.Row">
                     @foreach (var item in e.Skip(scrollResult.SkipItems).Take(scrollResult.TakeItems))
                     {
