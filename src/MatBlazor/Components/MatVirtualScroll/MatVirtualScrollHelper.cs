@@ -23,31 +23,46 @@ namespace MatBlazor
 
         public MatVirtualScrollViewResult GetResult<TItem>(IEnumerable<TItem> e, int itemHeight, int topHeight, bool topSticky)
         {
-            var itemsCount = e.Count();
+            
 
-            var height = itemsCount * itemHeight + topHeight;
+            var minHeight = 0;
 
-            int skipItems = 0;
-            int takeItems = int.MaxValue;
+            int skipItems;
+            int takeItems;
 
-            if (Enabled && _view != null)
+            if (Enabled)
             {
-                skipItems = Math.Max(0, _view.ScrollTop - (topSticky ? 0 : topHeight)) / itemHeight;
-                takeItems =
-                    (int) Math.Ceiling(
-                        (double) (_view.ScrollTop + _view.ClientHeight - topHeight) / (double) itemHeight) - skipItems +
-                    10;
+                var itemsCount = e.Count();
+                
+                if (_view != null)
+                {
+                    skipItems = Math.Max(0, _view.ScrollTop - (topSticky ? 0 : topHeight)) / itemHeight;
+                    takeItems =
+                        (int) Math.Ceiling(
+                            (double) (_view.ScrollTop + _view.ClientHeight - topHeight) / (double) itemHeight) - skipItems +
+                        10;
+                    minHeight = itemsCount * itemHeight + topHeight;
+                }
+                else
+                {
+                    skipItems = 0;
+                    takeItems = 0;
+                }
             }
+            else
+            {
+                skipItems = 0;
+                takeItems = Int32.MaxValue;
+            }
+                
 
 
             return new MatVirtualScrollViewResult()
             {
-                Height = height,
+                Height = minHeight,
                 SkipItems = skipItems,
                 TakeItems = takeItems,
-                ScrollContainerStyle = Enabled && _view != null
-                    ? $"min-height: {height}px; --matVirtualScrollHelperPadding: {skipItems * itemHeight}px;"
-                    : "",
+                ScrollContainerStyle = $"min-height: {minHeight}px; --matVirtualScrollHelperPadding: {skipItems * itemHeight}px;",
             };
         }
 
