@@ -4,29 +4,49 @@
 .mat-data-table {
   width: 100%;
   background-color: #fff;
+  overflow-anchor: none;
+
+  .mat-data-table-virtual-scroll-container {
+    width: 100%;
+  }
+
+  thead:after {
+    content: '';
+    display: block;
+    height: var(--matVirtualScrollHelperPadding);
+  }
+
+  //tbody
+  //{
+  //  border-top: var(--matVirtualScrollTablePadding) solid yellow;
+  //}
+
+  .mat-data-table-virtual-scroll-space {
+    min-height: var(--matVirtualScrollTablePadding);
+  }
 
   &.mat-data-table__sticky-header {
 
-    .mdc-data-table__table {
-      background-color: inherit;
+    .mat-data-table-virtual-scroll-container {
 
-      thead {
+      .mdc-data-table__table {
         background-color: inherit;
 
-        tr {
+        thead {
           background-color: inherit;
 
-          th {
+          tr {
             background-color: inherit;
-            position: sticky;
-            top: 0px;
+
+            th {
+              background-color: inherit;
+              position: sticky;
+              top: 0px;
+            }
           }
+
         }
-
       }
-
     }
-
-
   }
 }

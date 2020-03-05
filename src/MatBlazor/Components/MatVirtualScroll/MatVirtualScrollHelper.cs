@@ -10,110 +10,168 @@ namespace MatBlazor
 {
     public class MatVirtualScrollHelper : IDisposable
     {
-        private readonly IMatVirtualScrollHelperTarget _target;
+        private IMatVirtualScrollHelperTarget _target;
+        private MatVirtualScrollView _view;
+
+        public bool Enabled { get; private set; }
 
         public MatVirtualScrollHelper(IMatVirtualScrollHelperTarget target)
         {
-            _target = target;
+            this._target = target;
         }
 
+
+        public MatVirtualScrollViewResult GetResult<TItem>(IEnumerable<TItem> e, int itemHeight, int topHeight)
+        {
+            var itemsCount = e.Count();
+
+            var height = itemsCount * itemHeight + topHeight;
+
+            int skipItems = 0;
+            int takeItems = int.MaxValue;
+
+            if (Enabled && _view != null)
+            {
+                skipItems = Math.Max(0, _view.ScrollTop) / itemHeight;
+                takeItems =
+                    (int) Math.Ceiling(
+                        (double) (_view.ScrollTop + _view.ClientHeight - topHeight) / (double) itemHeight) - skipItems +
+                    10;
+            }
+
+
+            return new MatVirtualScrollViewResult()
+            {
+                Height = height,
+                SkipItems = skipItems,
+                TakeItems = takeItems,
+                ScrollContainerStyle = Enabled && _view != null
+                    ? $"min-height: {height}px; --matVirtualScrollHelperPadding: {skipItems * itemHeight}px;"
+                    : "",
+            };
+        }
 
         public string GetClass()
         {
-            return _target.GetVirtualScrollIsEnabled() ? "﻿mat-virtual-scroll-helper" : null;
+            return Enabled ? "mat-virtual-scroll-helper" : "";
         }
-
-
-        private MatVirtualScrollView view;
 
         [JSInvokable]
         public void VirtualScrollingSetView(MatVirtualScrollView view)
         {
-            this.view = view;
-            _target.MarkStateHasChanged();
+            this._view = view;
+            _target.StateHasChangedFromVirtualScrollHelper();
         }
 
-
-//         private void Test1()
-//         {
-//             this.ScrollView = scrollView;
-//             this.ScrollViewResult = new MatVirtualScrollViewResult();
-//             this.ScrollViewResult.Height = Items.Count() * ItemHeight;
-//             this.ScrollViewResult.SkipItems = scrollView.ScrollTop / this.ItemHeight;
-//             this.ScrollViewResult.TakeItems =
-//                 (int) Math.Ceiling((double) (scrollView.ScrollTop + scrollView.ClientHeight) / (double) ItemHeight) -
-//                 this.ScrollViewResult.SkipItems;
-// //            Console.WriteLine(ScrollViewResult.SkipItems + " " + ScrollViewResult.TakeItems);
-//             this.StateHasChanged();
-//         }
-
-
-        public IEnumerable<TItem> GetContentItems<TItem>(IEnumerable<TItem> e)
-        {
-            if (_target.GetVirtualScrollIsEnabled())
-            {
-                if (view != null)
-                {
-                    var itemHeight = _target.GetVirtualScrollItemHeight();
-                    var skipItems = view.ScrollTop / itemHeight;
-                    var takeItems =
-                        (int) Math.Ceiling((double) (view.ScrollTop + view.ClientHeight) /
-                                           (double) itemHeight) - skipItems;
-
-                    return
-                        e.Skip(skipItems).Take(takeItems);
-                }
-
-                return Enumerable.Empty<TItem>();
-            }
-
-            return e;
-        }
-
-        public string GetContentStyle<TItem>(IEnumerable<TItem> e, int mult = 1)
-        {
-            if (_target.GetVirtualScrollIsEnabled())
-            {
-                if (view != null)
-                {
-                    var itemsCount = e.Count();
-                    var itemsHeight = _target.GetVirtualScrollItemHeight();
-                    var height = itemsCount * itemsHeight;
-                    var skipItems = view.ScrollTop / itemsHeight;
-                    // return
-                    // $"height: {(height - skipItems * itemsHeight)}px; padding-top: {(skipItems * itemsHeight)}px;";
-                    return $"transform: translateY({mult * skipItems * itemsHeight}px);";
-                }
-            }
-
-            {
-                return $"";
-            }
-        }
-
-
-        public string GetScrollSpacerStyle<TItem>(IEnumerable<TItem> e)
-        {
-            if (_target.GetVirtualScrollIsEnabled())
-            {
-                if (view != null)
-                {
-                    var itemsCount = e.Count();
-                    var itemsHeight = _target.GetVirtualScrollItemHeight();
-                    return $"transform: scaleY({itemsCount * itemsHeight});";
-                }
-            }
-
-            {
-                return $"display: none;";
-            }
-        }
+        // public string GetContentStyle<TItem>(IEnumerable<TItem> e, int mult = 1)
+        // {
+        //     if (_target.GetVirtualScrollIsEnabled())
+        //     {
+        //         if (_view != null)
+        //         {
+        //             var itemsCount = e.Count();
+        //             var itemsHeight = _target.GetVirtualScrollItemHeight();
+        //             var height = itemsCount * itemsHeight;
+        //             var skipItems = _view.ScrollTop / itemsHeight;
+        //             // return
+        //             // $"height: {(height - skipItems * itemsHeight)}px; padding-top: {(skipItems * itemsHeight)}px;";
+        //             return $"transform: translateY({mult * skipItems * itemsHeight}px);";
+        //         }
+        //     }
+        //
+        //     {
+        //         return $"";
+        //     }
+        // }
+        //
+        //
+        // public IEnumerable<TItem> GetContentItems<TItem>(IEnumerable<TItem> e)
+        // {
+        //     if (_target.GetVirtualScrollIsEnabled())
+        //     {
+        //         if (_view != null)
+        //         {
+        //             var itemHeight = _target.GetVirtualScrollItemHeight();
+        //             var skipItems = Math.Max(0, _view.ScrollTop) / itemHeight;
+        //             var takeItems =
+        //                 (int) Math.Ceiling(
+        //                     (double) (_view.ScrollTop + _view.ClientHeight - this.GetVirtualScrollTopHeight()) /
+        //                     (double) itemHeight) - skipItems + 10;
+        //
+        //             takeItems = int.MaxValue;
+        //
+        //             return
+        //                 e.Skip(skipItems).Take(takeItems);
+        //         }
+        //
+        //         return Enumerable.Empty<TItem>();
+        //     }
+        //
+        //     return e;
+        // }
+        //
+        // public string GetContentPadding<TItem>(IEnumerable<TItem> e)
+        // {
+        //     if (_target.GetVirtualScrollIsEnabled())
+        //     {
+        //         if (_view != null)
+        //         {
+        //             var itemsCount = e.Count();
+        //             var itemsHeight = _target.GetVirtualScrollItemHeight();
+        //             var skipItems = Math.Max(0, _view.ScrollTop) / itemsHeight;
+        //             // skipItems = 0;
+        //             // return
+        //             // $"height: {(height - skipItems * itemsHeight)}px; padding-top: {(skipItems * itemsHeight)}px;";
+        //             return $"--matVirtualScrollTablePadding: {skipItems * itemsHeight}px;";
+        //         }
+        //     }
+        //
+        //     {
+        //         return $"";
+        //     }
+        // }
+        //
+        //
+        // public string GetScrollSpacerStyle<TItem>(IEnumerable<TItem> e)
+        // {
+        //     if (_target.GetVirtualScrollIsEnabled())
+        //     {
+        //         if (_view != null)
+        //         {
+        //             var itemsCount = e.Count();
+        //             var itemsHeight = _target.GetVirtualScrollItemHeight();
+        //             return $"transform: scaleY({itemsCount * itemsHeight + GetVirtualScrollTopHeight()});";
+        //         }
+        //     }
+        //
+        //     {
+        //         return $"display: none;";
+        //     }
+        // }
+        //
+        // public string GetScrollContainerStyle<TItem>(IEnumerable<TItem> e)
+        // {
+        //     if (_target.GetVirtualScrollIsEnabled())
+        //     {
+        //         if (_view != null)
+        //         {
+        //             var itemsCount = e.Count();
+        //             var itemsHeight = _target.GetVirtualScrollItemHeight();
+        //             return $"min-height: {itemsCount * itemsHeight + GetVirtualScrollTopHeight()}px;";
+        //         }
+        //     }
+        //
+        //     {
+        //         return $"display: none;";
+        //     }
+        // }
 
         private MatDotNetObjectReference<MatVirtualScrollHelper> jsHelper;
 
-        public async Task InitAsync(IJSRuntime js, ElementReference @ref)
+        public async Task InitAsync(IJSRuntime js, ElementReference @ref, bool enabled)
         {
-            if (_target.GetVirtualScrollIsEnabled())
+            Enabled = enabled;
+            if (this.Enabled)
             {
                 jsHelper =
                     new MatDotNetObjectReference<MatVirtualScrollHelper>(this, false);

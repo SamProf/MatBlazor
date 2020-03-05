@@ -19,9 +19,9 @@ namespace MatBlazor
                 .Add("mdc-data-table")
                 .If("mat-data-table__sticky-header", () => StickyHeader)
                 .Get(() => VirtualScrollHelper.GetClass());
-            
-            
-            CallAfterRender(async () => { await VirtualScrollHelper.InitAsync(Js, Ref); });
+
+
+            CallAfterRender(async () => { await VirtualScrollHelper.InitAsync(Js, Ref, this.VirtualScroll); });
         }
 
         [Parameter]
@@ -78,17 +78,7 @@ namespace MatBlazor
             return e;
         }
 
-        public bool GetVirtualScrollIsEnabled()
-        {
-            return VirtualScroll;
-        }
-
-        public int GetVirtualScrollItemHeight()
-        {
-            return 52;
-        }
-
-        public void MarkStateHasChanged()
+        public void StateHasChangedFromVirtualScrollHelper()
         {
             this.StateHasChanged();
         }

@@ -21,7 +21,7 @@
                 public long ElapsedTicks { get; set; }
             }
 
-            RandomTestCase[] randomTestCases = Enumerable.Range(0, 200).Select(index =>
+            RandomTestCase[] randomTestCases = Enumerable.Range(0, 100).Select(index =>
             {
                 var s = Stopwatch.StartNew();
                 var rnd = new Random();

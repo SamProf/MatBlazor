@@ -2,25 +2,31 @@
 @typeparam TItem
 @inherits BaseMatDataTable<TItem>
 
+@{
+    var e = PreparedItems();
+    var scrollResult = VirtualScrollHelper.GetResult(e, 52, 56);
+}
 
 <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id" @attributes="@Attributes">
-    <table class="mdc-data-table__table" style="@VirtualScrollHelper.GetContentStyle(PreparedItems())">
-        <MatDataTableHeader Style="@VirtualScrollHelper.GetContentStyle(PreparedItems(), -1)">
-            <CascadingValue Value="@MatDataTableRenderMode.Header">
-                @Columns(default(TItem))
-            </CascadingValue>
-        </MatDataTableHeader>
+    <div class="mat-data-table-virtual-scroll-container" style="@(scrollResult.ScrollContainerStyle)">
+        <table class="mdc-data-table__table">
+            <MatDataTableHeader>
+                <CascadingValue Value="@MatDataTableRenderMode.Header">
+                    @Columns(default(TItem))
+                </CascadingValue>
+            </MatDataTableHeader>
 
-        <MatDataTableContent>
-            <CascadingValue Value="@MatDataTableRenderMode.Row">
-                @foreach (var item in VirtualScrollHelper.GetContentItems(PreparedItems()))
-                {
-                    <MatDataTableRow>
-                        @Columns(item)
-                    </MatDataTableRow>
-                }
-            </CascadingValue>
-        </MatDataTableContent>
-    </table>
-    <div class="mat-virtual-scroll-spacer" style="@(VirtualScrollHelper.GetScrollSpacerStyle(PreparedItems()))"></div>
+            <MatDataTableContent>
+                <div class="mat-data-table-virtual-scroll-space"></div>
+                <CascadingValue Value="@MatDataTableRenderMode.Row">
+                    @foreach (var item in e.Skip(scrollResult.SkipItems).Take(scrollResult.TakeItems))
+                    {
+                        <MatDataTableRow>
+                            @Columns(item)
+                        </MatDataTableRow>
+                    }
+                </CascadingValue>
+            </MatDataTableContent>
+        </table>
+    </div>
 </div>
