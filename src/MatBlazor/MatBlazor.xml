@@ -430,6 +430,11 @@
              Command parameter.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatNavItem.NavLinkMatch">
+            <summary>
+             NavLinkMatch parameter used to determine the active state of the Nav Item.
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatNavItem.AllowSelection">
             <summary>
             Specifies weather you the Nav Item can be selected / active.
