@@ -98,12 +98,12 @@ namespace MatBlazor
             var dateValue = SwitchT.ToDateTimeNull(value);
             if (dateValue.HasValue)
             {
-                if (Minimum.HasValue && Minimum.Value.Date > dateValue.Value.Date)
+                if (Minimum.HasValue && (EnableTime == true ? (Minimum.Value > dateValue.Value) : (Minimum.Value.Date > dateValue.Value.Date)))
                 {
                     return false;
                 }
 
-                if (Maximum.HasValue && Maximum.Value.Date < dateValue.Value.Date)
+                if (Maximum.HasValue && (EnableTime == true ? (Maximum.Value < dateValue.Value) : (Maximum.Value.Date < dateValue.Value.Date)))
                 {
                     return false;
                 }
@@ -133,8 +133,8 @@ namespace MatBlazor
                             Mode = this.Mode,
                             Position = Position.ToString().ToLower(),
                             DefaultDate = SwitchT.ToDateTimeNull(Value),
-                            Minimum = Minimum?.Date,
-                            Maximum = Maximum?.Date,
+                            Minimum = this.EnableTime ? Minimum : Minimum?.Date,
+                            Maximum = this.EnableTime ? Maximum : Maximum?.Date,
                             Value = SwitchT.ToDateTimeNull(CurrentValue),
                         });
                 });
