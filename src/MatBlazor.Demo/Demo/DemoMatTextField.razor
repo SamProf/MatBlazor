@@ -942,75 +942,119 @@
     <Content>
 
         <p>
-            <b>string</b><br/>
+            <b>string</b><br />
             <MatTextField @bind-Value="@stringValue"></MatTextField> Value: @stringValue
         </p>
         <p>
-            <b>sbyte</b><br/>
+            <b>sbyte</b><br />
             <MatTextField @bind-Value="@sbyteValue"></MatTextField> Value: @sbyteValue
         </p>
         <p>
-            <b>byte</b><br/>
+            <b>sbyte?</b><br />
+            <MatTextField @bind-Value="@sbyteNullValue"></MatTextField> Value: @sbyteNullValue
+        </p>
+        <p>
+            <b>byte</b><br />
             <MatTextField @bind-Value="@byteValue"></MatTextField> Value: @byteValue
         </p>
         <p>
-            <b>short</b><br/>
+            <b>byte?</b><br />
+            <MatTextField @bind-Value="@byteNullValue"></MatTextField> Value: @byteNullValue
+        </p>
+        <p>
+            <b>short</b><br />
             <MatTextField @bind-Value="@shortValue"></MatTextField> Value: @shortValue
         </p>
         <p>
-            <b>ushort</b><br/>
+            <b>short?</b><br />
+            <MatTextField @bind-Value="@shortNullValue"></MatTextField> Value: @shortNullValue
+        </p>
+        <p>
+            <b>ushort</b><br />
             <MatTextField @bind-Value="@ushortValue"></MatTextField> Value: @ushortValue
         </p>
         <p>
-            <b>int</b><br/>
+            <b>ushort?</b><br />
+            <MatTextField @bind-Value="@ushortNullValue"></MatTextField> Value: @ushortNullValue
+        </p>
+        <p>
+            <b>int</b><br />
             <MatTextField @bind-Value="@intValue"></MatTextField> Value: @intValue
         </p>
         <p>
-            <b>uint</b><br/>
+            <b>int?</b><br />
+            <MatTextField @bind-Value="@intNullValue"></MatTextField> Value: @intNullValue
+        </p>
+        <p>
+            <b>uint</b><br />
             <MatTextField @bind-Value="@uintValue"></MatTextField> Value: @uintValue
         </p>
         <p>
-            <b>long</b><br/>
+            <b>uint?</b><br />
+            <MatTextField @bind-Value="@uintNullValue"></MatTextField> Value: @uintNullValue
+        </p>
+        <p>
+            <b>long</b><br />
             <MatTextField @bind-Value="@longValue"></MatTextField> Value: @longValue
         </p>
         <p>
-            <b>ulong</b><br/>
+            <b>long?</b><br />
+            <MatTextField @bind-Value="@longNullValue"></MatTextField> Value: @longNullValue
+        </p>
+        <p>
+            <b>ulong</b><br />
             <MatTextField @bind-Value="@ulongValue"></MatTextField> Value: @ulongValue
         </p>
         <p>
-            <b>char</b><br/>
+            <b>ulong?</b><br />
+            <MatTextField @bind-Value="@ulongNullValue"></MatTextField> Value: @ulongNullValue
+        </p>
+        <p>
+            <b>char</b><br />
             <MatTextField @bind-Value="@charValue"></MatTextField> Value: @charValue
         </p>
         <p>
-            <b>float</b><br/>
+            <b>char?</b><br />
+            <MatTextField @bind-Value="@charNullValue"></MatTextField> Value: @charNullValue
+        </p>
+        <p>
+            <b>float</b><br />
             <MatTextField @bind-Value="@floatValue"></MatTextField> Value: @floatValue
         </p>
         <p>
-            <b>double</b><br/>
+            <b>float?</b><br />
+            <MatTextField @bind-Value="@floatNullValue"></MatTextField> Value: @floatNullValue
+        </p>
+        <p>
+            <b>double</b><br />
             <MatTextField @bind-Value="@doubleValue"></MatTextField> Value: @doubleValue
         </p>
         <p>
-            <b>decimal</b><br/>
+            <b>double?</b><br />
+            <MatTextField @bind-Value="@doubleNullValue"></MatTextField> Value: @doubleNullValue
+        </p>
+        <p>
+            <b>decimal</b><br />
             <MatTextField @bind-Value="@decimalValue"></MatTextField> Value: @decimalValue
         </p>
         <p>
-            <b>decimal?</b><br/>
+            <b>decimal?</b><br />
             <MatTextField @bind-Value="@decimalNullValue"></MatTextField> Value: @decimalNullValue
         </p>
         <p>
-            <b>DateTime</b><br/>
+            <b>DateTime</b><br />
             <MatTextField @bind-Value="@dateTimeValue"></MatTextField> Value: @dateTimeValue
         </p>
         <p>
-            <b>DateTime?</b><br/>
+            <b>DateTime?</b><br />
             <MatTextField @bind-Value="@dateTimeNullValue"></MatTextField> Value: @dateTimeNullValue
         </p>
         <p>
-            <b>bool</b><br/>
+            <b>bool</b><br />
             <MatTextField @bind-Value="@boolValue"></MatTextField> Value: @boolValue
         </p>
         <p>
-            <b>bool?</b><br/>
+            <b>bool?</b><br />
             <MatTextField @bind-Value="@boolNullValue"></MatTextField> Value: @boolNullValue
         </p>
 
@@ -1018,16 +1062,27 @@
         {
             string stringValue;
             sbyte sbyteValue;
+            sbyte? sbyteNullValue;
             byte byteValue;
+            byte? byteNullValue;
             short shortValue;
+            short? shortNullValue;
             ushort ushortValue;
+            ushort? ushortNullValue;
             int intValue;
+            int? intNullValue;
             uint uintValue;
+            uint? uintNullValue;
             long longValue;
+            long? longNullValue;
             ulong ulongValue;
+            ulong? ulongNullValue;
             char charValue;
+            char? charNullValue;
             float floatValue;
+            float? floatNullValue;
             double doubleValue;
+            double? doubleNullValue;
             decimal decimalValue;
             decimal? decimalNullValue;
             DateTime dateTimeValue;
@@ -1049,44 +1104,88 @@
             <MatTextField @bind-Value=""@sbyteValue""></MatTextField> Value: @sbyteValue
         </p>
         <p>
+            <b>sbyte?</b><br/>
+            <MatTextField @bind-Value=""@sbyteNullValue""></MatTextField> Value: @sbyteNullValue
+        </p>
+        <p>
             <b>byte</b><br/>
             <MatTextField @bind-Value=""@byteValue""></MatTextField> Value: @byteValue
+        </p>
+        <p>
+            <b>byte?</b><br/>
+            <MatTextField @bind-Value=""@byteNullValue""></MatTextField> Value: @byteNullValue
         </p>
         <p>
             <b>short</b><br/>
             <MatTextField @bind-Value=""@shortValue""></MatTextField> Value: @shortValue
         </p>
         <p>
+            <b>short?</b><br/>
+            <MatTextField @bind-Value=""@shortNullValue""></MatTextField> Value: @shortNullValue
+        </p>
+        <p>
             <b>ushort</b><br/>
             <MatTextField @bind-Value=""@ushortValue""></MatTextField> Value: @ushortValue
+        </p>
+        <p>
+            <b>ushort?</b><br/>
+            <MatTextField @bind-Value=""@ushortNullValue""></MatTextField> Value: @ushortNullValue
         </p>
         <p>
             <b>int</b><br/>
             <MatTextField @bind-Value=""@intValue""></MatTextField> Value: @intValue
         </p>
         <p>
+            <b>int?</b><br/>
+            <MatTextField @bind-Value=""@intNullValue""></MatTextField> Value: @intNullValue
+        </p>
+        <p>
             <b>uint</b><br/>
             <MatTextField @bind-Value=""@uintValue""></MatTextField> Value: @uintValue
+        </p>
+        <p>
+            <b>uint?</b><br/>
+            <MatTextField @bind-Value=""@uintNullValue""></MatTextField> Value: @uintNullValue
         </p>
         <p>
             <b>long</b><br/>
             <MatTextField @bind-Value=""@longValue""></MatTextField> Value: @longValue
         </p>
         <p>
+            <b>long?</b><br/>
+            <MatTextField @bind-Value=""@longNullValue""></MatTextField> Value: @longNullValue
+        </p>
+        <p>
             <b>ulong</b><br/>
             <MatTextField @bind-Value=""@ulongValue""></MatTextField> Value: @ulongValue
+        </p>
+        <p>
+            <b>ulong?</b><br/>
+            <MatTextField @bind-Value=""@ulongNullValue""></MatTextField> Value: @ulongNullValue
         </p>
         <p>
             <b>char</b><br/>
             <MatTextField @bind-Value=""@charValue""></MatTextField> Value: @charValue
         </p>
         <p>
+            <b>char?</b><br/>
+            <MatTextField @bind-Value=""@charNullValue""></MatTextField> Value: @charNullValue
+        </p>
+        <p>
             <b>float</b><br/>
             <MatTextField @bind-Value=""@floatValue""></MatTextField> Value: @floatValue
         </p>
         <p>
+            <b>float?</b><br/>
+            <MatTextField @bind-Value=""@floatNullValue""></MatTextField> Value: @floatNullValue
+        </p>
+        <p>
             <b>double</b><br/>
             <MatTextField @bind-Value=""@doubleValue""></MatTextField> Value: @doubleValue
+        </p>
+        <p>
+            <b>double?</b><br/>
+            <MatTextField @bind-Value=""@doubleNullValue""></MatTextField> Value: @doubleNullValue
         </p>
         <p>
             <b>decimal</b><br/>
@@ -1117,16 +1216,27 @@
         {
             string stringValue;
             sbyte sbyteValue;
+            sbyte? sbyteNullValue;
             byte byteValue;
+            byte? byteNullValue;
             short shortValue;
+            short? shortNullValue;
             ushort ushortValue;
+            ushort? ushortNullValue;
             int intValue;
+            int? intNullValue;
             uint uintValue;
+            uint? uintNullValue;
             long longValue;
+            long? longNullValue;
             ulong ulongValue;
+            ulong? ulongNullValue;
             char charValue;
+            char? charNullValue;
             float floatValue;
+            float? floatNullValue;
             double doubleValue;
+            double? doubleNullValue;
             decimal decimalValue;
             decimal? decimalNullValue;
             DateTime dateTimeValue;
