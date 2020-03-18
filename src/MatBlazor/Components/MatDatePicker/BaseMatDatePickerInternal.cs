@@ -78,6 +78,14 @@ namespace MatBlazor
             DisposeDotNetObjectRef(dotNetObjectRef);
         }
 
+        protected override string FormatValueAsString(TValue value)
+        {
+            if (Format == null && EnableTime == false)
+            {
+                return SwitchT.FormatValueAsString(value, System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern);
+            }
+            return SwitchT.FormatValueAsString(value, Format);
+        }
 
         protected override bool ValidateCurrentValue(TValue value)
         {
@@ -104,7 +112,7 @@ namespace MatBlazor
             return true;
         }
 
-        protected async Task OnClickIconHandler()
+        protected void OnClickIconHandler()
         {
             this.InvokeStateHasChanged();
 
