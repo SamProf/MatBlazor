@@ -112,6 +112,9 @@ If you think that this project helped you or your company in any way, you can co
 - `MatAutocomplete` - new implementation of component
 
 
+#### MatBlazor 2.3.0 (In progress)
+- PR: Added ability to hide toggle button in MatAccordion / MatExpansionpanel #446 (Thanks to [lindespang](https://github.com/lindespang))
+
 #### MatBlazor 2.2.0
 - .NET Core 3.1.2 + .NET Core 3.2.0-Preview 1 Releases
 - `MatSortHeader`, `MatSortHeaderRow` - New component

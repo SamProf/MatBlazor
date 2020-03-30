@@ -1,43 +1,34 @@
 ﻿@page "/Test2"
 
 
-<MatButton OnClick="@OpenDialog" Raised="true">OpenDialog</MatButton>
+<MatAccordion>
+    <MatExpansionPanel @bind-Expanded="@panelOpenState" HideToggle="true">
+        <MatExpansionPanelSummary>
+            <MatExpansionPanelHeader>Self aware panel</MatExpansionPanelHeader>
+            <MatExpansionPanelSubHeader>
+                Currently I am @(panelOpenState ? "open" : "closed")
+            </MatExpansionPanelSubHeader>
+        </MatExpansionPanelSummary>
+        <MatExpansionPanelDetails>
+            <p>I'm visible because I am open</p>
+        </MatExpansionPanelDetails>
+    </MatExpansionPanel>
 
+    <MatExpansionPanel>
+        <MatExpansionPanelSummary>
+            <MatExpansionPanelHeader>Personal data</MatExpansionPanelHeader>
+            <MatExpansionPanelSubHeader>Type your name and age</MatExpansionPanelSubHeader>
+        </MatExpansionPanelSummary>
+        <MatExpansionPanelDetails>
+            <MatStringField Label="First name"></MatStringField>
+            <MatStringField Label="Age"></MatStringField>
+        </MatExpansionPanelDetails>
+    </MatExpansionPanel>
 
-<MatDialog @bind-IsOpen="@dialogIsOpen">
-    <MatDialogTitle>Test</MatDialogTitle>
-    <MatDialogContent>
+</MatAccordion>
 
-        <MatSelectItem @bind-Value="@value1" Items="@value1Values"></MatSelectItem>
-        <MatSelectItem @bind-Value="@value1" Items="@value1Values"></MatSelectItem>
-
-
-    </MatDialogContent>
-    <MatDialogActions>
-        <MatButton OnClick="@(e => { dialogIsOpen = false; })">No Thanks</MatButton>
-        <MatButton OnClick="@OkClick">OK</MatButton>
-    </MatDialogActions>
-</MatDialog>
 
 @code
 {
-    bool dialogIsOpen = false;
-
-    string value1 = "0";
-    string[] value1Values = Enumerable.Range(0, 100).Select(i => i.ToString()).ToArray();
-
-    string value2 = "0";
-    string[] value2Values = Enumerable.Range(0, 100).Select(i => i.ToString()).ToArray();
-
-
-    void OpenDialog()
-    {
-        dialogIsOpen = true;
-    }
-
-    void OkClick()
-    {
-        dialogIsOpen = false;
-    }
-
+    bool panelOpenState;
 }
