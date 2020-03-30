@@ -80,7 +80,7 @@ class MatTooltip {
       }
 
       case TooltipPosition.right: {
-        xy.x = targetOffsset.lefteft + this.targetRef.offsetWidth + 10;
+        xy.x = targetOffsset.left + this.targetRef.offsetWidth + 10;
         xy.y = targetOffsset.top + (this.targetRef.offsetHeight / 2) - (this.ref.offsetHeight / 2);
         break;
       }
