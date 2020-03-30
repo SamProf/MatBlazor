@@ -115,6 +115,7 @@ If you think that this project helped you or your company in any way, you can co
 #### MatBlazor 2.3.0 (In progress)
 - PR: Add implementations for nullable primitive types: `sbyte?`, `byte?`, `short?`, `ushort?`, `int?`, `uint?`, `long?`, `ulong?`, `char?`, `float?`, `double?` #449 (Thanks to [fire-birdie](https://github.com/fire-birdie))
 - PR: Added ability to hide toggle button in MatAccordion / MatExpansionpanel #446 (Thanks to [lindespang](https://github.com/lindespang))
+- PR: Add Id and Attributes to `MatSelect` #454 (Thanks to [hailstorm75](https://github.com/hailstorm75))
 - PR: ToolTip Fix #450 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
 
 #### MatBlazor 2.2.0
