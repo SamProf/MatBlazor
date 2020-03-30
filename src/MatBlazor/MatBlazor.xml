@@ -378,6 +378,11 @@
              Event occurs when the user clicks on an element.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatIconButton.OnClickStopPropagation">
+            <summary>
+            Stop propagation of the OnClick event
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatIcon">
             <summary>
             Makes it easier to use vector-based icons in your app.
