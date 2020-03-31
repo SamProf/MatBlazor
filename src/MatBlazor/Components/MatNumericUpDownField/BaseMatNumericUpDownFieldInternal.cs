@@ -17,12 +17,12 @@ namespace MatBlazor
             return OnKeyDownEvent2;
         }
 
-        protected async Task Increase()
+        protected void Increase()
         {
             CurrentValue = SwitchT.Increase(CurrentValue, Step, Maximum);
         }
 
-        protected async Task Decrease()
+        protected void Decrease()
         {
             CurrentValue = SwitchT.Decrease(CurrentValue, Step, Minimum);
         }
@@ -30,7 +30,7 @@ namespace MatBlazor
         protected override TValue CurrentValue
         {
             get => base.CurrentValue;
-            set => base.CurrentValue = SwitchT.Round(value, DecimalPlaces);
+            set => base.CurrentValue = SwitchT.Round(value, RoundingDecimalPlaces);
         }
 
         [Parameter]
@@ -46,8 +46,13 @@ namespace MatBlazor
         [Parameter]
         public int DecimalPlaces { get; set; } = 0;
 
+        private int RoundingDecimalPlaces => FieldType == MatNumericUpDownFieldType.Percent ? DecimalPlaces + 2 : DecimalPlaces;
+
         [Parameter]
         public TValue Step { get; set; }
+
+        [Parameter]
+        public MatNumericUpDownFieldType FieldType { get; set; }
 
         public string PlusIcon { get; set; } = MatIconNames.Keyboard_arrow_down;
 
@@ -58,7 +63,7 @@ namespace MatBlazor
             return base.InputTextReadOnly() || !AllowInput;
         }
 
-        private EventCallback<KeyboardEventArgs> OnKeyDownEvent2;
+        private readonly EventCallback<KeyboardEventArgs> OnKeyDownEvent2;
         public BaseMatNumericUpDownFieldInternal()
         {
             OnKeyDownEvent2 = EventCallback.Factory.Create<KeyboardEventArgs>(this, async (e) =>
@@ -66,14 +71,13 @@ namespace MatBlazor
                     await OnKeyDown.InvokeAsync(e);
                     if (e.Key == "ArrowUp")
                     {
-                        await Increase();
+                        Increase();
                     }
                     else if (e.Key == "ArrowDown")
                     {
-                        await Decrease();
+                        Decrease();
                     }
                 });
-            Step = SwitchT.GetStep();
             Maximum = SwitchT.GetMaximum();
             Minimum = SwitchT.GetMinimum();
 
@@ -81,9 +85,69 @@ namespace MatBlazor
             ClassMapper.Add("mat-text-field-with-actions-container");
         }
 
+        private readonly TValue ZeroValue = MatTypeConverter.ChangeType<TValue>(0);
+
+        protected override void OnParametersSet()
+        {
+            if (FieldType == MatNumericUpDownFieldType.Currency)
+            {
+                if (Step == null || Step.Equals(ZeroValue))
+                {
+                    Step = SwitchT.GetStep();
+                }
+                Format = $"c{DecimalPlaces}";
+            }
+            else if (FieldType == MatNumericUpDownFieldType.Percent)
+            {
+                if (Step == null || Step.Equals(ZeroValue))
+                {
+                    Step = MatTypeConverter.ChangeType<TValue>(0.01m);
+                }
+                Format = $"p{DecimalPlaces}";
+            }
+            else
+            {
+                Step = SwitchT.GetStep();
+            }
+        }
+
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
+        }
+
+        protected override bool TryParseValueFromString(string value, out TValue result, out string validationErrorMessage)
+        {
+            if (string.IsNullOrEmpty(value) == false)
+            {
+                if (value[^1] == '%')
+                {
+                    value = value[0..^1];
+                }
+            }
+            var success = base.TryParseValueFromString(value, out result, out validationErrorMessage);
+            
+            if (success == true && FieldType == MatNumericUpDownFieldType.Percent)
+            {
+                // The standard percent formatter assumes 1.0 is 100%, so we divide the input by 100 to make the input match the output
+                if (result != null)
+                {
+                    if (result is decimal decimalResult)
+                    {
+                        result = MatTypeConverter.ChangeType<TValue>(decimalResult * 0.01m);
+                    }
+                    else if (result is float floatResult)
+                    {
+                        result = MatTypeConverter.ChangeType<TValue>(floatResult * 0.01f);
+                    }
+                    else if (result is double doubleResult)
+                    {
+                        result = MatTypeConverter.ChangeType<TValue>(doubleResult * 0.01d);
+                    }
+                }
+            }
+
+            return success;
         }
     }
 }
