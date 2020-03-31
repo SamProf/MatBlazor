@@ -8,7 +8,7 @@ namespace MatBlazor
     public class MatDatePickerJsHelper
     {
         [JSInvokable]
-        public async Task MatDatePickerOnChangeHandler(DateTime?[] value)
+        public void MatDatePickerOnChangeHandler(DateTime?[] value)
         {
             OnChangeAction?.Invoke(value);
         }

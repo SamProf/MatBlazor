@@ -94,9 +94,19 @@
             <param name="validationErrorMessage">If the value could not be parsed, provides a validation error message.</param>
             <returns>True if the value could be parsed; otherwise false.</returns>
         </member>
+        <member name="P:MatBlazor.BaseMatAccordion.HideToggle">
+            <summary>
+            Hides toggle icon for all expansion panel summaries in the accordion
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatExpansionPanel">
             <summary>
             MatExpansionPanel provides an expandable details-summary view.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatExpansionPanel.HideToggle">
+            <summary>
+            Hides the toggle icon in the expansion panel summary
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatAppBar">
@@ -204,6 +214,11 @@
         <member name="P:MatBlazor.BaseMatButton.OnClick">
             <summary>
              Event occurs when the user clicks on an element.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButton.OnClickStopPropagation">
+            <summary>
+            Stop propagation of the OnClick event
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatButton.Command">
@@ -373,6 +388,11 @@
              Event occurs when the user clicks on an element.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatIconButton.OnClickStopPropagation">
+            <summary>
+            Stop propagation of the OnClick event
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatIcon">
             <summary>
             Makes it easier to use vector-based icons in your app.
@@ -428,6 +448,11 @@
         <member name="P:MatBlazor.BaseMatNavItem.CommandParameter">
             <summary>
              Command parameter.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatNavItem.NavLinkMatch">
+            <summary>
+             NavLinkMatch parameter used to determine the active state of the Nav Item.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatNavItem.AllowSelection">

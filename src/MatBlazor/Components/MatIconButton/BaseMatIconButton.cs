@@ -88,6 +88,12 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<MouseEventArgs> OnClick { get; set; }
 
+        /// <summary>
+        /// Stop propagation of the OnClick event
+        /// </summary>
+        [Parameter]
+        public bool OnClickStopPropagation { get; set; }
+
 
         [Parameter]
         public EventCallback<MouseEventArgs> OnMouseDown { get; set; }

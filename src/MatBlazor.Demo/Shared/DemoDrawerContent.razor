@@ -5,7 +5,7 @@
 </style>
 
 <MatNavMenu Multi="true">
-    <MatNavItem Href="@Url.ToAbsoluteUri("").AbsoluteUri"><MatIcon Icon="home"></MatIcon>&nbsp; Home</MatNavItem>
+    <MatNavItem Href="@Url.ToAbsoluteUri("").AbsoluteUri" NavLinkMatch="NavLinkMatch.All"><MatIcon Icon="home"></MatIcon>&nbsp; Home</MatNavItem>
 
     @foreach (var groupModel in model)
     {

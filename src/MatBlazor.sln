@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.Demo.ServerApp", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.Demo.ClientApp", "MatBlazor.Demo.ClientApp\MatBlazor.Demo.ClientApp.csproj", "{F4B53CE6-D312-4F3B-A3DB-3C5E1CB58FA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatBlazor.TestApp.ServerApp", "MatBlazor.TestApp.ServerApp\MatBlazor.TestApp.ServerApp.csproj", "{0829B3BA-AA76-460B-AE39-70B9FF8B6D24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.TestApp.ServerApp", "MatBlazor.TestApp.ServerApp\MatBlazor.TestApp.ServerApp.csproj", "{0829B3BA-AA76-460B-AE39-70B9FF8B6D24}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{781891A8-86DB-4CB8-ADDA-077B906EBD20}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
