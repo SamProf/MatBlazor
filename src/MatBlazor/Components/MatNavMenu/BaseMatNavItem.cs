@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.Web;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -33,6 +34,12 @@ namespace MatBlazor
 
         [Parameter]
         public bool Selected { get; set; }
+
+        /// <summary>
+        ///  NavLinkMatch parameter used to determine the active state of the Nav Item.
+        /// </summary>
+        [Parameter]
+        public NavLinkMatch NavLinkMatch { get; set; } = NavLinkMatch.Prefix;
 
         /// <summary>
         /// Specifies weather you the Nav Item can be selected / active.

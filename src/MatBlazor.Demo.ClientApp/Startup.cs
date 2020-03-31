@@ -9,6 +9,7 @@ namespace MatBlazor.Demo.ClientApp
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddBaseAddressHttpClient();
             services.AddSingleton<AppModel>();
             services.AddScoped<UserAppModel>();
             services.AddScoped<DemoUserService>();

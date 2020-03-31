@@ -1,7 +1,7 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatButton
 
-<button class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @onclick="OnClickHandler" disabled=@Disabled aria-label="@(Label ?? Icon)" @ref="Ref" type="@Type" name="@Name" value="@Value" @attributes="Attributes" Id="@Id">
+<button class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @onclick="OnClickHandler" @onclick:stopPropagation=@OnClickStopPropagation disabled=@Disabled aria-label="@(Label ?? Icon)" @ref="Ref" type="@Type" name="@Name" value="@Value" @attributes="Attributes" Id="@Id">
     <div class="mdc-button__ripple"></div>
     @if (Icon != null)
     {

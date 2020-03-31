@@ -17,6 +17,12 @@ namespace MatBlazor
         [Parameter]
         public bool Expanded { get; set; }
 
+        /// <summary>
+        /// Hides the toggle icon in the expansion panel summary
+        /// </summary>
+        [Parameter]
+        public bool HideToggle { get; set; }
+
         [Parameter]
         public EventCallback<bool> ExpandedChanged { get; set; }
 
@@ -34,6 +40,8 @@ namespace MatBlazor
                 .Add("mat-expansion-panel")
                 .Add("mdc-elevation--z3")
                 .If("mat-expansion-panel--expanded", () => Expanded);
+
+            HideToggle = HideToggle || (Accordion?.HideToggle ?? false);
         }
     }
 }

@@ -21,20 +21,19 @@ namespace MatBlazor.Demo.ClientApp
     }
 #else
     public class Program
+    {
+        public static async Task Main(string[] args)
         {
-            public static async Task Main(string[] args)
-            {
-                var builder = WebAssemblyHostBuilder.CreateDefault(args);
-                builder.RootComponents.Add<App>("app");
-    
-                new Startup().ConfigureServices(builder.Services);
-    
-                await builder
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.RootComponents.Add<App>("app");
+
+            new Startup().ConfigureServices(builder.Services);
+
+            await builder
                 .Build()
                 .UseLocalTimeZone()
                 .RunAsync();
-    
-            }
         }
+    }
 #endif
 }
