@@ -18,11 +18,13 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <h4>VirtualScroll with @items.Count() items</h4>
 
         <MatVirtualScroll style=""height: 500px;"" ItemType=""string"" Items=""@items"" ItemHeight=""50"">
-            <div>@context</div>
+            <ItemTemplate>
+                <div>@context</div>
+            </ItemTemplate>
         </MatVirtualScroll>
 
         @code
@@ -30,8 +32,7 @@
             public IEnumerable<string> items = Enumerable.Range(0, 333000).Select(i => i.ToString()).ToArray();
         }
 
-    ")>
-        </BlazorFiddle>
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -52,9 +53,11 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatVirtualScroll style=""height: 500px;"" ItemType=""string"" Items=""@items2"" ItemHeight=""50"" Disabled=""true"">
-            <div>@context</div>
+            <ItemTemplate>
+                <div>@context</div>
+            </ItemTemplate>
         </MatVirtualScroll>
 
         @code
@@ -62,7 +65,6 @@
             public IEnumerable<string> items2 = Enumerable.Range(0, 200).Select(i => i.ToString()).ToArray();
         }
 
-    ")>
-        </BlazorFiddle>
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

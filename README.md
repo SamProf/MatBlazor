@@ -117,7 +117,7 @@ If you think that this project helped you or your company in any way, you can co
 - `MatAutocomplete` - new implementation of component
 
 
-#### MatBlazor 2.3.0 (In progress)
+#### MatBlazor 2.4.0 (In progress)
 - `VirtualScroll` - New component
 
 #### MatBlazor 2.3.0

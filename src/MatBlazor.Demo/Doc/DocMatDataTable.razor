@@ -13,14 +13,14 @@
 		<th>Description</th>
 	</tr>
 	<tr>
+		<td style="font-weight: bold;">TItem</td>
+		<td>Generic argument</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>Attributes</td>
 		<td>Dictionary&lt;String,Object&gt;</td>
 		<td>Gets or sets a collection of additional attributes that will be applied to the created element.</td>
-	</tr>
-	<tr>
-		<td>ChildContent</td>
-		<td>RenderFragment</td>
-		<td>Child content of MatDataTable</td>
 	</tr>
 	<tr>
 		<td>Class</td>
@@ -28,8 +28,18 @@
 		<td>Specifies one or more classnames for an DOM element.</td>
 	</tr>
 	<tr>
+		<td>Columns</td>
+		<td>RenderFragment&lt;TItem&gt;</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>Id</td>
 		<td>String</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Items</td>
+		<td>IEnumerable&lt;TItem&gt;</td>
 		<td></td>
 	</tr>
 	<tr>
@@ -38,9 +48,19 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>StickyHeader</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>Style</td>
 		<td>String</td>
 		<td>Specifies an inline style for an DOM element.</td>
+	</tr>
+	<tr>
+		<td>VirtualScroll</td>
+		<td>Boolean</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>Ref</td>
