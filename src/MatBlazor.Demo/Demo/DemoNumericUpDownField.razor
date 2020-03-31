@@ -7,20 +7,35 @@
     <Content>
 
         <p>
-            <MatNumericUpDownField
-                Label="Two decimal places"
-                @bind-Value=@testingNullableDecimal1
-                Step="0.01m"
-                DecimalPlaces=2>
+            <MatNumericUpDownField Label="Two decimal places"
+                                   @bind-Value=@testingNullableDecimal1
+                                   Step="0.01m"
+                                   DecimalPlaces=2>
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="No decimal places"
-                @bind-Value=@testingNullableDecimal2
-                DecimalPlaces=0
-                Minimum=null Maximum=null>
+            <MatNumericUpDownField Label="No decimal places"
+                                   @bind-Value=@testingNullableDecimal2
+                                   DecimalPlaces=0
+                                   Minimum=null Maximum=null>
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="Currency field type"
+                                   @bind-Value=@testingCurrency
+                                   FieldType="MatNumericUpDownFieldType.Currency"
+                                   DecimalPlaces=2>
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="Percent field type"
+                                   @bind-Value=@testingNullableDecimal1
+                                   FieldType="MatNumericUpDownFieldType.Percent"
+                                   DecimalPlaces=0
+                                   Minimum=null Maximum=null>
             </MatNumericUpDownField>
         </p>
 
@@ -34,45 +49,41 @@
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="With icon"
-                @bind-Value=@testingNullableDecimal3
-                DecimalPlaces=0
-                Icon="favorite"
-                Minimum=null Maximum=null>
+            <MatNumericUpDownField Label="With icon"
+                                   @bind-Value=@testingNullableDecimal3
+                                   DecimalPlaces=0
+                                   Icon="favorite"
+                                   Minimum=null Maximum=null>
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="Outlined"
-                @bind-Value=@testingNullableDecimal4
-                DecimalPlaces=0
-                Outlined="true"
-                Minimum=null Maximum=null>
+            <MatNumericUpDownField Label="Outlined"
+                                   @bind-Value=@testingNullableDecimal4
+                                   DecimalPlaces=0
+                                   Outlined="true"
+                                   Minimum=null Maximum=null>
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="AllowInput - false"
-                @bind-Value="@testingNullableDecimal4"
-                AllowInput="false">
+            <MatNumericUpDownField Label="AllowInput - false"
+                                   @bind-Value="@testingNullableDecimal4"
+                                   AllowInput="false">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="Full width"
-                @bind-Value=@testingNullableDecimal4
-                DecimalPlaces=0
-                Outlined="true"
-                FullWidth="true"
-                Minimum=null Maximum=null>
+            <MatNumericUpDownField Label="Full width"
+                                   @bind-Value=@testingNullableDecimal4
+                                   DecimalPlaces=0
+                                   Outlined="true"
+                                   FullWidth="true"
+                                   Minimum=null Maximum=null>
             </MatNumericUpDownField>
         </p>
-        
-        
+
+
 
 
         @code
@@ -81,6 +92,7 @@
             decimal? testingNullableDecimal2 = null;
             decimal? testingNullableDecimal3 = null;
             decimal? testingNullableDecimal4 = null;
+            decimal testingCurrency = 0m;
 
             string ButtonState = "";
 
@@ -99,20 +111,34 @@
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
 
         <p>
-            <MatNumericUpDownField
-                Label=""Two decimal places""
-                @bind-Value=@testingNullableDecimal1
-                Step=""0.01m""
-                DecimalPlaces=2>
+            <MatNumericUpDownField Label=""Two decimal places""
+                                   @bind-Value=@testingNullableDecimal1
+                                   Step=""0.01m""
+                                   DecimalPlaces=2>
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label=""No decimal places""
-                @bind-Value=@testingNullableDecimal2
-                DecimalPlaces=0
-                Minimum=null Maximum=null>
+            <MatNumericUpDownField Label=""No decimal places""
+                                   @bind-Value=@testingNullableDecimal2
+                                   DecimalPlaces=0
+                                   Minimum=null Maximum=null>
+            </MatNumericUpDownField>
+        </p>
+
+            <MatNumericUpDownField Label=""Currency field type""
+                                   @bind-Value=@testingCurrency
+                                   FieldType=""MatNumericUpDownFieldType.Currency""
+                                   DecimalPlaces=2>
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label=""Percent field type""
+                                   @bind-Value=@testingNullableDecimal1
+                                   FieldType=""MatNumericUpDownFieldType.Percent""
+                                   DecimalPlaces=0
+                                   Minimum=null Maximum=null>
             </MatNumericUpDownField>
         </p>
 
@@ -126,41 +152,37 @@
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label=""With icon""
-                @bind-Value=@testingNullableDecimal3
-                DecimalPlaces=0
-                Icon=""favorite""
-                Minimum=null Maximum=null>
+            <MatNumericUpDownField Label=""With icon""
+                                   @bind-Value=@testingNullableDecimal3
+                                   DecimalPlaces=0
+                                   Icon=""favorite""
+                                   Minimum=null Maximum=null>
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label=""Outlined""
-                @bind-Value=@testingNullableDecimal4
-                DecimalPlaces=0
-                Outlined=""true""
-                Minimum=null Maximum=null>
+            <MatNumericUpDownField Label=""Outlined""
+                                   @bind-Value=@testingNullableDecimal4
+                                   DecimalPlaces=0
+                                   Outlined=""true""
+                                   Minimum=null Maximum=null>
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label=""AllowInput - false""
-                @bind-Value=""@testingNullableDecimal4""
-                AllowInput=""false"">
+            <MatNumericUpDownField Label=""AllowInput - false""
+                                   @bind-Value=""@testingNullableDecimal4""
+                                   AllowInput=""false"">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label=""Full width""
-                @bind-Value=@testingNullableDecimal4
-                DecimalPlaces=0
-                Outlined=""true""
-                FullWidth=""true""
-                Minimum=null Maximum=null>
+            <MatNumericUpDownField Label=""Full width""
+                                   @bind-Value=@testingNullableDecimal4
+                                   DecimalPlaces=0
+                                   Outlined=""true""
+                                   FullWidth=""true""
+                                   Minimum=null Maximum=null>
             </MatNumericUpDownField>
         </p>
         
@@ -173,6 +195,7 @@
             decimal? testingNullableDecimal2 = null;
             decimal? testingNullableDecimal3 = null;
             decimal? testingNullableDecimal4 = null;
+            decimal testingCurrency = 0m;
 
             string ButtonState = """";
 
@@ -194,175 +217,151 @@
 <p>MatNumericUpDownField supports different generic types</p>
 <DemoContainer>
     <Content>
-       
+
         <p>
-            <MatNumericUpDownField
-                Label="sbyte"
-                @bind-Value="@v1">
-            </MatNumericUpDownField>
-        </p>
-        
-        <p>
-            <MatNumericUpDownField
-                Label="byte"
-                @bind-Value="@v2">
-            </MatNumericUpDownField>
-        </p>
-        
-        <p>
-            <MatNumericUpDownField
-                Label="short"
-                @bind-Value="@v3">
-            </MatNumericUpDownField>
-        </p>
-        
-        <p>
-            <MatNumericUpDownField
-                Label="ushort"
-                @bind-Value="@v4">
-            </MatNumericUpDownField>
-        </p>
-        
-        <p>
-            <MatNumericUpDownField
-                Label="int"
-                @bind-Value="@v5">
-            </MatNumericUpDownField>
-        </p>
-        
-        <p>
-            <MatNumericUpDownField
-                Label="uint"
-                @bind-Value="@v6">
-            </MatNumericUpDownField>
-        </p>
-        
-        <p>
-            <MatNumericUpDownField
-                Label="long"
-                @bind-Value="@v7">
-            </MatNumericUpDownField>
-        </p>
-        
-        <p>
-            <MatNumericUpDownField
-                Label="ulong"
-                @bind-Value="@v8">
-            </MatNumericUpDownField>
-        </p>
-        
-        <p>
-            <MatNumericUpDownField
-                Label="char"
-                @bind-Value="@v9">
-            </MatNumericUpDownField>
-        </p>
-        
-        <p>
-            <MatNumericUpDownField
-                Label="float"
-                @bind-Value="@v10">
-            </MatNumericUpDownField>
-        </p>
-        
-        <p>
-            <MatNumericUpDownField
-                Label="double"
-                @bind-Value="@v11">
-            </MatNumericUpDownField>
-        </p>
-        
-        <p>
-            <MatNumericUpDownField
-                Label="decimal"
-                @bind-Value="@v12">
-            </MatNumericUpDownField>
-        </p>
-        
-        <p>
-            <MatNumericUpDownField
-                Label="decimal?"
-                @bind-Value="@v13">
+            <MatNumericUpDownField Label="sbyte"
+                                   @bind-Value="@v1">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="sbyte?"
-                @bind-Value="@v14">
+            <MatNumericUpDownField Label="byte"
+                                   @bind-Value="@v2">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="byte?"
-                @bind-Value="@v15">
+            <MatNumericUpDownField Label="short"
+                                   @bind-Value="@v3">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="short?"
-                @bind-Value="@v16">
+            <MatNumericUpDownField Label="ushort"
+                                   @bind-Value="@v4">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="ushort?"
-                @bind-Value="@v17">
+            <MatNumericUpDownField Label="int"
+                                   @bind-Value="@v5">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="int?"
-                @bind-Value="@v18">
+            <MatNumericUpDownField Label="uint"
+                                   @bind-Value="@v6">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="uint?"
-                @bind-Value="@v19">
+            <MatNumericUpDownField Label="long"
+                                   @bind-Value="@v7">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="long?"
-                @bind-Value="@v20">
+            <MatNumericUpDownField Label="ulong"
+                                   @bind-Value="@v8">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="ulong?"
-                @bind-Value="@v21">
+            <MatNumericUpDownField Label="char"
+                                   @bind-Value="@v9">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="char?"
-                @bind-Value="@v22">
+            <MatNumericUpDownField Label="float"
+                                   @bind-Value="@v10">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="float?"
-                @bind-Value="@v23">
+            <MatNumericUpDownField Label="double"
+                                   @bind-Value="@v11">
             </MatNumericUpDownField>
         </p>
 
         <p>
-            <MatNumericUpDownField
-                Label="double?"
-                @bind-Value="@v24">
+            <MatNumericUpDownField Label="decimal"
+                                   @bind-Value="@v12">
             </MatNumericUpDownField>
         </p>
-      
+
+        <p>
+            <MatNumericUpDownField Label="decimal?"
+                                   @bind-Value="@v13">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="sbyte?"
+                                   @bind-Value="@v14">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="byte?"
+                                   @bind-Value="@v15">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="short?"
+                                   @bind-Value="@v16">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="ushort?"
+                                   @bind-Value="@v17">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="int?"
+                                   @bind-Value="@v18">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="uint?"
+                                   @bind-Value="@v19">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="long?"
+                                   @bind-Value="@v20">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="ulong?"
+                                   @bind-Value="@v21">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="char?"
+                                   @bind-Value="@v22">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="float?"
+                                   @bind-Value="@v23">
+            </MatNumericUpDownField>
+        </p>
+
+        <p>
+            <MatNumericUpDownField Label="double?"
+                                   @bind-Value="@v24">
+            </MatNumericUpDownField>
+        </p>
+
 
 
         @code
@@ -390,8 +389,7 @@
             ulong? v21;
             char? v22;
             float? v23;
-            double? v24;
-        }
+            double? v24;        }
 
 
     </Content>
@@ -489,76 +487,66 @@
             </MatNumericUpDownField>
         </p>
 
-        <p>
+<p>
             <MatNumericUpDownField
                 Label=""sbyte?""
                 @bind-Value=""@v14"">
             </MatNumericUpDownField>
         </p>
-
         <p>
             <MatNumericUpDownField
                 Label=""byte?""
                 @bind-Value=""@v15"">
             </MatNumericUpDownField>
         </p>
-
         <p>
             <MatNumericUpDownField
                 Label=""short?""
                 @bind-Value=""@v16"">
             </MatNumericUpDownField>
         </p>
-
         <p>
             <MatNumericUpDownField
                 Label=""ushort?""
                 @bind-Value=""@v17"">
             </MatNumericUpDownField>
         </p>
-
         <p>
             <MatNumericUpDownField
                 Label=""int?""
                 @bind-Value=""@v18"">
             </MatNumericUpDownField>
         </p>
-
         <p>
             <MatNumericUpDownField
                 Label=""uint?""
                 @bind-Value=""@v19"">
             </MatNumericUpDownField>
         </p>
-
         <p>
             <MatNumericUpDownField
                 Label=""long?""
                 @bind-Value=""@v20"">
             </MatNumericUpDownField>
         </p>
-
         <p>
             <MatNumericUpDownField
                 Label=""ulong?""
                 @bind-Value=""@v21"">
             </MatNumericUpDownField>
         </p>
-
         <p>
             <MatNumericUpDownField
                 Label=""char?""
                 @bind-Value=""@v22"">
             </MatNumericUpDownField>
         </p>
-
         <p>
             <MatNumericUpDownField
                 Label=""float?""
                 @bind-Value=""@v23"">
             </MatNumericUpDownField>
         </p>
-
         <p>
             <MatNumericUpDownField
                 Label=""double?""

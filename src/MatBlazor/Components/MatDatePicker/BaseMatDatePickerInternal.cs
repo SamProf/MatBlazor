@@ -78,6 +78,14 @@ namespace MatBlazor
             DisposeDotNetObjectRef(dotNetObjectRef);
         }
 
+        protected override string FormatValueAsString(TValue value)
+        {
+            if (Format == null && EnableTime == false)
+            {
+                return SwitchT.FormatValueAsString(value, System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern);
+            }
+            return SwitchT.FormatValueAsString(value, Format);
+        }
 
         protected override bool ValidateCurrentValue(TValue value)
         {
@@ -90,12 +98,12 @@ namespace MatBlazor
             var dateValue = SwitchT.ToDateTimeNull(value);
             if (dateValue.HasValue)
             {
-                if (Minimum.HasValue && Minimum.Value > dateValue.Value)
+                if (Minimum.HasValue && (EnableTime == true ? (Minimum.Value > dateValue.Value) : (Minimum.Value.Date > dateValue.Value.Date)))
                 {
                     return false;
                 }
 
-                if (Maximum.HasValue && Maximum.Value < dateValue.Value)
+                if (Maximum.HasValue && (EnableTime == true ? (Maximum.Value < dateValue.Value) : (Maximum.Value.Date < dateValue.Value.Date)))
                 {
                     return false;
                 }
@@ -104,7 +112,7 @@ namespace MatBlazor
             return true;
         }
 
-        protected async Task OnClickIconHandler()
+        protected void OnClickIconHandler()
         {
             this.InvokeStateHasChanged();
 
@@ -125,8 +133,8 @@ namespace MatBlazor
                             Mode = this.Mode,
                             Position = Position.ToString().ToLower(),
                             DefaultDate = SwitchT.ToDateTimeNull(Value),
-                            Minimum = Minimum,
-                            Maximum = Maximum,
+                            Minimum = this.EnableTime ? Minimum : Minimum?.Date,
+                            Maximum = this.EnableTime ? Maximum : Maximum?.Date,
                             Value = SwitchT.ToDateTimeNull(CurrentValue),
                         });
                 });

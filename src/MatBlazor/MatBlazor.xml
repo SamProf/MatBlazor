@@ -216,6 +216,11 @@
              Event occurs when the user clicks on an element.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatButton.OnClickStopPropagation">
+            <summary>
+            Stop propagation of the OnClick event
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatButton.Command">
             <summary>
              Command executed when the user clicks on an element.
@@ -381,6 +386,11 @@
         <member name="P:MatBlazor.BaseMatIconButton.OnClick">
             <summary>
              Event occurs when the user clicks on an element.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatIconButton.OnClickStopPropagation">
+            <summary>
+            Stop propagation of the OnClick event
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatIcon">
