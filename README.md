@@ -88,6 +88,8 @@ If you think that this project helped you or your company in any way, you can co
 
 ### Sponsors:
 - Phil Parkin
+- Patreon: Rene Zaal
+- Patreon: Stas Levich
 
 
 ### Backers:
