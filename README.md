@@ -117,7 +117,7 @@ If you think that this project helped you or your company in any way, you can co
 - `MatAutocomplete` - new implementation of component
 
 
-#### MatBlazor 2.3.0 (In progress)
+#### MatBlazor 2.3.0
 - PR: Add implementations for nullable primitive types: `sbyte?`, `byte?`, `short?`, `ushort?`, `int?`, `uint?`, `long?`, `ulong?`, `char?`, `float?`, `double?` #449 (Thanks to [fire-birdie](https://github.com/fire-birdie))
 - MatNumericUpDownField - Added FieldType parameter with Numeric, Currency, and Percent types #462 (Thanks to [RonPeters](https://github.com/RonPeters))
 - PR: MatDatePicker - Do not display the time in the text field by default. Respect the Format and EnableTime parameters. #462 (Thanks to [RonPeters](https://github.com/RonPeters))
