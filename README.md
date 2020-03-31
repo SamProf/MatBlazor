@@ -92,6 +92,9 @@ If you think that this project helped you or your company in any way, you can co
 
 ### Backers:
 - Oyvind Habberstad
+- [Victor Lindespång](https://github.com/lindespang)
+- Gate575 Kft
+- Christophe Peugnet
 - SmartView Systems
 - [Apply Solutions GmbH](https://www.apply-solutions.com/)
 - Radu Tomuleasa
@@ -114,11 +117,18 @@ If you think that this project helped you or your company in any way, you can co
 
 #### MatBlazor 2.3.0 (In progress)
 - PR: Add implementations for nullable primitive types: `sbyte?`, `byte?`, `short?`, `ushort?`, `int?`, `uint?`, `long?`, `ulong?`, `char?`, `float?`, `double?` #449 (Thanks to [fire-birdie](https://github.com/fire-birdie))
+- MatNumericUpDownField - Added FieldType parameter with Numeric, Currency, and Percent types #462 (Thanks to [RonPeters](https://github.com/RonPeters))
+- PR: MatDatePicker - Do not display the time in the text field by default. Respect the Format and EnableTime parameters. #462 (Thanks to [RonPeters](https://github.com/RonPeters))
+- PR: MatDatePicker - Fixed Minimum and Maximum implementation by comparing only dates if EnableTime is false, and comparing dates and times if EnableTime is true #462 (Thanks to [RonPeters](https://github.com/RonPeters))
 - PR: Added ability to hide toggle button in MatAccordion / MatExpansionpanel #446 (Thanks to [lindespang](https://github.com/lindespang))
 - PR: Add Parameter to MatNavItem to allow user to set the NavLinkMatch #456 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: Add Id and Attributes to `MatSelect` #454 (Thanks to [hailstorm75](https://github.com/hailstorm75))
+- PR: MatIconButton - Added OnClickStopPropagation #462 (Thanks to [RonPeters](https://github.com/RonPeters))
+- PR: MatButton - Added OnClickStopPropagation #462 (Thanks to [RonPeters](https://github.com/RonPeters))
+- PR: MatDatePicker - Fixed the labeling of the DisableMobile Demo #462 (Thanks to [RonPeters](https://github.com/RonPeters))
 - PR: ToolTip Fix #450 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
-
+- PR: package.json - Fixed invalid structure and updated some packages to address some of the vulnerabilities identified in audit #462 (Thanks to [RonPeters](https://github.com/RonPeters))
+  
 #### MatBlazor 2.2.0
 - .NET Core 3.1.2 + .NET Core 3.2.0-Preview 1 Releases
 - `MatSortHeader`, `MatSortHeaderRow` - New component
