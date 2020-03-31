@@ -1,8 +1,8 @@
 ﻿using MatBlazor.Demo.Models;
-using Microsoft.AspNetCore.Blazor.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using MatBlazor.Demo.Services;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Toolbelt.Blazor.Extensions.DependencyInjection;
 
 namespace MatBlazor.Demo.ClientApp
