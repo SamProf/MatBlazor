@@ -30,7 +30,7 @@ div.mdc-text-field--fullwidth-with-trailing-icon:not(.mdc-text-field--textarea) 
 }
 
 div.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea) > input.mdc-text-field__input {
-  padding: 20px 16px 6px 48px;
+  padding: 20px 16px 6px 48px !important;
 }
 
 .mat-floating-label--float-above-outlined {
