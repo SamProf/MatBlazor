@@ -63,6 +63,11 @@ div.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea) >
   font-size: 0.9rem;
 }
 
+/* Label color to theme primary color */
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: var(--mdc-theme-primary, #6200ee);
+}
+
 /* For DatePicker */
 .valid.modified > .mdc-text-field__input {
   border-bottom: 2px solid #10b510 !important;
