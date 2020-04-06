@@ -48,7 +48,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatDataTable Items=""@periodicElements"">
             <Columns>
                 <MatDataTableColumn Header=""No."">@context.Position</MatDataTableColumn>
@@ -91,7 +91,8 @@
             };
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -142,7 +143,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatDataTable Items=""@periodicElements"" Paginator=""true"">
             <Columns>
                 <MatDataTableColumn Header=""No."">@context.Position</MatDataTableColumn>
@@ -185,7 +186,103 @@
             };
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<DemoContainer Header="Sorting with Data Table">
+    <Content>
+        <MatDataTable Items="@periodicElements">
+            <Columns>
+                <MatDataTableColumn Header="No." OrderBy="@context.Position">@context.Position</MatDataTableColumn>
+                <MatDataTableColumn Header="Name" OrderBy="@context.Name">@context.Name</MatDataTableColumn>
+                <MatDataTableColumn Header="Weight" OrderBy="@context.Weight">@context.Weight</MatDataTableColumn>
+                <MatDataTableColumn Header="Symbol" OrderBy="@context.Symbol">@context.Symbol</MatDataTableColumn>
+            </Columns>
+        </MatDataTable>
+
+        @code
+        {
+            class PeriodicElement3
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement3(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement3[] periodicElements3 = new PeriodicElement3[]
+            {
+                new PeriodicElement3(1, "Hydrogen", 1.0079, "H"),
+                new PeriodicElement3(2, "Helium", 4.0026, "He"),
+                new PeriodicElement3(3, "Lithium", 6.941, "Li"),
+                new PeriodicElement3(4, "Beryllium", 9.0122, "Be"),
+                new PeriodicElement3(5, "Boron", 10.811, "B"),
+                new PeriodicElement3(6, "Carbon", 12.0107, "C"),
+                new PeriodicElement3(7, "Nitrogen", 14.0067, "N"),
+                new PeriodicElement3(8, "Oxygen", 15.9994, "O"),
+                new PeriodicElement3(9, "Fluorine", 18.9984, "F"),
+                new PeriodicElement3(10, "Neon", 20.1797, "Ne"),
+            };
+        }
+
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatDataTable Items=""@periodicElements"" Paginator=""true"">
+            <Columns>
+                <MatDataTableColumn Header=""No."">@context.Position</MatDataTableColumn>
+                <MatDataTableColumn Header=""Name"">@context.Name</MatDataTableColumn>
+                <MatDataTableColumn Header=""Weight"">@context.Weight</MatDataTableColumn>
+                <MatDataTableColumn Header=""Symbol"">@context.Symbol</MatDataTableColumn>
+            </Columns>
+        </MatDataTable>
+
+        @code
+        {
+            class PeriodicElement2
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement2(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement2[] periodicElements2 = new PeriodicElement2[]
+            {
+                new PeriodicElement2(1, ""Hydrogen"", 1.0079, ""H""),
+                new PeriodicElement2(2, ""Helium"", 4.0026, ""He""),
+                new PeriodicElement2(3, ""Lithium"", 6.941, ""Li""),
+                new PeriodicElement2(4, ""Beryllium"", 9.0122, ""Be""),
+                new PeriodicElement2(5, ""Boron"", 10.811, ""B""),
+                new PeriodicElement2(6, ""Carbon"", 12.0107, ""C""),
+                new PeriodicElement2(7, ""Nitrogen"", 14.0067, ""N""),
+                new PeriodicElement2(8, ""Oxygen"", 15.9994, ""O""),
+                new PeriodicElement2(9, ""Fluorine"", 18.9984, ""F""),
+                new PeriodicElement2(10, ""Neon"", 20.1797, ""Ne""),
+            };
+        }
+
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -228,7 +325,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatDataTable Items=""@randomTestCases"" Style=""max-height: 300px;"" StickyHeader=""true"" VirtualScroll=""true"">
             <Columns>
                 <MatDataTableColumn Header=""Index"">@context.Index</MatDataTableColumn>
@@ -262,7 +359,8 @@
 
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -305,7 +403,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatDataTable Items=""@randomTestCases2"" Style=""max-height: 300px;"" VirtualScroll=""true"">
             <Columns>
                 <MatDataTableColumn Header=""Index"">@context.Index</MatDataTableColumn>
@@ -339,6 +437,7 @@
 
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
 </DemoContainer>

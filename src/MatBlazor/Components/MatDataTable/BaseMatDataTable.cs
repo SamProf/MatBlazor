@@ -62,6 +62,9 @@ namespace MatBlazor
         protected IEnumerable<TItem> GetVisibleItems()
         {
             var e = Items ?? Enumerable.Empty<TItem>();
+            
+            
+            
             return e;
         }
 
