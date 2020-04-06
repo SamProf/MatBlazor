@@ -110,10 +110,10 @@ If you think that this project helped you or your company in any way, you can co
 ## News
 
 ### Roadmap
+- `MatVirtualScroll` - complete new component
 - `MatDataTable` - complete new component
 - `MatDatePicker` - improvements
 - `MatTreeView` - complete new component
-- `MatVirtualScroll` - complete new component
 - `MatAutocomplete` - new implementation of component
 
 

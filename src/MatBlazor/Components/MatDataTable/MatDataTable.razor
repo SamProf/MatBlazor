@@ -3,12 +3,13 @@
 @inherits BaseMatDataTable<TItem>
 
 @{
-    var e = PreparedItems();
-    var scrollResult = VirtualScrollHelper.GetResult(e, 52, 56, StickyHeader);
+    var visibleItems = GetVisibleItems();
+    var renderedItems = GetRenderedItems(visibleItems);
+    var scrollResult = VirtualScrollHelper.GetResult(renderedItems, 52, 56, StickyHeader);
 }
 
 <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id" @attributes="@Attributes">
-    <div class="mat-data-table-virtual-scroll-container" style="@(scrollResult.ScrollContainerStyle)">
+    <div class="mat-data-table-container" style="@(scrollResult.ScrollContainerStyle)">
         <table class="mdc-data-table__table">
             <MatDataTableHeader>
                 <CascadingValue Value="@MatDataTableRenderMode.Header">
@@ -18,7 +19,7 @@
 
             <MatDataTableContent>
                 <CascadingValue Value="@MatDataTableRenderMode.Row">
-                    @foreach (var item in e.Skip(scrollResult.SkipItems).Take(scrollResult.TakeItems))
+                    @foreach (var item in renderedItems.Skip(scrollResult.SkipItems).Take(scrollResult.TakeItems))
                     {
                         <MatDataTableRow>
                             @Columns(item)
@@ -28,4 +29,8 @@
             </MatDataTableContent>
         </table>
     </div>
+    @if (Paginator)
+    {
+        <MatPaginator PageSizeOptions="@PageSizeOptions" PageSize="@PageSize" PageLabel="@PageLabel" Length="@visibleItems.Count()" Page="@OnPageHandler"></MatPaginator>
+    }
 </div>

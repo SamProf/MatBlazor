@@ -1,8 +1,197 @@
 @using System.Diagnostics
 <DocMatDataTable></DocMatDataTable>
 
+
+<DemoContainer Header="Basic use of Data Table">
+    <Content>
+        <MatDataTable Items="@periodicElements">
+            <Columns>
+                <MatDataTableColumn Header="No.">@context.Position</MatDataTableColumn>
+                <MatDataTableColumn Header="Name">@context.Name</MatDataTableColumn>
+                <MatDataTableColumn Header="Weight">@context.Weight</MatDataTableColumn>
+                <MatDataTableColumn Header="Symbol">@context.Symbol</MatDataTableColumn>
+            </Columns>
+        </MatDataTable>
+
+        @code
+        {
+            class PeriodicElement
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement[] periodicElements = new PeriodicElement[]
+            {
+                new PeriodicElement(1, "Hydrogen", 1.0079, "H"),
+                new PeriodicElement(2, "Helium", 4.0026, "He"),
+                new PeriodicElement(3, "Lithium", 6.941, "Li"),
+                new PeriodicElement(4, "Beryllium", 9.0122, "Be"),
+                new PeriodicElement(5, "Boron", 10.811, "B"),
+                new PeriodicElement(6, "Carbon", 12.0107, "C"),
+                new PeriodicElement(7, "Nitrogen", 14.0067, "N"),
+                new PeriodicElement(8, "Oxygen", 15.9994, "O"),
+                new PeriodicElement(9, "Fluorine", 18.9984, "F"),
+                new PeriodicElement(10, "Neon", 20.1797, "Ne"),
+            };
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatDataTable Items=""@periodicElements"">
+            <Columns>
+                <MatDataTableColumn Header=""No."">@context.Position</MatDataTableColumn>
+                <MatDataTableColumn Header=""Name"">@context.Name</MatDataTableColumn>
+                <MatDataTableColumn Header=""Weight"">@context.Weight</MatDataTableColumn>
+                <MatDataTableColumn Header=""Symbol"">@context.Symbol</MatDataTableColumn>
+            </Columns>
+        </MatDataTable>
+
+        @code
+        {
+            class PeriodicElement
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement[] periodicElements = new PeriodicElement[]
+            {
+                new PeriodicElement(1, ""Hydrogen"", 1.0079, ""H""),
+                new PeriodicElement(2, ""Helium"", 4.0026, ""He""),
+                new PeriodicElement(3, ""Lithium"", 6.941, ""Li""),
+                new PeriodicElement(4, ""Beryllium"", 9.0122, ""Be""),
+                new PeriodicElement(5, ""Boron"", 10.811, ""B""),
+                new PeriodicElement(6, ""Carbon"", 12.0107, ""C""),
+                new PeriodicElement(7, ""Nitrogen"", 14.0067, ""N""),
+                new PeriodicElement(8, ""Oxygen"", 15.9994, ""O""),
+                new PeriodicElement(9, ""Fluorine"", 18.9984, ""F""),
+                new PeriodicElement(10, ""Neon"", 20.1797, ""Ne""),
+            };
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<DemoContainer Header="Pagination with Data Table">
+    <Content>
+        <MatDataTable Items="@periodicElements" Paginator="true">
+            <Columns>
+                <MatDataTableColumn Header="No.">@context.Position</MatDataTableColumn>
+                <MatDataTableColumn Header="Name">@context.Name</MatDataTableColumn>
+                <MatDataTableColumn Header="Weight">@context.Weight</MatDataTableColumn>
+                <MatDataTableColumn Header="Symbol">@context.Symbol</MatDataTableColumn>
+            </Columns>
+        </MatDataTable>
+
+        @code
+        {
+            class PeriodicElement2
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement2(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement2[] periodicElements2 = new PeriodicElement2[]
+            {
+                new PeriodicElement2(1, "Hydrogen", 1.0079, "H"),
+                new PeriodicElement2(2, "Helium", 4.0026, "He"),
+                new PeriodicElement2(3, "Lithium", 6.941, "Li"),
+                new PeriodicElement2(4, "Beryllium", 9.0122, "Be"),
+                new PeriodicElement2(5, "Boron", 10.811, "B"),
+                new PeriodicElement2(6, "Carbon", 12.0107, "C"),
+                new PeriodicElement2(7, "Nitrogen", 14.0067, "N"),
+                new PeriodicElement2(8, "Oxygen", 15.9994, "O"),
+                new PeriodicElement2(9, "Fluorine", 18.9984, "F"),
+                new PeriodicElement2(10, "Neon", 20.1797, "Ne"),
+            };
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatDataTable Items=""@periodicElements"" Paginator=""true"">
+            <Columns>
+                <MatDataTableColumn Header=""No."">@context.Position</MatDataTableColumn>
+                <MatDataTableColumn Header=""Name"">@context.Name</MatDataTableColumn>
+                <MatDataTableColumn Header=""Weight"">@context.Weight</MatDataTableColumn>
+                <MatDataTableColumn Header=""Symbol"">@context.Symbol</MatDataTableColumn>
+            </Columns>
+        </MatDataTable>
+
+        @code
+        {
+            class PeriodicElement2
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement2(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement2[] periodicElements2 = new PeriodicElement2[]
+            {
+                new PeriodicElement2(1, ""Hydrogen"", 1.0079, ""H""),
+                new PeriodicElement2(2, ""Helium"", 4.0026, ""He""),
+                new PeriodicElement2(3, ""Lithium"", 6.941, ""Li""),
+                new PeriodicElement2(4, ""Beryllium"", 9.0122, ""Be""),
+                new PeriodicElement2(5, ""Boron"", 10.811, ""B""),
+                new PeriodicElement2(6, ""Carbon"", 12.0107, ""C""),
+                new PeriodicElement2(7, ""Nitrogen"", 14.0067, ""N""),
+                new PeriodicElement2(8, ""Oxygen"", 15.9994, ""O""),
+                new PeriodicElement2(9, ""Fluorine"", 18.9984, ""F""),
+                new PeriodicElement2(10, ""Neon"", 20.1797, ""Ne""),
+            };
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
 <h5 class="mat-h5">Data Table with virtual scrolling and sticky header</h5>
-<DemoContainer >
+<DemoContainer>
     <Content>
         <MatDataTable Items="@randomTestCases" Style="max-height: 300px;" StickyHeader="true" VirtualScroll="true">
             <Columns>
@@ -76,7 +265,6 @@
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
-
 
 
 <h5 class="mat-h5">Data Table with virtual scrolling</h5>

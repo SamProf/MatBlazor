@@ -3,7 +3,6 @@ import {MDCDataTable} from '@material/data-table';
 
 class MatDataTable extends MatBlazorComponent {
 
-
     table: MDCDataTable;
 
     constructor(ref: HTMLElement) {

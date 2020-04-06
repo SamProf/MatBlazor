@@ -6,7 +6,7 @@
   background-color: #fff;
   overflow-anchor: none;
 
-  .mat-data-table-virtual-scroll-container {
+  .mat-data-table-container {
     width: 100%;
   }
 
@@ -21,13 +21,13 @@
   //  border-top: var(--matVirtualScrollTablePadding) solid yellow;
   //}
 
-  .mat-data-table-virtual-scroll-space {
-    min-height: var(--matVirtualScrollTablePadding);
-  }
+  //.mat-data-table-virtual-scroll-space {
+  //  min-height: var(--matVirtualScrollTablePadding);
+  //}
 
   &.mat-data-table__sticky-header {
 
-    .mat-data-table-virtual-scroll-container {
+    .mat-data-table-container {
 
       background-color: inherit;
 

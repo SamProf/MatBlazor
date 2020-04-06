@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatPaginator : BaseMatDomComponent
+    public class BaseMatPaginator : BaseMatDomComponent, IBaseMatPaginator
     {
         private int _pageSize;
 
@@ -17,7 +18,10 @@ namespace MatBlazor
         public string Label { get; set; } = "Items per Page:";
 
         [Parameter]
-        public string PageLabel { get; set; } = "Page:";
+        public string PageLabel { get; set; } = PageLabelDefault;
+
+
+        public static string PageLabelDefault = "Page:";
 
 
         [Parameter]
@@ -53,13 +57,20 @@ namespace MatBlazor
             TotalPages = CalculateTotalPages(PageSize);
         }
 
+
+        public static void OnInitializedStatic(IBaseMatPaginator paginator)
+        {
+            if (paginator.PageSize == 0 && paginator.PageSizeOptions != null && paginator.PageSizeOptions.Count > 0)
+            {
+                paginator.PageSize = paginator.PageSizeOptions[0].Value;
+            }
+        }
+
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            // if (ParentDataTable != null)
-            // {
-                // ParentDataTable.PaginatorComponent = this;
-            // }
+
+            OnInitializedStatic(this);
 
             this.Update();
         }
@@ -147,7 +158,10 @@ namespace MatBlazor
 
 
         [Parameter]
-        public IReadOnlyList<MatPageSizeOption> PageSizeOptions { get; set; } = new[]
+        public IReadOnlyList<MatPageSizeOption> PageSizeOptions { get; set; } = DefaultPageSizeOptions;
+
+
+        public static IReadOnlyList<MatPageSizeOption> DefaultPageSizeOptions = new MatPageSizeOption[]
         {
             new MatPageSizeOption(5),
             new MatPageSizeOption(10),
