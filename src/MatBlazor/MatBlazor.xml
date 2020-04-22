@@ -286,6 +286,11 @@
             Card component for Blazor contain content and actions about a single subject. 
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatCard.Outlined">
+            <summary>
+            Unelevated outlined card.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatCheckboxInternal`1">
             <summary>
             Material Design Checkboxes for Blazor, allow the user to select multiple options from a set. 
