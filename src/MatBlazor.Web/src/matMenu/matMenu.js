@@ -7,7 +7,6 @@ export class MatMenu extends MDCMenu {
   }
 }
 
-
 export function init(ref) {
   try {
     var menu = new MatMenu(ref);
@@ -19,11 +18,24 @@ export function init(ref) {
   }
 }
 
-
-export function open(mdcMenu, anchorElement) {
+export function setAnchorElement(mdcMenu, anchorElement){
   var menu = mdcMenu.matBlazorRef;
   menu.setAnchorElement(anchorElement);
+}
+
+export function open(mdcMenu) {
+  var menu = mdcMenu.matBlazorRef;
   menu.open = true;
+}
+
+export function close(mdcMenu) {
+  var menu = mdcMenu.matBlazorRef;
+  menu.open = false;
+}
+
+export function setState(mdcMenu, state) {
+  var menu = mdcMenu.matBlazorRef;
+  menu.open = state;
 }
 
 export function hoistMenuToBody(menu) {

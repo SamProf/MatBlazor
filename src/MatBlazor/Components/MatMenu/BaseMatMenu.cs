@@ -23,15 +23,29 @@ namespace MatBlazor
 
         [Parameter]
         public ForwardRef TargetForwardRef { get; set; }
+        public async Task SetAnchorElementAsync(ElementReference anchorElement)
+        {
+            await JsInvokeAsync<object>("matBlazor.matMenu.setAnchorElement", Ref, anchorElement);
+        }
 
         public async Task OpenAsync(ElementReference anchorElement)
         {
-            await JsInvokeAsync<object>("matBlazor.matMenu.open", Ref, anchorElement);
+            await JsInvokeAsync<object>("matBlazor.matMenu.setAnchorElement", Ref, anchorElement);
+            await JsInvokeAsync<object>("matBlazor.matMenu.open", Ref);
+        }
+
+        public async Task CloseAsync()
+        {
+            await JsInvokeAsync<object>("matBlazor.matMenu.close", Ref);
         }
 
         public async Task OpenAsync()
         {
-            await OpenAsync(TargetForwardRef.Current);
+            await JsInvokeAsync<object>("matBlazor.matMenu.open", Ref);
+        }
+        public async Task SetState(bool open)
+        {
+            await JsInvokeAsync<object>("matBlazor.matMenu.setState", Ref, open);
         }
 
         protected async override Task OnFirstAfterRenderAsync()
