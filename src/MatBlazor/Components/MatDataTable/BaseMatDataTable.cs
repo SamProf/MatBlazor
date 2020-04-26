@@ -26,7 +26,7 @@ namespace MatBlazor
         public IEnumerable<TItem> Items { get; set; }
 
         [Parameter]
-        public RenderFragment<TItem> Columns { get; set; }
+        public RenderFragment Columns { get; set; }
 
         [Parameter]
         public bool StickyHeader { get; set; }
@@ -62,9 +62,8 @@ namespace MatBlazor
         protected IEnumerable<TItem> GetVisibleItems()
         {
             var e = Items ?? Enumerable.Empty<TItem>();
-            
-            
-            
+
+
             return e;
         }
 
@@ -122,13 +121,22 @@ namespace MatBlazor
 
         public void StateHasChangedFromVirtualScrollHelper()
         {
-            this.StateHasChanged();
+            this.InvokeStateHasChanged();
         }
 
         public override void Dispose()
         {
             base.Dispose();
             VirtualScrollHelper?.Dispose();
+        }
+
+
+        protected List<BaseMatDataTableColumn<TItem>> columnItems = new List<BaseMatDataTableColumn<TItem>>();
+
+        public void AddColumn(BaseMatDataTableColumn<TItem> column)
+        {
+            columnItems.Add(column);
+            this.InvokeStateHasChanged();
         }
     }
 }

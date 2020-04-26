@@ -1,6 +1,8 @@
 ﻿@namespace MatBlazor
+@typeparam TItem
+@inherits BaseMatDataTableColumn<TItem>
 
-
+@*
 
 @if (Mode == MatDataTableRenderMode.Header)
 {
@@ -19,21 +21,9 @@ else if (Mode == MatDataTableRenderMode.Row)
 {
     <MatDataTableCell>@ChildContent</MatDataTableCell>
 }
+*@
 
 @code
 {
-    [CascadingParameter()]
-    public MatDataTableRenderMode Mode { get; set; }
-
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-
-    [Parameter]
-    public string Header { get; set; }
-
-    [Parameter]
-    public RenderFragment HeaderTemplate { get; set; }
-
-    [Parameter]
-    public object OrderBy { get; set; }
+   
 }

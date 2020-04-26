@@ -9,23 +9,51 @@
 }
 
 <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id" @attributes="@Attributes">
+
+    <CascadingValue Value="@this">
+        @Columns
+    </CascadingValue>
+
     <div class="mat-data-table-container" style="@(scrollResult.ScrollContainerStyle)">
         <table class="mdc-data-table__table">
             <MatDataTableHeader>
-                <CascadingValue Value="@MatDataTableRenderMode.Header">
-                    @Columns(default(TItem))
-                </CascadingValue>
+                @foreach (var column in columnItems)
+                {
+                    <MatDataTableHeaderCell>
+                        @if (column.HeaderTemplate != null)
+                        {
+                            @column.HeaderTemplate
+                        }
+                        else
+                        {
+                            @column.Header
+                        }
+                    </MatDataTableHeaderCell>
+                }
             </MatDataTableHeader>
 
             <MatDataTableContent>
-                <CascadingValue Value="@MatDataTableRenderMode.Row">
-                    @foreach (var item in renderedItems.Skip(scrollResult.SkipItems).Take(scrollResult.TakeItems))
-                    {
-                        <MatDataTableRow>
-                            @Columns(item)
-                        </MatDataTableRow>
-                    }
-                </CascadingValue>
+
+                @foreach (var item in renderedItems.Skip(scrollResult.SkipItems).Take(scrollResult.TakeItems))
+                {
+                    <MatDataTableRow>
+                        @foreach (var column in columnItems)
+                        {
+                            <MatDataTableCell>
+                                @if (column.Template != null)
+                                {
+                                    @column.Template(item)
+                                }
+                                else if (@column.Value != null)
+                                {
+                                    @column.Value(item)
+                                }
+                            </MatDataTableCell>
+                        }
+
+                    </MatDataTableRow>
+                }
+
             </MatDataTableContent>
         </table>
     </div>

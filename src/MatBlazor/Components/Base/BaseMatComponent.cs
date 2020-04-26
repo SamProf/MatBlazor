@@ -10,7 +10,7 @@ namespace MatBlazor
     {
         [Parameter]
         public ForwardRef RefBack { get; set; }
-        
+
         protected bool Rendered { get; private set; }
 
 
@@ -68,9 +68,16 @@ namespace MatBlazor
         {
             InvokeAsync(() =>
             {
-                if (!Disposed)
+                try
                 {
-                    StateHasChanged();
+                    if (!Disposed)
+                    {
+                        StateHasChanged();
+                    }
+                }
+                catch (Exception e)
+                {
+                    //
                 }
             });
         }
@@ -95,7 +102,7 @@ namespace MatBlazor
             return default(T);
         }
 
-        #region Hack to fix https://github.com/aspnet/AspNetCore/issues/11159
+        #region Hack to fix https: //github.com/aspnet/AspNetCore/issues/11159
 
         public static object CreateDotNetObjectRefSyncObj = new object();
 

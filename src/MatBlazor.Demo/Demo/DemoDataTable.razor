@@ -4,12 +4,13 @@
 
 <DemoContainer Header="Basic use of Data Table">
     <Content>
+
         <MatDataTable Items="@periodicElements">
             <Columns>
-                <MatDataTableColumn Header="No.">@context.Position</MatDataTableColumn>
-                <MatDataTableColumn Header="Name">@context.Name</MatDataTableColumn>
-                <MatDataTableColumn Header="Weight">@context.Weight</MatDataTableColumn>
-                <MatDataTableColumn Header="Symbol">@context.Symbol</MatDataTableColumn>
+                <MatDataTableColumn TItem="PeriodicElement" Header="No." Value="@(i => i.Position)"></MatDataTableColumn>
+                <MatDataTableColumn TItem="PeriodicElement" Header="Name" Value="@(i => i.Name)"></MatDataTableColumn>
+                <MatDataTableColumn TItem="PeriodicElement" Header="Weight" Value="@(i => i.Weight)"></MatDataTableColumn>
+                <MatDataTableColumn TItem="PeriodicElement" Header="Symbol" Value="@(i => i.Symbol)"></MatDataTableColumn>
             </Columns>
         </MatDataTable>
 
@@ -99,12 +100,12 @@
 
 <DemoContainer Header="Pagination with Data Table">
     <Content>
-        <MatDataTable Items="@periodicElements" Paginator="true">
+        <MatDataTable Items="@periodicElements2" Paginator="true">
             <Columns>
-                <MatDataTableColumn Header="No.">@context.Position</MatDataTableColumn>
-                <MatDataTableColumn Header="Name">@context.Name</MatDataTableColumn>
-                <MatDataTableColumn Header="Weight">@context.Weight</MatDataTableColumn>
-                <MatDataTableColumn Header="Symbol">@context.Symbol</MatDataTableColumn>
+                <MatDataTableColumn TItem="PeriodicElement2" Header="No." Value="@(i => i.Position)"></MatDataTableColumn>
+                <MatDataTableColumn TItem="PeriodicElement2" Header="Name" Value="@(i => i.Name)"></MatDataTableColumn>
+                <MatDataTableColumn TItem="PeriodicElement2" Header="Weight" Value="@(i => i.Weight)"></MatDataTableColumn>
+                <MatDataTableColumn TItem="PeriodicElement2" Header="Symbol" Value="@(i => i.Symbol)"></MatDataTableColumn>
             </Columns>
         </MatDataTable>
 
@@ -194,12 +195,12 @@
 
 <DemoContainer Header="Sorting with Data Table">
     <Content>
-        <MatDataTable Items="@periodicElements">
+        <MatDataTable Items="@periodicElements3">
             <Columns>
-                <MatDataTableColumn Header="No." OrderBy="@context.Position">@context.Position</MatDataTableColumn>
-                <MatDataTableColumn Header="Name" OrderBy="@context.Name">@context.Name</MatDataTableColumn>
-                <MatDataTableColumn Header="Weight" OrderBy="@context.Weight">@context.Weight</MatDataTableColumn>
-                <MatDataTableColumn Header="Symbol" OrderBy="@context.Symbol">@context.Symbol</MatDataTableColumn>
+                <MatDataTableColumn TItem="PeriodicElement3" Header="No." Value="@(i => i.Position)" Sort="true"></MatDataTableColumn>
+                <MatDataTableColumn TItem="PeriodicElement3" Header="Name" Value="@(i => i.Name)" Sort="true"></MatDataTableColumn>
+                <MatDataTableColumn TItem="PeriodicElement3" Header="Weight" Value="@(i => i.Weight)" Sort="true"></MatDataTableColumn>
+                <MatDataTableColumn TItem="PeriodicElement3" Header="Symbol" Value="@(i => i.Symbol)" Sort="true"></MatDataTableColumn>
             </Columns>
         </MatDataTable>
 
@@ -287,6 +288,7 @@
 </DemoContainer>
 
 
+@*
 <h5 class="mat-h5">Data Table with virtual scrolling and sticky header</h5>
 <DemoContainer>
     <Content>
@@ -441,3 +443,5 @@
         </BlazorFiddle>
     </SourceContent>
 </DemoContainer>
+
+*@
