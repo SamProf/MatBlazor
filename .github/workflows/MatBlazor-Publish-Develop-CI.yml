@@ -26,7 +26,7 @@ jobs:
     - name: publish on version change
       uses: rohith/publish-nuget@v2
       with:
-        PROJECT_FILE_PATH: MatBlazor/MatBlazor.csproj # Relative to repository root
+        PROJECT_FILE_PATH: src/MatBlazor/MatBlazor.csproj # Relative to repository root
         PACKAGE_NAME: MatBlazor
         # VERSION_FILE_PATH: Directory.Build.props # Relative to repository root, defaults to project file
         # VERSION_REGEX: <Version>(.*)<\/Version> # Regex pattern to extract version info in a capturing group
