@@ -20,6 +20,6 @@ jobs:
 
       - name: Run Nuke
         run: |
-          build.sh
+          ./build.sh
         env:
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
