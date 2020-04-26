@@ -90,11 +90,9 @@ class Build : NukeBuild
         {
             var targetPath = Directory.GetFiles(PackageDirectory, "*.nupkg").OrderByDescending(i => i).FirstOrDefault();
 
-            Logger.Info($"NUKEY=!!!!'{Environment.GetEnvironmentVariable("NUGET_KEY")?.Length}'");
-
             DotNetNuGetPush(_ => _
                 .SetSource("https://api.nuget.org/v3/index.json")
-                .SetApiKey(Environment.GetEnvironmentVariable("NUGET_KEY"))
+                .SetApiKey(Environment.GetEnvironmentVariable("NUGET_API_KEY"))
                 .SetTargetPath(targetPath));
         });
 

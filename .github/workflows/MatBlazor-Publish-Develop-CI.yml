@@ -22,4 +22,4 @@ jobs:
         run: |
           ./build.sh
         env:
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+          NUGET_API_KEY: ${{secrets.NUGET_API_KEY}}
