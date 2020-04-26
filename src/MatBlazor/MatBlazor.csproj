@@ -20,8 +20,7 @@
     <Authors>Vladimir Samoilenko</Authors>
     <PackageIconUrl>https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/icon.ico</PackageIconUrl>
     <Company>SamProf</Company>
-    <PackageVersion>2.3.0</PackageVersion>
-    <Version>2.3.0</Version>
+    <VersionPrefix>2.3.0</VersionPrefix>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
   </PropertyGroup>
 

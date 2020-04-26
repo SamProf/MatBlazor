@@ -9,28 +9,17 @@ jobs:
   publish:
 
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.101
-        
-    - name: Build with dotnet
-      run: |
-        cd src 
-        dotnet build --configuration Release 
-        
-    - name: publish on version change
-      uses: rohith/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: src/MatBlazor/MatBlazor.csproj # Relative to repository root
-        PACKAGE_NAME: MatBlazor
-        # VERSION_FILE_PATH: Directory.Build.props # Relative to repository root, defaults to project file
-        # VERSION_REGEX: <Version>(.*)<\/Version> # Regex pattern to extract version info in a capturing group
-        # VERSION_STATIC: Static version, useful for external providers like Nerdbank.GitVersioning
-        TAG_COMMIT: true
-        TAG_FORMAT: "*-develop"
-        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.101
+
+      - name: Run Nuke
+        run: |
+          build.cmd
+        env:
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
