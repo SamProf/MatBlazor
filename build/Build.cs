@@ -41,7 +41,7 @@ class Build : NukeBuild
     string TimeStamp = DateTime.Now.ToString("yyyyMMddHHmmssffff");
 
 
-    string VersionSuffix => GitRepository.Branch + "-" + TimeStamp;
+    string VersionSuffix => GitRepository.Branch.Split('/').Last() + "-" + TimeStamp;
 
     Target Clean => _ => _
         .Before(Restore)
