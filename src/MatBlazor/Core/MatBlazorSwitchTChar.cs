@@ -10,10 +10,10 @@ namespace MatBlazor
             {
                 try
                 {
-                    var v2 = (char) (v + step);
+                    var v2 = (char)(v + step);
                     return v2 <= max ? v2 : max;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     return max;
                 }
@@ -29,7 +29,7 @@ namespace MatBlazor
                     var v2 = (char)(v - step);
                     return v2 >= min ? v2 : min;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     return min;
                 }

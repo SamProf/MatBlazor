@@ -11,10 +11,10 @@ namespace MatBlazor
             {
                 try
                 {
-                    var v2 = (uint) (v + step);
+                    var v2 = (uint)(v + step);
                     return v2 <= max ? v2 : max;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     return max;
                 }
@@ -27,10 +27,10 @@ namespace MatBlazor
             {
                 try
                 {
-                    var v2 = (uint) (v - step);
+                    var v2 = (uint)(v - step);
                     return v2 >= min ? v2 : min;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     return min;
                 }
@@ -74,7 +74,7 @@ namespace MatBlazor
 
         public override uint FromDecimal(decimal v)
         {
-            return (uint) v;
+            return (uint)v;
         }
     }
 }

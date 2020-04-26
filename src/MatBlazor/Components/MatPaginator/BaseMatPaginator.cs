@@ -47,7 +47,7 @@ namespace MatBlazor
                 return int.MaxValue;
             }
 
-            return Math.Max(0, (int) Math.Ceiling((decimal) Length / PageSize));
+            return Math.Max(0, (int)Math.Ceiling((decimal)Length / PageSize));
         }
 
         public async Task NavigateToPage(MatPaginatorAction direction, int pageSize)
@@ -62,7 +62,7 @@ namespace MatBlazor
                 {
                     page = ((CurrentPageIndex * PageSize) / pageSize);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                 }
             }
@@ -92,7 +92,7 @@ namespace MatBlazor
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
             }
 
