@@ -99,7 +99,7 @@
 
     public void OnClick(MouseEventArgs e)
     {
-        this.Menu.OpenAsync(themeButton.Ref);
+        _ = this.Menu.OpenAsync(themeButton.Ref);
     }
 
     bool lazySnackbarIsOpen = false;
@@ -122,7 +122,7 @@
     {
         await base.OnInitializedAsync();
 
-        Task.Delay(TimeSpan.FromSeconds(5))
+        _ = Task.Delay(TimeSpan.FromSeconds(5))
             .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
     }
 
