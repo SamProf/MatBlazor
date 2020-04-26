@@ -23,7 +23,7 @@ jobs:
         cd src 
         dotnet build --configuration Release 
         
-    - name: publish
+    - name: publish on version change
         uses: rohith/publish-nuget@v2
         with:
           PROJECT_FILE_PATH: MatBlazor/MatBlazor.csproj # Relative to repository root
