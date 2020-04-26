@@ -115,7 +115,7 @@ namespace MatBlazor
             }
             else
             {
-                OnClick.InvokeAsync(ev);
+                _ = OnClick.InvokeAsync(ev);
                 if (Command?.CanExecute(CommandParameter) ?? false)
                 {
                     Command.Execute(CommandParameter);
