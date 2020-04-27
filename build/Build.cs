@@ -27,11 +27,13 @@ class Build : NukeBuild
     ///   - Microsoft VSCode           https://nuke.build/vscode
     public static int Main()
     {
-        var autoForBranch = Environment.GetEnvironmentVariable("autoForBranch");
+        var autoForBranch = GetBranchName(Environment.GetEnvironmentVariable("autoForBranch"));
+
         if (autoForBranch != null)
         {
             Logger.Info($"autoForBranch: {autoForBranch}");
         }
+
         if (autoForBranch == "master")
         {
             return Execute<Build>(x => x.DefaultMaster);
@@ -74,6 +76,11 @@ class Build : NukeBuild
 
     static string GetBranchName(string v)
     {
+        if (v == null)
+        {
+            return null;
+        }
+
         var str1 = "refs/heads/";
         if (v.StartsWith(str1))
         {
@@ -151,11 +158,11 @@ class Build : NukeBuild
         .Executes(() =>
         {
             DotNetPack(_ => _
-                    .SetProject(ProjectPath)
-                    .SetNoBuild(InvokedTargets.Contains(Compile))
-                    .SetConfiguration(Configuration)
-                    .SetOutputDirectory(PackageArtifactsDDirectory)
-                    .SetVersionSuffix(VersionSuffix)
+                .SetProject(ProjectPath)
+                .SetNoBuild(InvokedTargets.Contains(Compile))
+                .SetConfiguration(Configuration)
+                .SetOutputDirectory(PackageArtifactsDDirectory)
+                .SetVersionSuffix(VersionSuffix)
             );
         });
 
