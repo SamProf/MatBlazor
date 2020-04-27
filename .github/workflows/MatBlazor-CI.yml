@@ -1,6 +1,6 @@
 name: MatBlazor-Publish-Develop-CI
 
-on [push]      
+on: [push]      
 
 jobs:
   publish:
