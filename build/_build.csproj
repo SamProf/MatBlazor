@@ -13,4 +13,8 @@
     <PackageReference Include="Nuke.Common" Version="0.24.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="..\.github\workflows\MatBlazor-Build-CI.yml" />
+  </ItemGroup>
+
 </Project>

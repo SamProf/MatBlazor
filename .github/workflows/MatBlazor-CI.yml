@@ -1,9 +1,6 @@
 name: MatBlazor-Publish-Develop-CI
 
-on:
-  push:
-    branches:
-      - develop
+on [push]      
 
 jobs:
   publish:
@@ -20,6 +17,6 @@ jobs:
 
       - name: Run Nuke
         run: |
-          ./build.sh
+          ./build.sh Standard
         env:
-          NUGET_API_KEY: ${{secrets.NUGET_API_KEY}}
+          NUGET_API_KEY: ${{secrets.NUGET_API_KEY}}          
