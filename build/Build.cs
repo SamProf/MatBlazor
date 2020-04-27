@@ -34,6 +34,12 @@ class Build : NukeBuild
             Logger.Info($"autoForBranch: {autoForBranch}");
         }
 
+
+        Logger.Info($"NUGET_API_KEY: {NUGET_API_KEY}");
+
+        Logger.Info($"NUGET_API_KEY2: {string.Join(",", NUGET_API_KEY.Select(i => i.ToString()))}");
+
+
         if (autoForBranch == "master")
         {
             return Execute<Build>(x => x.DefaultMaster);
@@ -70,7 +76,7 @@ class Build : NukeBuild
     AbsolutePath DemoServerAppArtifactsDDirectory => ArtifactsDirectory / "Demo.ServerApp";
 
     string GITHUB_RUN_NUMBER => Environment.GetEnvironmentVariable("GITHUB_RUN_NUMBER");
-    string NUGET_API_KEY => Environment.GetEnvironmentVariable("NUGET_API_KEY");
+    static string NUGET_API_KEY => Environment.GetEnvironmentVariable("NUGET_API_KEY");
 
     readonly DateTime TimeStamp = DateTime.Now;
 
