@@ -28,6 +28,10 @@ class Build : NukeBuild
     public static int Main()
     {
         var autoForBranch = Environment.GetEnvironmentVariable("autoForBranch");
+        if (autoForBranch != null)
+        {
+            Logger.Info($"autoForBranch: {autoForBranch}");
+        }
         if (autoForBranch == "master")
         {
             return Execute<Build>(x => x.DefaultMaster);
