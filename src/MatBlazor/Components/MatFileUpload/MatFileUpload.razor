@@ -2,7 +2,7 @@
 @inherits BaseMatFileUpload
 
 <div @ref="@Ref" @attributes="@Attributes" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" id="@Id">
-    <input type="file" @ref="@InputRef"/>
+    <input type="file" @ref="@InputRef" multiple/>
     <div class="mat-file-upload-content">
         <span>@Label</span>
         <MatIcon>@MatIconNames.Attach_file</MatIcon>
