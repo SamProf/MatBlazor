@@ -118,7 +118,8 @@ If you think that this project helped you or your company in any way, you can co
 
 
 #### MatBlazor 2.4.0 (In progress)
-- `VirtualScroll` - New component
+- `MatVirtualScroll` - New component
+- PR: Remove node-sass and add temporary workaround for sass-loader. #481 (Thanks to [esso23](https://github.com/esso23))
 
 #### MatBlazor 2.3.0
 - PR: Add implementations for nullable primitive types: `sbyte?`, `byte?`, `short?`, `ushort?`, `int?`, `uint?`, `long?`, `ulong?`, `char?`, `float?`, `double?` #449 (Thanks to [fire-birdie](https://github.com/fire-birdie))
