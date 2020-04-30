@@ -164,6 +164,13 @@ namespace MatBlazor
         [Parameter]
         public int PageSize { get; set; } = 5;
 
+
+        /// <summary>
+        /// Use only the sort header.
+        /// </summary>
+        [Parameter]
+        public bool UseSortHeaderRow { get; set; } = false;
+
         public BaseMatTable()
         {
             ClassMapper

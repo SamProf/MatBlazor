@@ -16,7 +16,14 @@
 <CascadingValue Value="@this">
     <table class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
         <thead>
-            <tr class="mdc-table-header-row @(HeaderRowClass)">@MatTableHeader</tr>
+            @if (UseSortHeaderRow)
+            {
+                @MatTableHeader
+            }
+            else
+            {
+                <tr class="mdc-table-header-row @(HeaderRowClass)">@MatTableHeader</tr>
+            }
         </thead>
         <tbody>
             @if (ItemList != null)

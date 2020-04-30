@@ -12,20 +12,23 @@ namespace MatBlazor
             ClassMapper
                 .Add("mat-card")
                 .Add("mdc-card")
-                .If("mdc-card--stroked", () => this.Stroke);
+                .If("mdc-card--outlined", () => this.Outlined);
         }
 
+
+        /// <summary>
+        /// Unelevated outlined card.
+        /// </summary>
         [Parameter]
-        public bool Stroke
+        public bool Outlined
         {
-            get => _stroke;
-            set { _stroke = value; }
+            get => _outlined;
+            set { _outlined = value; }
         }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-
-        private bool _stroke;
+        private bool _outlined;
     }
 }

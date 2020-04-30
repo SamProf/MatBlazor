@@ -10,10 +10,10 @@ namespace MatBlazor
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? (char?) ((v ?? 0) + (step ?? 0)) : null;
+                    var v2 = (v.HasValue || step.HasValue) ? (char?)((v ?? 0) + (step ?? 0)) : null;
                     return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     return max;
                 }
@@ -26,10 +26,10 @@ namespace MatBlazor
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? (char?) ((v ?? 0) - (step ?? 0)) : null;
+                    var v2 = (v.HasValue || step.HasValue) ? (char?)((v ?? 0) - (step ?? 0)) : null;
                     return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     return min;
                 }

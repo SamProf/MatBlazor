@@ -11,10 +11,10 @@ namespace MatBlazor
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (ulong?) null;
+                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (ulong?)null;
                     return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     return max;
                 }
@@ -27,10 +27,10 @@ namespace MatBlazor
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (ulong?) null;
+                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (ulong?)null;
                     return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     return min;
                 }
@@ -79,7 +79,7 @@ namespace MatBlazor
 
         public override ulong? FromDecimal(decimal v)
         {
-            return (ulong) v;
+            return (ulong)v;
         }
     }
 }

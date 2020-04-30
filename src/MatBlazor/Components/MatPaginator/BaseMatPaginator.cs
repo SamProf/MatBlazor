@@ -82,7 +82,7 @@ namespace MatBlazor
                 return int.MaxValue;
             }
 
-            return Math.Max(0, (int) Math.Ceiling((decimal) Length / PageSize));
+            return Math.Max(0, (int)Math.Ceiling((decimal)Length / PageSize));
         }
 
 
@@ -98,7 +98,7 @@ namespace MatBlazor
                 {
                     page = ((PageIndex * PageSize) / pageSize);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                 }
             }
@@ -128,7 +128,7 @@ namespace MatBlazor
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
             }
 
