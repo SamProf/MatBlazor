@@ -48,7 +48,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTable Items=""@cars"" class=""mat-elevation-z5"">
             <MatTableHeader>
                 <th>Name</th>
@@ -133,8 +133,8 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatTable Items=""@todos"" LoadInitialData=""true"" Striped=""true"" RequestApiOnlyOnce=""true""  AllowSelection=""true"" RowClass=""tester""
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTable Items=""@todos"" LoadInitialData=""true"" Striped=""true"" RequestApiOnlyOnce=""true"" AllowSelection=""true"" RowClass=""tester""
                   ApiUrl=""https://jsonplaceholder.typicode.com/todos"" FilterByColumnName=""Title"" DebounceMilliseconds=""150"" class=""mat-elevation-z5"">
             <MatTableHeader>
                 <th>Id</th>
@@ -233,7 +233,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatTable Items=""tasks"" class=""mat-elevation-z5"" AllowSelection=""true"" SelectionChanged=""SelectionChangedEvent"">
             <MatTableHeader>
                 <th>Id</th>
@@ -247,7 +247,6 @@
             </MatTableRow>
         </MatTable>
         <p>@_currentSelectedTask</p>
-
         @code
         {
             private string _currentSelectedTask;
@@ -282,7 +281,7 @@
             {
                 if (row == null)
                 {
-                    _currentSelectedTask = "";
+                    _currentSelectedTask = """";
                 }
                 else
                 {

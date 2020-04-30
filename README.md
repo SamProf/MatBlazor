@@ -118,9 +118,10 @@ If you think that this project helped you or your company in any way, you can co
 
 
 #### MatBlazor 2.4.2 (In progress)
-- `MatVirtualScroll` - New component
+- `MatVirtualScroll` - New component- 
 - Added label color to theme primary color #488 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
 - Correct padding for MatTextField with leading icon #483 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- PR: Added, return item object from selected row event. #511 (Thanks to [UrizielTSD](https://github.com/UrizielTSD))
 - PR: Added ability to close MatMenu programmatically. #504  (Thanks to [IKingJohnI](https://github.com/IKingJohnI))
 - PR: Use height instead of max-height in mat-expansion-panel base/expanded #484 (Thanks to [esso23](https://github.com/esso23))
 - PR: Remove node-sass and add temporary workaround for sass-loader. #481 (Thanks to [esso23](https://github.com/esso23))
