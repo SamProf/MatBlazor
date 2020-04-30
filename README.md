@@ -117,7 +117,7 @@ If you think that this project helped you or your company in any way, you can co
 - `MatAutocomplete` - new implementation of component
 
 
-#### MatBlazor 2.4.2 (In progress)
+#### MatBlazor 2.4.3 (In progress)
 - `MatVirtualScroll` - New component- 
 - Added label color to theme primary color #488 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
 - Correct padding for MatTextField with leading icon #483 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
