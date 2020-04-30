@@ -53,6 +53,7 @@ module.exports = {
           {
             loader: "sass-loader", // compiles Sass to CSS
             options: {
+              webpackImporter: false, // Recommended temporary workaround until https://github.com/webpack-contrib/sass-loader/issues/804 is fixed
               sassOptions: {
                 "includePaths": [
                   path.resolve(__dirname, '../node_modules')

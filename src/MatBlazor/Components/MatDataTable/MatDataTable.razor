@@ -1,18 +1,64 @@
 ﻿@namespace MatBlazor
-@* @typeparam TItem *@
-@inherits BaseMatDataTable
+@typeparam TItem
+@inherits BaseMatDataTable<TItem>
+
+@{
+    var visibleItems = GetVisibleItems();
+    var renderedItems = GetRenderedItems(visibleItems);
+    var scrollResult = VirtualScrollHelper.GetResult(renderedItems, 52, 56, StickyHeader);
+}
 
 <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id" @attributes="@Attributes">
-    <table class="mdc-data-table__table">
-        @ChildContent
-    </table>
-</div>
 
+    <CascadingValue Value="@this">
+        @Columns
+    </CascadingValue>
 
-@code
-{
-    protected override void OnAfterRender(bool firstRender)
+    <div class="mat-data-table-container" style="@(scrollResult.ScrollContainerStyle)">
+        <table class="mdc-data-table__table">
+            <MatDataTableHeader>
+                @foreach (var column in columnItems)
+                {
+                    <MatDataTableHeaderCell>
+                        @if (column.HeaderTemplate != null)
+                        {
+                            @column.HeaderTemplate
+                        }
+                        else
+                        {
+                            @column.Header
+                        }
+                    </MatDataTableHeaderCell>
+                }
+            </MatDataTableHeader>
+
+            <MatDataTableContent>
+
+                @foreach (var item in renderedItems.Skip(scrollResult.SkipItems).Take(scrollResult.TakeItems))
+                {
+                    <MatDataTableRow>
+                        @foreach (var column in columnItems)
+                        {
+                            <MatDataTableCell>
+                                @if (column.Template != null)
+                                {
+                                    @column.Template(item)
+                                }
+                                else if (@column.Value != null)
+                                {
+                                    @column.Value(item)
+                                }
+                            </MatDataTableCell>
+                        }
+
+                    </MatDataTableRow>
+                }
+
+            </MatDataTableContent>
+        </table>
+    </div>
+    @if (Paginator)
     {
-        base.OnAfterRender(firstRender);
+        <MatPaginator PageSizeOptions="@PageSizeOptions" PageSize="@PageSize" PageLabel="@PageLabel" Length="@visibleItems.Count()" Page="@OnPageHandler"></MatPaginator>
     }
-}
+</div>

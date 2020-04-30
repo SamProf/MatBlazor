@@ -110,11 +110,19 @@ If you think that this project helped you or your company in any way, you can co
 ## News
 
 ### Roadmap
+- `MatVirtualScroll` - complete new component
 - `MatDataTable` - complete new component
 - `MatDatePicker` - improvements
 - `MatTreeView` - complete new component
-- `MatVirtualScroll` - complete new component
 - `MatAutocomplete` - new implementation of component
+
+
+#### MatBlazor 2.4.2 (In progress)
+- `MatVirtualScroll` - New component
+- Added label color to theme primary color #488 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- Correct padding for MatTextField with leading icon #483 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- PR: Use height instead of max-height in mat-expansion-panel base/expanded #484 (Thanks to [esso23](https://github.com/esso23))
+- PR: Remove node-sass and add temporary workaround for sass-loader. #481 (Thanks to [esso23](https://github.com/esso23))
 
 
 #### MatBlazor 2.3.0

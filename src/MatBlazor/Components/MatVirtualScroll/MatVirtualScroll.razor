@@ -1,0 +1,23 @@
+﻿@typeparam ItemType
+@namespace MatBlazor
+@using System.Linq
+@inherits BaseMatVirtualScroll<ItemType>
+
+<div class="@(ClassMapper.AsString())" style="@StyleMapper.AsString()" @ref="@Ref">
+    @if (ScrollViewResult != null || Disabled)
+    {
+        <div class="mat-virtual-scroll-content" style="@GetContentStyle()">
+
+            @foreach (var item in GetContentItems())
+            {
+                <div style="height: @(ItemHeight)px;" class="mat-virtual-scroll-item">
+                    @ItemTemplate(item)
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code
+{
+}
