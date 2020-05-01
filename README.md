@@ -117,6 +117,10 @@ If you think that this project helped you or your company in any way, you can co
 - `MatAutocomplete` - new implementation of component
 
 
+
+#### MatBlazor 2.5.0
+- Update MDC-Web components to 6.0.0
+
 #### MatBlazor 2.4.3
 - `MatVirtualScroll` - New component- 
 - Added label color to theme primary color #488 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
