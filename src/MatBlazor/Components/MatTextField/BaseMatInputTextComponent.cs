@@ -138,7 +138,7 @@ namespace MatBlazor
             ClassMapper
                 .Add("mdc-text-field")
                 .If("mdc-text-field--filled", () => !this.Outlined)
-                .Add("_mdc-text-field--upgraded")
+                // .Add("_mdc-text-field--upgraded")
                 .If("mdc-text-field--with-leading-icon", () => this.Icon != null && !this.IconTrailing)
                 .If("mdc-text-field--with-trailing-icon", () => this.Icon != null && this.IconTrailing)
                 .If("mdc-text-field--box", () => !this.FullWidth && this.Box)
@@ -163,7 +163,7 @@ namespace MatBlazor
                 .Get(() => this.FieldClass)
                 .Add("mat-text-field-input")
                 .Add("mdc-text-field__input")
-                .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(CurrentValueAsString))
+                // .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(CurrentValueAsString))
                 .If("mat-hide-clearbutton", () => this.HideClearButton);
 
             HelperTextClassMapper

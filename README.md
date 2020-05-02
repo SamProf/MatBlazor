@@ -121,6 +121,7 @@ If you think that this project helped you or your company in any way, you can co
 #### MatBlazor 2.5.0 (In progress)
 - Update MDC-Web components to 6.0.0
 - Fix MatMenu AnchorElement bug
+- Fix MatTextField inside Dialog
 
 #### MatBlazor 2.4.3
 - `MatVirtualScroll` - New component- 
