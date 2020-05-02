@@ -35,76 +35,23 @@
 
 
 
-<div class="mdc-select mdc-select--outlined" id="ref">
-    <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
-        <span class="mdc-select__ripple"></span>
-        <input type="text" disabled readonly id="demo-selected-text" class="mdc-select__selected-text">
-        <i class="mdc-select__dropdown-icon"></i>
-        <span class="mdc-notched-outline">
-      <span class="mdc-notched-outline__leading"></span>
-      <span class="mdc-notched-outline__notch">
-        <span id="outlined-select-label" class="mdc-floating-label">Pick a Food Group</span>
-      </span>
-      <span class="mdc-notched-outline__trailing"></span>
-    </span>
+
+
+<label class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon" id="ref">
+    <i class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" tabindex="0" role="button">event</i>
+    <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+    <div class="mdc-notched-outline">
+        <div class="mdc-notched-outline__leading"></div>
+        <div class="mdc-notched-outline__notch">
+            <span class="mdc-floating-label" id="my-label-id">Your Name</span>
+        </div>
+        <div class="mdc-notched-outline__trailing"></div>
     </div>
-
-    <!-- Other elements from the select remain. -->
-    <div class="mdc-select__menu mdc-menu mdc-menu-surface" role="listbox">
-        <ul class="mdc-list">
-            <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
-            <li class="mdc-list-item" data-value="grains">
-        <span class="mdc-list-item__text">
-          Bread, Cereal, Rice, and Pasta
-        </span>
-            </li>
-            <li class="mdc-list-item" data-value="vegetables">
-        <span class="mdc-list-item__text">
-          Vegetables
-        </span>
-            </li>
-            <li class="mdc-list-item" data-value="fruit">
-        <span class="mdc-list-item__text">
-          Fruit
-        </span>
-            </li>
-        </ul>
-
-    </div>
-</div>
+</label>
 
 
 
-<!--<div class="mdc-select demo-width-class" id="ref">-->
-<!--    <div class="mdc-select__anchor">-->
-<!--        <span class="mdc-select__ripple"></span>-->
-<!--        <input type="text" disabled readonly class="mdc-select__selected-text">-->
-<!--        <i class="mdc-select__dropdown-icon"></i>-->
-<!--        <span class="mdc-floating-label">Pick a Food Group</span>-->
-<!--        <span class="mdc-line-ripple"></span>-->
-<!--    </div>-->
 
-<!--    <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface&#45;&#45;fullwidth">-->
-<!--        <ul class="mdc-list">-->
-<!--            <li class="mdc-list-item mdc-list-item&#45;&#45;selected" data-value="" aria-selected="true"></li>-->
-<!--            <li class="mdc-list-item" data-value="grains">-->
-<!--        <span class="mdc-list-item__text">-->
-<!--          Bread, Cereal, Rice, and Pasta-->
-<!--        </span>-->
-<!--            </li>-->
-<!--            <li class="mdc-list-item" data-value="vegetables">-->
-<!--        <span class="mdc-list-item__text">-->
-<!--          Vegetables-->
-<!--        </span>-->
-<!--            </li>-->
-<!--            <li class="mdc-list-item" data-value="fruit">-->
-<!--        <span class="mdc-list-item__text">-->
-<!--          Fruit-->
-<!--        </span>-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--    </div>-->
-<!--</div>-->
 
 
 
@@ -113,8 +60,8 @@
 
 
    var ref = document.getElementById('ref');
-  // debugger;
-  var c = new mdc.select.MDCSelect(ref);
+  debugger;
+  var c = new mdc.textField.MDCTextField(ref);
 
 
 </script>

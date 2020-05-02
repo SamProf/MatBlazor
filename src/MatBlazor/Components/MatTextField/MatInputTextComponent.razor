@@ -2,31 +2,42 @@
 @typeparam T
 @inherits BaseMatInputTextComponent<T>
 
-<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" >
-    @if (Icon != null)
+<label class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref">
+
+    @if (!Outlined)
     {
-        <i class="material-icons mdc-text-field__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
+        <span class="mdc-text-field__ripple"></span>
+    }
+
+    @if (Icon != null && !IconTrailing)
+    {
+        <i class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
     }
 
     @if (TextArea)
     {
         <textarea style="@InputStyle" @ref="InputRef"  placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.AsString()" id="@Id" @bind="@CurrentValueAsString" aria-label="@Label" oninput="@OnInput" @onkeydown="@OnKeyDownEvent()" onkeyup=@OnKeyUp onfocusout="@OnFocusOutEvent.Value" onkeypress="@OnKeyPress" onfocus="@OnFocusEvent.Value" disabled=@Disabled readonly="@InputTextReadOnly()" @attributes="Attributes" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     }
     else
     {
-        <input style="@InputStyle" @ref="InputRef"  type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.AsString()" id="@Id" @bind="@CurrentValueAsString" aria-label="@Label" oninput="@OnInput" @onkeydown="@OnKeyDownEvent()" onkeyup=@OnKeyUp onfocusout=@OnFocusOutEvent.Value onkeypress="@OnKeyPress" onfocus="@OnFocusEvent.Value" disabled=@Disabled readonly="@InputTextReadOnly()" @attributes="Attributes" />
+        <input style="@InputStyle" @ref="InputRef" type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.AsString()" id="@Id" @bind="@CurrentValueAsString" aria-label="@Label" oninput="@OnInput" @onkeydown="@OnKeyDownEvent()" onkeyup=@OnKeyUp onfocusout=@OnFocusOutEvent.Value onkeypress="@OnKeyPress" onfocus="@OnFocusEvent.Value" disabled=@Disabled readonly="@InputTextReadOnly()" @attributes="Attributes"/>
+    }
+
+
+    @if (Icon != null && IconTrailing)
+    {
+        <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
     }
 
     @if (!FullWidth && Outlined)
     {
         <div class="mdc-notched-outline">
-            <div class="mdc-notched-outline__leading"></div>
+            <span class="mdc-notched-outline__leading"></span>
             @if (Label != null)
             {
-                <div class="mdc-notched-outline__notch">
-                    <label class="@LabelClassMapper.AsString()" for="@Id">@Label</label>
-                </div>
+                <span class="mdc-notched-outline__notch">
+                    <span class="@LabelClassMapper.AsString()" for="@Id">@Label</span>
+                </span>
             }
             <div class="mdc-notched-outline__trailing"></div>
         </div>
@@ -35,14 +46,14 @@
     {
         if (Label != null)
         {
-            <label class="@LabelClassMapper.AsString()" for="@Id">@Label</label>
+            <span class="@LabelClassMapper.AsString()" for="@Id">@Label</span>
         }
-        <div class="mdc-line-ripple"></div>
+        <span class="mdc-line-ripple"></span>
     }
 
     @BuildRenderTreeChildContent()
 
-</div>
+</label>
 @if (HelperText != null)
 {
     <div class="mdc-text-field-helper-line">
