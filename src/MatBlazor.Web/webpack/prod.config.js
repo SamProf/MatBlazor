@@ -3,6 +3,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 var ProgressPlugin = require('webpack/lib/ProgressPlugin');
 
+const debugMode = false;
+
+
+
 module.exports = {
   entry: {
     'matBlazor': [
@@ -10,9 +14,9 @@ module.exports = {
       './src/main.scss'
     ]
   },
-  // optimization: {
-  //   minimize: false
-  // },
+  optimization: {
+    minimize: !debugMode
+  },
   output: {
     filename: "matBlazor.js",
     // path: path.resolve(__dirname, '../dist'),
@@ -74,11 +78,13 @@ module.exports = {
     new UglifyJsPlugin({
       parallel: true,
       uglifyOptions: {
-        compress: {},
-        mangle: true,
+        compress: {
+          drop_debugger: !debugMode
+        },
+        mangle: debugMode,
         output: {
-          comments: false,
-          beautify: false
+          comments: debugMode,
+          beautify: debugMode
         }
       }
     }),

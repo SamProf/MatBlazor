@@ -41,10 +41,13 @@ namespace MatBlazor
 
         public async Task OpenAsync()
         {
+            
+            await JsInvokeAsync<object>("matBlazor.matMenu.setAnchorElement", Ref, TargetForwardRef.Current);
             await JsInvokeAsync<object>("matBlazor.matMenu.open", Ref);
         }
         public async Task SetState(bool open)
         {
+            await JsInvokeAsync<object>("matBlazor.matMenu.setAnchorElement", Ref, TargetForwardRef.Current);
             await JsInvokeAsync<object>("matBlazor.matMenu.setState", Ref, open);
         }
 
