@@ -1,4 +1,6 @@
-﻿using MatBlazor.Demo.Models;
+﻿using System;
+using System.Net.Http;
+using MatBlazor.Demo.Models;
 using MatBlazor.Demo.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Toolbelt.Blazor.Extensions.DependencyInjection;
@@ -7,9 +9,9 @@ namespace MatBlazor.Demo.ClientApp
 {
     public class Startup
     {
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services, string baseAddress)
         {
-            services.AddBaseAddressHttpClient();
+            services.AddSingleton(new HttpClient { BaseAddress = new Uri(baseAddress) });
             services.AddSingleton<AppModel>();
             services.AddScoped<UserAppModel>();
             services.AddScoped<DemoUserService>();

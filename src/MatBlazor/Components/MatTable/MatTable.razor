@@ -23,7 +23,7 @@
             {
                 @foreach (var item in ItemList)
                 {
-                    <TableRow Class="@RowClass" AllowSelection="@AllowSelection">@MatTableRow(item)</TableRow>
+                    <TableRow Class="@RowClass" AllowSelection="@AllowSelection" RowItem="item">@MatTableRow(item)</TableRow>
                 }
             }
         </tbody>

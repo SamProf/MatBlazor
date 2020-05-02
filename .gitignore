@@ -336,3 +336,4 @@ ASALocalRun/
 /src/Deploy/MatBlazor.Demo.ClientApp
 /src/Deploy/MatBlazor.Demo.ServerApp
 /src/Deploy/Nuget
+/build/*.DotSettings

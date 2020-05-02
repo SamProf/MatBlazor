@@ -6,3 +6,37 @@ Welcome to your new app.
 
 
 <MatButton>Test</MatButton>
+
+
+<MyGrid TItem="TestData" Items="@data">
+    <Columns>
+        <MyColumn Data="@(c=>c.Id)"></MyColumn>
+        <MyColumn Data="@((c)=>c.Name)"></MyColumn>
+    </Columns>
+</MyGrid>
+
+
+@code
+{
+    public class TestData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+
+        public TestData(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+    }
+
+
+    TestData[] data = new TestData[]
+    {
+        new TestData(1, "name 1"),
+        new TestData(2, "name 2"),
+        new TestData(3, "name 3"),
+        new TestData(4, "name 4"),
+    };
+}

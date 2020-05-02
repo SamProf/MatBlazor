@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
@@ -71,6 +72,9 @@ namespace MatBlazor
         public string SearchTermParamName { get; set; }
 
         #endregion
+
+        [Parameter]
+        public Action<object> SelectionChanged { get; set; }
 
         /// <summary>
         /// Specifies a custom class for the MatTableHeader row
@@ -184,7 +188,12 @@ namespace MatBlazor
                 {
                     await current.ToggleSelectedAsync();
                 }
+                SelectionChanged?.Invoke(Current.RowItem);
             }
+            else
+            {
+                SelectionChanged?.Invoke(null);
+            }   
         }
 
         protected string SearchTermParam(string SearchTerm)

@@ -27,7 +27,7 @@ namespace MatBlazor.Demo.ClientApp
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
 
-            new Startup().ConfigureServices(builder.Services);
+            new Startup().ConfigureServices(builder.Services, builder.HostEnvironment.BaseAddress);
 
             await builder
                 .Build()

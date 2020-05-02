@@ -1,6 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Components
 @inject IJSRuntime JsRuntime
 
+
+@if (Header != null)
+{
+    <MatH5>@Header</MatH5>
+}
+
 <div style="display: flex; flex-direction: column; padding: 10px;" class="mat-elevation-z5">
     <div style="padding: 5px; border: 1px solid white;" class="@Class">
         @Content
@@ -29,6 +35,9 @@
     public string Class { get; set; }
 
     [Parameter]
+    public string Header { get; set; }
+
+    [Parameter]
     public RenderFragment Content { get; set; }
 
     [Parameter]
@@ -47,3 +56,4 @@
     }
 
 }
+

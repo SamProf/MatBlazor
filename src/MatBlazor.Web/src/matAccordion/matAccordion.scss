@@ -3,19 +3,19 @@
     > .mat-expansion-panel__content, .mat-expansion-panel__actions
     {
       display: none;
-      max-height: 0;
       opacity: 0;
       overflow: hidden;
       transition: all .4s ease-in-out;
+      height: 0;
     }
 
     &.mat-expansion-panel--expanded
     {
       > .mat-expansion-panel__content, .mat-expansion-panel__actions
       {
-        max-height: 1000px;
         opacity: 1;
         display: block;
+        height: auto;
       }
     }
 

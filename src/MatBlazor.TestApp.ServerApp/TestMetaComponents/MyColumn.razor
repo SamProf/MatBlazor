@@ -1,0 +1,17 @@
+﻿@code
+{
+    [Parameter]
+    public RenderFragment<dynamic> ChildContent { get; set; }
+
+    [Parameter]
+    public Func<dynamic, dynamic> Data { get; set; }
+
+    [CascadingParameter]
+    public MatMetaHelper MetaHelper { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        MetaHelper.Notify(this);
+    }
+}

@@ -24,6 +24,9 @@ namespace MatBlazor
         public bool AllowSelection { get; set; }
 
         [Parameter]
+        public object RowItem { get; set; }
+
+        [Parameter]
         public EventCallback<bool> SelectedChanged { get; set; }
 
         public async Task ToggleSelectedAsync()
