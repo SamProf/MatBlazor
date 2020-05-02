@@ -88,6 +88,7 @@ If you think that this project helped you or your company in any way, you can co
 
 ### Sponsors:
 - Phil Parkin
+- Patreon: Jay Arrowz
 - Patreon: Rene Zaal
 - Patreon: Stas Levich
 
@@ -99,8 +100,10 @@ If you think that this project helped you or your company in any way, you can co
 - Christophe Peugnet
 - SmartView Systems
 - [Apply Solutions GmbH](https://www.apply-solutions.com/)
+- Beeman and Sons, Inc.
 - Radu Tomuleasa
 - [Maurizio Verde](https://github.com/MaurizioVerde)
+- Adam Salvo
 - Yevhen Shmakov
 - Jacobus Terhorst
 - Xiao Song
