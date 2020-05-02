@@ -110,6 +110,14 @@ If you think that this project helped you or your company in any way, you can co
 - Martin Friesenbichler
 
 
+## Contributing
+We'd greatly appreciate any contribution you make. :)
+Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/issues/474):
+- [SamProf](https://github.com/SamProf) - creator
+- [enkodellc](https://github.com/enkodellc)
+- [lindespang](https://github.com/lindespang)
+- [RonPeters](https://github.com/RonPeters)
+
 ## News
 
 ### Roadmap
@@ -532,10 +540,6 @@ If you think that this project helped you or your company in any way, you can co
 ## Questions
 
 For *how-to* questions and other non-issues, for now you can use issues or you can use [![Gitter](https://badges.gitter.im/MatBlazor/community.svg)](https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
-
-
-## Contributing
-We'd greatly appreciate any contribution you make. :)
 
 
 ## Vision
