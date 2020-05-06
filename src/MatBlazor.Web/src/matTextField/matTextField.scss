@@ -37,6 +37,9 @@ div.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea) >
   background-color: var(--mdc-theme-surface, #fff) !important;
 }
 
+.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) .mdc-floating-label {
+  display: inline;
+}
 
 /* For EditForm validation messages */
 .validation-message {
