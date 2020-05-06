@@ -21,24 +21,20 @@
 }
 
 /* Fix Full Width padding issues */
-div.mdc-text-field.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > input.mdc-text-field__input {
+label.mdc-text-field.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > input.mdc-text-field__input {
   padding: 20px 16px 6px;
 }
 
-div.mdc-text-field--fullwidth-with-trailing-icon:not(.mdc-text-field--textarea) > input.mdc-text-field__input {
+label.mdc-text-field--fullwidth-with-trailing-icon:not(.mdc-text-field--textarea) > input.mdc-text-field__input {
   padding: 20px 48px 6px 16px;
 }
 
-div.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea) > input.mdc-text-field__input {
+label.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea) > input.mdc-text-field__input {
   padding: 20px 16px 6px 48px !important;
 }
 
 .mat-floating-label--float-above-outlined {
   background-color: var(--mdc-theme-surface, #fff) !important;
-}
-
-.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) .mdc-floating-label {
-  display: inline;
 }
 
 /* For EditForm validation messages */
