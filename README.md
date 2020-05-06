@@ -129,8 +129,9 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 
 
 
-#### MatBlazor 2.6.0
+#### MatBlazor 2.6.0 (In progress)
 - PR: Added Primary Color to MatSelect Label #522 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- PR: Added documentation for SlideToggle value changed event. #530 (Thanks to [SeppPenner](https://github.com/SeppPenner))
 
 #### MatBlazor 2.5.0
 - Update MDC-Web components to 6.0.0
