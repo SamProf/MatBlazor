@@ -95,7 +95,6 @@ namespace MatBlazor
         public string Type { get; set; } = "text";
 
 
-
         protected virtual EventCallback<KeyboardEventArgs> OnKeyDownEvent()
         {
             return this.OnKeyDown;
@@ -109,10 +108,7 @@ namespace MatBlazor
         public string InputClass
         {
             get => _inputClass;
-            set
-            {
-                _inputClass = value;
-            }
+            set { _inputClass = value; }
         }
 
         /// <summary>
@@ -141,7 +137,8 @@ namespace MatBlazor
 
             ClassMapper
                 .Add("mdc-text-field")
-                .Add("_mdc-text-field--upgraded")
+                .If("mdc-text-field--filled", () => !this.Outlined)
+                // .Add("_mdc-text-field--upgraded")
                 .If("mdc-text-field--with-leading-icon", () => this.Icon != null && !this.IconTrailing)
                 .If("mdc-text-field--with-trailing-icon", () => this.Icon != null && this.IconTrailing)
                 .If("mdc-text-field--box", () => !this.FullWidth && this.Box)
@@ -157,7 +154,8 @@ namespace MatBlazor
 
             LabelClassMapper
                 .Add("mdc-floating-label")
-                .If("mat-floating-label--float-above-outlined", () => Outlined && !string.IsNullOrEmpty(CurrentValueAsString))
+                .If("mat-floating-label--float-above-outlined",
+                    () => Outlined && !string.IsNullOrEmpty(CurrentValueAsString))
                 .If("mdc-floating-label--float-above", () => !string.IsNullOrEmpty(CurrentValueAsString));
 
             InputClassMapper
@@ -165,7 +163,7 @@ namespace MatBlazor
                 .Get(() => this.FieldClass)
                 .Add("mat-text-field-input")
                 .Add("mdc-text-field__input")
-                .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(CurrentValueAsString))
+                // .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(CurrentValueAsString))
                 .If("mat-hide-clearbutton", () => this.HideClearButton);
 
             HelperTextClassMapper
@@ -173,10 +171,7 @@ namespace MatBlazor
                 .If("mdc-text-field-helper-text--persistent", () => HelperTextPersistent)
                 .If("mdc-text-field-helper-text--validation-msg", () => HelperTextValidation);
 
-            CallAfterRender(async () =>
-            {
-                await JsInvokeAsync<object>("matBlazor.matTextField.init", Ref);
-            });
+            CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matTextField.init", Ref); });
         }
     }
 }

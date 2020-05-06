@@ -37,6 +37,9 @@ div.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea) >
   background-color: var(--mdc-theme-surface, #fff) !important;
 }
 
+.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) .mdc-floating-label {
+  display: inline;
+}
 
 /* For EditForm validation messages */
 .validation-message {
@@ -52,16 +55,16 @@ div.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea) >
   border-bottom: 2px solid red !important;
 }
 
-.mdc-dialog__content > .mdc-text-field {
-  display: block;
-  margin: 1rem 0;
-}
-
-.mdc-dialog__content > .mdc-text-field + .validation-message {
-  margin-top: -0.8rem;
-  margin-bottom: 0.7rem;
-  font-size: 0.9rem;
-}
+//.mdc-dialog__content > .mdc-text-field {
+//   display: block;
+//   margin: 1rem 0;
+// }
+//
+//.mdc-dialog__content > .mdc-text-field + .validation-message {
+//  margin-top: -0.8rem;
+//  margin-bottom: 0.7rem;
+//  font-size: 0.9rem;
+//}
 
 /* Label color to theme primary color */
 .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
