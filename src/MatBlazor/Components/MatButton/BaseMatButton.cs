@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
@@ -14,6 +15,8 @@ namespace MatBlazor
         [Inject]
         public Microsoft.AspNetCore.Components.NavigationManager UriHelper { get; set; }
 
+        [Inject]
+        public IJSRuntime JSRuntime { get; set; }
 
         protected async override Task OnFirstAfterRenderAsync()
         {
@@ -73,6 +76,12 @@ namespace MatBlazor
         public string Link { get; set; }
 
         /// <summary>
+        /// Target of Link when clicked.
+        /// </summary>
+        [Parameter]
+        public string Target { get; set; } = null;
+
+        /// <summary>
         /// Button has raised style.
         /// </summary>
         [Parameter]
@@ -82,7 +91,7 @@ namespace MatBlazor
             set
             {
                 _raised = value;
-                
+
             }
         }
 
@@ -96,7 +105,7 @@ namespace MatBlazor
             set
             {
                 _unelevated = value;
-                
+
             }
         }
 
@@ -150,7 +159,7 @@ namespace MatBlazor
             set
             {
                 _icon = value;
-                
+
             }
         }
 
@@ -170,7 +179,7 @@ namespace MatBlazor
             set
             {
                 _label = value;
-                
+
             }
         }
 
@@ -185,7 +194,14 @@ namespace MatBlazor
         {
             if (Link != null)
             {
-                UriHelper.NavigateTo(Link);
+                if (!string.IsNullOrEmpty(Target))
+                {
+                    JSRuntime.InvokeAsync<object>("open", Link, Target);
+                }
+                else
+                {
+                    UriHelper.NavigateTo(Link);
+                }
             }
             else
             {

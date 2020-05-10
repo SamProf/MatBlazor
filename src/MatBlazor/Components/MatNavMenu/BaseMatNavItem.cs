@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.JSInterop;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -13,6 +14,9 @@ namespace MatBlazor
     {
         [Inject]
         public NavigationManager UriHelper { get; set; }
+
+        [Inject]
+        public IJSRuntime JSRuntime { get; set; }
 
         [CascadingParameter]
         public BaseMatNavMenu MatNavMenu { get; set; }
@@ -34,6 +38,12 @@ namespace MatBlazor
 
         [Parameter]
         public bool Selected { get; set; }
+
+        /// <summary>
+        /// *Not yet functional - Target of Href when clicked.
+        /// </summary>
+        [Parameter]
+        public string Target { get; set; } = null;
 
         /// <summary>
         ///  NavLinkMatch parameter used to determine the active state of the Nav Item.
@@ -85,7 +95,14 @@ namespace MatBlazor
 
             if (Href != null)
             {
-                UriHelper.NavigateTo(Href);
+                //if (!string.IsNullOrEmpty(Target))
+                //{
+                //   await JSRuntime.InvokeAsync<object>("open", Href, Target);
+                //}
+                //else
+                //{
+                    UriHelper.NavigateTo(Href);
+                //}
             }
             else
             {

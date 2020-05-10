@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
@@ -12,6 +13,9 @@ namespace MatBlazor
     {
         [Inject]
         public Microsoft.AspNetCore.Components.NavigationManager UriHelper { get; set; }
+
+        [Inject]
+        public IJSRuntime JSRuntime { get; set; }
 
         private bool _disabled;
         private bool _toggled = false;
@@ -26,10 +30,10 @@ namespace MatBlazor
         public string Icon { get; set; }
 
         /// <summary>
-        /// *Not available yet
+        /// Target of Link when clicked.
         /// </summary>
         [Parameter]
-        public string Target { get; set; }
+        public string Target { get; set; } = null;
 
         /// <summary>
         /// Icon to use when Button is clicked
@@ -111,7 +115,14 @@ namespace MatBlazor
 
             if (Link != null)
             {
-                UriHelper.NavigateTo(Link);
+                if (!string.IsNullOrEmpty(Target))
+                {
+                    JSRuntime.InvokeAsync<object>("open", Link, Target);
+                }
+                else
+                {
+                    UriHelper.NavigateTo(Link);
+                }
             }
             else
             {
