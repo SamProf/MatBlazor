@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatAutocompleteKey<TValue, TItem> : MatInputTextComponent<TValue>
+    public class BaseMatAutocomplete<TValue, TItem> : MatInputTextComponent<TValue>
     {
         protected BaseMatMenu MenuRef;
 
@@ -20,7 +20,7 @@ namespace MatBlazor
         public bool IsOpened { get; set; }
 
 
-        public BaseMatAutocompleteKey()
+        public BaseMatAutocomplete()
         {
             OnFocusEvent.Event += OnFocusEvent_Event;
             OnFocusOutEvent.Event += OnFocusOutEvent_Event;

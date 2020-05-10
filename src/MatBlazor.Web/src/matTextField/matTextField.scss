@@ -1,6 +1,5 @@
 @import "@material/textfield/mdc-text-field";
 
-
 .mat-text-field-icon-container {
   position: absolute;
   right: 3px;
@@ -10,9 +9,7 @@
   justify-content: center;
   height: 100%;
   z-index: 1;
-
 }
-
 
 /* Hide clear button from edge */
 .mat-hide-clearbutton::-ms-clear {
@@ -75,7 +72,6 @@ label.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea)
 .invalid > .mdc-text-field__input {
   border-bottom: 2px solid red !important;
 }
-
 
 /* For Select */
 .mat-select {

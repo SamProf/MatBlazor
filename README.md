@@ -129,10 +129,14 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 
 
 
+
 #### MatBlazor 2.5.0 (In progress)
 - Update MDC-Web components to 6.0.0
 - Fix MatMenu AnchorElement bug
 - Fix MatTextField inside Dialog
+- PR: Added Primary Color to MatSelect Label #522 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- PR: Added documentation for SlideToggle value changed event. #530 (Thanks to [SeppPenner](https://github.com/SeppPenner))
+
 
 #### MatBlazor 2.4.3
 - `MatVirtualScroll` - New component- 

@@ -190,17 +190,17 @@
             This value indicates if the textfield and the dialog will be or not displayed in the full screen, the default value is false
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatAutocompleteKey`2.ItemValueSelector">
+        <member name="P:MatBlazor.BaseMatAutocomplete`2.ItemValueSelector">
             <summary>
             This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatAutocompleteKey`2.NumberOfElementsInPopup">
+        <member name="P:MatBlazor.BaseMatAutocomplete`2.NumberOfElementsInPopup">
             <summary>
             Maximum number of elements displayed in the popup
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatAutocompleteKey`2.ItemTemplate">
+        <member name="P:MatBlazor.BaseMatAutocomplete`2.ItemTemplate">
             <summary>
             ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
             </summary>
