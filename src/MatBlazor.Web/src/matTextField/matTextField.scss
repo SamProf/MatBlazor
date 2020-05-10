@@ -23,11 +23,11 @@ label.mdc-text-field.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > 
 }
 
 label.mdc-text-field--fullwidth-with-trailing-icon:not(.mdc-text-field--textarea) > input.mdc-text-field__input {
-  padding: 10px 48px 6px 16px;
+  padding: 10px 0 6px 0 !important;
 }
 
 label.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea) > input.mdc-text-field__input {
-  padding: 10px 16px 6px 0px !important;
+  padding: 10px 16px 6px 0 !important;
 }
 
 label.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > span.mdc-floating-label{
