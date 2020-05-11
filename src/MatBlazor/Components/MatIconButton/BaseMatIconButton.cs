@@ -2,7 +2,6 @@
 using System.Windows.Input;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
@@ -13,9 +12,6 @@ namespace MatBlazor
     {
         [Inject]
         public Microsoft.AspNetCore.Components.NavigationManager UriHelper { get; set; }
-
-        [Inject]
-        public IJSRuntime JSRuntime { get; set; }
 
         private bool _disabled;
         private bool _toggled = false;
@@ -117,7 +113,7 @@ namespace MatBlazor
             {
                 if (!string.IsNullOrEmpty(Target))
                 {
-                    JSRuntime.InvokeAsync<object>("open", Link, Target);
+                    await JsInvokeAsync<object>("open", Link, Target);
                 }
                 else
                 {
@@ -126,7 +122,7 @@ namespace MatBlazor
             }
             else
             {
-                OnClick.InvokeAsync(ev);
+                await OnClick.InvokeAsync(ev);
                 if (Command?.CanExecute(CommandParameter) ?? false)
                 {
                     Command.Execute(CommandParameter);

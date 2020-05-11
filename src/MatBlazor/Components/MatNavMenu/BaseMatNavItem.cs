@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.Web;
-using Microsoft.JSInterop;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -14,9 +13,6 @@ namespace MatBlazor
     {
         [Inject]
         public NavigationManager UriHelper { get; set; }
-
-        [Inject]
-        public IJSRuntime JSRuntime { get; set; }
 
         [CascadingParameter]
         public BaseMatNavMenu MatNavMenu { get; set; }
@@ -95,14 +91,14 @@ namespace MatBlazor
 
             if (Href != null)
             {
-                //if (!string.IsNullOrEmpty(Target))
-                //{
-                //   await JSRuntime.InvokeAsync<object>("open", Href, Target);
-                //}
-                //else
-                //{
+                if (!string.IsNullOrEmpty(Target))
+                {
+                   await JsInvokeAsync<object>("open", Href, Target);
+                }
+                else
+                {
                     UriHelper.NavigateTo(Href);
-                //}
+                }
             }
             else
             {
