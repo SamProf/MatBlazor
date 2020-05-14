@@ -236,6 +236,11 @@
             Link to a url when clicked.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatButton.Target">
+            <summary>
+            Target of Link when clicked.
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatButton.Raised">
             <summary>
             Button has raised style.
@@ -355,7 +360,7 @@
         </member>
         <member name="P:MatBlazor.BaseMatIconButton.Target">
             <summary>
-            *Not available yet
+            Target of Link when clicked.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatIconButton.ToggleIcon">
@@ -448,6 +453,11 @@
         <member name="P:MatBlazor.BaseMatNavItem.CommandParameter">
             <summary>
              Command parameter.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatNavItem.Target">
+            <summary>
+            *Not yet functional - Target of Href when clicked.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatNavItem.NavLinkMatch">
