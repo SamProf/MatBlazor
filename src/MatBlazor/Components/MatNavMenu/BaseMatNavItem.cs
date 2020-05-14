@@ -93,7 +93,7 @@ namespace MatBlazor
             {
                 if (!string.IsNullOrEmpty(Target))
                 {
-                   await JsInvokeAsync<object>("open", Href, Target);
+                    // Do nothing here as it is a target for an anchor tag
                 }
                 else
                 {
