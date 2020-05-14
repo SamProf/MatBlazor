@@ -91,7 +91,7 @@ namespace MatBlazor
             set
             {
                 var newerStringValue = EqualValues(value, default) ? string.Empty : ComputeStringValue(value);
-                if(newerStringValue != StringValue)
+                if (newerStringValue != StringValue)
                 {
                     StringValue = newerStringValue;
                 }
@@ -226,11 +226,5 @@ namespace MatBlazor
         {
             return CustomStringSelector?.Invoke(obj) ?? obj?.ToString();
         }
-
-        //        protected async override Task OnFirstAfterRenderAsync()
-        //        {
-        //            await base.OnFirstAfterRenderAsync();
-        //            await JsInvokeAsync<object>("matBlazor.matAutocomplete.init", Ref);
-        //        }
     }
 }
