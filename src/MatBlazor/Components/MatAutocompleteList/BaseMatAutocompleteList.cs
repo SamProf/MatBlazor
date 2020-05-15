@@ -205,7 +205,11 @@ namespace MatBlazor
             StateHasChanged();
         }
 
-        public void ClearText(MouseEventArgs e)
+        /// <summary>
+        /// Clears current value of the autocomplete text
+        /// </summary>
+        /// <param name="e"></param>
+        public void ClearText(EventArgs e)
         {
             Value = default;
             StringValue = string.Empty;
