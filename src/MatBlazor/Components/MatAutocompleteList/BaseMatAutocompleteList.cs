@@ -90,13 +90,18 @@ namespace MatBlazor
             get { return _value; }
             set
             {
+                var newerStringValue = EqualValues(value, default) ? string.Empty : ComputeStringValue(value);
+                if (newerStringValue != StringValue)
+                {
+                    StringValue = newerStringValue;
+                }
+
                 if (EqualValues(value, _value))
                 {
                     return;
                 }
 
                 _value = value;
-                StringValue = EqualValues(Value, default(TItem)) ? string.Empty : ComputeStringValue(Value);
                 ValueChanged.InvokeAsync(_value);
             }
         }
@@ -167,6 +172,10 @@ namespace MatBlazor
 
         protected void ClosePopup()
         {
+            if (StringValue != ComputeStringValue(Value))
+            {
+                _value = default;
+            }
             IsOpened = false;
         }
 
@@ -217,11 +226,5 @@ namespace MatBlazor
         {
             return CustomStringSelector?.Invoke(obj) ?? obj?.ToString();
         }
-
-//        protected async override Task OnFirstAfterRenderAsync()
-//        {
-//            await base.OnFirstAfterRenderAsync();
-//            await JsInvokeAsync<object>("matBlazor.matAutocomplete.init", Ref);
-//        }
     }
 }
