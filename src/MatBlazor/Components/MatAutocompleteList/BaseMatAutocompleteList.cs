@@ -90,10 +90,13 @@ namespace MatBlazor
             get { return _value; }
             set
             {
-                var newerStringValue = EqualValues(value, default) ? string.Empty : ComputeStringValue(value);
-                if (newerStringValue != StringValue)
+                if (!EqualValues(value, default))
                 {
-                    StringValue = newerStringValue;
+                    var newValue = ComputeStringValue(value);
+                    if (newValue != StringValue)
+                    {
+                        StringValue = newValue;
+                    }
                 }
 
                 if (EqualValues(value, _value))
@@ -175,6 +178,7 @@ namespace MatBlazor
             if (StringValue != ComputeStringValue(Value))
             {
                 _value = default;
+                ValueChanged.InvokeAsync(_value);
             }
             IsOpened = false;
         }
@@ -190,7 +194,6 @@ namespace MatBlazor
             if (ev.Key == "ArrowDown" || ev.Key == "ArrowUp")
             {
                 int currentIndex = await ListRef.GetSelectedIndex();
-                int nextIndex = (ev.Key == "ArrowDown") ? currentIndex++ : currentIndex--;
                 await ListRef.SetSelectedIndex(currentIndex);
             }
             else if (ev.Key == "Enter")
