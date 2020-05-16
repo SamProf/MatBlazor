@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MatBlazor.Components.MatAutocompleteList;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -17,20 +18,33 @@ namespace MatBlazor
         private bool isOpened;
         private string stringValue;
         private TItem _value;
-
+        private AutocompleteListSearchResult<TItem> searchResult;
         public MatList ListRef;
 
         protected IEnumerable<MatAutocompleteListItem<TItem>> GetFilteredCollection(string searchText)
         {
-            return Items.Select(x => new MatAutocompleteListItem<TItem>()
+            if (searchResult == null || searchResult.SearchText != searchText)
             {
-                StringValue = ComputeStringValue(x),
-                Item = x
-            })
-                .Where(x => x != null &&
-                            (string.IsNullOrEmpty(searchText) || x.StringValue.ToLowerInvariant()
-                                 .Contains(searchText.ToLowerInvariant())))
-                .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup);
+                searchResult = new AutocompleteListSearchResult<TItem>()
+                {
+                    SearchText = searchText,
+                    ListResult = Items.Select(x => new MatAutocompleteListItem<TItem>()
+                    {
+                        StringValue = ComputeStringValue(x),
+                        Item = x
+                    })
+                                       .Where
+                                       (
+                                            x => x != null
+                                                 && (string.IsNullOrEmpty(searchText)
+                                                     || x.StringValue.ToLowerInvariant().Contains(searchText.ToLowerInvariant())
+                                                    )
+                                        )
+                                       .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup)
+                                       .ToList()
+                };
+            }
+            return searchResult.ListResult;
         }
 
         protected bool IsShowingClearButton
@@ -191,18 +205,40 @@ namespace MatBlazor
 
         public async void OnKeyDown(KeyboardEventArgs ev)
         {
-            if (ev.Key == "ArrowDown" || ev.Key == "ArrowUp")
+            var currentIndex = await ListRef.GetSelectedIndex();
+            var wasCurrentIndexChanged = false;
+            if (currentIndex < 0)
             {
-                int currentIndex = await ListRef.GetSelectedIndex();
+                currentIndex = 0;
+                wasCurrentIndexChanged = true;
+            }
+            if (searchResult != null && searchResult.ListResult.Count > 0 && currentIndex > searchResult.ListResult.Count)
+            {
+                currentIndex = searchResult.ListResult.Count - 1;
+                wasCurrentIndexChanged = true;
+            }
+            if (ev.Key == "ArrowDown")
+            {
+                currentIndex++;
+                wasCurrentIndexChanged = true;
+            }
+            if (ev.Key == "ArrowUp")
+            {
+                currentIndex--;
+                wasCurrentIndexChanged = true;
+            }
+            if (wasCurrentIndexChanged)
+            {
                 await ListRef.SetSelectedIndex(currentIndex);
             }
-            else if (ev.Key == "Enter")
+
+            if (ev.Key == "Enter" && searchResult != null && currentIndex >= 0 && currentIndex < searchResult.ListResult.Count)
             {
-                await JsInvokeAsync<object>("matBlazor.matList.confirmSelection", ListRef.Ref);
+                ItemSelected(searchResult.ListResult[currentIndex].Item);
             }
         }
 
-        public void ItemClicked(TItem selectedObject)
+        public void ItemSelected(TItem selectedObject)
         {
             Value = selectedObject;
             StateHasChanged();

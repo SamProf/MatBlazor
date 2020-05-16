@@ -30,7 +30,7 @@
             <MatList @ref="ListRef" SingleSelection="true">
                 @foreach (var elementWrapper in GetFilteredCollection(StringValue))
                 {
-                    <MatListItem OnMouseDown="@((e) => ItemClicked(elementWrapper.Item))">
+                    <MatListItem OnMouseDown="@((e) => ItemSelected(elementWrapper.Item))">
                         @if (ItemTemplate != null)
                         {
                             @ItemTemplate(elementWrapper.Item)
