@@ -6,7 +6,7 @@
 
 @if (!Secondary) {<h3 class="mat-h3">MatAutocomplete</h3> } else { <h5 class="mat-h5">MatAutocomplete</h5> }
 
-<p>Base class for any input control that optionally supports an .</p>
+<p>The autocomplete is a normal text input enhanced by a panel of suggested options.</p>
 
 <div><table class="article-table mat-elevation-z5">
 	<tr>
@@ -15,14 +15,9 @@
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td style="font-weight: bold;">TValue</td>
-		<td>Generic argument</td>
-		<td></td>
-	</tr>
-	<tr>
 		<td style="font-weight: bold;">TItem</td>
 		<td>Generic argument</td>
-		<td></td>
+		<td>Type of items.</td>
 	</tr>
 	<tr>
 		<td>Attributes</td>
@@ -43,6 +38,11 @@
 		<td>Class</td>
 		<td>String</td>
 		<td>Specifies one or more classnames for an DOM element.</td>
+	</tr>
+	<tr>
+		<td>CustomStringSelector</td>
+		<td>Func&lt;TItem,String&gt;</td>
+		<td>Gets or sets the function used to select the string part from the item, used both for filtering and displaying if no  is given.</td>
 	</tr>
 	<tr>
 		<td>Dense</td>
@@ -122,17 +122,17 @@
 	<tr>
 		<td>Items</td>
 		<td>IEnumerable&lt;TItem&gt;</td>
-		<td></td>
+		<td>Gets or sets the items source which will be filtered and displayed in the dropdown list.</td>
+	</tr>
+	<tr>
+		<td>ItemsSource</td>
+		<td>IAutocompleteItemsSource&lt;TItem&gt;</td>
+		<td>Gets or sets the items source for autocomplete items. If provided,  is ignored and everytime the user is typing something, this source will be used to populate the items in the dropdown list.</td>
 	</tr>
 	<tr>
 		<td>ItemTemplate</td>
 		<td>RenderFragment&lt;TItem&gt;</td>
-		<td>ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..</td>
-	</tr>
-	<tr>
-		<td>ItemValueSelector</td>
-		<td>Func&lt;TItem,TValue&gt;</td>
-		<td>This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.</td>
+		<td>Gets or sets the template used to render the elements in the popup, if no template is given then the string value of the objects is displayed.</td>
 	</tr>
 	<tr>
 		<td>Label</td>
@@ -142,7 +142,7 @@
 	<tr>
 		<td>NumberOfElementsInPopup</td>
 		<td>Nullable&lt;Int32&gt;</td>
-		<td>Maximum number of elements displayed in the popup</td>
+		<td>Gets or sets the maximum number of elements displayed in the dropdown list.</td>
 	</tr>
 	<tr>
 		<td>OnFocus</td>
@@ -175,6 +175,11 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>OnOpenedChanged</td>
+		<td>EventCallback&lt;Boolean&gt;</td>
+		<td>Gets or sets the event callback which is invoked when the dialog is opened or closed. The parameter will be &quot;true&quot; if the dialog was opened, &quot;false&quot; otherwise.</td>
+	</tr>
+	<tr>
 		<td>Outlined</td>
 		<td>Boolean</td>
 		<td></td>
@@ -200,6 +205,21 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>SelectedItem</td>
+		<td>TItem</td>
+		<td>Gets or sets the selected item from the dropdown list.</td>
+	</tr>
+	<tr>
+		<td>SelectedItemChanged</td>
+		<td>EventCallback&lt;TItem&gt;</td>
+		<td>ValueChanged is fired when the value is selected(by clicking on an element in the popup)</td>
+	</tr>
+	<tr>
+		<td>ShowClearButton</td>
+		<td>Boolean</td>
+		<td>Gets or sets the visibility of the clear button. The default value is &quot;false&quot;. If the clear button is displayed and pressed, the text and selected value will be cleared.</td>
+	</tr>
+	<tr>
 		<td>Style</td>
 		<td>String</td>
 		<td>Specifies an inline style for an DOM element.</td>
@@ -221,17 +241,17 @@
 	</tr>
 	<tr>
 		<td>Value</td>
-		<td>TValue</td>
+		<td>String</td>
 		<td>Gets or sets the value of the input. This should be used with two-way binding.</td>
 	</tr>
 	<tr>
 		<td>ValueChanged</td>
-		<td>EventCallback&lt;TValue&gt;</td>
+		<td>EventCallback&lt;String&gt;</td>
 		<td>Gets or sets a callback that updates the bound value.</td>
 	</tr>
 	<tr>
 		<td>ValueExpression</td>
-		<td>Expression&lt;Func&lt;TValue&gt;&gt;</td>
+		<td>Expression&lt;Func&lt;String&gt;&gt;</td>
 		<td>Gets or sets an expression that identifies the bound value.</td>
 	</tr>
 	<tr>

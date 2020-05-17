@@ -1,18 +1,13 @@
 <DocMatAutocomplete></DocMatAutocomplete>
 
 
-<MatH3>This component is in progress, use MatAutocompleteList instead!</MatH3>
-
-
 <h5 class="mat-h5">Example</h5>
 <DemoContainer>
     <Content>
-        <MatAutocomplete Items="@options" Label="Pick one" @bind-Value="@value"></MatAutocomplete>
+        <MatAutocomplete Items="@options" TItem="string" Label="Pick one"></MatAutocomplete>
 
         @code
         {
-
-            string value;
 
             string[] options = new[]
             {
@@ -26,12 +21,10 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatAutocomplete Items=""@options"" Label=""Pick one"" @bind-Value=""@value""></MatAutocompleteKey>
+        <MatAutocomplete Items=""@options"" TItem=""string"" Label=""Pick one""></MatAutocomplete>
 
         @code
         {
-
-            string value;
 
             string[] options = new[]
             {
@@ -46,3 +39,316 @@
     </SourceContent>
 </DemoContainer>
 
+<h5 class="mat-h5">Icon</h5>
+<DemoContainer>
+    <Content>
+        <MatAutocomplete Items="@options" Icon="thumb_up_alt" TItem="string" Label="Pick one"></MatAutocomplete>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatAutocomplete Items=""@options"" Icon=""thumb_up_alt"" TItem=""string"" Label=""Pick one""></MatAutocomplete>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Clear Button</h5>
+<DemoContainer>
+    <Content>
+        <MatAutocomplete Items="@options" Value="@options[0]" ShowClearButton="true" Icon="thumb_up_alt" TItem="string" Label="Pick one"></MatAutocomplete>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatAutocomplete Items=""@options"" Value=""@options[0]"" ShowClearButton=""true"" Icon=""thumb_up_alt"" TItem=""string"" Label=""Pick one""></MatAutocomplete>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">ItemTemplate</h5>
+<DemoContainer>
+    <Content>
+        <p>
+            <MatAutocomplete Items="@options2" TItem="Car" Label="Select car" CustomStringSelector="@(i => i.Name)" @bind-SelectedItem="@value">
+                <ItemTemplate>
+                    <div style="display: flex; flex-direction: row; width: 100%;">
+                        <div style="flex: 1;">@context.Name</div>
+                        <div style="width: 150px;">@context.Price$</div>
+                    </div>
+                </ItemTemplate>
+            </MatAutocomplete>
+        </p>
+        <p>
+            Selected value: @(value?.Name)
+        </p>
+
+        @code
+        {
+
+            public class Car
+            {
+                public string Name { get; set; }
+                public double Price { get; set; }
+
+                public Car(string name, double price)
+                {
+                    Name = name;
+                    Price = price;
+                }
+            }
+
+            Car value = null;
+
+            Car[] options2 = new[]
+            {
+                new Car("Volkswagen Golf", 10000),
+                new Car("Volkswagen Passat", 11000),
+                new Car("Volkswagen Polo", 12000),
+                new Car("Ford Focus", 13000),
+                new Car("Ford Fiesta", 14000),
+                new Car("Ford Fusion", 15000),
+                new Car("Ford Mondeo", 16000),
+            };
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatAutocomplete Items=""@options2"" TItem=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"" @bind-SelectedItem=""@value"">
+                <ItemTemplate>
+                    <div style=""display: flex; flex-direction: row; width: 100%;"">
+                        <div style=""flex: 1;"">@context.Name</div>
+                        <div style=""width: 150px;"">@context.Price$</div>
+                    </div>
+                </ItemTemplate>
+            </MatAutocomplete>
+        </p>
+        <p>
+            Selected value: @(value?.Name)
+        </p>
+
+        @code
+        {
+
+            public class Car
+            {
+                public string Name { get; set; }
+                public double Price { get; set; }
+
+                public Car(string name, double price)
+                {
+                    Name = name;
+                    Price = price;
+                }
+            }
+
+            Car value = null;
+
+            Car[] options2 = new[]
+            {
+                new Car(""Volkswagen Golf"", 10000),
+                new Car(""Volkswagen Passat"", 11000),
+                new Car(""Volkswagen Polo"", 12000),
+                new Car(""Ford Focus"", 13000),
+                new Car(""Ford Fiesta"", 14000),
+                new Car(""Ford Fusion"", 15000),
+                new Car(""Ford Mondeo"", 16000),
+            };
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">With Full Width</h5>
+<DemoContainer>
+    <Content>
+        <MatAutocomplete Items="@options2" FullWidth="true" TItem="Car" Label="Select car" CustomStringSelector="@(i => i.Name)">
+            <ItemTemplate>
+                <div style="display: flex; flex-direction: row; width: 100%;">
+                    <div style="flex: 1;">@context.Name</div>
+                    <div style="width: 150px;">@context.Price$</div>
+                </div>
+            </ItemTemplate>
+        </MatAutocomplete>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatAutocomplete Items=""@options2"" FullWidth=""true"" TItem=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"">
+            <ItemTemplate>
+                <div style=""display: flex; flex-direction: row; width: 100%;"">
+                    <div style=""flex: 1;"">@context.Name</div>
+                    <div style=""width: 150px;"">@context.Price$</div>
+                </div>
+            </ItemTemplate>
+        </MatAutocomplete>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">With Disabled</h5>
+<DemoContainer>
+    <Content>
+        <MatAutocomplete Items="@options2" Disabled="true" TItem="Car" Label="Select car" CustomStringSelector="@(i => i.Name)" SelectedItem="@options2[1]">
+            <ItemTemplate>
+                <div style="display: flex; flex-direction: row; width: 100%;">
+                    <div style="flex: 1;">@context.Name</div>
+                    <div style="width: 150px;">@context.Price$</div>
+                </div>
+            </ItemTemplate>
+        </MatAutocomplete>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatAutocomplete Items=""@options2"" Disabled=""true"" TItem=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"" SelectedItem=""@options2[1]"">
+            <ItemTemplate>
+                <div style=""display: flex; flex-direction: row; width: 100%;"">
+                    <div style=""flex: 1;"">@context.Name</div>
+                    <div style=""width: 150px;"">@context.Price$</div>
+                </div>
+            </ItemTemplate>
+        </MatAutocomplete>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">In an edit form with a Data Annotation Validator</h5>
+<DemoContainer>
+    <Content>
+        <EditForm Model="@model" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <MatAutocomplete Items="@model.Options" Icon="thumb_up_alt" TItem="string" @bind-SelectedItem="@model.SelectedOption" Label="Pick one(Required)" ShowClearButton="true"></MatAutocomplete>
+            <MatButton>Submit</MatButton>
+        </EditForm>
+        @code
+        {
+            class AutocompleteContextModel
+            {
+                public List<string> Options { get; set; } = new List<string>() { "A test option", "Another test option", "One more option" };
+
+                [System.ComponentModel.DataAnnotations.Required]
+                public string SelectedOption { get; set; }
+            }
+            AutocompleteContextModel model = new AutocompleteContextModel();
+
+            void HandleValidSubmit()
+            {
+                Console.WriteLine("On Valid Submit");
+            }
+        }
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <EditForm Model=""@model"" OnValidSubmit=""HandleValidSubmit"">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <MatAutocomplete Items=""@model.Options"" Icon=""thumb_up_alt"" TItem=""string"" @bind-SelectedItem=""@model.SelectedOption"" Label=""Pick one(Required)"" ShowClearButton=""true""></MatAutocomplete>
+            <MatButton>Submit</MatButton>
+        </EditForm>
+        @code
+        {
+            class AutocompleteContextModel
+            {
+                public List<string> Options { get; set; } = new List<string>() { ""A test option"", ""Another test option"", ""One more option"" };
+
+                [System.ComponentModel.DataAnnotations.Required]
+                public string SelectedOption { get; set; }
+            }
+            AutocompleteContextModel model = new AutocompleteContextModel();
+
+            void HandleValidSubmit()
+            {
+                Console.WriteLine(""On Valid Submit"");
+            }
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">With ItemsSource and retrieving data from a backend.</h5>
+<p> This is useful when you have a backend with pagination based on the search text and you want to use the pagination directly in the backend server.</p>
+<DemoContainer>
+    <Content>
+        <MatAutocomplete ItemsSource="@DemoSource" TItem="Car" Label="Select car from backend" CustomStringSelector="@(i => i.Name)">
+            <ItemTemplate>
+                <div style="display: flex; flex-direction: row; width: 100%;">
+                    <div style="flex: 1;">@context.Name</div>
+                    <div style="width: 150px;">@context.Price$</div>
+                </div>
+            </ItemTemplate>
+        </MatAutocomplete>
+        @code
+        {
+            public class DemoItemsSource : IAutocompleteItemsSource<Car>
+            {
+
+                Car[] carsInServer = new[]
+                {
+                    new Car("Volkswagen Golf", 10000),
+                    new Car("Volkswagen Passat", 11000),
+                    new Car("Volkswagen Polo", 12000),
+                    new Car("Ford Focus", 13000),
+                    new Car("Ford Fiesta", 14000),
+                    new Car("Ford Fusion", 15000),
+                    new Car("Ford Mondeo", 16000),
+                };
+
+                public async Task<IEnumerable<Car>> GetFilteredItemsAsync(string searchText)
+                {
+                    // We can retrieve the results from a backend server.
+                    return await Task.Run(() =>
+                    {
+                        System.Threading.Thread.Sleep(300);
+                        return carsInServer.Where(car => string.IsNullOrEmpty(searchText) || car.Name.Contains(searchText, StringComparison.InvariantCultureIgnoreCase)).Take(10);
+                    });
+                }
+            }
+
+            DemoItemsSource DemoSource = new DemoItemsSource();
+        }
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatAutocomplete ItemsSource=""@DemoSource"" TItem=""Car"" Label=""Select car from backend"" CustomStringSelector=""@(i => i.Name)"">
+            <ItemTemplate>
+                <div style=""display: flex; flex-direction: row; width: 100%;"">
+                    <div style=""flex: 1;"">@context.Name</div>
+                    <div style=""width: 150px;"">@context.Price$</div>
+                </div>
+            </ItemTemplate>
+        </MatAutocomplete>
+        @code
+        {
+            public class DemoItemsSource : IAutocompleteItemsSource<Car>
+            {
+
+                Car[] carsInServer = new[]
+                {
+                    new Car(""Volkswagen Golf"", 10000),
+                    new Car(""Volkswagen Passat"", 11000),
+                    new Car(""Volkswagen Polo"", 12000),
+                    new Car(""Ford Focus"", 13000),
+                    new Car(""Ford Fiesta"", 14000),
+                    new Car(""Ford Fusion"", 15000),
+                    new Car(""Ford Mondeo"", 16000),
+                };
+
+                public async Task<IEnumerable<Car>> GetFilteredItemsAsync(string searchText)
+                {
+                    // We can retrieve the results from a backend server.
+                    return await Task.Run(() =>
+                    {
+                        System.Threading.Thread.Sleep(300);
+                        return carsInServer.Where(car => string.IsNullOrEmpty(searchText) || car.Name.Contains(searchText, StringComparison.InvariantCultureIgnoreCase)).Take(10);
+                    });
+                }
+            }
+
+            DemoItemsSource DemoSource = new DemoItemsSource();
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
