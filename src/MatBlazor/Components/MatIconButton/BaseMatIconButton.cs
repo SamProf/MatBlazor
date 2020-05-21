@@ -49,6 +49,13 @@ namespace MatBlazor
         public EventCallback<bool> ToggledChanged { get; set; }
 
         /// <summary>
+        /// The default behavior of the button. Possible values are:
+        /// "button", "reset", "submit"
+        /// </summary>
+        [Parameter]
+        public string Type { get; set; }
+
+        /// <summary>
         /// Navigate to this url when clicked.
         /// </summary>
         [Parameter]
