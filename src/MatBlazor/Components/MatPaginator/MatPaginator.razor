@@ -11,13 +11,13 @@
 
 
         <div class="mat-paginator-range-actions">
-            <span class="mat-paginator-range-labelmat-paginator-range-label">@PageLabel @(CurrentPageIndex + 1) / @TotalPages</span>
+            <span class="mat-paginator-range-labelmat-paginator-range-label">@PageLabel @(PageIndex + 1) / @TotalPages</span>
             <div class="mat-paginator-range-buttons">
-                <MatIconButton Icon="first_page" OnClick=@(async () => NavigateToPage(MatPaginatorAction.First, PageSize)) Disabled=@(CurrentPageIndex <= 0)></MatIconButton>
-                <MatIconButton Icon="navigate_before" OnClick=@(async () => NavigateToPage(MatPaginatorAction.Previous, PageSize)) Disabled=@(CurrentPageIndex <= 0)></MatIconButton>
+                <MatIconButton Icon="first_page" OnClick=@(async () => NavigateToPage(MatPaginatorAction.First, PageSize)) Disabled=@(PageIndex <= 0)></MatIconButton>
+                <MatIconButton Icon="navigate_before" OnClick=@(async () => NavigateToPage(MatPaginatorAction.Previous, PageSize)) Disabled=@(PageIndex <= 0)></MatIconButton>
               
-                <MatIconButton Icon="navigate_next" OnClick="@(async () => NavigateToPage(MatPaginatorAction.Next, PageSize))" Disabled="@(TotalPages - CurrentPageIndex <= 1)"></MatIconButton>
-                <MatIconButton Icon="last_page" OnClick=@(async () => NavigateToPage(MatPaginatorAction.Last, PageSize)) Disabled=@(TotalPages - CurrentPageIndex <= 1)></MatIconButton>
+                <MatIconButton Icon="navigate_next" OnClick="@(async () => NavigateToPage(MatPaginatorAction.Next, PageSize))" Disabled="@(TotalPages - PageIndex <= 1)"></MatIconButton>
+                <MatIconButton Icon="last_page" OnClick=@(async () => NavigateToPage(MatPaginatorAction.Last, PageSize)) Disabled=@(TotalPages - PageIndex <= 1)></MatIconButton>
             </div>
         </div>
 

@@ -60,6 +60,7 @@ namespace MatBlazor
         public BaseMatProgressBar()
         {
             ClassMapper
+                .Add("mat-progress-bar")
                 .Add("mdc-linear-progress")
                 .If("mdc-linear-progress--indeterminate", () => this.Indeterminate)
                 .If("mdc-linear-progress--reversed", () => this.Reversed)

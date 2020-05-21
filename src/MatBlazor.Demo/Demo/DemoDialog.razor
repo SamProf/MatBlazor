@@ -6,7 +6,7 @@
 <h5 class="mat-h5">Example</h5>
 
 <style>
-    .demo-mat-dialog-container li { padding: 5px; }
+    .demo-mat-dialog-container li { padding: 5px; }   
 </style>
 
 <DemoContainer Class="demo-mat-dialog-container">
@@ -27,7 +27,7 @@
             <MatDialogTitle>Hi @name</MatDialogTitle>
             <MatDialogContent>
                 <p>What's your favorite animal?</p>
-                <MatTextField @bind-Value="@dialogAnimal"></MatTextField>
+                <MatTextField @bind-Value="@dialogAnimal"></MatTextField>                
             </MatDialogContent>
             <MatDialogActions>
                 <MatButton OnClick="@(e => { dialogIsOpen = false; })">No Thanks</MatButton>
@@ -75,7 +75,7 @@
             <MatDialogTitle>Hi @name</MatDialogTitle>
             <MatDialogContent>
                 <p>What's your favorite animal?</p>
-                <MatTextField @bind-Value=""@dialogAnimal""></MatTextField>
+                <MatTextField @bind-Value=""@dialogAnimal""></MatTextField>                
             </MatDialogContent>
             <MatDialogActions>
                 <MatButton OnClick=""@(e => { dialogIsOpen = false; })"">No Thanks</MatButton>

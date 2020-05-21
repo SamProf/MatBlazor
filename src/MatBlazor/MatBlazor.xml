@@ -190,20 +190,26 @@
             This value indicates if the textfield and the dialog will be or not displayed in the full screen, the default value is false
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatAutocompleteKey`2.ItemValueSelector">
+        <member name="P:MatBlazor.BaseMatAutocomplete`2.ItemValueSelector">
             <summary>
             This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatAutocompleteKey`2.NumberOfElementsInPopup">
+        <member name="P:MatBlazor.BaseMatAutocomplete`2.NumberOfElementsInPopup">
             <summary>
             Maximum number of elements displayed in the popup
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatAutocompleteKey`2.ItemTemplate">
+        <member name="P:MatBlazor.BaseMatAutocomplete`2.ItemTemplate">
             <summary>
             ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
             </summary>
+        <member>
+        <member name="M:MatBlazor.BaseMatAutocomplete`1.ClearText(System.EventArgs)">
+            <summary>
+            Clears current value of the autocomplete text
+            </summary>
+            <param name="e"></param>
         </member>
         <member name="T:MatBlazor.BaseMatButton">
             <summary>
@@ -234,6 +240,11 @@
         <member name="P:MatBlazor.BaseMatButton.Link">
             <summary>
             Link to a url when clicked.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButton.Target">
+            <summary>
+            Target of Link when clicked.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatButton.Raised">
@@ -355,7 +366,7 @@
         </member>
         <member name="P:MatBlazor.BaseMatIconButton.Target">
             <summary>
-            *Not available yet
+            Target of Link when clicked.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatIconButton.ToggleIcon">
@@ -454,6 +465,11 @@
         <member name="P:MatBlazor.BaseMatNavItem.CommandParameter">
             <summary>
              Command parameter.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatNavItem.Target">
+            <summary>
+            *Not yet functional - Target of Href when clicked.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatNavItem.NavLinkMatch">
@@ -941,6 +957,13 @@
             <summary>
             the new expanded state
             </summary>
+        </member>
+        <member name="T:MatBlazor.BaseMatVirtualScroll`1">
+            <summary>
+            The VirtualScroll for Blazor displays large lists of elements performantly by only rendering the items that fit on-screen.
+            Loading hundreds of elements can be slow in any browser; virtual scrolling enables a performant way to simulate all items being rendered by making the height of the container element the same as the height of total number of elements to be rendered, and then only rendering the items in view.
+            </summary>
+            <typeparam name="TItem"></typeparam>
         </member>
         <member name="M:MatBlazor.LinqExtensions.FindIndex``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
             <summary>Finds the index of the first item matching an expression in an enumerable.</summary>

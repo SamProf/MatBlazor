@@ -1,0 +1,29 @@
+﻿.﻿mat-virtual-scroll-helper
+{
+  position: relative;
+}
+
+
+.﻿mat-virtual-scroll, .﻿mat-virtual-scroll-helper {
+  overflow-y: auto;
+}
+
+.mat-virtual-scroll-content {
+  position: relative;
+}
+
+.mat-virtual-scroll-item {
+  //position: absolute;
+  overflow: hidden;
+}
+
+
+.mat-virtual-scroll-spacer
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 1px;
+  width: 1px;
+  transform-origin: 0 0;
+}

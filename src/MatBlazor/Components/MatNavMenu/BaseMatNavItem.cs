@@ -36,6 +36,12 @@ namespace MatBlazor
         public bool Selected { get; set; }
 
         /// <summary>
+        /// *Not yet functional - Target of Href when clicked.
+        /// </summary>
+        [Parameter]
+        public string Target { get; set; } = null;
+
+        /// <summary>
         ///  NavLinkMatch parameter used to determine the active state of the Nav Item.
         /// </summary>
         [Parameter]
@@ -85,7 +91,14 @@ namespace MatBlazor
 
             if (Href != null)
             {
-                UriHelper.NavigateTo(Href);
+                if (!string.IsNullOrEmpty(Target))
+                {
+                    // Do nothing here as it is a target for an anchor tag
+                }
+                else
+                {
+                    UriHelper.NavigateTo(Href);
+                }
             }
             else
             {

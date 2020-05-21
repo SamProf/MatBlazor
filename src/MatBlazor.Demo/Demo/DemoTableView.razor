@@ -1,0 +1,119 @@
+@using System.Diagnostics
+<h5 class="mat-h5">Example</h5>
+
+@*
+<DemoContainer>
+    <Content>
+        <MatDataTable>
+            <MatDataTableHeader>
+                <MatDataTableHeaderCell>Name</MatDataTableHeaderCell>
+                <MatDataTableHeaderCell Numeric="true">Price</MatDataTableHeaderCell>
+                <MatDataTableHeaderCell Numeric="true">Horse Power</MatDataTableHeaderCell>
+            </MatDataTableHeader>
+
+            <MatDataTableContent>
+                @foreach (var car in cars)
+                {
+                    <MatDataTableRow>
+                        <MatDataTableCell>@car.Name</MatDataTableCell>
+                        <MatDataTableCell Numeric="true">
+                            @car.Price
+                            <MatButton OnClick="@(e => car.Price = car.Price + 1)">Click</MatButton>
+                        </MatDataTableCell>
+                        <MatDataTableCell Numeric="true">@car.Horsepower</MatDataTableCell>
+                    </MatDataTableRow>
+                }
+            </MatDataTableContent>
+
+        </MatDataTable>
+
+        @code
+        {
+
+            public class Car
+            {
+                public string Name { get; set; }
+                public double Price { get; set; }
+                public int Horsepower { get; set; }
+
+                public Car(string name, double price, int horsepower)
+                {
+                    Name = name;
+                    Price = price;
+                    Horsepower = horsepower;
+                }
+            }
+
+            Car[] cars = new[]
+            {
+                new Car("Volkswagen Golf", 10000, 220),
+                new Car("Volkswagen Passat", 11000, 240),
+                new Car("Volkswagen Polo", 12000, 110),
+                new Car("Ford Focus", 13000, 200),
+                new Car("Ford Fiesta", 14000, 160),
+                new Car("Ford Fusion", 15000, 260),
+                new Car("Ford Mondeo", 16000, 120),
+            };
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatDataTable>
+            <MatDataTableHeader>
+                <MatDataTableHeaderCell>Name</MatDataTableHeaderCell>
+                <MatDataTableHeaderCell Numeric=""true"">Price</MatDataTableHeaderCell>
+                <MatDataTableHeaderCell Numeric=""true"">Horse Power</MatDataTableHeaderCell>
+            </MatDataTableHeader>
+
+            <MatDataTableContent>
+                @foreach (var car in cars)
+                {
+                    <MatDataTableRow>
+                        <MatDataTableCell>@car.Name</MatDataTableCell>
+                        <MatDataTableCell Numeric=""true"">
+                            @car.Price
+                            <MatButton OnClick=""@(e => car.Price = car.Price + 1)"">Click</MatButton>
+                        </MatDataTableCell>
+                        <MatDataTableCell Numeric=""true"">@car.Horsepower</MatDataTableCell>
+                    </MatDataTableRow>
+                }
+            </MatDataTableContent>
+
+        </MatDataTable>
+
+        @code
+        {
+
+            public class Car
+            {
+                public string Name { get; set; }
+                public double Price { get; set; }
+                public int Horsepower { get; set; }
+
+                public Car(string name, double price, int horsepower)
+                {
+                    Name = name;
+                    Price = price;
+                    Horsepower = horsepower;
+                }
+            }
+
+            Car[] cars = new[]
+            {
+                new Car(""Volkswagen Golf"", 10000, 220),
+                new Car(""Volkswagen Passat"", 11000, 240),
+                new Car(""Volkswagen Polo"", 12000, 110),
+                new Car(""Ford Focus"", 13000, 200),
+                new Car(""Ford Fiesta"", 14000, 160),
+                new Car(""Ford Fusion"", 15000, 260),
+                new Car(""Ford Mondeo"", 16000, 120),
+            };
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+*@

@@ -3,6 +3,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 var ProgressPlugin = require('webpack/lib/ProgressPlugin');
 
+const debugMode = false;
+
+
+
 module.exports = {
   entry: {
     'matBlazor': [
@@ -10,9 +14,9 @@ module.exports = {
       './src/main.scss'
     ]
   },
-  // optimization: {
-  //   minimize: false
-  // },
+  optimization: {
+    minimize: !debugMode
+  },
   output: {
     filename: "matBlazor.js",
     // path: path.resolve(__dirname, '../dist'),
@@ -53,6 +57,7 @@ module.exports = {
           {
             loader: "sass-loader", // compiles Sass to CSS
             options: {
+              webpackImporter: false, // Recommended temporary workaround until https://github.com/webpack-contrib/sass-loader/issues/804 is fixed
               sassOptions: {
                 "includePaths": [
                   path.resolve(__dirname, '../node_modules')
@@ -73,11 +78,13 @@ module.exports = {
     new UglifyJsPlugin({
       parallel: true,
       uglifyOptions: {
-        compress: {},
-        mangle: true,
+        compress: {
+          drop_debugger: !debugMode
+        },
+        mangle: debugMode,
         output: {
-          comments: false,
-          beautify: false
+          comments: debugMode,
+          beautify: debugMode
         }
       }
     }),

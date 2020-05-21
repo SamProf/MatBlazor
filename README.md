@@ -88,6 +88,7 @@ If you think that this project helped you or your company in any way, you can co
 
 ### Sponsors:
 - Phil Parkin
+- Patreon: Jay Arrowz
 - Patreon: Rene Zaal
 - Patreon: Stas Levich
 
@@ -99,22 +100,52 @@ If you think that this project helped you or your company in any way, you can co
 - Christophe Peugnet
 - SmartView Systems
 - [Apply Solutions GmbH](https://www.apply-solutions.com/)
+- Beeman and Sons, Inc.
 - Radu Tomuleasa
 - [Maurizio Verde](https://github.com/MaurizioVerde)
+- Adam Salvo
 - Yevhen Shmakov
 - Jacobus Terhorst
 - Xiao Song
 - Martin Friesenbichler
 
 
+## Contributing
+We'd greatly appreciate any contribution you make. :)
+Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/issues/474):
+- [SamProf](https://github.com/SamProf) - creator
+- [enkodellc](https://github.com/enkodellc)
+- [lindespang](https://github.com/lindespang)
+- [RonPeters](https://github.com/RonPeters)
+
 ## News
 
 ### Roadmap
+- `MatVirtualScroll` - complete new component
 - `MatDataTable` - complete new component
 - `MatDatePicker` - improvements
 - `MatTreeView` - complete new component
-- `MatVirtualScroll` - complete new component
 - `MatAutocomplete` - new implementation of component
+
+
+
+
+#### MatBlazor 2.5.0 (In progress)
+- Update MDC-Web components to 6.0.0
+- Fix MatMenu AnchorElement bug
+- Fix MatTextField inside Dialog
+- PR: Added Primary Color to MatSelect Label #522 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- PR: Added documentation for SlideToggle value changed event. #530 (Thanks to [SeppPenner](https://github.com/SeppPenner))
+
+
+#### MatBlazor 2.4.3
+- `MatVirtualScroll` - New component- 
+- Added label color to theme primary color #488 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- Correct padding for MatTextField with leading icon #483 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- PR: Added, return item object from selected row event. #511 (Thanks to [UrizielTSD](https://github.com/UrizielTSD))
+- PR: Added ability to close MatMenu programmatically. #504  (Thanks to [IKingJohnI](https://github.com/IKingJohnI))
+- PR: Use height instead of max-height in mat-expansion-panel base/expanded #484 (Thanks to [esso23](https://github.com/esso23))
+- PR: Remove node-sass and add temporary workaround for sass-loader. #481 (Thanks to [esso23](https://github.com/esso23))
 
 
 #### MatBlazor 2.3.0
@@ -513,10 +544,6 @@ If you think that this project helped you or your company in any way, you can co
 ## Questions
 
 For *how-to* questions and other non-issues, for now you can use issues or you can use [![Gitter](https://badges.gitter.im/MatBlazor/community.svg)](https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
-
-
-## Contributing
-We'd greatly appreciate any contribution you make. :)
 
 
 ## Vision
