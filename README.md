@@ -130,8 +130,9 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 
 
 
-#### MatBlazor 2.5.0
-- Update MDC-Web components to 6.0.0- 
+#### MatBlazor 2.6.0
+- Update to Latest Microsoft.AspNetCore.Components 3.1.4 and Microsoft.AspNetCore.Components.WebAssembly 3.2.0
+- Update MDC-Web components to 6.0.0
 - MDC 6.0.0 updates for TextField #538 (Thanks to [enkodellc](https://github.com/enkodellc))
 - Target for MatButton / MatIconButton #539 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: Fixed multiple Autocomplete Issues #548 (Thanks to [sandrohanea](https://github.com/sandrohanea))

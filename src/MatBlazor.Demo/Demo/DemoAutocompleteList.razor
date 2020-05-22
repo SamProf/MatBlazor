@@ -20,7 +20,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatAutocompleteList Items=""@options"" TItem=""string"" Label=""Pick one""></MatAutocompleteList>
 
         @code
@@ -45,7 +45,7 @@
         <MatAutocompleteList Items="@options" Icon="thumb_up_alt" TItem="string" Label="Pick one"></MatAutocompleteList>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatAutocompleteList Items=""@options"" Icon=""thumb_up_alt"" TItem=""string"" Label=""Pick one""></MatAutocompleteList>
     ")></BlazorFiddle>
     </SourceContent>
@@ -57,7 +57,7 @@
         <MatAutocompleteList Items="@options" Value="@options[0]" ShowClearButton="true" Icon="thumb_up_alt" TItem="string" Label="Pick one"></MatAutocompleteList>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatAutocompleteList Items=""@options"" Value=""@options[0]"" ShowClearButton=""true"" Icon=""thumb_up_alt"" TItem=""string"" Label=""Pick one""></MatAutocompleteList>
     ")></BlazorFiddle>
     </SourceContent>
@@ -112,7 +112,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
             <MatAutocompleteList Items=""@options2"" TItem=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"" @bind-Value=""@value"">
                 <ItemTemplate>
@@ -122,7 +122,7 @@
                     </div>
                 </ItemTemplate>
             </MatAutocompleteList>
-         </p>
+        </p>
         <p>
             Selected value: @(value?.Name)
         </p>
@@ -157,7 +157,7 @@
 
         }
 
-            ")></BlazorFiddle>
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -175,16 +175,16 @@
         </MatAutocompleteList>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatAutocompleteList Items=""@options2"" FullWidth=""true"" TItem=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"">
-                <ItemTemplate>
-                    <div style=""display: flex; flex-direction: row; width: 100%;"">
-                        <div style=""flex: 1;"">@context.Name</div>
-                        <div style=""width: 150px;"">@context.Price$</div>
-                    </div>
-                </ItemTemplate>
-            </MatAutocompleteList>
-        ")></BlazorFiddle>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatAutocompleteList Items=""@options2"" FullWidth=""true"" TItem=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"">
+            <ItemTemplate>
+                <div style=""display: flex; flex-direction: row; width: 100%;"">
+                    <div style=""flex: 1;"">@context.Name</div>
+                    <div style=""width: 150px;"">@context.Price$</div>
+                </div>
+            </ItemTemplate>
+        </MatAutocompleteList>
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -215,8 +215,8 @@
         }
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-<EditForm Model=""@model"" OnValidSubmit=""HandleValidSubmit"">
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <EditForm Model=""@model"" OnValidSubmit=""HandleValidSubmit"">
             <DataAnnotationsValidator />
             <ValidationSummary />
             <MatAutocompleteList Items=""@model.Options"" Icon=""thumb_up_alt"" TItem=""string"" @bind-Value=""@model.SelectedOption"" Label=""Pick one(Required)"" ShowClearButton=""true""></MatAutocompleteList>
