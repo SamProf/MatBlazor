@@ -190,6 +190,12 @@
             This value indicates if the textfield and the dialog will be or not displayed in the full screen, the default value is false
             </summary>
         </member>
+        <member name="M:MatBlazor.BaseMatAutocompleteList`1.ClearText(System.EventArgs)">
+            <summary>
+            Clears current value of the autocomplete text
+            </summary>
+            <param name="e"></param>
+        </member>
         <member name="P:MatBlazor.BaseMatAutocomplete`2.ItemValueSelector">
             <summary>
             This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.
@@ -204,12 +210,6 @@
             <summary>
             ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
             </summary>
-        <member>
-        <member name="M:MatBlazor.BaseMatAutocomplete`1.ClearText(System.EventArgs)">
-            <summary>
-            Clears current value of the autocomplete text
-            </summary>
-            <param name="e"></param>
         </member>
         <member name="T:MatBlazor.BaseMatButton">
             <summary>
