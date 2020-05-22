@@ -9,7 +9,11 @@ namespace MatBlazor
         public static async Task<T> GetJsonAsync<T>(this HttpClient httpClient, string requestUri)
         {
             var stringContent = await httpClient.GetStringAsync(requestUri);
-            return JsonSerializer.Deserialize<T>(stringContent);
+
+            return JsonSerializer.Deserialize<T>(stringContent, new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
         }
     }
 }
