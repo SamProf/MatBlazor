@@ -1,7 +1,7 @@
 <DocMatSelectValue></DocMatSelectValue>
 
 
-<MatH5>Example MatSelectVlaue with class array and ItemTemplate</MatH5>
+<MatH5>Example MatSelectValue with class array and ItemTemplate</MatH5>
 
 <DemoContainer>
     <Content>
@@ -96,7 +96,7 @@
 <DemoContainer>
     <Content>
         <p>
-            <MatSelectValue @bind-Value="@value1" Items="@vlaue1Items" ValueSelector=@(i=>i.ToString())></MatSelectValue>
+            <MatSelectValue @bind-Value="@value1" Items="@value1Items" ValueSelector=@(i=>i.ToString())></MatSelectValue>
         </p>
         <p>
             Selected value: @value1
@@ -107,7 +107,7 @@
         {
             string value1 = "2";
 
-            int[] vlaue1Items = new[]
+            int[] value1Items = new[]
             {
                 1,
                 2,
@@ -122,7 +122,7 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            <MatSelectValue @bind-Value=""@value1"" Items=""@vlaue1Items"" ValueSelector=@(i=>i.ToString())></MatSelectValue>
+            <MatSelectValue @bind-Value=""@value1"" Items=""@value1Items"" ValueSelector=@(i=>i.ToString())></MatSelectValue>
         </p>
         <p>
             Selected value: @value1
@@ -133,7 +133,7 @@
         {
             string value1 = ""2"";
 
-            int[] vlaue1Items = new[]
+            int[] value1Items = new[]
             {
                 1,
                 2,
