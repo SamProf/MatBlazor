@@ -130,8 +130,13 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 
 
 
-#### MatBlazor 2.5.0 (In progress)
+#### MatBlazor 2.6.0
+- Update to Latest Microsoft.AspNetCore.Components 3.1.4 and Microsoft.AspNetCore.Components.WebAssembly 3.2.0
 - Update MDC-Web components to 6.0.0
+- MDC 6.0.0 updates for TextField #538 (Thanks to [enkodellc](https://github.com/enkodellc))
+- Target for MatButton / MatIconButton #539 (Thanks to [enkodellc](https://github.com/enkodellc))
+- PR: Fixed multiple Autocomplete Issues #548 (Thanks to [sandrohanea](https://github.com/sandrohanea))
+- PR: Can't select item in MatAutocompleteList #546 (Thanks to [sandrohanea](https://github.com/sandrohanea))
 - Fix MatMenu AnchorElement bug
 - Fix MatTextField inside Dialog
 - PR: Added Primary Color to MatSelect Label #522 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
