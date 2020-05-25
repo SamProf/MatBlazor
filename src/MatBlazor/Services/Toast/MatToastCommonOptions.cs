@@ -21,7 +21,7 @@
         public int ShowTransitionDuration { get; set; } = 500;
 
         /// <summary>
-        /// Interval between component repaint during the showing trantition. Defaults to 100 ms.
+        /// Interval between component repaint during the showing transition. Defaults to 100 ms.
         /// </summary>
         public int ShowStepDuration { get; set; } = 100;
 
@@ -36,7 +36,7 @@
         public int HideTransitionDuration { get; set; } = 500;
 
         /// <summary>
-        /// Interval between component repaint during the hiding trantition. Defaults to 100 ms.
+        /// Interval between component repaint during the hiding transition. Defaults to 100 ms.
         /// </summary>
         public int HideStepDuration { get; set; } = 100;
 
