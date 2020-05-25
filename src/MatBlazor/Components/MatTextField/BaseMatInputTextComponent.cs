@@ -166,11 +166,6 @@ namespace MatBlazor
                 // .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(CurrentValueAsString))
                 .If("mat-hide-clearbutton", () => this.HideClearButton);
 
-            HelperTextClassMapper
-                .Add("mdc-text-field-helper-text")
-                .If("mdc-text-field-helper-text--persistent", () => HelperTextPersistent)
-                .If("mdc-text-field-helper-text--validation-msg", () => HelperTextValidation);
-
             CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matTextField.init", Ref); });
         }
     }
