@@ -5,7 +5,7 @@ namespace MatBlazor
     /// <inheritdoc />
     /// <summary>
     /// Represents an instance of a Toast
-    /// It handles the user interactions and orchestrates the the state transitions
+    /// It handles the user interactions and orchestrates the state transitions
     /// </summary>
     public class MatToast
     {
