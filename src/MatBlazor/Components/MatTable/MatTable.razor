@@ -149,7 +149,9 @@
             if (PageSize <= 0)
                 PageSize = 5;
         }
-        CurrentPage = 1;
+        
+        StartPage = 1;
+        CurrentPage = StartPage;
 
         if (!string.IsNullOrWhiteSpace(ApiUrl) && (RequestApiOnlyOnce || LoadInitialData))
         {
