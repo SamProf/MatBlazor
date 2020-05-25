@@ -224,7 +224,7 @@ namespace MatBlazor
         /// <summary>
         /// Ensures that the selected node is visible, if its not then the
         /// selection is moved to the first visible ancestor.
-        /// If no ansestors exist then its set to null
+        /// If no ancestors exist then its set to null
         /// </summary>
         /// <returns></returns>
         private Task EnsureSelectedNodeIsVisible()
