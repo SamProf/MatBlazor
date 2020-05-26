@@ -457,6 +457,11 @@
              Command executed when the user clicks on an element.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatNavItem.ForceLoad">
+            <summary>
+            Force browser to redirect outside component router-space.
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatNavItem.CommandParameter">
             <summary>
              Command parameter.

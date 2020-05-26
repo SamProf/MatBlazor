@@ -27,6 +27,12 @@ namespace MatBlazor
         public ICommand Command { get; set; }
 
         /// <summary>
+        /// Force browser to redirect outside component router-space.
+        /// </summary>
+        [Parameter]
+        public bool ForceLoad { get; set; }
+
+        /// <summary>
         ///  Command parameter.
         /// </summary>
         [Parameter]
@@ -85,7 +91,7 @@ namespace MatBlazor
 
             if (Href != null)
             {
-                UriHelper.NavigateTo(Href);
+                UriHelper.NavigateTo(Href, ForceLoad);
             }
             else
             {
