@@ -1257,12 +1257,12 @@
 
 
         <p>
-            <MatStringField @bind-Value="@MyString11" Label="onchange"></MatStringField>
+            <MatStringField @bind-Value="@MyString11" Label="Update on Change"></MatStringField>
             Value: @MyString11
         </p>
 
         <p>
-            <MatStringField @bind-Value="@MyString12" BindEvent="oninput" Label="oninput"></MatStringField>
+            <MatStringField @bind-Value="@MyString12" UpdateOnInput="true" Label="Update On Input"></MatStringField>
             Value: @MyString12
         </p>
 
@@ -1278,12 +1278,12 @@
 
        
         <p>
-            <MatStringField @bind-Value=""@MyString11"" Label=""Label""></MatStringField>
+            <MatStringField @bind-Value=""@MyString11"" Label=""Update on Change""></MatStringField>
             Value: @MyString11
         </p>
 
         <p>
-            <MatStringField @bind-Value=""@MyString12"" BindEvent=""oninput"" Label=""Label""></MatStringField>
+            <MatStringField @bind-Value=""@MyString12"" UpdateOnInput=""true"" Label=""Update On Input""></MatStringField>
             Value: @MyString12
         </p>
 
@@ -1291,7 +1291,7 @@
         {
  
             public string MyString11 {get;set;}
-            public string MyString11 {get;set;}
+            public string MyString12 {get;set;}
         }
 
     ")></BlazorFiddle>

@@ -94,8 +94,10 @@ namespace MatBlazor
         [Parameter]
         public string Type { get; set; } = "text";
 
-        [Parameter] 
-        public string BindEvent { get; set; } = "onchange";
+        [Parameter]
+        public bool UpdateOnInput { get; set; }
+        
+        protected string BindEvent => UpdateOnInput ? "oninput" : "onchange";
 
 
         protected virtual EventCallback<KeyboardEventArgs> OnKeyDownEvent()
