@@ -26,10 +26,10 @@ namespace MatBlazor
         public string Icon { get; set; }
 
         /// <summary>
-        /// *Not available yet
+        /// Target of Link when clicked.
         /// </summary>
         [Parameter]
-        public string Target { get; set; }
+        public string Target { get; set; } = null;
 
         /// <summary>
         /// Icon to use when Button is clicked
@@ -118,11 +118,19 @@ namespace MatBlazor
 
             if (Link != null)
             {
-                UriHelper.NavigateTo(Link, ForceLoad);
+                if (!string.IsNullOrEmpty(Target))
+                {
+                    await JsInvokeAsync<object>("open", Link, Target);
+                }
+                else
+                {
+                    UriHelper.NavigateTo(Link, ForceLoad);
+                }
+
             }
             else
             {
-                OnClick.InvokeAsync(ev);
+                await OnClick.InvokeAsync(ev);
                 if (Command?.CanExecute(CommandParameter) ?? false)
                 {
                     Command.Execute(CommandParameter);

@@ -88,6 +88,7 @@ If you think that this project helped you or your company in any way, you can co
 
 ### Sponsors:
 - Phil Parkin
+- Patreon: Jay Arrowz
 - Patreon: Rene Zaal
 - Patreon: Stas Levich
 
@@ -99,13 +100,23 @@ If you think that this project helped you or your company in any way, you can co
 - Christophe Peugnet
 - SmartView Systems
 - [Apply Solutions GmbH](https://www.apply-solutions.com/)
+- Beeman and Sons, Inc.
 - Radu Tomuleasa
 - [Maurizio Verde](https://github.com/MaurizioVerde)
+- Adam Salvo
 - Yevhen Shmakov
 - Jacobus Terhorst
 - Xiao Song
 - Martin Friesenbichler
 
+
+## Contributing
+We'd greatly appreciate any contribution you make. :)
+Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/issues/474):
+- [SamProf](https://github.com/SamProf) - creator
+- [enkodellc](https://github.com/enkodellc)
+- [lindespang](https://github.com/lindespang)
+- [RonPeters](https://github.com/RonPeters)
 
 ## News
 
@@ -115,6 +126,21 @@ If you think that this project helped you or your company in any way, you can co
 - `MatDatePicker` - improvements
 - `MatTreeView` - complete new component
 - `MatAutocomplete` - new implementation of component
+
+
+
+
+#### MatBlazor 2.6.0
+- Update to Latest Microsoft.AspNetCore.Components 3.1.4 and Microsoft.AspNetCore.Components.WebAssembly 3.2.0
+- Update MDC-Web components to 6.0.0
+- MDC 6.0.0 updates for TextField #538 (Thanks to [enkodellc](https://github.com/enkodellc))
+- Target for MatButton / MatIconButton #539 (Thanks to [enkodellc](https://github.com/enkodellc))
+- PR: Fixed multiple Autocomplete Issues #548 (Thanks to [sandrohanea](https://github.com/sandrohanea))
+- PR: Can't select item in MatAutocompleteList #546 (Thanks to [sandrohanea](https://github.com/sandrohanea))
+- Fix MatMenu AnchorElement bug
+- Fix MatTextField inside Dialog
+- PR: Added Primary Color to MatSelect Label #522 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- PR: Added documentation for SlideToggle value changed event. #530 (Thanks to [SeppPenner](https://github.com/SeppPenner))
 
 
 #### MatBlazor 2.4.3
@@ -523,10 +549,6 @@ If you think that this project helped you or your company in any way, you can co
 ## Questions
 
 For *how-to* questions and other non-issues, for now you can use issues or you can use [![Gitter](https://badges.gitter.im/MatBlazor/community.svg)](https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
-
-
-## Contributing
-We'd greatly appreciate any contribution you make. :)
 
 
 ## Vision

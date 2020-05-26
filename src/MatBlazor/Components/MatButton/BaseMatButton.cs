@@ -14,7 +14,6 @@ namespace MatBlazor
         [Inject]
         public Microsoft.AspNetCore.Components.NavigationManager UriHelper { get; set; }
 
-
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
@@ -79,6 +78,12 @@ namespace MatBlazor
         [Parameter]
         public bool ForceLoad { get; set; }
 
+        /// Target of Link when clicked.
+        /// </summary>
+        [Parameter]
+        public string Target { get; set; } = null;
+
+
         /// <summary>
         /// Button has raised style.
         /// </summary>
@@ -89,7 +94,7 @@ namespace MatBlazor
             set
             {
                 _raised = value;
-                
+
             }
         }
 
@@ -103,7 +108,7 @@ namespace MatBlazor
             set
             {
                 _unelevated = value;
-                
+
             }
         }
 
@@ -157,7 +162,7 @@ namespace MatBlazor
             set
             {
                 _icon = value;
-                
+
             }
         }
 
@@ -177,7 +182,7 @@ namespace MatBlazor
             set
             {
                 _label = value;
-                
+
             }
         }
 
@@ -188,15 +193,23 @@ namespace MatBlazor
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        protected void OnClickHandler(MouseEventArgs ev)
+        protected async void OnClickHandler(MouseEventArgs ev)
         {
             if (Link != null)
             {
-                UriHelper.NavigateTo(Link, ForceLoad);
+                if (!string.IsNullOrEmpty(Target))
+                {
+                    await JsInvokeAsync<object>("open", Link, Target);
+                }
+                else
+                {
+                     UriHelper.NavigateTo(Link, ForceLoad);
+                }
+
             }
             else
             {
-                OnClick.InvokeAsync(ev);
+               await OnClick.InvokeAsync(ev);
                 if (Command?.CanExecute(CommandParameter) ?? false)
                 {
                     Command.Execute(CommandParameter);

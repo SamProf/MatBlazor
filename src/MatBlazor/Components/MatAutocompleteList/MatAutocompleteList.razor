@@ -5,11 +5,23 @@
 
 
 <div class="@WrapperClassMapper.AsString()">
-    <MatTextField Icon="@Icon" OnFocus="@OpenPopup" HideClearButton="true" FullWidth="@FullWidth" OnFocusOut="@ClosePopup" Label="@Label" Value=@StringValue OnInput=@OnValueChanged OnKeyDown="@OnKeyDown" Outlined="@Outlined" Attributes="@Attributes" Id="@Id"></MatTextField>
+    <MatTextField Icon="@Icon"
+                  OnFocus="@OpenPopup"
+                  HideClearButton="true"
+                  FullWidth="@FullWidth"
+                  OnFocusOut="@ClosePopup"
+                  Label="@Label"
+                  Value=@StringValue
+                  ValueExpression="() => StringValue"
+                  OnInput=@OnValueChanged
+                  OnKeyDown="@OnKeyDown"
+                  Outlined="@Outlined"
+                  Attributes="@Attributes"
+                  Id="@Id"></MatTextField>
     @if (IsShowingClearButton)
     {
         <div class="mat-autocomplete-list-clearbutton">
-            <MatIconButton Icon="clear" OnMouseDown="@ClearText"></MatIconButton>
+            <MatIconButton Icon="clear" type="button" OnClick="@ClearText"></MatIconButton>
         </div>
     }
     @if (Items != null && IsOpened)
@@ -18,7 +30,7 @@
             <MatList @ref="ListRef" SingleSelection="true">
                 @foreach (var elementWrapper in GetFilteredCollection(StringValue))
                 {
-                    <MatListItem OnMouseDown="@((e) => ItemClicked(elementWrapper.Item))">
+                    <MatListItem OnMouseDown="@((e) => ItemSelected(elementWrapper.Item))">
                         @if (ItemTemplate != null)
                         {
                             @ItemTemplate(elementWrapper.Item)

@@ -76,7 +76,7 @@ namespace MatBlazor
                 else if (this.IsExpanded)                               // expanded
                     return "Expanded";
                 else                                                    // collapsed
-                    return "Colapsed";
+                    return "Collapsed";
             }
         }
 

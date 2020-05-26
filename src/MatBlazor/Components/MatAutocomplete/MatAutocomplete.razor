@@ -1,0 +1,44 @@
+﻿@namespace MatBlazor
+@typeparam TValue
+@typeparam TItem
+@inherits BaseMatAutocomplete<TValue, TItem>
+
+
+@base.BuildRenderTree
+
+
+@code
+{
+
+    protected override RenderFragment BuildRenderTreeChildContent()
+    {
+        return builder =>
+        {
+            builder.AddContent(0, base.BuildRenderTreeChildContent());
+            
+                builder.AddContent(1, @<MatMenu @ref="@MenuRef" Style="width: 100%">
+                                          <MatList @ref="ListRef" SingleSelection="true">
+                                              @foreach (var elementWrapper in GetFilteredCollection(CurrentValueAsString))
+                                              {
+                                                  <MatListItem OnMouseDown="((e) => ItemClicked(elementWrapper))">
+                                                      @if (ItemTemplate != null)
+                                                      {
+                                                          @ItemTemplate(elementWrapper.Item)
+                                                      }
+                                                      else
+                                                      {
+                                                          <MatListItemText>@( elementWrapper.Value?.ToString())</MatListItemText>
+                                                      }
+
+
+                                                  </MatListItem>
+                                              }
+
+
+                                          </MatList>
+                                      </MatMenu>);
+            
+        };
+    }
+
+}

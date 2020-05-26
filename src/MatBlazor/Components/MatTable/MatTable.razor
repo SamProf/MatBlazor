@@ -16,7 +16,14 @@
 <CascadingValue Value="@this">
     <table class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
         <thead>
-            <tr class="mdc-table-header-row @(HeaderRowClass)">@MatTableHeader</tr>
+            @if (UseSortHeaderRow)
+            {
+                @MatTableHeader
+            }
+            else
+            {
+                <tr class="mdc-table-header-row @(HeaderRowClass)">@MatTableHeader</tr>
+            }
         </thead>
         <tbody>
             @if (ItemList != null)
@@ -92,6 +99,9 @@
     public RenderFragment MatTableHeader { get; set; }
 
     [Parameter]
+    public bool UseSortHeaderRow { get; set; } = false;
+
+    [Parameter]
     public RenderFragment<TableItem> MatTableRow { get; set; }
 
     /// <summary>
@@ -139,7 +149,9 @@
             if (PageSize <= 0)
                 PageSize = 5;
         }
-        CurrentPage = 1;
+        
+        StartPage = 1;
+        CurrentPage = StartPage;
 
         if (!string.IsNullOrWhiteSpace(ApiUrl) && (RequestApiOnlyOnce || LoadInitialData))
         {
