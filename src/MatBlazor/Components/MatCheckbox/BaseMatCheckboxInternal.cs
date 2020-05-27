@@ -39,6 +39,9 @@ namespace MatBlazor
 
         [Parameter]
         public string InputValue { get; set; }
+        
+        [Parameter]
+        public Action<ChangeEventArgs> OnValueChanged { get; set; }
 
         protected override async Task OnParametersSetAsync()
         {
@@ -56,6 +59,10 @@ namespace MatBlazor
         protected void ChangeHandler(ChangeEventArgs e)
         {
             CurrentValue = SwitchT.FromBoolNull((bool) e.Value, Indeterminate);
+            if (OnValueChanged != null)
+            {
+                OnValueChanged(e);
+            }
         }
     }
 }
