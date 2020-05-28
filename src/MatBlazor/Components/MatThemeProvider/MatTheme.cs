@@ -113,6 +113,10 @@ namespace MatBlazor
             sb.AppendLine("{");
             GenerateStyle(sb);
             sb.AppendLine("}");
+            sb.Append(":root");
+            sb.AppendLine("{");
+            GenerateStyle(sb);
+            sb.AppendLine("}");
             sb.AppendLine("</style>");
             return sb.ToString();
         }

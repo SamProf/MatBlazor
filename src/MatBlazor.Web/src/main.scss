@@ -37,3 +37,8 @@
 @import './matTooltip/matTooltip.scss';
 @import './matTypography/matTypography.scss';
 @import './matVirtualScroll/matVirtualScroll.scss';
+
+body.mat {
+  background-color: var(--mdc-theme-background, #fff);
+  color: var(--mdc-theme-on-surface, #fff);
+}
