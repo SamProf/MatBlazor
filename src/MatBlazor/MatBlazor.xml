@@ -703,6 +703,11 @@
             Text color on top of a surface background
             </summary>
         </member>
+        <member name="P:MatBlazor.MatTheme.TextPrimaryOnBackground">
+            <summary>
+            Primary text on top of the theme background color.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatToastContainer">
             <summary>
             Toasts provide brief notifications or messages about app processes

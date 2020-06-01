@@ -43,6 +43,12 @@ namespace MatBlazor
         /// </summary>
         public string OnSurface { get; set; }
 
+        /// <summary>
+        /// Primary text on top of the theme background color.
+        /// </summary>
+        public string TextPrimaryOnBackground { get; set; }
+        
+
         public string GetClass()
         {
             return Id;
@@ -93,6 +99,11 @@ namespace MatBlazor
             if (!string.IsNullOrEmpty(OnSurface))
             {
                 sb.AppendLine($"--mdc-theme-on-surface: {OnSurface};");
+            }
+            
+            if (!string.IsNullOrEmpty(TextPrimaryOnBackground))
+            {
+                sb.AppendLine($"--mdc-theme-text-primary-on-background: {TextPrimaryOnBackground};");
             }
         }
 

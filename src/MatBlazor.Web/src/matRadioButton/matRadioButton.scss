@@ -1,2 +1,10 @@
 @import "@material/form-field/mdc-form-field";
 @import "@material/radio/mdc-radio";
+
+.mat-radio-outer-circle {
+  border-color: var(--mdc-theme-on-surface, #fff);
+}
+
+.mdc-radio .mdc-radio__native-control:enabled:not(:checked)+.mdc-radio__background .mdc-radio__outer-circle {
+  border-color: var(--mdc-theme-on-surface, #fff);
+}
