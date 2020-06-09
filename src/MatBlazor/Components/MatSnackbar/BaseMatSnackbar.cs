@@ -17,12 +17,23 @@ namespace MatBlazor
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
+        /// <summary>
+        /// Action buttons with long text should be positioned below the label instead of alongside it.
+        /// </summary>
         [Parameter]
         public bool Stacked { get; set; }
 
+        /// <summary>
+        /// By default, Snackbars are centered horizontally within the viewport.
+        /// 
+        /// On larger screens, they can optionally be displayed on the leading edge of the screen(the left side in LTR, or the right side in RTL)
+        /// </summary>
         [Parameter]
         public bool Leading { get; set; }
 
+        /// <summary>
+        /// Controls whether the Snackbar is shown or not
+        /// </summary>
         [Parameter]
         public bool IsOpen
         {

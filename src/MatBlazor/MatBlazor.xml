@@ -547,6 +547,23 @@
             Snackbars provide brief messages about app processes at the bottom of the screen.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.Stacked">
+            <summary>
+            Action buttons with long text should be positioned below the label instead of alongside it.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.Leading">
+            <summary>
+            By default, Snackbars are centered horizontally within the viewport.
+            
+            On larger screens, they can optionally be displayed on the leading edge of the screen(the left side in LTR, or the right side in RTL)
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.IsOpen">
+            <summary>
+            Controls whether the Snackbar is shown or not
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatSnackbar.Timeout">
             <summary>
             Timeout in ms after which the snackbar closes itself. Default: 10000 ms
