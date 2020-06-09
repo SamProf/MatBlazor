@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
@@ -10,6 +12,7 @@ namespace MatBlazor
     public class BaseMatSnackbar : BaseMatDomComponent
     {
         private bool _isOpen;
+        private CancellationTokenSource _timeoutCts;
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
@@ -29,13 +32,40 @@ namespace MatBlazor
                 if (IsOpen != value)
                 {
                     _isOpen = value;
-                    CallAfterRender(async () =>
+                    CallAfterRender(async () => await SetIsOpen(value));
+                    if (_isOpen == false)
+                        _timeoutCts?.Cancel(false);
+                    else if (_isOpen && Timeout >= 0)
                     {
-                        await JsInvokeAsync<object>("matBlazor.matSnackbar.setIsOpen", Ref, value);
-                    });
+                        if (_timeoutCts != null)
+                        {
+                            _timeoutCts.Cancel(false);
+                            _timeoutCts.Dispose();
+                        }
+                        _timeoutCts=new CancellationTokenSource();
+                        Task.Delay(Timeout, _timeoutCts.Token).ContinueWith(task =>
+                        {
+                            if (_timeoutCts.IsCancellationRequested) // <-- we were closed before the timeout, so don't close
+                                return;
+                            _isOpen = false;
+                            SetIsOpen(false);
+                        });
+                    }
                 }
             }
         }
+
+        private async Task SetIsOpen(bool value)
+        {
+            await JsInvokeAsync<object>("matBlazor.matSnackbar.setIsOpen", Ref, value);
+        }
+
+        /// <summary>
+        /// Timeout in ms after which the snackbar closes itself. Default: 10000 ms
+        /// To leave the snackbar open indefinitely set the timeout to -1
+        /// </summary>
+        [Parameter]
+        public int Timeout { get; set; } = 10000; // ms
 
         [Parameter]
         public EventCallback<bool> IsOpenChanged { get; set; }
@@ -60,6 +90,8 @@ namespace MatBlazor
         {
             base.Dispose();
             DisposeDotNetObjectRef(dotNetObjectRef);
+            _timeoutCts?.Cancel(false);
+            _timeoutCts?.Dispose();
         }
 
         [JSInvokable]

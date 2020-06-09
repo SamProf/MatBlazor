@@ -547,6 +547,12 @@
             Snackbars provide brief messages about app processes at the bottom of the screen.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.Timeout">
+            <summary>
+            Timeout in ms after which the snackbar closes itself. Default: 10000 ms
+            To leave the snackbar open indefinitely set the timeout to -1
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatSortHeader">
             <summary>
             The MatSortHeader and MatSortHeaderRow are used, respectively, to add sorting state and display to tabular data.
