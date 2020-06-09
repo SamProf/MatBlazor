@@ -37,7 +37,7 @@
 	<tr>
 		<td>IsOpen</td>
 		<td>Boolean</td>
-		<td></td>
+		<td>Controls whether the Snackbar is shown or not</td>
 	</tr>
 	<tr>
 		<td>IsOpenChanged</td>
@@ -47,7 +47,7 @@
 	<tr>
 		<td>Leading</td>
 		<td>Boolean</td>
-		<td></td>
+		<td>By default, Snackbars are centered horizontally within the viewport.<br/><br/>On larger screens, they can optionally be displayed on the leading edge of the screen(the left side in LTR, or the right side in RTL)</td>
 	</tr>
 	<tr>
 		<td>RefBack</td>
@@ -57,12 +57,17 @@
 	<tr>
 		<td>Stacked</td>
 		<td>Boolean</td>
-		<td></td>
+		<td>Action buttons with long text should be positioned below the label instead of alongside it.</td>
 	</tr>
 	<tr>
 		<td>Style</td>
 		<td>String</td>
 		<td>Specifies an inline style for an DOM element.</td>
+	</tr>
+	<tr>
+		<td>Timeout</td>
+		<td>Int32</td>
+		<td>Timeout in ms after which the snackbar closes itself. Default: 10000 ms<br/>To leave the snackbar open indefinitely set the timeout to -1</td>
 	</tr>
 	<tr>
 		<td>Ref</td>
