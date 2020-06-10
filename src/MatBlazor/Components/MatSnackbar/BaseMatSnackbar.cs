@@ -18,21 +18,21 @@ namespace MatBlazor
         public RenderFragment ChildContent { get; set; }
 
         /// <summary>
-        /// Action buttons with long text should be positioned below the label instead of alongside it.
+        /// Positions the action buttons below the label instead of alongside it.
         /// </summary>
         [Parameter]
         public bool Stacked { get; set; }
 
         /// <summary>
-        /// By default, Snackbars are centered horizontally within the viewport.
-        /// 
-        /// On larger screens, they can optionally be displayed on the leading edge of the screen(the left side in LTR, or the right side in RTL)
+        /// Displays the snackbar on the "leading edge" of the screen (the left side in LTR, or the right side in RTL). 
+        ///
+        /// By default, snackbars are centered horizontally within the viewport. On larger screens, they can optionally be displayed on the leading edge by setting this property.
         /// </summary>
         [Parameter]
         public bool Leading { get; set; }
 
         /// <summary>
-        /// Controls whether the Snackbar is shown or not
+        /// Controls whether or not the snackbar is shown.
         /// </summary>
         [Parameter]
         public bool IsOpen
@@ -44,7 +44,7 @@ namespace MatBlazor
                 {
                     _isOpen = value;
                     CallAfterRender(async () => await SetIsOpen(value));
-                    if (_isOpen == false)
+                    if (!_isOpen)
                         _timeoutCts?.Cancel(false);
                     else if (_isOpen && Timeout >= 0)
                     {
@@ -78,11 +78,14 @@ namespace MatBlazor
         [Parameter]
         public int Timeout { get; set; } = 10000; // ms
 
+        /// <summary>
+        /// This event is raised whenever IsOpen changes.
+        /// </summary>
         [Parameter]
         public EventCallback<bool> IsOpenChanged { get; set; }
 
 
-        private DotNetObjectReference<BaseMatSnackbar> dotNetObjectRef;
+        private DotNetObjectReference<BaseMatSnackbar> _dotNetObjectRef;
 
         public BaseMatSnackbar()
         {
@@ -92,15 +95,15 @@ namespace MatBlazor
                 .If("mdc-snackbar--leading", () => Leading);
             CallAfterRender(async () =>
             {
-                dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
-                await JsInvokeAsync<object>("matBlazor.matSnackbar.init", Ref, dotNetObjectRef);
+                _dotNetObjectRef = _dotNetObjectRef ?? CreateDotNetObjectRef(this);
+                await JsInvokeAsync<object>("matBlazor.matSnackbar.init", Ref, _dotNetObjectRef);
             });
         }
 
         public override void Dispose()
         {
             base.Dispose();
-            DisposeDotNetObjectRef(dotNetObjectRef);
+            DisposeDotNetObjectRef(_dotNetObjectRef);
             _timeoutCts?.Cancel(false);
             _timeoutCts?.Dispose();
         }
