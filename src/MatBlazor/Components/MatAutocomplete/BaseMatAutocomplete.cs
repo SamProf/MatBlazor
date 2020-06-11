@@ -231,6 +231,15 @@ namespace MatBlazor
                 currentIndex--;
                 wasCurrentIndexChanged = true;
             }
+            if (ev.Key == "Backspace")
+            {
+                currentIndex = 0;
+                wasCurrentIndexChanged = true;
+            }
+            if (ev.Key == "Tab")
+            {
+                return;
+            }
             if (wasCurrentIndexChanged)
             {
                 await ListRef.SetSelectedIndex(currentIndex);
