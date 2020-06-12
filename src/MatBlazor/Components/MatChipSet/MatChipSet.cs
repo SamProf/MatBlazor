@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatChipSet : BaseMatDomComponent
+    public partial class MatChipSet 
     {
-        public BaseMatChipSet()
+        public MatChipSet()
         {
             ClassMapper
                 .Add("mdc-chip-set")
@@ -39,7 +39,7 @@ namespace MatBlazor
         [Parameter]
         public MatChip SelectedChip
         {
-            get { return _chips.OfType<MatChip>().Where(x => !x.IsRemoved && x.IsSelected).FirstOrDefault(); }
+            get { return _chips.OfType<MatChip>().Where(x => x.IsSelected).FirstOrDefault(); }
             set
             {
                 if (value == null)
@@ -62,7 +62,7 @@ namespace MatBlazor
         [Parameter]
         public MatChip[] SelectedChips
         {
-            get { return _chips.OfType<MatChip>().Where(x => !x.IsRemoved && x.IsSelected).ToArray(); }
+            get { return _chips.OfType<MatChip>().Where(x => x.IsSelected).ToArray(); }
             set
             {
                 if (value == null || value.Length == 0)
@@ -83,14 +83,21 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<MatChip[]> SelectedChipsChanged { get; set; }
 
-        private HashSet<BaseMatChip> _chips = new HashSet<BaseMatChip>();
+        private HashSet<MatChip> _chips = new HashSet<MatChip>();
 
-        public void RegisterChip(BaseMatChip chip)
+        public void RegisterChip(MatChip chip)
         {
             _chips.Add(chip);
         }
 
-        public async Task HandleChipClicked(BaseMatChip chip)
+        public async Task UnregisterChip(MatChip chip)
+        {
+            if (chip == null)
+                return;
+            await NotifySelection(); // <-- removing a selected chip updates 
+        }
+
+        public async Task HandleChipClicked(MatChip chip)
         {
             if (Filter)
             {
@@ -108,7 +115,7 @@ namespace MatBlazor
             await SelectedChipsChanged.InvokeAsync(SelectedChips);
         }
 
-        public async Task HandleChipSelected(BaseMatChip chip)
+        public async Task HandleChipSelected(MatChip chip)
         {
             if (!Choice)
                 return;
@@ -119,18 +126,6 @@ namespace MatBlazor
             }
             await NotifySelection();
         }
-
-        public async Task HandleChipRemoved(BaseMatChip chip)
-        {
-            if (chip==null)
-                return;
-            if (chip.IsSelected)
-                await NotifySelection(); // <-- removing a selected chip updates 
-            await ChipRemoved.InvokeAsync((MatChip)chip);
-        }
-
-        [Parameter]
-        public EventCallback<MatChip> ChipRemoved { get; set; }
 
     }
 }

@@ -9,7 +9,7 @@ namespace MatBlazor
     /// <summary>
     /// Chips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.
     /// </summary>
-    public class BaseMatChip : BaseMatDomComponent
+    public partial class MatChip
     {
 
         /// <summary>
@@ -23,6 +23,9 @@ namespace MatBlazor
         /// </summary>
         [Parameter]
         public string TrailingIcon { get; set; }
+
+        [Parameter]
+        public EventCallback<MatChip> TrailingIconClick { get; set; }
 
         /// <summary>
         /// The chip's text.
@@ -69,34 +72,18 @@ namespace MatBlazor
         [Parameter]
         public bool IsCheckable { get; set; }
 
-        /// <summary>
-        /// Removable chips can be removed from their parent chipset by clicking the trailing icon or setting IsRemoved. This is true by default.
-        /// </summary>
-        [Parameter]
-        public bool IsRemovable { get; set; } = true;
-
-        /// <summary>
-        /// If true the chip will no longer be visible. 
-        /// </summary>
-        [Parameter]
-        public bool IsRemoved { get; set; }
-
-        [Parameter]
-        public EventCallback<bool> IsRemovedChanged { get; set; }
-
-        private DotNetObjectReference<BaseMatChip> _dotNetObjectRef;
+        private DotNetObjectReference<MatChip> _dotNetObjectRef;
         private bool _isSelected;
 
-        public BaseMatChip()
+        public MatChip()
         {
             ClassMapper
                 .Add("mdc-chip")
-                .If("mdc-chip--selected", () => this.IsSelected)
-                .If("mdc-chip--exit", ()=> this.IsRemoved);
+                .If("mdc-chip--selected", () => this.IsSelected);
         }
 
         [CascadingParameter]
-        public BaseMatChipSet ChipSet { get; set; }
+        public MatChipSet ChipSet { get; set; }
 
         protected override void OnInitialized()
         {
@@ -123,7 +110,6 @@ namespace MatBlazor
         [JSInvokable]
         public async Task MatChipInteractionHandler(string chipId)
         {
-            //await OnClick.InvokeAsync((MatChip)this);
             if (ChipSet == null)
                 return;
             await ChipSet.HandleChipClicked(this);
@@ -144,13 +130,7 @@ namespace MatBlazor
         [JSInvokable]
         public async Task MatChipTrailingIconInteractionHandler(string chipId)
         {
-            if (!IsRemovable)
-                return;
-            IsRemoved = true;
-            StateHasChanged();
-            await IsRemovedChanged.InvokeAsync(true);
-            if (ChipSet!=null)
-                await ChipSet.HandleChipRemoved(this);
+            await TrailingIconClick.InvokeAsync(this);
         }
 
         //[JSInvokable]
