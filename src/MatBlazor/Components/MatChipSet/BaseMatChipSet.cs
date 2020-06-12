@@ -1,17 +1,136 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
     public class BaseMatChipSet : BaseMatDomComponent
     {
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
+        public BaseMatChipSet()
+        {
+            ClassMapper
+                .Add("mdc-chip-set")
+                .If("mdc-chip-set--choice", () => this.Choice)
+                .If("mdc-chip-set--filter", () => this.Filter);
+        }
 
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
             await JsInvokeAsync<object>("matBlazor.matChipSet.init", Ref);
         }
+
+        [Parameter]
+        public RenderFragment ChildContent { get; set; }
+
+        /// <summary>
+        /// Allows single selection from a set of options. If combined with Filter the selected value can be unselected.
+        /// </summary>
+        [Parameter]
+        public bool Choice { get; set; }
+
+        /// <summary>
+        ///  Enables multiple-choice selection from the set of chips. Chips must be "Checkable" for this to work.
+        /// </summary>
+        [Parameter]
+        public bool Filter { get; set; }
+
+        [Parameter]
+        public MatChip SelectedChip
+        {
+            get { return _chips.OfType<MatChip>().Where(x => !x.IsRemoved && x.IsSelected).FirstOrDefault(); }
+            set
+            {
+                if (value == null)
+                {
+                    foreach (var chip in _chips)
+                        chip.IsSelected = false;
+                }
+                else
+                {
+                    foreach (var chip in _chips)
+                        chip.IsSelected = (chip==value);
+                }
+                this.InvokeAsync(StateHasChanged);
+            }
+        }
+
+        [Parameter]
+        public EventCallback<MatChip> SelectedChipChanged { get; set; }
+
+        [Parameter]
+        public MatChip[] SelectedChips
+        {
+            get { return _chips.OfType<MatChip>().Where(x => !x.IsRemoved && x.IsSelected).ToArray(); }
+            set
+            {
+                if (value == null || value.Length == 0)
+                {
+                    foreach (var chip in _chips)
+                        chip.IsSelected = false;
+                }
+                else
+                {
+                    var selected = new HashSet<MatChip>(value);
+                    foreach (var chip in _chips)
+                        chip.IsSelected = selected.Contains(chip);
+                }
+                this.InvokeAsync(StateHasChanged);
+            }
+        }
+
+        [Parameter]
+        public EventCallback<MatChip[]> SelectedChipsChanged { get; set; }
+
+        private HashSet<BaseMatChip> _chips = new HashSet<BaseMatChip>();
+
+        public void RegisterChip(BaseMatChip chip)
+        {
+            _chips.Add(chip);
+        }
+
+        public async Task HandleChipClicked(BaseMatChip chip)
+        {
+            if (Filter)
+            {
+                chip.IsSelected = !chip.IsSelected;
+            }
+            else if (Choice)
+                chip.IsSelected = true;
+            await NotifySelection();
+        }
+
+        private async Task NotifySelection()
+        {
+            await InvokeAsync(StateHasChanged);
+            await SelectedChipChanged.InvokeAsync(SelectedChip);
+            await SelectedChipsChanged.InvokeAsync(SelectedChips);
+        }
+
+        public async Task HandleChipSelected(BaseMatChip chip)
+        {
+            if (!Choice)
+                return;
+            foreach (var ch in _chips)
+            {
+                if (ch != chip)
+                    ch.IsSelected = false; // <-- exclusively select the one chip only, thus all others must be deselected
+            }
+            await NotifySelection();
+        }
+
+        public async Task HandleChipRemoved(BaseMatChip chip)
+        {
+            if (chip==null)
+                return;
+            if (chip.IsSelected)
+                await NotifySelection(); // <-- removing a selected chip updates 
+            await ChipRemoved.InvokeAsync((MatChip)chip);
+        }
+
+        [Parameter]
+        public EventCallback<MatChip> ChipRemoved { get; set; }
+
     }
 }
