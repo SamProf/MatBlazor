@@ -242,10 +242,17 @@
             Link to a url when clicked.
             </summary>
         </member>
+
+        <member name="P:MatBlazor.BaseMatButton.ForceLoad">
+            <summary>
+            Force browser to redirect outside component router-space.
+            </summary>            
+
         <member name="P:MatBlazor.BaseMatButton.Target">
             <summary>
             Target of Link when clicked.
             </summary>
+
         </member>
         <member name="P:MatBlazor.BaseMatButton.Raised">
             <summary>
@@ -379,6 +386,12 @@
             Navigate to this url when clicked.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatIconButton.ForceLoad">
+            <summary>
+            Force browser to redirect outside component router-space.
+            </summary>
+            
+        </member>
         <member name="P:MatBlazor.BaseMatIconButton.Disabled">
             <summary>
             Button is disabled.
@@ -454,6 +467,11 @@
         <member name="P:MatBlazor.BaseMatNavItem.Command">
             <summary>
              Command executed when the user clicks on an element.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatNavItem.ForceLoad">
+            <summary>
+            Force browser to redirect outside component router-space.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatNavItem.CommandParameter">

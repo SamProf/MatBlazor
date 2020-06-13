@@ -21,6 +21,12 @@
             <MatIcon>@MatIconNames.Touch_app</MatIcon>
         </MatIconButton>
 
+        <h5 class="mat-subtitle1">With href link</h5>
+        <MatIconButton Link="/Checkbox" Icon="refresh"></MatIconButton>
+
+        <h5 class="mat-subtitle1">With ForceLoad href link</h5>
+        <MatIconButton Link="/Checkbox" ForceLoad="true" Icon="refresh"></MatIconButton>
+
         <h5 class="mat-subtitle1">With Font-Awesome Icons and Link in a new Window  - Target Defined</h5>
         <MatIconButton Link="https://github.com/BlazorComponents/MatBlazor" Target="_blank">
             <MatIcon>@MatIconNames.Touch_app</MatIcon>
@@ -30,6 +36,7 @@
         <MatIconButton Link="/TextField" Target="_blank">
             <MatIcon>@MatIconNames.Touch_app</MatIcon>
         </MatIconButton>
+
 
         @code
         {
@@ -59,6 +66,13 @@
         <MatIconButton Link=""https://github.com/BlazorComponents/MatBlazor"">
             <MatIcon>@MatIconNames.Touch_app</MatIcon>
         </MatIconButton>
+
+        <h5 class=""mat-subtitle1"">With href link</h5>
+        <MatIconButton Link=""/Checkbox"" Icon=""refresh""></MatIconButton>
+
+        <h5 class=""mat-subtitle1"">With ForceLoad href link</h5>
+        <MatIconButton Link=""/Checkbox"" ForceLoad=""true"" Icon=""refresh""></MatIconButton>
+
 
         <h5 class=""mat-subtitle1"">With Font-Awesome Icons and Link in a new Window  - Target Defined</h5>
         <MatIconButton Link=""https://github.com/BlazorComponents/MatBlazor"" Target=""_blank"">
@@ -101,6 +115,8 @@
         <h5 class="mat-subtitle1">Bind Toggled: @toggledValue</h5>
         <MatIconButton Icon="favorite_border" ToggleIcon="favorite" @bind-Toggled="@toggledValue">
         </MatIconButton>
+
+
 
         @code
         {
