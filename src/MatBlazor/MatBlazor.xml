@@ -570,6 +570,34 @@
             Snackbars provide brief messages about app processes at the bottom of the screen.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.Stacked">
+            <summary>
+            Positions the action buttons below the label instead of alongside it.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.Leading">
+             <summary>
+             Displays the snackbar on the "leading edge" of the screen (the left side in LTR, or the right side in RTL). 
+            
+             By default, snackbars are centered horizontally within the viewport. On larger screens, they can optionally be displayed on the leading edge by setting this property.
+             </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.IsOpen">
+            <summary>
+            Controls whether or not the snackbar is shown.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.Timeout">
+            <summary>
+            Timeout in ms after which the snackbar closes itself. Default: 10000 ms
+            To leave the snackbar open indefinitely set the timeout to -1
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.IsOpenChanged">
+            <summary>
+            This event is raised whenever IsOpen changes.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatSortHeader">
             <summary>
             The MatSortHeader and MatSortHeaderRow are used, respectively, to add sorting state and display to tabular data.
