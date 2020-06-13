@@ -129,6 +129,13 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 
 
 
+#### MatBlazor 2.7.0 (Develop)
+- PR: Bugfix for pagecounter in MatTable #561 (Thanks to [lindespang](https://github.com/lindespang))
+- PR: Fix typo in MatSelect demos #563 (Thanks to [lindespang](https://github.com/lindespang))
+- PR: Bugfix/fix doc spelling errors #565 (Thanks to [CSOleson](https://github.com/CSOleson))
+- PR: MatSnackbar - Timeout parameter and Updated documentation #596 (Thanks to [henon](https://github.com/henon))
+- PR: add more specific css selector for transforming the floating label #599 (Thanks to [dbereghici](https://github.com/dbereghici))
+
 
 #### MatBlazor 2.6.0
 - Update to Latest Microsoft.AspNetCore.Components 3.1.4 and Microsoft.AspNetCore.Components.WebAssembly 3.2.0
