@@ -242,18 +242,13 @@
             Link to a url when clicked.
             </summary>
         </member>
-
         <member name="P:MatBlazor.BaseMatButton.ForceLoad">
             <summary>
             Force browser to redirect outside component router-space.
-            </summary>            
-
-        <member name="P:MatBlazor.BaseMatButton.Target">
-            <summary>
-            Target of Link when clicked.
             </summary>
-
+            
         </member>
+        <!-- Badly formed XML comment ignored for member "P:MatBlazor.BaseMatButton.Target" -->
         <member name="P:MatBlazor.BaseMatButton.Raised">
             <summary>
             Button has raised style.
