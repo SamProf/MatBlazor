@@ -135,6 +135,7 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 - PR: Bugfix/fix doc spelling errors #565 (Thanks to [CSOleson](https://github.com/CSOleson))
 - PR: MatSnackbar - Timeout parameter and Updated documentation #596 (Thanks to [henon](https://github.com/henon))
 - PR: add more specific css selector for transforming the floating label #599 (Thanks to [dbereghici](https://github.com/dbereghici))
+- PR: MatHelperText Created #569 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
 
 
 #### MatBlazor 2.6.0
