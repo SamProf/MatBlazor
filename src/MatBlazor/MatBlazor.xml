@@ -99,6 +99,11 @@
             Hides toggle icon for all expansion panel summaries in the accordion
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatAccordion.LazyRendering">
+            <summary>
+            Enables lazy rendering for all expansion panel details in the accordion.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatExpansionPanel">
             <summary>
             MatExpansionPanel provides an expandable details-summary view.
@@ -107,6 +112,11 @@
         <member name="P:MatBlazor.BaseMatExpansionPanel.HideToggle">
             <summary>
             Hides the toggle icon in the expansion panel summary
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatExpansionPanel.LazyRendering">
+            <summary>
+            Enables lazy rendering of the expansion panel details.
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatAppBar">

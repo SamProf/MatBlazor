@@ -137,6 +137,7 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 - PR: add more specific css selector for transforming the floating label #599 (Thanks to [dbereghici](https://github.com/dbereghici))
 - PR: MatHelperText Created #569 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
 - PR: Added ForceLoad option for MatButton and MatIconButton (Fixes #330) #570 (Thanks to [Garderoben](https://github.com/Garderoben) and [enkodellc](https://github.com/enkodellc))
+- PR: Added LazyRendering for MatExpansionPanel + bug fix #578 (Thanks to [lindespang](https://github.com/lindespang))
 
 
 #### MatBlazor 2.6.0
