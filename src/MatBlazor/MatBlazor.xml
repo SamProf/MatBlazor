@@ -315,9 +315,56 @@
             </summary>
             <typeparam name="TValue">bool, bool?</typeparam>
         </member>
-        <member name="T:MatBlazor.BaseMatChip">
+        <member name="P:MatBlazor.MatChipSet.Choice">
+            <summary>
+            Allows single selection from a set of options. If combined with Filter the selected value can be unselected.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChipSet.Filter">
+            <summary>
+             Enables multiple-choice selection from the set of chips. Chips must be "Checkable" for this to work.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.MatChip">
             <summary>
             Chips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.LeadingIcon">
+            <summary>
+            Optional icon, displayed before the label.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.TrailingIcon">
+            <summary>
+            A trailing icon comes with the functionality to remove the chip from the set, so the natural value for this would be "clear".
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.Label">
+            <summary>
+            The chip's text.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.Value">
+            <summary>
+            A user-defined value assigned to the chip.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.IsSelected">
+             <summary>
+             Reflects the selection state of a choice- or filter-chip (parent chipset has either Choice or Filter set to true).
+            
+             When you set this in markup, it pre-selects the chip.
+             </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.IsSelectedChanged">
+            <summary>
+            Allows two-way binding of IsSelected
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.IsCheckable">
+            <summary>
+            Checkable chips show a check-mark when selected
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatDatePickerInternal`1">
