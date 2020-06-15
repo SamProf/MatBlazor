@@ -86,14 +86,14 @@ If you think that this project helped you or your company in any way, you can co
 - [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url)
 - [Patreon](https://www.patreon.com/SamProf)
 
-### Sponsors:
+#### Sponsors:
 - Phil Parkin
 - Patreon: Jay Arrowz
 - Patreon: Rene Zaal
 - Patreon: Stas Levich
 
 
-### Backers:
+#### Backers:
 - Oyvind Habberstad
 - [Victor Lindespång](https://github.com/lindespang)
 - Gate575 Kft
@@ -229,7 +229,7 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 - PR: added @key attribute to MatTab content #395 (Thanks to [chris1411](https://github.com/chris1411))
 - PR: Matlist selectedIndex default value set to -1 #354 (Thanks to [radutomy](https://github.com/radutomy))
 
-### MatBlazor 2.0.0 (Reinvention MatBlazor Forms)
+#### MatBlazor 2.0.0 (Reinvention MatBlazor Forms)
 - This release contain a lot of breaking changes, sorry for that.
 - The main goal of this release was to unify all components for forms, generic type support, reduction of dependence of JS, active use of OOP and the possibility of more active expansion in the future.
 - Update to .NET Core 3.1 Preview 4
@@ -285,7 +285,7 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 - `MatBlazorInstall` - removed
 
 
-### MatBlazor 1.10.1
+#### MatBlazor 1.10.1
 - Update to .NET Core 3.1 Preview 1
 - Added an active index to the MatTabGroup and MatTabBar #289 (Thanks to [chris1411](https://github.com/chris1411))
 - Auto-Active MatNatItem #268 (Thanks to [enkodellc](https://github.com/enkodellc))
@@ -294,76 +294,76 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 - Update BlazorBoilerplate description #299 (Thanks to [enkodellc](https://github.com/enkodellc))
 
 
-### MatBlazor 1.9.0
+#### MatBlazor 1.9.0
 - Update to .NET Core 3.0
 
-### MatBlazor 1.8.0
+#### MatBlazor 1.8.0
 - Update to .NET Core 3.0 RC 1
 
-### MatBlazor 1.7.4
+#### MatBlazor 1.7.4
 - Support arrow keys and Enter in Autocomplete #237 (Thanks to [dga711](https://github.com/dga711))
 - MatDialog: New CanBeClosed property #241 (Thanks to [dga711](https://github.com/dga711))
 - Fix: Enhanced MatSelect throws exception(#231) #242 (Thanks to [aviezzi](https://github.com/aviezzi))
 
-### MatBlazor 1.7.2
+#### MatBlazor 1.7.2
 - PR: Add some padding to toasts #238 (Thanks to [dga711](https://github.com/dga711))
 - PR: AutoComplete list cleaner look #239 (Thanks to [dga711](https://github.com/dga711))
 
-### MatBlazor 1.7.1
+#### MatBlazor 1.7.1
 - Change info in Nuget package
 
-### MatBlazor 1.7.0
+#### MatBlazor 1.7.0
 - Update to .NET Core 3.0 Preview 9
 - PR: Return Toast instance on IMatToaster.Add method #228 (Thanks to [Sebbstar](https://github.com/Sebbstar))
 - PR: Replaced all @functions by @code. #233 (Thanks to [SeppPenner](https://github.com/SeppPenner))
 
 
-### MatBlazor 1.6.4
+#### MatBlazor 1.6.4
 - Fix: MatAutocomplete StringValue clearing #216 (Thanks to [lukblazewicz](https://github.com/lukblazewicz))
 - Fix: MatSelect option list in enhanced mode showing example list #221 (Thanks to [aviezzi](https://github.com/aviezzi))
 
 
-### MatBlazor 1.6.3
+#### MatBlazor 1.6.3
 - MatTable: Fix broken paginator when infinite items selected #202 (Thanks to [dga711](https://github.com/dga711))
 - MatDialog.IsOpenChanged now also fires on open #200 (Thanks to [dga711](https://github.com/dga711)
 
-### MatBlazor 1.6.2
+#### MatBlazor 1.6.2
 - Fixed: MatTooltip: Position inside `<table>` is off #195
 
-### MatBlazor 1.6.1
+#### MatBlazor 1.6.1
 - Check ComponentContext.IsConnected for all Js-Invoke's
     - This should have solved the problem with the `RenderStaticComponentAsync`, but did not.
     - You should use `RenderComponentAsync`, also because in Preview 9 `RenderStaticComponentAsync` will be removed ([https://github.com/aspnet/AspNetCore/issues/12245](https://github.com/aspnet/AspNetCore/issues/12245)).
 - PR: Incorporate validation styling and improve EditContext demo #190 (Thanks to [ebekker](https://github.com/ebekker))
 
-### MatBlazor 1.6.0
+#### MatBlazor 1.6.0
 - Update to .NET Core 3.0 Preview 8
 
-### MatBlazor 1.5.4
+#### MatBlazor 1.5.4
 - Fix of EditContext for MatDatePicker
 
-### MatBlazor 1.5.3
+#### MatBlazor 1.5.3
 - PR: Add flatpickr options to MatDatePicker #182 (Thanks to [djinnet](https://github.com/djinnet))
 - PR: Initial support for EditContext-based validation #178 (Thanks to [ebekker](https://github.com/ebekker))
 
-### MatBlazor 1.5.2
+#### MatBlazor 1.5.2
 - PR: Adding example for nested sub menus and new "toggle all" feature #176 (Thanks to [ebekker](https://github.com/ebekker))
 
-### MatBlazor 1.5.1
+#### MatBlazor 1.5.1
 - PR: Adding support for nested NavSubMenus #174 (Thanks to [ebekker](https://github.com/ebekker))
 
-### MatBlazor 1.5.0
+#### MatBlazor 1.5.0
 - MatCard improvements
 
-### MatBlazor 1.4.1
+#### MatBlazor 1.4.1
 - MatTypography improvements
 
-### MatBlazor 1.4.0
+#### MatBlazor 1.4.0
 - New NavMenu - new component (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: NumericUpDown to preview7. Fix tabindex #161 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
 - PR: Outlined #162 (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
 
-### MatBlazor 1.3.0
+#### MatBlazor 1.3.0
 - Update to .NET Core 3.0 Preview 7
 - All components supports @Attributes and Id parameter
 - MatDatePicker parameters: Label, Dense, Outlined, Required, Disabled
@@ -379,157 +379,157 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 - Now we have [MatBlazor - Documentation and demo website - Client Side Blazor](https://samprof.github.io/MatBlazor/)
 - Fixed: Docs site looks to show bug for expansion panel #107
 
-### MatBlazor 1.2.0
+#### MatBlazor 1.2.0
 - .NET Core 3.0.100-preview6-012264
 - MatToast (Thanks to [enkodellc](https://github.com/enkodellc))
 - MatNumericUpDownField (Thanks to [ctrl-alt-d](https://github.com/ctrl-alt-d))
 - PR: MatTable bug where LoadData would throw exception when using Filter #101 (Thanks to [Garderoben](https://github.com/Garderoben))
 
-### MatBlazor 1.1.1
+#### MatBlazor 1.1.1
 - Fixed Clicking on Icon in DatePicker doesn't show the calender selection window. #86 
 
-### MatBlazor 1.1.0
+#### MatBlazor 1.1.0
 - MatHidden
 
-### MatBlazor 1.0.1
+#### MatBlazor 1.0.1
 - Material theme configuration #90 
 
-### MatBlazor 1.0.0
+#### MatBlazor 1.0.0
 - MatAccordion, MatExpansionPanel
 - MatTooltip
 - ForwardRef concept
 
-### MatBlazor 0.9.14
+#### MatBlazor 0.9.14
 - MatFAB - Floating Action Button
 
-### MatBlazor 0.9.13
+#### MatBlazor 0.9.13
 - MatThemeProvider (Themes support)
 - MatAppBarContainer, MatAppBarContent
 - PR: MatNumericUpDownField #78 - early preview (ctrl-alt-d)
 - MatMenu fix (added class and style support)
 
-### MatBlazor 0.9.12
+#### MatBlazor 0.9.12
 - MatDatePicker (alpha)
 - MatTextField ReadOnly
 - MatTextField InputClass and InputStyle
 - MatButton Type, Name, Value #75
 
-### MatBlazor 0.9.11
+#### MatBlazor 0.9.11
 - MatTabGroup and MatTab components
 - MatTabBar and MatTabLabel components
 
-### MatBlazor 0.9.10
+#### MatBlazor 0.9.10
 - Update to ASP.NET Core 3.0.0-preview5-19227-01
 - [https://www.matblazor.com](https://www.matblazor.com) working as server-side Blazor on Linux server
 - Fix MatAutoComplete
 - Minor improvements and changes
 
-### MatBlazor 0.9.9
+#### MatBlazor 0.9.9
 - Demo and documentation [https://www.matblazor.com](https://www.matblazor.com) working as server-side Blazor 
 - `<MatBlazorInstall />` for server-side Blazor is obsolete
 - For server-side Blazor used [EmbeddedBlazorContent](https://github.com/SamProf/EmbeddedBlazorContent) [![NuGet](https://img.shields.io/nuget/v/EmbeddedBlazorContent.svg)](https://www.nuget.org/packages/EmbeddedBlazorContent/)
 
-### MatBlazor 0.9.8
+#### MatBlazor 0.9.8
 - New github path: [https://github.com/SamProf/MatBlazor](https://github.com/SamProf/MatBlazor)
 - New gitter chat: [https://gitter.im/MatBlazor/community](https://gitter.im/MatBlazor/community)
 
-### MatBlazor 0.9.7
+#### MatBlazor 0.9.7
 - Fixed Drawer problem
 
-### MatBlazor 0.9.6
+#### MatBlazor 0.9.6
 - All components in one namespace MatBlazor (only one using directive)
 - PR: Revert back to C# 7.3 #66 (enkodellc)
 
-### MatBlazor 0.9.5
+#### MatBlazor 0.9.5
 - Fixed problem with including *.razor files
 - PR: #63 MatBlazor Logo / .svg / .ico #65 (enkodellc)
 
-### MatBlazor 0.9.4
+#### MatBlazor 0.9.4
 - Now we have Logo (many thanks to [enkodellc](https://github.com/enkodellc))
 - PR: Prevent *.razor files from being packed #64 (IvanJosipovic)
 - Fixed Examples generation
 
-### MatBlazor 0.9.3
+#### MatBlazor 0.9.3
 - Update to Blazor 3.0.0-preview4-19216-03
 - PR: MatTable Table Filter, get data from API #61 (enkodellc, arivera12)
 - PR: Fix Table Navigation Error #60 (enkodellc)
 
-### MatBlazor 0.9.2
+#### MatBlazor 0.9.2
 - PR: MatTable Version 1 #58 (enkodellc, arivera12)
 
-### MatBlazor 0.9.1
+#### MatBlazor 0.9.1
 - PR: Fixed #50 Autocomplete FullWidth + #52 (sandrohanea)
 - PR: MatIconButton Add Functionality, Update Demo #53 (enkodellc)
 - PR: Added documentation for autocomplete + Fixed #56 + changed documentation file path to a relative one(instead of absolut) #57 (sandrohanea)
 
-### MatBlazor 0.9.0
+#### MatBlazor 0.9.0
 - Creating partial documentation for all components (autogeneration)
 - Improved many examples
 - Improved homepage, components page design, README.md
 - Change of versioning policy is similar to Blazor
 - Fixed MatTextBox FullWidth Padding / Icon Fix #43 #51 (enkodellc)
 
-### MatBlazor 0.6.17
+#### MatBlazor 0.6.17
 - Fixed Select is showing native arrow? #48 (sandrohanea)
 
-### MatBlazor 0.6.16
+#### MatBlazor 0.6.16
 - New component MatAutocomplete (sandrohanea)
 
-### New domain name
+#### New domain name
 - [www.matblazor.com](https://www.matblazor.com)
 
-### MatBlazor 0.6.15
+#### MatBlazor 0.6.15
 - New component MatSnackbar
 
-### MatBlazor 0.6.14
+#### MatBlazor 0.6.14
 - New component MatRipple
 
-### MatBlazor 0.6.13
+#### MatBlazor 0.6.13
 - New styles Layout Grid
 
-### MatBlazor 0.6.12
+#### MatBlazor 0.6.12
 - New component MatDialog
 - MatCheckbox add inline label (enkodellc)
 
-### MatBlazor 0.6.11
+#### MatBlazor 0.6.11
 - New component MatProgressBar
 
-### MatBlazor 0.6.10
+#### MatBlazor 0.6.10
 - New styles Elevation
 - License of used packages added to js boundle
 
-### MatBlazor 0.6.9
+#### MatBlazor 0.6.9
 - Changed all events to EventCallback
 - Show Icons when MatTextField has FullWidth (enkodellc)
 
-### MatBlazor 0.6.8
+#### MatBlazor 0.6.8
 - Improved events for MatTextField (sandrohanea + SamProf)
 
-### MatBlazor 0.6.7
+#### MatBlazor 0.6.7
 - Added Typography styles
 
-### MatBlazor 0.6.6
+#### MatBlazor 0.6.6
 - Added Href parameter to MatListItem component
 
-### MatBlazor 0.6.5
+#### MatBlazor 0.6.5
 - MatTextField - fixed label
 
-### MatBlazor 0.6.4
+#### MatBlazor 0.6.4
 - MatMenu - first working implementation
 
-### MatBlazor 0.6.3
+#### MatBlazor 0.6.3
 - New MatDrawer
 - Fix MatAppBar (fixed-adjust div)
 
-### MatBlazor 0.6.2
+#### MatBlazor 0.6.2
 - Added Style Parameter for all components
 - Added BaseMatComponent Docs
 - MatDrawer in progress
 
-### MatBlazor 0.6.1
+#### MatBlazor 0.6.1
 - Introduce Razor Components support (MatBlazorInstall component)
 
-### MatBlazor 0.6.0
+#### MatBlazor 0.6.0
 - Upgrade Blazor 0.9 complete
 - Upgrade to new Material Components
 - MatTextField Outlined fixed
@@ -541,17 +541,17 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 - MatDrawer (prepared for development in next release)
 - BlazorFiddle integration fixed
 
-### MatBlazor 0.5.0
+#### MatBlazor 0.5.0
 - Upgrade to Blazor 0.9.0 (Part 1)
 
-### MatBlazor 0.4.5 (Minor)
+#### MatBlazor 0.4.5 (Minor)
 - TrailingIcon in MatButton
 
-### MatBlazor 0.4.4
+#### MatBlazor 0.4.4
 - Added integration with BlazorFiddle.com
 - MatIconButton - Href bacame Link
 
-### MatBlazor 0.4.3
+#### MatBlazor 0.4.3
 - Upgrade to Blazor 0.7.0
 - MatDrawer in progress
 
