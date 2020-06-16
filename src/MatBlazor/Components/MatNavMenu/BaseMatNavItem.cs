@@ -48,6 +48,12 @@ namespace MatBlazor
         public string Target { get; set; } = null;
 
         /// <summary>
+        /// The title shown.
+        /// </summary>
+        [Parameter]
+        public string Title { get; set; } = null;
+
+        /// <summary>
         ///  NavLinkMatch parameter used to determine the active state of the Nav Item.
         /// </summary>
         [Parameter]

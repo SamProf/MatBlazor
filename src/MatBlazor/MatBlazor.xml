@@ -536,6 +536,11 @@
             *Not yet functional - Target of Href when clicked.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatNavItem.Title">
+            <summary>
+            The title shown.
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatNavItem.NavLinkMatch">
             <summary>
              NavLinkMatch parameter used to determine the active state of the Nav Item.
@@ -1182,6 +1187,11 @@
         <member name="P:MatBlazor.MatToastOptions.Type">
             <summary>
             The <see cref="P:MatBlazor.MatToastOptions.Type"/>
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatNavSubMenuHeader.Title">
+            <summary>
+            The title shown.
             </summary>
         </member>
         <member name="P:MatBlazor.MatTable`1.PageSizes">
