@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 **Describe the feature request**
-A clear and concise description of what the feature request is.
+What problem does this solve that MatBlazor isn't currently capable of?
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
