@@ -1,0 +1,14 @@
+﻿@namespace MatBlazor
+@inherits BaseMatHelperText
+
+<div class="mdc-text-field-helper-line">
+    <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" aria-hidden="@(!HelperTextPersistent)">
+        @HelperText
+    </div>
+    @if (!string.IsNullOrWhiteSpace(CharacterCount))
+    {
+        <div class="mdc-text-field-character-counter">
+            @CharacterCount
+        </div>
+    }
+</div>

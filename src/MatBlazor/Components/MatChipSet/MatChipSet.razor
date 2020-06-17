@@ -1,6 +1,8 @@
 ﻿@namespace MatBlazor
-@inherits BaseMatChipSet
+@inherits BaseMatDomComponent
 
-<div class="@ClassMapper.AsString() mdc-chip-set" style="@StyleMapper.AsString()" @ref="Ref"  @attributes="Attributes" Id="@Id">
-    @ChildContent
+<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
+    <CascadingValue Value=this>
+        @ChildContent
+    </CascadingValue>
 </div>

@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatChipSet</h3> } else { <h5 class="mat-h5">MatChipSet</h5> }
+@if (!Secondary) {<h3 class="mat-h3">MatHelperText</h3> } else { <h5 class="mat-h5">MatHelperText</h5> }
 
 <div><table class="article-table mat-elevation-z5">
 	<tr>
@@ -18,14 +18,9 @@
 		<td>Gets or sets a collection of additional attributes that will be applied to the created element.</td>
 	</tr>
 	<tr>
-		<td>ChildContent</td>
-		<td>RenderFragment</td>
-		<td>Child content of MatChipSet</td>
-	</tr>
-	<tr>
-		<td>Choice</td>
-		<td>Boolean</td>
-		<td>Allows single selection from a set of options. If combined with Filter the selected value can be unselected.</td>
+		<td>CharacterCount</td>
+		<td>String</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>Class</td>
@@ -33,9 +28,19 @@
 		<td>Specifies one or more classnames for an DOM element.</td>
 	</tr>
 	<tr>
-		<td>Filter</td>
+		<td>HelperText</td>
+		<td>String</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>HelperTextPersistent</td>
 		<td>Boolean</td>
-		<td>Enables multiple-choice selection from the set of chips. Chips must be &quot;Checkable&quot; for this to work.</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>HelperTextValidation</td>
+		<td>Boolean</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>Id</td>
@@ -45,26 +50,6 @@
 	<tr>
 		<td>RefBack</td>
 		<td>ForwardRef</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>SelectedChip</td>
-		<td>MatChip</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>SelectedChipChanged</td>
-		<td>EventCallback&lt;MatChip&gt;</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>SelectedChips</td>
-		<td>MatChip[]</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>SelectedChipsChanged</td>
-		<td>EventCallback&lt;MatChip[]&gt;</td>
 		<td></td>
 	</tr>
 	<tr>

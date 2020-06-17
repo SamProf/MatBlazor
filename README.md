@@ -129,6 +129,17 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 
 
 
+#### MatBlazor 2.6.1 (Develop)
+- PR: MatChip / MatChipSet: implemented exclusive and non-exclusive selection #601 (Thanks to [henon](https://github.com/henon))
+- PR: Bugfix for pagecounter in MatTable #561 (Thanks to [lindespang](https://github.com/lindespang))
+- PR: Fix typo in MatSelect demos #563 (Thanks to [lindespang](https://github.com/lindespang))
+- PR: Bugfix/fix doc spelling errors #565 (Thanks to [CSOleson](https://github.com/CSOleson))
+- PR: MatSnackbar - Timeout parameter and Updated documentation #596 and #600 (Thanks to [henon](https://github.com/henon))
+- PR: Add more specific css selector for transforming the floating label #599 (Thanks to [dbereghici](https://github.com/dbereghici))
+- PR: MatHelperText Created #569 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- PR: Added ForceLoad option for MatButton and MatIconButton (Fixes #330) #570 (Thanks to [Garderoben](https://github.com/Garderoben) and [enkodellc](https://github.com/enkodellc))
+- PR: Added LazyRendering for MatExpansionPanel + bug fix #578 (Thanks to [lindespang](https://github.com/lindespang))
+
 
 #### MatBlazor 2.6.0
 - Update to Latest Microsoft.AspNetCore.Components 3.1.4 and Microsoft.AspNetCore.Components.WebAssembly 3.2.0

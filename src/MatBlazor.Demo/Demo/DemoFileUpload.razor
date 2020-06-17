@@ -3,10 +3,10 @@
 
 <DocMatFileUpload></DocMatFileUpload>
 
-<h5 class="mat-h5">Example</h5>
+<h5 class="mat-h5">Single File Example</h5>
 <DemoContainer>
     <Content>
-        <MatFileUpload OnChange="@FilesReady"></MatFileUpload>
+        <MatFileUpload OnChange="@FilesReady" Label="Drop a single file here or Browse"></MatFileUpload>
 
         @foreach (var f in list)
         {
@@ -28,8 +28,8 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatFileUpload OnChange=""@FilesReady""></MatFileUpload>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatFileUpload OnChange=""@FilesReady"" Label=""Drop a single file here or Browse""></MatFileUpload>
 
         @foreach (var f in list)
         {
@@ -54,6 +54,57 @@
 </DemoContainer>
 
 
+
+<h5 class="mat-h5">Multiple Files Example</h5>
+<DemoContainer>
+    <Content>
+        <MatFileUpload OnChange="@MultipleFilesReady" AllowMultiple="true" Label="Drop files here or Browse"></MatFileUpload>
+
+        @foreach (var f in multiplelist)
+        {
+            <div>@f</div>
+        }
+
+        @code
+        { 
+            List<string> multiplelist = new List<string>();
+
+            void MultipleFilesReady(IMatFileUploadEntry[] files)
+            {
+                foreach (var file in files)
+                {
+                    multiplelist.Add($"Name: {file.Name} - Size: {file.Size}");
+                }
+            } 
+        }
+
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatFileUpload OnChange=""@MultipleFilesReady"" Label=""Drop files here or Browse""></MatFileUpload>
+
+        @foreach (var f in multiplelist)
+        {
+            <div>@f</div>
+        }
+
+        @code
+        {
+            List<string> multiplelist = new List<string>();
+
+            void MultipleFilesReady(IMatFileUploadEntry[] files)
+            {
+                foreach (var file in files)
+                {
+                    multiplelist.Add($""Name: {file.Name} - Size: {file.Size}"");
+                }
+            }
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
 <h5 class="mat-h5">Read content of file</h5>
 
 <DemoContainer>
@@ -62,8 +113,7 @@
         <textarea style="width: 100%; max-height: 300px; height: 300px;">@fileContent</textarea>
 
         @code
-        {
-
+        { 
             string fileContent;
 
             async Task FilesReadyForContent(IMatFileUploadEntry[] files)
@@ -116,13 +166,12 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatFileUpload OnChange=""@FilesReadyForContent""></MatFileUpload>
         <textarea style=""width: 100%; max-height: 300px; height: 300px;"">@fileContent</textarea>
 
         @code
         {
-
             string fileContent;
 
             async Task FilesReadyForContent(IMatFileUploadEntry[] files)
