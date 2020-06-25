@@ -205,6 +205,9 @@ namespace MatBlazor
 
         public async void OnKeyDown(KeyboardEventArgs ev)
         {
+            if (ev.Key == null ||   // google autofill sends null key
+                ev.Key == "Tab")    // user navigates to next field
+                return;
             var currentIndex = await ListRef.GetSelectedIndex();
             var wasCurrentIndexChanged = false;
             if (currentIndex < 0)
