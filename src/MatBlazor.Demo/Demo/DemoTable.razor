@@ -473,3 +473,117 @@
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
+
+<h5 class="mat-h5">Select row, with returning selected item example</h5>
+<DemoContainer>
+    <Content>
+        <MatTable Items="people"
+                  class="mat-elevation-z5"
+                  OnRowDbClick="OnPersonDbClicked"
+                  AllowSelection="true">
+            <MatTableHeader>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+            </MatTableHeader>
+            <MatTableRow>
+                <td>@context.Id</td>
+                <td>@context.Firstname</td>
+                <td>@context.Lastname</td>
+            </MatTableRow>
+        </MatTable>
+        <p>You have double clicked on <b>@_currentSelectedPerson</b></p>
+        @code
+        {
+            private string _currentSelectedPerson = "noone";
+            public class Person
+            {
+                public int Id { get; set; }
+                public string Firstname { get; set; }
+                public string Lastname { get; set; }
+
+                public Person(int id, string firstname, string lastname)
+                {
+                    Id = id;
+                    Firstname = firstname;
+                    Lastname = lastname;
+                }
+            }
+
+            Person[] people = new[]
+                    {
+                new Person(1, "Gerda", "Mugwort"),
+                new Person(2, "Mattalic", "Burrowes"),
+                new Person(3, "Hal", "Smallburrow"),
+            };
+
+            void OnPersonDbClicked(object item)
+            {
+                var person = item as Person;
+                if (person == null)
+                {
+                    _currentSelectedPerson = "noone";
+                    return;
+                }
+
+                _currentSelectedPerson = $"{person.Firstname} {person.Lastname}";
+            }
+        }
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+                <MatTable Items='""people'""
+                  class='""mat-elevation-z5'""
+                  OnRowDbClick='""OnPersonDbClicked'""
+                  AllowSelection='""true'"">
+            <MatTableHeader>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+            </MatTableHeader>
+            <MatTableRow>
+                <td>@context.Id</td>
+                <td>@context.Firstname</td>
+                <td>@context.Lastname</td>
+            </MatTableRow>
+        </MatTable>
+        <p>You have double clicked on <b>@_currentSelectedPerson</b></p>
+        @code
+        {
+            private string _currentSelectedPerson = '""noone'"";
+            public class Person
+            {
+                public int Id { get; set; }
+                public string Firstname { get; set; }
+                public string Lastname { get; set; }
+
+                public Person(int id, string firstname, string lastname)
+                {
+                    Id = id;
+                    Firstname = firstname;
+                    Lastname = lastname;
+                }
+            }
+
+            Person[] people = new[]
+                    {
+                new Person(1, '""Gerda'"", '""Mugwort'""),
+                new Person(2, '""Mattalic'"", '""Burrowes'""),
+                new Person(3, '""Hal'"", '""Smallburrow'""),
+            };
+
+            void OnPersonDbClicked(object item)
+            {
+                var person = item as Person;
+                if (person == null)
+                {
+                    _currentSelectedPerson = '""noone'"";
+                    return;
+                }
+
+                _currentSelectedPerson = $'""{person.Firstname} {person.Lastname}'"";
+            }
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
