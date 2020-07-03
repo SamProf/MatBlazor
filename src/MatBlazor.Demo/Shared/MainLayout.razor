@@ -50,9 +50,11 @@
     </MatHidden>
 
 
-    <MatDrawerContent Style="padding-left: 25px; padding-right: 25px;">
+    <MatDrawerContent Class="mdc-theme--background">
         <MatAppBarAdjust></MatAppBarAdjust>
-        @Body
+        <div class="body-wrapper">
+            @Body
+        </div>
     </MatDrawerContent>
 
 </MatDrawerContainer>

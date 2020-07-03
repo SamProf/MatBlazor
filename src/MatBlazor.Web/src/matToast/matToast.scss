@@ -153,10 +153,12 @@
 
 .mat-toast-primary {
   background-color: var(--mdc-theme-primary, #030303);
+  color: var(--mdc-theme-on-primary, #ffffff);
 }
 
 .mat-toast-secondary {
   background-color: var(--mdc-theme-secondary, #030303);
+  color: var(--mdc-theme-on-secondary, #ffffff);
 }
 
 .mat-toast-light {
