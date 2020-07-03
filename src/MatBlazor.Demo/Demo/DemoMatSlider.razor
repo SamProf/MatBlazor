@@ -94,15 +94,16 @@
 </DemoContainer>
 
 
-<h5 class="mat-h5">Discrete Slider: @Val3</h5>
+<h5 class="mat-h5">Discrete Slider with Pin: @Val3</h5>
+<p>Pin will round to nearest 3 digit. Pin only works with Discrete.</p>
 <DemoContainer>
     <Content>
-        <MatSlider @bind-Value="@Val3" Discrete="true"></MatSlider>
+        <MatSlider @bind-Value="@Val3" Discrete="true" Pin="true" TValue="int" ValueMin="0" ValueMax="50"></MatSlider>
 
         @code
         {
 
-            public decimal Val3
+            public int Val3
             {
                 get => _val3;
                 set
@@ -112,13 +113,13 @@
                 }
             }
 
-            private decimal _val3 = 0;
+            private int _val3 = 0;
         }
 
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSlider @bind-Value=""@Val3"" Discrete=""true""></MatSlider>
+        <MatSlider @bind-Value=""@Val3"" Discrete=""true"" Pin=""true"" TValue=""int"" ValueMin=""0"" ValueMax=""50"" ></MatSlider>
 
         @code
         {
@@ -140,16 +141,16 @@
     </SourceContent>
 </DemoContainer>
 
-<h5 class="mat-h5">Using a step value</h5>
-
+<h5 class="mat-h5">Using a step value and Pin</h5>
+<p>Markers only work with Discrete</p>
     <DemoContainer>
         <Content>
-            <MatSlider @bind-Value="@Val4" Step="5" EnableStep="true" ValueMin="0" ValueMax="100"></MatSlider>
+            <MatSlider @bind-Value="@Val4" Step="5" EnableStep="true" ValueMin="0" ValueMax="100" Markers="true" Pin="true" TValue="int" Discrete="true"></MatSlider>
 
             @code
             {
 
-                public decimal Val4
+                public int Val4
                 {
                     get => _val4;
                     set
@@ -159,13 +160,13 @@
                     }
                 }
 
-                private decimal _val4 = 0;
+                private int _val4 = 0;
             }
 
         </Content>
         <SourceContent>
         	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatSlider @bind-Value=""@Val4"" Step=""5"" EnableStep=""true"" ValueMin=""0"" ValueMax=""100""></MatSlider>
+            <MatSlider @bind-Value=""@Val4"" Step=""5"" EnableStep=""true"" ValueMin=""0"" ValueMax=""100"" Markers=""true"" Pin=""true"" TValue=""int"" Discrete=""true""></MatSlider>
 
             @code
             {
@@ -186,7 +187,7 @@
         ")></BlazorFiddle>
         </SourceContent>
 </DemoContainer>
-    
+
 
 
 <h5 class="mat-h5">Disabled sliders</h5>
