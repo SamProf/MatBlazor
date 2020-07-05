@@ -129,6 +129,7 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 
 
 #### MatBlazor 2.6.1 (Develop)
+- PR: Fix MatAutocomplete fails with tab and google autofill #614 (Thanks to [sebestyn168](https://github.com/sebestyn168))
 - PR: Update MatSlider for Pin and Markers (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: MatSelect - Adding support for GUID / GUID? #634 (Thanks to [softwaretirol](https://github.com/softwaretirol))
 - PR: Toast theme fixes, fixes #604 #612 (Thanks to [lindespang](https://github.com/lindespang))
