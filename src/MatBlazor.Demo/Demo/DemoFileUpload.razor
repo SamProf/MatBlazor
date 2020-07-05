@@ -28,7 +28,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatFileUpload OnChange=""@FilesReady"" Label=""Drop a single file here or Browse""></MatFileUpload>
 
         @foreach (var f in list)
@@ -80,8 +80,8 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatFileUpload OnChange=""@MultipleFilesReady"" Label=""Drop files here or Browse""></MatFileUpload>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatFileUpload OnChange=""@MultipleFilesReady"" AllowMultiple=""true"" Label=""Drop files here or Browse""></MatFileUpload>
 
         @foreach (var f in multiplelist)
         {
@@ -89,7 +89,7 @@
         }
 
         @code
-        {
+        { 
             List<string> multiplelist = new List<string>();
 
             void MultipleFilesReady(IMatFileUploadEntry[] files)
@@ -98,7 +98,7 @@
                 {
                     multiplelist.Add($""Name: {file.Name} - Size: {file.Size}"");
                 }
-            }
+            } 
         }
 
     ")></BlazorFiddle>
@@ -166,12 +166,12 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatFileUpload OnChange=""@FilesReadyForContent""></MatFileUpload>
         <textarea style=""width: 100%; max-height: 300px; height: 300px;"">@fileContent</textarea>
 
         @code
-        {
+        { 
             string fileContent;
 
             async Task FilesReadyForContent(IMatFileUploadEntry[] files)
