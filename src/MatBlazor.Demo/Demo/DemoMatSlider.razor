@@ -119,12 +119,12 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSlider @bind-Value=""@Val3"" Discrete=""true"" Pin=""true"" TValue=""int"" ValueMin=""0"" ValueMax=""50"" ></MatSlider>
+        <MatSlider @bind-Value=""@Val3"" Discrete=""true"" Pin=""true"" TValue=""int"" ValueMin=""0"" ValueMax=""50""></MatSlider>
 
         @code
         {
 
-            public decimal Val3
+            public int Val3
             {
                 get => _val3;
                 set
@@ -134,7 +134,7 @@
                 }
             }
 
-            private decimal _val3 = 0;
+            private int _val3 = 0;
         }
 
     ")></BlazorFiddle>
@@ -171,7 +171,7 @@
             @code
             {
 
-                public decimal Val4
+                public int Val4
                 {
                     get => _val4;
                     set
@@ -181,7 +181,7 @@
                     }
                 }
 
-                private decimal _val4 = 0;
+                private int _val4 = 0;
             }
 
         ")></BlazorFiddle>

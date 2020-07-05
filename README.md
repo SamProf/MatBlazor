@@ -129,6 +129,8 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 
 
 #### MatBlazor 2.6.1 (Develop)
+- PR: Update Slider to Add Pin & Markers #639 (Thanks to [enkodellc](https://github.com/enkodellc))
+- PR: MatTable double click #629 (Thanks to [sebestyn168](https://github.com/sebestyn168))
 - PR: Fix MatAutocomplete fails with tab and google autofill #614 (Thanks to [sebestyn168](https://github.com/sebestyn168))
 - PR: Update MatSlider for Pin and Markers (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: MatSelect - Adding support for GUID / GUID? #634 (Thanks to [softwaretirol](https://github.com/softwaretirol))
