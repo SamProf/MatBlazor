@@ -735,6 +735,11 @@
             The number of rows per page.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatTable.OnRowDbClick">
+            <summary>
+            Action to execute on row item
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseTableRow">
             <summary>
             Mat Table Row display a table row   
