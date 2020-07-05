@@ -128,8 +128,13 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 - `MatAutocomplete` - new implementation of component
 
 
-
 #### MatBlazor 2.6.1 (Develop)
+- PR: Update MatSlider for Pin and Markers (Thanks to [enkodellc](https://github.com/enkodellc))
+- PR: MatSelect - Adding support for GUID / GUID? #634 (Thanks to [softwaretirol](https://github.com/softwaretirol))
+- PR: Toast theme fixes, fixes #604 #612 (Thanks to [lindespang](https://github.com/lindespang))
+- PR: Added issue template for feature request and question, updated bug te… #608 (Thanks to [SeppPenner](https://github.com/SeppPenner))
+- PR: Added mouse over texts for MatNavMenu components, adjusted examples. #606 (Thanks to [SeppPenner](https://github.com/SeppPenner))
+- PR: MatBlazor.com redesign #603 (Thanks to [lindespang](https://github.com/lindespang))
 - PR: MatChip / MatChipSet: implemented exclusive and non-exclusive selection #601 (Thanks to [henon](https://github.com/henon))
 - PR: Bugfix for pagecounter in MatTable #561 (Thanks to [lindespang](https://github.com/lindespang))
 - PR: Fix typo in MatSelect demos #563 (Thanks to [lindespang](https://github.com/lindespang))
