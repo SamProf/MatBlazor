@@ -30,7 +30,12 @@
             {
                 @foreach (var item in ItemList)
                 {
-                    <TableRow Class="@RowClass" AllowSelection="@AllowSelection" RowItem="item">@MatTableRow(item)</TableRow>
+                    <TableRow Class="@RowClass"
+                              AllowSelection="@AllowSelection"
+                              @ondblclick="() => OnRowDbClickHandler(item)"
+                              RowItem="item">
+                        @MatTableRow(item)
+                    </TableRow>
                 }
             }
         </tbody>
@@ -149,7 +154,9 @@
             if (PageSize <= 0)
                 PageSize = 5;
         }
-        CurrentPage = 1;
+        
+        StartPage = 1;
+        CurrentPage = StartPage;
 
         if (!string.IsNullOrWhiteSpace(ApiUrl) && (RequestApiOnlyOnce || LoadInitialData))
         {

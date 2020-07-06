@@ -4,42 +4,45 @@
 @inject IJSRuntime JsRuntime;
 @inject DemoUserService service;
 
+<MatH4>Source</MatH4>
+<MatList>
+    @foreach (var item in items)
+    {
+        <MatListItem>
+            <MatCheckbox TValue="bool" Value="@item.IsSelected" ValueChanged="@(value=>OnItemSelected(item, value))" Label="@item.Name"></MatCheckbox>
+        </MatListItem>
+    }
+</MatList>
 
 
-<h1>Selected Tab: @service.ActiveTabIndex</h1>
-
-<MatTabGroup @bind-ActiveIndex="@service.ActiveTabIndex">
-    <MatTab Label="First">
-        First Content
-    </MatTab>
-    <MatTab Label="Second">
-        Second Content
-    </MatTab>
-    <MatTab>
-        <LabelContent>
-            Third <MatIcon Icon="@MatIconNames.Close"></MatIcon>
-        </LabelContent>
-        <ChildContent>
-            Third Content
-        </ChildContent>
-    </MatTab>
-
-</MatTabGroup>
-
+<MatH4>Result</MatH4>
+@foreach (var item in items)
+{
+    <div>@item.Name - @item.IsSelected</div>
+}
 
 @code
 {
-    // int activeTab = 0;
-    //
-    // int ActiveTab
-    // {
-    //     get
-    //     {
-    //         return activeTab;
-    //     }
-    //     set
-    //     {
-    //         activeTab = value;
-    //     }
-    // }
+    void OnItemSelected(ItemClass item, bool value)
+    {
+        item.IsSelected = value;
+        // here you can dot something
+    }
+    
+
+    ItemClass[] items = Enumerable.Range(1, 10)
+        .Select(i => new ItemClass($"Item {i}", i % 2 == 0))
+        .ToArray();
+
+    class ItemClass
+    {
+        public string Name { get; set; }
+        public bool IsSelected { get; set; }
+
+        public ItemClass(string name, bool isSelected)
+        {
+            Name = name;
+            IsSelected = isSelected;
+        }
+    }
 }

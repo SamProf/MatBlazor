@@ -30,7 +30,11 @@ namespace MatBlazor.DevUtils
 
             var result = CommonMark.CommonMarkConverter.Convert(text);
 
-            result = result.Replace("@", "@@");
+            result = result.Replace("@", "@@").Replace(@"<h5>", @"<h5 class=""mat-h5"">")
+                                              .Replace(@"<h4>", @"<h4 class=""mat-h4"">")
+                                              .Replace(@"<h3>", @"<h3 class=""mat-h3"">")
+                                              .Replace(@"<h2>", @"<h2 class=""mat-h2"">")
+                                              .Replace(@"<h1>", @"<h1 class=""mat-h1"">"); ;
 
             Console.WriteLine(result);
 

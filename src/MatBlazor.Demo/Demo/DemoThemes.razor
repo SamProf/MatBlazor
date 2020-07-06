@@ -183,23 +183,17 @@
     </SourceContent>
 </DemoContainer>
 
-
 <h5 class="mat-h5">Real use</h5>
-<p>To apply theme for all application you can use MatThemeProvider in MainLayout.razor or App.razor</p>
-<BlazorFiddle Template="MatBlazor" Code=@(@"
-    <MatThemeProvider Theme=""@theme"">
-        <Router AppAssembly=typeof(Pages.Index).Assembly/>
-    </MatThemeProvider>
-
-    @code
-    {
-        MatTheme theme = new MatTheme()
-        {
-            Primary = MatThemeColors.Orange._500.Value,
-            Secondary = MatThemeColors.BlueGrey._500.Value
-        };
-    }")>
-</BlazorFiddle>
+<DemoContainer> 
+    <Content>
+        <p>To apply theme for all application you can use MatThemeProvider in MainLayout.razor or App.razor</p>
+    </Content> 
+    <SourceContent> 
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>To apply theme for all application you can use MatThemeProvider in MainLayout.razor or App.razor</p>
+    ")></BlazorFiddle> 
+    </SourceContent>
+</DemoContainer>
 
 
 @code

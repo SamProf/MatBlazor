@@ -6,7 +6,7 @@
 
 @if (!Secondary) {<h3 class="mat-h3">MatChipSet</h3> } else { <h5 class="mat-h5">MatChipSet</h5> }
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
@@ -23,9 +23,19 @@
 		<td>Child content of MatChipSet</td>
 	</tr>
 	<tr>
+		<td>Choice</td>
+		<td>Boolean</td>
+		<td>Allows single selection from a set of options. If combined with Filter the selected value can be unselected.</td>
+	</tr>
+	<tr>
 		<td>Class</td>
 		<td>String</td>
 		<td>Specifies one or more classnames for an DOM element.</td>
+	</tr>
+	<tr>
+		<td>Filter</td>
+		<td>Boolean</td>
+		<td>Enables multiple-choice selection from the set of chips. Chips must be &quot;Checkable&quot; for this to work.</td>
 	</tr>
 	<tr>
 		<td>Id</td>
@@ -35,6 +45,26 @@
 	<tr>
 		<td>RefBack</td>
 		<td>ForwardRef</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>SelectedChip</td>
+		<td>MatChip</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>SelectedChipChanged</td>
+		<td>EventCallback&lt;MatChip&gt;</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>SelectedChips</td>
+		<td>MatChip[]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>SelectedChipsChanged</td>
+		<td>EventCallback&lt;MatChip[]&gt;</td>
 		<td></td>
 	</tr>
 	<tr>

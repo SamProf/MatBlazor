@@ -205,28 +205,36 @@ namespace MatBlazor
 
         public async void OnKeyDown(KeyboardEventArgs ev)
         {
+            if (ev.Key == null ||   // google autofill sends null key
+                ev.Key == "Tab")    // user navigates to next field
+                return;
+
             var currentIndex = await ListRef.GetSelectedIndex();
             var wasCurrentIndexChanged = false;
+
             if (currentIndex < 0)
             {
                 currentIndex = 0;
                 wasCurrentIndexChanged = true;
             }
+
             if (searchResult != null && searchResult.ListResult.Count > 0 && currentIndex > searchResult.ListResult.Count)
             {
                 currentIndex = searchResult.ListResult.Count - 1;
                 wasCurrentIndexChanged = true;
             }
+
             if (ev.Key == "ArrowDown")
             {
                 currentIndex++;
                 wasCurrentIndexChanged = true;
             }
-            if (ev.Key == "ArrowUp")
+            else if (ev.Key == "ArrowUp")
             {
                 currentIndex--;
                 wasCurrentIndexChanged = true;
             }
+
             if (wasCurrentIndexChanged)
             {
                 await ListRef.SetSelectedIndex(currentIndex);

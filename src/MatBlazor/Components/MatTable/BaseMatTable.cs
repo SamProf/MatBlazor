@@ -175,6 +175,11 @@ namespace MatBlazor
                 .If("mdc-table--striped", () => this.Striped);
         }
 
+        /// <summary>
+        /// Action to execute on row item
+        /// </summary>
+        [Parameter]
+        public EventCallback<object> OnRowDbClick { get; set; }
 
         #region Helpers
         public async Task ToggleSelectedAsync(BaseTableRow row)
@@ -262,5 +267,17 @@ namespace MatBlazor
         }
 
         #endregion
+
+        #region events
+
+        protected void OnRowDbClickHandler(object item)
+        {
+            if (OnRowDbClick.HasDelegate)
+            {
+                OnRowDbClick.InvokeAsync(item);
+            }
+        }
+
+        #endregion events
     }
 }

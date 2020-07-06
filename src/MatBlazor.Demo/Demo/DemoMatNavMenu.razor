@@ -6,8 +6,8 @@
         @using Microsoft.AspNetCore.Components
 
         <MatNavMenu>
-            <MatNavItem OnClick="ClickMe">Item 1 - OnClick</MatNavItem>
-            <MatNavItem Disabled="true">Item 2</MatNavItem>
+            <MatNavItem OnClick="ClickMe" Title="Item 1">Item 1 - OnClick</MatNavItem>
+            <MatNavItem Disabled="true" Title="Item 2">Item 2</MatNavItem>
             <MatNavSubMenu @bind-Expanded="@navSubMenuOpenState">
                 <MatNavSubMenuHeader>
                     <MatNavItem AllowSelection="false"><MatIcon Icon="all_inbox"></MatIcon>&nbsp; Item 3 - Expanded: @navSubMenuOpenState</MatNavItem>
@@ -32,6 +32,9 @@
 
                 </MatNavSubMenuList>
             </MatNavSubMenu>
+
+            <MatNavItem Href="/Checkbox">Internal Href Checkbox</MatNavItem>
+            <MatNavItem Href="/Checkbox" ForceLoad="true">ForceLoad - Internal Href Checkbox</MatNavItem>
             <MatNavItem Href="https://blazorboilerplate.com/" Target="_blank">Blazor Boilerplate - Href - Target = _blank</MatNavItem>
             <MatNavItem Href="https://www.matblazor.com/">MatBlazor - Href</MatNavItem>
         </MatNavMenu>
@@ -56,8 +59,8 @@
         @using Microsoft.AspNetCore.Components
 
         <MatNavMenu>
-            <MatNavItem OnClick=""ClickMe"">Item 1 - OnClick</MatNavItem>
-            <MatNavItem Disabled=""true"">Item 2</MatNavItem>
+            <MatNavItem OnClick=""ClickMe"" Title=""Item 1"">Item 1 - OnClick</MatNavItem>
+            <MatNavItem Disabled=""true"" Title=""Item 2"">Item 2</MatNavItem>
             <MatNavSubMenu @bind-Expanded=""@navSubMenuOpenState"">
                 <MatNavSubMenuHeader>
                     <MatNavItem AllowSelection=""false""><MatIcon Icon=""all_inbox""></MatIcon>&nbsp; Item 3 - Expanded: @navSubMenuOpenState</MatNavItem>
@@ -82,6 +85,9 @@
 
                 </MatNavSubMenuList>
             </MatNavSubMenu>
+
+            <MatNavItem Href=""/Checkbox"">Internal Href Checkbox</MatNavItem>
+            <MatNavItem Href=""/Checkbox"" ForceLoad=""true"">ForceLoad - Internal Href Checkbox</MatNavItem>
             <MatNavItem Href=""https://blazorboilerplate.com/"" Target=""_blank"">Blazor Boilerplate - Href - Target = _blank</MatNavItem>
             <MatNavItem Href=""https://www.matblazor.com/"">MatBlazor - Href</MatNavItem>
         </MatNavMenu>
@@ -116,34 +122,34 @@
             <MatButton OnClick="@(() => navMenu.ToggleAllSubMenus(false))">Collapse All</MatButton>
         </div>
         <MatNavMenu @ref="navMenu"  Multi="MultiChecked">
-            <MatNavItem>Level 1 Item A</MatNavItem>
-            <MatNavItem>Level 1 Item B</MatNavItem>
+            <MatNavItem Title="Level 1 Item A">Level 1 Item A</MatNavItem>
+            <MatNavItem Title="Level 1 Item B">Level 1 Item B</MatNavItem>
 
             <MatNavSubMenu>
-                <MatNavSubMenuHeader>
+                <MatNavSubMenuHeader Title="Level 1 Sub Menu A">
                     <MatNavItem AllowSelection="false">
                         <MatIcon Icon="folder" />&nbsp;Level 1 Sub Menu A
                     </MatNavItem>
                 </MatNavSubMenuHeader>
 
                 <MatNavSubMenuList>
-                    <MatNavItem>Level 2 Item A.A</MatNavItem>
-                    <MatNavItem>Level 2 Item A.B</MatNavItem>
+                    <MatNavItem Title="Level 2 Item A.A">Level 2 Item A.A</MatNavItem>
+                    <MatNavItem Title="Level 2 Item A.B">Level 2 Item A.B</MatNavItem>
                 </MatNavSubMenuList>
 
             </MatNavSubMenu>
 
 
             <MatNavSubMenu>
-                <MatNavSubMenuHeader>
+                <MatNavSubMenuHeader Title="Level 1 Sub Menu B">
                     <MatNavItem AllowSelection="false">
                         <MatIcon Icon="folder" />&nbsp;Level 1 Sub Menu B
                     </MatNavItem>
                 </MatNavSubMenuHeader>
 
                 <MatNavSubMenuList>
-                    <MatNavItem>Level 2 Item B.A</MatNavItem>
-                    <MatNavItem>Level 2 Item B.B</MatNavItem>
+                    <MatNavItem Title="Level 2 Item B.A">Level 2 Item B.A</MatNavItem>
+                    <MatNavItem Title="Level 2 Item B.B">Level 2 Item B.B</MatNavItem>
 
                     <MatNavSubMenu>
                         <MatNavSubMenuHeader>
@@ -219,34 +225,34 @@
             <MatButton OnClick=""@(() => navMenu.ToggleAllSubMenus(false))"">Collapse All</MatButton>
         </div>
         <MatNavMenu @ref=""navMenu""  Multi=""MultiChecked"">
-            <MatNavItem>Level 1 Item A</MatNavItem>
-            <MatNavItem>Level 1 Item B</MatNavItem>
+            <MatNavItem Title=""Level 1 Item A"">Level 1 Item A</MatNavItem>
+            <MatNavItem Title=""Level 1 Item B"">Level 1 Item B</MatNavItem>
 
             <MatNavSubMenu>
-                <MatNavSubMenuHeader>
+                <MatNavSubMenuHeader Title=""Level 1 Sub Menu A"">
                     <MatNavItem AllowSelection=""false"">
                         <MatIcon Icon=""folder"" />&nbsp;Level 1 Sub Menu A
                     </MatNavItem>
                 </MatNavSubMenuHeader>
 
                 <MatNavSubMenuList>
-                    <MatNavItem>Level 2 Item A.A</MatNavItem>
-                    <MatNavItem>Level 2 Item A.B</MatNavItem>
+                    <MatNavItem Title=""Level 2 Item A.A"">Level 2 Item A.A</MatNavItem>
+                    <MatNavItem Title=""Level 2 Item A.B"">Level 2 Item A.B</MatNavItem>
                 </MatNavSubMenuList>
 
             </MatNavSubMenu>
 
 
             <MatNavSubMenu>
-                <MatNavSubMenuHeader>
+                <MatNavSubMenuHeader Title=""Level 1 Sub Menu B"">
                     <MatNavItem AllowSelection=""false"">
                         <MatIcon Icon=""folder"" />&nbsp;Level 1 Sub Menu B
                     </MatNavItem>
                 </MatNavSubMenuHeader>
 
                 <MatNavSubMenuList>
-                    <MatNavItem>Level 2 Item B.A</MatNavItem>
-                    <MatNavItem>Level 2 Item B.B</MatNavItem>
+                    <MatNavItem Title=""Level 2 Item B.A"">Level 2 Item B.A</MatNavItem>
+                    <MatNavItem Title=""Level 2 Item B.B"">Level 2 Item B.B</MatNavItem>
 
                     <MatNavSubMenu>
                         <MatNavSubMenuHeader>

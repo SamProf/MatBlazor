@@ -3,44 +3,48 @@
 @using System.Diagnostics
 @implements IDisposable
 
-
-<h1 class="mat-h1"><img src="https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/logo.png" style="max-height: 100px;"/> MatBlazor</h1>
-<h4 class="mat-h4">Material Design components for Blazor (@(GetVersion()))</h4>
-<div>
-    <a href="https://www.nuget.org/packages/MatBlazor/" target="_blank">
-        <img src="https://img.shields.io/nuget/v/MatBlazor.svg"/>
-    </a>
-    <a href="https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge" target="_blank">
-        <img src="https://badges.gitter.im/MatBlazor/community.svg"/>
-    </a>
-    <a href="https://github.com/SamProf/MatBlazor" target="_blank">
-        <img src="https://img.shields.io/github/stars/SamProf/MatBlazor.svg"/>
-    </a>
-    <a href="https://github.com/SamProf/MatBlazor/issues" target="_blank">
-        <img src="https://img.shields.io/github/issues/SamProf/matblazor.svg"/>
-    </a>
-    <a href="https://github.com/SamProf/MatBlazor/blob/master/LICENSE" target="_blank">
-        <img src="https://img.shields.io/github/license/SamProf/MatBlazor.svg"/>
-    </a>
-    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url" target="_blank" style="margin-left: 5px;">
-        <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"/>
-    </a>
-</div>
-
-
 <style>
     .blazor-fiddle { overflow-wrap: break-word; }
 
-    .index-row-item { padding: 5px; }
+    .index-row-item { padding: 24px; }
+
 </style>
 
 
-<div class="mat-layout-grid index-row-container">
+<div class="mat-layout-grid">
     <div class="mat-layout-grid-inner">
 
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6 mat-elevation-z2 index-row-item">
+        <div class="mat-layout-grid-cell-span-12">
+            <h1 class="mat-h1"><img src="https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/logo.png" style="max-height: 100px;" /> MatBlazor</h1>
+            <h4 class="mat-h4">Material Design components for Blazor (@(GetVersion()))</h4>
+            <div>
+                <a href="https://www.nuget.org/packages/MatBlazor/" target="_blank">
+                    <img src="https://img.shields.io/nuget/v/MatBlazor.svg" />
+                </a>
+                <a href="https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge" target="_blank">
+                    <img src="https://badges.gitter.im/MatBlazor/community.svg" />
+                </a>
+                <a href="https://github.com/SamProf/MatBlazor" target="_blank">
+                    <img src="https://img.shields.io/github/stars/SamProf/MatBlazor.svg" />
+                </a>
+                <a href="https://github.com/SamProf/MatBlazor/issues" target="_blank">
+                    <img src="https://img.shields.io/github/issues/SamProf/matblazor.svg" />
+                </a>
+                <a href="https://github.com/SamProf/MatBlazor/blob/master/LICENSE" target="_blank">
+                    <img src="https://img.shields.io/github/license/SamProf/MatBlazor.svg" />
+                </a>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url" target="_blank" style="margin-left: 5px;">
+                    <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" />
+                </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12 mat-elevation-z5 index-row-item mdc-theme--surface">
             <div class="">
-                <h5 class="mat-h5">Installation</h5>
+                <h2 class="mat-h2">Installation</h2>
 
                 <p>
                     Install MatBlazor library via nuget.
@@ -61,8 +65,8 @@
                 </p>
             </div>
 
-            <div class="">
-                <h5 class="mat-h5">_Imports.razor</h5>
+            <div>
+                <h4 class="mat-h4">_Imports.razor</h4>
                 <p>
                     Add @@using MatBlazor in main _Imports.razor
                 </p>
@@ -71,7 +75,7 @@
                     <BlazorFiddle Template="MatBlazor" Code=@(@"@using MatBlazor")>
                     </BlazorFiddle>
                 </p>
-                <h5 class="mat-h5">Usage</h5>
+                <h4 class="mat-h4">Usage</h4>
                 <p>
                     MatBlazor components are self-supporting.
                 </p>
@@ -81,7 +85,7 @@
                     </BlazorFiddle>
                 </p>
 
-                <h5 class="mat-h5">Static files</h5>
+                <h4 class="mat-h4">Static files</h4>
 
                 <p>
                     For client-side and server-side Blazor - add script section to index.html or _Host.cshtml (head section)
@@ -98,22 +102,10 @@
                 <Sponsors></Sponsors>
             </div>
 
-            <div>
-                <h5 class="mat-h5">Components: </h5>
-                <DemoDrawerContent></DemoDrawerContent>
-
-
-            </div>
-
-
         </div>
 
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6 mat-elevation-z2 index-row-item">
-            <div class="">
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12 mat-elevation-z5 index-row-item mdc-theme--surface">
                 <News></News>
-            </div>
-
-
         </div>
     </div>
 </div>

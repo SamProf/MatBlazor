@@ -56,7 +56,7 @@
 </label>
 @if (HelperText != null)
 {
-    <div class="mdc-text-field-helper-line">
-        <div class="@HelperTextClassMapper.AsString()" aria-hidden="@(!HelperTextPersistent)">@HelperText</div>
-    </div>
+    <MatHelperText HelperTextPersistent="@HelperTextPersistent" 
+                   HelperTextValidation="@HelperTextValidation" 
+                   HelperText="@HelperText"/>
 }
