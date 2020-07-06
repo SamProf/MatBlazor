@@ -8,7 +8,7 @@
 
 <p>Snackbars provide brief messages about app processes at the bottom of the screen.</p>
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
@@ -37,17 +37,17 @@
 	<tr>
 		<td>IsOpen</td>
 		<td>Boolean</td>
-		<td></td>
+		<td>Controls whether or not the snackbar is shown.</td>
 	</tr>
 	<tr>
 		<td>IsOpenChanged</td>
 		<td>EventCallback&lt;Boolean&gt;</td>
-		<td></td>
+		<td>This event is raised whenever IsOpen changes.</td>
 	</tr>
 	<tr>
 		<td>Leading</td>
 		<td>Boolean</td>
-		<td></td>
+		<td>Displays the snackbar on the &quot;leading edge&quot; of the screen (the left side in LTR, or the right side in RTL).<br/><br/>By default, snackbars are centered horizontally within the viewport. On larger screens, they can optionally be displayed on the leading edge by setting this property.</td>
 	</tr>
 	<tr>
 		<td>RefBack</td>
@@ -57,12 +57,17 @@
 	<tr>
 		<td>Stacked</td>
 		<td>Boolean</td>
-		<td></td>
+		<td>Positions the action buttons below the label instead of alongside it.</td>
 	</tr>
 	<tr>
 		<td>Style</td>
 		<td>String</td>
 		<td>Specifies an inline style for an DOM element.</td>
+	</tr>
+	<tr>
+		<td>Timeout</td>
+		<td>Int32</td>
+		<td>Timeout in ms after which the snackbar closes itself. Default: 10000 ms<br/>To leave the snackbar open indefinitely set the timeout to -1</td>
 	</tr>
 	<tr>
 		<td>Ref</td>

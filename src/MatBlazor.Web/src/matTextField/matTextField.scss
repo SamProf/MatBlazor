@@ -68,6 +68,11 @@ label.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > span.mdc-floati
     color: var(--mdc-theme-primary, #6200ee);
 }
 
+/* More specific selector for translating the label to top */
+.mdc-text-field .mdc-floating-label.mdc-floating-label--float-above {
+    transform: translateY(-106%) scale(0.75);
+}
+
 /* For DatePicker */
 .valid.modified > .mdc-text-field__input {
   border-bottom: 2px solid #10b510 !important;

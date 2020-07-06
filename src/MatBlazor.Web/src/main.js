@@ -8,6 +8,7 @@ import * as matSelect from './matSelect/matSelect';
 import * as matSlider from './matSlider/matSlider';
 import * as matSlideToggle from './matSlideToggle/matSlideToggle';
 import * as matCard from './matCard/matCard';
+import * as matChip from './matChip/matChip';
 import * as matChipSet from './matChipSet/matChipSet';
 import * as matAppBar from './matAppBar/matAppBar';
 import * as matIconButton from './matIconButton/matIconButton';
@@ -46,6 +47,7 @@ window.matBlazor = {
   matSlider,
   matSlideToggle,
   matCard,
+  matChip,
   matChipSet,
   matAppBar,
   matIconButton,

@@ -2,13 +2,18 @@
 @inherits BaseMatFileUpload
 
 <div @ref="@Ref" @attributes="@Attributes" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" id="@Id">
-    <input type="file" @ref="@InputRef"/>
+    @if (AllowMultiple == true){
+        <input type="file" @ref="@InputRef" multiple />
+    }
+    else {
+        <input type="file" @ref="@InputRef" />
+    }
     <div class="mat-file-upload-content">
         <span>@Label</span>
         <MatIcon>@MatIconNames.Attach_file</MatIcon>
     </div>
     @if (ProgressTotal != 0)
     {
-        <MatProgressBar Class="mat-file-upload-progress" Progress="@(Math.Round((double)ProgressProgress / ProgressTotal, 2))"></MatProgressBar>
+    <MatProgressBar Class="mat-file-upload-progress" Progress="@(Math.Round((double)ProgressProgress / ProgressTotal, 2))"></MatProgressBar>
     }
 </div>

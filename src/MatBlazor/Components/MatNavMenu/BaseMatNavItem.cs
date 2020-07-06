@@ -27,6 +27,12 @@ namespace MatBlazor
         public ICommand Command { get; set; }
 
         /// <summary>
+        /// Force browser to redirect outside component router-space.
+        /// </summary>
+        [Parameter]
+        public bool ForceLoad { get; set; }
+
+        /// <summary>
         ///  Command parameter.
         /// </summary>
         [Parameter]
@@ -40,6 +46,12 @@ namespace MatBlazor
         /// </summary>
         [Parameter]
         public string Target { get; set; } = null;
+
+        /// <summary>
+        /// The title shown.
+        /// </summary>
+        [Parameter]
+        public string Title { get; set; } = null;
 
         /// <summary>
         ///  NavLinkMatch parameter used to determine the active state of the Nav Item.
@@ -97,8 +109,9 @@ namespace MatBlazor
                 }
                 else
                 {
-                    UriHelper.NavigateTo(Href);
+                    UriHelper.NavigateTo(Href, ForceLoad);
                 }
+
             }
             else
             {

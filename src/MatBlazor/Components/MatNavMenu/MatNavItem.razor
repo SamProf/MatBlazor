@@ -6,14 +6,14 @@
 
         @if (string.IsNullOrEmpty(Href) || Disabled)
         {
-            <li class="@ClassMapper.AsString()" @onmousedown="OnMouseDown" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id" @onclick="OnClickHandler">
+            <li class="@ClassMapper.AsString()" @onmousedown="OnMouseDown" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id" @onclick="OnClickHandler" title="@Title">
                 @ChildContent
             </li>
         }
         else
         {
         <li class="mdc-nav-li" @ref="Ref" @attributes="Attributes" Id="@Id">
-            <NavLink class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" href="@Href" @onclick="OnClickHandler" Match="@NavLinkMatch" ActiveClass="mdc-list-item--selected" target="@Target">
+            <NavLink class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" href="@Href" @onclick="OnClickHandler" Match="@NavLinkMatch" ActiveClass="mdc-list-item--selected" target="@Target" title="@Title">
                 @ChildContent
             </NavLink>
         </li>

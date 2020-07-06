@@ -101,7 +101,7 @@ namespace MatBlazor.DevUtils.Core
 
 //                sb.AppendLine($"<h5 class=\"mat-h5\">Documentation</h5>");
 
-                    sb.AppendLine($"<div><table class=\"article-table mat-elevation-z5\">");
+                    sb.AppendLine($"<div><table class=\"article-table mat-elevation-z5 mdc-theme--surface\">");
                     sb.AppendLine($"\t<tr>");
                     sb.AppendLine($"\t\t<th>Name</th>");
                     sb.AppendLine($"\t\t<th>Type</th>");

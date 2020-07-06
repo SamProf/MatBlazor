@@ -17,6 +17,9 @@ namespace MatBlazor
         public EventCallback<IMatFileUploadEntry[]> OnChange { get; set; }
 
         [Parameter]
+        public bool AllowMultiple { get; set; } = false; 
+
+        [Parameter]
         public string Label { get; set; } = "Drop files here or Browse";
 
         [Parameter]

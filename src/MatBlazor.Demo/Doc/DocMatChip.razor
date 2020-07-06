@@ -8,16 +8,11 @@
 
 <p>Chips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.</p>
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
 		<th>Description</th>
-	</tr>
-	<tr>
-		<td>Active</td>
-		<td>Boolean</td>
-		<td></td>
 	</tr>
 	<tr>
 		<td>Attributes</td>
@@ -35,14 +30,29 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>IsCheckable</td>
+		<td>Boolean</td>
+		<td>Checkable chips show a check-mark when selected</td>
+	</tr>
+	<tr>
+		<td>IsSelected</td>
+		<td>Boolean</td>
+		<td>Reflects the selection state of a choice- or filter-chip (parent chipset has either Choice or Filter set to true).<br/><br/>When you set this in markup, it pre-selects the chip.</td>
+	</tr>
+	<tr>
+		<td>IsSelectedChanged</td>
+		<td>EventCallback&lt;Boolean&gt;</td>
+		<td>Allows two-way binding of IsSelected</td>
+	</tr>
+	<tr>
 		<td>Label</td>
 		<td>String</td>
-		<td></td>
+		<td>The chip&#39;s text.</td>
 	</tr>
 	<tr>
 		<td>LeadingIcon</td>
 		<td>String</td>
-		<td></td>
+		<td>Optional icon, displayed before the label.</td>
 	</tr>
 	<tr>
 		<td>RefBack</td>
@@ -57,7 +67,17 @@
 	<tr>
 		<td>TrailingIcon</td>
 		<td>String</td>
+		<td>A trailing icon comes with the functionality to remove the chip from the set, so the natural value for this would be &quot;clear&quot;.</td>
+	</tr>
+	<tr>
+		<td>TrailingIconClick</td>
+		<td>EventCallback&lt;MatChip&gt;</td>
 		<td></td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>Object</td>
+		<td>A user-defined value assigned to the chip.</td>
 	</tr>
 	<tr>
 		<td>Ref</td>
