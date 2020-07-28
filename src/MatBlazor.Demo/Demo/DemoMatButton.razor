@@ -9,7 +9,7 @@
         @using Microsoft.AspNetCore.Components
 
         <h4 class="mat-subtitle1">Simple use</h4>
-        <MatButton Icon="favorite" OnClick="@RunOnClick" Label="Simple Button"></MatButton>
+        <MatButton Icon="favorite" OnClick="@RunOnClick" Label="Simple Button" OnFocus="@RunOnFocus"></MatButton>
 
         <h5 class="mat-subtitle1">With Font-Awesome Icons and Link</h5>
         <MatButton Link="https://github.com/BlazorComponents/MatBlazor">
@@ -40,6 +40,11 @@
                 JsRuntime.InvokeAsync<object>("window.alert", "Test");
             }
 
+            public void RunOnFocus(FocusEventArgs e)
+            {
+                Console.WriteLine(e.Type);
+            }
+
         }
 
     </Content>
@@ -48,7 +53,7 @@
         @using Microsoft.AspNetCore.Components
 
         <h4 class=""mat-subtitle1"">Simple use</h4>
-        <MatButton Icon=""favorite"" OnClick=""@RunOnClick"" Label=""Simple Button""></MatButton>
+        <MatButton Icon=""favorite"" OnClick=""@RunOnClick"" OnFocus=""@RunOnFocus"" Label=""Simple Button""></MatButton>
 
         <h5 class=""mat-subtitle1"">With Font-Awesome Icons and Link</h5>
         <MatButton Link=""https://github.com/BlazorComponents/MatBlazor"">
@@ -77,6 +82,11 @@
             public void RunOnClick(MouseEventArgs e)
             {
                 JsRuntime.InvokeAsync<object>(""window.alert"", ""Test"");
+            }
+
+            public void RunOnFocus(FocusEventArgs e)
+            {
+                Console.WriteLine(e.Type);
             }
 
         }
