@@ -16,10 +16,10 @@
 
     <div class="mat-data-table-container" style="@(scrollResult.ScrollContainerStyle)">
         <table class="mdc-data-table__table">
-            <MatDataTableHeader>
+            <MatDataTableHeaderOld>
                 @foreach (var column in columnItems)
                 {
-                    <MatDataTableHeaderCell>
+                    <MatDataTableHeaderCellOld>
                         @if (column.HeaderTemplate != null)
                         {
                             @column.HeaderTemplate
@@ -28,18 +28,18 @@
                         {
                             @column.Header
                         }
-                    </MatDataTableHeaderCell>
+                    </MatDataTableHeaderCellOld>
                 }
-            </MatDataTableHeader>
+            </MatDataTableHeaderOld>
 
-            <MatDataTableContent>
+            <MatDataTableContentOld>
 
                 @foreach (var item in renderedItems.Skip(scrollResult.SkipItems).Take(scrollResult.TakeItems))
                 {
-                    <MatDataTableRow>
+                    <MatDataTableRowOld>
                         @foreach (var column in columnItems)
                         {
-                            <MatDataTableCell>
+                            <MatDataTableCellOld>
                                 @if (column.Template != null)
                                 {
                                     @column.Template(item)
@@ -48,13 +48,13 @@
                                 {
                                     @column.Value(item)
                                 }
-                            </MatDataTableCell>
+                            </MatDataTableCellOld>
                         }
 
-                    </MatDataTableRow>
+                    </MatDataTableRowOld>
                 }
 
-            </MatDataTableContent>
+            </MatDataTableContentOld>
         </table>
     </div>
     @if (Paginator)

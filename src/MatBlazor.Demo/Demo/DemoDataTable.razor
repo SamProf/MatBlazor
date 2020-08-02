@@ -5,14 +5,14 @@
 <DemoContainer Header="Basic use of Data Table">
     <Content>
 
-        <MatDataTableOld Items="@periodicElements">
-            <Columns>
-                <MatDataTableColumnOld TItem="PeriodicElement" Header="No." Value="@(i => i.Position)"></MatDataTableColumnOld>
-                <MatDataTableColumnOld TItem="PeriodicElement" Header="Name" Value="@(i => i.Name)"></MatDataTableColumnOld>
-                <MatDataTableColumnOld TItem="PeriodicElement" Header="Weight" Value="@(i => i.Weight)"></MatDataTableColumnOld>
-                <MatDataTableColumnOld TItem="PeriodicElement" Header="Symbol" Value="@(i => i.Symbol)"></MatDataTableColumnOld>
-            </Columns>
-        </MatDataTableOld>
+        <MatDataTable>
+            <MatDataTableContent Items="@periodicElements">
+                <MatDataTableColumn Header="No." Value="@context?.Position"></MatDataTableColumn>
+                <MatDataTableColumn Header="Name" Value="@context?.Name"></MatDataTableColumn>
+                <MatDataTableColumn Header="Weight" Value="@context?.Weight"></MatDataTableColumn>
+                <MatDataTableColumn Header="Symbol" Value="@context?.Symbol"></MatDataTableColumn>
+            </MatDataTableContent>
+        </MatDataTable>
 
         @code
         {
@@ -51,13 +51,13 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
 
-        <MatDataTable Items=""@periodicElements"">
-            <Columns>
-                <MatDataTableColumn TItem=""PeriodicElement"" Header=""No."" Value=""@(i => i.Position)""></MatDataTableColumn>
-                <MatDataTableColumn TItem=""PeriodicElement"" Header=""Name"" Value=""@(i => i.Name)""></MatDataTableColumn>
-                <MatDataTableColumn TItem=""PeriodicElement"" Header=""Weight"" Value=""@(i => i.Weight)""></MatDataTableColumn>
-                <MatDataTableColumn TItem=""PeriodicElement"" Header=""Symbol"" Value=""@(i => i.Symbol)""></MatDataTableColumn>
-            </Columns>
+        <MatDataTable>
+            <MatDataTableContent Items=""@periodicElements"">
+                <MatDataTableColumn Header=""No."" Value=""@context?.Position""></MatDataTableColumn>
+                <MatDataTableColumn Header=""Name"" Value=""@context?.Name""></MatDataTableColumn>
+                <MatDataTableColumn Header=""Weight"" Value=""@context?.Weight""></MatDataTableColumn>
+                <MatDataTableColumn Header=""Symbol"" Value=""@context?.Symbol""></MatDataTableColumn>
+            </MatDataTableContent>
         </MatDataTable>
 
         @code
@@ -90,6 +90,102 @@
                 new PeriodicElement(8, ""Oxygen"", 15.9994, ""O""),
                 new PeriodicElement(9, ""Fluorine"", 18.9984, ""F""),
                 new PeriodicElement(10, ""Neon"", 20.1797, ""Ne""),
+            };
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<DemoContainer Header="Basic use of Data Table">
+    <Content>
+
+        <MatDataTableOld Items="@periodicElements4">
+            <Columns>
+                <MatDataTableColumnOld TItem="PeriodicElement4" Header="No." Value="@(i => i.Position)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement4" Header="Name" Value="@(i => i.Name)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement4" Header="Weight" Value="@(i => i.Weight)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement4" Header="Symbol" Value="@(i => i.Symbol)"></MatDataTableColumnOld>
+            </Columns>
+        </MatDataTableOld>
+
+        @code
+        {
+            class PeriodicElement4
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement4(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement4[] periodicElements4 = new PeriodicElement4[]
+            {
+                new PeriodicElement4(1, "Hydrogen", 1.0079, "H"),
+                new PeriodicElement4(2, "Helium", 4.0026, "He"),
+                new PeriodicElement4(3, "Lithium", 6.941, "Li"),
+                new PeriodicElement4(4, "Beryllium", 9.0122, "Be"),
+                new PeriodicElement4(5, "Boron", 10.811, "B"),
+                new PeriodicElement4(6, "Carbon", 12.0107, "C"),
+                new PeriodicElement4(7, "Nitrogen", 14.0067, "N"),
+                new PeriodicElement4(8, "Oxygen", 15.9994, "O"),
+                new PeriodicElement4(9, "Fluorine", 18.9984, "F"),
+                new PeriodicElement4(10, "Neon", 20.1797, "Ne"),
+            };
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+
+        <MatDataTableOld Items=""@periodicElements4"">
+            <Columns>
+                <MatDataTableColumnOld TItem=""PeriodicElement4"" Header=""No."" Value=""@(i => i.Position)""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement4"" Header=""Name"" Value=""@(i => i.Name)""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement4"" Header=""Weight"" Value=""@(i => i.Weight)""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement4"" Header=""Symbol"" Value=""@(i => i.Symbol)""></MatDataTableColumnOld>
+            </Columns>
+        </MatDataTableOld>
+
+        @code
+        {
+            class PeriodicElement4
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement4(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement4[] periodicElements4 = new PeriodicElement4[]
+            {
+                new PeriodicElement4(1, ""Hydrogen"", 1.0079, ""H""),
+                new PeriodicElement4(2, ""Helium"", 4.0026, ""He""),
+                new PeriodicElement4(3, ""Lithium"", 6.941, ""Li""),
+                new PeriodicElement4(4, ""Beryllium"", 9.0122, ""Be""),
+                new PeriodicElement4(5, ""Boron"", 10.811, ""B""),
+                new PeriodicElement4(6, ""Carbon"", 12.0107, ""C""),
+                new PeriodicElement4(7, ""Nitrogen"", 14.0067, ""N""),
+                new PeriodicElement4(8, ""Oxygen"", 15.9994, ""O""),
+                new PeriodicElement4(9, ""Fluorine"", 18.9984, ""F""),
+                new PeriodicElement4(10, ""Neon"", 20.1797, ""Ne""),
             };
         }
 
@@ -145,14 +241,14 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatDataTable Items=""@periodicElements2"" Paginator=""true"">
+        <MatDataTableOld Items=""@periodicElements2"" Paginator=""true"">
             <Columns>
-                <MatDataTableColumn TItem=""PeriodicElement2"" Header=""No."" Value=""@(i => i.Position)""></MatDataTableColumn>
-                <MatDataTableColumn TItem=""PeriodicElement2"" Header=""Name"" Value=""@(i => i.Name)""></MatDataTableColumn>
-                <MatDataTableColumn TItem=""PeriodicElement2"" Header=""Weight"" Value=""@(i => i.Weight)""></MatDataTableColumn>
-                <MatDataTableColumn TItem=""PeriodicElement2"" Header=""Symbol"" Value=""@(i => i.Symbol)""></MatDataTableColumn>
+                <MatDataTableColumnOld TItem=""PeriodicElement2"" Header=""No."" Value=""@(i => i.Position)""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement2"" Header=""Name"" Value=""@(i => i.Name)""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement2"" Header=""Weight"" Value=""@(i => i.Weight)""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement2"" Header=""Symbol"" Value=""@(i => i.Symbol)""></MatDataTableColumnOld>
             </Columns>
-        </MatDataTable>
+        </MatDataTableOld>
 
         @code
         {
@@ -239,14 +335,14 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatDataTable Items=""@periodicElements3"">
+        <MatDataTableOld Items=""@periodicElements3"">
             <Columns>
-                <MatDataTableColumn TItem=""PeriodicElement3"" Header=""No."" Value=""@(i => i.Position)"" Sort=""true""></MatDataTableColumn>
-                <MatDataTableColumn TItem=""PeriodicElement3"" Header=""Name"" Value=""@(i => i.Name)"" Sort=""true""></MatDataTableColumn>
-                <MatDataTableColumn TItem=""PeriodicElement3"" Header=""Weight"" Value=""@(i => i.Weight)"" Sort=""true""></MatDataTableColumn>
-                <MatDataTableColumn TItem=""PeriodicElement3"" Header=""Symbol"" Value=""@(i => i.Symbol)"" Sort=""true""></MatDataTableColumn>
+                <MatDataTableColumnOld TItem=""PeriodicElement3"" Header=""No."" Value=""@(i => i.Position)"" Sort=""true""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement3"" Header=""Name"" Value=""@(i => i.Name)"" Sort=""true""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement3"" Header=""Weight"" Value=""@(i => i.Weight)"" Sort=""true""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement3"" Header=""Symbol"" Value=""@(i => i.Symbol)"" Sort=""true""></MatDataTableColumnOld>
             </Columns>
-        </MatDataTable>
+        </MatDataTableOld>
 
         @code
         {
