@@ -43,14 +43,12 @@ namespace MatBlazor
         protected override async Task OnParametersSetAsync()
         {
             await base.OnParametersSetAsync();
-            if (CurrentValue == null && Indeterminate)
+            if (!Indeterminate) return;
+
+            CallAfterRender(async () =>
             {
-                CallAfterRender(async () =>
-                {
-                    await JsInvokeAsync<object>("matBlazor.matCheckbox.setIndeterminate", Ref, CurrentValue,
-                        Indeterminate);
-                });
-            }
+                await JsInvokeAsync<object>("matBlazor.matCheckbox.setIndeterminate", Ref, CurrentValue == null);
+            });
         }
 
         protected void ChangeHandler(ChangeEventArgs e)
