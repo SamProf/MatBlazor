@@ -27,7 +27,7 @@ namespace MatBlazor
                 .If("mdc-slider--display-markers", () => Discrete && Markers);
             CallAfterRender(async () =>
             {
-                await JsInvokeAsync<object>("matBlazor.matSlider.init", Ref, jsHelper.Reference);
+                await JsInvokeAsync<object>("matBlazor.matSlider.init", Ref, jsHelper.Reference, Immediate);
             });
         }
 
@@ -69,6 +69,12 @@ namespace MatBlazor
 
         [Parameter]
         public bool Disabled { get; set; }
+
+        /// <summary>
+        /// When set to true, any change to the slider immediately changes the value.
+        /// </summary>
+        [Parameter]
+        public bool Immediate { get; set; }
 
         public string MarkerStyle
         {
