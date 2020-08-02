@@ -8,19 +8,6 @@
     <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" id="@Id" @attributes="@Attributes">
         <div class="mdc-select__anchor">
 
-            @if (!Outlined)
-            {
-                <span class="mdc-select__ripple"></span>
-            }
-            
-            <input type="text" disabled readonly class="mdc-select__selected-text @FieldClass">
-            
-            @if (!HideDropDownIcon)
-            {
-                <i class="mdc-select__dropdown-icon"></i>
-            }
-
-            
             @if (Outlined)
             {
                 <span class="mdc-notched-outline">
@@ -36,17 +23,49 @@
             }
             else
             {
+                <span class="mdc-select__ripple"></span>
+
                 @if (Label != null)
                 {
                     <span class="mdc-floating-label">@Label</span>
                 }
-                <span class="mdc-line-ripple"></span>
-
-                @if (Icon != null)
-                {
-                    <i class="material-icons mdc-select__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
-                }
             }
+
+
+            <span class="mdc-select__selected-text @FieldClass"></span>
+
+            @if (!HideDropDownIcon)
+            {
+                <span class="mdc-select__dropdown-icon">
+                    <svg
+                        class="mdc-select__dropdown-icon-graphic"
+                        viewBox="7 10 10 5">
+                        <polygon
+                            class="mdc-select__dropdown-icon-inactive"
+                            stroke="none"
+                            fill-rule="evenodd"
+                            points="7 10 12 15 17 10">
+                        </polygon>
+                        <polygon
+                            class="mdc-select__dropdown-icon-active"
+                            stroke="none"
+                            fill-rule="evenodd"
+                            points="7 15 12 10 17 15">
+                        </polygon>
+                    </svg>
+                </span>
+            }
+
+            @if (!Outlined)
+            {
+                <span class="mdc-line-ripple"></span>
+            }
+
+            @if (Icon != null)
+            {
+                <i class="material-icons mdc-select__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
+            }
+
         </div>
 
 

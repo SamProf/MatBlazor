@@ -130,7 +130,13 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 
 
 
-#### MatBlazor 2.6.3 (Develop)
+#### MatBlazor 2.7.0 (Develop)
+- Update MDC Web to 7.0.0
+- Changed DOM and JS for many components, because of changes in MDC Web 7.0.0
+- Fixed: Floating label in Outlined MatTextField-based components
+- Fixed Validation via EditContext colors
+
+#### MatBlazor 2.6.3
 - PR: Simplify deploying js/css #657 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
 - PR: Update README.md (Mentioned that internet access is required in Prerequisites) #610 (Thanks to [rokx](https://github.com/rokx))
 - PR: Checkbox indeterminate state fixes (Thanks to [lindespang](https://github.com/lindespang))

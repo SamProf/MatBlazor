@@ -41,6 +41,7 @@ export function setState(mdcMenu, state) {
 }
 
 export function hoistMenuToBody(menu) {
-  document.body.appendChild(menu.root_);
+  // debugger;
+  document.body.appendChild(menu.root);
   menu.setIsHoisted(true);
 }

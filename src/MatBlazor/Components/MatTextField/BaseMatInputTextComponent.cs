@@ -136,7 +136,9 @@ namespace MatBlazor
             OnFocusOutEvent = new MatEventCallback<FocusEventArgs>(this, () => OnFocusOut);
 
             ClassMapper
+                .Add("mat-text-field")
                 .Add("mdc-text-field")
+                .Get(() => this.FieldClass)
                 .If("mdc-text-field--filled", () => !this.Outlined)
                 // .Add("_mdc-text-field--upgraded")
                 .If("mdc-text-field--with-leading-icon", () => this.Icon != null && !this.IconTrailing)
@@ -160,7 +162,6 @@ namespace MatBlazor
 
             InputClassMapper
                 .Get(() => this.InputClass)
-                .Get(() => this.FieldClass)
                 .Add("mat-text-field-input")
                 .Add("mdc-text-field__input")
                 // .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(CurrentValueAsString))
