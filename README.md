@@ -134,6 +134,7 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 - PR: Simplify deploying js/css #657 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
 - PR: Update README.md (Mentioned that internet access is required in Prerequisites) #610 (Thanks to [rokx](https://github.com/rokx))
 - PR: Checkbox indeterminate state fixes (Thanks to [lindespang](https://github.com/lindespang))
+- PR: MatSlider Immediate #665 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
 
 #### MatBlazor 2.6.2
 - PR: Update Slider to Add Pin & Markers #639 (Thanks to [enkodellc](https://github.com/enkodellc))
