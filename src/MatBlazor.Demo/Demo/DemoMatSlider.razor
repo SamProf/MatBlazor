@@ -23,7 +23,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider @bind-Value=""@Val""></MatSlider>
 
         @code
@@ -70,7 +70,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider @bind-Value=""@Val2"" ValueMin=""-10"" ValueMax=""20""></MatSlider>
 
         @code
@@ -118,7 +118,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider @bind-Value=""@Val3"" Discrete=""true"" Pin=""true"" TValue=""int"" ValueMin=""0"" ValueMax=""50""></MatSlider>
 
         @code
@@ -165,26 +165,26 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatSlider @bind-Value=""@Val4"" Step=""5"" EnableStep=""true"" ValueMin=""0"" ValueMax=""100"" Markers=""true"" Pin=""true"" TValue=""int"" Discrete=""true""></MatSlider>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlider @bind-Value=""@Val4"" Step=""5"" EnableStep=""true"" ValueMin=""0"" ValueMax=""100"" Markers=""true"" Pin=""true"" TValue=""int"" Discrete=""true""></MatSlider>
 
-            @code
+        @code
             {
 
-                public int Val4
+            public int Val4
+            {
+                get => _val4;
+                set
                 {
-                    get => _val4;
-                    set
-                    {
-                        _val4 = value;
-                        this.StateHasChanged();
-                    }
+                    _val4 = value;
+                    this.StateHasChanged();
                 }
-
-                private int _val4 = 0;
             }
 
-        ")></BlazorFiddle>
+            private int _val4 = 0;
+        }
+
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
@@ -213,7 +213,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider @bind-Value=""@Val5"" Immediate=""true"" Discrete=""true"" Pin=""true"" TValue=""int"" ValueMin=""0"" ValueMax=""50""></MatSlider>
 
         @code
@@ -243,7 +243,7 @@
         <MatSlider Disabled="true" Value="55"></MatSlider>
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider Disabled=""true"" Value=""55""></MatSlider>
     ")></BlazorFiddle>
     </SourceContent>
@@ -267,7 +267,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider TValue=""decimal"" ValueChanged=""@OnValueChanged""></MatSlider>
 
         @code

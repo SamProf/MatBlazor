@@ -104,19 +104,19 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSelect Label=""Pick a Food Group"" @bind-Value=""@guidValue"">
-	        <MatOption TValue=""Guid?"" Value=""@(null)""></MatOption>
-	        <MatOption TValue=""Guid?"" Value=""@(new Guid(""20A82054-F493-4C7B-81A4-4F9A1EDD7C2E""))"">Bread, Cereal, Rice, and Pasta</MatOption>
-	        <MatOption TValue=""Guid?"" Value=""@(new Guid(""4451642D-24F7-418F-8741-BA5089A1CC65""))"">Vegetables</MatOption>
-	        <MatOption TValue=""Guid?"" Value=""@(new Guid(""5717DBBE-C205-4E33-9E07-892A51F64021""))"">Fruit</MatOption>
+            <MatOption TValue=""Guid?"" Value=""@(null)""></MatOption>
+            <MatOption TValue=""Guid?"" Value=""@(new Guid(""20A82054-F493-4C7B-81A4-4F9A1EDD7C2E""))"">Bread, Cereal, Rice, and Pasta</MatOption>
+            <MatOption TValue=""Guid?"" Value=""@(new Guid(""4451642D-24F7-418F-8741-BA5089A1CC65""))"">Vegetables</MatOption>
+            <MatOption TValue=""Guid?"" Value=""@(new Guid(""5717DBBE-C205-4E33-9E07-892A51F64021""))"">Fruit</MatOption>
         </MatSelect>
 
         <span>@guidValue</span>
 
         @code
         {
-	        Guid? guidValue = new Guid(""20A82054-F493-4C7B-81A4-4F9A1EDD7C2E"");
+            Guid? guidValue = new Guid(""20A82054-F493-4C7B-81A4-4F9A1EDD7C2E"");
         }
 
     ")></BlazorFiddle>
