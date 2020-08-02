@@ -23,7 +23,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider @bind-Value=""@Val""></MatSlider>
 
         @code
@@ -70,7 +70,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider @bind-Value=""@Val2"" ValueMin=""-10"" ValueMax=""20""></MatSlider>
 
         @code
@@ -118,7 +118,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider @bind-Value=""@Val3"" Discrete=""true"" Pin=""true"" TValue=""int"" ValueMin=""0"" ValueMax=""50""></MatSlider>
 
         @code
@@ -143,29 +143,29 @@
 
 <h5 class="mat-h5">Using a step value and Pin</h5>
 <p>Markers only work with Discrete</p>
-    <DemoContainer>
-        <Content>
-            <MatSlider @bind-Value="@Val4" Step="5" EnableStep="true" ValueMin="0" ValueMax="100" Markers="true" Pin="true" TValue="int" Discrete="true"></MatSlider>
+<DemoContainer>
+    <Content>
+        <MatSlider @bind-Value="@Val4" Step="5" EnableStep="true" ValueMin="0" ValueMax="100" Markers="true" Pin="true" TValue="int" Discrete="true"></MatSlider>
 
-            @code
+        @code
             {
 
-                public int Val4
+            public int Val4
+            {
+                get => _val4;
+                set
                 {
-                    get => _val4;
-                    set
-                    {
-                        _val4 = value;
-                        this.StateHasChanged();
-                    }
+                    _val4 = value;
+                    this.StateHasChanged();
                 }
-
-                private int _val4 = 0;
             }
 
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
+            private int _val4 = 0;
+        }
+
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
             <MatSlider @bind-Value=""@Val4"" Step=""5"" EnableStep=""true"" ValueMin=""0"" ValueMax=""100"" Markers=""true"" Pin=""true"" TValue=""int"" Discrete=""true""></MatSlider>
 
             @code
@@ -185,9 +185,56 @@
             }
 
         ")></BlazorFiddle>
-        </SourceContent>
+    </SourceContent>
 </DemoContainer>
 
+
+<h5 class="mat-h5">Immediate changes: @Val5</h5>
+<p>Changes to the slider will immediately reflect in changes to the value.</p>
+<DemoContainer>
+    <Content>
+        <MatSlider @bind-Value="@Val5" Immediate="true" Discrete="true" Pin="true" TValue="int" ValueMin="0" ValueMax="50"></MatSlider>
+
+        @code
+        {
+
+            public int Val5
+            {
+                get => _val5;
+                set
+                {
+                    _val5 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private int _val5 = 0;
+        }
+
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlider @bind-Value=""@Val5"" Immediate=""true"" Discrete=""true"" Pin=""true"" TValue=""int"" ValueMin=""0"" ValueMax=""50""></MatSlider>
+
+        @code
+        {
+
+            public int Val5
+            {
+                get => _val5;
+                set
+                {
+                    _val5 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private int _val5 = 0;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
 
 
 <h5 class="mat-h5">Disabled sliders</h5>
@@ -196,7 +243,7 @@
         <MatSlider Disabled="true" Value="55"></MatSlider>
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider Disabled=""true"" Value=""55""></MatSlider>
     ")></BlazorFiddle>
     </SourceContent>
@@ -220,7 +267,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatSlider TValue=""decimal"" ValueChanged=""@OnValueChanged""></MatSlider>
 
         @code

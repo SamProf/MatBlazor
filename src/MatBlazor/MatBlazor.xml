@@ -611,6 +611,11 @@
             </summary>
             <typeparam name="TValue">sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?</typeparam>
         </member>
+        <member name="P:MatBlazor.BaseMatSlider`1.Immediate">
+            <summary>
+            When set to true, any change to the slider immediately changes the value.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatSlideToggle`1">
             <summary>
             Material Design SlideToggle for Blazor. Component for on/off control that can be toggled via clicking or dragging.
