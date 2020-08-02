@@ -5,14 +5,14 @@
 <DemoContainer Header="Basic use of Data Table">
     <Content>
 
-        <MatDataTable Items="@periodicElements">
+        <MatDataTableOld Items="@periodicElements">
             <Columns>
-                <MatDataTableColumn TItem="PeriodicElement" Header="No." Value="@(i => i.Position)"></MatDataTableColumn>
-                <MatDataTableColumn TItem="PeriodicElement" Header="Name" Value="@(i => i.Name)"></MatDataTableColumn>
-                <MatDataTableColumn TItem="PeriodicElement" Header="Weight" Value="@(i => i.Weight)"></MatDataTableColumn>
-                <MatDataTableColumn TItem="PeriodicElement" Header="Symbol" Value="@(i => i.Symbol)"></MatDataTableColumn>
+                <MatDataTableColumnOld TItem="PeriodicElement" Header="No." Value="@(i => i.Position)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement" Header="Name" Value="@(i => i.Name)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement" Header="Weight" Value="@(i => i.Weight)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement" Header="Symbol" Value="@(i => i.Symbol)"></MatDataTableColumnOld>
             </Columns>
-        </MatDataTable>
+        </MatDataTableOld>
 
         @code
         {
@@ -100,14 +100,14 @@
 
 <DemoContainer Header="Pagination with Data Table">
     <Content>
-        <MatDataTable Items="@periodicElements2" Paginator="true">
+        <MatDataTableOld Items="@periodicElements2" Paginator="true">
             <Columns>
-                <MatDataTableColumn TItem="PeriodicElement2" Header="No." Value="@(i => i.Position)"></MatDataTableColumn>
-                <MatDataTableColumn TItem="PeriodicElement2" Header="Name" Value="@(i => i.Name)"></MatDataTableColumn>
-                <MatDataTableColumn TItem="PeriodicElement2" Header="Weight" Value="@(i => i.Weight)"></MatDataTableColumn>
-                <MatDataTableColumn TItem="PeriodicElement2" Header="Symbol" Value="@(i => i.Symbol)"></MatDataTableColumn>
+                <MatDataTableColumnOld TItem="PeriodicElement2" Header="No." Value="@(i => i.Position)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement2" Header="Name" Value="@(i => i.Name)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement2" Header="Weight" Value="@(i => i.Weight)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement2" Header="Symbol" Value="@(i => i.Symbol)"></MatDataTableColumnOld>
             </Columns>
-        </MatDataTable>
+        </MatDataTableOld>
 
         @code
         {
@@ -194,14 +194,14 @@
 
 <DemoContainer Header="Sorting with Data Table">
     <Content>
-        <MatDataTable Items="@periodicElements3">
+        <MatDataTableOld Items="@periodicElements3">
             <Columns>
-                <MatDataTableColumn TItem="PeriodicElement3" Header="No." Value="@(i => i.Position)" Sort="true"></MatDataTableColumn>
-                <MatDataTableColumn TItem="PeriodicElement3" Header="Name" Value="@(i => i.Name)" Sort="true"></MatDataTableColumn>
-                <MatDataTableColumn TItem="PeriodicElement3" Header="Weight" Value="@(i => i.Weight)" Sort="true"></MatDataTableColumn>
-                <MatDataTableColumn TItem="PeriodicElement3" Header="Symbol" Value="@(i => i.Symbol)" Sort="true"></MatDataTableColumn>
+                <MatDataTableColumnOld TItem="PeriodicElement3" Header="No." Value="@(i => i.Position)" Sort="true"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement3" Header="Name" Value="@(i => i.Name)" Sort="true"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement3" Header="Weight" Value="@(i => i.Weight)" Sort="true"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement3" Header="Symbol" Value="@(i => i.Symbol)" Sort="true"></MatDataTableColumnOld>
             </Columns>
-        </MatDataTable>
+        </MatDataTableOld>
 
         @code
         {
