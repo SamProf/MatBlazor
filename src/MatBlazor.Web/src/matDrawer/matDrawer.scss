@@ -1,6 +1,6 @@
+@use '@material/drawer/mixins' as mat-mixins;
 @import "@material/drawer/mdc-drawer";
 @import "@material/list/mdc-list";
-
 
 .mat-drawer-app-content {
   height: 100%;
@@ -8,8 +8,7 @@
   overflow: auto;
 }
 
-
-.mat-drawer
-{
+.mat-drawer {
   border-right-width: 0px;
+  @include mat-mixins.width(var(--mat-drawer-custom-width, 256px));
 }

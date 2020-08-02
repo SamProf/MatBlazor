@@ -48,19 +48,22 @@ namespace MatBlazor
         public EventCallback<bool> OpenedChanged { get; set; }
 
         [Parameter]
-        public string Width { get; set; }
+        public string? Width { get; set; } = null;
 
         private DotNetObjectReference<BaseMatDrawer> dotNetObjectRef;
         public BaseMatDrawer()
         {
-            
             ClassMapper
                 .Add("mdc-drawer")
                 .Add("mat-drawer")
-                .Add("mat-blazor-drawer")
                 .If("mdc-drawer--dismissible", () => Mode == MatDrawerMode.Dismissible)
                 .If("mdc-drawer--modal", () => Mode == MatDrawerMode.Modal);
 
+            if (Width != null)
+            {
+                StyleMapper
+                    .Add($"--mat-drawer-custom-width: {Width}");
+            }
 
             this.CallAfterRender(async () =>
             {

@@ -1,20 +1,6 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatDrawer
 
-<style>
-.mat-blazor-drawer {
-  width: @Width;
-}
-.mat-blazor-drawer.mdc-drawer--open:not(.mdc-drawer--closing) + .mdc-drawer-app-content {
-  margin-left: @Width;
-  margin-right: 0;
-}
-[dir=rtl] .mat-blazor-drawer.mdc-drawer--open:not(.mdc-drawer--closing) + .mdc-drawer-app-content, .mat-blazor-drawer.mdc-drawer--open:not(.mdc-drawer--closing) + .mdc-drawer-app-content[dir=rtl] {
-  margin-left: 0;
-  margin-right: @Width;
-}
-</style>
-
 <aside class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref"  @attributes="Attributes" Id="@Id">
     <div class="mdc-drawer__content" tabindex="@ContentTabIndex">
         @ChildContent
