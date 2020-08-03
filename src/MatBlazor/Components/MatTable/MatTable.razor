@@ -302,14 +302,7 @@
                     throw new ArgumentNullException("FilterByColumnName param cannot be null");
                 }
 
-                var type = (TableItem)Activator.CreateInstance(typeof(TableItem));
-
-                if (type == null)
-                {
-                    throw new ArgumentException($"Could not create instance for type {nameof(TableItem)}");
-                }
-
-                var properties = type.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
+                var properties = typeof(TableItem).GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
                 if (properties == null)
                 {
