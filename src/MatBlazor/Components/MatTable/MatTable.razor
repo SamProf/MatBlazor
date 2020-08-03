@@ -458,7 +458,17 @@
 
         foreach (var item in items)
         {
-            var values = properties.Where(x => x.GetValue(item, null).ToString() != null).Select(x => x.GetValue(item, null).ToString());
+            var values = properties.Where(x => {
+                var tmp = x.GetValue(item, null);
+                if(tmp == null || tmp.ToString() == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }).Select(x => x.GetValue(item, null).ToString());
 
             if (!values.Any())
             {
