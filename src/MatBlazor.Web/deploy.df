@@ -1,0 +1,8 @@
+FROM node
+WORKDIR src
+COPY package.json .
+COPY .babelrc .
+COPY .eslintrc.js .
+RUN npm install
+COPY . .
+RUN npm run build

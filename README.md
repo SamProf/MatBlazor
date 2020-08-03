@@ -32,6 +32,7 @@ Complete all Blazor dependencies.
 
 - .NET Core 3.1
 - Visual Studio 2019 with the ASP.NET and web development workload selected.
+- Requires access to internet for CSS download
 
 ## Installation 
 
@@ -128,7 +129,20 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 - `MatAutocomplete` - new implementation of component
 
 
-#### MatBlazor 2.6.1 (Develop)
+
+#### MatBlazor 2.7.0 (Develop)
+- Update MDC Web to 7.0.0
+- Changed DOM and JS for many components, because of changes in MDC Web 7.0.0
+- Fixed: Floating label in Outlined MatTextField-based components
+- Fixed Validation via EditContext colors
+
+#### MatBlazor 2.6.3
+- PR: Simplify deploying js/css #657 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
+- PR: Update README.md (Mentioned that internet access is required in Prerequisites) #610 (Thanks to [rokx](https://github.com/rokx))
+- PR: Checkbox indeterminate state fixes (Thanks to [lindespang](https://github.com/lindespang))
+- PR: MatSlider Immediate #665 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
+
+#### MatBlazor 2.6.2
 - PR: Update Slider to Add Pin & Markers #639 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: MatTable double click #629 (Thanks to [sebestyn168](https://github.com/sebestyn168))
 - PR: Fix MatAutocomplete fails with tab and google autofill #614 (Thanks to [sebestyn168](https://github.com/sebestyn168))
@@ -147,7 +161,6 @@ Also we have official [Contributors team](https://github.com/SamProf/MatBlazor/i
 - PR: MatHelperText Created #569 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
 - PR: Added ForceLoad option for MatButton and MatIconButton (Fixes #330) #570 (Thanks to [Garderoben](https://github.com/Garderoben) and [enkodellc](https://github.com/enkodellc))
 - PR: Added LazyRendering for MatExpansionPanel + bug fix #578 (Thanks to [lindespang](https://github.com/lindespang))
-
 
 #### MatBlazor 2.6.0
 - Update to Latest Microsoft.AspNetCore.Components 3.1.4 and Microsoft.AspNetCore.Components.WebAssembly 3.2.0

@@ -1,19 +1,26 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatDomComponent
+@typeparam TItem
 
-<tbody class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" id="@Id" @attributes="@Attributes">
-@ChildContent
-</tbody>
-
+<CascadingValue Value="@MatDataTableColumnRenderMode.HeaderCell">
+    <thead>
+    <tr class="mdc-data-table__header-row">
+        @ChildContent(default(TItem))
+    </tr>
+    </thead>
+</CascadingValue>
+<CascadingValue Value="@MatDataTableColumnRenderMode.RowCell">
+    <tbody class="mdc-data-table__content">
+    @foreach (var item in Items)
+    {
+        <tr class="mdc-data-table__row">
+            @ChildContent(item)
+        </tr>
+    }
+    </tbody>
+</CascadingValue>
 
 @code
 {
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
 
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-        ClassMapper.Add("mdc-data-table__content");
-    }
 }

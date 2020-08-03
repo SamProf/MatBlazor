@@ -25,6 +25,7 @@ namespace MatBlazor
             ClassMapper
                 .Add("mat-select")
                 .Add("mdc-select")
+                .If("mdc-select--filled", () => !Outlined)
                 .If("mdc-select--outlined", () => Outlined)
                 .If("mdc-select--disabled", () => Disabled)
                 .If("mdc-select--with-leading-icon", () => Icon != null);

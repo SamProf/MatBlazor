@@ -15,12 +15,12 @@ export function init(ref, options) {
 }
 
 export function getSelectedIndex(ref) {
-  let currentIndex = ref.$list.foundation_.getSelectedIndex();
+  let currentIndex = ref.$list.foundation.getSelectedIndex();
   return currentIndex;
 }
 
 export function setSelectedIndex(ref, index) {
-  ref.$list.foundation_.setSelectedIndex(index);
+  ref.$list.foundation.setSelectedIndex(index);
 }
 
 export function confirmSelection(ref) {
