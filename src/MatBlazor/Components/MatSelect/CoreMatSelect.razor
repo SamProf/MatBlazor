@@ -65,15 +65,14 @@
             {
                 <i class="material-icons mdc-select__icon" tabindex="@(IconOnClick.HasDelegate ? "0" : null)" onclick="@IconOnClick">@Icon</i>
             }
-
         </div>
 
-
-        <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+        <div class="mdc-select__menu mdc-menu mdc-menu-surface" style="@(FullWidth ? "width: 100%;" : "")">
             <ul class="mdc-list">
                 @GetChildContent()
             </ul>
         </div>
+
 
     </div>
     @if (HelperText != null)
