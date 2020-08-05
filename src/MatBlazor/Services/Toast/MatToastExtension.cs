@@ -11,7 +11,10 @@ namespace MatBlazor
         /// </summary>
         public static IServiceCollection AddMatToaster(this IServiceCollection services, MatToastConfiguration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException(nameof(configuration));
+            if (configuration == null)
+            {
+                throw new ArgumentNullException(nameof(configuration));
+            }
             services.TryAddScoped<IMatToaster>(builder => new MatToaster(configuration));
             return services;
         }
@@ -30,7 +33,10 @@ namespace MatBlazor
         public static IServiceCollection AddMatToaster(this IServiceCollection services,
             Action<MatToastConfiguration> configure)
         {
-            if (configure == null) throw new ArgumentNullException(nameof(configure));
+            if (configure == null)
+            {
+                throw new ArgumentNullException(nameof(configure));
+            }
 
             var options = new MatToastConfiguration();
             configure(options);

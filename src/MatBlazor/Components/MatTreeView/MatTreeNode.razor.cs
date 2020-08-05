@@ -50,15 +50,25 @@ namespace MatBlazor
             {
                 var childItems = this.ChildNodes;
                 if (childItems == null)                                 // Loading
+                {
                     return "oi oi-reload spinner";
+                }
                 else if (!string.IsNullOrWhiteSpace(LoadErrorMessage))  // Error
+                {
                     return "oi oi-warning";
+                }
                 else if (!childItems.Any())                             // TODO no children - may need spacer
+                {
                     return "oi empty";
+                }
                 else if (this.IsExpanded)                               // expanded
+                {
                     return "oi oi-caret-bottom";
+                }
                 else                                                    // collapsed
+                {
                     return "oi oi-caret-right";
+                }
             }
         }
         // TODO clugde as OpenIconic not installed - and not sure of your thinking on resources s
@@ -68,15 +78,25 @@ namespace MatBlazor
             {
                 var childItems = this.ChildNodes;
                 if (childItems == null)                                 // Loading
+                {
                     return "Loading";
+                }
                 else if (!string.IsNullOrWhiteSpace(LoadErrorMessage))  // Error
+                {
                     return "Error";
+                }
                 else if (!childItems.Any())                             // TODO no children - may need spacer
+                {
                     return "Leaf";
+                }
                 else if (this.IsExpanded)                               // expanded
+                {
                     return "Expanded";
+                }
                 else                                                    // collapsed
+                {
                     return "Collapsed";
+                }
             }
         }
 
@@ -105,12 +125,11 @@ namespace MatBlazor
 
             // can't expand one that still loading, or is empty
             if (childItems == null || childItems.Any() == false)
+            {
                 return;
+            }
 
-            if (this.IsExpanded)
-                await this.SetExpanded(false);
-            else
-                await this.SetExpanded(true);
+            await this.SetExpanded(!IsExpanded);
         }
 
         private Task OnSelected_Clicked(MouseEventArgs args)

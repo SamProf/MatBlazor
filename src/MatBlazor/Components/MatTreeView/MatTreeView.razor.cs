@@ -191,10 +191,10 @@ namespace MatBlazor
             }
 
             // ensure everything is expanded up to the selected node
-            List<TNode> pathToSelected = new List<TNode>();
+            var pathToSelected = new List<TNode>();
             BuildPathToSelected(this.RootNodes, pathToSelected);
             //if (pathToSelected.Count > 0) pathToSelected.RemoveAt(0); // don't expand the selected node
-            foreach (TNode pathNode in pathToSelected)
+            foreach (var pathNode in pathToSelected)
             {
                 if (this.IsNodeExpanded(pathNode) == false)
                 {
@@ -244,7 +244,7 @@ namespace MatBlazor
         /// <returns></returns>
         private Task EnsureSelectedNodeIsVisible()
         {
-            List<TNode> pathToSelected = new List<TNode>();
+            var pathToSelected = new List<TNode>();
             if (BuildPathToSelected(this.RootNodes, pathToSelected))
             {
                 foreach (var node in pathToSelected)
@@ -271,7 +271,7 @@ namespace MatBlazor
                 return false;
             }
 
-            foreach (TNode node in nodes)
+            foreach (var node in nodes)
             {
                 if (node == this.SelectedNode)
                 {
