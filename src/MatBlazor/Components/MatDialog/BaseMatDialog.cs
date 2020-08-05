@@ -68,7 +68,7 @@ namespace MatBlazor
             ClassMapper.Add("mdc-dialog");
             CallAfterRender(async () =>
             {
-                dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
+                dotNetObjectRef ??= CreateDotNetObjectRef(this);
                 await JsInvokeAsync<object>("matBlazor.matDialog.init", Ref, dotNetObjectRef);
             });
         }

@@ -82,13 +82,10 @@ namespace MatBlazor
             {
                 try
                 {
-                    decimal min = 0;
-                    decimal.TryParse(ValueMin.ToString(), out min);
-                    decimal max = 0;
-                    decimal.TryParse(ValueMax.ToString(), out max);
-                    decimal step = 1;
-                    decimal.TryParse(Step.ToString(), out step);
-                    return "background: linear-gradient(to right, currentcolor 2px, transparent 0px) 0px center / calc((100% - 2px) / " + ((max - min) / step).ToString() + ") 100% repeat-x;";
+                    decimal.TryParse(ValueMin.ToString(), out var min);
+                    decimal.TryParse(ValueMax.ToString(), out var max);
+                    decimal.TryParse(Step.ToString(), out var step);
+                    return "background: linear-gradient(to right, currentcolor 2px, transparent 0px) 0px center / calc((100% - 2px) / " + ((max - 0) / step).ToString() + ") 100% repeat-x;";
                 }
                 catch
                 {

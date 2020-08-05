@@ -21,8 +21,8 @@ namespace MatBlazor.Demo.BlazorFiddle
             {
                 await JsInvokeAsync<object>("blazorFiddle.create", Ref, new
                 {
-                    Text = this.Code,
-                    Template = this.Template,
+                    Text = Code,
+                    Template = Template,
                 });
             }
             catch (Exception e)

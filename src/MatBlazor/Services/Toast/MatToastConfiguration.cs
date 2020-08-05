@@ -75,19 +75,19 @@ namespace MatBlazor
 
         internal static string ToastTypeClass(MatToastType type)
         {
-            switch (type)
+            return type switch
             {
-                case MatToastType.Danger: return "mat-toast-danger";
-                case MatToastType.Dark: return "mat-toast-dark";
-                case MatToastType.Info: return "mat-toast-info";
-                case MatToastType.Light: return "mat-toast-light";
-                case MatToastType.Link: return "mat-toast-light";
-                case MatToastType.Primary: return "mat-toast-primary";
-                case MatToastType.Secondary: return "mat-toast-secondary";
-                case MatToastType.Success: return "mat-toast-success";
-                case MatToastType.Warning: return "mat-toast-warning";
-                default: return "mat-toast-info";
-            }
+                MatToastType.Danger => "mat-toast-danger",
+                MatToastType.Dark => "mat-toast-dark",
+                MatToastType.Info => "mat-toast-info",
+                MatToastType.Light => "mat-toast-light",
+                MatToastType.Link => "mat-toast-light",
+                MatToastType.Primary => "mat-toast-primary",
+                MatToastType.Secondary => "mat-toast-secondary",
+                MatToastType.Success => "mat-toast-success",
+                MatToastType.Warning => "mat-toast-warning",
+                _ => "mat-toast-info",
+            };
         }
     }
 }

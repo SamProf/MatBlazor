@@ -31,8 +31,9 @@ namespace MatBlazor
         protected override Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
+            {
                 ScrollToAnchor(forceScroll: true);
-
+            }
             return base.OnAfterRenderAsync(firstRender);
         }
 
@@ -44,7 +45,9 @@ namespace MatBlazor
         void ScrollToAnchor(string anchor = "", bool forceScroll = false)
         {
             if (!string.IsNullOrEmpty(anchor) || forceScroll)
+            {
                 JSRuntime.InvokeAsync<string>("matBlazor.matAnchor.scrollToAnchor", anchor);
+            }
         }
 
         void IDisposable.Dispose()

@@ -114,8 +114,6 @@
 <h5 class="mat-h5">Nested Sub Menus</h5>
 <DemoContainer>
     <Content>
-        @using Microsoft.AspNetCore.Components
-
         <div class="mat-elevation-z4" style="padding: 10px;">
             <MatSlideToggle @bind-Value="MultiChecked" Label="@("Multi: " + MultiChecked)" />
             <MatButton OnClick="@(() => navMenu.ToggleAllSubMenus(true))">Expand All</MatButton>

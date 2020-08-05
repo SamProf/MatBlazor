@@ -86,11 +86,11 @@
         </member>
         <member name="M:MatBlazor.BaseMatInputTextElementComponent`1.TryParseValueFromString(System.String,`0@,System.String@)">
             <summary>
-            Parses a string to create an instance of <typeparamref name="TValue"/>. Derived classes can override this to change how
+            Parses a string to create an instance of <typeparamref name="T"/>. Derived classes can override this to change how
             <see cref="P:MatBlazor.BaseMatInputTextElementComponent`1.CurrentValueAsString"/> interprets incoming values.
             </summary>
             <param name="value">The string value to be parsed.</param>
-            <param name="result">An instance of <typeparamref name="TValue"/>.</param>
+            <param name="result">An instance of <typeparamref name="T"/>.</param>
             <param name="validationErrorMessage">If the value could not be parsed, provides a validation error message.</param>
             <returns>True if the value could be parsed; otherwise false.</returns>
         </member>
@@ -258,7 +258,11 @@
             </summary>
             
         </member>
-        <!-- Badly formed XML comment ignored for member "P:MatBlazor.BaseMatButton.Target" -->
+        <member name="P:MatBlazor.BaseMatButton.Target">
+            <summary>
+            Target of Link when clicked.
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatButton.Raised">
             <summary>
             Button has raised style.

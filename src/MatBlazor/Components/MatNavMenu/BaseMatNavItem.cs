@@ -94,7 +94,10 @@ namespace MatBlazor
         /// </summary>
         protected async void OnClickHandler(MouseEventArgs e)
         {
-            if (Disabled) return;
+            if (Disabled)
+            {
+                return;
+            }
 
             if (AllowSelection)
             {

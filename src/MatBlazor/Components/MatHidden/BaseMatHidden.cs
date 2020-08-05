@@ -10,7 +10,7 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatHidden : BaseMatComponent
     {
-        private string Id = IdGeneratorHelper.Generate("");
+        private readonly string Id = IdGeneratorHelper.Generate("");
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
@@ -63,7 +63,7 @@ namespace MatBlazor
             await base.OnFirstAfterRenderAsync();
             CallAfterRender(async () =>
             {
-                dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
+                dotNetObjectRef ??= CreateDotNetObjectRef(this);
                 await JsInvokeAsync<object>("matBlazor.matHidden.init", Id, dotNetObjectRef);
                 isInitialized = true;
                 await UpdateVisible();

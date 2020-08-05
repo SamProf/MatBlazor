@@ -10,7 +10,7 @@ namespace MatBlazor
 {
     public class MatVirtualScrollHelper : IDisposable
     {
-        private IMatVirtualScrollHelperTarget _target;
+        private readonly IMatVirtualScrollHelperTarget _target;
         private MatVirtualScrollView _view;
 
         public bool Enabled { get; private set; }

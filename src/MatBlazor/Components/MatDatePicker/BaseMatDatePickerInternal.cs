@@ -48,7 +48,7 @@ namespace MatBlazor
         public string Mode { get; set; } = "single";
 
         private DotNetObjectReference<MatDatePickerJsHelper> dotNetObjectRef;
-        private MatDatePickerJsHelper dotNetObject;
+        private readonly MatDatePickerJsHelper dotNetObject;
         protected ElementReference flatpickrInputRef;
 
         protected override bool InputTextReadOnly()
