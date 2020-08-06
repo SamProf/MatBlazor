@@ -9,7 +9,7 @@ namespace MatBlazor
         [Parameter]
         public Func<TItem, TValue> ValueSelector { get; set; }
 
-        private static EqualityComparer<TValue> _comparer = EqualityComparer<TValue>.Default;
+        private static readonly EqualityComparer<TValue> _comparer = EqualityComparer<TValue>.Default;
 
         protected override int GetKeyFromValue(TValue value)
         {

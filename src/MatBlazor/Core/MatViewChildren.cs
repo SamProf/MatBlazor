@@ -9,8 +9,6 @@ namespace MatBlazor
 {
     public class MatViewChildren<TSelect> : ComponentBase where TSelect : IComponent
     {
-        private RenderTreeFrame[] frames;
-
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 

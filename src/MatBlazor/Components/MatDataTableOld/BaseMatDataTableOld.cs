@@ -87,8 +87,7 @@ namespace MatBlazor
                 var takeItems = pageSize > 0 ? pageSize : 0;
 
 
-                var q = e as IQueryable<TItem>;
-                if (q != null)
+                if (e is IQueryable<TItem> q)
                 {
                     if (skipItems > 0)
                     {

@@ -35,8 +35,7 @@ namespace MatBlazor.DevUtils
             {
                 Console.WriteLine($"{line.Groups["color"]} {line.Groups["shade"]} {line.Groups["value"]}");
                 var colorName = line.Groups["color"].Value;
-                Dictionary<string, string> c;
-                if (!colors.TryGetValue(colorName, out c))
+                if (!colors.TryGetValue(colorName, out var c))
                 {
                     c = new Dictionary<string, string>();
                     colors.Add(colorName, c);

@@ -105,20 +105,12 @@ namespace MatBlazor
         /// Css class of input element
         /// </summary>
         [Parameter]
-        public string InputClass
-        {
-            get => _inputClass;
-            set { _inputClass = value; }
-        }
-
+        public string InputClass { get; set; }
         /// <summary>
         /// Style attribute of input element
         /// </summary>
         [Parameter]
         public string InputStyle { get; set; }
-
-        private string _value;
-        private string _inputClass;
 
         protected ClassMapper LabelClassMapper = new ClassMapper();
         protected ClassMapper InputClassMapper = new ClassMapper();

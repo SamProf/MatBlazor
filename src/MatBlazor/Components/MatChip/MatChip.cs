@@ -51,11 +51,15 @@ namespace MatBlazor
             set
             {
                 if (_isSelected == value)
+                {
                     return;
+                }
                 _isSelected = value;
                 this.StateHasChanged();
                 if (ChipSet != null && _isSelected)
+                {
                     ChipSet.HandleChipSelected(this);
+                }
                 IsSelectedChanged.InvokeAsync(_isSelected);
             }
         }
@@ -88,17 +92,21 @@ namespace MatBlazor
         protected override void OnInitialized()
         {
             if (ChipSet == null)
+            {
                 return;
+            }
             ChipSet.RegisterChip(this);
         }
 
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            _dotNetObjectRef = _dotNetObjectRef ?? CreateDotNetObjectRef(this); // needed to call into this object from Javascript
+            _dotNetObjectRef ??= CreateDotNetObjectRef(this); // needed to call into this object from Javascript
             await JsInvokeAsync<object>("matBlazor.matChip.init", Ref, _dotNetObjectRef);
             if (_isSelected && ChipSet != null)
+            {
                 await ChipSet.HandleChipSelected(this);
+            }
         }
 
         public override void Dispose()
@@ -111,7 +119,9 @@ namespace MatBlazor
         public async Task MatChipInteractionHandler(string chipId)
         {
             if (ChipSet == null)
+            {
                 return;
+            }
             await ChipSet.HandleChipClicked(this);
         }
 

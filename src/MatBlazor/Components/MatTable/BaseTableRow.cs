@@ -45,11 +45,11 @@ namespace MatBlazor
                 .If("mdc-table-row-selected", () => Selected);
         }
 
-        protected async void OnClickHandler(MouseEventArgs e)
+        protected void OnClickHandler(MouseEventArgs _)
         {
-            if (this.AllowSelection)
+            if (AllowSelection)
             {
-                await this.ToggleSelectedAsync();
+                ToggleSelectedAsync();
             }
         }
     }

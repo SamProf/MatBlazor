@@ -16,16 +16,9 @@ namespace MatBlazor
         }
 
         [Parameter]
-        public bool Stroke
-        {
-            get => _stroke;
-            set { _stroke = value; }
-        }
+        public bool Stroke { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
-
-
-        private bool _stroke;
     }
 }
