@@ -84,7 +84,10 @@ namespace MatBlazor
                 {
                     decimal.TryParse(ValueMin.ToString(), out var min);
                     decimal.TryParse(ValueMax.ToString(), out var max);
-                    decimal.TryParse(Step.ToString(), out var step);
+                    if (!decimal.TryParse(Step.ToString(), out var step))
+                    {
+                        step = 1;
+                    }
                     return "background: linear-gradient(to right, currentcolor 2px, transparent 0px) 0px center / calc((100% - 2px) / " + ((max - 0) / step).ToString() + ") 100% repeat-x;";
                 }
                 catch
