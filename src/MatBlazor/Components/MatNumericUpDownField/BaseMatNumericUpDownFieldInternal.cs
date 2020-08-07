@@ -78,8 +78,9 @@ namespace MatBlazor
                         Decrease();
                     }
                 });
-            Maximum = SwitchT.GetMaximum();
-            Minimum = SwitchT.GetMinimum();
+            
+            Maximum ??= SwitchT.GetMaximum();
+            Minimum ??= SwitchT.GetMinimum();
 
             ClassMapper.Add("mat-numeric-up-down-field");
             ClassMapper.Add("mat-text-field-with-actions-container");
@@ -107,7 +108,10 @@ namespace MatBlazor
             }
             else
             {
-                Step = SwitchT.GetStep();
+                if (Step == null || Step.Equals(ZeroValue))
+                {
+                    Step = SwitchT.GetStep();
+                }
             }
         }
 
