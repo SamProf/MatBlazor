@@ -146,11 +146,17 @@ namespace MatBlazor
                     () => this.FullWidth && this.Icon != null && this.IconTrailing)
                 .If("mdc-text-field--textarea", () => this.TextArea);
 
+            bool TextOrPlaceHolderVisible()
+            {
+                return !string.IsNullOrEmpty(CurrentValueAsString)
+                    || (!string.IsNullOrWhiteSpace(PlaceHolder) && FullWidth);
+            }
+
             LabelClassMapper
                 .Add("mdc-floating-label")
                 .If("mat-floating-label--float-above-outlined",
-                    () => Outlined && !string.IsNullOrEmpty(CurrentValueAsString))
-                .If("mdc-floating-label--float-above", () => !string.IsNullOrEmpty(CurrentValueAsString));
+                    () => Outlined && TextOrPlaceHolderVisible())
+                .If("mdc-floating-label--float-above", () => TextOrPlaceHolderVisible());
 
             InputClassMapper
                 .Get(() => this.InputClass)
