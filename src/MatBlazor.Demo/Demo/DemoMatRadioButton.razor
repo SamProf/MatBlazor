@@ -51,7 +51,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <MatH5>Gender</MatH5>
         <MatRadioGroup @bind-Value=""@Val1"" TValue=""string"">
             <MatRadioButton Value=""@string.Empty"" TValue=""string"">Default</MatRadioButton>
@@ -158,7 +158,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
 
         <h3>Car Items: @carValue?.Name</h3>
         <MatRadioGroup @bind-Value=""@carValue"" Items=""@carOptions"">
@@ -218,15 +218,15 @@
 <h5 class="mat-h5">Enum</h5>
 <DemoContainer>
     <Content>
-        <MatRadioGroup @bind-Value="@sex" Items="@(Enum.GetValues(typeof(Sex)).Cast<Sex>())">
+        <MatRadioGroup @bind-Value="@gender" Items="@(Enum.GetValues(typeof(Gender)).Cast<Gender>())">
         </MatRadioGroup>
 
 
         @code
         {
-            Sex sex;
+            Gender gender;
 
-            enum Sex
+            enum Gender
             {
                 None,
                 Male,
@@ -238,16 +238,16 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatRadioGroup @bind-Value=""@sex"" Items=""@(Enum.GetValues(typeof(Sex)).Cast<Sex>())"">
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatRadioGroup @bind-Value=""@gender"" Items=""@(Enum.GetValues(typeof(Gender)).Cast<Gender>())"">
         </MatRadioGroup>
 
 
         @code
         {
-            Sex sex;
+            Gender gender;
 
-            enum Sex
+            enum Gender
             {
                 None,
                 Male,
