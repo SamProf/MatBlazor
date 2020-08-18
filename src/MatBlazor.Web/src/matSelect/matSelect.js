@@ -3,15 +3,11 @@ import MDCSelectFoundation from '@material/select/foundation';
 import {hoistMenuToBody} from '../matMenu/matMenu';
 
 
-
+    
 export class MatSelect {
   constructor(ref, component, value) {
 
     this.select = new MDCSelect(ref);
-
-
-    hoistMenuToBody(this.select.menu);
-
 
     this.select.value = value;
 
