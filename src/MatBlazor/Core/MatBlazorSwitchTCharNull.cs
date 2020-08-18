@@ -4,34 +4,37 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTCharNull : MatBlazorSwitchT<char?>
     {
-        public override char? Increase(char? v, char? step, char? max)
+        public override char? Clamp(char? v, char? min, char? max)
+        {
+            return v < min ? min : v > max ? max : v;
+        }
+
+        public override char? Increase(char? v, char? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? (char?) ((v ?? 0) + (step ?? 0)) : null;
-                    return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? (char?) ((v ?? 0) + (step ?? 0)) : null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return max;
+                    return char.MaxValue;
                 }
             }
         }
 
-        public override char? Decrease(char? v, char? step, char? min)
+        public override char? Decrease(char? v, char? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? (char?) ((v ?? 0) - (step ?? 0)) : null;
-                    return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? (char?) ((v ?? 0) - (step ?? 0)) : null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return min;
+                    return char.MinValue;
                 }
             }
         }

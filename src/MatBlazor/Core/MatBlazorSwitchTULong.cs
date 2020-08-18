@@ -5,34 +5,37 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTULong : MatBlazorSwitchT<ulong>
     {
-        public override ulong Increase(ulong v, ulong step, ulong max)
+        public override ulong Clamp(ulong v, ulong min, ulong max)
+        {
+            return v < min ? min : v > max ? max : v;
+        }
+
+        public override ulong Increase(ulong v, ulong step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (ulong) (v + step);
-                    return v2 <= max ? v2 : max;
+                    return (ulong) (v + step);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return max;
+                    return ulong.MaxValue;
                 }
             }
         }
 
-        public override ulong Decrease(ulong v, ulong step, ulong min)
+        public override ulong Decrease(ulong v, ulong step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (ulong) (v - step);
-                    return v2 >= min ? v2 : min;
+                    return (ulong) (v - step);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return min;
+                    return ulong.MinValue;
                 }
             }
         }

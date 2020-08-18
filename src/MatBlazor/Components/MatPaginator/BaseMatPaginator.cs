@@ -98,7 +98,7 @@ namespace MatBlazor
                 {
                     page = ((PageIndex * PageSize) / pageSize);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                 }
             }

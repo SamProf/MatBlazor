@@ -5,34 +5,37 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTFloatNull : MatBlazorSwitchT<float?>
     {
-        public override float? Increase(float? v, float? step, float? max)
+        public override float? Clamp(float? v, float? min, float? max)
+        {
+            return v < min ? min : v > max ? max : v;
+        }
+
+        public override float? Increase(float? v, float? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (float?) null;
-                    return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (float?) null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return max;
+                    return float.MaxValue;
                 }
             }
         }
 
-        public override float? Decrease(float? v, float? step, float? min)
+        public override float? Decrease(float? v, float? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (float?) null;
-                    return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (float?) null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return min;
+                    return float.MinValue;
                 }
             }
         }

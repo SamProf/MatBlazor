@@ -8,8 +8,9 @@ namespace MatBlazor
 {
     public abstract class MatBlazorSwitchT<T>
     {
-        public abstract T Increase(T v, T step, T max);
-        public abstract T Decrease(T v, T step, T min);
+        public abstract T Clamp(T v, T min, T max);
+        public abstract T Increase(T v, T step);
+        public abstract T Decrease(T v, T step);
         public abstract T Round(T v, int dp);
 
         public abstract T GetMinimum();

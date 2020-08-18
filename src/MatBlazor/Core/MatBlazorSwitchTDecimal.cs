@@ -8,34 +8,37 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTDecimal : MatBlazorSwitchT<decimal>
     {
-        public override decimal Increase(decimal v, decimal step, decimal max)
+        public override decimal Clamp(decimal v, decimal min, decimal max)
+        {
+            return v < min ? min : v > max ? max : v;
+        }
+
+        public override decimal Increase(decimal v, decimal step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (decimal) (v + step);
-                    return v2 <= max ? v2 : max;
+                    return (decimal) (v + step);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return max;
+                    return decimal.MaxValue;
                 }
             }
         }
 
-        public override decimal Decrease(decimal v, decimal step, decimal min)
+        public override decimal Decrease(decimal v, decimal step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (decimal) (v - step);
-                    return v2 >= min ? v2 : min;
+                    return (decimal) (v - step);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return min;
+                    return decimal.MinValue;
                 }
             }
         }

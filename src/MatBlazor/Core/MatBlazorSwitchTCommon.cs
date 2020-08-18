@@ -4,12 +4,17 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTCommon<T> : MatBlazorSwitchT<T>
     {
-        public override T Increase(T v, T step, T max)
+        public override T Clamp(T v, T min, T max)
         {
             throw new NotImplementedException();
         }
 
-        public override T Decrease(T v, T step, T min)
+        public override T Increase(T v, T step)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override T Decrease(T v, T step)
         {
             throw new NotImplementedException();
         }

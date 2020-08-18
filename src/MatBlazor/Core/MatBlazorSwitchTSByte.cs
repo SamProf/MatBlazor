@@ -5,34 +5,37 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTSByte : MatBlazorSwitchT<sbyte>
     {
-        public override sbyte Increase(sbyte v, sbyte step, sbyte max)
+        public override sbyte Clamp(sbyte v, sbyte min, sbyte max)
+        {
+            return v < min ? min : v > max ? max : v;
+        }
+
+        public override sbyte Increase(sbyte v, sbyte step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (sbyte) (v + step);
-                    return v2 <= max ? v2 : max;
+                    return (sbyte) (v + step);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return max;
+                    return sbyte.MaxValue;
                 }
             }
         }
 
-        public override sbyte Decrease(sbyte v, sbyte step, sbyte min)
+        public override sbyte Decrease(sbyte v, sbyte step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (sbyte) (v - step);
-                    return v2 >= min ? v2 : min;
+                    return (sbyte) (v - step);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return min;
+                    return sbyte.MinValue;
                 }
             }
         }

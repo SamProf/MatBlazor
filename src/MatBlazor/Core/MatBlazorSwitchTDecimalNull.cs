@@ -5,34 +5,37 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTDecimalNull : MatBlazorSwitchT<decimal?>
     {
-        public override decimal? Increase(decimal? v, decimal? step, decimal? max)
+        public override decimal? Clamp(decimal? v, decimal? min, decimal? max)
+        {
+            return v < min ? min : v > max ? max : v;
+        }
+
+        public override decimal? Increase(decimal? v, decimal? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (decimal?) null;
-                    return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (decimal?) null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return max;
+                    return decimal.MaxValue;
                 }
             }
         }
 
-        public override decimal? Decrease(decimal? v, decimal? step, decimal? min)
+        public override decimal? Decrease(decimal? v, decimal? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (decimal?) null;
-                    return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (decimal?) null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return min;
+                    return decimal.MinValue;
                 }
             }
         }

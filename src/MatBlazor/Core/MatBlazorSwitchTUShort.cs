@@ -5,34 +5,37 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTUShort : MatBlazorSwitchT<ushort>
     {
-        public override ushort Increase(ushort v, ushort step, ushort max)
+        public override ushort Clamp(ushort v, ushort min, ushort max)
+        {
+            return v < min ? min : v > max ? max : v;
+        }
+
+        public override ushort Increase(ushort v, ushort step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (ushort) (v + step);
-                    return v2 <= max ? v2 : max;
+                    return (ushort) (v + step);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return max;
+                    return ushort.MaxValue;
                 }
             }
         }
 
-        public override ushort Decrease(ushort v, ushort step, ushort min)
+        public override ushort Decrease(ushort v, ushort step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (ushort) (v - step);
-                    return v2 >= min ? v2 : min;
+                    return (ushort) (v - step);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return min;
+                    return ushort.MinValue;
                 }
             }
         }

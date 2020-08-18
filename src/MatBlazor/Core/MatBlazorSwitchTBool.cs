@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.SymbolStore;
 using System.Globalization;
 
 namespace MatBlazor
@@ -15,12 +16,17 @@ namespace MatBlazor
             return v;
         }
 
-        public override bool Increase(bool v, bool step, bool max)
+        public override bool Clamp(bool v, bool min, bool max)
+        {
+            return v;
+        }
+
+        public override bool Increase(bool v, bool step)
         {
             return !v;
         }
 
-        public override bool Decrease(bool v, bool step, bool min)
+        public override bool Decrease(bool v, bool step)
         {
             return !v;
         }
