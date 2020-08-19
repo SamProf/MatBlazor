@@ -31,6 +31,7 @@
                 @foreach (var item in ItemList)
                 {
                     <TableRow Class="@RowClass"
+                              @key="item"
                               AllowSelection="@AllowSelection"
                               @ondblclick="() => OnRowDbClickHandler(item)"
                               RowItem="item">
