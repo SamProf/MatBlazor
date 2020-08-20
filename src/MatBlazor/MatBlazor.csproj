@@ -21,7 +21,7 @@
     <PackageIconUrl>https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/icon.ico</PackageIconUrl>
     <Company>SamProf</Company>
     <VersionPrefix>2.6.2</VersionPrefix>    
-    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>    
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
   </PropertyGroup>
 
   <PropertyGroup>
