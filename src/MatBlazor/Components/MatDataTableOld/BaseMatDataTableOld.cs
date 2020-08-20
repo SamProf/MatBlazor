@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatDataTable<TItem> : BaseMatDomComponent, IMatVirtualScrollHelperTarget, IBaseMatPaginator
+    public class BaseMatDataTableOld<TItem> : BaseMatDomComponent, IMatVirtualScrollHelperTarget, IBaseMatPaginator
     {
         protected MatVirtualScrollHelper VirtualScrollHelper { get; set; } = null;
 
-        public BaseMatDataTable()
+        public BaseMatDataTableOld()
         {
             VirtualScrollHelper = new MatVirtualScrollHelper(this);
 
@@ -87,8 +87,7 @@ namespace MatBlazor
                 var takeItems = pageSize > 0 ? pageSize : 0;
 
 
-                var q = e as IQueryable<TItem>;
-                if (q != null)
+                if (e is IQueryable<TItem> q)
                 {
                     if (skipItems > 0)
                     {
@@ -131,9 +130,9 @@ namespace MatBlazor
         }
 
 
-        protected List<BaseMatDataTableColumn<TItem>> columnItems = new List<BaseMatDataTableColumn<TItem>>();
+        protected List<BaseMatDataTableColumnOld<TItem>> columnItems = new List<BaseMatDataTableColumnOld<TItem>>();
 
-        public void AddColumn(BaseMatDataTableColumn<TItem> column)
+        public void AddColumn(BaseMatDataTableColumnOld<TItem> column)
         {
             columnItems.Add(column);
             this.InvokeStateHasChanged();

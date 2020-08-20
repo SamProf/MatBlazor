@@ -1,16 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components;
+using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
     public class BaseMatPaginator : BaseMatDomComponent, IBaseMatPaginator
     {
-        private int _pageSize;
-
         [Parameter]
         public EventCallback<MatPaginatorPageEvent> Page { get; set; }
 
@@ -25,11 +21,7 @@ namespace MatBlazor
 
 
         [Parameter]
-        public int PageSize
-        {
-            get => _pageSize;
-            set => _pageSize = value;
-        }
+        public int PageSize { get; set; }
 
 
         [Parameter]

@@ -65,11 +65,11 @@ namespace MatBlazor
         }
 
         /// <summary>
-        /// Parses a string to create an instance of <typeparamref name="TValue"/>. Derived classes can override this to change how
+        /// Parses a string to create an instance of <typeparamref name="T"/>. Derived classes can override this to change how
         /// <see cref="CurrentValueAsString"/> interprets incoming values.
         /// </summary>
         /// <param name="value">The string value to be parsed.</param>
-        /// <param name="result">An instance of <typeparamref name="TValue"/>.</param>
+        /// <param name="result">An instance of <typeparamref name="T"/>.</param>
         /// <param name="validationErrorMessage">If the value could not be parsed, provides a validation error message.</param>
         /// <returns>True if the value could be parsed; otherwise false.</returns>
         protected virtual bool TryParseValueFromString(string value, out T result, out string validationErrorMessage)

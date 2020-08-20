@@ -58,7 +58,7 @@ namespace MatBlazor
 
             this.CallAfterRender(async () =>
             {
-                dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
+                dotNetObjectRef ??= CreateDotNetObjectRef(this);
                 await JsInvokeAsync<object>("matBlazor.matDrawer.init", Ref, dotNetObjectRef);
             });
         }

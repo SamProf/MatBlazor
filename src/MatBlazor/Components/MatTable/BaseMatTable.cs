@@ -1,8 +1,7 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using Microsoft.AspNetCore.Components;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
@@ -13,8 +12,6 @@ namespace MatBlazor
     {
         private string _searchTermFieldPlaceHolder = null;
         private string _searchTermFieldLabel = null;
-        private string _headerRowClass = null;
-        private string _rowClass = null;
         public BaseTableRow Current { get; private set; }
         #region Private Fields
 

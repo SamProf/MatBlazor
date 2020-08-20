@@ -45,12 +45,16 @@ namespace MatBlazor
                 if (value == null)
                 {
                     foreach (var chip in _chips)
+                    {
                         chip.IsSelected = false;
+                    }
                 }
                 else
                 {
                     foreach (var chip in _chips)
-                        chip.IsSelected = (chip==value);
+                    {
+                        chip.IsSelected = (chip == value);
+                    }
                 }
                 this.InvokeAsync(StateHasChanged);
             }
@@ -68,13 +72,17 @@ namespace MatBlazor
                 if (value == null || value.Length == 0)
                 {
                     foreach (var chip in _chips)
+                    {
                         chip.IsSelected = false;
+                    }
                 }
                 else
                 {
                     var selected = new HashSet<MatChip>(value);
                     foreach (var chip in _chips)
+                    {
                         chip.IsSelected = selected.Contains(chip);
+                    }
                 }
                 this.InvokeAsync(StateHasChanged);
             }
@@ -83,7 +91,7 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<MatChip[]> SelectedChipsChanged { get; set; }
 
-        private HashSet<MatChip> _chips = new HashSet<MatChip>();
+        private readonly HashSet<MatChip> _chips = new HashSet<MatChip>();
 
         public void RegisterChip(MatChip chip)
         {
@@ -93,7 +101,9 @@ namespace MatBlazor
         public async Task UnregisterChip(MatChip chip)
         {
             if (chip == null)
+            {
                 return;
+            }
             await NotifySelection(); // <-- removing a selected chip updates 
         }
 
@@ -104,7 +114,9 @@ namespace MatBlazor
                 chip.IsSelected = !chip.IsSelected;
             }
             else if (Choice)
-                chip.IsSelected = true;
+            {
+                chip.IsSelected = true; 
+            }
             await NotifySelection();
         }
 
@@ -118,11 +130,15 @@ namespace MatBlazor
         public async Task HandleChipSelected(MatChip chip)
         {
             if (!Choice)
+            {
                 return;
+            }
             foreach (var ch in _chips)
             {
                 if (ch != chip)
+                {
                     ch.IsSelected = false; // <-- exclusively select the one chip only, thus all others must be deselected
+                }
             }
             await NotifySelection();
         }

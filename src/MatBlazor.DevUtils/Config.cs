@@ -17,7 +17,7 @@ namespace MatBlazor.DevUtils
             get { return System.IO.Path.GetFullPath(_path); }
         }
 
-        private string _path = "../../../..";
+        private readonly string _path = "../../../..";
 
         public string RepositoryPath
         {

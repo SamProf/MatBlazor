@@ -67,10 +67,8 @@ namespace MatBlazor
                         
                         var task2 = q.Dequeue();
 
-                        int q1;
-                        int q2;
-                        
-                        ThreadPool.GetAvailableThreads(out q1, out q2);
+
+                        ThreadPool.GetAvailableThreads(out var q1, out var q2);
                         // Log2("Wait " + position+ " " + q1 +" " + q2);
                         var base64 = await task2.ConfigureAwait(true);
                         // Log2("Response " + position);Progress

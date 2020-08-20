@@ -1,29 +1,25 @@
 ﻿@namespace MatBlazor
-@typeparam TItem
-@inherits BaseMatDataTableColumn<TItem>
 
-@*
 
-@if (Mode == MatDataTableRenderMode.Header)
+@if (RenderMode == MatDataTableColumnRenderMode.RowCell)
 {
-    <MatDataTableHeaderCell>
-        @if (HeaderTemplate != null)
-        {
-            @HeaderTemplate
-        }
-        else
-        {
-            @Header
-        }
-    </MatDataTableHeaderCell>
+    <th class="mdc-data-table__cell" scope="row">@Value</th>
+@*     <td class="mdc-data-table__cell mdc-data-table__cell--numeric">24</td> *@
+@*     <td class="mdc-data-table__cell mdc-data-table__cell--numeric">4.0</td> *@
+@*     <td class="mdc-data-table__cell">Super tasty</td> *@
 }
-else if (Mode == MatDataTableRenderMode.Row)
+else if (RenderMode == MatDataTableColumnRenderMode.HeaderCell)
 {
-    <MatDataTableCell>@ChildContent</MatDataTableCell>
+    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">@Header</th>
+@*     <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Carbs (g)</th> *@
+@*     <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Protein (g)</th> *@
+@*     <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Comments</th> *@
 }
-*@
+
+
+
 
 @code
 {
-   
+
 }

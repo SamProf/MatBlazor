@@ -25,9 +25,13 @@ namespace MatBlazor
             ClassMapper
                 .Add("mat-select")
                 .Add("mdc-select")
+                .If("mdc-select--filled", () => !Outlined)
                 .If("mdc-select--outlined", () => Outlined)
                 .If("mdc-select--disabled", () => Disabled)
                 .If("mdc-select--with-leading-icon", () => Icon != null);
+
+            StyleMapper
+                .If("width: 100%", () => FullWidth);
 
             HelperTextClassMapper
                 .Add("mdc-text-field-helper-text")
@@ -128,7 +132,8 @@ namespace MatBlazor
         [Parameter]
         public bool HideDropDownIcon { get; set; }
 
-
+        [Parameter]
+        public bool FullWidth { get; set; }
 
         [Parameter]
         public EventCallback<MouseEventArgs> IconOnClick { get; set; }

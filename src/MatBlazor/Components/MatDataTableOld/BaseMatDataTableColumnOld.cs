@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatDataTableColumn<TItem> : ComponentBase
+    public class BaseMatDataTableColumnOld<TItem> : ComponentBase
     {
         [CascadingParameter()]
-        public BaseMatDataTable<TItem> DataTable { get; set; }
+        public BaseMatDataTableOld<TItem> DataTable { get; set; }
 
         [Parameter]
         public RenderFragment<TItem> Template { get; set; }

@@ -19,27 +19,18 @@ namespace MatBlazor
     {
         public static string Convert(MatToastPosition position)
         {
-            switch (position)
+            return position switch
             {
-                case MatToastPosition.TopCenter:
-                    return "mat-toast-top-center";
-                case MatToastPosition.BottomCenter:
-                    return "mat-toast-bottom-center";
-                case MatToastPosition.TopFullWidth:
-                    return "mat-toast-top-full-width";
-                case MatToastPosition.BottomFullWidth:
-                    return "mat-toast-bottom-full-width";
-                case MatToastPosition.TopLeft:
-                    return "mat-toast-top-left";
-                case MatToastPosition.TopRight:
-                    return "mat-toast-top-right";
-                case MatToastPosition.BottomRight:
-                    return "mat-toast-bottom-right";
-                case MatToastPosition.BottomLeft:
-                    return "mat-toast-bottom-left";
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(position), position, null);
-            }
+                MatToastPosition.TopCenter => "mat-toast-top-center",
+                MatToastPosition.BottomCenter => "mat-toast-bottom-center",
+                MatToastPosition.TopFullWidth => "mat-toast-top-full-width",
+                MatToastPosition.BottomFullWidth => "mat-toast-bottom-full-width",
+                MatToastPosition.TopLeft => "mat-toast-top-left",
+                MatToastPosition.TopRight => "mat-toast-top-right",
+                MatToastPosition.BottomRight => "mat-toast-bottom-right",
+                MatToastPosition.BottomLeft => "mat-toast-bottom-left",
+                _ => throw new ArgumentOutOfRangeException(nameof(position), position, null),
+            };
         }
     }
 }

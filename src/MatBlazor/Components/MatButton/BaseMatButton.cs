@@ -78,6 +78,7 @@ namespace MatBlazor
         [Parameter]
         public bool ForceLoad { get; set; }
 
+        /// <summary>
         /// Target of Link when clicked.
         /// </summary>
         [Parameter]
@@ -88,83 +89,38 @@ namespace MatBlazor
         /// Button has raised style.
         /// </summary>
         [Parameter]
-        public bool Raised
-        {
-            get => _raised;
-            set
-            {
-                _raised = value;
-
-            }
-        }
+        public bool Raised { get; set; }
 
         /// <summary>
         /// Button has unelevated style.
         /// </summary>
         [Parameter]
-        public bool Unelevated
-        {
-            get => _unelevated;
-            set
-            {
-                _unelevated = value;
-
-            }
-        }
+        public bool Unelevated { get; set; }
 
         /// <summary>
         /// Button has outlined style.
         /// </summary>
         [Parameter]
-        public bool Outlined
-        {
-            get => _outlined;
-            set
-            {
-                _outlined = value;
-            }
-        }
+        public bool Outlined { get; set; }
 
         /// <summary>
         /// Button has dense style.
         /// </summary>
 
         [Parameter]
-        public bool Dense
-        {
-            get => _dense;
-            set
-            {
-                _dense = value;
-            }
-        }
+        public bool Dense { get; set; }
 
         /// <summary>
         /// Button is disabled.
         /// </summary>
         [Parameter]
-        public bool Disabled
-        {
-            get => _disabled;
-            set
-            {
-                _disabled = value;
-                }
-        }
+        public bool Disabled { get; set; }
 
         /// <summary>
         /// Specifies an button's icon.
         /// </summary>
         [Parameter]
-        public string Icon
-        {
-            get => _icon;
-            set
-            {
-                _icon = value;
-
-            }
-        }
+        public string Icon { get; set; }
 
         /// <summary>
         /// Specifies if icon has trailing position.
@@ -176,15 +132,7 @@ namespace MatBlazor
         /// Text label of Button.
         /// </summary>
         [Parameter]
-        public string Label
-        {
-            get => _label;
-            set
-            {
-                _label = value;
-
-            }
-        }
+        public string Label { get; set; }
 
 
         /// <summary>
@@ -216,21 +164,13 @@ namespace MatBlazor
                 }
             }
         }
-
-        private bool _raised;
-        private bool _unelevated;
-        private bool _outlined;
-        private bool _dense;
-        private bool _disabled;
-        private string _icon;
-        private string _label;
     }
 
-//    public enum MatButtonType
-//    {
-//        Text = 0,
-//        Raised = 1,
-//        Unelevated = 2,
-//        Outlined = 3
-//    }
+    //    public enum MatButtonType
+    //    {
+    //        Text = 0,
+    //        Raised = 1,
+    //        Unelevated = 2,
+    //        Outlined = 3
+    //    }
 }
