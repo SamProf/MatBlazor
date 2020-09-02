@@ -47,17 +47,14 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<bool> OpenedChanged { get; set; }
 
-
         private DotNetObjectReference<BaseMatDrawer> dotNetObjectRef;
         public BaseMatDrawer()
         {
-            
             ClassMapper
                 .Add("mdc-drawer")
                 .Add("mat-drawer")
                 .If("mdc-drawer--dismissible", () => Mode == MatDrawerMode.Dismissible)
                 .If("mdc-drawer--modal", () => Mode == MatDrawerMode.Modal);
-
 
             this.CallAfterRender(async () =>
             {
