@@ -40,26 +40,60 @@ label.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > span.mdc-floati
 
 /* For EditForm validation messages */
 .validation-message {
-  color: red;
+  color: red !important;
+}
+.mdc-text-field--outlined {
+  .mat-text-field-input.mdc-text-field__input {
+    &.invalid, &.valid.modified {
+      border-bottom: none !important;
+    }
+  }
+
+  .mdc-select__selected-text {
+    &.invalid, &.valid.modified {
+      border-bottom: none !important;
+    }
+  }
+}
+
+.mdc-select__selected-text.invalid {
+  border-bottom: none !important;
+}
+
+.invalid + .mdc-notched-outline > {
+  .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-color: red !important;
+  }
+}
+
+.valid.modified + .mdc-notched-outline > {
+  .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-color: green !important;
+  }
+}
+
+.invalid + i + .mdc-notched-outline > {
+  .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-color: red !important;
+  }
+}
+
+.valid.modified + i + .mdc-notched-outline > {
+  .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-color: green !important;
+  }
 }
 
 /* For TextField */
-
-
 .mat-text-field, .mat-select {
   &.valid.modified {
-
     .mdc-line-ripple::before
     {
       border-bottom: 1px solid #10b510 !important;
-
     }
-
-
   }
 
   &.invalid {
-
     .mdc-line-ripple::before {
       border-bottom: 1px solid red !important;
     }
