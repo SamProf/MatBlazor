@@ -148,6 +148,7 @@ functionality in Demo for the component you are editing. Not only will this allo
 - PR: Cleanup #673 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
 - PR: Table Re-Rendering Fix #692 (Thanks to [erlendp](https://github.com/erlendp))
 - PR: Custom Drawer Width Demo. Readme contribution updates #701
+- PR: Fix part of issue with FullWidth MatTextField and Placeholder #677 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
 
 #### MatBlazor 2.6.3
 - PR: Simplify deploying js/css #657 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
