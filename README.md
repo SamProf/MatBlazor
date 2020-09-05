@@ -150,6 +150,7 @@ functionality in Demo for the component you are editing. Not only will this allo
 - PR: Custom Drawer Width Demo. Readme contribution updates #701
 - PR: Fix part of issue with FullWidth MatTextField and Placeholder #677 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
 - PR: Responsive menu on Demo page, icons change to menu on smaller screens. #684 (Thanks to [PA4WD](https://github.com/PA4WD))
+- PR: Spaces in folder name's break DemoContentGenerator.Generate() #685 (Thanks to [PA4WD](https://github.com/PA4WD))
 
 #### MatBlazor 2.6.3
 - PR: Simplify deploying js/css #657 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
