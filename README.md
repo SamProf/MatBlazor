@@ -143,11 +143,13 @@ functionality in Demo for the component you are editing. Not only will this allo
 - Changed DOM and JS for many components, because of changes in MDC Web 7.0.0
 - Fixed: Floating label in Outlined MatTextField-based components
 - Fixed Validation via EditContext colors
+- PR: Add Width property for Drawer #666 (Thanks to [redradist](https://github.com/redradist))
+- PR: MatSelect: FullWidth parameter #670 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
 
 #### MatBlazor 2.6.3
 - PR: Simplify deploying js/css #657 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
 - PR: Update README.md (Mentioned that internet access is required in Prerequisites) #610 (Thanks to [rokx](https://github.com/rokx))
-- PR: Checkbox indeterminate state fixes (Thanks to [lindespang](https://github.com/lindespang))
+- PR: Checkbox indeterminate state fixes #664 (Thanks to [lindespang](https://github.com/lindespang))
 - PR: MatSlider Immediate #665 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
 
 #### MatBlazor 2.6.2
