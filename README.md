@@ -152,6 +152,8 @@ functionality in Demo for the component you are editing. Not only will this allo
 - PR: Responsive menu on Demo page, icons change to menu on smaller screens. #684 (Thanks to [PA4WD](https://github.com/PA4WD))
 - PR: Spaces in folder name's break DemoContentGenerator.Generate() #685 (Thanks to [PA4WD](https://github.com/PA4WD))
 - PR: Some language improvements #686 (Thanks to [PA4WD](https://github.com/PA4WD))
+- PR: Fixes #619 Validation styles for outlined Text fields #702 (Thanks to [enkodellc](https://github.com/enkodellc))
+- PR: Remove event on Dispose instead of adding one #703 (Thanks to [LeoVen](https://github.com/LeoVen))
 
 #### MatBlazor 2.6.3
 - PR: Simplify deploying js/css #657 (Thanks to [stefanloerwald](https://github.com/stefanloerwald))
