@@ -65,7 +65,7 @@
 
     </Content>
     <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <ol>
             <li>
                 <MatTextField Label=""What's your name?"" @bind-Value=""@name""></MatTextField>
@@ -82,7 +82,14 @@
             <MatDialogTitle>Hi @name</MatDialogTitle>
             <MatDialogContent>
                 <p>What's your favorite animal?</p>
-                <MatTextField @bind-Value=""@dialogAnimal""></MatTextField>                
+                <MatSelect TValue=""string"" Label=""Title"">
+                    <MatOptionString ></MatOptionString>
+                    <MatOptionString Value=""dr"">Dr.</MatOptionString>
+                    <MatOptionString Value=""prof"">Prof.</MatOptionString>                    
+                </MatSelect>
+                <MatTextField @bind-Value=""@dialogAnimal""></MatTextField>
+
+
             </MatDialogContent>
             <MatDialogActions>
                 <MatButton OnClick=""@(e => { dialogIsOpen = false; })"">No Thanks</MatButton>
@@ -111,7 +118,6 @@
 
         }
 
-    ")>
-        </BlazorFiddle>
+    ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

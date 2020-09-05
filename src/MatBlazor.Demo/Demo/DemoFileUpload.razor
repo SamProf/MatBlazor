@@ -216,7 +216,7 @@
                 }
                 finally
                 {
-                    await InvokeAsync(async () => { this.StateHasChanged(); });
+                    await InvokeAsync(StateHasChanged);
                 }
             }
         }
