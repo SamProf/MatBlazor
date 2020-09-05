@@ -110,7 +110,7 @@ namespace MatBlazor.DevUtils
                     if (doc.DocumentElement.Attributes != null && doc.DocumentElement.Attributes["SourcePath"] != null)
                     {
                         var sourcePath = new Uri(new Uri(fileInfo.FullName),
-                            doc.DocumentElement.Attributes["SourcePath"].Value).AbsolutePath;
+                            doc.DocumentElement.Attributes["SourcePath"].Value).LocalPath;
                         sourceContent = System.IO.File.ReadAllText(sourcePath);
                     }
 
