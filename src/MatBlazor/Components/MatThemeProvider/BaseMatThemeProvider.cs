@@ -47,7 +47,7 @@ namespace MatBlazor
         {
             if (_theme != null)
             {
-                _theme.Changed += _theme_Changed;
+                _theme.Changed -= _theme_Changed;
             }
         }
     }
