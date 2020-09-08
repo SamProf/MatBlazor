@@ -17,19 +17,20 @@ namespace MatBlazor
                 .GetIf(() => $"mat-elevation-z{Math.Clamp(Elevation, 0, 24)}", () => !Outlined);
 
             StyleMapper
+                .Add("background-color: var(--mdc-theme-surface, #ffffff);")
                 .If("border: 1px solid rgba(0, 0, 0, 0.12)", () => Outlined)
                 .If("border-radius: 4px", () => Rounded);
         }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
-        
+
         /// <summary>
         /// Level of the Elevation. 
         /// From 0 to 24.
         /// </summary>
         [Parameter]
-        public int Elevation { get; set; }
+        public int Elevation { get; set; } = 1;
 
         /// <summary>
         /// Uses outlined surface. If true, removes Elevation.
