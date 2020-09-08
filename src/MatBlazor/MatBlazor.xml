@@ -582,6 +582,28 @@
             </summary>
             <typeparam name="TValue">sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?</typeparam>
         </member>
+        <member name="T:MatBlazor.BaseMatPaper">
+            <summary>
+            Basic component where the physical properties of paper are translated to the screen.
+            Used for creating sections and giving more focus to some parts of the application.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatPaper.Elevation">
+            <summary>
+            Level of the Elevation. 
+            From 0 to 24.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatPaper.Outlined">
+            <summary>
+            Uses outlined surface. If true, removes Elevation.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatPaper.Rounded">
+            <summary>
+            Uses round border.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatProgressBar">
             <summary>
             Progress indicators display the length of a process or express an unspecified wait time.
