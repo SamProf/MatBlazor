@@ -5,34 +5,37 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTByteNull : MatBlazorSwitchT<byte?>
     {
-        public override byte? Increase(byte? v, byte? step, byte? max)
+        public override byte? Clamp(byte? v, byte? min, byte? max)
+        {
+            return v < min ? min : v > max ? max : v;
+        }
+
+        public override byte? Increase(byte? v, byte? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? (byte?) ((v ?? 0) + (step ?? 0)) : null;
-                    return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? (byte?) ((v ?? 0) + (step ?? 0)) : null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return max;
+                    return byte.MaxValue;
                 }
             }
         }
 
-        public override byte? Decrease(byte? v, byte? step, byte? min)
+        public override byte? Decrease(byte? v, byte? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? (byte?) ((v ?? 0) - (step ?? 0)) : null;
-                    return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? (byte?) ((v ?? 0) - (step ?? 0)) : null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return min;
+                    return byte.MinValue;
                 }
             }
         }

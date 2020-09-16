@@ -19,12 +19,14 @@ namespace MatBlazor
 
         protected void Increase()
         {
-            CurrentValue = SwitchT.Increase(CurrentValue, Step, Maximum);
+            CurrentValue = SwitchT.Increase(CurrentValue, Step);
+            CurrentValue = SwitchT.Clamp(CurrentValue, Minimum, Maximum);
         }
 
         protected void Decrease()
         {
-            CurrentValue = SwitchT.Decrease(CurrentValue, Step, Minimum);
+            CurrentValue = SwitchT.Decrease(CurrentValue, Step);
+            CurrentValue = SwitchT.Clamp(CurrentValue, Minimum, Maximum);
         }
 
         protected override TValue CurrentValue
@@ -66,6 +68,8 @@ namespace MatBlazor
         private readonly EventCallback<KeyboardEventArgs> OnKeyDownEvent2;
         public BaseMatNumericUpDownFieldInternal()
         {
+            OnFocusOutEvent.Event += OnFocusOutEvent_Event;
+
             OnKeyDownEvent2 = EventCallback.Factory.Create<KeyboardEventArgs>(this, async (e) =>
                 {
                     await OnKeyDown.InvokeAsync(e);
@@ -78,11 +82,18 @@ namespace MatBlazor
                         Decrease();
                     }
                 });
-            Maximum = SwitchT.GetMaximum();
-            Minimum = SwitchT.GetMinimum();
+            
+            Maximum ??= SwitchT.GetMaximum();
+            Minimum ??= SwitchT.GetMinimum();
 
             ClassMapper.Add("mat-numeric-up-down-field");
             ClassMapper.Add("mat-text-field-with-actions-container");
+        }
+
+        private void OnFocusOutEvent_Event(object sender, FocusEventArgs e)
+        {
+            // Clamp to minimum and maximum on blur.
+            CurrentValue = SwitchT.Clamp(CurrentValue, Minimum, Maximum);
         }
 
         private readonly TValue ZeroValue = MatTypeConverter.ChangeType<TValue>(0);
@@ -107,7 +118,10 @@ namespace MatBlazor
             }
             else
             {
-                Step = SwitchT.GetStep();
+                if (Step == null || Step.Equals(ZeroValue))
+                {
+                    Step = SwitchT.GetStep();
+                }
             }
         }
 

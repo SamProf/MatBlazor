@@ -5,34 +5,37 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTULongNull : MatBlazorSwitchT<ulong?>
     {
-        public override ulong? Increase(ulong? v, ulong? step, ulong? max)
+        public override ulong? Clamp(ulong? v, ulong? min, ulong? max)
+        {
+            return v < min ? min : v > max ? max : v;
+        }
+
+        public override ulong? Increase(ulong? v, ulong? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (ulong?) null;
-                    return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (ulong?) null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return max;
+                    return ulong.MaxValue;
                 }
             }
         }
 
-        public override ulong? Decrease(ulong? v, ulong? step, ulong? min)
+        public override ulong? Decrease(ulong? v, ulong? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (ulong?) null;
-                    return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (ulong?) null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return min;
+                    return ulong.MinValue;
                 }
             }
         }

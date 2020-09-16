@@ -5,34 +5,37 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTIntNull : MatBlazorSwitchT<int?>
     {
-        public override int? Increase(int? v, int? step, int? max)
+        public override int? Clamp(int? v, int? min, int? max)
+        {
+            return v < min ? min : v > max ? max : v;
+        }
+
+        public override int? Increase(int? v, int? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (int?) null;
-                    return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (int?) null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return max;
+                    return int.MaxValue;
                 }
             }
         }
 
-        public override int? Decrease(int? v, int? step, int? min)
+        public override int? Decrease(int? v, int? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (int?) null;
-                    return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (int?) null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return min;
+                    return int.MinValue;
                 }
             }
         }

@@ -5,12 +5,17 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTDateTimeNull : MatBlazorSwitchT<DateTime?>
     {
-        public override DateTime? Increase(DateTime? v, DateTime? step, DateTime? max)
+        public override DateTime? Clamp(DateTime? v, DateTime? min, DateTime? max)
         {
             throw new NotImplementedException();
         }
 
-        public override DateTime? Decrease(DateTime? v, DateTime? step, DateTime? min)
+        public override DateTime? Increase(DateTime? v, DateTime? step)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DateTime? Decrease(DateTime? v, DateTime? step)
         {
             throw new NotImplementedException();
         }

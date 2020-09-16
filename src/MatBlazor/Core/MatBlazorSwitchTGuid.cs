@@ -4,12 +4,17 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTGuid : MatBlazorSwitchT<Guid>
     {
-        public override Guid Increase(Guid v, Guid step, Guid max)
+        public override Guid Clamp(Guid v, Guid min, Guid max)
         {
             throw new NotImplementedException();
         }
 
-        public override Guid Decrease(Guid v, Guid step, Guid min)
+        public override Guid Increase(Guid v, Guid step)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Guid Decrease(Guid v, Guid step)
         {
             throw new NotImplementedException();
         }

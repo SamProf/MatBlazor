@@ -5,34 +5,37 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTUIntNull : MatBlazorSwitchT<uint?>
     {
-        public override uint? Increase(uint? v, uint? step, uint? max)
+        public override uint? Clamp(uint? v, uint? min, uint? max)
+        {
+            return v < min ? min : v > max ? max : v;
+        }
+
+        public override uint? Increase(uint? v, uint? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (uint?) null;
-                    return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (uint?) null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return max;
+                    return uint.MaxValue;
                 }
             }
         }
 
-        public override uint? Decrease(uint? v, uint? step, uint? min)
+        public override uint? Decrease(uint? v, uint? step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (uint?) null;
-                    return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
+                    return (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (uint?) null;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return min;
+                    return uint.MinValue;
                 }
             }
         }

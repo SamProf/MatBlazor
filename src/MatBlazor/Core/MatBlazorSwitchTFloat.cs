@@ -5,34 +5,37 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTFloat : MatBlazorSwitchT<float>
     {
-        public override float Increase(float v, float step, float max)
+        public override float Clamp(float v, float min, float max)
+        {
+            return v < min ? min : v > max ? max : v;
+        }
+
+        public override float Increase(float v, float step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (float) (v + step);
-                    return v2 <= max ? v2 : max;
+                    return (float) (v + step);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return max;
+                    return float.MaxValue;
                 }
             }
         }
 
-        public override float Decrease(float v, float step, float min)
+        public override float Decrease(float v, float step)
         {
             checked
             {
                 try
                 {
-                    var v2 = (float)(v - step);
-                    return v2 >= min ? v2 : min;
+                    return (float)(v - step);
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
-                    return min;
+                    return float.MinValue;
                 }
             }
         }

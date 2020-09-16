@@ -4,12 +4,17 @@ namespace MatBlazor
 {
     public class MatBlazorSwitchTString : MatBlazorSwitchT<string>
     {
-        public override string Increase(string v, string step, string max)
+        public override string Clamp(string v, string min, string max)
         {
             throw new System.NotImplementedException();
         }
 
-        public override string Decrease(string v, string step, string min)
+        public override string Increase(string v, string step)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override string Decrease(string v, string step)
         {
             throw new System.NotImplementedException();
         }
