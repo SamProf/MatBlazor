@@ -28,5 +28,7 @@ namespace MatBlazor
         public DateTime? Maximum { get; set; }
 
         public DateTime? Value { get; set; }
+
+        public string Locale { get; set; } = "en";
     }
 }
