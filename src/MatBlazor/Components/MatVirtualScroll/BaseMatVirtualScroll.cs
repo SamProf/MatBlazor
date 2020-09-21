@@ -71,7 +71,7 @@ namespace MatBlazor
             }
 
             return
-                $"height: {(ScrollViewResult.Height - ScrollViewResult.SkipItems * ItemHeight)}px; padding-top: {(ScrollViewResult.SkipItems * ItemHeight)}px;";
+                $"height: {ScrollViewResult.Height}px; padding-top: {(ScrollViewResult.SkipItems * ItemHeight)}px;";
         }
 
         protected IEnumerable<TItem> GetContentItems()
