@@ -4,15 +4,11 @@ export let sliders = {}
 
 export class MatSlider {
     OnChange(jsHelper) {
-        try {
-            jsHelper.invokeMethodAsync('OnChangeHandler', this.slider.value)
-                .then(r => {
-                    // console.log(r);
-                });
-        } catch (e) {
-            debugger;
-            throw e;
-        }
+        jsHelper.invokeMethodAsync('OnChangeHandler', this.slider.value)
+            .then(r => {
+                // console.log(r);
+            })
+            .catch(e => console.error(e));
     }
 
     constructor(ref, jsHelper, immediate) {
