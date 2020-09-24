@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
@@ -10,6 +11,10 @@ namespace MatBlazor
     /// <typeparam name="TValue">sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?</typeparam>
     public class BaseMatSlider<TValue> : BaseMatInputComponent<TValue>
     {
+        private TValue valueMin;
+        private TValue valueMax;
+        private TValue step;
+
         protected MatDotNetObjectReference<MatSliderJsHelper> jsHelper;
 
         public BaseMatSlider()
@@ -36,6 +41,24 @@ namespace MatBlazor
             CurrentValue = SwitchT.FromDecimal(e);
         }
 
+        protected override void OnValueChanged(bool changed)
+        {
+            if (changed && Rendered)
+            {
+                InvokeAsync(async () =>
+                {
+                    try
+                    {
+                        await Js.InvokeVoidAsync("matBlazor.matSlider.updateValue", Ref, Value);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                });
+            }
+        }
+
         public override void Dispose()
         {
             base.Dispose();
@@ -44,10 +67,52 @@ namespace MatBlazor
 
 
         [Parameter]
-        public TValue ValueMin { get; set; }
+        public TValue ValueMin
+        {
+            get => valueMin;
+            set
+            {
+                if (!EqualityComparer<TValue>.Default.Equals(valueMin, value) && Rendered)
+                {
+                    InvokeAsync(async () =>
+                    {
+                        try
+                        {
+                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMin", Ref, value);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                    });
+                }
+                valueMin = value;
+            }
+        }
 
         [Parameter]
-        public TValue ValueMax { get; set; }
+        public TValue ValueMax
+        {
+            get => valueMax;
+            set
+            {
+                if (!EqualityComparer<TValue>.Default.Equals(valueMax, value) && Rendered)
+                {
+                    InvokeAsync(async () =>
+                    {
+                        try
+                        {
+                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMax", Ref, value);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                    });
+                }
+                valueMax = value;
+            }
+        }
 
         [Parameter]
         public bool Discrete { get; set; }
@@ -62,7 +127,28 @@ namespace MatBlazor
         public bool Pin { get; set; }
 
         [Parameter]
-        public TValue Step { get; set; }
+        public TValue Step
+        {
+            get => step;
+            set
+            {
+                if (!EqualityComparer<TValue>.Default.Equals(step, value) && Rendered)
+                {
+                    InvokeAsync(async () =>
+                    {
+                        try
+                        {
+                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateStep", Ref, value);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                    });
+                }
+                step = value;
+            }
+        }
 
         [Parameter]
         public bool EnableStep { get; set; }

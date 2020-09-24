@@ -1,40 +1,59 @@
 import { MDCSlider } from '@material/slider';
 
+export let sliders = {}
+
 export class MatSlider {
+    OnChange(jsHelper) {
+        try {
+            jsHelper.invokeMethodAsync('OnChangeHandler', this.slider.value)
+                .then(r => {
+                    // console.log(r);
+                });
+        } catch (e) {
+            debugger;
+            throw e;
+        }
+    }
 
     constructor(ref, jsHelper, immediate) {
         this.slider = new MDCSlider(ref);
 
-        this.slider.listen('MDCSlider:change', () => {
-            //                        debugger;
-            try {
-                jsHelper.invokeMethodAsync('OnChangeHandler', this.slider.value)
-                    .then(r => {
-                        // console.log(r);
-                    });
-            } catch (e) {
-                debugger;
-                throw e;
-            }
-        });
+        this.slider.listen('MDCSlider:change', () => this.OnChange(jsHelper));
         if (immediate) {
-            this.slider.listen('MDCSlider:input', () => {
-                //                        debugger;
-                try {
-                    jsHelper.invokeMethodAsync('OnChangeHandler', this.slider.value)
-                        .then(r => {
-                            // console.log(r);
-                        });
-                } catch (e) {
-                    debugger;
-                    throw e;
-                }
-            });
+            this.slider.listen('MDCSlider:input', () => this.OnChange(jsHelper));
         }
     }
 }
 
 
 export function init(ref, jsHelper, immediate) {
-    new MatSlider(ref, jsHelper, immediate);
+    sliders[ref] = new MatSlider(ref, jsHelper, immediate);
+}
+
+export function updateValue(ref, value) {
+    if (!sliders[ref]) {
+        return;
+    }
+    sliders[ref].slider.value = value;
+}
+
+export function updateValueMin(ref, value) {
+    if (!sliders[ref]) {
+        return;
+    }
+    sliders[ref].slider.min = value;
+}
+
+export function updateValueMax(ref, value) {
+    if (!sliders[ref]) {
+        return;
+    }
+    sliders[ref].slider.max = value;
+}
+
+export function updateStep(ref, value) {
+    if (!sliders[ref]) {
+        return;
+    }
+    sliders[ref].slider.step = value;
 }

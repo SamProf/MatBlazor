@@ -43,8 +43,9 @@ namespace MatBlazor
             get => _value;
             set
             {
-                OnValueChanged(!EqualityComparer<T>.Default.Equals(_value, value));
+                var old = _value;
                 _value = value;
+                OnValueChanged(!EqualityComparer<T>.Default.Equals(old, value));
             }
         }
 
