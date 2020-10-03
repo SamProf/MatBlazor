@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -31,7 +32,7 @@ namespace MatBlazor
         }
 
         /// <summary>
-        ///  Event occurs when the user clicks on an element.
+        /// Event occurs when the user clicks on an element.
         /// </summary>
         [Parameter]
         public EventCallback<MouseEventArgs> OnClick { get; set; }
@@ -43,7 +44,7 @@ namespace MatBlazor
         public bool OnClickStopPropagation { get; set; }
 
         /// <summary>
-        ///  Command executed when the user clicks on an element.
+        /// Command executed when the user clicks on an element.
         /// </summary>
         [Parameter]
         public ICommand Command { get; set; }
@@ -60,7 +61,7 @@ namespace MatBlazor
 
 
         /// <summary>
-        ///  Command parameter.
+        /// Command parameter.
         /// </summary>
         [Parameter]
         public object CommandParameter { get; set; }
@@ -74,7 +75,6 @@ namespace MatBlazor
         /// <summary>
         /// Force browser to redirect outside component router-space.
         /// </summary>
-        /// 
         [Parameter]
         public bool ForceLoad { get; set; }
 
@@ -106,7 +106,6 @@ namespace MatBlazor
         /// <summary>
         /// Button has dense style.
         /// </summary>
-
         [Parameter]
         public bool Dense { get; set; }
 
@@ -147,13 +146,19 @@ namespace MatBlazor
             {
                 if (!string.IsNullOrEmpty(Target))
                 {
-                    await JsInvokeAsync<object>("open", Link, Target);
+                    try
+                    {
+                        await JsInvokeAsync<object>("open", Link, Target);
+                    }
+                    catch (TaskCanceledException ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
                 }
                 else
                 {
                      UriHelper.NavigateTo(Link, ForceLoad);
                 }
-
             }
             else
             {
@@ -165,12 +170,4 @@ namespace MatBlazor
             }
         }
     }
-
-    //    public enum MatButtonType
-    //    {
-    //        Text = 0,
-    //        Raised = 1,
-    //        Unelevated = 2,
-    //        Outlined = 3
-    //    }
 }
