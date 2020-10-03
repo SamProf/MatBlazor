@@ -25,7 +25,7 @@ namespace MatBlazor
         }
 
         /// <summary>
-        ///  Event occurs when the user clicks on an element.
+        /// Event occurs when the user clicks on an element.
         /// </summary>
         [Parameter]
         public EventCallback<MouseEventArgs> OnClick { get; set; }
@@ -40,7 +40,7 @@ namespace MatBlazor
         public ICommand Command { get; set; }
 
         /// <summary>
-        ///  Command parameter.
+        /// Command parameter.
         /// </summary>
         [Parameter]
         public object CommandParameter { get; set; }
