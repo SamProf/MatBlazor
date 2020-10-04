@@ -20,7 +20,6 @@ namespace MatBlazor.Demo.ServerApp
             services.AddRazorPages();
             services.AddServerSideBlazor(c =>
             {
-                //c.MaxBufferedUnacknowledgedRenderBatches = Int32.MaxValue;
                 c.DetailedErrors = true;
             });
             services.AddSignalR(c =>
@@ -64,11 +63,6 @@ namespace MatBlazor.Demo.ServerApp
                 app.UseHsts();
             }
             app.UseStaticFiles();
-
-
-//            app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatDomComponent).Assembly);
-//
-//            app.UseEmbeddedBlazorContent(typeof(MatBlazor.Demo.Pages.Index).Assembly);
 
             app.UseRouting();
 
