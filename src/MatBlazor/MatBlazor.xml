@@ -229,7 +229,7 @@
         </member>
         <member name="P:MatBlazor.BaseMatButton.OnClick">
             <summary>
-             Event occurs when the user clicks on an element.
+            Event occurs when the user clicks on an element.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatButton.OnClickStopPropagation">
@@ -239,12 +239,12 @@
         </member>
         <member name="P:MatBlazor.BaseMatButton.Command">
             <summary>
-             Command executed when the user clicks on an element.
+            Command executed when the user clicks on an element.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatButton.CommandParameter">
             <summary>
-             Command parameter.
+            Command parameter.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatButton.Link">
@@ -256,7 +256,6 @@
             <summary>
             Force browser to redirect outside component router-space.
             </summary>
-            
         </member>
         <member name="P:MatBlazor.BaseMatButton.Target">
             <summary>
