@@ -23,33 +23,33 @@ export class MatSlider {
 
 
 export function init(ref, jsHelper, immediate) {
-    sliders[ref] = new MatSlider(ref, jsHelper, immediate);
+    sliders[ref.id] = new MatSlider(ref, jsHelper, immediate);
 }
 
 export function updateValue(ref, value) {
-    if (!sliders[ref]) {
+    if (!sliders[ref.id]) {
         return;
     }
-    sliders[ref].slider.value = value;
+    sliders[ref.id].slider.value = value;
 }
 
 export function updateValueMin(ref, value) {
-    if (!sliders[ref]) {
+    if (!sliders[ref.id]) {
         return;
     }
-    sliders[ref].slider.min = value;
+    sliders[ref.id].slider.min = value;
 }
 
 export function updateValueMax(ref, value) {
-    if (!sliders[ref]) {
+    if (!sliders[ref.id]) {
         return;
     }
-    sliders[ref].slider.max = value;
+    sliders[ref.id].slider.max = value;
 }
 
 export function updateStep(ref, value) {
-    if (!sliders[ref]) {
+    if (!sliders[ref.id]) {
         return;
     }
-    sliders[ref].slider.step = value;
+    sliders[ref.id].slider.step = value;
 }
