@@ -7,7 +7,7 @@ namespace MatBlazor
         [Parameter]
         public RenderFragment ChildContent { get; set; }
         [Parameter]
-        public string? DrawerWidth { get; set; } = null;
+        public string DrawerWidth { get; set; } = null;
 
         public BaseMatDrawerContainer()
         {

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MatBlazor.DevUtils
+﻿namespace MatBlazor.DevUtils
 {
     public class Program
     {
-        public static  void Main(string[] args)
+        public static  void Main()
         {
             new DemoContentGenerator().Run();
         }

@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {

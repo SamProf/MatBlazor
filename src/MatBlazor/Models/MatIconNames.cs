@@ -1,6 +1,6 @@
 namespace MatBlazor
 {
-	public class MatIconNames
+    public class MatIconNames
 	{
 		public static string _3d_rotation { get; }= "3d_rotation";
 		public static string Accessibility { get; }= "accessibility";

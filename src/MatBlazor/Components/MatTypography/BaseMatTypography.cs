@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.RenderTree;
+﻿using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
@@ -28,15 +26,12 @@ namespace MatBlazor
         {
         }
     }
-
-
     public class MatHeadline2 : BaseMatTypography
     {
         public MatHeadline2() : base("h2", "mat-h2")
         {
         }
     }
-
     public class MatHeadline3 : BaseMatTypography
     {
         public MatHeadline3() : base("h3", "mat-h3")
@@ -64,7 +59,6 @@ namespace MatBlazor
         {
         }
     }
-
 
     public class MatH1 : MatHeadline1
     {
@@ -117,7 +111,6 @@ namespace MatBlazor
         {
         }
     }
-
 
     public class MatCaption : BaseMatTypography
     {

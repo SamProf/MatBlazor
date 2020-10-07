@@ -75,9 +75,8 @@ namespace MatBlazor
                         StateHasChanged();
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    //
                 }
             });
         }
