@@ -28,9 +28,9 @@
         CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matAccordion.initSummary", Ref); });
     }
 
-    protected void OnClickHandler(MouseEventArgs e)
+    protected async Task OnClickHandler(MouseEventArgs e)
     {
-        this.ExpansionPanel.ToggleAsync();
+        await this.ExpansionPanel.ToggleAsync();
     }
 
 }

@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO;
+﻿using Microsoft.AspNetCore.Components;
+using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    
+
     /// <summary>
     /// The MatSortHeader and MatSortHeaderRow are used, respectively, to add sorting state and display to tabular data.
     /// </summary>

@@ -229,7 +229,7 @@
         </member>
         <member name="P:MatBlazor.BaseMatButton.OnClick">
             <summary>
-             Event occurs when the user clicks on an element.
+            Event occurs when the user clicks on an element.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatButton.OnClickStopPropagation">
@@ -239,12 +239,12 @@
         </member>
         <member name="P:MatBlazor.BaseMatButton.Command">
             <summary>
-             Command executed when the user clicks on an element.
+            Command executed when the user clicks on an element.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatButton.CommandParameter">
             <summary>
-             Command parameter.
+            Command parameter.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatButton.Link">
@@ -256,7 +256,6 @@
             <summary>
             Force browser to redirect outside component router-space.
             </summary>
-            
         </member>
         <member name="P:MatBlazor.BaseMatButton.Target">
             <summary>
@@ -1095,7 +1094,7 @@
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.Class">
             <summary>
-            The main toast class. Defaults to <see cref="!:MatToastClasses.Toast"/>
+            The main toast class. Defaults to <see cref="M:MatBlazor.MatToastClasses.#ctor"/>
             </summary>
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.MaximumOpacity">
@@ -1130,7 +1129,7 @@
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.ShowProgressBar">
             <summary>
-            States if a progressbar has to be shown during the toast Visible state. Defaults to true.
+            States if a progress bar has to be shown during the toast Visible state. Defaults to true.
             </summary>
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.ProgressBarStepDuration">
@@ -1140,7 +1139,7 @@
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.ShowCloseButton">
             <summary>
-            States if the close button has to be used for hiding a toast. The button presence disables the default "hide on click" behaviour. Defaults to true.
+            States if the close button has to be used for hiding a toast. The button presence disables the default "hide on click" behavior. Defaults to true.
             </summary>
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.CloseIcon">

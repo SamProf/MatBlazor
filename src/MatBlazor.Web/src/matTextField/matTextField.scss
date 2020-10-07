@@ -35,7 +35,7 @@ label.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > span.mdc-floati
 }
 
 .mat-floating-label--float-above-outlined {
-  background-color: var(--mdc-theme-surface, #fff) !important;
+  background-color: var(--mdc-theme-surface, transparent) !important;
 }
 
 /* For EditForm validation messages */

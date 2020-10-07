@@ -1,25 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using MatBlazor.Demo.Models;
 using MatBlazor.Demo.Services;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.FileProviders.Embedded;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Primitives;
+using System;
+using System.Net.Http;
 
 namespace MatBlazor.Demo.ServerApp
 {
@@ -33,7 +20,6 @@ namespace MatBlazor.Demo.ServerApp
             services.AddRazorPages();
             services.AddServerSideBlazor(c =>
             {
-                //c.MaxBufferedUnacknowledgedRenderBatches = Int32.MaxValue;
                 c.DetailedErrors = true;
             });
             services.AddSignalR(c =>
@@ -76,23 +62,10 @@ namespace MatBlazor.Demo.ServerApp
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
-            //app.UseHttpsRedirection();
-
             app.UseStaticFiles();
-
-
-//            app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatDomComponent).Assembly);
-//
-//            app.UseEmbeddedBlazorContent(typeof(MatBlazor.Demo.Pages.Index).Assembly);
 
             app.UseRouting();
 
-
-          
-
-
-            
             app.UseEndpoints(endpoints =>
             {
                 

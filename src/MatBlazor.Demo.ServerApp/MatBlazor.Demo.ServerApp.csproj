@@ -7,8 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Shared\" />
-    <Folder Include="wwwroot\" />
+    <Compile Remove="Shared\**" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="Shared\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="Shared\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="Shared\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
   
   <ItemGroup>
