@@ -148,7 +148,7 @@
         <MatSlider @bind-Value="@Val4" Step="5" EnableStep="true" ValueMin="0" ValueMax="100" Markers="true" Pin="true" TValue="int" Discrete="true"></MatSlider>
 
         @code
-            {
+        {
 
             public int Val4
             {
@@ -169,7 +169,7 @@
         <MatSlider @bind-Value=""@Val4"" Step=""5"" EnableStep=""true"" ValueMin=""0"" ValueMax=""100"" Markers=""true"" Pin=""true"" TValue=""int"" Discrete=""true""></MatSlider>
 
         @code
-            {
+        {
 
             public int Val4
             {
@@ -276,6 +276,54 @@
             public void OnValueChanged(decimal val)
             {
                 Console.WriteLine($""OnValueChanged: {val}"");
+            }
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Value update</h5>
+<DemoContainer>
+    <Content>
+        <MatTextField @bind-Value="@Value" Label="Value"></MatTextField>
+        <MatTextField @bind-Value="@ValueMin" Label="ValueMin"></MatTextField>
+        <MatTextField @bind-Value="@ValueMax" Label="ValueMax"></MatTextField>
+        <MatSlider TValue="decimal" Value="@Value" ValueMin="@ValueMin" ValueMax="@ValueMax" ValueChanged="@OnValueChanged2"></MatSlider>
+
+        @code
+        {
+
+            public decimal Value { get; set; } = 50;
+            public decimal ValueMin { get; set; } = 0;
+            public decimal ValueMax { get; set; } = 100;
+
+            public void OnValueChanged2(decimal val)
+            {
+                Value = val;
+            }
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTextField @bind-Value=""@Value"" Label=""Value""></MatTextField>
+        <MatTextField @bind-Value=""@ValueMin"" Label=""ValueMin""></MatTextField>
+        <MatTextField @bind-Value=""@ValueMax"" Label=""ValueMax""></MatTextField>
+        <MatSlider TValue=""decimal"" Value=""@Value"" ValueMin=""@ValueMin"" ValueMax=""@ValueMax"" ValueChanged=""@OnValueChanged2""></MatSlider>
+
+        @code
+        {
+
+            public decimal Value { get; set; } = 50;
+            public decimal ValueMin { get; set; } = 0;
+            public decimal ValueMax { get; set; } = 100;
+
+            public void OnValueChanged2(decimal val)
+            {
+                Value = val;
             }
 
         }
