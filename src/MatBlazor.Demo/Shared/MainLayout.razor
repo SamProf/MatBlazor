@@ -151,7 +151,7 @@
     {
         await base.OnInitializedAsync();
 
-        Task.Delay(TimeSpan.FromSeconds(5))
+        await Task.Delay(TimeSpan.FromSeconds(5))
             .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
     }
 

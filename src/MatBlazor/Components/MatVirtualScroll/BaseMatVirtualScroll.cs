@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
@@ -88,9 +87,11 @@ namespace MatBlazor
         private void SetScrollView(MatVirtualScrollView scrollView)
         {
             this.ScrollView = scrollView;
-            this.ScrollViewResult = new MatVirtualScrollViewResult();
-            this.ScrollViewResult.Height = Items.Count() * ItemHeight;
-            this.ScrollViewResult.SkipItems = scrollView.ScrollTop / this.ItemHeight;
+            this.ScrollViewResult = new MatVirtualScrollViewResult
+            {
+                Height = Items.Count() * ItemHeight,
+                SkipItems = scrollView.ScrollTop / this.ItemHeight
+            };
             this.ScrollViewResult.TakeItems =
                 (int) Math.Ceiling((double) (scrollView.ScrollTop + scrollView.ClientHeight) / (double) ItemHeight) -
                 this.ScrollViewResult.SkipItems;

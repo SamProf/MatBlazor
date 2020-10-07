@@ -1,9 +1,8 @@
-﻿using System;
-using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 
 namespace MatBlazor
 {

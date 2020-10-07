@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using System;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MatBlazor
 {

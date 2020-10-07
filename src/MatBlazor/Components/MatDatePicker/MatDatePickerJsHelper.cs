@@ -1,7 +1,5 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.JSInterop;
+﻿using Microsoft.JSInterop;
+using System;
 
 namespace MatBlazor
 {
