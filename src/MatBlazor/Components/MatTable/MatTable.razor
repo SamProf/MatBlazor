@@ -458,7 +458,7 @@
 
         foreach (var item in items)
         {
-            var values = properties.Where(x => x.GetValue(item, null).ToString() != null).Select(x => x.GetValue(item, null).ToString());
+            var values = properties.Where(x => x.GetValue(item, null)?.ToString() != null).Select(x => x.GetValue(item, null).ToString());
 
             if (!values.Any())
             {
