@@ -3,3 +3,18 @@
 .mat-button__icon--trailing {
   margin: 0 -4px 0 4px !important;
 }
+
+.mat-link {
+    text-align: center;
+}
+
+.mat-link:hover {
+    text-decoration: none;
+}
+
+.mat-link:not([href]) {
+    color: rgba(0,0,0,.38) !important;
+    cursor: default;
+    pointer-events: none;
+    background-color: transparent;
+}
