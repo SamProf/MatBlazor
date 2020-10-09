@@ -5,19 +5,22 @@ using System.Windows.Input;
 
 namespace MatBlazor
 {
-    public class BaseMatLink: BaseMatDomComponent
+    public class BaseMatButtonLink: BaseMatDomComponent
     {
+        [Inject]
+        public Microsoft.AspNetCore.Components.NavigationManager UriHelper { get; set; }
+
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
             await JsInvokeAsync<object>("matBlazor.matButton.init", Ref);
         }
 
-        public BaseMatLink()
+        public BaseMatButtonLink()
         {
             ClassMapper
                 .Add("mdc-button")
-                .Add("mat-link")
+                .Add("mat-button-link")
                 .If("mdc-button--raised", () => this.Raised)
                 .If("mdc-button--unelevated", () => this.Unelevated)
                 .If("mdc-button--outlined", () => this.Outlined)
@@ -50,6 +53,13 @@ namespace MatBlazor
         /// </summary>
         [Parameter]
         public string Href { get; set; }
+
+        /// <summary>
+        /// Force browser to redirect outside component router-space.
+        /// </summary>
+        /// 
+        [Parameter]
+        public bool ForceLoad { get; set; }
 
         /// <summary>
         /// Target of Link when clicked.
@@ -108,10 +118,20 @@ namespace MatBlazor
 
         protected async void OnClickHandler(MouseEventArgs ev)
         {
+            if (Disabled)
+            {
+                return;
+            }
+
             await OnClick.InvokeAsync(ev);
             if (Command?.CanExecute(CommandParameter) ?? false)
             {
                 Command.Execute(CommandParameter);
+            }
+
+            if (Href != null && string.IsNullOrEmpty(Target))
+            {
+                UriHelper.NavigateTo(Href, ForceLoad);
             }
         }
     }
