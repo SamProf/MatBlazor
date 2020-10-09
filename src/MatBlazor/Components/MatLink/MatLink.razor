@@ -1,5 +1,5 @@
 @namespace MatBlazor
-@inherits BaseMatLink
+@inherits BaseMatButtonLink
 
 <a href=@(Disabled ? null : Href) target="@Target" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @onclick="OnClickHandler" @onclick:stopPropagation=@OnClickStopPropagation aria-label="@Icon" @ref="Ref" @attributes="Attributes" id="@Id">
     <div class="mdc-button__ripple"></div>
