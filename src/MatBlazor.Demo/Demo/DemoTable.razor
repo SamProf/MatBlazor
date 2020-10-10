@@ -3,7 +3,14 @@
 <h5 class="mat-h5">Example</h5>
 <DemoContainer>
     <Content>
-        <MatTable Items="@cars" class="mat-elevation-z5">
+        <MatTable Items="@cars" class="mat-elevation-z5" OnRowsGenerating="() => TestRowGenerating()">
+            <MatColGroup>
+                <colgroup>
+                    <col span="1" style="width: 60%;">
+                    <col span="1" style="width: auto;">
+                    <col span="1" style="width: auto;">
+                </colgroup>
+            </MatColGroup>
             <MatTableHeader>
                 <th>Name</th>
                 <th>Price</th>
@@ -18,6 +25,10 @@
 
         @code
         {
+            void TestRowGenerating()
+            {
+                System.Diagnostics.Debug.WriteLine("RowGenerating called successful.");
+            }
 
             public class Car
             {
@@ -49,7 +60,14 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatTable Items=""@cars"" class=""mat-elevation-z5"">
+        <MatTable Items=""@cars"" class=""mat-elevation-z5"" OnRowsGenerating=""() => TestRowGenerating()"">
+            <MatColGroup>
+                <colgroup>
+                    <col span=""1"" style=""width: 60%;"">
+                    <col span=""1"" style=""width: auto;"">
+                    <col span=""1"" style=""width: auto;"">
+                </colgroup>
+            </MatColGroup>
             <MatTableHeader>
                 <th>Name</th>
                 <th>Price</th>
@@ -89,6 +107,12 @@
                 new Car(""Ford Fusion"", 15000, 260),
                 new Car(""Ford Mondeo"", 16000, 120),
             };
+
+            void TestRowGenerating()
+            {
+                System.Diagnostics.Debug.WriteLine(""RowGenerating called successful."");
+            }
+
 
         }
 
