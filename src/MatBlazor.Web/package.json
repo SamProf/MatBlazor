@@ -21,6 +21,7 @@
     "@material/card": "7.0.0",
     "@material/checkbox": "7.0.0",
     "@material/chips": "7.0.0",
+    "@material/circular-progress": "7.0.0",
     "@material/data-table": "7.0.0",
     "@material/dialog": "7.0.0",
     "@material/drawer": "7.0.0",
