@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    public class BaseMatAccordion : BaseMatDomComponent
+    partial class MatAccordion
     {
         [Parameter]
         public RenderFragment ChildContent { get; set; }
@@ -23,9 +23,9 @@ namespace MatBlazor
         [Parameter]
         public bool LazyRendering { get; set; }
 
-        public BaseMatExpansionPanel Current { get; private set; }
+        public MatExpansionPanel Current { get; private set; }
 
-        public async Task ToggleAsync(BaseMatExpansionPanel panel)
+        public async Task ToggleAsync(MatExpansionPanel panel)
         {
             if (!Multi)
             {
@@ -42,7 +42,7 @@ namespace MatBlazor
             }
         }
 
-        public BaseMatAccordion()
+        public MatAccordion()
         {
             ClassMapper.Add("mat-accordion");
         }

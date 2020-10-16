@@ -8,15 +8,3 @@
         @ChildContent
     </div>
 }
-
-
-@code
-{
-
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-
-    [CascadingParameter]
-    public BaseMatExpansionPanel ExpansionPanel { get; set; }
-
-}
