@@ -1,16 +1,5 @@
 ﻿@namespace MatBlazor
-@using Microsoft.AspNetCore.Components
-@inherits BaseMatAppBar
-
-
+@inherits BaseMatDomComponent
 <header class="@ClassMapper.AsString()" @ref="Ref"  style="@StyleMapper.AsString()" @attributes="Attributes" Id="@Id">
     @ChildContent
 </header>
-
-@code
-{
-
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-
-}

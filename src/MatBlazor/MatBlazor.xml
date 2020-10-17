@@ -119,7 +119,7 @@
             Enables lazy rendering of the expansion panel details.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatAppBar">
+        <member name="T:MatBlazor.MatAppBar">
             <summary>
             Acts as a container for items such as application title, navigation icon, and action items.
             </summary>

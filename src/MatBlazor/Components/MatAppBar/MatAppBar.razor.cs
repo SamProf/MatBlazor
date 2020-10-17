@@ -6,7 +6,7 @@ namespace MatBlazor
     /// <summary>
     /// Acts as a container for items such as application title, navigation icon, and action items.
     /// </summary>
-    public class BaseMatAppBar : BaseMatDomComponent
+    partial class MatAppBar
     {
         [Parameter]
         public bool Short { get; set; }
@@ -14,14 +14,16 @@ namespace MatBlazor
         [Parameter]
         public bool Fixed { get; set; }
 
-        public BaseMatAppBar()
+        [Parameter]
+        public RenderFragment ChildContent { get; set; }
+
+        public MatAppBar()
         {
             ClassMapper
                 .Add("mdc-top-app-bar")
                 .If("mdc-top-app-bar--short", () => Short)
                 .If("mdc-top-app-bar--fixed", () => Fixed);
         }
-
 
         protected async override Task OnFirstAfterRenderAsync()
         {
