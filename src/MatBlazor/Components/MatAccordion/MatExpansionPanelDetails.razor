@@ -1,22 +1,9 @@
 ﻿@namespace MatBlazor
 @using Microsoft.AspNetCore.Components
 @inherits BaseMatDomComponent
-
 @if(!ExpansionPanel.LazyRendering || ExpansionPanel.Expanded)
 {
     <div class="@ClassMapper.AsString() mat-expansion-panel__content" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
         @ChildContent
     </div>
-}
-
-
-@code
-{
-
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-
-    [CascadingParameter]
-    public BaseMatExpansionPanel ExpansionPanel { get; set; }
-
 }
