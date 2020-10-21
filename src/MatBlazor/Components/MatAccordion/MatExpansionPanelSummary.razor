@@ -1,8 +1,6 @@
 ﻿@namespace MatBlazor
 @using Microsoft.AspNetCore.Components
 @inherits BaseMatDomComponent
-
-
 <div class="@ClassMapper.AsString()" @ref="Ref" style="@StyleMapper.AsString()" @onclick="OnClickHandler" @attributes="Attributes" Id="@Id">
     @ChildContent
 
@@ -11,26 +9,3 @@
         <span class="after material-icon">&#58131;</span>
     }
 </div>
-
-@code
-{
-
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-
-    [CascadingParameter]
-    public BaseMatExpansionPanel ExpansionPanel { get; set; }
-
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-        ClassMapper.Add("mat-expansion-panel__summary").Add("mdc-ripple-surface");
-        CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matAccordion.initSummary", Ref); });
-    }
-
-    protected async Task OnClickHandler(MouseEventArgs e)
-    {
-        await this.ExpansionPanel.ToggleAsync();
-    }
-
-}

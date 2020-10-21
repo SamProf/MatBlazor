@@ -9,10 +9,10 @@ namespace MatBlazor
     public class MatAnchorUtils : ComponentBase, IDisposable
     {
         [Inject]
-        public NavigationManager NavigationManager { get; set; }
+        protected NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        public IJSRuntime JSRuntime { get; set; }
+        protected IJSRuntime JSRuntime { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
