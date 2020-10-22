@@ -5,7 +5,7 @@ namespace MatBlazor
     /// <summary>
     /// MatDivider is a component that allows for Material styling of a line separator with various orientation options. 
     /// </summary>
-    public class BaseMatDivider : BaseMatDomComponent
+    partial class MatDivider
     {
         [Parameter]
         public bool Inset { get; set; }
@@ -13,8 +13,7 @@ namespace MatBlazor
         [Parameter]
         public bool Padded { get; set; }
 
-
-        public BaseMatDivider()
+        public MatDivider()
         {
             ClassMapper
                 .Add("mdc-list-divider")

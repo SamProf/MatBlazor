@@ -94,34 +94,39 @@
             <param name="validationErrorMessage">If the value could not be parsed, provides a validation error message.</param>
             <returns>True if the value could be parsed; otherwise false.</returns>
         </member>
-        <member name="P:MatBlazor.BaseMatAccordion.HideToggle">
+        <member name="P:MatBlazor.MatAccordion.HideToggle">
             <summary>
             Hides toggle icon for all expansion panel summaries in the accordion
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatAccordion.LazyRendering">
+        <member name="P:MatBlazor.MatAccordion.LazyRendering">
             <summary>
             Enables lazy rendering for all expansion panel details in the accordion.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatExpansionPanel">
+        <member name="T:MatBlazor.MatExpansionPanel">
             <summary>
             MatExpansionPanel provides an expandable details-summary view.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatExpansionPanel.HideToggle">
+        <member name="P:MatBlazor.MatExpansionPanel.HideToggle">
             <summary>
             Hides the toggle icon in the expansion panel summary
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatExpansionPanel.LazyRendering">
+        <member name="P:MatBlazor.MatExpansionPanel.LazyRendering">
             <summary>
             Enables lazy rendering of the expansion panel details.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatAppBar">
+        <member name="T:MatBlazor.MatAppBar">
             <summary>
             Acts as a container for items such as application title, navigation icon, and action items.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.MatAppBarAdjust">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatAutocompleteList`1">
@@ -221,93 +226,93 @@
             ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatButton">
+        <member name="T:MatBlazor.MatButton">
             <summary>
             Buttons communicate an action a user can take.
             They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.OnClick">
+        <member name="P:MatBlazor.MatButton.OnClick">
             <summary>
             Event occurs when the user clicks on an element.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.OnClickStopPropagation">
+        <member name="P:MatBlazor.MatButton.OnClickStopPropagation">
             <summary>
             Stop propagation of the OnClick event
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Command">
+        <member name="P:MatBlazor.MatButton.Command">
             <summary>
             Command executed when the user clicks on an element.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.CommandParameter">
+        <member name="P:MatBlazor.MatButton.CommandParameter">
             <summary>
             Command parameter.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Link">
+        <member name="P:MatBlazor.MatButton.Link">
             <summary>
             Link to a url when clicked.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.ForceLoad">
+        <member name="P:MatBlazor.MatButton.ForceLoad">
             <summary>
             Force browser to redirect outside component router-space.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Target">
+        <member name="P:MatBlazor.MatButton.Target">
             <summary>
             Target of Link when clicked.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Raised">
+        <member name="P:MatBlazor.MatButton.Raised">
             <summary>
             Button has raised style.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Unelevated">
+        <member name="P:MatBlazor.MatButton.Unelevated">
             <summary>
             Button has unelevated style.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Outlined">
+        <member name="P:MatBlazor.MatButton.Outlined">
             <summary>
             Button has outlined style.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Dense">
+        <member name="P:MatBlazor.MatButton.Dense">
             <summary>
             Button has dense style.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Disabled">
+        <member name="P:MatBlazor.MatButton.Disabled">
             <summary>
             Button is disabled.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Icon">
+        <member name="P:MatBlazor.MatButton.Icon">
             <summary>
             Specifies an button's icon.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.TrailingIcon">
+        <member name="P:MatBlazor.MatButton.TrailingIcon">
             <summary>
             Specifies if icon has trailing position.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Label">
+        <member name="P:MatBlazor.MatButton.Label">
             <summary>
             Text label of Button.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.ChildContent">
+        <member name="P:MatBlazor.MatButton.ChildContent">
             <summary>
             Inline label of Button.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatCard">
+        <member name="T:MatBlazor.MatCard">
             <summary>
             Card component for Blazor contain content and actions about a single subject. 
             </summary>
@@ -396,7 +401,7 @@
             Indicates if the user is able to close the dialog via Escape or click on the Scrim.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatDivider">
+        <member name="T:MatBlazor.MatDivider">
             <summary>
             MatDivider is a component that allows for Material styling of a line separator with various orientation options. 
             </summary>
