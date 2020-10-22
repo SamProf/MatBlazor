@@ -5,9 +5,9 @@ namespace MatBlazor
     /// <summary>
     /// Card component for Blazor contain content and actions about a single subject. 
     /// </summary>
-    public class BaseMatCard : BaseMatDomComponent
+    partial class MatCard 
     {
-        public BaseMatCard()
+        public MatCard()
         {
             ClassMapper
                 .Add("mat-card")
