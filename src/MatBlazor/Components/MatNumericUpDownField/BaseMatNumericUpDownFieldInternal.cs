@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MatBlazor
@@ -143,6 +144,12 @@ namespace MatBlazor
                         result = MatTypeConverter.ChangeType<TValue>(doubleResult * 0.01d);
                     }
                 }
+            }
+            if (result != null) // Snap to Min/Max
+            {
+                var comparer = Comparer<TValue>.Default;
+                if (Maximum != null && comparer.Compare(result, Maximum) > 0) result = Maximum;
+                if (Minimum != null && comparer.Compare(result, Minimum) < 0) result = Minimum;
             }
 
             return success;
