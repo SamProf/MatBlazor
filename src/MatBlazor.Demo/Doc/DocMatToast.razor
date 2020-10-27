@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatToast</h3> } else { <h5 class="mat-h5">MatToast</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>Represents an instance of a Toast<br/>It handles the user interactions and orchestrates the state transitions</p>
 
@@ -35,3 +35,12 @@
 		<td></td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatToast";
+
+}

@@ -138,6 +138,11 @@ functionality in Demo for the component you are editing. Not only will this allo
 
 
 
+
+#### MatBlazor 2.7.1 (In progress)
+- PR: TextField Label should be transparent as Default #704 (Thanks to [enkodellc](https://github.com/enkodellc))
+- PR: New MatPaper Component #707 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+
 #### MatBlazor 2.7.0
 - Update MDC Web to 7.0.0 (SamProf)
 - Changed DOM and JS for many components, because of changes in MDC Web 7.0.0 (SamProf)
