@@ -142,6 +142,10 @@ functionality in Demo for the component you are editing. Not only will this allo
 #### MatBlazor 2.7.1 (In progress)
 - PR: TextField Label should be transparent as Default #704 (Thanks to [enkodellc](https://github.com/enkodellc))
 - PR: New MatPaper Component #707 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- PR: Enable MatSlider values update from code-behind #725 (Thanks to [MarosValter](https://github.com/MarosValter))
+- PR: Bugfix - Task canceled exception #737 (Thanks to [Christian-Oleson](https://github.com/Christian-Oleson))
+- PR: Update MatBlazor Packages #738 (Thanks to [Christian-Oleson](https://github.com/Christian-Oleson))
+- PR: Cleanup usings, errors, warnings, etc. #739 (Thanks to [Christian-Oleson](https://github.com/Christian-Oleson))
 
 #### MatBlazor 2.7.0
 - Update MDC Web to 7.0.0 (SamProf)
