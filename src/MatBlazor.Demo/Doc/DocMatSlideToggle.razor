@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatSlideToggle</h3> } else { <h5 class="mat-h5">MatSlideToggle</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>Material Design SlideToggle for Blazor. Component for on/off control that can be toggled via clicking or dragging.</p>
 
@@ -85,3 +85,12 @@
 		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatSlideToggle";
+
+}

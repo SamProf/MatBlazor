@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">IMatNavSubMenuToggler</h3> } else { <h5 class="mat-h5">IMatNavSubMenuToggler</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>Defines interface for a container component that<br/>can toggle the expansion state of its sub menus.</p>
 
@@ -15,3 +15,12 @@
 		<th>Description</th>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "IMatNavSubMenuToggler";
+
+}

@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatToastCommonOptions</h3> } else { <h5 class="mat-h5">MatToastCommonOptions</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>The common options for MatToaster</p>
 
@@ -52,12 +52,12 @@
 	<tr>
 		<td>ShowCloseButton</td>
 		<td>Boolean</td>
-		<td>States if the close button has to be used for hiding a toast. The button presence disables the default &quot;hide on click&quot; behaviour. Defaults to true.</td>
+		<td>States if the close button has to be used for hiding a toast. The button presence disables the default &quot;hide on click&quot; behavior. Defaults to true.</td>
 	</tr>
 	<tr>
 		<td>ShowProgressBar</td>
 		<td>Boolean</td>
-		<td>States if a progressbar has to be shown during the toast Visible state. Defaults to true.</td>
+		<td>States if a progress bar has to be shown during the toast Visible state. Defaults to true.</td>
 	</tr>
 	<tr>
 		<td>ShowStepDuration</td>
@@ -75,3 +75,12 @@
 		<td>How long the toast remain visible without user interaction. Defaults to 5000 ms.</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatToastCommonOptions";
+
+}

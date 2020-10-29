@@ -14,12 +14,11 @@ namespace MatBlazor
         public BaseMatPaper()
         {
             ClassMapper
-                .GetIf(() => $"mat-elevation-z{Math.Clamp(Elevation, 0, 24)}", () => !Outlined);
-
-            StyleMapper
-                .Add("background-color: var(--mdc-theme-surface, #ffffff);")
-                .If("border: 1px solid rgba(0, 0, 0, 0.12)", () => Outlined)
-                .If("border-radius: 4px", () => Rounded);
+                .Add("mat-paper")
+                .GetIf(() => $"mat-elevation-z{Math.Clamp(Elevation, 0, 24)}", () => !Outlined)
+                .If("mat-paper--outlined", () => Outlined)
+                .If("mat-paper--rounded", () => Rounded);            
+                
         }
 
         [Parameter]

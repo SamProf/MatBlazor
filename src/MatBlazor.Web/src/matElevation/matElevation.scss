@@ -104,3 +104,18 @@
 .mat-elevation-transition {
   @extend .mdc-elevation-transition;
 }
+
+
+.mat-paper {
+  background-color: var(--mdc-theme-surface, #ffffff);
+
+  &.mat-paper--outlined {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+
+  &.mat-paper--rounded {
+    border-radius: 4px
+  }
+
+}
