@@ -104,7 +104,7 @@ namespace MatBlazor
                 }
                 Format = $"p{DecimalPlaces}";
             }
-            else
+            else if (Step == null || Step.Equals(ZeroValue))
             {
                 Step = SwitchT.GetStep();
             }
