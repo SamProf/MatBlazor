@@ -89,9 +89,11 @@ If you think that this project helped you or your company in any way, you can co
 
 #### Sponsors:
 - Phil Parkin
-- Patreon: Jay Arrowz
+- Patreon: Eric Vander Wal
 - Patreon: Rene Zaal
+- Patreon: Lachlan Gordon
 - Patreon: Stas Levich
+- Patreon: Jay Arrowz
 
 
 #### Backers:
