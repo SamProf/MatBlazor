@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using System;
 using System.Threading.Tasks;
@@ -10,7 +10,7 @@ namespace MatBlazor
     /// Buttons communicate an action a user can take.
     /// They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
     /// </summary>
-    public class BaseMatButton : BaseMatDomComponent
+    partial class MatButton : BaseMatDomComponent
     {
         [Inject]
         public Microsoft.AspNetCore.Components.NavigationManager UriHelper { get; set; }
@@ -21,7 +21,7 @@ namespace MatBlazor
             await JsInvokeAsync<object>("matBlazor.matButton.init", Ref);
         }
 
-        public BaseMatButton()
+        public MatButton()
         {
             ClassMapper
                 .Add("mdc-button")
@@ -157,12 +157,12 @@ namespace MatBlazor
                 }
                 else
                 {
-                     UriHelper.NavigateTo(Link, ForceLoad);
+                    UriHelper.NavigateTo(Link, ForceLoad);
                 }
             }
             else
             {
-               await OnClick.InvokeAsync(ev);
+                await OnClick.InvokeAsync(ev);
                 if (Command?.CanExecute(CommandParameter) ?? false)
                 {
                     Command.Execute(CommandParameter);
