@@ -221,6 +221,77 @@
             ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.OnClick">
+            <summary>
+            Event occurs when the user clicks on an element.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.OnClickStopPropagation">
+            <summary>
+            Stop propagation of the OnClick event
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.CommandParameter">
+            <summary>
+            Command parameter.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Href">
+            <summary>
+            Link to a url when clicked.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.ForceLoad">
+            <summary>
+            Force browser to redirect outside component router-space.
+            </summary>
+            
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Target">
+            <summary>
+            Target of Link when clicked.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Raised">
+            <summary>
+            Link has raised style.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Unelevated">
+            <summary>
+            Link has unelevated style.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Outlined">
+            <summary>
+            Link has outlined style.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Dense">
+            <summary>
+            Link has dense style.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Disabled">
+            <summary>
+            Link is disabled.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Icon">
+            <summary>
+            Specifies the link's icon.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.TrailingIcon">
+            <summary>
+            Specifies if icon has trailing position.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.ChildContent">
+            <summary>
+            Inline label of Button.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatButton">
             <summary>
             Buttons communicate an action a user can take.
