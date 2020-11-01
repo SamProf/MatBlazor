@@ -142,6 +142,7 @@ functionality in Demo for the component you are editing. Not only will this allo
 #### MatBlazor 2.8.0 (In progress)
 - PR: Add New MatProgressCircle component #752 (Thanks to [louisfischer](https://github.com/louisfischer))
 - PR: Add New MatPaper component #707 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- PR: MatDatePicker Localized feature #715 (Thanks to [ummerland](https://github.com/ummerland))
 - PR: TextField Label should be transparent as Default #704 (Thanks to [enkodellc](https://github.com/enkodellc))- 
 - PR: Enable MatSlider values update from code-behind #725 (Thanks to [MarosValter](https://github.com/MarosValter))
 - PR: Bugfix - Task canceled exception #737 (Thanks to [Christian-Oleson](https://github.com/Christian-Oleson))
