@@ -6,6 +6,7 @@
 @using System
 @using System.Collections.Generic
 @using System.Reflection;
+@using System.Text.Json
 @using Microsoft.AspNetCore.Components
 
 @if (!String.IsNullOrWhiteSpace(FilterByColumnName))
@@ -269,18 +270,20 @@
 
     async Task SearchPagedData()
     {
-        var PagedData = await Http.GetJsonAsync<TableItem>(ApiUrl + SearchTermParam(SearchTerm));
-        Items = (IEnumerable<TableItem>)
-            PagedData
-                .GetType()
-                .GetProperty(PagingDataPropertyName)
-                .GetValue(PagedData);
-        var Count = Convert.ToInt32(
-            PagedData
-                .GetType()
-                .GetProperty(PagingRecordsCountPropertyName)
-                .GetValue(PagedData)
-            );
+        var PagedData = await Http.GetStringAsync(ApiUrl + SearchTermParam(SearchTerm));
+        var doc = JsonDocument.Parse(PagedData);
+        var root = doc.RootElement;
+        var itemsString = root.GetProperty(PagingDataPropertyName).GetRawText();
+        
+        var opt = new JsonSerializerOptions()
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        };
+        
+        var items = JsonSerializer.Deserialize<List<TableItem>>(itemsString, opt);
+        
+        Items = items;
+        var Count = root.GetProperty(PagingRecordsCountPropertyName).GetInt32();
         RecordsFrom = (CurrentPage - 1) * PageSize;
         RecordsTo = (RecordsFrom + PageSize < Count) ? RecordsFrom + PageSize : Count;
         ItemList = Items;
