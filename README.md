@@ -150,6 +150,7 @@ functionality in Demo for the component you are editing. Not only will this allo
 - PR: Update MatBlazor Packages #738 (Thanks to [Christian-Oleson](https://github.com/Christian-Oleson))
 - PR: Cleanup usings, errors, warnings, etc. #739 (Thanks to [Christian-Oleson](https://github.com/Christian-Oleson))
 - PR: MatAccordion cleanup code and removed redundant base class #761 (Thanks to [damianog](https://github.com/damianog))
+- PR: Fixes MatChip TrailingIconClick #750 (Thanks to [kylepope-ge](https://github.com/kylepope-ge))
 
 
 #### MatBlazor 2.7.0
