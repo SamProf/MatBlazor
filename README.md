@@ -152,6 +152,7 @@ functionality in Demo for the component you are editing. Not only will this allo
 - PR: MatAccordion cleanup code and removed redundant base class #761 (Thanks to [damianog](https://github.com/damianog))
 - PR: Fixes MatChip TrailingIconClick #750 (Thanks to [kylepope-ge](https://github.com/kylepope-ge))
 - PR: Code cleanup #762 (Thanks to [damianog](https://github.com/damianog))
+- PR: Snap NumericUpDown to min/max values on string parse. #764 (Thanks to [adameste](https://github.com/adameste))
 
 
 #### MatBlazor 2.7.0
