@@ -118,12 +118,12 @@ namespace MatBlazor
             }
             else
             {
-                await OnClick.InvokeAsync(e);
                 if (Command?.CanExecute(CommandParameter) ?? false)
                 {
                     Command.Execute(CommandParameter);
                 }
             }
+            await OnClick.InvokeAsync(e);
         }
     }
 }
