@@ -13,13 +13,28 @@
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td style="font-weight: bold;">T</td>
-		<td>Generic argument</td>
+		<td>ComponentType</td>
+		<td>Type</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>Current</td>
-		<td>T</td>
+		<td>IsOpen</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Options</td>
+		<td>MatDialogOptions</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Service</td>
+		<td>MatDialogService</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>TaskCompletionSource</td>
+		<td>TaskCompletionSource&lt;Object&gt;</td>
 		<td></td>
 	</tr>
 </table></div>
@@ -29,6 +44,6 @@
 {
 
 	[Parameter]
-	public string Header { get; set; } = "ForwardRef";
+	public string Header { get; set; } = "MatDialogReference";
 
 }

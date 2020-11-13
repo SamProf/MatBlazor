@@ -1,0 +1,103 @@
+<DocForwardRefContext></DocForwardRefContext>
+
+
+<DemoContainer Header="Reference to DOM elements">
+    <Content>
+        @inject IJSRuntime jsRuntime
+
+        @foreach (var item in items)
+        {
+            <ForwardRefContext TRef="ElementReference" @key="@item">
+                <div @ref="@context.Current" @onclick="@(_ => OnDivClick(context.Current))">@item</div>
+            </ForwardRefContext>
+        }
+
+        @code
+        {
+
+            string[] items = Enumerable.Range(1, 10).Select(i => i.ToString()).ToArray();
+
+            void OnDivClick(ElementReference reference)
+            {
+            // you can check in DeveloperTools
+                jsRuntime.InvokeAsync<object>("console.log", reference);
+            }
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        @inject IJSRuntime jsRuntime
+
+        @foreach (var item in items)
+        {
+            <ForwardRefContext TRef=""ElementReference"" @key=""@item"">
+                <div @ref=""@context.Current"" @onclick=""@(_ => OnDivClick(context.Current))"">@item</div>
+            </ForwardRefContext>
+        }
+
+        @code
+        {
+
+            string[] items = Enumerable.Range(1, 10).Select(i => i.ToString()).ToArray();
+
+            void OnDivClick(ElementReference reference)
+            {
+            // you can check in DeveloperTools
+                jsRuntime.InvokeAsync<object>(""console.log"", reference);
+            }
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<DemoContainer Header="Reference to Components">
+    <Content>
+        @foreach (var item in items2)
+        {
+            <ForwardRefContext TRef="MatTextField<string>" @key="@item">
+                <MatTextField @ref="@context.Current" TValue="string" Value="@item"></MatTextField>
+                <MatIconButton Icon="@MatIconNames.Clear" OnClick="@(_ => DisableTextField(context.Current))"></MatIconButton>
+            </ForwardRefContext>
+        }
+
+        @code
+        {
+
+            string[] items2 = Enumerable.Range(1, 10).Select(i => i.ToString()).ToArray();
+
+            void DisableTextField(MatTextField<string> textFieldReference)
+            {
+                textFieldReference.Disabled = true;
+                textFieldReference.InvokeStateHasChanged();
+            }
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        @foreach (var item in items2)
+        {
+            <ForwardRefContext TRef=""MatTextField<string>"" @key=""@item"">
+                <MatTextField @ref=""@context.Current"" TValue=""string"" Value=""@item""></MatTextField>
+                <MatIconButton Icon=""@MatIconNames.Clear"" OnClick=""@(_ => DisableTextField(context.Current))""></MatIconButton>
+            </ForwardRefContext>
+        }
+
+        @code
+        {
+
+            string[] items2 = Enumerable.Range(1, 10).Select(i => i.ToString()).ToArray();
+
+            void DisableTextField(MatTextField<string> textFieldReference)
+            {
+                textFieldReference.Disabled = true;
+                textFieldReference.InvokeStateHasChanged();
+            }
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

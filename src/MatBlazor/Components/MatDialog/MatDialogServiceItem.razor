@@ -1,0 +1,21 @@
+﻿<CascadingValue Value="DialogReference">
+    <MatDialog CanBeClosed="@(DialogReference.Options?.CanBeClosed ?? BaseMatDialog.CanBeClosedDefault)" IsOpen="@DialogReference.IsOpen" SurfaceClass="@DialogReference.Options?.SurfaceClass" SurfaceStyle="@DialogReference.Options?.SurfaceStyle" IsOpenChanged="@(b => OnIsOpenChanged(b))">
+        <MatComponentHost Type="@DialogReference.ComponentType" Attributes="@(DialogReference.Options?.Attributes ?? new Dictionary<string, object>())"></MatComponentHost>
+    </MatDialog>
+</CascadingValue>
+
+
+@code
+{
+    [Parameter]
+    public MatDialogReference DialogReference { get; set; }
+
+    private void OnIsOpenChanged(bool b)
+    {
+        DialogReference.IsOpen = b;
+        if (!b)
+        {
+            DialogReference.Close(null);
+        }
+    }
+}

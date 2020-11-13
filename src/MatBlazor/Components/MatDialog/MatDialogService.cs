@@ -5,58 +5,41 @@ using System.Linq;
 using System.Net.WebSockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using MatBlazor.Components.MatDialog;
 using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
     public class MatDialogService : IMatDialogService
     {
-        private List<MatDialogReference> items = new List<MatDialogReference>();
+        private readonly IMatPortalService _portalService;
 
-        public IEnumerable<MatDialogReference> Items
+        public MatDialogService(IMatPortalService portalService)
         {
-            get { return items; }
+            _portalService = portalService;
         }
-
-        private void StateHasChanged()
-        {
-            OnItemsChanged(items);
-        }
-
-        public event EventHandler<IEnumerable<MatDialogReference>> ItemsChanged;
-
-        //private object LockObj = new object();
-        private int ItemCounter = 1;
 
         public Task<object> OpenAsync(Type componentType, MatDialogOptions options)
         {
-            var attributes = new Dictionary<string, object>(options?.Attributes ?? new Dictionary<string, object>());
             var item = new MatDialogReference()
             {
                 Service = this,
-                Id = ++ItemCounter,
                 ComponentType = componentType,
                 Options = options,
                 IsOpen = true,
-                TaskCompletionSource = new TaskCompletionSource<object>(),
-                Attributes = attributes,
+                TaskCompletionSource = new TaskCompletionSource<object>(),                
             };
-
-            items.Add(item);
-            this.StateHasChanged();
+            
+            _portalService.Add(typeof(MatDialogServiceItem), new Dictionary<string, object>()
+            {
+                {"DialogReference", item}
+            });
+            
+           
             return item.TaskCompletionSource.Task;
         }
 
-        protected virtual void OnItemsChanged(IEnumerable<MatDialogReference> e)
-        {
-            ItemsChanged?.Invoke(this, e);
-        }
-
-        public void Remove(MatDialogReference item)
-        {
-            items.Remove(item);
-            this.StateHasChanged();
-        }
+     
     }
 
 
@@ -65,7 +48,7 @@ namespace MatBlazor
         public bool CanBeClosed { get; set; } = BaseMatDialog.CanBeClosedDefault;
 
         public string SurfaceStyle { get; set; }
-        
+
         public string SurfaceClass { get; set; }
         public Dictionary<string, object> Attributes { get; set; }
     }
@@ -73,30 +56,21 @@ namespace MatBlazor
     public class MatDialogReference
     {
         public MatDialogService Service { get; set; }
-        public int Id { get; set; }
         public bool IsOpen { get; set; }
         public Type ComponentType { get; set; }
-
         public MatDialogOptions Options { get; set; }
         public TaskCompletionSource<object> TaskCompletionSource { get; set; }
-
-        public Dictionary<string, object> Attributes { get; set; }
-
-
+        
         public void Close(object result)
         {
             IsOpen = false;
             TaskCompletionSource.TrySetResult(result);
-            this.Service.Remove(this);
         }
     }
 
 
     public interface IMatDialogService
     {
-        IEnumerable<MatDialogReference> Items { get; }
-
-        event EventHandler<IEnumerable<MatDialogReference>> ItemsChanged;
         Task<object> OpenAsync(Type componentType, MatDialogOptions options);
     }
 }

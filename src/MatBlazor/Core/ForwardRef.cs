@@ -2,18 +2,23 @@
 
 namespace MatBlazor
 {
-    public class ForwardRef
+    public class ForwardRef : ForwardRef<ElementReference>
     {
-        private ElementReference _current;
+    }
 
-        public ElementReference Current
+
+    public class ForwardRef<T>
+    {
+        private T _current;
+
+        public T Current
         {
             get => _current;
             set => Set(value);
         }
 
 
-        public void Set(ElementReference value)
+        public void Set(T value)
         {
             _current = value;
         }
