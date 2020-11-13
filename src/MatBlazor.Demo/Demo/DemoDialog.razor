@@ -30,7 +30,7 @@
                 <MatSelect TValue="string" Label="Title">
                     <MatOptionString ></MatOptionString>
                     <MatOptionString Value="dr">Dr.</MatOptionString>
-                    <MatOptionString Value="prof">Prof.</MatOptionString>                    
+                    <MatOptionString Value="prof">Prof.</MatOptionString>
                 </MatSelect>
                 <MatTextField @bind-Value="@dialogAnimal"></MatTextField>
 
@@ -65,7 +65,7 @@
 
     </Content>
     <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
         <ol>
             <li>
                 <MatTextField Label=""What's your name?"" @bind-Value=""@name""></MatTextField>
@@ -118,6 +118,25 @@
 
         }
 
-    ")></BlazorFiddle>
+    ")>
+        </BlazorFiddle>
     </SourceContent>
+</DemoContainer>
+
+<DemoContainer Class="demo-mat-dialog-container">
+    <Content>
+
+        @inject IMatDialogService MatDialogService
+        
+        <MatButton OnClick="@(_=>OpenDialogFromService())">Open</MatButton>
+
+        @code
+        {
+            async Task OpenDialogFromService()
+            {
+                await MatDialogService.OpenAsync(typeof(DemoDialogItem), null);
+            }
+        }
+
+    </Content>
 </DemoContainer>

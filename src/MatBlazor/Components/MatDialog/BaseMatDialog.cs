@@ -9,10 +9,12 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatDialog : BaseMatDomComponent
     {
+        public const bool CanBeClosedDefault = true;
+
         private bool _isOpen;
 
         // true is the mdc default
-        private bool _canBeClosed = true;
+        private bool _canBeClosed = CanBeClosedDefault;
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
@@ -62,8 +64,25 @@ namespace MatBlazor
 
         private DotNetObjectReference<BaseMatDialog> dotNetObjectRef;
 
+
+        protected ClassMapper SurfaceClassMapper { get; } = new ClassMapper();
+        protected StyleMapper SurfaceStyleMapper { get; } = new StyleMapper();
+
+        [Parameter]
+        public string SurfaceClass { get; set; }
+
+        [Parameter]
+        public string SurfaceStyle { get; set; }
+
+
         public BaseMatDialog()
         {
+            SurfaceClassMapper
+                .Add("mdc-dialog__surface")
+                .Get(() => this.SurfaceClass);
+
+            SurfaceStyleMapper
+                .Get(() => this.SurfaceStyle);
 
             ClassMapper.Add("mdc-dialog");
             CallAfterRender(async () =>

@@ -17,6 +17,9 @@ namespace MatBlazor.Demo.ServerApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<HttpClient>();
+            
+            services.AddMatBlazor();
+            
             services.AddRazorPages();
             services.AddServerSideBlazor(c =>
             {
