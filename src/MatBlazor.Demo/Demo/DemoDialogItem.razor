@@ -29,10 +29,7 @@
     [Parameter]
     public int Value { get; set; } = 1;
     
-    [Parameter]
-    public int MyWidth { get; set; } = 500;
-
-    [Parameter]
+    [CascadingParameter]
     public MatDialogReference DialogReference { get; set; }
 
     async Task OpenDialogFromService()

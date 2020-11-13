@@ -6,6 +6,7 @@ namespace MatBlazor
     {
         public static void AddMatBlazor(this IServiceCollection serviceCollection)
         {
+            serviceCollection.AddScoped<IMatPortalService, MatPortalService>();
             serviceCollection.AddScoped<IMatDialogService, MatDialogService>();
         }
     }

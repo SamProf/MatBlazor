@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.WebSockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace MatBlazor
             get { return items; }
         }
 
-        public void StateHasChanged()
+        private void StateHasChanged()
         {
             OnItemsChanged(items);
         }
@@ -41,8 +42,6 @@ namespace MatBlazor
                 Attributes = attributes,
             };
 
-            attributes["DialogReference"] = item;
-
             items.Add(item);
             this.StateHasChanged();
             return item.TaskCompletionSource.Task;
@@ -51,6 +50,12 @@ namespace MatBlazor
         protected virtual void OnItemsChanged(IEnumerable<MatDialogReference> e)
         {
             ItemsChanged?.Invoke(this, e);
+        }
+
+        public void Remove(MatDialogReference item)
+        {
+            items.Remove(item);
+            this.StateHasChanged();
         }
     }
 
@@ -82,7 +87,7 @@ namespace MatBlazor
         {
             IsOpen = false;
             TaskCompletionSource.TrySetResult(result);
-            this.Service.StateHasChanged();
+            this.Service.Remove(this);
         }
     }
 
@@ -90,8 +95,6 @@ namespace MatBlazor
     public interface IMatDialogService
     {
         IEnumerable<MatDialogReference> Items { get; }
-
-        void StateHasChanged();
 
         event EventHandler<IEnumerable<MatDialogReference>> ItemsChanged;
         Task<object> OpenAsync(Type componentType, MatDialogOptions options);
