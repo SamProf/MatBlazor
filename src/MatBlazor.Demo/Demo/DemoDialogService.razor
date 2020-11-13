@@ -1,0 +1,85 @@
+<DocMatDialogService></DocMatDialogService>
+
+
+<DemoContainer Header="Examples">
+    <Content>
+
+        @inject IMatDialogService MatDialogService
+
+        <MatButton OnClick="@(_ => OpenDialogFromService())">Open</MatButton>
+        <MatButton OnClick="@(_ => OpenAlertFromService())">Alert</MatButton>
+        <MatButton OnClick="@(_ => OpenConfirmFromService())">Confirm</MatButton>
+        <MatButton OnClick="@(_ => OpenAskFromService())">Ask</MatButton>
+        <MatButton OnClick="@(_ => OpenPromptFromService())">Prompt</MatButton>
+
+        @code
+        {
+            async Task OpenDialogFromService()
+            {
+                await MatDialogService.OpenAsync(typeof(DemoDialogItem), null);
+            }
+
+            async Task OpenAlertFromService()
+            {
+                await MatDialogService.AlertAsync("Test alert message");
+            }
+
+            async Task OpenConfirmFromService()
+            {
+                await MatDialogService.ConfirmAsync("Test Confirm message");
+            }
+
+            async Task OpenAskFromService()
+            {
+                var result = await MatDialogService.AskAsync("Test ask message", new string[] {"Yes", "No", "Cancel"});
+            }
+
+            async Task OpenPromptFromService()
+            {
+                var result = await MatDialogService.PromptAsync("What is your name?");
+            }
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+
+        @inject IMatDialogService MatDialogService
+
+        <MatButton OnClick=""@(_ => OpenDialogFromService())"">Open</MatButton>
+        <MatButton OnClick=""@(_ => OpenAlertFromService())"">Alert</MatButton>
+        <MatButton OnClick=""@(_ => OpenConfirmFromService())"">Confirm</MatButton>
+        <MatButton OnClick=""@(_ => OpenAskFromService())"">Ask</MatButton>
+        <MatButton OnClick=""@(_ => OpenPromptFromService())"">Prompt</MatButton>
+
+        @code
+        {
+            async Task OpenDialogFromService()
+            {
+                await MatDialogService.OpenAsync(typeof(DemoDialogItem), null);
+            }
+
+            async Task OpenAlertFromService()
+            {
+                await MatDialogService.AlertAsync(""Test alert message"");
+            }
+
+            async Task OpenConfirmFromService()
+            {
+                await MatDialogService.ConfirmAsync(""Test Confirm message"");
+            }
+
+            async Task OpenAskFromService()
+            {
+                var result = await MatDialogService.AskAsync(""Test ask message"", new string[] {""Yes"", ""No"", ""Cancel""});
+            }
+
+            async Task OpenPromptFromService()
+            {
+                var result = await MatDialogService.PromptAsync(""What is your name?"");
+            }
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

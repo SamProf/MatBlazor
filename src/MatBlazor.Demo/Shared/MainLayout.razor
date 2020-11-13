@@ -90,7 +90,8 @@
 
 </MatSnackbar>
 
-<MatDialogServiceHost></MatDialogServiceHost>
+@* <MatDialogServiceHost></MatDialogServiceHost> *@
+<MatPortalHost></MatPortalHost>
 
 
 @code {
@@ -157,10 +158,7 @@
         {
             await Task.Delay(TimeSpan.FromSeconds(5));
             this.lazySnackbarIsOpen = true;
-            await InvokeAsync(() =>
-            {
-                this.StateHasChanged();
-            });
+            await InvokeAsync(() => { this.StateHasChanged(); });
         });
     }
 

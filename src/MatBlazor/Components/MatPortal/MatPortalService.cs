@@ -12,13 +12,14 @@ namespace MatBlazor
         public event EventHandler StateChanged;
 
 
-        public void Add(Type componentType, Dictionary<string, object> attributes)
+        public MatPortalReference Add(Type componentType, Dictionary<string, object> attributes)
         {
             var item = new MatPortalReference()
             {
                 Id = ++itemsCounter,
                 Attributes = attributes,
                 ComponentType = componentType,
+                Service = this,
             };
             lock (lockObj)
             {
@@ -26,6 +27,7 @@ namespace MatBlazor
             }
 
             this.StateHasChanged();
+            return item;
         }
 
 
@@ -61,16 +63,18 @@ namespace MatBlazor
 
         public Type ComponentType { get; set; }
 
+        public MatPortalService Service { get; set; }
+
         public Dictionary<string, object> Attributes { get; set; }
     }
 
 
     public interface IMatPortalService
     {
-        void Add(Type componentType, Dictionary<string, object> attributes);
+        MatPortalReference Add(Type componentType, Dictionary<string, object> attributes);
         void Remove(MatPortalReference item);
         IEnumerable<MatPortalReference> GetItems();
-        
+
         event EventHandler StateChanged;
     }
 }
