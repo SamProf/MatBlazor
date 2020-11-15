@@ -3,6 +3,31 @@
 @inherits BaseMatSlider<TValue>
 
 
+<div @ref="Ref" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" data-step="@(Discrete ? Step?.ToString() : null)" @attributes="Attributes" Id="@Id">
+    <div class="mdc-slider__track">
+        <div class="mdc-slider__track--inactive"></div>
+        <div class="mdc-slider__track--active">
+            <div class="mdc-slider__track--active_fill"></div>
+        </div>
+    </div>
+    <div class="mdc-slider__thumb" role="slider" tabindex="0" aria-label="@Label" aria-valuemin="@ValueMin"
+         aria-valuemax="@ValueMax" aria-valuenow="@Value">
+        @if (Discrete && Markers)
+        {
+            <div class="mdc-slider__value-indicator-container">
+                <div class="mdc-slider__value-indicator">
+                    <span class="mdc-slider__value-indicator-text">
+                        @Value
+                    </span>
+                </div>
+            </div>
+        }
+        <div class="mdc-slider__thumb-knob"></div>
+    </div>
+</div>
+
+
+@*
 <div @ref="Ref" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" tabindex="0" role="slider"
      aria-valuemin="@ValueMin" aria-valuemax="@ValueMax" aria-valuenow="@Value"
      data-step="@(EnableStep ? Step?.ToString() : null)" aria-label="@Label" aria-disabled="@Disabled"
@@ -30,4 +55,4 @@
         <div class="mdc-slider__focus-ring"></div>
     </div>
 </div>
-
+*@
