@@ -143,6 +143,8 @@ functionality in Demo for the component you are editing. Not only will this allo
 
 
 
+#### MatBlazor 2.9.0 (develop)
+- Update MDC Web to 8.0.0 (In progress) (SamProf)
 
 #### MatBlazor 2.8.0
 - Add new ForwardRefContext component (SamProf)
