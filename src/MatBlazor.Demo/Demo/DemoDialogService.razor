@@ -1,6 +1,32 @@
 <DocMatDialogService></DocMatDialogService>
 
 
+<DemoContainer Header="Requirement">
+    <Content>
+        @code
+        {
+            // in Startup.cs use:
+            // services.AddMatBlazor();
+            
+            // in root Blazor app component - App.razor
+            // <MatPortalHost></MatPortalHost>
+        }
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        @code
+        {
+            // in Startup.cs use:
+            // services.AddMatBlazor();
+            
+            // in root Blazor app component - App.razor
+            // <MatPortalHost></MatPortalHost>
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
 <DemoContainer Header="Examples">
     <Content>
 
@@ -81,5 +107,64 @@
         }
 
     ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<DemoContainer SourcePath=".\DemoDialogItem.razor" Header="DemoDialogItem.razor">
+    <Content>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"@inject IMatDialogService MatDialogService
+
+
+<MatDialogTitle style=""display: flex; align-items: center;"">
+    <div style=""flex: 1;"">Test title</div>
+    <div @onclick=""@(_=>CloseDialog())"" style=""cursor: pointer;"">
+        <MatIcon Icon=""@MatIconNames.Close""></MatIcon>
+    </div>
+</MatDialogTitle>
+<MatDialogContent>
+    @for (var i = 0; i < Value; i++)
+    {
+        <p>Test @i / @Value</p>
+    }
+
+
+    <MatButton OnClick=""@(_ => OpenDialogFromService())"">Open Next</MatButton>
+
+    <MatButton OnClick=""@(_ => CloseDialog())"">Close and return value</MatButton>
+
+
+</MatDialogContent>
+<MatDialogActions>
+
+</MatDialogActions>
+
+@code
+{
+    [Parameter]
+    public int Value { get; set; } = 1;
+    
+    [CascadingParameter]
+    public MatDialogReference DialogReference { get; set; }
+
+    async Task OpenDialogFromService()
+    {
+        var result = await MatDialogService.OpenAsync(typeof(DemoDialogItem), new MatDialogOptions()
+        {
+            Attributes = new Dictionary<string, object>()
+            {
+                {""Value"", this.Value + 1},                
+            },
+            SurfaceStyle = ""min-width: 600px; max-width: 700px;""
+        });
+    }
+
+    async Task CloseDialog()
+    {
+        DialogReference.Close(""Test"");
+    }
+}")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
