@@ -144,9 +144,9 @@ functionality in Demo for the component you are editing. Not only will this allo
 
 
 
-#### MatBlazor 2.8.0 (In progress)
+#### MatBlazor 2.8.0
 - Add new ForwardRefContext component (SamProf)
-- Add new MatDialogService and MatPortalService
+- Add new MatDialogService and MatPortalService (SamProf)
 - PR: Add new MatProgressCircle component #752 (Thanks to [louisfischer](https://github.com/louisfischer))
 - PR: Add new MatPaper component #707 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
 - PR: Add new MatButtonLink #745 (Thanks to [PeteJobi](https://github.com/PeteJobi))
