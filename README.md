@@ -89,7 +89,9 @@ If you think that this project helped you or your company in any way, you can co
 
 #### Sponsors:
 - Phil Parkin
+- Patreon: Luiz Sampaio
 - Patreon: Eric Vander Wal
+- Patreon: Czeysy Pataro
 - Patreon: Rene Zaal
 - Patreon: Lachlan Gordon
 - Patreon: Stas Levich
@@ -107,6 +109,7 @@ If you think that this project helped you or your company in any way, you can co
 - Radu Tomuleasa
 - [Maurizio Verde](https://github.com/MaurizioVerde)
 - Adam Salvo
+- Dorana
 - Yevhen Shmakov
 - Jacobus Terhorst
 - Xiao Song
