@@ -1029,6 +1029,11 @@
             One of the following must be supplied <see cref="P:MatBlazor.MatTreeView`1.RootNode"/> or <see cref="P:MatBlazor.MatTreeView`1.RootNodes"/> (but NOT BOTH)
             </summary>
         </member>
+        <member name="P:MatBlazor.MatTreeView`1.MinItemHeight">
+            <summary>
+            Optional, sets the min height of tree view item in pixels. Use zero to always fit to content.
+            </summary>
+        </member>
         <member name="P:MatBlazor.MatTreeView`1.SelectedNode">
             <summary>
             The selected item in the tree
@@ -1118,7 +1123,7 @@
         <member name="P:MatBlazor.MatTreeView`1.IsNodeExpandedCallback">
             <summary>
             A function that indicates if the given node is expanded or collapsed.
-            (Optional - if null then the expanded/collapsed state is managed by the <see cref="T:MatBlazor.MatTreeView`1"/>)
+            (Optional - if null then the expanded/collapsed state is managed by the <see cref="!:K5MatTreeView&lt;TNode&gt;"/>)
             </summary>
             <example><![CDATA[
             <MatTreeView TNode="MyTreeNode"
