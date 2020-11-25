@@ -871,6 +871,11 @@
             The number of rows per page.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatTable.CurrentPage">
+            <summary>
+            The current page, starting from one.
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatTable.OnRowDbClick">
             <summary>
             Action to execute on row item

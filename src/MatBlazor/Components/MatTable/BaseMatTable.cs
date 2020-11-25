@@ -21,8 +21,6 @@ namespace MatBlazor
         protected int RecordsCount { get; set; }
         protected int RecordsFilteredCount { get; set; }
 
-        protected int CurrentPage;
-
         protected int StartPage { get; set; }
         protected int EndPage { get; set; }
         protected string SearchTerm { get; set; }
@@ -159,11 +157,51 @@ namespace MatBlazor
         [Parameter]
         public bool Striped { get; set; }
 
+        private int _pageSize = 5;
+
         /// <summary>
         /// The number of rows per page.
         /// </summary>
         [Parameter]
-        public int PageSize { get; set; } = 5;
+        public int PageSize
+        {
+            get => _pageSize;
+            set
+            {
+                if (_pageSize == value)
+                    return;
+
+                _pageSize = value;
+
+                PageSizeChanged?.Invoke(value);
+            }
+        }
+
+        [Parameter]
+        public Action<int> PageSizeChanged { get; set; }
+
+        private int _currentPage;
+
+        /// <summary>
+        /// The current page, starting from one.
+        /// </summary>
+        [Parameter]
+        public int CurrentPage
+        {
+            get => _currentPage;
+            set
+            {
+                if (_currentPage == value)
+                    return;
+
+                _currentPage = value;
+
+                CurrentPageChanged?.Invoke(value);
+            }
+        }
+
+        [Parameter]
+        public Action<int> CurrentPageChanged { get; set; }
 
         public BaseMatTable()
         {
@@ -195,7 +233,7 @@ namespace MatBlazor
             else
             {
                 SelectionChanged?.Invoke(null);
-            }   
+            }
         }
 
         protected string SearchTermParam(string SearchTerm)
