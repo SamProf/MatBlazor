@@ -65,14 +65,13 @@ namespace MatBlazor
             CurrentValue = GetValueFromKey(switchTK.ParseFromString(value, null));
         }
 
-        protected override void OnValueChanged(bool changed)
+        protected override void OnValueChanged(TValue oldValue, TValue newValue)
         {
-            base.OnValueChanged(changed);
-            if (changed && Rendered)
+            if (Rendered)
             {
                 CallAfterRender(async () =>
                 {
-                    await JsInvokeAsync<object>("matBlazor.matSelect.setValue", Ref, switchTK.FormatValueAsString(GetKeyFromValue(CurrentValue), null));
+                    await JsInvokeAsync<object>("matBlazor.matSelect.setValue", Ref, switchTK.FormatValueAsString(GetKeyFromValue(newValue), null));
                 });
             }
         }

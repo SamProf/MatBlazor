@@ -21,7 +21,7 @@ namespace MatBlazor
         protected BaseMatInputComponent()
         {
         }
-        
+
         [Parameter]
         public bool ValidationDisabled { get; set; }
 
@@ -41,14 +41,23 @@ namespace MatBlazor
             get => _value;
             set
             {
-                var old = _value;
-                _value = value;
-                OnValueChanged(!EqualityComparer<T>.Default.Equals(old, value));
+                var hasChanged = !EqualityComparer<T>.Default.Equals(_value, value);
+                if (hasChanged)
+                {
+                    var oldValue = _value;
+                    _value = value;
+                    OnValueChanged(oldValue, _value);
+                }
+                OnValueChanged(hasChanged);
             }
         }
 
-
+        [Obsolete("Please use OnValueChanged(oldValue, newValue)")]
         protected virtual void OnValueChanged(bool changed)
+        {
+        }
+
+        protected virtual void OnValueChanged(T oldValue, T newValue)
         {
         }
 

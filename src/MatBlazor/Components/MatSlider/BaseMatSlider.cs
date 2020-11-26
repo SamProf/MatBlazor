@@ -41,15 +41,15 @@ namespace MatBlazor
             CurrentValue = SwitchT.FromDecimal(e);
         }
 
-        protected override void OnValueChanged(bool changed)
+        protected override void OnValueChanged(TValue oldValue, TValue newValue)
         {
-            if (changed && Rendered)
+            if (Rendered)
             {
                 InvokeAsync(async () =>
                 {
                     try
                     {
-                        await Js.InvokeVoidAsync("matBlazor.matSlider.updateValue", Ref, Value);
+                        await Js.InvokeVoidAsync("matBlazor.matSlider.updateValue", Ref, newValue);
                     }
                     catch (Exception e)
                     {
