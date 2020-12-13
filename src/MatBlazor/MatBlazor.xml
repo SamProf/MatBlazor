@@ -1335,6 +1335,21 @@
             The title shown.
             </summary>
         </member>
+        <member name="P:MatBlazor.MatTable`1.MatTableHeader">
+            <summary>
+            The table header
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatTable`1.UseSortHeaderRow">
+            <summary>
+            Allows the header row to be sorted
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatTable`1.MatTableRow">
+            <summary>
+            Renders the list of items within the table
+            </summary>
+        </member>
         <member name="P:MatBlazor.MatTable`1.PageSizes">
             <summary>
             Not Functioning
