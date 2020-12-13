@@ -125,9 +125,6 @@ namespace MatBlazor
                     await JsInvokeAsync<object>("matBlazor.matDatePicker.open", Ref, flatpickrInputRef, dotNetObjectRef,
                         new FlatpickrOptions
                         {
-                            EnableTime = EnableTime,
-                            Enable24hours = Enable24hours,
-                            EnableSeconds = EnableSeconds,
                             EnableWeekNumbers = EnableWeekNumbers,
                             DisableMobile = DisableMobile,
                             Mode = Mode,
