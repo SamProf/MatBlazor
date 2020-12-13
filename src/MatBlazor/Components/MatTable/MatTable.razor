@@ -9,9 +9,9 @@
 @using System.Text.Json
 @using Microsoft.AspNetCore.Components
 
-@if (!String.IsNullOrWhiteSpace(FilterByColumnName))
+@if (!string.IsNullOrWhiteSpace(FilterByColumnName))
 {
-    <MatTextField class="mdc-table-filter" OnInput="@((e) => OnInput(e))" Placeholder="@SearchTermFieldPlaceHolder" Label="@SearchTermFieldLabel" Value="@SearchTerm" Icon="filter_list"></MatTextField>
+    <MatTextField class="mdc-table-filter" OnInput="@(OnInput)" Placeholder="@SearchTermFieldPlaceHolder" Label="@SearchTermFieldLabel" Value="@SearchTerm" Icon="filter_list"></MatTextField>
 }
 <CascadingValue Value="@this">
     <table class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
@@ -67,8 +67,8 @@
             <div class="mdc-paginator-range-actions">
                 <span class="mdc-paginator-range-label">@PageLabel @CurrentPage / @TotalPages</span>
                 <div class="mdc-paginator-range-buttons">
-                    <MatIconButton Icon="first_page" OnClick=@(async () => NavigateToPage(PageDirection.First)) Disabled=@(CurrentPage <= 1)></MatIconButton>
-                    <MatIconButton Icon="navigate_before" OnClick=@(async () => NavigateToPage(PageDirection.Previous)) Disabled=@(CurrentPage <= 1)></MatIconButton>
+                    <MatIconButton Icon="first_page" OnClick=@(async () => await NavigateToPage(PageDirection.First)) Disabled=@(CurrentPage <= 1)></MatIconButton>
+                    <MatIconButton Icon="navigate_before" OnClick=@(async () => await NavigateToPage(PageDirection.Previous)) Disabled=@(CurrentPage <= 1)></MatIconButton>
                     @*@for (int i = StartPage; i <= EndPage; i++)
                         {
                             var currentPage = i;
@@ -76,8 +76,8 @@
                                 @currentPage
                             </MatIconButton>
                         }*@
-                    <MatIconButton Icon="navigate_next" OnClick="@(async () => NavigateToPage(PageDirection.Next))" Disabled="@(CurrentPage == EndPage)"></MatIconButton>
-                    <MatIconButton Icon="last_page" OnClick=@(async () => NavigateToPage(PageDirection.Last)) Disabled=@(CurrentPage == EndPage)></MatIconButton>
+                    <MatIconButton Icon="navigate_next" OnClick="@(async () => await NavigateToPage(PageDirection.Next))" Disabled="@(CurrentPage == EndPage)"></MatIconButton>
+                    <MatIconButton Icon="last_page" OnClick=@(async () => await NavigateToPage(PageDirection.Last)) Disabled=@(CurrentPage == EndPage)></MatIconButton>
                 </div>
             </div>
         </div>
@@ -101,12 +101,21 @@
         }
     }
 
+    /// <summary>
+    /// The table header
+    /// </summary>
     [Parameter]
     public RenderFragment MatTableHeader { get; set; }
 
+    /// <summary>
+    /// Allows the header row to be sorted
+    /// </summary>
     [Parameter]
     public bool UseSortHeaderRow { get; set; } = false;
 
+    /// <summary>
+    /// Renders the list of items within the table
+    /// </summary>
     [Parameter]
     public RenderFragment<TableItem> MatTableRow { get; set; }
 
@@ -151,7 +160,7 @@
                 new PageSizeStructure() {Text = "50", Value = 50},
                 new PageSizeStructure() {Text = "100", Value = 100},
                 new PageSizeStructure() {Text = "*", Value = -1}
-                                                        };
+            };
             if (PageSize <= 0)
                 PageSize = 5;
         }
@@ -179,7 +188,7 @@
                 ErrorMessage = ex.Message;
             }
         }
-        else if (Items != null && Items.Count() > 0)
+        else if (Items != null && Items.Any())
         {
             FilterLocalProvidedData();
         }
@@ -194,7 +203,7 @@
     {
         ItemList = Items.Skip((currentPage - 1) * PageSize).Take(PageSize);
         CurrentPage = currentPage;
-        this.StateHasChanged();
+        StateHasChanged();
         await LoadData();
     }
 
@@ -235,7 +244,7 @@
             Console.WriteLine("Error LoadData: " + ex.Message);
             ErrorMessage = ex.Message;
         }
-        await base.InvokeAsync(StateHasChanged);
+        await InvokeAsync(StateHasChanged);
     }
 
     async Task SearchData()
@@ -270,10 +279,10 @@
 
     async Task SearchPagedData()
     {
-        var PagedData = await Http.GetStringAsync(ApiUrl + SearchTermParam(SearchTerm));
-        var doc = JsonDocument.Parse(PagedData);
+        string pagedData = await Http.GetStringAsync(ApiUrl + SearchTermParam(SearchTerm));
+        var doc = JsonDocument.Parse(pagedData);
         var root = doc.RootElement;
-        var itemsString = root.GetProperty(PagingDataPropertyName).GetRawText();
+        string itemsString = root.GetProperty(PagingDataPropertyName).GetRawText();
         
         var opt = new JsonSerializerOptions()
         {
@@ -283,11 +292,11 @@
         var items = JsonSerializer.Deserialize<List<TableItem>>(itemsString, opt);
         
         Items = items;
-        var Count = root.GetProperty(PagingRecordsCountPropertyName).GetInt32();
+        int count = root.GetProperty(PagingRecordsCountPropertyName).GetInt32();
         RecordsFrom = (CurrentPage - 1) * PageSize;
-        RecordsTo = (RecordsFrom + PageSize < Count) ? RecordsFrom + PageSize : Count;
+        RecordsTo = (RecordsFrom + PageSize < count) ? RecordsFrom + PageSize : count;
         ItemList = Items;
-        TotalPages = Math.Max(1, (int)Math.Ceiling(Count / (decimal)PageSize));
+        TotalPages = Math.Max(1, (int)Math.Ceiling(count / (decimal)PageSize));
         EndPage = TotalPages;
         SetPageSize(PageDirection.First);
     }
@@ -302,7 +311,7 @@
             {
                 if (string.IsNullOrWhiteSpace(FilterByColumnName))
                 {
-                    throw new ArgumentNullException("FilterByColumnName param cannot be null");
+                    throw new ArgumentNullException("FilterByColumnName", "Param cannot be null");
                 }
 
                 var properties = typeof(TableItem).GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -314,7 +323,7 @@
 
                 var propertyNames = properties.Select(x => x.Name);
 
-                var containsAllColumns = propertyNames.Intersect(FilteredColumns).Count() == FilteredColumns.Length;
+                bool containsAllColumns = propertyNames.Intersect(FilteredColumns).Count() == FilteredColumns.Length;
 
                 if (!containsAllColumns)
                 {
@@ -330,25 +339,11 @@
                 TotalPages = Math.Max(1, (int)Math.Ceiling(RecordsFilteredCount / (decimal)PageSize));
                 EndPage = TotalPages;
 
-                if (PageSize <= 0)
-                {
-                    ItemList = filteredCollection;
-                }
-                else
-                {
-                    ItemList = filteredCollection.Skip(RecordsFrom).Take(PageSize);
-                }
+                ItemList = PageSize <= 0 ? filteredCollection : filteredCollection.Skip(RecordsFrom).Take(PageSize);
             }
             else
             {
-                if (PageSize <= 0)
-                {
-                    ItemList = Items;
-                }
-                else
-                {
-                    ItemList = Items.Skip(RecordsFrom).Take(PageSize);
-                }
+                ItemList = PageSize <= 0 ? Items : Items.Skip(RecordsFrom).Take(PageSize);
                 RecordsTo = (RecordsFrom + PageSize < Items.Count()) ? RecordsFrom + PageSize : Items.Count();
                 TotalPages = Math.Max(1, (int)Math.Ceiling(Items.Count() / (decimal)PageSize));
                 EndPage = TotalPages;
@@ -409,6 +404,8 @@
                 }
                 CurrentPage--;
                 break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
         }
 
         // C# 8.0 Code
@@ -454,7 +451,7 @@
 
         foreach (var item in items)
         {
-            var values = properties.Where(x => x.GetValue(item, null)?.ToString() != null).Select(x => x.GetValue(item, null).ToString());
+            var values = properties.Where(x => x.GetValue(item, null)?.ToString() != null).Select(x => x.GetValue(item, null).ToString()).ToList();
 
             if (!values.Any())
             {

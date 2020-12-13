@@ -27,9 +27,9 @@ namespace MatBlazor
         protected int EndPage { get; set; }
         protected string SearchTerm { get; set; }
         protected string ErrorMessage { get; set; }
-        Timer DebounceTimerInterval { get; set; }
-        Action<object> DebounceAction { get; set; }
-        object LastObjectDebounced { get; set; }
+        private Timer DebounceTimerInterval { get; set; }
+        private Action<object> DebounceAction { get; set; }
+        private object LastObjectDebounced { get; set; }
 
         #endregion
 
@@ -115,8 +115,8 @@ namespace MatBlazor
         [Parameter]
         public string SearchTermFieldLabel
         {
-            get { return _searchTermFieldLabel ?? "Filter"; }
-            set { _searchTermFieldLabel = value; }
+            get => _searchTermFieldLabel ?? "Filter";
+            set => _searchTermFieldLabel = value;
         }
 
         /// <summary>
@@ -125,8 +125,8 @@ namespace MatBlazor
         [Parameter]
         public string SearchTermFieldPlaceHolder
         {
-            get { return _searchTermFieldPlaceHolder ?? FilterByColumnName; }
-            set { _searchTermFieldPlaceHolder = value; }
+            get => _searchTermFieldPlaceHolder ?? FilterByColumnName;
+            set => _searchTermFieldPlaceHolder = value;
         }
 
         /// <summary>
@@ -198,29 +198,29 @@ namespace MatBlazor
             }   
         }
 
-        protected string SearchTermParam(string SearchTerm)
+        protected string SearchTermParam(string searchTerm)
         {
-            var SearchTermParam = (string.IsNullOrWhiteSpace(SearchTermParamName)
-                ? "SearchTerm=" + SearchTerm
-                : SearchTermParamName + "=" + SearchTerm);
-            var DescendingParam = (string.IsNullOrWhiteSpace(DescendingParamName)
+            string searchTermParam = (string.IsNullOrWhiteSpace(SearchTermParamName)
+                ? "searchTerm=" + searchTerm
+                : SearchTermParamName + "=" + searchTerm);
+            string descendingParam = (string.IsNullOrWhiteSpace(DescendingParamName)
                 ? "Descending=" + Descending
                 : DescendingParamName + "=" + Descending);
-            var SortByParam = (string.IsNullOrWhiteSpace(SortByParamName)
+            string sortByParam = (string.IsNullOrWhiteSpace(SortByParamName)
                 ? "SortBy=" + SortBy
                 : SortByParamName + "=" + SortBy);
-            var PageParam = (string.IsNullOrWhiteSpace(PageParamName)
+            string pageParam = (string.IsNullOrWhiteSpace(PageParamName)
                 ? "Page=" + CurrentPage
                 : PageParamName + "=" + CurrentPage);
-            var PageSizeParam = (string.IsNullOrWhiteSpace(PageSizeParamName)
+            string pageSizeParam = (string.IsNullOrWhiteSpace(PageSizeParamName)
                 ? "PageSize=" + PageSize
                 : PageSizeParamName + "=" + PageSize);
             return "?" +
-                   SearchTermParam + "&" +
-                   DescendingParam + "&" +
-                   SortByParam + "&" +
-                   PageParam + "&" +
-                   PageSizeParam;
+                   searchTermParam + "&" +
+                   descendingParam + "&" +
+                   sortByParam + "&" +
+                   pageParam + "&" +
+                   pageSizeParam;
         }
 
         protected void Debounce(object obj, int interval, Action<object> debounceAction)
