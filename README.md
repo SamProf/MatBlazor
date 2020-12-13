@@ -89,9 +89,13 @@ If you think that this project helped you or your company in any way, you can co
 
 #### Sponsors:
 - Phil Parkin
-- Patreon: Jay Arrowz
+- Patreon: Luiz Sampaio
+- Patreon: Eric Vander Wal
+- Patreon: Czeysy Pataro
 - Patreon: Rene Zaal
+- Patreon: Lachlan Gordon
 - Patreon: Stas Levich
+- Patreon: Jay Arrowz
 
 
 #### Backers:
@@ -105,6 +109,7 @@ If you think that this project helped you or your company in any way, you can co
 - Radu Tomuleasa
 - [Maurizio Verde](https://github.com/MaurizioVerde)
 - Adam Salvo
+- Dorana
 - Yevhen Shmakov
 - Jacobus Terhorst
 - Xiao Song
@@ -136,6 +141,27 @@ functionality in Demo for the component you are editing. Not only will this allo
 - `MatTreeView` - complete new component
 - `MatAutocomplete` - new implementation of component
 
+
+
+#### MatBlazor 2.9.0 (develop)
+- Update MDC Web to 8.0.0 (In progress) (SamProf)
+
+#### MatBlazor 2.8.0
+- Add new ForwardRefContext component (SamProf)
+- Add new MatDialogService and MatPortalService (SamProf)
+- PR: Add new MatProgressCircle component #752 (Thanks to [louisfischer](https://github.com/louisfischer))
+- PR: Add new MatPaper component #707 (Thanks to [EduVencovsky](https://github.com/EduVencovsky))
+- PR: Add new MatButtonLink #745 (Thanks to [PeteJobi](https://github.com/PeteJobi))
+- PR: MatDatePicker Localized feature #715 (Thanks to [ummerland](https://github.com/ummerland))
+- PR: TextField Label should be transparent as Default #704 (Thanks to [enkodellc](https://github.com/enkodellc))- 
+- PR: Enable MatSlider values update from code-behind #725 (Thanks to [MarosValter](https://github.com/MarosValter))
+- PR: Bugfix - Task canceled exception #737 (Thanks to [Christian-Oleson](https://github.com/Christian-Oleson))
+- PR: Update MatBlazor Packages #738 (Thanks to [Christian-Oleson](https://github.com/Christian-Oleson))
+- PR: Cleanup usings, errors, warnings, etc. #739 (Thanks to [Christian-Oleson](https://github.com/Christian-Oleson))
+- PR: MatAccordion cleanup code and removed redundant base class #761 (Thanks to [damianog](https://github.com/damianog))
+- PR: Fixes MatChip TrailingIconClick #750 (Thanks to [kylepope-ge](https://github.com/kylepope-ge))
+- PR: Code cleanup #762 (Thanks to [damianog](https://github.com/damianog))
+- PR: Snap NumericUpDown to min/max values on string parse. #764 (Thanks to [adameste](https://github.com/adameste))
 
 
 #### MatBlazor 2.7.0

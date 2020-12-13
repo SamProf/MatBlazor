@@ -64,7 +64,7 @@ namespace MatBlazor
 
         protected bool Disposed { get; private set; }
 
-        protected void InvokeStateHasChanged()
+        public void InvokeStateHasChanged()
         {
             InvokeAsync(() =>
             {
@@ -75,9 +75,8 @@ namespace MatBlazor
                         StateHasChanged();
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    //
                 }
             });
         }

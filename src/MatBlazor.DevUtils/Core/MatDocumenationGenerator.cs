@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Web;
 using System.Xml.Linq;
-using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.DevUtils.Core
 {
@@ -65,7 +64,7 @@ namespace MatBlazor.DevUtils.Core
                     sb.AppendLine();
                     //@if (Secondary) { <h3 class="mat-h3">MatProgressBar</h3> } else { <h3 class="mat-h3">MatProgressBar</h3> }
                     sb.AppendLine(
-                        $"@if (!Secondary) {{<h3 class=\"mat-h3\">{HtmlEncode(typeName)}</h3> }} else {{ <h5 class=\"mat-h5\">{HtmlEncode(typeName)}</h5> }}");
+                        $"@if (!Secondary) {{<h3 class=\"mat-h3\">@Header</h3> }} else {{ <h5 class=\"mat-h5\">@Header</h5> }}");
                     sb.AppendLine();
                     var typeXml = FindDocXml(xml, type);
                     if (typeXml != null)
@@ -144,6 +143,17 @@ namespace MatBlazor.DevUtils.Core
                     }
 
                     sb.AppendLine($"</table></div>");
+
+
+                    sb.AppendLine("");
+                    sb.AppendLine("");
+                    sb.AppendLine("@code");
+                    sb.AppendLine("{");
+                    sb.AppendLine("");
+                    sb.AppendLine("\t[Parameter]");
+                    sb.AppendLine($"\tpublic string Header {{ get; set; }} = \"{typeName}\";");
+                    sb.AppendLine("");
+                    sb.AppendLine("}");
 
 
                     File.WriteAllText(outFilePath, sb.ToString());

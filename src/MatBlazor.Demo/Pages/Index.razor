@@ -15,31 +15,29 @@
     <div class="mat-layout-grid-inner">
 
         <div class="mat-layout-grid-cell-span-12">
-            <h1 class="mat-h1"><img src="https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/logo.png" style="max-height: 100px;" /> MatBlazor</h1>
+            <h1 class="mat-h1"><img src="https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/logo.png" style="max-height: 100px;"/> MatBlazor</h1>
             <h4 class="mat-h4">Material Design components for Blazor (@(GetVersion()))</h4>
             <div>
                 <a href="https://www.nuget.org/packages/MatBlazor/" target="_blank">
-                    <img src="https://img.shields.io/nuget/v/MatBlazor.svg" />
+                    <img src="https://img.shields.io/nuget/v/MatBlazor.svg"/>
                 </a>
                 <a href="https://gitter.im/MatBlazor/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge" target="_blank">
-                    <img src="https://badges.gitter.im/MatBlazor/community.svg" />
+                    <img src="https://badges.gitter.im/MatBlazor/community.svg"/>
                 </a>
                 <a href="https://github.com/SamProf/MatBlazor" target="_blank">
-                    <img src="https://img.shields.io/github/stars/SamProf/MatBlazor.svg" />
+                    <img src="https://img.shields.io/github/stars/SamProf/MatBlazor.svg"/>
                 </a>
                 <a href="https://github.com/SamProf/MatBlazor/issues" target="_blank">
-                    <img src="https://img.shields.io/github/issues/SamProf/matblazor.svg" />
+                    <img src="https://img.shields.io/github/issues/SamProf/matblazor.svg"/>
                 </a>
                 <a href="https://github.com/SamProf/MatBlazor/blob/master/LICENSE" target="_blank">
-                    <img src="https://img.shields.io/github/license/SamProf/MatBlazor.svg" />
+                    <img src="https://img.shields.io/github/license/SamProf/MatBlazor.svg"/>
                 </a>
                 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XT68N2VKWTPE&source=url" target="_blank" style="margin-left: 5px;">
-                    <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" />
+                    <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"/>
                 </a>
             </div>
         </div>
-
-
 
 
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12 mat-elevation-z5 index-row-item mdc-theme--surface">
@@ -88,11 +86,31 @@
                 <h4 class="mat-h4">Static files</h4>
 
                 <p>
-                    For client-side and server-side Blazor - add script section to index.html or _Host.cshtml (head section)
+                    Add script section to index.html or _Host.cshtml (head section)
                 </p>
                 <p>
                     <BlazorFiddle Template="MatBlazor" Code=@(@"<script src=""_content/MatBlazor/dist/matBlazor.js""></script>
 <link href=""_content/MatBlazor/dist/matBlazor.css"" rel=""stylesheet"" />")>
+                    </BlazorFiddle>
+                </p>
+
+                <h4 class="mat-h4">Register services</h4>
+
+                <p>
+                    Add registration of service to Startup.cs
+                </p>
+                <p>
+                    <BlazorFiddle Template="MatBlazor" Code=@(@"services.AddMatBlazor();")>
+                    </BlazorFiddle>
+                </p>
+
+                <h4 class="mat-h4">Add MatPortal component</h4>
+
+                <p>
+                    Add MatPortalHost component to root component (App.razor) for some services like MatDialogService, MatPortalService
+                </p>
+                <p>
+                    <BlazorFiddle Template="MatBlazor" Code=@(@"<MatPortalHost></MatPortalHost>")>
                     </BlazorFiddle>
                 </p>
 
@@ -105,7 +123,7 @@
         </div>
 
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12 mat-elevation-z5 index-row-item mdc-theme--surface">
-                <News></News>
+            <News></News>
         </div>
     </div>
 </div>

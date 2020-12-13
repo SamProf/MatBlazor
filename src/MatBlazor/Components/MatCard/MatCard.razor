@@ -1,6 +1,5 @@
 ﻿@namespace MatBlazor
-@inherits BaseMatCard
-
+@inherits BaseMatDomComponent
 <div class="@ClassMapper.ToString()" style="@StyleMapper.AsString()" @ref="Ref"  @attributes="Attributes" Id="@Id">
-         @ChildContent
-     </div>
+    @ChildContent
+</div>

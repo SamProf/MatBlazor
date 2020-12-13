@@ -90,6 +90,8 @@
 
 </MatSnackbar>
 
+<MatPortalHost></MatPortalHost>
+
 
 @code {
 
@@ -151,8 +153,12 @@
     {
         await base.OnInitializedAsync();
 
-        Task.Delay(TimeSpan.FromSeconds(5))
-            .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
+        Task.Run(async () =>
+        {
+            await Task.Delay(TimeSpan.FromSeconds(5));
+            this.lazySnackbarIsOpen = true;
+            await InvokeAsync(() => { this.StateHasChanged(); });
+        });
     }
 
     private BaseMatIconButton SmallMenuButton;

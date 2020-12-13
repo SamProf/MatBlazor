@@ -1,15 +1,15 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
+using System.Threading.Tasks;
 
 namespace MatBlazor
 {
     /// <summary>
     /// MatExpansionPanel provides an expandable details-summary view.
     /// </summary>
-    public class BaseMatExpansionPanel : BaseMatDomComponent
+    partial class MatExpansionPanel
     {
         [CascadingParameter]
-        public BaseMatAccordion Accordion { get; set; }
+        public MatAccordion Accordion { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
@@ -40,12 +40,12 @@ namespace MatBlazor
             this.StateHasChanged();
         }
 
-        public BaseMatExpansionPanel()
+        public MatExpansionPanel()
         {
             ClassMapper
                 .Add("mat-expansion-panel")
                 .Add("mdc-elevation--z3")
-                .If("mat-expansion-panel--expanded", () => Expanded);           
+                .If("mat-expansion-panel--expanded", () => Expanded);
         }
 
         protected override void OnInitialized()

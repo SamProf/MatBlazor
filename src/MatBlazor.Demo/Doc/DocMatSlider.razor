@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatSlider</h3> } else { <h5 class="mat-h5">MatSlider</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>Material Design Slider for Blazor. Sliders let users select from a range of values by moving the slider thumb.</p>
 
@@ -120,3 +120,12 @@
 		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatSlider";
+
+}

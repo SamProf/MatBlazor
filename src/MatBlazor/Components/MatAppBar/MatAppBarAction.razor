@@ -1,31 +1,6 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatDomComponent
-@using Microsoft.AspNetCore.Components
-
 @* mdc-top-app-bar__action-item *@
-<a aria-label="@Label" alt="@Label" @onclick="OnClickHandler" class="@ClassMapper.AsString() material-icons mdc-top-app-bar__action-item" style="@StyleMapper.AsString()" @ref="Ref"  @attributes="Attributes" Id="@Id">
+<a aria-label="@Label" alt="@Label" @onclick="OnClickHandler" class="@ClassMapper.AsString() material-icons mdc-top-app-bar__action-item" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
     @Icon
 </a>
-
-
-@code
-{
-    
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-
-    [Parameter]
-    public EventCallback<MouseEventArgs> OnClick { get; set; }
-
-    [Parameter]
-    public string Icon { get; set; }
-
-    [Parameter]
-    public string Label { get; set; }
-
-    private void OnClickHandler(MouseEventArgs e)
-    {
-        OnClick.InvokeAsync(e);
-    }
-
-}

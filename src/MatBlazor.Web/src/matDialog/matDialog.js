@@ -1,4 +1,4 @@
-import { MDCDialog } from '@material/dialog';
+import {MDCDialog} from '@material/dialog';
 
 
 export function init(ref, component) {
@@ -14,6 +14,7 @@ export function init(ref, component) {
 }
 
 export function setIsOpen(ref, v) {
+  console.log('matdialog-log-setIsOpen', !!v);
   if (v) {
     ref.matBlazorRef.open();
   } else {
@@ -23,11 +24,12 @@ export function setIsOpen(ref, v) {
 }
 
 export function setCanBeClosed(ref, v) {
+  console.log('matdialog-log-setCanBeClosed', !!v);
   if (v) {
-    ref.matBlazorRef.escapeKeyAction = "close";
-    ref.matBlazorRef.scrimClickAction = "close";
+    ref.matBlazorRef.escapeKeyAction = 'close';
+    ref.matBlazorRef.scrimClickAction = 'close';
   } else {
-    ref.matBlazorRef.escapeKeyAction = "";
-    ref.matBlazorRef.scrimClickAction = "";
+    ref.matBlazorRef.escapeKeyAction = '';
+    ref.matBlazorRef.scrimClickAction = '';
   }
 }

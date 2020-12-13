@@ -4,45 +4,11 @@
 @inject IJSRuntime JsRuntime;
 @inject DemoUserService service;
 
-<MatH4>Source</MatH4>
-<MatList>
-    @foreach (var item in items)
-    {
-        <MatListItem>
-            <MatCheckbox TValue="bool" Value="@item.IsSelected" ValueChanged="@(value=>OnItemSelected(item, value))" Label="@item.Name"></MatCheckbox>
-        </MatListItem>
-    }
-</MatList>
-
-
-<MatH4>Result</MatH4>
-@foreach (var item in items)
-{
-    <div>@item.Name - @item.IsSelected</div>
-}
+<p>
+    <MatDatePicker @bind-Value="@Date1" Locale="ru"></MatDatePicker>
+</p>
 
 @code
 {
-    void OnItemSelected(ItemClass item, bool value)
-    {
-        item.IsSelected = value;
-        // here you can dot something
-    }
-    
-
-    ItemClass[] items = Enumerable.Range(1, 10)
-        .Select(i => new ItemClass($"Item {i}", i % 2 == 0))
-        .ToArray();
-
-    class ItemClass
-    {
-        public string Name { get; set; }
-        public bool IsSelected { get; set; }
-
-        public ItemClass(string name, bool isSelected)
-        {
-            Name = name;
-            IsSelected = isSelected;
-        }
-    }
+    DateTime Date1 = DateTime.Now;
 }

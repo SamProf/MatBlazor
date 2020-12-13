@@ -6,7 +6,7 @@
     public class MatToastCommonOptions
     {
         /// <summary>
-        /// The main toast class. Defaults to <see cref="MatToastClasses.Toast"/>
+        /// The main toast class. Defaults to <see cref="MatToastClasses.MatToastClasses"/>
         /// </summary>
         public string Class { get; set; }
 
@@ -41,7 +41,7 @@
         public int HideStepDuration { get; set; } = 100;
 
         /// <summary>
-        /// States if a progressbar has to be shown during the toast Visible state. Defaults to true.
+        /// States if a progress bar has to be shown during the toast Visible state. Defaults to true.
         /// </summary>
         public bool ShowProgressBar { get; set; } = true;
 
@@ -51,7 +51,7 @@
         public int ProgressBarStepDuration { get; set; } = 50;
 
         /// <summary>
-        /// States if the close button has to be used for hiding a toast. The button presence disables the default "hide on click" behaviour. Defaults to true.
+        /// States if the close button has to be used for hiding a toast. The button presence disables the default "hide on click" behavior. Defaults to true.
         /// </summary>
         public bool ShowCloseButton { get; set; } = true;
 

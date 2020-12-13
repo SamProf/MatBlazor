@@ -1,15 +1,11 @@
-﻿using System.Threading.Tasks;
-using System.Windows.Input;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MatBlazor
 {
-    /// <summary>
-    /// Buttons communicate an action a user can take.
-    /// They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
-    /// </summary>
-    public class BaseMatButton : BaseMatDomComponent
+    public class BaseMatButtonLink: BaseMatDomComponent
     {
         [Inject]
         public Microsoft.AspNetCore.Components.NavigationManager UriHelper { get; set; }
@@ -20,10 +16,11 @@ namespace MatBlazor
             await JsInvokeAsync<object>("matBlazor.matButton.init", Ref);
         }
 
-        public BaseMatButton()
+        public BaseMatButtonLink()
         {
             ClassMapper
                 .Add("mdc-button")
+                .Add("mat-button-link")
                 .If("mdc-button--raised", () => this.Raised)
                 .If("mdc-button--unelevated", () => this.Unelevated)
                 .If("mdc-button--outlined", () => this.Outlined)
@@ -31,7 +28,7 @@ namespace MatBlazor
         }
 
         /// <summary>
-        ///  Event occurs when the user clicks on an element.
+        /// Event occurs when the user clicks on an element.
         /// </summary>
         [Parameter]
         public EventCallback<MouseEventArgs> OnClick { get; set; }
@@ -42,25 +39,11 @@ namespace MatBlazor
         [Parameter]
         public bool OnClickStopPropagation { get; set; }
 
-        /// <summary>
-        ///  Command executed when the user clicks on an element.
-        /// </summary>
         [Parameter]
         public ICommand Command { get; set; }
 
-
-        [Parameter]
-        public string Type { get; set; } = null;
-
-        [Parameter]
-        public string Name { get; set; } = null;
-
-        [Parameter]
-        public string Value { get; set; } = null;
-
-
         /// <summary>
-        ///  Command parameter.
+        /// Command parameter.
         /// </summary>
         [Parameter]
         public object CommandParameter { get; set; }
@@ -69,7 +52,7 @@ namespace MatBlazor
         /// Link to a url when clicked.
         /// </summary>
         [Parameter]
-        public string Link { get; set; }
+        public string Href { get; set; }
 
         /// <summary>
         /// Force browser to redirect outside component router-space.
@@ -84,40 +67,39 @@ namespace MatBlazor
         [Parameter]
         public string Target { get; set; } = null;
 
-
         /// <summary>
-        /// Button has raised style.
+        /// Link has raised style.
         /// </summary>
         [Parameter]
         public bool Raised { get; set; }
 
         /// <summary>
-        /// Button has unelevated style.
+        /// Link has unelevated style.
         /// </summary>
         [Parameter]
         public bool Unelevated { get; set; }
 
         /// <summary>
-        /// Button has outlined style.
+        /// Link has outlined style.
         /// </summary>
         [Parameter]
         public bool Outlined { get; set; }
 
         /// <summary>
-        /// Button has dense style.
+        /// Link has dense style.
         /// </summary>
 
         [Parameter]
         public bool Dense { get; set; }
 
         /// <summary>
-        /// Button is disabled.
+        /// Link is disabled.
         /// </summary>
         [Parameter]
         public bool Disabled { get; set; }
 
         /// <summary>
-        /// Specifies an button's icon.
+        /// Specifies the link's icon.
         /// </summary>
         [Parameter]
         public string Icon { get; set; }
@@ -129,13 +111,6 @@ namespace MatBlazor
         public string TrailingIcon { get; set; }
 
         /// <summary>
-        /// Text label of Button.
-        /// </summary>
-        [Parameter]
-        public string Label { get; set; }
-
-
-        /// <summary>
         /// Inline label of Button.
         /// </summary>
         [Parameter]
@@ -143,34 +118,21 @@ namespace MatBlazor
 
         protected async void OnClickHandler(MouseEventArgs ev)
         {
-            if (Link != null)
+            if (Disabled)
             {
-                if (!string.IsNullOrEmpty(Target))
-                {
-                    await JsInvokeAsync<object>("open", Link, Target);
-                }
-                else
-                {
-                     UriHelper.NavigateTo(Link, ForceLoad);
-                }
-
+                return;
             }
-            else
+
+            await OnClick.InvokeAsync(ev);
+            if (Command?.CanExecute(CommandParameter) ?? false)
             {
-               await OnClick.InvokeAsync(ev);
-                if (Command?.CanExecute(CommandParameter) ?? false)
-                {
-                    Command.Execute(CommandParameter);
-                }
+                Command.Execute(CommandParameter);
+            }
+
+            if (Href != null && string.IsNullOrEmpty(Target))
+            {
+                UriHelper.NavigateTo(Href, ForceLoad);
             }
         }
     }
-
-    //    public enum MatButtonType
-    //    {
-    //        Text = 0,
-    //        Raised = 1,
-    //        Unelevated = 2,
-    //        Outlined = 3
-    //    }
 }

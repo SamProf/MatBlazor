@@ -1,18 +1,18 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.JSInterop;
+using System;
+using System.Threading.Tasks;
 
 namespace MatBlazor
 {
     public class MatAnchorUtils : ComponentBase, IDisposable
     {
         [Inject]
-        public NavigationManager NavigationManager { get; set; }
+        protected NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        public IJSRuntime JSRuntime { get; set; }
+        protected IJSRuntime JSRuntime { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }

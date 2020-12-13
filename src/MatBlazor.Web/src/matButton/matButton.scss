@@ -3,3 +3,26 @@
 .mat-button__icon--trailing {
   margin: 0 -4px 0 4px !important;
 }
+
+.mat-button-link {
+    text-align: center;
+}
+
+.mat-button-link:hover {
+    text-decoration: none;
+}
+
+.mat-button-link:not([href]) {
+    color: rgba(0,0,0,.38) !important;
+    cursor: default;
+    pointer-events: none;
+    background-color: transparent;
+}
+
+.mat-button-link.mdc-button--raised:not([href]) {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0,0,0,.12);
+}
+
+.mat-button-link.mdc-button--raised:not([href]), .mat-button-link.mdc-button--unelevated:not([href]) {
+    background-color: rgba(0,0,0,.12);
+}

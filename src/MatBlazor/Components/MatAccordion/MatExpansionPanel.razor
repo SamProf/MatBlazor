@@ -1,6 +1,5 @@
 ﻿@namespace MatBlazor
-@inherits BaseMatExpansionPanel
-
+@inherits BaseMatDomComponent
 <CascadingValue Value="@this">
     <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref"  @attributes="Attributes" Id="@Id">
         @ChildContent

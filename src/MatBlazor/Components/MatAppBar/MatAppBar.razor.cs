@@ -1,20 +1,21 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
+using System.Threading.Tasks;
 
 namespace MatBlazor
 {
     /// <summary>
     /// Acts as a container for items such as application title, navigation icon, and action items.
     /// </summary>
-    public class BaseMatAppBar : BaseMatDomComponent
+    partial class MatAppBar : BaseMatDomComponent
     {
         [Parameter]
         public bool Short { get; set; }
-
         [Parameter]
         public bool Fixed { get; set; }
+        [Parameter]
+        public RenderFragment ChildContent { get; set; }
 
-        public BaseMatAppBar()
+        public MatAppBar()
         {
             ClassMapper
                 .Add("mdc-top-app-bar")
@@ -22,11 +23,11 @@ namespace MatBlazor
                 .If("mdc-top-app-bar--fixed", () => Fixed);
         }
 
-
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
             await JsInvokeAsync<object>("matBlazor.matAppBar.init", Ref);
         }
+
     }
 }

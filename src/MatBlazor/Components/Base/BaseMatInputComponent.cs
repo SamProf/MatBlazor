@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Components.Forms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -43,8 +41,9 @@ namespace MatBlazor
             get => _value;
             set
             {
-                OnValueChanged(!EqualityComparer<T>.Default.Equals(_value, value));
+                var old = _value;
                 _value = value;
+                OnValueChanged(!EqualityComparer<T>.Default.Equals(old, value));
             }
         }
 
