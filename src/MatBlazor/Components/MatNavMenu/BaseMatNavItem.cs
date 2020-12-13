@@ -92,7 +92,7 @@ namespace MatBlazor
         /// <summary>
         ///  OnClickHandler parameter.
         /// </summary>
-        protected async void OnClickHandler(MouseEventArgs e)
+        protected async Task OnClickHandler(MouseEventArgs e)
         {
             if (Disabled)
             {
@@ -101,7 +101,7 @@ namespace MatBlazor
 
             if (AllowSelection)
             {
-                await this.ToggleSelectedAsync();
+                await ToggleSelectedAsync();
             }
 
             if (Href != null)

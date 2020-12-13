@@ -43,7 +43,6 @@ namespace MatBlazor
         [Parameter]
         public MatDatePickerPosition Position { get; set; } = MatDatePickerPosition.Auto;
 
-//        [Parameter]
         public string Mode { get; set; } = "single";
 
         [Parameter]
@@ -96,7 +95,6 @@ namespace MatBlazor
                 return false;
             }
 
-
             var dateValue = SwitchT.ToDateTimeNull(value);
             if (dateValue.HasValue)
             {
@@ -116,7 +114,7 @@ namespace MatBlazor
 
         protected void OnClickIconHandler()
         {
-            this.InvokeStateHasChanged();
+            InvokeStateHasChanged();
 
             if (!DisableCalendar && !Disabled && !ReadOnly)
             {
@@ -127,18 +125,18 @@ namespace MatBlazor
                     await JsInvokeAsync<object>("matBlazor.matDatePicker.open", Ref, flatpickrInputRef, dotNetObjectRef,
                         new FlatpickrOptions
                         {
-                            EnableTime = this.EnableTime,
-                            Enable24hours = this.Enable24hours,
-                            EnableSeconds = this.EnableSeconds,
-                            EnableWeekNumbers = this.EnableWeekNumbers,
-                            DisableMobile = this.DisableMobile,
-                            Mode = this.Mode,
+                            EnableTime = EnableTime,
+                            Enable24hours = Enable24hours,
+                            EnableSeconds = EnableSeconds,
+                            EnableWeekNumbers = EnableWeekNumbers,
+                            DisableMobile = DisableMobile,
+                            Mode = Mode,
                             Position = Position.ToString().ToLower(),
                             DefaultDate = SwitchT.ToDateTimeNull(Value),
-                            Minimum = this.EnableTime ? Minimum : Minimum?.Date,
-                            Maximum = this.EnableTime ? Maximum : Maximum?.Date,
+                            Minimum = EnableTime ? Minimum : Minimum?.Date,
+                            Maximum = EnableTime ? Maximum : Maximum?.Date,
                             Value = SwitchT.ToDateTimeNull(CurrentValue),
-                            Locale = this.Locale
+                            Locale = Locale
                         }) ;
                 });
             }
@@ -146,15 +144,7 @@ namespace MatBlazor
 
         public async override Task SetParametersAsync(ParameterView parameters)
         {
-//            var valueIsChanged = this.ParameterIsChanged(parameters, nameof(Value), Value);
             await base.SetParametersAsync(parameters);
-//            if (valueIsChanged)
-//            {
-//                CallAfterRender(async () =>
-//                {
-//                    await JsInvokeAsync<object>("matBlazor.matDatePicker.setDate", Ref, Value);
-//                });
-//            }
         }
     }
 }
