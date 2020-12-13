@@ -51,11 +51,11 @@ namespace MatBlazor
         {
             Toast.Options.Onclick?.Invoke(Toast);
 
-            if (fromCloseIcon || !Toast.Options.ShowCloseButton)
-            {
-                UserHasInteracted = true;
-                TransitionTo(MatToastState.Hiding);
-            }
+            if (!fromCloseIcon && Toast.Options.ShowCloseButton) 
+                return;
+            
+            UserHasInteracted = true;
+            TransitionTo(MatToastState.Hiding);
         }
 
         public void EnsureInitialized()
@@ -90,7 +90,7 @@ namespace MatBlazor
 
                         Css = builder =>
                         {
-                            var transitionClass = TransitionClass;
+                            string transitionClass = TransitionClass;
                             if (string.IsNullOrEmpty(transitionClass))
                             {
                                 return;
@@ -134,7 +134,7 @@ namespace MatBlazor
         [Parameter]
         public MatToastType Type { get; set; }
 
-        readonly string AnimationId = IdGeneratorHelper.Generate("mat_toaster_animation_");
+        private readonly string _animationId = IdGeneratorHelper.Generate("mat_toaster_animation_");
 
         private MatToastTransitionState TransitionState { get; set; }
 
@@ -145,14 +145,14 @@ namespace MatBlazor
                 switch (State)
                 {
                     case MatToastState.Showing:
-                        var opacity = Toast.Options.MaximumOpacity;
-                        var showDuration = Toast.Options.ShowTransitionDuration;
-                        return $"opacity: {opacity}; animation: {showDuration}ms linear {AnimationId};";
+                        int opacity = Toast.Options.MaximumOpacity;
+                        int showDuration = Toast.Options.ShowTransitionDuration;
+                        return $"opacity: {opacity}; animation: {showDuration}ms linear {_animationId};";
                     case MatToastState.Visible:
                         return $"opacity: {TransitionState.Opacity};";
                     case MatToastState.Hiding:
-                        var hideDuration = Toast.Options.HideTransitionDuration;
-                        return $"opacity: 0; animation: {hideDuration}ms linear {AnimationId};";
+                        int hideDuration = Toast.Options.HideTransitionDuration;
+                        return $"opacity: 0; animation: {hideDuration}ms linear {_animationId};";
                     default:
                         return string.Empty;
                 }
@@ -164,9 +164,9 @@ namespace MatBlazor
         {
             get
             {
-                var percentage = TransitionState.ProgressPercentage;
-                var milliseconds = TransitionState.RemainingMilliseconds;
-                return $"width: {percentage}; animation: {AnimationId} {milliseconds}ms;";
+                string percentage = TransitionState.ProgressPercentage;
+                int milliseconds = TransitionState.RemainingMilliseconds;
+                return $"width: {percentage}; animation: {_animationId} {milliseconds}ms;";
             }
         }
 
@@ -181,7 +181,7 @@ namespace MatBlazor
         {
             get
             {
-                var template = "@keyframes " + AnimationId + " {{from{{ {0}: {1}; }} to{{ {0}: {2}; }}}}";
+                string template = "@keyframes " + _animationId + " {{from{{ {0}: {1}; }} to{{ {0}: {2}; }}}}";
 
                 return State switch
                 {
@@ -237,7 +237,6 @@ namespace MatBlazor
                     {
                         Timer.Start(Toast.Options.VisibleStateDuration);
                     }
-
                     break;
                 case MatToastState.Hiding:
                     if (Toast.Options.HideTransitionDuration <= 0)
@@ -249,7 +248,6 @@ namespace MatBlazor
                     {
                         Timer.Start(Toast.Options.HideTransitionDuration);
                     }
-
                     break;
                 case MatToastState.MouseOver:
                     break;
