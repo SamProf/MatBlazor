@@ -125,15 +125,18 @@ namespace MatBlazor
                     await JsInvokeAsync<object>("matBlazor.matDatePicker.open", Ref, flatpickrInputRef, dotNetObjectRef,
                         new FlatpickrOptions
                         {
-                            EnableWeekNumbers = EnableWeekNumbers,
-                            DisableMobile = DisableMobile,
-                            Mode = Mode,
-                            Position = Position.ToString().ToLower(),
-                            DefaultDate = SwitchT.ToDateTimeNull(Value),
-                            Minimum = EnableTime ? Minimum : Minimum?.Date,
-                            Maximum = EnableTime ? Maximum : Maximum?.Date,
-                            Value = SwitchT.ToDateTimeNull(CurrentValue),
-                            Locale = Locale
+                            EnableTime = this.EnableTime,
+                            Enable24hours = this.Enable24hours,
+                            EnableSeconds = this.EnableSeconds,
+                            EnableWeekNumbers = this.EnableWeekNumbers,
+                            DisableMobile = this.DisableMobile,
+                            Mode = this.Mode,
+                            Position = this.Position.ToString().ToLower(),
+                            DefaultDate = this.SwitchT.ToDateTimeNull(Value),
+                            Minimum = this.EnableTime ? Minimum : Minimum?.Date,
+                            Maximum = this.EnableTime ? Maximum : Maximum?.Date,
+                            Value = this.SwitchT.ToDateTimeNull(CurrentValue),
+                            Locale = this.Locale
                         }) ;
                 });
             }
