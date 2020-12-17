@@ -14,7 +14,6 @@ export function init(ref, component) {
 }
 
 export function setIsOpen(ref, v) {
-  console.log('matdialog-log-setIsOpen', !!v);
   if (v) {
     ref.matBlazorRef.open();
   } else {
@@ -24,7 +23,6 @@ export function setIsOpen(ref, v) {
 }
 
 export function setCanBeClosed(ref, v) {
-  console.log('matdialog-log-setCanBeClosed', !!v);
   if (v) {
     ref.matBlazorRef.escapeKeyAction = 'close';
     ref.matBlazorRef.scrimClickAction = 'close';
