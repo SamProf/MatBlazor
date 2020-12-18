@@ -1,7 +1,6 @@
 import flatpickr from 'flatpickr';
 import {getMatBlazorInstance, setMatBlazorInstance} from '../utils/base';
 
-
 // export function init(ref, flatpickrInputRef, cmp, options) {
 //
 // }
@@ -38,7 +37,6 @@ export function open(ref, flatpickrInputRef, cmp, options) {
       });
     }
   });
-
 
   // var self = getMatBlazorInstance(ref);
   // self.flatpickr.setDate(value);
@@ -81,7 +79,6 @@ export function open(ref, flatpickrInputRef, cmp, options) {
 //     }
 //   });
 
-
 // ref.$iconRef = iconRef;
 
 // ref.addEventListener('focus', (i) => {
@@ -89,5 +86,3 @@ export function open(ref, flatpickrInputRef, cmp, options) {
 //   ref.$flatpickr.close();
 // });
 // }
-
-

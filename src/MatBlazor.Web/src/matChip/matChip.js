@@ -1,6 +1,5 @@
 import {MDCChip} from '@material/chips';
 
-
 export function init(ref, component) {
   ref.matBlazorRef = new MDCChip(ref);
   ref.matBlazorRef.shouldRemoveOnTrailingIconClick = false; // handle Chip removal in .NET

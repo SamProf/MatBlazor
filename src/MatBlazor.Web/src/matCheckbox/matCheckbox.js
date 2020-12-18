@@ -14,7 +14,6 @@ export function init(ref, componentRef) {
   formField.input = self.checkbox;
 }
 
-
 export function setIndeterminate(ref, value) {
   var self = getMatBlazorInstance(ref); 
   self.checkbox.indeterminate = value; 
