@@ -57,8 +57,9 @@ namespace MatBlazor
         {
         }
 
-        protected virtual void OnValueChanged(T oldValue, T newValue)
+        protected virtual Task OnValueChanged(T oldValue, T newValue)
         {
+            return Task.CompletedTask;
         }
 
         /// <summary>

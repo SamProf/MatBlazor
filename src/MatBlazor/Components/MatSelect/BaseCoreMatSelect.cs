@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using System;
+using System.Threading.Tasks;
 
 namespace MatBlazor
 {
@@ -65,7 +66,7 @@ namespace MatBlazor
             CurrentValue = GetValueFromKey(switchTK.ParseFromString(value, null));
         }
 
-        protected override void OnValueChanged(TValue oldValue, TValue newValue)
+        protected override Task OnValueChanged(TValue oldValue, TValue newValue)
         {
             if (Rendered)
             {
@@ -74,6 +75,7 @@ namespace MatBlazor
                     await JsInvokeAsync<object>("matBlazor.matSelect.setValue", Ref, switchTK.FormatValueAsString(GetKeyFromValue(newValue), null));
                 });
             }
+            return base.OnValueChanged(oldValue, newValue);
         }
 
         protected virtual TValue GetValueFromKey(TKey key)

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
@@ -41,21 +42,18 @@ namespace MatBlazor
             CurrentValue = SwitchT.FromDecimal(e);
         }
 
-        protected override void OnValueChanged(TValue oldValue, TValue newValue)
+        protected override async Task OnValueChanged(TValue oldValue, TValue newValue)
         {
             if (Rendered)
             {
-                InvokeAsync(async () =>
+                try
                 {
-                    try
-                    {
-                        await Js.InvokeVoidAsync("matBlazor.matSlider.updateValue", Ref, newValue);
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
-                });
+                    await Js.InvokeVoidAsync("matBlazor.matSlider.updateValue", Ref, newValue);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
 
