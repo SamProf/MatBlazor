@@ -110,9 +110,9 @@ namespace MatBlazor
                 {
                     // Do nothing here as it is a target for an anchor tag
                 }
-                else
+                else if(ForceLoad)
                 {
-                    UriHelper.NavigateTo(Href, ForceLoad);
+                    UriHelper.NavigateTo(Href, true);
                 }
 
             }
