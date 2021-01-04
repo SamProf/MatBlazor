@@ -1,0 +1,19 @@
+﻿@namespace MatBlazor
+@typeparam TValue
+@inherits BaseMatRadioButtonInternal<TValue>
+
+
+<div class="mdc-form-field" @ref="FormFieldRef">
+    <div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref">
+        <input class="mdc-radio__native-control" type="radio" name="@Group.Id" checked="@Checked" value="@ValueAsString"
+               @onchange="((e) => OnChangeHandler(e))" id="@Id" disabled=@Disabled @attributes="Attributes" />
+        <div class="mdc-radio__background">
+            <div class="mdc-radio__outer-circle"></div>
+            <div class="mdc-radio__inner-circle"></div>
+        </div>
+    </div>
+    @if (Label != null ||@ChildContent!=null)
+    {
+        <label for="@Id">@Label@ChildContent</label>
+    }
+</div>

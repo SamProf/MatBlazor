@@ -1,89 +1,192 @@
+@import "@material/data-table/mdc-data-table";
+
 .mdc-table, .mdc-table--striped {
-    width: 100%;
-    max-width: 100%;
-    background-color: transparent;
-    border-collapse: collapse;
-    border-spacing: 0;
-    display: inline-block;
-    overflow-x: auto;
-    margin: 8px 0 32px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: inline-block;
+  overflow-x: auto;
+  margin: 8px 0 32px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 tr {
-    &.mdc-table-footer-row, &.mdc-table-row {
-        height: 48px;
-    }
+  &.mdc-table-footer-row, &.mdc-table-row {
+    height: 48px;
+  }
 }
 
 .mdc-table--striped tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.02);
 }
+
 .mdc-table {
-    td {
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 12px 12px 12px 24px;
-    }
-    td:first-child {
-        border-left: none;
-    }
-    td:last-child {
-        border-right: none;
-        width: 100%;
-    }
-    th{
-        line-height: 1.75rem;
-        font-weight: 400;
-        letter-spacing: .04em;
-        text-decoration: inherit;
-        text-transform: inherit;
-        background-color: rgba(0, 0, 0, 0.08);
-        font-size: 1.143rem;
-        color: #202124;
-        text-align: left;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 12px 12px 12px 24px;
-    }
-    tr.mdc-table-row-hover:hover{
-        background-color: rgba(0, 0, 0, 0.12);
-        cursor: pointer;
-    }
-    tr.mdc-table-row-selected {
-        background-color: rgba(0, 0, 0, 0.12);
-    }
+  td {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 12px 12px 12px 24px;
+  }
+
+  td:first-child {
+    border-left: none;
+  }
+
+  td:last-child {
+    border-right: none;
+    width: 100%;
+  }
+
+  th {
+    line-height: 1.75rem;
+    font-weight: 400;
+    letter-spacing: .04em;
+    text-decoration: inherit;
+    text-transform: inherit;
+    background-color: rgba(0, 0, 0, 0.08);
+    font-size: 1.143rem;
+    color: #202124;
+    text-align: left;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 12px 12px 12px 24px;
+  }
+
+  tr.mdc-table-row-hover:hover {
+    background-color: rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+  }
+
+  tr.mdc-table-row-selected {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
 }
 
 .mdc-table-header-row {
-    height: 56px;
-    text-align: left;
-    font-weight: 500;
+  height: 56px;
+  text-align: left;
+  font-weight: 500;
 }
 
 .mdc-paginator {
-    color: rgba(0, 0, 0, 0.54);
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .mdc-paginator-range-label {
-    margin: 0 32px 0 24px;
+  margin: 0 32px 0 24px;
 }
 
 .mdc-paginator-range-actions {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .mdc-paginator-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 56px;
+  padding: 0 8px;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+}
+
+.mdc-paginator-range-buttons .mdc-icon-button {
+}
+
+.mdc-paginator-page-size {
+  line-height: 56px;
+
+  .mat-select {
+  }
+}
+
+
+.mat-paginator {
+
+
+  background: #fff;
+
+  color: rgba(0, 0, 0, .54);
+
+  .mat-paginator-container {
+
     display: flex;
     align-items: center;
     justify-content: flex-end;
     min-height: 56px;
     padding: 0 8px;
     flex-wrap: wrap-reverse;
-    width: 100%;
+    //width: 100%;
+
+    .mat-paginator-page-size {
+
+
+      display: flex;
+      align-items: baseline;
+      margin-right: 8px;
+
+      .mat-paginator-page-size-label {
+
+        margin: 0 4px;
+
+      }
+
+      .mat-paginator-page-size-select {
+
+      }
+    }
+
+    .mat-paginator-range-actions {
+
+      display: flex;
+      align-items: center;
+
+      .mat-paginator-range-label {
+        margin: 0 32px 0 24px;
+      }
+
+    }
+  }
+
 }
 
-.mdc-paginator-range-buttons .mdc-icon-button {}
+.mat-sort-header-row {
+  .mat-sort-header {
 
-.mdc-paginator-page-size {
-    line-height: 56px;
-    .mat-select {}
+    .mat-sort-header-container {
+      display: flex;
+      cursor: pointer;
+      align-items: center;
+
+
+      .mat-sort-header-button {
+        border: none;
+        background: 0 0;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        cursor: inherit;
+        outline: 0;
+        font: inherit;
+        color: currentColor;
+      }
+
+      .mat-sort-header-arrow {
+        //height: 12px;
+        //width: 12px;
+        //min-width: 12px;
+        position: relative;
+        display: flex;
+        //margin: 0 0 0 6px;
+        color: #757575;
+        width: 1em;
+        height: 1em;
+      }
+
+    }
+
+
+  }
+
 }
+

@@ -1,0 +1,18 @@
+﻿@if (FirstRender)
+{
+    <CascadingValue Value="@this">
+        @ChildContent
+    </CascadingValue>
+}
+
+@code
+{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    
+    [Parameter]
+    public Action<object> Notify { get; set; }
+
+
+    protected bool FirstRender { get; set; } = true;
+}

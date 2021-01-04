@@ -19,8 +19,7 @@ namespace MatBlazor
         {
             var key = Func(data);
 
-            string value;
-            if (Dictionary.TryGetValue(key, out value))
+            if (Dictionary.TryGetValue(key, out var value))
             {
                 return value;
             }

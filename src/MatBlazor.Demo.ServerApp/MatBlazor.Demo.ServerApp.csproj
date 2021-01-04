@@ -1,18 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Shared\" />
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="EmbeddedBlazorContent" Version="1.9.0" />
+    <Compile Remove="Shared\**" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="Shared\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="Shared\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="Shared\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
   
   <ItemGroup>

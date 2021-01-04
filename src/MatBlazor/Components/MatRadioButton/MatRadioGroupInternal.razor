@@ -1,0 +1,23 @@
+﻿@namespace MatBlazor
+@typeparam TValue
+@inherits BaseMatRadioGroupInternal<TValue>
+<CascadingValue Value="@this">
+
+
+    @if (Items != null)
+    {
+        foreach (var item in Items)
+        {
+            if (ItemTemplate != null)
+            {
+                @ItemTemplate(item)
+            }
+            else
+            {
+                <MatRadioButton T="T" Value="@item">@item</MatRadioButton>
+            }
+        }
+    }
+
+    @ChildContent
+</CascadingValue>

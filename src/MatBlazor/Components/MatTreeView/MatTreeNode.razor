@@ -1,0 +1,31 @@
+﻿@namespace  MatBlazor
+@using Microsoft.AspNetCore.Components.Web
+@typeparam TNode
+
+<li>
+    <span class="@GlyphStyle" @onclick="@OnExpandCollapse_Clicked" @onclick:stopPropagation>@TempGlyphName</span>
+    <span @onclick="@OnSelected_Clicked" @onclick:stopPropagation>@Tree.NodeTemplate(this.Node)</span>
+    @if (this.IsSelected)
+    {
+        <span>SELECTED</span>
+    }
+    @if (this.ChildNodes == null)
+    {
+        @*<div>TMP LOADING</div>*@
+    }
+    else if (IsExpanded)
+    {
+        <ul>
+            @foreach (TNode childNode in this.ChildNodes)
+            {
+                <MatTreeNode @key="@childNode" TNode="TNode"
+                             IsSelected="@Tree.IsNodeSelected(childNode)" Node="@childNode" />
+            }
+        </ul>
+        @*<div>TMP Expanded</div>*@
+    }
+    else
+    {
+        @*<div>TMP Collapsed</div>*@
+    }
+</li>

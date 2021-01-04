@@ -1,0 +1,32 @@
+.mat-autocomplete-list-wrapper, .mat-autocomplete
+{
+    position: relative;
+    display: inline-block;
+}
+
+.mat-autocomplete-list-wrapper-fullwidth
+{
+    width:100%;
+}
+
+.mat-autocomplete-list-clearbutton
+{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    text-align: center;
+}
+
+.mat-autocomplete-list-popup
+{
+    width: 100%;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: var(--mdc-theme-secondary, #6300ee);
+    text-align: center;
+    box-sizing: border-box;
+    background: white;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+}

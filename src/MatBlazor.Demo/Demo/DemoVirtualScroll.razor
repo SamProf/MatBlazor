@@ -1,0 +1,70 @@
+<DocMatVirtualScroll></DocMatVirtualScroll>
+
+<MatH5>Example</MatH5>
+<DemoContainer >
+    <Content>
+        <h4>VirtualScroll with @items.Count() items</h4>
+
+        <MatVirtualScroll style="height: 500px;" ItemType="string" Items="@items" ItemHeight="50">
+            <ItemTemplate>
+                <div>@context</div>
+            </ItemTemplate>
+        </MatVirtualScroll>
+
+        @code
+        {
+            public IEnumerable<string> items = Enumerable.Range(0, 333000).Select(i => i.ToString()).ToArray();
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <h4>VirtualScroll with @items.Count() items</h4>
+
+        <MatVirtualScroll style=""height: 500px;"" ItemType=""string"" Items=""@items"" ItemHeight=""50"">
+            <ItemTemplate>
+                <div>@context</div>
+            </ItemTemplate>
+        </MatVirtualScroll>
+
+        @code
+        {
+            public IEnumerable<string> items = Enumerable.Range(0, 333000).Select(i => i.ToString()).ToArray();
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<MatH5>Disable Virtual Scroll</MatH5>
+<DemoContainer >
+    <Content>
+        <MatVirtualScroll style="height: 500px;" ItemType="string" Items="@items2" ItemHeight="50" Disabled="true">
+            <ItemTemplate>
+                <div>@context</div>
+            </ItemTemplate>
+        </MatVirtualScroll>
+
+        @code
+        {
+            public IEnumerable<string> items2 = Enumerable.Range(0, 200).Select(i => i.ToString()).ToArray();
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatVirtualScroll style=""height: 500px;"" ItemType=""string"" Items=""@items2"" ItemHeight=""50"" Disabled=""true"">
+            <ItemTemplate>
+                <div>@context</div>
+            </ItemTemplate>
+        </MatVirtualScroll>
+
+        @code
+        {
+            public IEnumerable<string> items2 = Enumerable.Range(0, 200).Select(i => i.ToString()).ToArray();
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

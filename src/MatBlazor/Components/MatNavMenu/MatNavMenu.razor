@@ -2,7 +2,7 @@
 @inherits BaseMatNavMenu
 
 <CascadingValue Value="@this">
-    <nav class="@ClassMapper.Class" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
+    <nav class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref"  @attributes="Attributes" Id="@Id">
         <ul class="mdc-nav-menu">
             @ChildContent
         </ul>

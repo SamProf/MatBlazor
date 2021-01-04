@@ -5,31 +5,38 @@
 
 @using System
 @using System.Collections.Generic
-@using System.Threading
 @using System.Reflection;
+@using System.Text.Json
 @using Microsoft.AspNetCore.Components
 
 @if (!String.IsNullOrWhiteSpace(FilterByColumnName))
 {
     <MatTextField class="mdc-table-filter" OnInput="@((e) => OnInput(e))" Placeholder="@SearchTermFieldPlaceHolder" Label="@SearchTermFieldLabel" Value="@SearchTerm" Icon="filter_list"></MatTextField>
 }
-
-@if (ShowPagingInHeader)
-{
-    <TablePaginator UpdatePaging="UpdatePaging" ShowPagingControls="false" PageSizes="@PageSizes" PageSizeStr="@PageSizeStr" StartPage="@StartPage" EndPage="@EndPage" TotalPages="@TotalPages" CurrentPage="@CurrentPage" ClickFirst=@(async () => NavigateToPage(PageDirection.First)) ClickNext=@(async () => NavigateToPage(PageDirection.Next)) ClickPrevious=@(async () => NavigateToPage(PageDirection.Previous)) ClickLast=@(async () => NavigateToPage(PageDirection.Last)) />
-}
-
 <CascadingValue Value="@this">
-    <table class="@ClassMapper.Class" style="@Style" @ref="Ref" @attributes="Attributes" Id="@Id">
+    <table class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
         <thead>
-            <tr class="mdc-table-header-row @(HeaderRowClass)">@MatTableHeader</tr>
+            @if (UseSortHeaderRow)
+            {
+                @MatTableHeader
+            }
+            else
+            {
+                <tr class="mdc-table-header-row @(HeaderRowClass)">@MatTableHeader</tr>
+            }
         </thead>
         <tbody>
             @if (ItemList != null)
             {
                 @foreach (var item in ItemList)
                 {
-                    <TableRow Class="@RowClass" AllowSelection="@AllowSelection">@MatTableRow(item)</TableRow>
+                    <TableRow Class="@RowClass"
+                              @key="item"
+                              AllowSelection="@AllowSelection"
+                              @ondblclick="() => OnRowDbClickHandler(item)"
+                              RowItem="item">
+                        @MatTableRow(item)
+                    </TableRow>
                 }
             }
         </tbody>
@@ -42,33 +49,63 @@
 
 @if (@ShowPaging)
 {
-    <TablePaginator UpdatePaging="@UpdatePaging" PageSizes="@PageSizes" PageSizeStr="@PageSizeStr" ShowPagingControls="true" StartPage="@StartPage" EndPage="@EndPage" TotalPages="@TotalPages" CurrentPage="@CurrentPage" ClickFirst=@(async () => NavigateToPage(PageDirection.First)) ClickNext=@(async () => NavigateToPage(PageDirection.Next)) ClickPrevious=@(async () => NavigateToPage(PageDirection.Previous)) ClickLast=@(async () => NavigateToPage(PageDirection.Last)) />
+    <div class="mdc-paginator">
+        <div class="mdc-paginator-container">
+            <div class="mdc-paginator-page-size">
+                @PageRecordCountLabel
+                <MatSelect @bind-Value="@PageSizeStr">
+                    @if (PageSizes != null)
+                        {
+                            foreach (var item in PageSizes)
+                            {
+                            <MatOption Value="@item.Value.ToString()">@item.Text</MatOption>
+                            }
+                        }
+                </MatSelect>
+            </div>
+
+            <div class="mdc-paginator-range-actions">
+                <span class="mdc-paginator-range-label">@PageLabel @CurrentPage / @TotalPages</span>
+                <div class="mdc-paginator-range-buttons">
+                    <MatIconButton Icon="first_page" OnClick=@(async () => NavigateToPage(PageDirection.First)) Disabled=@(CurrentPage <= 1)></MatIconButton>
+                    <MatIconButton Icon="navigate_before" OnClick=@(async () => NavigateToPage(PageDirection.Previous)) Disabled=@(CurrentPage <= 1)></MatIconButton>
+                    @*@for (int i = StartPage; i <= EndPage; i++)
+                        {
+                            var currentPage = i;
+                            <MatIconButton class="@(currentPage == CurrentPage ? "currentpage" : "")" onclick=@(async () => UpdateList(currentPage))>
+                                @currentPage
+                            </MatIconButton>
+                        }*@
+                    <MatIconButton Icon="navigate_next" OnClick="@(async () => NavigateToPage(PageDirection.Next))" Disabled="@(CurrentPage == EndPage)"></MatIconButton>
+                    <MatIconButton Icon="last_page" OnClick=@(async () => NavigateToPage(PageDirection.Last)) Disabled=@(CurrentPage == EndPage)></MatIconButton>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
 @code{
-
-    void UpdatePaging(string value)
-    {
-        PageSize = Convert.ToInt32(value);
-        CurrentPage = 1;
-        TotalPages = Math.Max(1, (int)Math.Ceiling(Items.Count() / (decimal)PageSize));
-        EndPage = TotalPages;
-        StartPage = 1;
-        SetPageSize(PageDirection.Next);
-        UpdateList(1).GetAwaiter();
-    }
 
     protected string PageSizeStr
     {
         get => PageSize.ToString();
         set
         {
-            UpdatePaging(value);
+            PageSize = Convert.ToInt32(value);
+            CurrentPage = 1;
+            TotalPages = Math.Max(1, (int)Math.Ceiling(Items.Count() / (decimal)PageSize));
+            EndPage = TotalPages;
+            StartPage = 1;
+            SetPageSize(PageDirection.Next);
+            UpdateList(1).GetAwaiter();
         }
     }
 
     [Parameter]
     public RenderFragment MatTableHeader { get; set; }
+
+    [Parameter]
+    public bool UseSortHeaderRow { get; set; } = false;
 
     [Parameter]
     public RenderFragment<TableItem> MatTableRow { get; set; }
@@ -87,8 +124,19 @@
 
     protected IEnumerable<TableItem> ItemList { get; set; }
 
+    private string[] FilteredColumns => FilterByColumnName?.Split(";") ?? Array.Empty<string>();
+
     protected override async Task OnInitializedAsync()
     {
+        var tempPlaceholder = string.Join(", ", FilteredColumns);
+
+        var lastComma = tempPlaceholder.LastIndexOf(",");
+
+        if (lastComma != -1)
+        {
+            SearchTermFieldPlaceHolder = tempPlaceholder.Remove(lastComma, 1).Insert(lastComma, " and");
+        }
+
         if (DebounceMilliseconds <= 0)
         {
             DebounceMilliseconds = 800;
@@ -103,10 +151,13 @@
                 new PageSizeStructure() {Text = "50", Value = 50},
                 new PageSizeStructure() {Text = "100", Value = 100},
                 new PageSizeStructure() {Text = "*", Value = -1}
-                    };
-            PageSize = 5;
+                                                        };
+            if (PageSize <= 0)
+                PageSize = 5;
         }
-        CurrentPage = 1;
+        
+        StartPage = 1;
+        CurrentPage = StartPage;
 
         if (!string.IsNullOrWhiteSpace(ApiUrl) && (RequestApiOnlyOnce || LoadInitialData))
         {
@@ -219,18 +270,20 @@
 
     async Task SearchPagedData()
     {
-        var PagedData = await Http.GetJsonAsync<TableItem>(ApiUrl + SearchTermParam(SearchTerm));
-        Items = (IEnumerable<TableItem>)
-            PagedData
-                .GetType()
-                .GetProperty(PagingDataPropertyName)
-                .GetValue(PagedData);
-        var Count = Convert.ToInt32(
-            PagedData
-                .GetType()
-                .GetProperty(PagingRecordsCountPropertyName)
-                .GetValue(PagedData)
-            );
+        var PagedData = await Http.GetStringAsync(ApiUrl + SearchTermParam(SearchTerm));
+        var doc = JsonDocument.Parse(PagedData);
+        var root = doc.RootElement;
+        var itemsString = root.GetProperty(PagingDataPropertyName).GetRawText();
+        
+        var opt = new JsonSerializerOptions()
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        };
+        
+        var items = JsonSerializer.Deserialize<List<TableItem>>(itemsString, opt);
+        
+        Items = items;
+        var Count = root.GetProperty(PagingRecordsCountPropertyName).GetInt32();
         RecordsFrom = (CurrentPage - 1) * PageSize;
         RecordsTo = (RecordsFrom + PageSize < Count) ? RecordsFrom + PageSize : Count;
         ItemList = Items;
@@ -252,23 +305,25 @@
                     throw new ArgumentNullException("FilterByColumnName param cannot be null");
                 }
 
-                var filteredCollection = new List<TableItem>();
-                foreach (var item in Items)
+                var properties = typeof(TableItem).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+                if (properties == null)
                 {
-                    var propertyInfo = item.GetType().GetProperty(FilterByColumnName, BindingFlags.Public | BindingFlags.Instance);
-
-                    if (propertyInfo == null)
-                    {
-                        throw new NotSupportedException(FilterByColumnName + " column does not exists in the current context");
-                    }
-
-                    var propertyValue = propertyInfo.GetValue(item, null)?.ToString();
-
-                    if (propertyValue.ToLower().Contains(SearchTerm.ToLower()))
-                    {
-                        filteredCollection.Add(item);
-                    }
+                    throw new NullReferenceException("Could not get properties.");
                 }
+
+                var propertyNames = properties.Select(x => x.Name);
+
+                var containsAllColumns = propertyNames.Intersect(FilteredColumns).Count() == FilteredColumns.Length;
+
+                if (!containsAllColumns)
+                {
+                    throw new NotSupportedException("One or more columns don't exist in the current context");
+                }
+
+                var relevantProperties = properties.Where(x => FilteredColumns.Contains(x.Name)).ToArray();
+
+                var filteredCollection = AddToFilteredCollection(Items, relevantProperties);
 
                 RecordsFilteredCount = filteredCollection.Count;
                 RecordsTo = (RecordsFrom + PageSize < RecordsFilteredCount) ? RecordsFrom + PageSize : RecordsFilteredCount;
@@ -391,6 +446,28 @@
             CurrentPage = 1;
             await LoadData();
         });
+    }
+
+    List<TableItem> AddToFilteredCollection(IEnumerable<TableItem> items, PropertyInfo[] properties)
+    {
+        var filteredCollection = new List<TableItem>();
+
+        foreach (var item in items)
+        {
+            var values = properties.Where(x => x.GetValue(item, null)?.ToString() != null).Select(x => x.GetValue(item, null).ToString());
+
+            if (!values.Any())
+            {
+                continue;
+            }
+
+            if (values.Any(x => x.ToLower().Contains(SearchTerm.ToLower())))
+            {
+                filteredCollection.Add(item);
+            }
+        }
+
+        return filteredCollection;
     }
 
 }

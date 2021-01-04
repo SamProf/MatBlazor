@@ -1,26 +1,5 @@
 ﻿@namespace MatBlazor
 @inherits BaseMatDomComponent
-@using Microsoft.AspNetCore.Components
-<section class="@ClassMapper.Class" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
+<section class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
     @ChildContent
 </section>
-
-@code
-{
-
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-
-    [Parameter]
-    public MatAppBarSectionAlign Align { get; set; } = MatAppBarSectionAlign.Start;
-
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-        ClassMapper
-            .Add("mdc-top-app-bar__section")
-            .If("mdc-top-app-bar__section--align-start", () => this.Align == MatAppBarSectionAlign.Start)
-            .If("mdc-top-app-bar__section--align-end", () => this.Align == MatAppBarSectionAlign.End);
-    }
-
-}

@@ -1,0 +1,227 @@
+@using System.Diagnostics
+@using System.IO
+
+<DocMatFileUpload></DocMatFileUpload>
+
+<h5 class="mat-h5">Single File Example</h5>
+<DemoContainer>
+    <Content>
+        <MatFileUpload OnChange="@FilesReady" Label="Drop a single file here or Browse"></MatFileUpload>
+
+        @foreach (var f in list)
+        {
+            <div>@f</div>
+        }
+
+        @code
+        {
+            List<string> list = new List<string>();
+
+            void FilesReady(IMatFileUploadEntry[] files)
+            {
+                foreach (var file in files)
+                {
+                    list.Add($"Name: {file.Name} - Size: {file.Size}");
+                }
+            }
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatFileUpload OnChange=""@FilesReady"" Label=""Drop a single file here or Browse""></MatFileUpload>
+
+        @foreach (var f in list)
+        {
+            <div>@f</div>
+        }
+
+        @code
+        {
+            List<string> list = new List<string>();
+
+            void FilesReady(IMatFileUploadEntry[] files)
+            {
+                foreach (var file in files)
+                {
+                    list.Add($""Name: {file.Name} - Size: {file.Size}"");
+                }
+            }
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+
+<h5 class="mat-h5">Multiple Files Example</h5>
+<DemoContainer>
+    <Content>
+        <MatFileUpload OnChange="@MultipleFilesReady" AllowMultiple="true" Label="Drop files here or Browse"></MatFileUpload>
+
+        @foreach (var f in multiplelist)
+        {
+            <div>@f</div>
+        }
+
+        @code
+        { 
+            List<string> multiplelist = new List<string>();
+
+            void MultipleFilesReady(IMatFileUploadEntry[] files)
+            {
+                foreach (var file in files)
+                {
+                    multiplelist.Add($"Name: {file.Name} - Size: {file.Size}");
+                }
+            } 
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatFileUpload OnChange=""@MultipleFilesReady"" AllowMultiple=""true"" Label=""Drop files here or Browse""></MatFileUpload>
+
+        @foreach (var f in multiplelist)
+        {
+            <div>@f</div>
+        }
+
+        @code
+        { 
+            List<string> multiplelist = new List<string>();
+
+            void MultipleFilesReady(IMatFileUploadEntry[] files)
+            {
+                foreach (var file in files)
+                {
+                    multiplelist.Add($""Name: {file.Name} - Size: {file.Size}"");
+                }
+            } 
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Read content of file</h5>
+
+<DemoContainer>
+    <Content>
+        <MatFileUpload OnChange="@FilesReadyForContent"></MatFileUpload>
+        <textarea style="width: 100%; max-height: 300px; height: 300px;">@fileContent</textarea>
+
+        @code
+        { 
+            string fileContent;
+
+            async Task FilesReadyForContent(IMatFileUploadEntry[] files)
+            {
+                try
+                {
+                    var file = files.FirstOrDefault();
+                    if (file == null)
+                    {
+                        return;
+                    }
+
+                    using (var stream = new MemoryStream())
+                    {
+                        var sw = Stopwatch.StartNew();
+                        await file.WriteToStreamAsync(stream);
+                        sw.Stop();
+                        if (stream.Length > 1024 * 1024)
+                        {
+                            fileContent = "";
+                            fileContent += $"Name:\t{file.Name}\r\n";
+                            fileContent += $"Type:\t{file.Type}\r\n";
+                            fileContent += $"LastModified:\t{file.LastModified}\r\n";
+                            fileContent += $"Size:\t{file.Size}\r\n";
+                            fileContent += $"Time:\t{sw.Elapsed}\r\n";
+                            fileContent += $"Speed:\t{(stream.Length / sw.Elapsed.TotalSeconds):N0}  b/s\r\n";
+                        }
+                        else
+                        {
+                            stream.Seek(0, SeekOrigin.Begin);
+                            using (var reader = new StreamReader(stream))
+                            {
+                                fileContent = await reader.ReadToEndAsync();
+                            }
+                        }
+                    }
+                }
+
+                catch (Exception e)
+                {
+                    fileContent = $"Error:\r\n{e.Message}\r\n{e.StackTrace}";
+                }
+                finally
+                {
+                    await InvokeAsync(StateHasChanged);
+                }
+            }
+        }
+
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatFileUpload OnChange=""@FilesReadyForContent""></MatFileUpload>
+        <textarea style=""width: 100%; max-height: 300px; height: 300px;"">@fileContent</textarea>
+
+        @code
+        { 
+            string fileContent;
+
+            async Task FilesReadyForContent(IMatFileUploadEntry[] files)
+            {
+                try
+                {
+                    var file = files.FirstOrDefault();
+                    if (file == null)
+                    {
+                        return;
+                    }
+
+                    using (var stream = new MemoryStream())
+                    {
+                        var sw = Stopwatch.StartNew();
+                        await file.WriteToStreamAsync(stream);
+                        sw.Stop();
+                        if (stream.Length > 1024 * 1024)
+                        {
+                            fileContent = """";
+                            fileContent += $""Name:\t{file.Name}\r\n"";
+                            fileContent += $""Type:\t{file.Type}\r\n"";
+                            fileContent += $""LastModified:\t{file.LastModified}\r\n"";
+                            fileContent += $""Size:\t{file.Size}\r\n"";
+                            fileContent += $""Time:\t{sw.Elapsed}\r\n"";
+                            fileContent += $""Speed:\t{(stream.Length / sw.Elapsed.TotalSeconds):N0}  b/s\r\n"";
+                        }
+                        else
+                        {
+                            stream.Seek(0, SeekOrigin.Begin);
+                            using (var reader = new StreamReader(stream))
+                            {
+                                fileContent = await reader.ReadToEndAsync();
+                            }
+                        }
+                    }
+                }
+
+                catch (Exception e)
+                {
+                    fileContent = $""Error:\r\n{e.Message}\r\n{e.StackTrace}"";
+                }
+                finally
+                {
+                    await InvokeAsync(StateHasChanged);
+                }
+            }
+        }
+
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

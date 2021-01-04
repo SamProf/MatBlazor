@@ -1,8 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
@@ -11,6 +8,9 @@ namespace MatBlazor
         [Parameter]
         public string Id { get; set; } = IdGeneratorHelper.Generate("matBlazor_id_");
 
+        /// <summary>
+        /// Gets or sets a collection of additional attributes that will be applied to the created element.
+        /// </summary>
         [Parameter(CaptureUnmatchedValues = true)]
         public Dictionary<string, object> Attributes { get; set; }
 
@@ -41,40 +41,24 @@ namespace MatBlazor
             ClassMapper
                 .Get(() => this.Class)
                 .Get(() => this.Theme?.GetClass());
+            
+            StyleMapper.Get(() => Style);
         }
 
         /// <summary>
         /// Specifies one or more classnames for an DOM element.
         /// </summary>
         [Parameter]
-        public string Class
-        {
-            get => _class;
-            set { _class = value; }
-        }
+        public string Class { get; set; }
 
 
         /// <summary>
         /// Specifies an inline style for an DOM element.
         /// </summary>
         [Parameter]
-        public string Style
-        {
-            get => _style;
-            set
-            {
-                _style = value;
-                this.StateHasChanged();
-            }
-        }
+        public string Style { get; set; }
 
 
-        protected virtual string GenerateStyle()
-        {
-            return Style;
-        }
-
-        private string _class;
-        private string _style;
+        protected StyleMapper StyleMapper = new StyleMapper();
     }
 }

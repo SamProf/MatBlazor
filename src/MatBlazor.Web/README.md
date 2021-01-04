@@ -1,4 +1,12 @@
-# es6-webpack2-starter
+To deploy static web assets, one needs to use `npm`. If you have NPM installed, see the "Manual deploy with NPM" section. If you prefer running `npm` isolated in a docker container, run `deploy.ps1` (requires powershell).
+
+# Powershell deploy script
+
+In this folder, run `.\deploy.ps1`.
+
+⚠️ This overwrites the static web assets in `MatBlazor/src/MatBlazor/wwwroot/dist` ⚠️
+
+# Manual deploy with NPM
 
 [![npm](https://img.shields.io/npm/v/es6-webpack2-starter.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/es6-webpack2-starter)
 [![npm](https://img.shields.io/npm/l/es6-webpack2-starter.svg?maxAge=2592000?style=flat-square)](https://github.com/micooz/es6-webpack2-starter/blob/master/LICENSE)

@@ -6,14 +6,28 @@
 <h5 class="mat-h5">Example</h5>
 <DemoContainer>
     <Content>
-        @using Microsoft.AspNetCore.Components
-
         <h4 class="mat-subtitle1">Simple use</h4>
         <MatButton Icon="favorite" OnClick="@RunOnClick" Label="Simple Button"></MatButton>
 
-        <h5 class="mat-subtitle1">With Font-Awsome Icons and Link</h5>
+        <h5 class="mat-subtitle1">With Font-Awesome Icons and Link</h5>
         <MatButton Link="https://github.com/BlazorComponents/MatBlazor">
             <i class="fa fa-github" aria-hidden="true"></i> &nbsp; Github
+        </MatButton>
+        
+        <h5 class="mat-subtitle1">Internal Link</h5>
+        <MatButton Link="/Checkbox">Checkbox</MatButton>
+
+        <h5 class="mat-subtitle1">Internal Link with ForceLoad</h5>
+        <MatButton Link="/Checkbox" ForceLoad="true">ForceLoad - Checkbox</MatButton>
+
+        <h5 class="mat-subtitle1">With Font-Awesome Icons and Link in a new Window  - Target Defined</h5>
+        <MatButton Link="https://github.com/BlazorComponents/MatBlazor" Target="_blank">
+            <i class="fa fa-github" aria-hidden="true"></i> &nbsp; Github
+        </MatButton>
+
+        <h5 class="mat-subtitle1">Internal Link in a new Window - Target Defined</h5>
+        <MatButton Link="/TextField" Target="_blank">
+            <i class="fa fa-paragraph" aria-hidden="true"></i> &nbsp; TextField
         </MatButton>
 
         @code
@@ -29,14 +43,28 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        @using Microsoft.AspNetCore.Components
-
         <h4 class=""mat-subtitle1"">Simple use</h4>
         <MatButton Icon=""favorite"" OnClick=""@RunOnClick"" Label=""Simple Button""></MatButton>
 
-        <h5 class=""mat-subtitle1"">With Font-Awsome Icons and Link</h5>
+        <h5 class=""mat-subtitle1"">With Font-Awesome Icons and Link</h5>
         <MatButton Link=""https://github.com/BlazorComponents/MatBlazor"">
             <i class=""fa fa-github"" aria-hidden=""true""></i> &nbsp; Github
+        </MatButton>
+        
+        <h5 class=""mat-subtitle1"">Internal Link</h5>
+        <MatButton Link=""/Checkbox"">Checkbox</MatButton>
+
+        <h5 class=""mat-subtitle1"">Internal Link with ForceLoad</h5>
+        <MatButton Link=""/Checkbox"" ForceLoad=""true"">ForceLoad - Checkbox</MatButton>
+
+        <h5 class=""mat-subtitle1"">With Font-Awesome Icons and Link in a new Window  - Target Defined</h5>
+        <MatButton Link=""https://github.com/BlazorComponents/MatBlazor"" Target=""_blank"">
+            <i class=""fa fa-github"" aria-hidden=""true""></i> &nbsp; Github
+        </MatButton>
+
+        <h5 class=""mat-subtitle1"">Internal Link in a new Window - Target Defined</h5>
+        <MatButton Link=""/TextField"" Target=""_blank"">
+            <i class=""fa fa-paragraph"" aria-hidden=""true""></i> &nbsp; TextField
         </MatButton>
 
         @code
@@ -157,7 +185,6 @@
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
-
 
 <h5 class="mat-h5">Button Type</h5>
 <DemoContainer>

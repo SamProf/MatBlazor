@@ -4,11 +4,11 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatIconButton</h3> } else { <h5 class="mat-h5">MatIconButton</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>Icons are appropriate for buttons that allow a user to take actions or make a selection, such as adding or removing a star to an item.</p>
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
@@ -17,7 +17,7 @@
 	<tr>
 		<td>Attributes</td>
 		<td>Dictionary&lt;String,Object&gt;</td>
-		<td></td>
+		<td>Gets or sets a collection of additional attributes that will be applied to the created element.</td>
 	</tr>
 	<tr>
 		<td>ChildContent</td>
@@ -45,6 +45,11 @@
 		<td>Button is disabled.</td>
 	</tr>
 	<tr>
+		<td>ForceLoad</td>
+		<td>Boolean</td>
+		<td>Force browser to redirect outside component router-space.</td>
+	</tr>
+	<tr>
 		<td>Icon</td>
 		<td>String</td>
 		<td>Default Button Icon</td>
@@ -65,6 +70,11 @@
 		<td>Event occurs when the user clicks on an element.</td>
 	</tr>
 	<tr>
+		<td>OnClickStopPropagation</td>
+		<td>Boolean</td>
+		<td>Stop propagation of the OnClick event</td>
+	</tr>
+	<tr>
 		<td>OnMouseDown</td>
 		<td>EventCallback&lt;MouseEventArgs&gt;</td>
 		<td></td>
@@ -82,7 +92,17 @@
 	<tr>
 		<td>Target</td>
 		<td>String</td>
-		<td>*Not available yet</td>
+		<td>Target of Link when clicked.</td>
+	</tr>
+	<tr>
+		<td>Toggled</td>
+		<td>Boolean</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>ToggledChanged</td>
+		<td>EventCallback&lt;Boolean&gt;</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>ToggleIcon</td>
@@ -95,3 +115,12 @@
 		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatIconButton";
+
+}

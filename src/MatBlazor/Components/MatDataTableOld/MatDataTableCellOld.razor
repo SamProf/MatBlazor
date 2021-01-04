@@ -1,0 +1,26 @@
+﻿@namespace MatBlazor
+@inherits BaseMatDomComponent
+
+
+<td class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" id="@Id" @attributes="@Attributes" role="columnheader" scope="col">
+    @ChildContent
+</td>
+
+
+@code
+{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public bool Numeric { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper
+            .Add("mdc-data-table__cell")
+            .If("mdc-data-table__cell--numeric", () => Numeric);
+    }
+}

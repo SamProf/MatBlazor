@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Components.Rendering
+@using Microsoft.AspNetCore.Components.RenderTree
+@typeparam TItem
+@inject IServiceProvider serviceProvider
+
+@* <MatMetaHelper Notify="@MatMetaHelperNotify"> *@
+@*     @Columns *@
+@* </MatMetaHelper> *@
+
+
+@foreach (var item in Items)
+{
+    <div>row - </div>
+}
+
+
+@code
+{
+    [Parameter]
+    public RenderFragment Columns { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        // var b = new RenderTreeBuilder();
+        // Columns?.Invoke(b);
+        // //var frames = b.GetFrames();
+        // var renderer = (Renderer)serviceProvider.GetService(typeof(Renderer));
+    }
+
+    
+
+    [Parameter]
+    public IEnumerable<TItem> Items { get; set; }
+
+
+    public void MatMetaHelperNotify(object v)
+    {
+        // columns.Add(v as MyColumn<TItem>);
+    }
+}

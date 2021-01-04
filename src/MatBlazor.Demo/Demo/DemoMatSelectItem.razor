@@ -1,0 +1,198 @@
+@using System.IO
+<DocMatSelectItem></DocMatSelectItem>
+
+
+<MatH5>Example MatSelectItem with simple array</MatH5>
+
+<DemoContainer>
+    <Content>
+        <p>
+            <MatSelectItem @bind-Value="@value1" Items="@value1Items"></MatSelectItem>
+        </p>
+        <p>
+            Selected value: @value1
+        </p>
+
+
+        @code
+        {
+            string value1 = "Grains";
+
+            string[] value1Items = new[]
+            {
+                "Grains",
+                "Vegetables",
+                "Fruit",
+            };
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatSelectItem @bind-Value=""@value1"" Items=""@value1Items""></MatSelectItem>
+        </p>
+        <p>
+            Selected value: @value1
+        </p>
+
+
+        @code
+        {
+            string value1 = ""Grains"";
+
+            string[] value1Items = new[]
+            {
+                ""Grains"",
+                ""Vegetables"",
+                ""Fruit"",
+            };
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<MatH5>Example MatSelectItem with class array and ItemTemplate</MatH5>
+
+<DemoContainer>
+    <Content>
+        <MatSelectItem @bind-Value="value3" Items="@value3Items">
+            <ItemTemplate>
+                <span style="color: @context.Color">@context?.Name</span>
+            </ItemTemplate>
+        </MatSelectItem>
+
+        <p>
+            Selected value: @(value3?.Name)
+        </p>
+
+
+        @code
+        {
+            ItemType value3;
+
+
+            ItemType[] value3Items = new[]
+            {
+                new ItemType("", "black"),
+                new ItemType("Grains", "brown"),
+                new ItemType("Vegetables", "green"),
+                new ItemType("Fruit", "orange"),
+            };
+
+            class ItemType
+            {
+                public string Name { get; }
+                public string Color { get; }
+
+                public ItemType(string name, string color)
+                {
+                    Name = name;
+                    Color = color;
+                }
+            }
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelectItem @bind-Value=""value3"" Items=""@value3Items"">
+            <ItemTemplate>
+                <span style=""color: @context.Color"">@context?.Name</span>
+            </ItemTemplate>
+        </MatSelectItem>
+
+        <p>
+            Selected value: @(value3?.Name)
+        </p>
+
+
+        @code
+        {
+            ItemType value3;
+
+
+            ItemType[] value3Items = new[]
+            {
+                new ItemType("""", ""black""),
+                new ItemType(""Grains"", ""brown""),
+                new ItemType(""Vegetables"", ""green""),
+                new ItemType(""Fruit"", ""orange""),
+            };
+
+            class ItemType
+            {
+                public string Name { get; }
+                public string Color { get; }
+
+                public ItemType(string name, string color)
+                {
+                    Name = name;
+                    Color = color;
+                }
+            }
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<MatH5>Example MatSelectItem with Enum</MatH5>
+
+<DemoContainer>
+    <Content>
+        <MatSelectItem @bind-Value="value2" Items="@value2Items">
+        </MatSelectItem>
+
+        <p>
+            Selected value: @value2
+        </p>
+
+
+        @code
+        {
+            Food value2;
+            Food[] value2Items = Enum.GetValues(typeof(Food)).Cast<Food>().ToArray();
+
+            enum Food
+            {
+                Grains,
+                Vegetables,
+                Fruit,
+            }
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelectItem @bind-Value=""value2"" Items=""@value2Items"">
+        </MatSelectItem>
+
+        <p>
+            Selected value: @value2
+        </p>
+
+
+        @code
+        {
+            Food value2;
+            Food[] value2Items = Enum.GetValues(typeof(Food)).Cast<Food>().ToArray();
+
+            enum Food
+            {
+                Grains,
+                Vegetables,
+                Fruit,
+            }
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

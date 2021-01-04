@@ -1,21 +1,27 @@
 ﻿@namespace MatBlazor
-@inherits BaseMatSlider
+@typeparam TValue
+@inherits BaseMatSlider<TValue>
 
 
-<div @ref="Ref"  class="@ClassMapper.Class" style="@Style" tabindex="0" role="slider"
+<div @ref="Ref" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" tabindex="0" role="slider"
      aria-valuemin="@ValueMin" aria-valuemax="@ValueMax" aria-valuenow="@Value"
-     aria-label="@Label" aria-disabled="@Disabled"
-     @attributes="Attributes" Id="@Id"
-     >
+     data-step="@(EnableStep ? Step?.ToString() : null)" aria-label="@Label" aria-disabled="@Disabled"
+     @attributes="Attributes" Id="@Id">
     <div class="mdc-slider__track-container">
         <div class="mdc-slider__track"></div>
+        @if (Discrete && Markers)
+        {
+            <div class="mdc-slider__track-marker-container"
+                 style="@MarkerStyle">
+            </div>
+        }
     </div>
 
     <div class="mdc-slider__thumb-container">
-        @if (Discrete)
+        @if (Pin)
         {
             <div class="mdc-slider__pin">
-                <span class="mdc-slider__pin-value-marker"></span>
+                <span class="mdc-slider__pin-value-marker">@Value</span>
             </div>
         }
         <svg class="mdc-slider__thumb" width="21" height="21">
@@ -25,14 +31,3 @@
     </div>
 </div>
 
-
-@code
-{
-
-    // data-step="@DataStepValue"
-    private string DataStepValue
-    {
-        get { return Step.ToString(); }
-    }
-
-}

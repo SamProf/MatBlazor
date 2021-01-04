@@ -1,6 +1,3 @@
-import * as styles from './matButton.scss';
-
-
 import {MDCRipple} from '@material/ripple';
 
 

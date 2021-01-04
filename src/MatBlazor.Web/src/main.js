@@ -1,8 +1,4 @@
-// global css
-import './theme/theme.scss';
-import './matTable/matTable.scss';
-import './matToast/matToast.scss';
-import './matNavMenu/matNavMenu.scss';
+// global js
 import * as matButton from './matButton/matButton';
 import * as matCheckbox from './matCheckbox/matCheckbox';
 import * as matTextField from './matTextField/matTextField';
@@ -12,6 +8,7 @@ import * as matSelect from './matSelect/matSelect';
 import * as matSlider from './matSlider/matSlider';
 import * as matSlideToggle from './matSlideToggle/matSlideToggle';
 import * as matCard from './matCard/matCard';
+import * as matChip from './matChip/matChip';
 import * as matChipSet from './matChipSet/matChipSet';
 import * as matAppBar from './matAppBar/matAppBar';
 import * as matIconButton from './matIconButton/matIconButton';
@@ -20,8 +17,9 @@ import * as matDrawer from './matDrawer/matDrawer';
 import * as matMenu from './matMenu/matMenu';
 import * as matTypography from './matTypography/matTypography';
 import * as matElevation from './matElevation/matElevation';
-import * as matAutocomplete from './matAutocomplete/matAutocomplete';
+import * as matAutocompleteList from './matAutocompleteList/matAutocompleteList';
 import * as matProgressBar from './matProgressBar/matProgressBar';
+import * as matProgressCircle from './matProgressCircle/matProgressCircle';
 import * as matDialog from './matDialog/matDialog';
 import * as matLayoutGrid from './matLayoutGrid/matLayoutGrid';
 import * as matRipple from './matRipple/matRipple';
@@ -33,10 +31,14 @@ import * as matAccordion from './matAccordion/matAccordion';
 import * as matTooltip from './matTooltip/matTooltip';
 import * as utils from './utils/utils';
 import * as matHidden from './matHidden/matHidden';
+import * as matAnchor from './matAnchor/matAnchor';
+import * as matFileUpload from './matFileUpload/matFileUpload';
+import * as matDataTable from './matTable/matDataTable';
+import * as matVirtualScroll from './matVirtualScroll/matVirtualScroll';
 
 
 window.matBlazor = {
-  matAutocomplete,
+  matAutocompleteList,
   matButton,
   matCheckbox,
   matTextField,
@@ -46,6 +48,7 @@ window.matBlazor = {
   matSlider,
   matSlideToggle,
   matCard,
+  matChip,
   matChipSet,
   matAppBar,
   matIconButton,
@@ -55,6 +58,7 @@ window.matBlazor = {
   matTypography,
   matElevation,
   matProgressBar,
+  matProgressCircle,
   matDialog,
   matLayoutGrid,
   matRipple,
@@ -65,7 +69,9 @@ window.matBlazor = {
   matAccordion,
   matTooltip,
   matHidden,
-  utils,
+  matAnchor,
+  matFileUpload,
+  matDataTable,
+  matVirtualScroll,
+  utils
 };
-
-

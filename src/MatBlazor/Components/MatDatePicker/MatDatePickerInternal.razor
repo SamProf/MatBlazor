@@ -1,0 +1,25 @@
+﻿@namespace MatBlazor
+@typeparam TValue
+@inherits BaseMatDatePickerInternal<TValue>
+
+@base.BuildRenderTree
+
+@code
+{
+
+    protected override RenderFragment BuildRenderTreeChildContent()
+    {
+        return (builder) =>
+        {
+            builder.AddContent(0, base.BuildRenderTreeChildContent());
+            if (!DisableCalendar)
+            {
+                builder.AddContent(1, @<div class="mat-text-field-actions-container">
+                                          <input @ref="flatpickrInputRef" style="display: none;"/>
+                                          <MatIconButton Icon="@MatIconNames.Calendar_today" OnClick="OnClickIconHandler"></MatIconButton>
+                                      </div>);
+            }
+        };
+    }
+
+}

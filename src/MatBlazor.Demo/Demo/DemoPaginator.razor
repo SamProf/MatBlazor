@@ -1,0 +1,66 @@
+<DocMatPaginator></DocMatPaginator>
+
+<h5 class="mat-h5">Example</h5>
+
+<DemoContainer>
+    <Content>
+        <div>
+            <MatPaginator Length="100" PageSize="@pageSize" Page="@OnPage"></MatPaginator>            
+        </div>
+
+        <div>
+            pageSize : @pageSize
+        </div>
+
+        <div>
+            pageIndex : @pageIndex
+        </div>
+
+
+        @code
+        {
+            int pageSize = 25;
+            int pageIndex = 0;
+
+            void OnPage(MatPaginatorPageEvent e)
+            {
+                pageSize = e.PageSize;
+                pageIndex = e.PageIndex;
+            }
+
+        }
+
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <div>
+            <MatPaginator Length=""100"" PageSize=""@pageSize"" Page=""@OnPage""></MatPaginator>            
+        </div>
+
+        <div>
+            pageSize : @pageSize
+        </div>
+
+        <div>
+            pageIndex : @pageIndex
+        </div>
+
+
+        @code
+        {
+            int pageSize = 25;
+            int pageIndex = 0;
+
+            void OnPage(MatPaginatorPageEvent e)
+            {
+                pageSize = e.PageSize;
+                pageIndex = e.PageIndex;
+            }
+
+        }
+
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

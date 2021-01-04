@@ -1,0 +1,18 @@
+﻿@namespace MatBlazor
+
+
+<MatDialogContent>
+    @Message
+</MatDialogContent>
+<MatDialogActions>
+    <MatButton OnClick="@(_=>DialogReference.Close(true))">OK</MatButton>
+</MatDialogActions>
+
+@code
+{
+    [CascadingParameter]
+    public MatDialogReference DialogReference { get; set; }
+
+    [Parameter]
+    public string Message { get; set; }
+}

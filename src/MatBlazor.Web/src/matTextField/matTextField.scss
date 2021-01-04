@@ -1,65 +1,143 @@
 @import "@material/textfield/mdc-text-field";
 
+.mat-text-field-icon-container {
+  position: absolute;
+  right: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 1;
+}
 
 /* Hide clear button from edge */
-.mat-hide-clearbutton::-ms-clear
-{
-    width:0;
-    height:0;
+.mat-hide-clearbutton::-ms-clear {
+  width: 0;
+  height: 0;
 }
 
 /* Fix Full Width padding issues */
-div.mdc-text-field.mdc-text-field--fullwidth:not(.mdc-text-field--textarea)>input.mdc-text-field__input{
-    padding: 20px 16px 6px;
+label.mdc-text-field.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > input.mdc-text-field__input {
+  padding: 10px 16px 6px;
 }
 
-div.mdc-text-field--fullwidth-with-trailing-icon:not(.mdc-text-field--textarea)>input.mdc-text-field__input
-{
-    padding: 20px 48px 6px 16px;
+label.mdc-text-field--fullwidth-with-trailing-icon:not(.mdc-text-field--textarea) > input.mdc-text-field__input {
+  padding: 10px 0 6px 0 !important;
 }
 
-div.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea)>input.mdc-text-field__input
-{
-    padding: 20px 16px 6px 48px;
+label.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea) > input.mdc-text-field__input {
+  padding: 10px 16px 6px 0 !important;
 }
 
-.mat-floating-label--float-above-outlined
-{
-    background-color:  var(--mdc-theme-surface, #fff) !important;
+label.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > span.mdc-floating-label {
+  display: inline;
 }
 
+.mat-floating-label--float-above-outlined {
+  background-color: var(--mdc-theme-surface, transparent) !important;
+}
 
 /* For EditForm validation messages */
 .validation-message {
-    color: red;
+  color: red !important;
+}
+.mdc-text-field--outlined {
+  .mat-text-field-input.mdc-text-field__input {
+    &.invalid, &.valid.modified {
+      border-bottom: none !important;
+    }
+  }
+
+  .mdc-select__selected-text {
+    &.invalid, &.valid.modified {
+      border-bottom: none !important;
+    }
+  }
+}
+
+.mdc-select__selected-text.invalid {
+  border-bottom: none !important;
+}
+
+.invalid + .mdc-notched-outline > {
+  .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-color: red !important;
+  }
+}
+
+.valid.modified + .mdc-notched-outline > {
+  .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-color: green !important;
+  }
+}
+
+.invalid + i + .mdc-notched-outline > {
+  .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-color: red !important;
+  }
+}
+
+.valid.modified + i + .mdc-notched-outline > {
+  .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-color: green !important;
+  }
 }
 
 /* For TextField */
-.mdc-text-field__input.valid.modified {
-    border-bottom: 2px solid #10b510 !important;
+.mat-text-field, .mat-select {
+  &.valid.modified {
+    .mdc-line-ripple::before
+    {
+      border-bottom: 1px solid #10b510 !important;
+    }
+  }
+
+  &.invalid {
+    .mdc-line-ripple::before {
+      border-bottom: 1px solid red !important;
+    }
+  }
 }
 
-.mdc-text-field__input.invalid {
-    border-bottom: 2px solid red !important;
+//.mdc-dialog__content > .mdc-text-field {
+//   display: block;
+//   margin: 1rem 0;
+// }
+//
+//.mdc-dialog__content > .mdc-text-field + .validation-message {
+//  margin-top: -0.8rem;
+//  margin-bottom: 0.7rem;
+//  font-size: 0.9rem;
+//}
+
+/* Label color to theme primary color */
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--mdc-theme-primary, #6200ee);
 }
 
-.mdc-dialog__content > .mdc-text-field {
-    display: block;
-    margin: 1rem 0;
+/* More specific selector for translating the label to top */
+.mdc-text-field.mdc-text-field--fullwidth .mdc-floating-label.mdc-floating-label--float-above {
+  transform: translateY(-106%) scale(0.75);
 }
 
-.mdc-dialog__content > .mdc-text-field + .validation-message {
-    margin-top: -0.8rem;
-    margin-bottom: 0.7rem;
-    font-size: 0.9rem;
-}
+///* For DatePicker */
+//.valid.modified > .mdc-text-field__input {
+//  border-bottom: 2px solid #10b510 !important;
+//}
+//
+//.mat-text-field.invalid > .mdc-text-field__input {
+//  border-bottom: 2px solid red !important;
+//}
 
-/* For DatePicker */
-.valid.modified > .mdc-text-field__input {
-    border-bottom: 2px solid #10b510 !important;
-}
-
-.invalid > .mdc-text-field__input {
-    border-bottom: 2px solid red !important;
-}
+/* For Select */
+//.mat-select {
+//  .invalid {
+//    border-bottom: 2px solid red !important;
+//  }
+//
+//  .valid.modified {
+//    border-bottom: 2px solid #10b510 !important;
+//  }
+//}
 
