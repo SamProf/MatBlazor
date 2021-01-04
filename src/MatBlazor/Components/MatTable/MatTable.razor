@@ -13,6 +13,12 @@
 {
     <MatTextField class="mdc-table-filter" OnInput="@((e) => OnInput(e))" Placeholder="@SearchTermFieldPlaceHolder" Label="@SearchTermFieldLabel" Value="@SearchTerm" Icon="filter_list"></MatTextField>
 }
+
+@if (ShowPagingInHeader)
+{
+    <TablePaginator UpdatePaging="@UpdatePaging" PageSizes="@PageSizes" PageSizeStr="@PageSizeStr" ShowPagingControls="true" StartPage="@StartPage" EndPage="@EndPage" TotalPages="@TotalPages" CurrentPage="@CurrentPage" ClickFirst=@(async () => NavigateToPage(PageDirection.First)) ClickNext=@(async () => NavigateToPage(PageDirection.Next)) ClickPrevious=@(async () => NavigateToPage(PageDirection.Previous)) ClickLast=@(async () => NavigateToPage(PageDirection.Last)) />
+}
+
 <CascadingValue Value="@this">
     <table class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
         <thead>
@@ -22,7 +28,7 @@
             }
             else
             {
-                <tr class="mdc-table-header-row @(HeaderRowClass)">@MatTableHeader</tr>
+                <tr class="mdc-table-header-row @(HeaderRowClass)">@MatTableHeader</tr>            
             }
         </thead>
         <tbody>
@@ -49,43 +55,10 @@
 
 @if (@ShowPaging)
 {
-    <div class="mdc-paginator">
-        <div class="mdc-paginator-container">
-            <div class="mdc-paginator-page-size">
-                @PageRecordCountLabel
-                <MatSelect @bind-Value="@PageSizeStr">
-                    @if (PageSizes != null)
-                        {
-                            foreach (var item in PageSizes)
-                            {
-                            <MatOption Value="@item.Value.ToString()">@item.Text</MatOption>
-                            }
-                        }
-                </MatSelect>
-            </div>
-
-            <div class="mdc-paginator-range-actions">
-                <span class="mdc-paginator-range-label">@PageLabel @CurrentPage / @TotalPages</span>
-                <div class="mdc-paginator-range-buttons">
-                    <MatIconButton Icon="first_page" OnClick=@(async () => NavigateToPage(PageDirection.First)) Disabled=@(CurrentPage <= 1)></MatIconButton>
-                    <MatIconButton Icon="navigate_before" OnClick=@(async () => NavigateToPage(PageDirection.Previous)) Disabled=@(CurrentPage <= 1)></MatIconButton>
-                    @*@for (int i = StartPage; i <= EndPage; i++)
-                        {
-                            var currentPage = i;
-                            <MatIconButton class="@(currentPage == CurrentPage ? "currentpage" : "")" onclick=@(async () => UpdateList(currentPage))>
-                                @currentPage
-                            </MatIconButton>
-                        }*@
-                    <MatIconButton Icon="navigate_next" OnClick="@(async () => NavigateToPage(PageDirection.Next))" Disabled="@(CurrentPage == EndPage)"></MatIconButton>
-                    <MatIconButton Icon="last_page" OnClick=@(async () => NavigateToPage(PageDirection.Last)) Disabled=@(CurrentPage == EndPage)></MatIconButton>
-                </div>
-            </div>
-        </div>
-    </div>
+    <TablePaginator UpdatePaging="@UpdatePaging" PageSizes="@PageSizes" PageSizeStr="@PageSizeStr" ShowPagingControls="true" StartPage="@StartPage" EndPage="@EndPage" TotalPages="@TotalPages" CurrentPage="@CurrentPage" ClickFirst=@(async () => NavigateToPage(PageDirection.First)) ClickNext=@(async () => NavigateToPage(PageDirection.Next)) ClickPrevious=@(async () => NavigateToPage(PageDirection.Previous)) ClickLast=@(async () => NavigateToPage(PageDirection.Last)) />
 }
 
-@code{
-
+@code{    
     protected string PageSizeStr
     {
         get => PageSize.ToString();
@@ -99,6 +72,17 @@
             SetPageSize(PageDirection.Next);
             UpdateList(1).GetAwaiter();
         }
+    }
+
+    protected void UpdatePaging(string value)
+    {
+        PageSize = Convert.ToInt32(value);
+        CurrentPage = 1;
+        TotalPages = Math.Max(1, (int)Math.Ceiling(Items.Count() / (decimal)PageSize));
+        EndPage = TotalPages;
+        StartPage = 1;
+        SetPageSize(PageDirection.Next);
+        UpdateList(1).GetAwaiter();
     }
 
     [Parameter]
@@ -151,11 +135,11 @@
                 new PageSizeStructure() {Text = "50", Value = 50},
                 new PageSizeStructure() {Text = "100", Value = 100},
                 new PageSizeStructure() {Text = "*", Value = -1}
-                                                        };
+            };
             if (PageSize <= 0)
                 PageSize = 5;
         }
-        
+
         StartPage = 1;
         CurrentPage = StartPage;
 
@@ -469,5 +453,4 @@
 
         return filteredCollection;
     }
-
 }

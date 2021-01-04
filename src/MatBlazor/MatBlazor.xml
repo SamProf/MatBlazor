@@ -853,7 +853,12 @@
         </member>
         <member name="P:MatBlazor.BaseMatTable.ShowPaging">
             <summary>
-            Specifies the Paging visibility
+            Specifies the Paging visibility in the footer area of the table.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTable.ShowPagingInHeader">
+            <summary>
+            Specifies the Paging visibility in the top area (on the right side of the filter/search field) of the table.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatTable.ShowFooter">
