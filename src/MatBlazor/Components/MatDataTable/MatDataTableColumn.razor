@@ -1,0 +1,25 @@
+﻿@namespace MatBlazor
+
+
+@if (RenderMode == MatDataTableColumnRenderMode.RowCell)
+{
+    <th class="mdc-data-table__cell" scope="row">@Value</th>
+@*     <td class="mdc-data-table__cell mdc-data-table__cell--numeric">24</td> *@
+@*     <td class="mdc-data-table__cell mdc-data-table__cell--numeric">4.0</td> *@
+@*     <td class="mdc-data-table__cell">Super tasty</td> *@
+}
+else if (RenderMode == MatDataTableColumnRenderMode.HeaderCell)
+{
+    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">@Header</th>
+@*     <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Carbs (g)</th> *@
+@*     <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Protein (g)</th> *@
+@*     <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Comments</th> *@
+}
+
+
+
+
+@code
+{
+
+}

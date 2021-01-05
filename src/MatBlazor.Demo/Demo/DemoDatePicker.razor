@@ -1,7 +1,8 @@
 <DocMatDatePicker></DocMatDatePicker>
 
 
-<h5 class="mat-h5">Example</h5>
+<AnchorHeader Text="Example" />
+
 <DemoContainer>
     <Content>
         <p>
@@ -10,14 +11,12 @@
         <MatButton OnClick="@(_ =>
                               {
                                   Date1 = DateTime.Now;
-                                  this.StateHasChanged();
                               })">
             Now
         </MatButton>
         <MatButton OnClick="@(_ =>
                               {
                                   Date1 = null;
-                                  this.StateHasChanged();
                               })">
             Empty
         </MatButton>
@@ -38,14 +37,12 @@
         <MatButton OnClick=""@(_ =>
                               {
                                   Date1 = DateTime.Now;
-                                  this.StateHasChanged();
                               })"">
             Now
         </MatButton>
         <MatButton OnClick=""@(_ =>
                               {
                                   Date1 = null;
-                                  this.StateHasChanged();
                               })"">
             Empty
         </MatButton>
@@ -63,77 +60,230 @@
 
 
 
-<h5 class="mat-h5">Variants</h5>
+<AnchorHeader Text="Features"/>
+<DemoContainer>
+    <Content>
+        <p><b>DateTime format</b></p>
+        <p>Full support of <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings?view=netframework-4.8" target="_blank">.NET DateTime formats</a></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Format="MM-dd-yy"></MatDatePicker>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Format="MMMM dd, yyyy"></MatDatePicker>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Format="MM/dd/yy H:mm:ss"></MatDatePicker>
+
+
+        <p><b>EnableTime</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" EnableTime="true"></MatDatePicker>
+
+        <p><b>Minimum</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Minimum="@DateTime.Now.AddDays(-10)"></MatDatePicker>
+
+        <p><b>Maximum</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Maximum="@DateTime.Now.AddDays(10)"></MatDatePicker>
+
+        <p><b>Minimum and Maximum</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Minimum="@DateTime.Now.AddDays(-10)" Maximum="@DateTime.Now.AddDays(10)"></MatDatePicker>
+        
+        <p><b>EnableSeconds</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" EnableTime="true" EnableSeconds="true"></MatDatePicker>
+        
+        <p><b>Enable24hours</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" EnableTime="true" Enable24hours="true"></MatDatePicker>
+        
+        <p><b>EnableWeekNumbers</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" EnableWeekNumbers="true"></MatDatePicker>
+        
+        <p><b>DisableMobile</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" DisableMobile="true"></MatDatePicker>
+        
+        <p><b>DisableCalendar</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" DisableCalendar="true"></MatDatePicker>
+        
+        <p><b>AllowInput</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" AllowInput="false"></MatDatePicker>
+        
+        <p><b>Disabled</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" Disabled="true"></MatDatePicker>
+        
+        <p><b>ReadOnly</b></p>
+        <MatDatePicker @bind-Value="FeaturesDateTime" ReadOnly="true"></MatDatePicker>
+
+        @code
+        {
+            DateTime? FeaturesDateTime = DateTime.Now;
+        }
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p><b>DateTime format</b></p>
+        <p>Full support of <a href=""https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings?view=netframework-4.8"" target=""_blank"">.NET DateTime formats</a></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" Format=""MM-dd-yy""></MatDatePicker>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" Format=""MMMM dd, yyyy""></MatDatePicker>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" Format=""MM/dd/yy H:mm:ss""></MatDatePicker>
+
+
+        <p><b>EnableTime</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" EnableTime=""true""></MatDatePicker>
+
+        <p><b>Minimum</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" Minimum=""@DateTime.Now.AddDays(-10)""></MatDatePicker>
+
+        <p><b>Maximum</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" Maximum=""@DateTime.Now.AddDays(10)""></MatDatePicker>
+
+        <p><b>Minimum and Maximum</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" Minimum=""@DateTime.Now.AddDays(-10)"" Maximum=""@DateTime.Now.AddDays(10)""></MatDatePicker>
+        
+        <p><b>EnableSeconds</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" EnableTime=""true"" EnableSeconds=""true""></MatDatePicker>
+        
+        <p><b>Enable24hours</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" EnableTime=""true"" Enable24hours=""true""></MatDatePicker>
+        
+        <p><b>EnableWeekNumbers</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" EnableWeekNumbers=""true""></MatDatePicker>
+        
+        <p><b>DisableMobile</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" DisableMobile=""true""></MatDatePicker>
+        
+        <p><b>DisableCalendar</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" DisableCalendar=""true""></MatDatePicker>
+        
+        <p><b>AllowInput</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" AllowInput=""false""></MatDatePicker>
+        
+        <p><b>Disabled</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" Disabled=""true""></MatDatePicker>
+        
+        <p><b>ReadOnly</b></p>
+        <MatDatePicker @bind-Value=""FeaturesDateTime"" ReadOnly=""true""></MatDatePicker>
+
+        @code
+        {
+            DateTime? FeaturesDateTime = DateTime.Now;
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<AnchorHeader Text="Generic types"/>
 <DemoContainer>
     <Content>
         <p>
-            <MatDatePicker Label="With Label"></MatDatePicker>
+            <MatDatePicker @bind-Value="@DateTimeTest"></MatDatePicker>
         </p>
         <p>
-            <MatDatePicker Label="Dense" Dense="true"></MatDatePicker>
+            <MatDatePicker @bind-Value="@DateTimeNullableTest"></MatDatePicker>
+        </p>
+
+        <span>@(DateTimeTest.ToLocalTime().ToString())</span>
+        <span>@(DateTimeNullableTest?.ToLocalTime().ToString())</span>
+
+        @code
+        {
+            public DateTime DateTimeTest { get; set; }
+            public DateTime? DateTimeNullableTest { get; set; }
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatDatePicker @bind-Value=""@DateTimeTest""></MatDatePicker>
         </p>
         <p>
-            <MatDatePicker Label="Outlined" Outlined="true"></MatDatePicker>
+            <MatDatePicker @bind-Value=""@DateTimeNullableTest""></MatDatePicker>
+        </p>
+
+        <span>@(DateTimeTest.ToLocalTime().ToString())</span>
+        <span>@(DateTimeNullableTest?.ToLocalTime().ToString())</span>
+
+        @code
+        {
+            public DateTime DateTimeTest { get; set; }
+            public DateTime? DateTimeNullableTest { get; set; }
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+
+<AnchorHeader Text="Variants" />
+<DemoContainer>
+    <Content>
+        <p>
+            <MatDatePicker Label="With Label" TValue="DateTime"></MatDatePicker>
         </p>
         <p>
-            <MatDatePicker Label="Required" Required="true"></MatDatePicker>
+            <MatDatePicker Label="Dense" Dense="true" TValue="DateTime"></MatDatePicker>
         </p>
         <p>
-            <MatDatePicker Label="Disabled" Disabled="true"></MatDatePicker>
+            <MatDatePicker Label="Outlined" Outlined="true" TValue="DateTime"></MatDatePicker>
+        </p>
+        <p>
+            <MatDatePicker Label="Required" Required="true" TValue="DateTime"></MatDatePicker>
+        </p>
+        <p>
+            <MatDatePicker Label="Disabled" Disabled="true" TValue="DateTime"></MatDatePicker>
         </p>
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            <MatDatePicker Label=""With Label""></MatDatePicker>
+            <MatDatePicker Label=""With Label"" TValue=""DateTime""></MatDatePicker>
         </p>
         <p>
-            <MatDatePicker Label=""Dense"" Dense=""true""></MatDatePicker>
+            <MatDatePicker Label=""Dense"" Dense=""true"" TValue=""DateTime""></MatDatePicker>
         </p>
         <p>
-            <MatDatePicker Label=""Outlined"" Outlined=""true""></MatDatePicker>
+            <MatDatePicker Label=""Outlined"" Outlined=""true"" TValue=""DateTime""></MatDatePicker>
         </p>
         <p>
-            <MatDatePicker Label=""Required"" Required=""true""></MatDatePicker>
+            <MatDatePicker Label=""Required"" Required=""true"" TValue=""DateTime""></MatDatePicker>
         </p>
         <p>
-            <MatDatePicker Label=""Disabled"" Disabled=""true""></MatDatePicker>
+            <MatDatePicker Label=""Disabled"" Disabled=""true"" TValue=""DateTime""></MatDatePicker>
         </p>
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
 
-<h5 class="mat-h5">Date Time picker</h5>
+<AnchorHeader Text="Wrong TimeZone?" />
+<p>
+    To display dates you need to use <code>.ToLocalTime()</code>
+</p>
+<p>
+    But at this time, the latest version of the client-side Blazor doesn't contain any time zone info, and local time zone is always UTC wherever.<br />
+    To solve this problem, use <a href="https://github.com/jsakamoto/Toolbelt.Blazor.TimeZoneKit" target="_blank">Toolbelt.Blazor.TimeZoneKit</a>. <br />
+    You can make sure this solution works here: <a href="https://samprof.github.io/MatBlazor/DatePicker" target="_blank">Client-side MatBlazor</a>
+</p>
 <DemoContainer>
     <Content>
         <p>
-            @*Enable time on an normal AM/PM calendar*@
-            <MatDatePicker EnableTime="true" DateFormat="Y-m-d H:i"></MatDatePicker>
+            Current time: @CurrentTime.ToString()
         </p>
         <p>
-            @*Enable time on an calendar with 24 hours option*@
-            <MatDatePicker EnableTime="true" Enable24hours="true" DateFormat="Y-m-d H:i"></MatDatePicker>
+            Current local time: @CurrentTime.ToLocalTime().ToString()
         </p>
-        <p>
-            @*Enable time picker with AM/PM*@
-            <MatDatePicker NoCalendar="true" EnableTime="true" DateFormat="H:i"></MatDatePicker>
-        </p>
+        @code
+        {
+            DateTime CurrentTime = DateTime.Now;
+        }
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            @*Enable time on an normal AM/PM calendar*@
-            <MatDatePicker EnableTime=""true"" DateFormat=""Y-m-d H:i""></MatDatePicker>
+            Current time: @CurrentTime.ToString()
         </p>
         <p>
-            @*Enable time on an calendar with 24 hours option*@
-            <MatDatePicker EnableTime=""true"" Enable24hours=""true"" DateFormat=""Y-m-d H:i""></MatDatePicker>
+            Current local time: @CurrentTime.ToLocalTime().ToString()
         </p>
-        <p>
-            @*Enable time picker with AM/PM*@
-            <MatDatePicker NoCalendar=""true"" EnableTime=""true"" DateFormat=""H:i""></MatDatePicker>
-        </p>
+        @code
+        {
+            DateTime CurrentTime = DateTime.Now;
+        }
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

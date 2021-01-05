@@ -1,8 +1,14 @@
 ﻿@page "/Test"
+@using MatBlazor.Demo.Services
 @using Microsoft.AspNetCore.Components
 @inject IJSRuntime JsRuntime;
-
+@inject DemoUserService service;
 
 <p>
-    <MatDatePicker Inline="true"></MatDatePicker>
+    <MatDatePicker @bind-Value="@Date1" Locale="ru"></MatDatePicker>
 </p>
+
+@code
+{
+    DateTime Date1 = DateTime.Now;
+}

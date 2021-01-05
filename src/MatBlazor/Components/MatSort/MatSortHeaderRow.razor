@@ -1,0 +1,10 @@
+﻿@namespace MatBlazor
+@inherits BaseMatSortHeaderRow
+
+@using Microsoft.AspNetCore.Components
+
+<CascadingValue Value="@this">
+    <tr class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
+        @ChildContent
+    </tr>
+</CascadingValue>

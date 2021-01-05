@@ -4,20 +4,30 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatTabGroup</h3> } else { <h5 class="mat-h5">MatTabGroup</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>MatTabGroup organize content into separate views where only one view can be visible at a time. Each tab&#39;s label is shown in the tab header and the active tab&#39;s label is designated with the animated ink bar.</p>
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
 		<th>Description</th>
 	</tr>
 	<tr>
+		<td>ActiveIndex</td>
+		<td>Int32</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>ActiveIndexChanged</td>
+		<td>EventCallback&lt;Int32&gt;</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>Attributes</td>
 		<td>Dictionary&lt;String,Object&gt;</td>
-		<td></td>
+		<td>Gets or sets a collection of additional attributes that will be applied to the created element.</td>
 	</tr>
 	<tr>
 		<td>ChildContent</td>
@@ -50,3 +60,12 @@
 		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatTabGroup";
+
+}

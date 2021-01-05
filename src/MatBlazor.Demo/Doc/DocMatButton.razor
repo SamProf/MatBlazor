@@ -4,11 +4,11 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatButton</h3> } else { <h5 class="mat-h5">MatButton</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>Buttons communicate an action a user can take.<br/>They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.</p>
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
@@ -17,7 +17,7 @@
 	<tr>
 		<td>Attributes</td>
 		<td>Dictionary&lt;String,Object&gt;</td>
-		<td></td>
+		<td>Gets or sets a collection of additional attributes that will be applied to the created element.</td>
 	</tr>
 	<tr>
 		<td>ChildContent</td>
@@ -50,6 +50,11 @@
 		<td>Button is disabled.</td>
 	</tr>
 	<tr>
+		<td>ForceLoad</td>
+		<td>Boolean</td>
+		<td>Force browser to redirect outside component router-space.</td>
+	</tr>
+	<tr>
 		<td>Icon</td>
 		<td>String</td>
 		<td>Specifies an button&#39;s icon.</td>
@@ -80,6 +85,11 @@
 		<td>Event occurs when the user clicks on an element.</td>
 	</tr>
 	<tr>
+		<td>OnClickStopPropagation</td>
+		<td>Boolean</td>
+		<td>Stop propagation of the OnClick event</td>
+	</tr>
+	<tr>
 		<td>Outlined</td>
 		<td>Boolean</td>
 		<td>Button has outlined style.</td>
@@ -98,6 +108,11 @@
 		<td>Style</td>
 		<td>String</td>
 		<td>Specifies an inline style for an DOM element.</td>
+	</tr>
+	<tr>
+		<td>Target</td>
+		<td>String</td>
+		<td>Target of Link when clicked.</td>
 	</tr>
 	<tr>
 		<td>TrailingIcon</td>
@@ -125,3 +140,12 @@
 		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatButton";
+
+}

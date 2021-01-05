@@ -1,0 +1,32 @@
+﻿@namespace  MatBlazor
+@typeparam T
+@if (Items!=null)
+{
+    foreach (var item in Items)
+    {
+        if (ItemTemplate!=null)
+        {
+            @ItemTemplate(item)
+        } else if (DefaultItemTemplate != null)
+        {
+            @DefaultItemTemplate(item)
+        }
+        else
+        {
+            @item
+        }
+    }
+
+}
+@code
+{
+
+    [Parameter]
+    public RenderFragment<T> DefaultItemTemplate { get; set; }
+    
+    [Parameter]
+    public RenderFragment<T> ItemTemplate { get; set; }
+    
+    [Parameter]
+    public IEnumerable<T> Items { get; set; }
+}

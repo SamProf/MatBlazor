@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.CompilerServices;
 using Microsoft.AspNetCore.Components.Rendering;
-using Microsoft.AspNetCore.Components.RenderTree;
+using System.Collections.Generic;
 
 namespace MatBlazor
 {
@@ -16,12 +16,10 @@ namespace MatBlazor
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
             builder.OpenElement(0, Tag);
-            builder.AddAttribute(1, "class", ClassMapper.Class);
-            builder.AddAttribute(2, "style", GenerateStyle());
+            builder.AddAttribute(1, "class", ClassMapper.AsString());
+            builder.AddAttribute(2, "style", StyleMapper.AsString());
             builder.AddMultipleAttributes(3,
-                RuntimeHelpers
-                    .TypeCheck<global::System.Collections.Generic.IEnumerable<
-                        global::System.Collections.Generic.KeyValuePair<string, object>>>(Attributes));
+                RuntimeHelpers.TypeCheck<IEnumerable<KeyValuePair<string, object>>>(Attributes));
             builder.AddAttribute(4, "Id", Id);
             builder.AddElementReferenceCapture(5, (__value) => { Ref = __value; });
             builder.AddContent(7, ChildContent);

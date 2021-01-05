@@ -1,19 +1,43 @@
 var path = require("path");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var ProgressPlugin = require('webpack/lib/ProgressPlugin');
+
+const debugMode = false;
+
+
 
 module.exports = {
-  entry: "./src/main.js",
-  // optimization: {
-  //   minimize: false
-  // },
+  entry: {
+    'matBlazor': [
+      './src/main.js',
+      './src/main.scss'
+    ]
+  },
+  optimization: {
+    minimize: !debugMode
+  },
   output: {
     filename: "matBlazor.js",
     // path: path.resolve(__dirname, '../dist'),
-    path: path.resolve(__dirname, '../../MatBlazor/content/dist'),
+    path: path.resolve(__dirname, '../../MatBlazor/wwwroot/dist'),
   },
+
+
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".css", ".scss"]
+  },
+
+
+
 
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
       {
         test: /\.js$/,
         use: {
@@ -26,18 +50,19 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: "style-loader" // creates style nodes from JS strings
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader" // translates CSS into CommonJS
           },
           {
             loader: "sass-loader", // compiles Sass to CSS
             options: {
-              "includePaths": [
-                path.resolve(__dirname, '../node_modules')
-              ]
+              webpackImporter: false, // Recommended temporary workaround until https://github.com/webpack-contrib/sass-loader/issues/804 is fixed
+              sassOptions: {
+                "includePaths": [
+                  path.resolve(__dirname, '../node_modules')
+                ]
+              },
             }
           }
         ]
@@ -46,16 +71,22 @@ module.exports = {
   },
 
   plugins: [
-      new UglifyJsPlugin({
-          parallel: true,
-          uglifyOptions: {
-              compress: {},
-              mangle: true,
-              output: {
-                  comments: false,
-                  beautify: false
-              }
-          }
+    new MiniCssExtractPlugin({
+      filename: 'matBlazor.css',
+      path: path.resolve(__dirname, '../../MatBlazor/wwwroot/dist')
+    }),
+    new UglifyJsPlugin({
+      parallel: true,
+      uglifyOptions: {
+        compress: {
+          drop_debugger: !debugMode
+        },
+        mangle: debugMode,
+        output: {
+          comments: debugMode,
+          beautify: debugMode
+        }
+      }
     }),
   ],
 };

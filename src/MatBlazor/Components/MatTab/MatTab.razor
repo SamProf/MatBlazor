@@ -3,5 +3,5 @@
 @inherits BaseMatTab
 
 <CascadingValue Value="@this">
-    <MatTabLabel Class="@Class" Style="@Style" Id="@Id" Attributes="@Attributes">@LabelContent</MatTabLabel>
+    <MatTabLabel Class="@Class" Style="@StyleMapper.AsString()" Id="@Id" Attributes="@Attributes">@LabelContent</MatTabLabel>
 </CascadingValue>

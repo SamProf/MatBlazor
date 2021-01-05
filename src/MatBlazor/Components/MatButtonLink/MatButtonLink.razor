@@ -1,0 +1,15 @@
+@namespace MatBlazor
+@inherits BaseMatButtonLink
+
+<a href=@(Disabled ? null : Href) target="@Target" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @onclick="OnClickHandler" @onclick:stopPropagation=@OnClickStopPropagation aria-label="@Icon" @ref="Ref" @attributes="Attributes" id="@Id">
+    <div class="mdc-button__ripple"></div>
+    @if (Icon != null)
+    {
+        <span class="material-icons mdc-button__icon">@Icon</span>
+    }
+    @ChildContent
+    @if (TrailingIcon != null)
+    {
+        <span class="material-icons mdc-button__icon mat-button__icon--trailing">@TrailingIcon</span>
+    }
+</a>

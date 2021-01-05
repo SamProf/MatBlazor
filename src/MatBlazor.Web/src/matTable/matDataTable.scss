@@ -1,0 +1,54 @@
+@import "@material/data-table/mdc-data-table";
+
+
+.mat-data-table {
+  width: 100%;
+  background-color: #fff;
+  overflow-anchor: none;
+
+  .mat-data-table-container {
+    width: 100%;
+  }
+
+  thead:after {
+    content: '';
+    display: block;
+    height: var(--matVirtualScrollHelperPadding);
+  }
+
+  //tbody
+  //{
+  //  border-top: var(--matVirtualScrollTablePadding) solid yellow;
+  //}
+
+  //.mat-data-table-virtual-scroll-space {
+  //  min-height: var(--matVirtualScrollTablePadding);
+  //}
+
+  &.mat-data-table__sticky-header {
+
+    .mat-data-table-container {
+
+      background-color: inherit;
+
+      .mdc-data-table__table {
+        background-color: inherit;
+
+        thead {
+          background-color: inherit;
+
+          tr {
+            background-color: inherit;
+
+            th {
+              background-color: inherit;
+              position: sticky;
+              top: 0px;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

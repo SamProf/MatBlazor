@@ -1,13 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <OutputType>Library</OutputType>
     <IsPackable>true</IsPackable>
     <LangVersion>8.0</LangVersion>
     <RazorLangVersion>3.0</RazorLangVersion>
-    <VersionPrefix>1.9.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
     <Description>Material Design components for Blazor and Razor Components</Description>
     <PackageProjectUrl>https://github.com/SamProf/MatBlazor</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SamProf/MatBlazor</RepositoryUrl>
@@ -22,36 +20,36 @@
     <Authors>Vladimir Samoilenko</Authors>
     <PackageIconUrl>https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/icon.ico</PackageIconUrl>
     <Company>SamProf</Company>
+    <VersionPrefix>2.8.0</VersionPrefix>    
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup>
     <DocumentationFile>MatBlazor.xml</DocumentationFile>
+    <DefineConstants>TRACE;_PREVIEW</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- .js/.css files will be referenced via <script>/<link> tags; other content files will just be included in the app's 'dist' directory without any tags referencing them -->
-    <EmbeddedResource Include="content\**\*.js" LogicalName="blazor:js:%(RecursiveDir)%(Filename)%(Extension)" />
-    <EmbeddedResource Include="content\**\*.css" LogicalName="blazor:css:%(RecursiveDir)%(Filename)%(Extension)" />
-    <EmbeddedResource Include="content\**" Exclude="**\*.js;**\*.css" LogicalName="blazor:file:%(RecursiveDir)%(Filename)%(Extension)" />
+    <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="content\MatBlazor.js" />
-    <None Remove="content\MaterialIcons.css" />
-  </ItemGroup>
-
-  <ItemGroup>
-
-    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.0.0-preview9.19465.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.0.0-preview9.19465.2" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.0.0-preview9.19465.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.10" />
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="**\*.razor">
-      <Pack>false</Pack>
+    <Content Update="Components\MatDataTable\MatDataTable.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Update="Components\MatDataTable\MatDataTableContent.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Update="Components\MatDataTable\MatDataTableColumn.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
   </ItemGroup>
+
 
 </Project>

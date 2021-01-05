@@ -1,0 +1,29 @@
+﻿@namespace MatBlazor
+@typeparam TItem
+@inherits BaseMatDataTableColumnOld<TItem>
+
+@*
+
+@if (Mode == MatDataTableRenderMode.Header)
+{
+    <MatDataTableHeaderCell>
+        @if (HeaderTemplate != null)
+        {
+            @HeaderTemplate
+        }
+        else
+        {
+            @Header
+        }
+    </MatDataTableHeaderCell>
+}
+else if (Mode == MatDataTableRenderMode.Row)
+{
+    <MatDataTableCell>@ChildContent</MatDataTableCell>
+}
+*@
+
+@code
+{
+   
+}

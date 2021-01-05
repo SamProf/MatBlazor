@@ -2,6 +2,6 @@
 @inherits BaseMatDrawerContainer
 
 
-<div class="@ClassMapper.Class" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">
+<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref"  @attributes="Attributes" Id="@Id">
     @ChildContent
 </div>

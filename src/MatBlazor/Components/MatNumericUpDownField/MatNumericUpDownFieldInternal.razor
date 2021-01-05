@@ -1,0 +1,97 @@
+﻿@namespace MatBlazor
+@typeparam TValue
+@inherits BaseMatNumericUpDownFieldInternal<TValue>
+
+@base.BuildRenderTree
+
+@code
+{
+
+    protected override RenderFragment BuildRenderTreeChildContent()
+    {
+        return (builder) =>
+        {
+            builder.AddContent(0, base.BuildRenderTreeChildContent());
+            builder.AddContent(1, @<div class="mat-text-field-actions-container">
+                                      <i class="material-icons mat-numeric-up-down-field-button"
+                                         tabindex="0" @onclick="Increase" role="button"
+                                                      disabled=@Disabled readonly="@ReadOnly">
+                                             @MinusIcon
+                                         </i>
+                                         <i class="material-icons mat-numeric-up-down-field-button" tabindex="0"
+                                            @onclick="Decrease" role="button"
+                                            disabled=@Disabled readonly="@ReadOnly">
+                                             @PlusIcon
+                                         </i>
+                                    </div>);
+        };
+    }
+
+}
+
+
+
+                                         @* <div class="@ClassMapper.Class" style="@Style" @ref="Ref"> *@
+                                         @* *@
+                                         @*     @if (Icon != null) *@
+                                         @*     { *@
+                                         @*         <i class="material-icons mdc-text-field__icon" tabindex="0" onclick="@IconOnClick">@Icon</i> *@
+                                         @*     } *@
+                                         @* *@
+                                         @*     <input style="@InputStyle; padding: 20px 48px 6px 48px;" *@
+                                         @*            @ref="InputRef" *@
+                                         @*            type="text" *@
+                                         @*            placeholder="@PlaceHolder" *@
+                                         @*            required=@Required *@
+                                         @*            class="@InputClassMapper.Class" *@
+                                         @*            id="@Id" *@
+                                         @*            @bind="@UiBindedValue" *@
+                                         @*            aria-label="@Label" *@
+                                         @*            oninput="@OnInput" onkeydown="@OnKeyDown" onkeyup=@OnKeyUp onfocusout=@OnFocusOut onkeypress="@OnKeyPress" onfocus="@OnFocus" *@
+                                         @*            disabled=@Disabled *@
+                                         @*            readonly="@ReadOnly" *@
+                                         @*            @attributes="Attributes" /> *@
+                                         @* *@
+                                         @*     <i style="left: initial; right: 20px; background: none; top: 3px; bottom: initial; user-select: none;" *@
+                                         @*        class="material-icons mdc-text-field__icon" *@
+                                         @*        tabindex="0" @onclick="@Increase" role="button" *@
+                                         @*        disabled=@Disabled readonly="@ReadOnly"> *@
+                                         @*         @MinusIcon *@
+                                         @*     </i> *@
+                                         @* *@
+                                         @*     <i style="left: initial; right: 20px; background: none; top: initial; bottom: 3px; user-select: none;" *@
+                                         @*        class="material-icons mdc-text-field__icon" tabindex="0" *@
+                                         @*        @onclick="@Decrease" role="button" *@
+                                         @*        disabled=@Disabled readonly="@ReadOnly"> *@
+                                         @*         @PlusIcon *@
+                                         @*     </i> *@
+                                         @* *@
+                                         @* *@
+                                         @*     @if (!FullWidth && Outlined) *@
+                                         @*     { *@
+                                         @*         <div class="mdc-notched-outline"> *@
+                                         @*             <div class="mdc-notched-outline__leading"></div> *@
+                                         @*             @if (Label != null) *@
+                                         @*             { *@
+                                         @*                 <div class="mdc-notched-outline__notch"> *@
+                                         @*                     <label class="@LabelClassMapper.Class" for="@Id">@Label</label> *@
+                                         @*                 </div> *@
+                                         @*             } *@
+                                         @*             <div class="mdc-notched-outline__trailing"></div> *@
+                                         @*         </div> *@
+                                         @*     } *@
+                                         @*     else *@
+                                         @*     { *@
+                                         @*         if (Label != null) *@
+                                         @*         { *@
+                                         @*             <label class="@LabelClassMapper.Class" for="@Id">@Label</label> *@
+                                         @*         } *@
+                                         @*         <div class="mdc-line-ripple"></div> *@
+                                         @*     } *@
+                                         @* *@
+                                         @* *@
+                                         @* </div> *@
+                                         @* @if (HelperText != null) *@
+                                         @* { *@
+                                         @*     <p class="mdc-text-field-helper-text" aria-hidden="true">@HelperText</p> *@
+                                         @* } *@

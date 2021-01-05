@@ -1,0 +1,11 @@
+﻿@namespace MatBlazor
+@typeparam TValue
+@inherits BaseCoreMatOption<TValue>
+
+
+<li data-value="@StringValue()" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id" aria-disabled="@RenderAttributeAriaDisabled()" role="option">
+    <span class="mdc-list-item__ripple"></span>
+    <span class="mdc-list-item__text">
+        @ChildContent
+    </span>
+</li>

@@ -1,4 +1,3 @@
-import './matProgressBar.scss';
 import {MDCLinearProgress} from '@material/linear-progress/component';
 
 

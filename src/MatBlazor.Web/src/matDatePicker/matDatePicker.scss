@@ -1,1 +1,21 @@
 @import "flatpickr/dist/flatpickr.min";
+
+
+.mat-date-picker {
+  .mat-text-field-input {
+    padding-right: 48px;
+  }
+
+
+  .mat-date-picker-icon-container {
+    position: absolute;
+    right: 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 1;
+    
+  }
+}

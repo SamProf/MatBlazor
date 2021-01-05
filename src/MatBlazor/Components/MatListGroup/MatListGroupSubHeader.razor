@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Components
 @inherits BaseMatDomComponent
 
-<h3 class="@ClassMapper.Class mdc-list-group__subheader" style="@Style" @ref="Ref"  @attributes="Attributes" Id="@Id">@ChildContent</h3>
+<h3 class="@ClassMapper.AsString() mdc-list-group__subheader" style="@StyleMapper.AsString()" @ref="Ref"  @attributes="Attributes" Id="@Id">@ChildContent</h3>
 
 @code
 {

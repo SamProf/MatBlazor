@@ -1,0 +1,80 @@
+<DocMatCheckbox></DocMatCheckbox>
+
+<h5 class="mat-h5">Example</h5>
+
+<DemoContainer>
+    <Content>
+        <div>
+            <MatCheckbox @bind-Value="@checked1" Label="@(getLabel(checked1))"></MatCheckbox>
+        </div>
+        <div>
+            <MatCheckbox @bind-Value="@checked2" Label="@(getLabel(checked2))"></MatCheckbox>
+        </div>
+        <div>
+            <MatCheckbox @bind-Value="@checked1" Disabled="true" Label="Disabled"></MatCheckbox>
+        </div>
+        <div>
+            <MatCheckbox @bind-Value="@checked2">Inline Label</MatCheckbox>
+        </div>
+        
+        <div>
+            <MatCheckbox @bind-Value="@checked3" Indeterminate="true">Indeterminate</MatCheckbox>
+            <MatButton OnClick="@(_ =>
+                                 {
+                                     checked3 = null;
+                                 })">Clear</MatButton>
+        </div>
+
+        @code
+        {
+            bool checked1 = true;
+            bool checked2 = false;
+            bool? checked3 = null;
+
+            string getLabel(bool val)
+            {
+                return !val ? "Check me!" : "Uncheck me?";
+            }
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <div>
+            <MatCheckbox @bind-Value=""@checked1"" Label=""@(getLabel(checked1))""></MatCheckbox>
+        </div>
+        <div>
+            <MatCheckbox @bind-Value=""@checked2"" Label=""@(getLabel(checked2))""></MatCheckbox>
+        </div>
+        <div>
+            <MatCheckbox @bind-Value=""@checked1"" Disabled=""true"" Label=""Disabled""></MatCheckbox>
+        </div>
+        <div>
+            <MatCheckbox @bind-Value=""@checked2"">Inline Label</MatCheckbox>
+        </div>
+        
+        <div>
+            <MatCheckbox @bind-Value=""@checked3"" Indeterminate=""true"">Indeterminate</MatCheckbox>
+            <MatButton OnClick=""@(_ =>
+                                 {
+                                     checked3 = null;
+                                 })"">Clear</MatButton>
+        </div>
+
+        @code
+        {
+            bool checked1 = true;
+            bool checked2 = false;
+            bool? checked3 = null;
+
+            string getLabel(bool val)
+            {
+                return !val ? ""Check me!"" : ""Uncheck me?"";
+            }
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

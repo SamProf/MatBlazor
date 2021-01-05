@@ -1,0 +1,539 @@
+@using System.Diagnostics
+<DocMatDataTable></DocMatDataTable>
+
+
+<DemoContainer Header="Basic use of Data Table">
+    <Content>
+
+        <MatDataTable>
+            <MatDataTableContent Items="@periodicElements">
+                <MatDataTableColumn Header="No." Value="@context?.Position"></MatDataTableColumn>
+                <MatDataTableColumn Header="Name" Value="@context?.Name"></MatDataTableColumn>
+                <MatDataTableColumn Header="Weight" Value="@context?.Weight"></MatDataTableColumn>
+                <MatDataTableColumn Header="Symbol" Value="@context?.Symbol"></MatDataTableColumn>
+            </MatDataTableContent>
+        </MatDataTable>
+
+        @code
+        {
+            class PeriodicElement
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement[] periodicElements = new PeriodicElement[]
+            {
+                new PeriodicElement(1, "Hydrogen", 1.0079, "H"),
+                new PeriodicElement(2, "Helium", 4.0026, "He"),
+                new PeriodicElement(3, "Lithium", 6.941, "Li"),
+                new PeriodicElement(4, "Beryllium", 9.0122, "Be"),
+                new PeriodicElement(5, "Boron", 10.811, "B"),
+                new PeriodicElement(6, "Carbon", 12.0107, "C"),
+                new PeriodicElement(7, "Nitrogen", 14.0067, "N"),
+                new PeriodicElement(8, "Oxygen", 15.9994, "O"),
+                new PeriodicElement(9, "Fluorine", 18.9984, "F"),
+                new PeriodicElement(10, "Neon", 20.1797, "Ne"),
+            };
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+
+        <MatDataTable>
+            <MatDataTableContent Items=""@periodicElements"">
+                <MatDataTableColumn Header=""No."" Value=""@context?.Position""></MatDataTableColumn>
+                <MatDataTableColumn Header=""Name"" Value=""@context?.Name""></MatDataTableColumn>
+                <MatDataTableColumn Header=""Weight"" Value=""@context?.Weight""></MatDataTableColumn>
+                <MatDataTableColumn Header=""Symbol"" Value=""@context?.Symbol""></MatDataTableColumn>
+            </MatDataTableContent>
+        </MatDataTable>
+
+        @code
+        {
+            class PeriodicElement
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement[] periodicElements = new PeriodicElement[]
+            {
+                new PeriodicElement(1, ""Hydrogen"", 1.0079, ""H""),
+                new PeriodicElement(2, ""Helium"", 4.0026, ""He""),
+                new PeriodicElement(3, ""Lithium"", 6.941, ""Li""),
+                new PeriodicElement(4, ""Beryllium"", 9.0122, ""Be""),
+                new PeriodicElement(5, ""Boron"", 10.811, ""B""),
+                new PeriodicElement(6, ""Carbon"", 12.0107, ""C""),
+                new PeriodicElement(7, ""Nitrogen"", 14.0067, ""N""),
+                new PeriodicElement(8, ""Oxygen"", 15.9994, ""O""),
+                new PeriodicElement(9, ""Fluorine"", 18.9984, ""F""),
+                new PeriodicElement(10, ""Neon"", 20.1797, ""Ne""),
+            };
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<DemoContainer Header="Basic use of Data Table">
+    <Content>
+
+        <MatDataTableOld Items="@periodicElements4">
+            <Columns>
+                <MatDataTableColumnOld TItem="PeriodicElement4" Header="No." Value="@(i => i.Position)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement4" Header="Name" Value="@(i => i.Name)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement4" Header="Weight" Value="@(i => i.Weight)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement4" Header="Symbol" Value="@(i => i.Symbol)"></MatDataTableColumnOld>
+            </Columns>
+        </MatDataTableOld>
+
+        @code
+        {
+            class PeriodicElement4
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement4(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement4[] periodicElements4 = new PeriodicElement4[]
+            {
+                new PeriodicElement4(1, "Hydrogen", 1.0079, "H"),
+                new PeriodicElement4(2, "Helium", 4.0026, "He"),
+                new PeriodicElement4(3, "Lithium", 6.941, "Li"),
+                new PeriodicElement4(4, "Beryllium", 9.0122, "Be"),
+                new PeriodicElement4(5, "Boron", 10.811, "B"),
+                new PeriodicElement4(6, "Carbon", 12.0107, "C"),
+                new PeriodicElement4(7, "Nitrogen", 14.0067, "N"),
+                new PeriodicElement4(8, "Oxygen", 15.9994, "O"),
+                new PeriodicElement4(9, "Fluorine", 18.9984, "F"),
+                new PeriodicElement4(10, "Neon", 20.1797, "Ne"),
+            };
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+
+        <MatDataTableOld Items=""@periodicElements4"">
+            <Columns>
+                <MatDataTableColumnOld TItem=""PeriodicElement4"" Header=""No."" Value=""@(i => i.Position)""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement4"" Header=""Name"" Value=""@(i => i.Name)""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement4"" Header=""Weight"" Value=""@(i => i.Weight)""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement4"" Header=""Symbol"" Value=""@(i => i.Symbol)""></MatDataTableColumnOld>
+            </Columns>
+        </MatDataTableOld>
+
+        @code
+        {
+            class PeriodicElement4
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement4(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement4[] periodicElements4 = new PeriodicElement4[]
+            {
+                new PeriodicElement4(1, ""Hydrogen"", 1.0079, ""H""),
+                new PeriodicElement4(2, ""Helium"", 4.0026, ""He""),
+                new PeriodicElement4(3, ""Lithium"", 6.941, ""Li""),
+                new PeriodicElement4(4, ""Beryllium"", 9.0122, ""Be""),
+                new PeriodicElement4(5, ""Boron"", 10.811, ""B""),
+                new PeriodicElement4(6, ""Carbon"", 12.0107, ""C""),
+                new PeriodicElement4(7, ""Nitrogen"", 14.0067, ""N""),
+                new PeriodicElement4(8, ""Oxygen"", 15.9994, ""O""),
+                new PeriodicElement4(9, ""Fluorine"", 18.9984, ""F""),
+                new PeriodicElement4(10, ""Neon"", 20.1797, ""Ne""),
+            };
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<DemoContainer Header="Pagination with Data Table">
+    <Content>
+        <MatDataTableOld Items="@periodicElements2" Paginator="true">
+            <Columns>
+                <MatDataTableColumnOld TItem="PeriodicElement2" Header="No." Value="@(i => i.Position)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement2" Header="Name" Value="@(i => i.Name)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement2" Header="Weight" Value="@(i => i.Weight)"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement2" Header="Symbol" Value="@(i => i.Symbol)"></MatDataTableColumnOld>
+            </Columns>
+        </MatDataTableOld>
+
+        @code
+        {
+            class PeriodicElement2
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement2(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement2[] periodicElements2 = new PeriodicElement2[]
+            {
+                new PeriodicElement2(1, "Hydrogen", 1.0079, "H"),
+                new PeriodicElement2(2, "Helium", 4.0026, "He"),
+                new PeriodicElement2(3, "Lithium", 6.941, "Li"),
+                new PeriodicElement2(4, "Beryllium", 9.0122, "Be"),
+                new PeriodicElement2(5, "Boron", 10.811, "B"),
+                new PeriodicElement2(6, "Carbon", 12.0107, "C"),
+                new PeriodicElement2(7, "Nitrogen", 14.0067, "N"),
+                new PeriodicElement2(8, "Oxygen", 15.9994, "O"),
+                new PeriodicElement2(9, "Fluorine", 18.9984, "F"),
+                new PeriodicElement2(10, "Neon", 20.1797, "Ne"),
+            };
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatDataTableOld Items=""@periodicElements2"" Paginator=""true"">
+            <Columns>
+                <MatDataTableColumnOld TItem=""PeriodicElement2"" Header=""No."" Value=""@(i => i.Position)""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement2"" Header=""Name"" Value=""@(i => i.Name)""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement2"" Header=""Weight"" Value=""@(i => i.Weight)""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement2"" Header=""Symbol"" Value=""@(i => i.Symbol)""></MatDataTableColumnOld>
+            </Columns>
+        </MatDataTableOld>
+
+        @code
+        {
+            class PeriodicElement2
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement2(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement2[] periodicElements2 = new PeriodicElement2[]
+            {
+                new PeriodicElement2(1, ""Hydrogen"", 1.0079, ""H""),
+                new PeriodicElement2(2, ""Helium"", 4.0026, ""He""),
+                new PeriodicElement2(3, ""Lithium"", 6.941, ""Li""),
+                new PeriodicElement2(4, ""Beryllium"", 9.0122, ""Be""),
+                new PeriodicElement2(5, ""Boron"", 10.811, ""B""),
+                new PeriodicElement2(6, ""Carbon"", 12.0107, ""C""),
+                new PeriodicElement2(7, ""Nitrogen"", 14.0067, ""N""),
+                new PeriodicElement2(8, ""Oxygen"", 15.9994, ""O""),
+                new PeriodicElement2(9, ""Fluorine"", 18.9984, ""F""),
+                new PeriodicElement2(10, ""Neon"", 20.1797, ""Ne""),
+            };
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<DemoContainer Header="Sorting with Data Table">
+    <Content>
+        <MatDataTableOld Items="@periodicElements3">
+            <Columns>
+                <MatDataTableColumnOld TItem="PeriodicElement3" Header="No." Value="@(i => i.Position)" Sort="true"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement3" Header="Name" Value="@(i => i.Name)" Sort="true"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement3" Header="Weight" Value="@(i => i.Weight)" Sort="true"></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem="PeriodicElement3" Header="Symbol" Value="@(i => i.Symbol)" Sort="true"></MatDataTableColumnOld>
+            </Columns>
+        </MatDataTableOld>
+
+        @code
+        {
+            class PeriodicElement3
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement3(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement3[] periodicElements3 = new PeriodicElement3[]
+            {
+                new PeriodicElement3(1, "Hydrogen", 1.0079, "H"),
+                new PeriodicElement3(2, "Helium", 4.0026, "He"),
+                new PeriodicElement3(3, "Lithium", 6.941, "Li"),
+                new PeriodicElement3(4, "Beryllium", 9.0122, "Be"),
+                new PeriodicElement3(5, "Boron", 10.811, "B"),
+                new PeriodicElement3(6, "Carbon", 12.0107, "C"),
+                new PeriodicElement3(7, "Nitrogen", 14.0067, "N"),
+                new PeriodicElement3(8, "Oxygen", 15.9994, "O"),
+                new PeriodicElement3(9, "Fluorine", 18.9984, "F"),
+                new PeriodicElement3(10, "Neon", 20.1797, "Ne"),
+            };
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatDataTableOld Items=""@periodicElements3"">
+            <Columns>
+                <MatDataTableColumnOld TItem=""PeriodicElement3"" Header=""No."" Value=""@(i => i.Position)"" Sort=""true""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement3"" Header=""Name"" Value=""@(i => i.Name)"" Sort=""true""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement3"" Header=""Weight"" Value=""@(i => i.Weight)"" Sort=""true""></MatDataTableColumnOld>
+                <MatDataTableColumnOld TItem=""PeriodicElement3"" Header=""Symbol"" Value=""@(i => i.Symbol)"" Sort=""true""></MatDataTableColumnOld>
+            </Columns>
+        </MatDataTableOld>
+
+        @code
+        {
+            class PeriodicElement3
+            {
+                public string Name { get; set; }
+                public int Position { get; set; }
+                public double Weight { get; set; }
+                public string Symbol { get; set; }
+
+                public PeriodicElement3(int position, string name, double weight, string symbol)
+                {
+                    Position = position;
+                    Name = name;
+                    Weight = weight;
+                    Symbol = symbol;
+                }
+            }
+
+            PeriodicElement3[] periodicElements3 = new PeriodicElement3[]
+            {
+                new PeriodicElement3(1, ""Hydrogen"", 1.0079, ""H""),
+                new PeriodicElement3(2, ""Helium"", 4.0026, ""He""),
+                new PeriodicElement3(3, ""Lithium"", 6.941, ""Li""),
+                new PeriodicElement3(4, ""Beryllium"", 9.0122, ""Be""),
+                new PeriodicElement3(5, ""Boron"", 10.811, ""B""),
+                new PeriodicElement3(6, ""Carbon"", 12.0107, ""C""),
+                new PeriodicElement3(7, ""Nitrogen"", 14.0067, ""N""),
+                new PeriodicElement3(8, ""Oxygen"", 15.9994, ""O""),
+                new PeriodicElement3(9, ""Fluorine"", 18.9984, ""F""),
+                new PeriodicElement3(10, ""Neon"", 20.1797, ""Ne""),
+            };
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+@*
+<h5 class="mat-h5">Data Table with virtual scrolling and sticky header</h5>
+<DemoContainer>
+    <Content>
+        <MatDataTable Items="@randomTestCases" Style="max-height: 300px;" StickyHeader="true" VirtualScroll="true">
+            <Columns>
+                <MatDataTableColumn Header="Index">@context.Index</MatDataTableColumn>
+                <MatDataTableColumn Header="Value">@context.Value</MatDataTableColumn>
+                <MatDataTableColumn Header="ElapsedTicks">@context.ElapsedTicks</MatDataTableColumn>
+            </Columns>
+        </MatDataTable>
+
+        @code
+        {
+            class RandomTestCase
+            {
+                public int Index { get; set; }
+                public double Value { get; set; }
+                public long ElapsedTicks { get; set; }
+            }
+
+            RandomTestCase[] randomTestCases = Enumerable.Range(0, 100).Select(index =>
+            {
+                var s = Stopwatch.StartNew();
+                var rnd = new Random();
+                var value = rnd.NextDouble();
+                s.Stop();
+                return new RandomTestCase()
+                {
+                    Index = index,
+                    Value = value,
+                    ElapsedTicks = s.ElapsedTicks
+                };
+            }).ToArray();
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatDataTable Items=""@randomTestCases"" Style=""max-height: 300px;"" StickyHeader=""true"" VirtualScroll=""true"">
+            <Columns>
+                <MatDataTableColumn Header=""Index"">@context.Index</MatDataTableColumn>
+                <MatDataTableColumn Header=""Value"">@context.Value</MatDataTableColumn>
+                <MatDataTableColumn Header=""ElapsedTicks"">@context.ElapsedTicks</MatDataTableColumn>
+            </Columns>
+        </MatDataTable>
+
+        @code
+        {
+            class RandomTestCase
+            {
+                public int Index { get; set; }
+                public double Value { get; set; }
+                public long ElapsedTicks { get; set; }
+            }
+
+            RandomTestCase[] randomTestCases = Enumerable.Range(0, 100).Select(index =>
+            {
+                var s = Stopwatch.StartNew();
+                var rnd = new Random();
+                var value = rnd.NextDouble();
+                s.Stop();
+                return new RandomTestCase()
+                {
+                    Index = index,
+                    Value = value,
+                    ElapsedTicks = s.ElapsedTicks
+                };
+            }).ToArray();
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">Data Table with virtual scrolling</h5>
+<DemoContainer >
+    <Content>
+        <MatDataTable Items="@randomTestCases2" Style="max-height: 300px;" VirtualScroll="true">
+            <Columns>
+                <MatDataTableColumn Header="Index">@context.Index</MatDataTableColumn>
+                <MatDataTableColumn Header="Value">@context.Value</MatDataTableColumn>
+                <MatDataTableColumn Header="ElapsedTicks">@context.ElapsedTicks</MatDataTableColumn>
+            </Columns>
+        </MatDataTable>
+
+        @code
+        {
+            class RandomTestCase2
+            {
+                public int Index { get; set; }
+                public double Value { get; set; }
+                public long ElapsedTicks { get; set; }
+            }
+
+            RandomTestCase2[] randomTestCases2 = Enumerable.Range(0, 100).Select(index =>
+            {
+                var s = Stopwatch.StartNew();
+                var rnd = new Random();
+                var value = rnd.NextDouble();
+                s.Stop();
+                return new RandomTestCase2()
+                {
+                    Index = index,
+                    Value = value,
+                    ElapsedTicks = s.ElapsedTicks
+                };
+            }).ToArray();
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatDataTable Items=""@randomTestCases2"" Style=""max-height: 300px;"" VirtualScroll=""true"">
+            <Columns>
+                <MatDataTableColumn Header=""Index"">@context.Index</MatDataTableColumn>
+                <MatDataTableColumn Header=""Value"">@context.Value</MatDataTableColumn>
+                <MatDataTableColumn Header=""ElapsedTicks"">@context.ElapsedTicks</MatDataTableColumn>
+            </Columns>
+        </MatDataTable>
+
+        @code
+        {
+            class RandomTestCase2
+            {
+                public int Index { get; set; }
+                public double Value { get; set; }
+                public long ElapsedTicks { get; set; }
+            }
+
+            RandomTestCase2[] randomTestCases2 = Enumerable.Range(0, 100).Select(index =>
+            {
+                var s = Stopwatch.StartNew();
+                var rnd = new Random();
+                var value = rnd.NextDouble();
+                s.Stop();
+                return new RandomTestCase2()
+                {
+                    Index = index,
+                    Value = value,
+                    ElapsedTicks = s.ElapsedTicks
+                };
+            }).ToArray();
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+*@

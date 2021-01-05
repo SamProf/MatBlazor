@@ -1,17 +1,32 @@
-import './matSelect.scss';
 import {MDCSelect} from '@material/select';
+import MDCSelectFoundation from '@material/select/foundation';
+import {hoistMenuToBody} from '../matMenu/matMenu';
 
 
 export class MatSelect {
-  constructor(ref, component) {
+  constructor(ref, component, value, options) {
+
     this.select = new MDCSelect(ref);
-	this.select.listen('MDCSelect:change', () => component.invokeMethodAsync("SetValue", this.select.value));
+
+    this.select.value = value;
+
+    console.log('MatSelect.init', options);
+
+    if (!options.fullWidth) {
+      hoistMenuToBody(this.select.menu);
+    }
+
+
+    this.select.listen('MDCSelect:change', () => {
+
+      return component.invokeMethodAsync('SetValue', this.select.value);
+    });
   }
 }
 
 
-export function init(ref, component) {
-  ref.__matBlazor_component = new MatSelect(ref, component);
+export function init(ref, component, value, options) {
+  ref.__matBlazor_component = new MatSelect(ref, component, value, options);
 }
 
 

@@ -1,0 +1,149 @@
+<DocMatSelectValue></DocMatSelectValue>
+
+
+<MatH5>Example MatSelectValue with class array and ItemTemplate</MatH5>
+
+<DemoContainer>
+    <Content>
+        <MatSelectValue @bind-Value="value3" Items="@value3Items" ValueSelector="@(i=>i.Name)">
+            <ItemTemplate>
+                <span style="color: @context.Color">@context?.Name</span>
+            </ItemTemplate>
+        </MatSelectValue>
+
+        <p>
+            Selected value: @value3
+        </p>
+
+
+        @code
+        {
+            string value3 = "";
+
+
+            ItemType[] value3Items = new[]
+            {
+                new ItemType("", "black"),
+                new ItemType("Grains", "brown"),
+                new ItemType("Vegetables", "green"),
+                new ItemType("Fruit", "orange"),
+            };
+
+            class ItemType
+            {
+                public string Name { get; }
+                public string Color { get; }
+
+                public ItemType(string name, string color)
+                {
+                    Name = name;
+                    Color = color;
+                }
+            }
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelectValue @bind-Value=""value3"" Items=""@value3Items"" ValueSelector=""@(i=>i.Name)"">
+            <ItemTemplate>
+                <span style=""color: @context.Color"">@context?.Name</span>
+            </ItemTemplate>
+        </MatSelectValue>
+
+        <p>
+            Selected value: @value3
+        </p>
+
+
+        @code
+        {
+            string value3 = """";
+
+
+            ItemType[] value3Items = new[]
+            {
+                new ItemType("""", ""black""),
+                new ItemType(""Grains"", ""brown""),
+                new ItemType(""Vegetables"", ""green""),
+                new ItemType(""Fruit"", ""orange""),
+            };
+
+            class ItemType
+            {
+                public string Name { get; }
+                public string Color { get; }
+
+                public ItemType(string name, string color)
+                {
+                    Name = name;
+                    Color = color;
+                }
+            }
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+
+
+<MatH5>Example MatSelectValue with simple array and type transformation</MatH5>
+
+<DemoContainer>
+    <Content>
+        <p>
+            <MatSelectValue @bind-Value="@value1" Items="@value1Items" ValueSelector=@(i=>i.ToString())></MatSelectValue>
+        </p>
+        <p>
+            Selected value: @value1
+        </p>
+
+
+        @code
+        {
+            string value1 = "2";
+
+            int[] value1Items = new[]
+            {
+                1,
+                2,
+                3,
+                4,
+                5,
+            };
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatSelectValue @bind-Value=""@value1"" Items=""@value1Items"" ValueSelector=@(i=>i.ToString())></MatSelectValue>
+        </p>
+        <p>
+            Selected value: @value1
+        </p>
+
+
+        @code
+        {
+            string value1 = ""2"";
+
+            int[] value1Items = new[]
+            {
+                1,
+                2,
+                3,
+                4,
+                5,
+            };
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

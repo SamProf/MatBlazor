@@ -1,35 +1,44 @@
 ﻿@namespace MatBlazor
-@typeparam ItemType
-@inherits BaseMatAutocomplete<ItemType>
-@using System.Collections;
+@typeparam TValue
+@typeparam TItem
+@inherits BaseMatAutocomplete<TValue, TItem>
 
 
-<div class="@WrapperClassMapper.Class">
-    <MatTextField Icon="@Icon" OnFocus="@OpenPopup" HideClearButton="true" FullWidth="@FullWidth" OnFocusOut="@ClosePopup" Label="@Label" Value=@StringValue OnInput=@OnValueChanged OnKeyDown="@OnKeyDown" Outlined="@Outlined" Attributes="@Attributes" Id="@Id"></MatTextField>
-    @if (IsShowingClearButton)
+@base.BuildRenderTree
+
+
+@code
+{
+
+    protected override RenderFragment BuildRenderTreeChildContent()
     {
-        <div class="mat-autocomplete-clearbutton">
-            <MatIconButton Icon="clear" OnMouseDown="@ClearText"></MatIconButton>
-        </div>
+        return builder =>
+        {
+            builder.AddContent(0, base.BuildRenderTreeChildContent());
+            
+                builder.AddContent(1, @<MatMenu @ref="@MenuRef" Style="width: 100%">
+                                          <MatList @ref="ListRef" SingleSelection="true">
+                                              @foreach (var elementWrapper in GetFilteredCollection(CurrentValueAsString))
+                                              {
+                                                  <MatListItem OnMouseDown="((e) => ItemClicked(elementWrapper))">
+                                                      @if (ItemTemplate != null)
+                                                      {
+                                                          @ItemTemplate(elementWrapper.Item)
+                                                      }
+                                                      else
+                                                      {
+                                                          <MatListItemText>@( elementWrapper.Value?.ToString())</MatListItemText>
+                                                      }
+
+
+                                                  </MatListItem>
+                                              }
+
+
+                                          </MatList>
+                                      </MatMenu>);
+            
+        };
     }
-    @if (Collection != null && IsOpened)
-    {
-        <div class="mat-autocomplete-popup">
-            <MatList @ref="ListRef" SingleSelection="true">
-                @foreach (var elementWrapper in GetFilteredCollection(StringValue))
-                {
-                    <MatListItem OnMouseDown="@((e) => ItemClicked(elementWrapper.Element))">
-                        @if (ItemTemplate != null)
-                        {
-                            @ItemTemplate(elementWrapper.Element)
-                        }
-                        else
-                        {
-                            <MatListItemText>@(elementWrapper.StringValue)</MatListItemText>
-                        }
-                    </MatListItem>
-                }
-            </MatList>
-        </div>
-    }
-</div>
+
+}

@@ -1,6 +1,5 @@
-﻿using System;
-using System.Linq;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
+using System;
 
 namespace MatBlazor
 {
@@ -35,7 +34,7 @@ namespace MatBlazor
 
         private bool disposed = false;
 
-        public void Dispose()
+        public override void Dispose()
         {
             disposed = true;
             Parent.TabDisposed(this);

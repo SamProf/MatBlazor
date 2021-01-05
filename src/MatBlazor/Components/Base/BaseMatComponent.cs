@@ -11,27 +11,30 @@ namespace MatBlazor
         [Parameter]
         public ForwardRef RefBack { get; set; }
 
+        protected bool Rendered { get; private set; }
 
-        private Queue<Func<Task>> afterRenderCallQuene = new Queue<Func<Task>>();
+
+        private readonly Queue<Func<Task>> afterRenderCallQueue = new Queue<Func<Task>>();
 
         protected void CallAfterRender(Func<Task> action)
         {
-            afterRenderCallQuene.Enqueue(action);
+            afterRenderCallQueue.Enqueue(action);
         }
 
 
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
+            Rendered = true;
             await base.OnAfterRenderAsync(firstRender);
             if (firstRender)
             {
                 await OnFirstAfterRenderAsync();
             }
 
-            if (afterRenderCallQuene.Count > 0)
+            if (afterRenderCallQueue.Count > 0)
             {
-                var actions = afterRenderCallQuene.ToArray();
-                afterRenderCallQuene.Clear();
+                var actions = afterRenderCallQueue.ToArray();
+                afterRenderCallQueue.Clear();
 
                 foreach (var action in actions)
                 {
@@ -61,13 +64,19 @@ namespace MatBlazor
 
         protected bool Disposed { get; private set; }
 
-        protected void InvokeStateHasChanged()
+        public void InvokeStateHasChanged()
         {
             InvokeAsync(() =>
             {
-                if (!Disposed)
+                try
                 {
-                    StateHasChanged();
+                    if (!Disposed)
+                    {
+                        StateHasChanged();
+                    }
+                }
+                catch (Exception)
+                {
                 }
             });
         }
@@ -87,12 +96,9 @@ namespace MatBlazor
                 Console.WriteLine(e);
                 throw;
             }
-
-
-            return default(T);
         }
 
-        #region Hack to fix https://github.com/aspnet/AspNetCore/issues/11159
+        #region Hack to fix https: //github.com/aspnet/AspNetCore/issues/11159
 
         public static object CreateDotNetObjectRefSyncObj = new object();
 

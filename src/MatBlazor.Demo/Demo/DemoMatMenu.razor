@@ -69,8 +69,6 @@
 
 <DemoContainer>
     <Content>
-        @using Microsoft.AspNetCore.Components
-
         <p>
             <MatButton Label="Menu" OnClick="@OnClick2" @ref="Button2" ></MatButton>
             <MatMenu @ref="Menu2" >
@@ -86,7 +84,7 @@
 
         @code
         {
-            BaseMatButton Button2;
+            MatButton Button2;
             BaseMatMenu Menu2;
 
             public void OnClick2(MouseEventArgs e)
@@ -99,8 +97,6 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        @using Microsoft.AspNetCore.Components
-
         <p>
             <MatButton Label=""Menu"" OnClick=""@OnClick2"" @ref=""Button2"" ></MatButton>
             <MatMenu @ref=""Menu2"" >
@@ -116,7 +112,7 @@
 
         @code
         {
-            BaseMatButton Button2;
+            MatButton Button2;
             BaseMatMenu Menu2;
 
             public void OnClick2(MouseEventArgs e)

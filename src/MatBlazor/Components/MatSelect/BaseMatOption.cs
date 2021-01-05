@@ -1,26 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
-
-namespace MatBlazor
+﻿namespace MatBlazor
 {
-    public class BaseMatOption : BaseMatDomComponent
+    public class BaseMatOption<TValue> : CoreMatOption<TValue>
     {
-        public BaseMatOption()
-        {
-            ClassMapper
-                .Add("mdc-list-item")
-                .If("mdc-list-item--disabled", ()=>Disabled);
-        }
-
-        [CascadingParameter()]
-        public BaseMatSelect Parent { get; set; }
-
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
-
-        [Parameter]
-        public bool Disabled { get; set; }
-
-        [Parameter]
-        public string Value { get; set; }
     }
 }

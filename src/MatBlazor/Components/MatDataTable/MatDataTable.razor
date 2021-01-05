@@ -1,0 +1,10 @@
+﻿@namespace MatBlazor
+@inherits BaseMatDomComponent
+
+<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" id="@Id" @attributes="@Attributes">
+    <div class="mdc-data-table__table-container">
+        <table class="mdc-data-table__table">
+            @ChildContent
+        </table>
+    </div>
+</div>

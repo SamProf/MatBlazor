@@ -1,0 +1,13 @@
+﻿@namespace MatBlazor
+@inherits BaseMatTabGroup
+
+<div class="@ClassMapper.AsString()" @ref="Ref"  style="@StyleMapper.AsString()" @attributes="Attributes" Id="@Id">
+    <MatTabBar @bind-Active="@Active" @bind-ActiveIndex="@ActiveIndex">
+        <CascadingValue Value="@this">
+            @ChildContent
+        </CascadingValue>
+    </MatTabBar>
+    <div class="mat-tab-group-content" @key="@ActiveIndex">
+        @Active?.Tab.ChildContent
+    </div>
+</div>

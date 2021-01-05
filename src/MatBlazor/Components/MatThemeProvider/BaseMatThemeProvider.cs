@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
+using System;
 
 namespace MatBlazor
 {
@@ -47,7 +47,7 @@ namespace MatBlazor
         {
             if (_theme != null)
             {
-                _theme.Changed += _theme_Changed;
+                _theme.Changed -= _theme_Changed;
             }
         }
     }

@@ -4,11 +4,11 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatNavItem</h3> } else { <h5 class="mat-h5">MatNavItem</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>Nav Item is a menu item in the Nav Menu. Inherits from Mat List Item.</p>
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
@@ -17,12 +17,12 @@
 	<tr>
 		<td>AllowSelection</td>
 		<td>Boolean</td>
-		<td></td>
+		<td>Specifies weather you the Nav Item can be selected / active.</td>
 	</tr>
 	<tr>
 		<td>Attributes</td>
 		<td>Dictionary&lt;String,Object&gt;</td>
-		<td></td>
+		<td>Gets or sets a collection of additional attributes that will be applied to the created element.</td>
 	</tr>
 	<tr>
 		<td>ChildContent</td>
@@ -35,9 +35,24 @@
 		<td>Specifies one or more classnames for an DOM element.</td>
 	</tr>
 	<tr>
+		<td>Command</td>
+		<td>ICommand</td>
+		<td>Command executed when the user clicks on an element.</td>
+	</tr>
+	<tr>
+		<td>CommandParameter</td>
+		<td>Object</td>
+		<td>Command parameter.</td>
+	</tr>
+	<tr>
 		<td>Disabled</td>
 		<td>Boolean</td>
 		<td>List Item is disabled.</td>
+	</tr>
+	<tr>
+		<td>ForceLoad</td>
+		<td>Boolean</td>
+		<td>Force browser to redirect outside component router-space.</td>
 	</tr>
 	<tr>
 		<td>Href</td>
@@ -48,6 +63,11 @@
 		<td>Id</td>
 		<td>String</td>
 		<td></td>
+	</tr>
+	<tr>
+		<td>NavLinkMatch</td>
+		<td>NavLinkMatch</td>
+		<td>NavLinkMatch parameter used to determine the active state of the Nav Item.</td>
 	</tr>
 	<tr>
 		<td>OnClick</td>
@@ -80,8 +100,27 @@
 		<td>Specifies an inline style for an DOM element.</td>
 	</tr>
 	<tr>
+		<td>Target</td>
+		<td>String</td>
+		<td>*Not yet functional - Target of Href when clicked.</td>
+	</tr>
+	<tr>
+		<td>Title</td>
+		<td>String</td>
+		<td>The title shown.</td>
+	</tr>
+	<tr>
 		<td>Ref</td>
 		<td>ElementReference</td>
 		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatNavItem";
+
+}

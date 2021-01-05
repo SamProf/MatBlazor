@@ -1,5 +1,3 @@
-import './matIconButton.scss';
-
 import {MDCRipple} from '@material/ripple';
 import {MatButton} from '../matButton/matButton';
 

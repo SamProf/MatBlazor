@@ -1,4 +1,3 @@
-import './matTextField.scss';
 import {MDCTextField} from '@material/textfield';
 
 export class MatTextField {

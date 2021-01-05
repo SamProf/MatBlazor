@@ -1,0 +1,32 @@
+﻿@namespace MatBlazor
+@typeparam TValue
+@inherits BaseMatCheckboxInternal<TValue>
+
+<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="@Attributes">
+    <div class="mdc-checkbox" @ref="ComponentRef" >
+        <input @ref="@InputRef"
+               type="checkbox"
+               class="mdc-checkbox__native-control"
+               @onchange="ChangeHandler"
+               checked="@CurrentValue"
+               disabled=@Disabled
+               value="@InputValue"
+               id="@(Id)"
+               @attributes="@GetInputAttributes()"/>
+
+        <div class="mdc-checkbox__background">
+            <svg class="mdc-checkbox__checkmark"
+                 viewBox="0 0 24 24">
+                <path class="mdc-checkbox__checkmark-path"
+                      fill="none"
+                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+            </svg>
+            <div class="mdc-checkbox__mixedmark"></div>
+        </div>
+    </div>
+
+    @if (Label != null || ChildContent != null)
+    {
+        <label for="@Id">@Label@ChildContent</label>
+    }
+</div>

@@ -30,8 +30,14 @@ namespace MatBlazor
             Duration = duration <= 0 ? 0 : duration;
             DueTime = DateTime.Now.AddMilliseconds(Duration);
 
-            if (duration == 0) Callback?.Invoke();
-            else Timer?.Change(Duration, Timeout.Infinite);
+            if (duration == 0)
+            {
+                Callback?.Invoke();
+            }
+            else
+            {
+                Timer?.Change(Duration, Timeout.Infinite);
+            }
         }
 
         public void Stop()

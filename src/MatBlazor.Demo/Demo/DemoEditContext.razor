@@ -1,0 +1,464 @@
+<MatH3>Validation via EditContext</MatH3>
+
+<DemoContainer>
+<Content>
+@using System.ComponentModel.DataAnnotations
+@using System.IO
+@using System.Net.Http.Headers
+<EditForm Model="myModel" OnValidSubmit="Success">
+    <DataAnnotationsValidator/>
+
+    <div class="mat-layout-grid">
+        <div class="mat-layout-grid-inner">
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                Summary-level Validation Messages
+            </div>
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+            </div>
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                Field-level Validation Messages
+            </div>
+
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                <p>
+                    <MatTextField Label="Username" @bind-Value="myModel.Username"/>
+                </p>
+                <p>
+                    <MatTextField Label="Password" @bind-Value="myModel.Password" Type="password"/>
+                </p>
+                <p>
+                    <MatTextField Label="MFA" @bind-Value="myModel.MFA"/>
+                </p>
+                <p>
+                    <MatTextField Label="Comment" @bind-Value="myModel.Comment"/>
+                </p>
+                <p>
+                    <MatDatePicker Label="Start Date" @bind-Value="myModel.StartDate"/>
+                </p>
+                <p>
+                    <MatDatePicker Label="End Date" @bind-Value="myModel.EndDate"/>
+                </p>
+
+                <p>
+                    <MatSelect Label="Select" @bind-Value="myModel.Gender">
+                        <MatOptionString Value=""></MatOptionString>
+                        <MatOptionString Value="M">M</MatOptionString>
+                        <MatOptionString Value="W">W</MatOptionString>
+                    </MatSelect>
+                </p>
+                <p>
+                    <MatSelectItem Label="SelectItem" @bind-Value="@myModel.Gender" Items="@GenderItems"></MatSelectItem>
+                </p>
+                <p>
+                    <MatSelectValue Label="SelectValue" @bind-Value="@myModel.Gender" Items="@GenderItems" ValueSelector="@(v => v)"></MatSelectValue>
+                </p>
+
+                <MatDivider/>
+                <p>
+                    <MatTextField Label="Username" @bind-Value="myModel.Username"
+                                  ValidationDisabled="true"
+                                  HelperText="ValidationDisabled" HelperTextPersistent="true"/>
+                </p>
+                <p>
+                    <MatSelectItem Label="SelectItem" Value="@myModel.Gender" Items="@GenderItems" ValidationDisabled="true" HelperText="ValidationDisabled"></MatSelectItem>
+                </p>
+
+                <p>
+                    <MatAutocompleteList Items="@CarItems" TItem="string" Label="Pick car" @bind-Value="@myModel.Car"></MatAutocompleteList>
+                </p>
+
+
+                <ValidationSummary/>
+            </div>
+
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4"
+                 style="text-align: center;">
+                -or-
+            </div>
+
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                <p>
+                    <MatTextField Label="Username" @bind-Value="myModel.Username"/>
+                    <ValidationMessage For="@(() => myModel.Username)"/>
+                </p>
+                <p>
+                    <MatTextField Label="Password" @bind-Value="myModel.Password" Type="password"/>
+                    <ValidationMessage For="@(() => myModel.Password)"/>
+                </p>
+                <p>
+                    <MatTextField Label="MFA" @bind-Value="myModel.MFA"/>
+                    <ValidationMessage For="@(() => myModel.MFA)"/>
+                </p>
+                <p>
+                    <MatTextField Label="Comment" @bind-Value="myModel.Comment"/>
+                    <ValidationMessage For="@(() => myModel.Comment)"/>
+                </p>
+                <p>
+                    <MatDatePicker Label="Start Date" @bind-Value="myModel.StartDate"/>
+                    <ValidationMessage For="@(() => myModel.StartDate)"/>
+                </p>
+                <p>
+                    <MatDatePicker Label="eND Date" @bind-Value="myModel.EndDate"/>
+                    <ValidationMessage For="@(() => myModel.EndDate)"/>
+                </p>
+                <p>
+                    <MatSelect Label="Select" @bind-Value="myModel.Gender">
+                        <MatOptionString Value=""></MatOptionString>
+                        <MatOptionString Value="M">M</MatOptionString>
+                        <MatOptionString Value="W">W</MatOptionString>
+                    </MatSelect>
+                    <ValidationMessage For="@(() => myModel.Gender)"/>
+                </p>
+                <p>
+                    <MatSelectItem Label="SelectItem" @bind-Value="@myModel.Gender" Items="@GenderItems"></MatSelectItem>
+                    <ValidationMessage For="@(() => myModel.Gender)"/>
+                </p>
+                <p>
+                    <MatSelectValue Label="SelectValue" @bind-Value="@myModel.Gender" Items="@GenderItems" ValueSelector="@(v => v)"></MatSelectValue>
+                    <ValidationMessage For="@(() => myModel.Gender)"/>
+                </p>
+
+
+            </div>
+
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+            </div>
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                <MatButton Type="submit" Raised="true">Login</MatButton>
+                <MatButton Raised="true" OnClick="Reset">Reset</MatButton>
+            </div>
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+            </div>
+        </div>
+    </div>
+
+</EditForm>
+
+@code {
+
+
+    class GenderDef
+    {
+        public string Name { get; set; }
+
+        public GenderDef(string name)
+        {
+            Name = name;
+        }
+    }
+
+
+    string[] CarItems = new[]
+    {
+        "Volkswagen Golf",
+        "Volkswagen Passat",
+        "Volkswagen Polo",
+        "Ford Focus",
+        "Ford Fiesta",
+        "Ford Fusion",
+        "Ford Mondeo"
+    };
+
+    string[] GenderItems = new[]
+    {
+        "",
+        "M",
+        "W"
+    };
+
+    [Inject]
+    IJSRuntime JS { get; set; }
+
+    async Task Success() =>
+        await JS.InvokeAsync<object>("alert", "Successful login!");
+
+    LoginModel myModel = new LoginModel();
+
+    void Reset()
+    {
+        myModel.Username = null;
+        myModel.Password = null;
+        myModel.MFA = null;
+        myModel.StartDate = DateTime.MinValue;
+        myModel.EndDate = null;
+        myModel.Comment = null;
+    }
+
+    public class LoginModel
+    {
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        [MinLength(8)]
+        public string Password { get; set; }
+
+        [Required]
+        public string Gender { get; set; }
+        
+        [Required]
+        public string Car { get; set; }
+
+        [Required]
+        [CustomValidation(typeof(LoginModel), nameof(RequiredDateTime))]
+        public DateTime StartDate { get; set; }
+
+        [Required]
+        public DateTime? EndDate { get; set; }
+
+        public string Comment { get; set; }
+
+        [Required]
+        [CustomValidation(typeof(LoginModel), nameof(ValidateMFA))]
+        public string MFA { get; set; }
+
+        public static ValidationResult ValidateMFA(string mfa, ValidationContext vc)
+        {
+            return string.Equals("654321", mfa)
+                ? ValidationResult.Success
+                : new ValidationResult("Incorrect MFA OTP", new[] {vc.MemberName});
+        }
+
+        public static ValidationResult RequiredDateTime(DateTime value, ValidationContext vc)
+        {
+            return value > DateTime.MinValue
+                ? ValidationResult.Success
+                : new ValidationResult($"The {vc.MemberName} field is required.", new[] {vc.MemberName});
+        }
+    }
+
+}
+
+</Content>
+<SourceContent>
+	<BlazorFiddle Template="MatBlazor" Code=@(@"
+@using System.ComponentModel.DataAnnotations
+@using System.IO
+@using System.Net.Http.Headers
+<EditForm Model=""myModel"" OnValidSubmit=""Success"">
+    <DataAnnotationsValidator/>
+
+    <div class=""mat-layout-grid"">
+        <div class=""mat-layout-grid-inner"">
+            <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
+                Summary-level Validation Messages
+            </div>
+            <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
+            </div>
+            <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
+                Field-level Validation Messages
+            </div>
+
+            <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
+                <p>
+                    <MatTextField Label=""Username"" @bind-Value=""myModel.Username""/>
+                </p>
+                <p>
+                    <MatTextField Label=""Password"" @bind-Value=""myModel.Password"" Type=""password""/>
+                </p>
+                <p>
+                    <MatTextField Label=""MFA"" @bind-Value=""myModel.MFA""/>
+                </p>
+                <p>
+                    <MatTextField Label=""Comment"" @bind-Value=""myModel.Comment""/>
+                </p>
+                <p>
+                    <MatDatePicker Label=""Start Date"" @bind-Value=""myModel.StartDate""/>
+                </p>
+                <p>
+                    <MatDatePicker Label=""End Date"" @bind-Value=""myModel.EndDate""/>
+                </p>
+
+                <p>
+                    <MatSelect Label=""Select"" @bind-Value=""myModel.Gender"">
+                        <MatOptionString Value=""""></MatOptionString>
+                        <MatOptionString Value=""M"">M</MatOptionString>
+                        <MatOptionString Value=""W"">W</MatOptionString>
+                    </MatSelect>
+                </p>
+                <p>
+                    <MatSelectItem Label=""SelectItem"" @bind-Value=""@myModel.Gender"" Items=""@GenderItems""></MatSelectItem>
+                </p>
+                <p>
+                    <MatSelectValue Label=""SelectValue"" @bind-Value=""@myModel.Gender"" Items=""@GenderItems"" ValueSelector=""@(v => v)""></MatSelectValue>
+                </p>
+
+                <MatDivider/>
+                <p>
+                    <MatTextField Label=""Username"" @bind-Value=""myModel.Username""
+                                  ValidationDisabled=""true""
+                                  HelperText=""ValidationDisabled"" HelperTextPersistent=""true""/>
+                </p>
+                <p>
+                    <MatSelectItem Label=""SelectItem"" Value=""@myModel.Gender"" Items=""@GenderItems"" ValidationDisabled=""true"" HelperText=""ValidationDisabled""></MatSelectItem>
+                </p>
+
+                <p>
+                    <MatAutocompleteList Items=""@CarItems"" TItem=""string"" Label=""Pick car"" @bind-Value=""@myModel.Car""></MatAutocompleteList>
+                </p>
+
+
+                <ValidationSummary/>
+            </div>
+
+            <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4""
+                 style=""text-align: center;"">
+                -or-
+            </div>
+
+            <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
+                <p>
+                    <MatTextField Label=""Username"" @bind-Value=""myModel.Username""/>
+                    <ValidationMessage For=""@(() => myModel.Username)""/>
+                </p>
+                <p>
+                    <MatTextField Label=""Password"" @bind-Value=""myModel.Password"" Type=""password""/>
+                    <ValidationMessage For=""@(() => myModel.Password)""/>
+                </p>
+                <p>
+                    <MatTextField Label=""MFA"" @bind-Value=""myModel.MFA""/>
+                    <ValidationMessage For=""@(() => myModel.MFA)""/>
+                </p>
+                <p>
+                    <MatTextField Label=""Comment"" @bind-Value=""myModel.Comment""/>
+                    <ValidationMessage For=""@(() => myModel.Comment)""/>
+                </p>
+                <p>
+                    <MatDatePicker Label=""Start Date"" @bind-Value=""myModel.StartDate""/>
+                    <ValidationMessage For=""@(() => myModel.StartDate)""/>
+                </p>
+                <p>
+                    <MatDatePicker Label=""eND Date"" @bind-Value=""myModel.EndDate""/>
+                    <ValidationMessage For=""@(() => myModel.EndDate)""/>
+                </p>
+                <p>
+                    <MatSelect Label=""Select"" @bind-Value=""myModel.Gender"">
+                        <MatOptionString Value=""""></MatOptionString>
+                        <MatOptionString Value=""M"">M</MatOptionString>
+                        <MatOptionString Value=""W"">W</MatOptionString>
+                    </MatSelect>
+                    <ValidationMessage For=""@(() => myModel.Gender)""/>
+                </p>
+                <p>
+                    <MatSelectItem Label=""SelectItem"" @bind-Value=""@myModel.Gender"" Items=""@GenderItems""></MatSelectItem>
+                    <ValidationMessage For=""@(() => myModel.Gender)""/>
+                </p>
+                <p>
+                    <MatSelectValue Label=""SelectValue"" @bind-Value=""@myModel.Gender"" Items=""@GenderItems"" ValueSelector=""@(v => v)""></MatSelectValue>
+                    <ValidationMessage For=""@(() => myModel.Gender)""/>
+                </p>
+
+
+            </div>
+
+            <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
+            </div>
+            <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
+                <MatButton Type=""submit"" Raised=""true"">Login</MatButton>
+                <MatButton Raised=""true"" OnClick=""Reset"">Reset</MatButton>
+            </div>
+            <div class=""mat-layout-grid-cell mat-layout-grid-cell-span-4"">
+            </div>
+        </div>
+    </div>
+
+</EditForm>
+
+@code {
+
+
+    class GenderDef
+    {
+        public string Name { get; set; }
+
+        public GenderDef(string name)
+        {
+            Name = name;
+        }
+    }
+
+
+    string[] CarItems = new[]
+    {
+        ""Volkswagen Golf"",
+        ""Volkswagen Passat"",
+        ""Volkswagen Polo"",
+        ""Ford Focus"",
+        ""Ford Fiesta"",
+        ""Ford Fusion"",
+        ""Ford Mondeo""
+    };
+
+    string[] GenderItems = new[]
+    {
+        """",
+        ""M"",
+        ""W""
+    };
+
+    [Inject]
+    IJSRuntime JS { get; set; }
+
+    async Task Success() =>
+        await JS.InvokeAsync<object>(""alert"", ""Successful login!"");
+
+    LoginModel myModel = new LoginModel();
+
+    void Reset()
+    {
+        myModel.Username = null;
+        myModel.Password = null;
+        myModel.MFA = null;
+        myModel.StartDate = DateTime.MinValue;
+        myModel.EndDate = null;
+        myModel.Comment = null;
+    }
+
+    public class LoginModel
+    {
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        [MinLength(8)]
+        public string Password { get; set; }
+
+        [Required]
+        public string Gender { get; set; }
+        
+        [Required]
+        public string Car { get; set; }
+
+        [Required]
+        [CustomValidation(typeof(LoginModel), nameof(RequiredDateTime))]
+        public DateTime StartDate { get; set; }
+
+        [Required]
+        public DateTime? EndDate { get; set; }
+
+        public string Comment { get; set; }
+
+        [Required]
+        [CustomValidation(typeof(LoginModel), nameof(ValidateMFA))]
+        public string MFA { get; set; }
+
+        public static ValidationResult ValidateMFA(string mfa, ValidationContext vc)
+        {
+            return string.Equals(""654321"", mfa)
+                ? ValidationResult.Success
+                : new ValidationResult(""Incorrect MFA OTP"", new[] {vc.MemberName});
+        }
+
+        public static ValidationResult RequiredDateTime(DateTime value, ValidationContext vc)
+        {
+            return value > DateTime.MinValue
+                ? ValidationResult.Success
+                : new ValidationResult($""The {vc.MemberName} field is required."", new[] {vc.MemberName});
+        }
+    }
+
+}
+
+")></BlazorFiddle>
+</SourceContent>
+</DemoContainer>

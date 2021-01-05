@@ -2,27 +2,50 @@
 
 
 /* Hide clear button from edge */
-.mat-hide-clearbutton::-ms-clear
-{
-    width:0;
-    height:0;
+.mat-hide-clearbutton::-ms-clear {
+  width: 0;
+  height: 0;
 }
 
-/* Fix Full Width padding issues */
-.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) .mdc-text-field__input{
+///* Fix Full Width padding issues */
+//.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) .mdc-text-field__input {
+//  padding-right: 48px;
+//}
+//
+//.mat-floating-label--float-above-outlined {
+//  background-color: var(--mdc-theme-surface, #fff) !important;
+//}
+
+
+.mat-text-field-with-actions-container {
+  .mat-text-field-input {
     padding-right: 48px;
+  }
+
+
+  .mat-text-field-actions-container {
+    position: absolute;
+    right: 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 1;
+    top: 0px;
+  }
 }
 
-.mat-floating-label--float-above-outlined
-{
-    background-color:  var(--mdc-theme-surface, #fff) !important;
-}
+.mat-numeric-up-down-field {
+  .mat-text-field-actions-container {
+    display: flex;
+    flex-direction: column;
 
-.mat-numericUpDownField
-{
-    //padding-left: 16px;
-    //padding-right: 48px;
-    input { 
-        text-align: right; 
+    .mat-numeric-up-down-field-button {
+      user-select: none;
+      flex: 1;
+      margin: 3px;
+      position: initial;
     }
+  }
 }

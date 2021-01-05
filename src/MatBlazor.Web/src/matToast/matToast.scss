@@ -9,7 +9,7 @@
 }
 
 .mat-toast-ripple {
-  padding: 0px !important;
+  padding: 0 !important;
 }
 
 .mat-toast-ripple > div{
@@ -24,11 +24,11 @@
 }
 
 .mat-toast-message a, .mat-toast-message label {
-  color: #FFF
+  color: #fff
 }
 
 .mat-toast-message a:hover {
-  color: #CCC;
+  color: #ccc;
   text-decoration: none
 }
 .mat-toast-body{
@@ -112,7 +112,7 @@
   -moz-box-shadow: 0 0 12px #999;
   -webkit-box-shadow: 0 0 12px #999;
   box-shadow: 0 0 12px #999;
-  color: #FFF;
+  color: #fff;
   opacity: .8;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   filter: alpha(opacity=80)
@@ -153,10 +153,12 @@
 
 .mat-toast-primary {
   background-color: var(--mdc-theme-primary, #030303);
+  color: var(--mdc-theme-on-primary, #ffffff);
 }
 
 .mat-toast-secondary {
   background-color: var(--mdc-theme-secondary, #030303);
+  color: var(--mdc-theme-on-secondary, #ffffff);
 }
 
 .mat-toast-light {
@@ -175,19 +177,19 @@
 }
 
 .mat-toast-success {
-  background-color: #51A351
+  background-color: #51a351
 }
 
 .mat-toast-danger {
-  background-color: #BD362F
+  background-color: #bd362f
 }
 
 .mat-toast-info {
-  background-color: #2F96B4
+  background-color: #2f96b4
 }
 
 .mat-toast-warning {
-  background-color: #F89406
+  background-color: #f89406
 }
 
 .mat-toast-progress {
@@ -203,11 +205,7 @@
 
 @media all and (max-width: 240px) {
   .mat-toast-container > div {
-    padding: 8px 8px 8px 50px;
     width: 11em
-  }
-  .mat-toast-container > div.rtl {
-    padding: 8px 50px 8px 8px
   }
   .mat-toast-container .mat-toast-close-button {
     right: -.2em;
@@ -221,11 +219,7 @@
 
 @media all and (min-width: 241px) and (max-width: 480px) {
   .mat-toast-container > div {
-    padding: 8px 8px 8px 50px;
     width: 18em
-  }
-  .mat-toast-container > div.rtl {
-    padding: 8px 50px 8px 8px
   }
   .mat-toast-container .mat-toast-close-button {
     right: -.2em;
@@ -239,10 +233,6 @@
 
 @media all and (min-width: 481px) and (max-width: 768px) {
   .mat-toast-container > div {
-    padding: 15px 15px 15px 50px;
     width: 25em
-  }
-  .mat-toast-container > div.rtl {
-    padding: 15px 50px 15px 15px
   }
 }

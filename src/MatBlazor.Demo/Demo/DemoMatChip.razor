@@ -5,19 +5,145 @@
 
 <DemoContainer>
     <Content>
+        <h4>Normal ChipSet</h4>
+
         <MatChipSet>
-            <MatChip Label="Label"></MatChip>
+            <MatChip Label="Plain"></MatChip>
             <MatChip Label="LeadingIcon" LeadingIcon="favorite"></MatChip>
             <MatChip Label="TrailingIcon" TrailingIcon="favorite"></MatChip>
         </MatChipSet>
+
+        <h4 class="mt-3">Choice ChipSet</h4>
+
+        <MatChipSet Choice="true" @bind-SelectedChip="selectedChip">
+            <MatChip Label="Male"></MatChip>
+            <MatChip Label="Female"></MatChip>
+            <MatChip Label="Rather not say"></MatChip>
+            <p class="mt-2">Your choice: @selectedChip?.Label</p>
+        </MatChipSet>
+
+        <h4 class="mt-3">Filter ChipSet</h4>
+
+        <MatChipSet Filter="true" @bind-SelectedChips="selectedChips">
+            <MatChip Label="Wedges" IsCheckable="true"></MatChip>
+            <MatChip Label="Fries" IsCheckable="true"></MatChip>
+            <MatChip Label="Baby carrots" IsCheckable="true"></MatChip>
+            <MatChip Label="Roasted veggies" IsCheckable="true"></MatChip>
+            <MatChip Label="Salad" IsCheckable="true"></MatChip>
+            <MatChip Label="Cheese" IsCheckable="true"></MatChip>
+        </MatChipSet>
+        <p>
+            You selected:
+            @foreach (var chip in selectedChips ?? new MatChip[0])
+            {
+                <span>@(chip.Label)&nbsp;</span>
+            }
+        </p>
+
+        @code
+        {
+            MatChip selectedChip = null;
+            MatChip[] selectedChips = null;
+        }
+
+        <h4 class="mt-3">Adding Removable Chips</h4>
+
+        <MatChipSet @ref="chipset" @bind-SelectedChip="selectedChip">
+            <MatButton class="mr-2" @onclick="OnAddOption">Add a chip</MatButton>
+            @foreach (var option in labels)
+            {
+                <MatChip class="mt-1" Label=@option TrailingIcon="clear" TrailingIconClick="OnTrailingIconClick"></MatChip>
+            }
+        </MatChipSet>
+
+        @code
+        {
+            MatChipSet chipset = null;
+            int counter = 1;
+            List<string> labels = new List<string>();
+
+            private void OnAddOption()
+            {
+                labels.Add($"Chip {counter++}");
+            }
+
+            private void OnTrailingIconClick(MatChip chip)
+            {
+                labels.Remove(chip.Label);
+                chipset?.UnregisterChip(chip); // <-- to avoid memleak
+            }
+        }
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <h4>Normal ChipSet</h4>
+
         <MatChipSet>
-            <MatChip Label=""Label""></MatChip>
+            <MatChip Label=""Plain""></MatChip>
             <MatChip Label=""LeadingIcon"" LeadingIcon=""favorite""></MatChip>
             <MatChip Label=""TrailingIcon"" TrailingIcon=""favorite""></MatChip>
         </MatChipSet>
+
+        <h4 class=""mt-3"">Choice ChipSet</h4>
+
+        <MatChipSet Choice=""true"" @bind-SelectedChip=""selectedChip"">
+            <MatChip Label=""Male""></MatChip>
+            <MatChip Label=""Female""></MatChip>
+            <MatChip Label=""Rather not say""></MatChip>
+            <p class=""mt-2"">Your choice: @selectedChip?.Label</p>
+        </MatChipSet>
+
+        <h4 class=""mt-3"">Filter ChipSet</h4>
+
+        <MatChipSet Filter=""true"" @bind-SelectedChips=""selectedChips"">
+            <MatChip Label=""Wedges"" IsCheckable=""true""></MatChip>
+            <MatChip Label=""Fries"" IsCheckable=""true""></MatChip>
+            <MatChip Label=""Baby carrots"" IsCheckable=""true""></MatChip>
+            <MatChip Label=""Roasted veggies"" IsCheckable=""true""></MatChip>
+            <MatChip Label=""Salad"" IsCheckable=""true""></MatChip>
+            <MatChip Label=""Cheese"" IsCheckable=""true""></MatChip>
+        </MatChipSet>
+        <p>
+            You selected:
+            @foreach (var chip in selectedChips ?? new MatChip[0])
+            {
+                <span>@(chip.Label)&nbsp;</span>
+            }
+        </p>
+
+        @code
+        {
+            MatChip selectedChip = null;
+            MatChip[] selectedChips = null;
+        }
+
+        <h4 class=""mt-3"">Adding Removable Chips</h4>
+
+        <MatChipSet @ref=""chipset"" @bind-SelectedChip=""selectedChip"">
+            <MatButton class=""mr-2"" @onclick=""OnAddOption"">Add a chip</MatButton>
+            @foreach (var option in labels)
+            {
+                <MatChip class=""mt-1"" Label=@option TrailingIcon=""clear"" TrailingIconClick=""OnTrailingIconClick""></MatChip>
+            }
+        </MatChipSet>
+
+        @code
+        {
+            MatChipSet chipset = null;
+            int counter = 1;
+            List<string> labels = new List<string>();
+
+            private void OnAddOption()
+            {
+                labels.Add($""Chip {counter++}"");
+            }
+
+            private void OnTrailingIconClick(MatChip chip)
+            {
+                labels.Remove(chip.Label);
+                chipset?.UnregisterChip(chip); // <-- to avoid memleak
+            }
+        }
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

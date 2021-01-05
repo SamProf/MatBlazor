@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Components;
+using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor.Demo.BlazorFiddle
 {
@@ -21,11 +19,11 @@ namespace MatBlazor.Demo.BlazorFiddle
             {
                 await JsInvokeAsync<object>("blazorFiddle.create", Ref, new
                 {
-                    Text = this.Code,
-                    Template = this.Template,
+                    Text = Code,
+                    Template,
                 });
             }
-            catch (Exception e)
+            catch (Exception /*e*/)
             {
 //                Console.WriteLine(e);
 //                throw;

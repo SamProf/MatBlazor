@@ -1,0 +1,282 @@
+@using System.ComponentModel
+@using Microsoft.AspNetCore.Components
+<DocMatTreeView></DocMatTreeView>
+
+
+
+<h5 class="mat-h5">A tree view based on a Model</h5>
+
+<DemoContainer>
+    <Content>
+        <MatTreeView TNode="TreeNodeModel"
+                     RootNode="@MyRootNode"
+                     GetChildNodesCallback="@((n)=>n.Nodes)">
+            <NodeTemplate>
+                @context.Name
+            </NodeTemplate>
+        </MatTreeView>
+
+        @code
+        {
+            class TreeNodeModel
+            {
+                public string Name { get; set; }
+                public TreeNodeModel[] Nodes { get; set; } = new TreeNodeModel[0];
+            }
+
+            TreeNodeModel MyRootNode = new TreeNodeModel()
+            {
+                Name = "Book",
+                Nodes = new TreeNodeModel[] {
+                    new TreeNodeModel(){
+                        Name = "Chapter 1",
+                        Nodes = new TreeNodeModel[] {
+                            new TreeNodeModel(){
+                                Name = "Heading",
+                            },
+                            new TreeNodeModel(){
+                                Name = "Content",
+                            }
+                        }
+                    },
+                    new TreeNodeModel(){
+                        Name = "Chapter 2",
+                        Nodes = new TreeNodeModel[] {
+                            new TreeNodeModel(){
+                                Name = "Heading",
+                            },
+                            new TreeNodeModel(){
+                                Name = "Content",
+                            }
+                        }
+                    },
+                    new TreeNodeModel(){
+                        Name = "Chapter 3",
+                        Nodes = new TreeNodeModel[] {
+                            new TreeNodeModel(){
+                                Name = "Heading",
+                            },
+                            new TreeNodeModel(){
+                                Name = "Content",
+                            }
+                        }
+                    }
+                }
+            };
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTreeView TNode=""TreeNodeModel""
+                     RootNode=""@MyRootNode""
+                     GetChildNodesCallback=""@((n)=>n.Nodes)"">
+            <NodeTemplate>
+                @context.Name
+            </NodeTemplate>
+        </MatTreeView>
+
+        @code
+        {
+            class TreeNodeModel
+            {
+                public string Name { get; set; }
+                public TreeNodeModel[] Nodes { get; set; } = new TreeNodeModel[0];
+            }
+
+            TreeNodeModel MyRootNode = new TreeNodeModel()
+            {
+                Name = ""Book"",
+                Nodes = new TreeNodeModel[] {
+                    new TreeNodeModel(){
+                        Name = ""Chapter 1"",
+                        Nodes = new TreeNodeModel[] {
+                            new TreeNodeModel(){
+                                Name = ""Heading"",
+                            },
+                            new TreeNodeModel(){
+                                Name = ""Content"",
+                            }
+                        }
+                    },
+                    new TreeNodeModel(){
+                        Name = ""Chapter 2"",
+                        Nodes = new TreeNodeModel[] {
+                            new TreeNodeModel(){
+                                Name = ""Heading"",
+                            },
+                            new TreeNodeModel(){
+                                Name = ""Content"",
+                            }
+                        }
+                    },
+                    new TreeNodeModel(){
+                        Name = ""Chapter 3"",
+                        Nodes = new TreeNodeModel[] {
+                            new TreeNodeModel(){
+                                Name = ""Heading"",
+                            },
+                            new TreeNodeModel(){
+                                Name = ""Content"",
+                            }
+                        }
+                    }
+                }
+            };
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Dynamically set tab index</h5>
+
+<DemoContainer>
+    <Content>
+        <MatTreeView TNode="LoadOnDemandTreeNodeModel"
+                     RootNode="@MyLoadOnDemandRootNode"
+                     GetChildNodesCallback="@GetChildNodes"
+                     LoadChildNodesCallback="@LoadChildNodesAsync">
+            <NodeTemplate>
+                @context.Name
+            </NodeTemplate>
+        </MatTreeView>
+
+        @code
+        {
+            class LoadOnDemandTreeNodeModel
+            {
+                public string Name { get; set; }
+                public LoadOnDemandTreeNodeModel[] Nodes { get; set; } = null;
+            }
+
+            LoadOnDemandTreeNodeModel MyLoadOnDemandRootNode = new LoadOnDemandTreeNodeModel() { Name = "Root Item" };
+
+            private IEnumerable<LoadOnDemandTreeNodeModel> GetChildNodes(LoadOnDemandTreeNodeModel parentNode)
+            {
+                if (parentNode.Nodes == null)
+                    return null; // LoadChildNodesAsync will be called to load the child nodes
+                else
+                    return parentNode.Nodes;
+            }
+
+            private async Task<IEnumerable<LoadOnDemandTreeNodeModel>> LoadChildNodesAsync(LoadOnDemandTreeNodeModel parentNode)
+            {
+                if (parentNode.Nodes == null)
+                {
+                    Random rnd = new Random();
+                    await Task.Delay(rnd.Next(250, 4000));
+                    parentNode.Nodes = new LoadOnDemandTreeNodeModel[rnd.Next(0, 5)];
+                    for (int i = 0; i < parentNode.Nodes.Length; i++)
+                        parentNode.Nodes[i] = new LoadOnDemandTreeNodeModel() { Name = $"Child {i}" };
+                }
+                return parentNode.Nodes;
+            }
+        }
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTreeView TNode=""LoadOnDemandTreeNodeModel""
+                     RootNode=""@MyLoadOnDemandRootNode""
+                     GetChildNodesCallback=""@GetChildNodes""
+                     LoadChildNodesCallback=""@LoadChildNodesAsync"">
+            <NodeTemplate>
+                @context.Name
+            </NodeTemplate>
+        </MatTreeView>
+
+        @code
+        {
+            class LoadOnDemandTreeNodeModel
+            {
+                public string Name { get; set; }
+                public LoadOnDemandTreeNodeModel[] Nodes { get; set; } = null;
+            }
+
+            LoadOnDemandTreeNodeModel MyLoadOnDemandRootNode = new LoadOnDemandTreeNodeModel() { Name = ""Root Item"" };
+
+            private IEnumerable<LoadOnDemandTreeNodeModel> GetChildNodes(LoadOnDemandTreeNodeModel parentNode)
+            {
+                if (parentNode.Nodes == null)
+                    return null; // LoadChildNodesAsync will be called to load the child nodes
+                else
+                    return parentNode.Nodes;
+            }
+
+            private async Task<IEnumerable<LoadOnDemandTreeNodeModel>> LoadChildNodesAsync(LoadOnDemandTreeNodeModel parentNode)
+            {
+                if (parentNode.Nodes == null)
+                {
+                    Random rnd = new Random();
+                    await Task.Delay(rnd.Next(250, 4000));
+                    parentNode.Nodes = new LoadOnDemandTreeNodeModel[rnd.Next(0, 5)];
+                    for (int i = 0; i < parentNode.Nodes.Length; i++)
+                        parentNode.Nodes[i] = new LoadOnDemandTreeNodeModel() { Name = $""Child {i}"" };
+                }
+                return parentNode.Nodes;
+            }
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Data Binding</h5>
+
+<DemoContainer>
+    <Content>
+        <MatTreeView TNode="TreeNodeModel"
+                     RootNode="@MyRootNode"
+                     GetChildNodesCallback="@((n)=>n.Nodes)"
+                     @bind-SelectedNode="@SelectedNode"
+                     @bind-SelectedNode:event="SelectedNodeChanged">
+            <NodeTemplate>
+                @context.Name
+            </NodeTemplate>
+        </MatTreeView>
+
+        <p>
+            Selected Node = @SelectedNode?.Name
+        </p>
+
+        <button class="btn btn-secondary" @onclick="@SelectChapter2">Select Chapter 2</button>
+
+        @code{
+
+            TreeNodeModel SelectedNode { get; set; }
+
+            private void SelectChapter2()
+            {
+                this.SelectedNode = MyRootNode.Nodes[1];
+            }
+        }
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTreeView TNode=""TreeNodeModel""
+                     RootNode=""@MyRootNode""
+                     GetChildNodesCallback=""@((n)=>n.Nodes)""
+                     @bind-SelectedNode=""@SelectedNode""
+                     @bind-SelectedNode:event=""SelectedNodeChanged"">
+            <NodeTemplate>
+                @context.Name
+            </NodeTemplate>
+        </MatTreeView>
+
+        <p>
+            Selected Node = @SelectedNode?.Name
+        </p>
+
+        <button class=""btn btn-secondary"" @onclick=""@SelectChapter2"">Select Chapter 2</button>
+
+        @code{
+
+            TreeNodeModel SelectedNode { get; set; }
+
+            private void SelectChapter2()
+            {
+                this.SelectedNode = MyRootNode.Nodes[1];
+            }
+        }
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

@@ -6,7 +6,7 @@
 <h5 class="mat-h5">Example</h5>
 
 <style>
-    .demo-mat-dialog-container li { padding: 5px; }
+    .demo-mat-dialog-container li { padding: 5px; }   
 </style>
 
 <DemoContainer Class="demo-mat-dialog-container">
@@ -27,7 +27,14 @@
             <MatDialogTitle>Hi @name</MatDialogTitle>
             <MatDialogContent>
                 <p>What's your favorite animal?</p>
+                <MatSelect TValue="string" Label="Title">
+                    <MatOptionString ></MatOptionString>
+                    <MatOptionString Value="dr">Dr.</MatOptionString>
+                    <MatOptionString Value="prof">Prof.</MatOptionString>
+                </MatSelect>
                 <MatTextField @bind-Value="@dialogAnimal"></MatTextField>
+
+
             </MatDialogContent>
             <MatDialogActions>
                 <MatButton OnClick="@(e => { dialogIsOpen = false; })">No Thanks</MatButton>
@@ -75,7 +82,14 @@
             <MatDialogTitle>Hi @name</MatDialogTitle>
             <MatDialogContent>
                 <p>What's your favorite animal?</p>
+                <MatSelect TValue=""string"" Label=""Title"">
+                    <MatOptionString ></MatOptionString>
+                    <MatOptionString Value=""dr"">Dr.</MatOptionString>
+                    <MatOptionString Value=""prof"">Prof.</MatOptionString>
+                </MatSelect>
                 <MatTextField @bind-Value=""@dialogAnimal""></MatTextField>
+
+
             </MatDialogContent>
             <MatDialogActions>
                 <MatButton OnClick=""@(e => { dialogIsOpen = false; })"">No Thanks</MatButton>
@@ -102,6 +116,41 @@
                 dialogIsOpen = false;
             }
 
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<DemoContainer Class="demo-mat-dialog-container">
+    <Content>
+
+        @inject IMatDialogService MatDialogService
+        
+        <MatButton OnClick="@(_=>OpenDialogFromService())">Open</MatButton>
+
+        @code
+        {
+            async Task OpenDialogFromService()
+            {
+                await MatDialogService.OpenAsync(typeof(DemoDialogItem), null);
+            }
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+
+        @inject IMatDialogService MatDialogService
+        
+        <MatButton OnClick=""@(_=>OpenDialogFromService())"">Open</MatButton>
+
+        @code
+        {
+            async Task OpenDialogFromService()
+            {
+                await MatDialogService.OpenAsync(typeof(DemoDialogItem), null);
+            }
         }
 
     ")></BlazorFiddle>
