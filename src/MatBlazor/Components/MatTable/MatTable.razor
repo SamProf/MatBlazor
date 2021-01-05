@@ -2,6 +2,7 @@
 @inherits BaseMatTable
 @typeparam TableItem
 @inject System.Net.Http.HttpClient Http
+@inject NavigationManager NavMan 
 
 @using System
 @using System.Collections.Generic
@@ -158,6 +159,15 @@
         
         StartPage = 1;
         CurrentPage = StartPage;
+
+        // If search term name has been specified, fetch the value (if available) and perform search and filtering right away
+        if (!string.IsNullOrWhiteSpace(SearchTermParamName))
+        {
+            var uri = new Uri(NavMan.Uri);
+            SearchTerm = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query).TryGetValue(SearchTermParamName, out var type) ? type.First() : "";
+
+            if (!string.IsNullOrWhiteSpace(SearchTerm)) FilterData();
+        }
 
         if (!string.IsNullOrWhiteSpace(ApiUrl) && (RequestApiOnlyOnce || LoadInitialData))
         {
