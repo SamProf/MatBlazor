@@ -4,11 +4,11 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatThemeProvider</h3> } else { <h5 class="mat-h5">MatThemeProvider</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>The Material Design color system can be used to create a color theme that reflects your brand or style.</p>
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
@@ -25,3 +25,12 @@
 		<td></td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatThemeProvider";
+
+}

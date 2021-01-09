@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MatBlazor.Demo.Models
 {
     public class AppModel
     {
-        private object syncObj = new object();
+        private readonly object syncObj = new object();
         private int userCount = 0;
 
         public event EventHandler<int> UserCountChanged;

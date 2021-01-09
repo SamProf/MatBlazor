@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace MatBlazor
@@ -65,7 +62,9 @@ namespace MatBlazor
             .Case<MatBlazorSwitchT<DateTime>>(new MatBlazorSwitchTDateTime())
             .Case<MatBlazorSwitchT<DateTime?>>(new MatBlazorSwitchTDateTimeNull())
             .Case<MatBlazorSwitchT<bool>>(new MatBlazorSwitchTBool())
-            .Case<MatBlazorSwitchT<bool?>>(new MatBlazorSwitchTBoolNull());
+            .Case<MatBlazorSwitchT<bool?>>(new MatBlazorSwitchTBoolNull())
+            .Case<MatBlazorSwitchT<Guid>>(new MatBlazorSwitchTGuid())
+            .Case<MatBlazorSwitchT<Guid?>>(new MatBlazorSwitchTGuidNull());
 
         public static MatBlazorSwitchT<T> Get()
         {

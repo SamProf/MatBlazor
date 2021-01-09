@@ -1,6 +1,6 @@
-﻿<MatToastContainer />
+﻿<MatThemeProvider Theme="@theme">
+    <MatToastContainer />
 
-<MatThemeProvider Theme="@theme">
     <Router AppAssembly=typeof(MatBlazor.Demo.Pages.Index).Assembly>
         <Found Context="routeData">
             <RouteView RouteData="routeData" DefaultLayout="typeof(MatBlazor.Demo.Shared.MainLayout)" />
@@ -18,6 +18,9 @@
 
     MatTheme theme = new MatTheme()
     {
+        Primary = "#5d2f91",
+        Background = "#fafafa",
+        Surface = "#ffffff"
     };
 
 }

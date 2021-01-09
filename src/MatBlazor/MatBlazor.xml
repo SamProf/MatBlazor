@@ -86,32 +86,47 @@
         </member>
         <member name="M:MatBlazor.BaseMatInputTextElementComponent`1.TryParseValueFromString(System.String,`0@,System.String@)">
             <summary>
-            Parses a string to create an instance of <typeparamref name="TValue"/>. Derived classes can override this to change how
+            Parses a string to create an instance of <typeparamref name="T"/>. Derived classes can override this to change how
             <see cref="P:MatBlazor.BaseMatInputTextElementComponent`1.CurrentValueAsString"/> interprets incoming values.
             </summary>
             <param name="value">The string value to be parsed.</param>
-            <param name="result">An instance of <typeparamref name="TValue"/>.</param>
+            <param name="result">An instance of <typeparamref name="T"/>.</param>
             <param name="validationErrorMessage">If the value could not be parsed, provides a validation error message.</param>
             <returns>True if the value could be parsed; otherwise false.</returns>
         </member>
-        <member name="P:MatBlazor.BaseMatAccordion.HideToggle">
+        <member name="P:MatBlazor.MatAccordion.HideToggle">
             <summary>
             Hides toggle icon for all expansion panel summaries in the accordion
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatExpansionPanel">
+        <member name="P:MatBlazor.MatAccordion.LazyRendering">
+            <summary>
+            Enables lazy rendering for all expansion panel details in the accordion.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.MatExpansionPanel">
             <summary>
             MatExpansionPanel provides an expandable details-summary view.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatExpansionPanel.HideToggle">
+        <member name="P:MatBlazor.MatExpansionPanel.HideToggle">
             <summary>
             Hides the toggle icon in the expansion panel summary
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatAppBar">
+        <member name="P:MatBlazor.MatExpansionPanel.LazyRendering">
+            <summary>
+            Enables lazy rendering of the expansion panel details.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.MatAppBar">
             <summary>
             Acts as a container for items such as application title, navigation icon, and action items.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.MatAppBarAdjust">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatAutocompleteList`1">
@@ -211,88 +226,164 @@
             ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatButton">
+        <member name="P:MatBlazor.BaseMatButtonLink.OnClick">
+            <summary>
+            Event occurs when the user clicks on an element.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.OnClickStopPropagation">
+            <summary>
+            Stop propagation of the OnClick event
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.CommandParameter">
+            <summary>
+            Command parameter.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Href">
+            <summary>
+            Link to a url when clicked.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.ForceLoad">
+            <summary>
+            Force browser to redirect outside component router-space.
+            </summary>
+            
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Target">
+            <summary>
+            Target of Link when clicked.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Raised">
+            <summary>
+            Link has raised style.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Unelevated">
+            <summary>
+            Link has unelevated style.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Outlined">
+            <summary>
+            Link has outlined style.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Dense">
+            <summary>
+            Link has dense style.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Disabled">
+            <summary>
+            Link is disabled.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.Icon">
+            <summary>
+            Specifies the link's icon.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.TrailingIcon">
+            <summary>
+            Specifies if icon has trailing position.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatButtonLink.ChildContent">
+            <summary>
+            Inline label of Button.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.MatButton">
             <summary>
             Buttons communicate an action a user can take.
             They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.OnClick">
+        <member name="P:MatBlazor.MatButton.OnClick">
             <summary>
-             Event occurs when the user clicks on an element.
+            Event occurs when the user clicks on an element.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.OnClickStopPropagation">
+        <member name="P:MatBlazor.MatButton.OnClickStopPropagation">
             <summary>
             Stop propagation of the OnClick event
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Command">
+        <member name="P:MatBlazor.MatButton.Command">
             <summary>
-             Command executed when the user clicks on an element.
+            Command executed when the user clicks on an element.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.CommandParameter">
+        <member name="P:MatBlazor.MatButton.CommandParameter">
             <summary>
-             Command parameter.
+            Command parameter.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Link">
+        <member name="P:MatBlazor.MatButton.Link">
             <summary>
             Link to a url when clicked.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Target">
+        <member name="P:MatBlazor.MatButton.ForceLoad">
+            <summary>
+            Force browser to redirect outside component router-space.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatButton.Target">
             <summary>
             Target of Link when clicked.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Raised">
+        <member name="P:MatBlazor.MatButton.Raised">
             <summary>
             Button has raised style.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Unelevated">
+        <member name="P:MatBlazor.MatButton.Unelevated">
             <summary>
             Button has unelevated style.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Outlined">
+        <member name="P:MatBlazor.MatButton.Outlined">
             <summary>
             Button has outlined style.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Dense">
+        <member name="P:MatBlazor.MatButton.Dense">
             <summary>
             Button has dense style.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Disabled">
+        <member name="P:MatBlazor.MatButton.Disabled">
             <summary>
             Button is disabled.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Icon">
+        <member name="P:MatBlazor.MatButton.Icon">
             <summary>
             Specifies an button's icon.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.TrailingIcon">
+        <member name="P:MatBlazor.MatButton.TrailingIcon">
             <summary>
             Specifies if icon has trailing position.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.Label">
+        <member name="P:MatBlazor.MatButton.Label">
             <summary>
             Text label of Button.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatButton.ChildContent">
+        <member name="P:MatBlazor.MatButton.ChildContent">
             <summary>
             Inline label of Button.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatCard">
+        <member name="T:MatBlazor.MatCard">
             <summary>
             Card component for Blazor contain content and actions about a single subject. 
             </summary>
@@ -303,9 +394,56 @@
             </summary>
             <typeparam name="TValue">bool, bool?</typeparam>
         </member>
-        <member name="T:MatBlazor.BaseMatChip">
+        <member name="P:MatBlazor.MatChipSet.Choice">
+            <summary>
+            Allows single selection from a set of options. If combined with Filter the selected value can be unselected.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChipSet.Filter">
+            <summary>
+             Enables multiple-choice selection from the set of chips. Chips must be "Checkable" for this to work.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.MatChip">
             <summary>
             Chips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.LeadingIcon">
+            <summary>
+            Optional icon, displayed before the label.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.TrailingIcon">
+            <summary>
+            A trailing icon comes with the functionality to remove the chip from the set, so the natural value for this would be "clear".
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.Label">
+            <summary>
+            The chip's text.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.Value">
+            <summary>
+            A user-defined value assigned to the chip.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.IsSelected">
+             <summary>
+             Reflects the selection state of a choice- or filter-chip (parent chipset has either Choice or Filter set to true).
+            
+             When you set this in markup, it pre-selects the chip.
+             </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.IsSelectedChanged">
+            <summary>
+            Allows two-way binding of IsSelected
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatChip.IsCheckable">
+            <summary>
+            Checkable chips show a check-mark when selected
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatDatePickerInternal`1">
@@ -334,7 +472,7 @@
             Indicates if the user is able to close the dialog via Escape or click on the Scrim.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatDivider">
+        <member name="T:MatBlazor.MatDivider">
             <summary>
             MatDivider is a component that allows for Material styling of a line separator with various orientation options. 
             </summary>
@@ -378,6 +516,12 @@
             <summary>
             Navigate to this url when clicked.
             </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatIconButton.ForceLoad">
+            <summary>
+            Force browser to redirect outside component router-space.
+            </summary>
+            
         </member>
         <member name="P:MatBlazor.BaseMatIconButton.Disabled">
             <summary>
@@ -456,6 +600,11 @@
              Command executed when the user clicks on an element.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatNavItem.ForceLoad">
+            <summary>
+            Force browser to redirect outside component router-space.
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatNavItem.CommandParameter">
             <summary>
              Command parameter.
@@ -464,6 +613,11 @@
         <member name="P:MatBlazor.BaseMatNavItem.Target">
             <summary>
             *Not yet functional - Target of Href when clicked.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatNavItem.Title">
+            <summary>
+            The title shown.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatNavItem.NavLinkMatch">
@@ -503,9 +657,61 @@
             </summary>
             <typeparam name="TValue">sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?</typeparam>
         </member>
+        <member name="T:MatBlazor.BaseMatPaper">
+            <summary>
+            Basic component where the physical properties of paper are translated to the screen.
+            Used for creating sections and giving more focus to some parts of the application.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatPaper.Elevation">
+            <summary>
+            Level of the Elevation. 
+            From 0 to 24.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatPaper.Outlined">
+            <summary>
+            Uses outlined surface. If true, removes Elevation.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatPaper.Rounded">
+            <summary>
+            Uses round border.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatProgressBar">
             <summary>
             Progress indicators display the length of a process or express an unspecified wait time.
+            </summary>
+        </member>
+        <member name="T:MatBlazor.BaseMatProgressCircle">
+            <summary>
+            Circular Progress indicator displays the length of a process or express an unspecified wait time.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatProgressCircle.Indeterminate">
+            <summary>
+            Toggles the component between the determinate and indeterminate state.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatProgressCircle.Closed">
+             <summary>
+            If true, Puts the component in the closed state.
+             </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatProgressCircle.Size">
+            <summary>
+            Sets the size of the circular progress bar.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatProgressCircle.Progress">
+            <summary>
+            Sets the progress bar to this value. Value should be between [0, 1].
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatProgressCircle.FourColored">
+            <summary>
+            IF true, Applies four animated stroke-colors to the indeterminate indicator. Applicable to the indeterminate variant only and overrides any single color currently set.
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatRadioButtonInternal`1">
@@ -532,9 +738,14 @@
         </member>
         <member name="T:MatBlazor.BaseMatSlider`1">
             <summary>
-            Material Design Slider for Blazor. Sliders let users select from a range of values by moving the slider thumb. 
+            Material Design Slider for Blazor. Sliders let users select from a range of values by moving the slider thumb.
             </summary>
             <typeparam name="TValue">sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?</typeparam>
+        </member>
+        <member name="P:MatBlazor.BaseMatSlider`1.Immediate">
+            <summary>
+            When set to true, any change to the slider immediately changes the value.
+            </summary>
         </member>
         <member name="T:MatBlazor.BaseMatSlideToggle`1">
             <summary>
@@ -545,6 +756,34 @@
         <member name="T:MatBlazor.BaseMatSnackbar">
             <summary>
             Snackbars provide brief messages about app processes at the bottom of the screen.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.Stacked">
+            <summary>
+            Positions the action buttons below the label instead of alongside it.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.Leading">
+             <summary>
+             Displays the snackbar on the "leading edge" of the screen (the left side in LTR, or the right side in RTL). 
+            
+             By default, snackbars are centered horizontally within the viewport. On larger screens, they can optionally be displayed on the leading edge by setting this property.
+             </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.IsOpen">
+            <summary>
+            Controls whether or not the snackbar is shown.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.Timeout">
+            <summary>
+            Timeout in ms after which the snackbar closes itself. Default: 10000 ms
+            To leave the snackbar open indefinitely set the timeout to -1
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatSnackbar.IsOpenChanged">
+            <summary>
+            This event is raised whenever IsOpen changes.
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatSortHeader">
@@ -630,6 +869,11 @@
         <member name="P:MatBlazor.BaseMatTable.PageSize">
             <summary>
             The number of rows per page.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatTable.OnRowDbClick">
+            <summary>
+            Action to execute on row item
             </summary>
         </member>
         <member name="T:MatBlazor.BaseTableRow">
@@ -759,7 +1003,7 @@
             <inheritdoc />
             <summary>
             Represents an instance of a Toast
-            It handles the user interactions and orchestrates the the state transitions
+            It handles the user interactions and orchestrates the state transitions
             </summary>
         </member>
         <member name="T:MatBlazor.BaseMatTooltip">
@@ -907,7 +1151,7 @@
             <summary>
             Ensures that the selected node is visible, if its not then the
             selection is moved to the first visible ancestor.
-            If no ansestors exist then its set to null
+            If no ancestors exist then its set to null
             </summary>
             <returns></returns>
         </member>
@@ -978,7 +1222,7 @@
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.Class">
             <summary>
-            The main toast class. Defaults to <see cref="!:MatToastClasses.Toast"/>
+            The main toast class. Defaults to <see cref="M:MatBlazor.MatToastClasses.#ctor"/>
             </summary>
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.MaximumOpacity">
@@ -993,7 +1237,7 @@
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.ShowStepDuration">
             <summary>
-            Interval between component repaint during the showing trantition. Defaults to 100 ms.
+            Interval between component repaint during the showing transition. Defaults to 100 ms.
             </summary>
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.VisibleStateDuration">
@@ -1008,12 +1252,12 @@
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.HideStepDuration">
             <summary>
-            Interval between component repaint during the hiding trantition. Defaults to 100 ms.
+            Interval between component repaint during the hiding transition. Defaults to 100 ms.
             </summary>
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.ShowProgressBar">
             <summary>
-            States if a progressbar has to be shown during the toast Visible state. Defaults to true.
+            States if a progress bar has to be shown during the toast Visible state. Defaults to true.
             </summary>
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.ProgressBarStepDuration">
@@ -1023,7 +1267,7 @@
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.ShowCloseButton">
             <summary>
-            States if the close button has to be used for hiding a toast. The button presence disables the default "hide on click" behaviour. Defaults to true.
+            States if the close button has to be used for hiding a toast. The button presence disables the default "hide on click" behavior. Defaults to true.
             </summary>
         </member>
         <member name="P:MatBlazor.MatToastCommonOptions.CloseIcon">
@@ -1084,6 +1328,11 @@
         <member name="P:MatBlazor.MatToastOptions.Type">
             <summary>
             The <see cref="P:MatBlazor.MatToastOptions.Type"/>
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatNavSubMenuHeader.Title">
+            <summary>
+            The title shown.
             </summary>
         </member>
         <member name="P:MatBlazor.MatTable`1.PageSizes">

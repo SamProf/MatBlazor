@@ -1,0 +1,47 @@
+<DocMatProgressCircle></DocMatProgressCircle>
+
+<h3 class="mat-h5">Example</h3>
+<DemoContainer>
+    <Content>
+        <h3 class="mat-subtitle1">Small</h3>
+        <MatProgressCircle Indeterminate="true" Size="MatProgressCircleSize.Small" />
+
+        <h3 class="mat-subtitle1">Medium</h3>
+        <MatProgressCircle Indeterminate="true" Size="MatProgressCircleSize.Medium" />
+
+        <h3 class="mat-subtitle1">Large</h3>
+        <MatProgressCircle Indeterminate="true" Size="MatProgressCircleSize.Large" />
+
+        <h3 class="mat-subtitle1">Progress</h3>
+        <MatProgressCircle Indeterminate="false" Progress=".75" />
+
+        <h3 class="mat-subtitle1">Four Colored</h3>
+        <MatProgressCircle Indeterminate="true" FourColored="true" />
+
+        <h3 class="mat-subtitle1">Closed</h3>
+        <MatProgressCircle Closed="true" />
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <h3 class=""mat-subtitle1"">Small</h3>
+        <MatProgressCircle Indeterminate=""true"" Size=""MatProgressCircleSize.Small"" />
+
+        <h3 class=""mat-subtitle1"">Medium</h3>
+        <MatProgressCircle Indeterminate=""true"" Size=""MatProgressCircleSize.Medium"" />
+
+        <h3 class=""mat-subtitle1"">Large</h3>
+        <MatProgressCircle Indeterminate=""true"" Size=""MatProgressCircleSize.Large"" />
+
+        <h3 class=""mat-subtitle1"">Progress</h3>
+        <MatProgressCircle Indeterminate=""false"" Progress="".75"" />
+
+        <h3 class=""mat-subtitle1"">Four Colored</h3>
+        <MatProgressCircle Indeterminate=""true"" FourColored=""true"" />
+
+        <h3 class=""mat-subtitle1"">Closed</h3>
+        <MatProgressCircle Closed=""true"" />
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using Microsoft.AspNetCore.Components;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
@@ -13,8 +12,6 @@ namespace MatBlazor
     {
         private string _searchTermFieldPlaceHolder = null;
         private string _searchTermFieldLabel = null;
-        private string _headerRowClass = null;
-        private string _rowClass = null;
         public BaseTableRow Current { get; private set; }
         #region Private Fields
 
@@ -175,6 +172,11 @@ namespace MatBlazor
                 .If("mdc-table--striped", () => this.Striped);
         }
 
+        /// <summary>
+        /// Action to execute on row item
+        /// </summary>
+        [Parameter]
+        public EventCallback<object> OnRowDbClick { get; set; }
 
         #region Helpers
         public async Task ToggleSelectedAsync(BaseTableRow row)
@@ -262,5 +264,17 @@ namespace MatBlazor
         }
 
         #endregion
+
+        #region events
+
+        protected void OnRowDbClickHandler(object item)
+        {
+            if (OnRowDbClick.HasDelegate)
+            {
+                OnRowDbClick.InvokeAsync(item);
+            }
+        }
+
+        #endregion events
     }
 }

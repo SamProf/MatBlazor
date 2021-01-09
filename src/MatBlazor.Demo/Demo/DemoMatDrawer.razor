@@ -81,7 +81,7 @@
 </DemoContainer>
 
 
-<h5 class="mat-h5">Responsive</h5>
+<h5 class="mat-h5">Responsive with Custom Width</h5>
 <DemoContainer SourcePath=".\..\..\MatBlazor.Demo\Frames\MatDrawerResponsivePageFrame.razor">
     <Content>
         <iframe src="MatDrawerResponsiveFrame" style="width: 100%; height: 50%;"></iframe>
@@ -90,17 +90,17 @@
     	<BlazorFiddle Template="MatBlazor" Code=@(@"@page ""/MatDrawerResponsiveFrame""
 
 
-<MatDrawerContainer Style=""width: 100vw; height: 100vh;"">
+<MatDrawerContainer Style=""height: 100vh;"" DrawerWidth=""400px"">
     <MatHidden Breakpoint=""@MatBreakpoint.SM"" Direction=""@MatHiddenDirection.Up"">
         <ChildContent>
             <MatDrawer @bind-Opened=""@Opened"" Mode=""@MatDrawerMode.Modal"">
-                Drawer Content
+               Drawer Content
             </MatDrawer>
         </ChildContent>
 
         <ElseContent>
             <MatDrawer @bind-Opened=""@Opened"" Mode=""@MatDrawerMode.Dismissible"">
-                Drawer Content
+                400px Custom Width Drawer Content
             </MatDrawer>
         </ElseContent>
     </MatHidden>

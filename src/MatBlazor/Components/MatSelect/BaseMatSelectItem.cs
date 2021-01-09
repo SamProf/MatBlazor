@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Components;
-
-namespace MatBlazor
+﻿namespace MatBlazor
 {
     public class BaseMatSelectItem<TValue> : CoreMatSelectValue<TValue, TValue>
     {

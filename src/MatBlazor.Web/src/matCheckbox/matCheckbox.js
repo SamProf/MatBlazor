@@ -15,9 +15,7 @@ export function init(ref, componentRef) {
 }
 
 
-export function setIndeterminate(ref, value, indeterminate) {
-  var self = getMatBlazorInstance(ref);
-  if (value == null && indeterminate) {
-    self.checkbox.indeterminate = true;
-  }
+export function setIndeterminate(ref, value) {
+  var self = getMatBlazorInstance(ref); 
+  self.checkbox.indeterminate = value; 
 }

@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
+using System.Threading.Tasks;
 
 namespace MatBlazor
 {
@@ -8,10 +8,6 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatMenu : BaseMatDomComponent
     {
-        private bool _opened;
-        private bool _menuOpen;
-
-
         public BaseMatMenu()
         {
             ClassMapper.Add("mdc-menu mdc-menu-surface");

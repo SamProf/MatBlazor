@@ -4,42 +4,11 @@
 @inject IJSRuntime JsRuntime;
 @inject DemoUserService service;
 
-
-
-<h1>Selected Tab: @service.ActiveTabIndex</h1>
-
-<MatTabGroup @bind-ActiveIndex="@service.ActiveTabIndex">
-    <MatTab Label="First">
-        First Content
-    </MatTab>
-    <MatTab Label="Second">
-        Second Content
-    </MatTab>
-    <MatTab>
-        <LabelContent>
-            Third <MatIcon Icon="@MatIconNames.Close"></MatIcon>
-        </LabelContent>
-        <ChildContent>
-            Third Content
-        </ChildContent>
-    </MatTab>
-
-</MatTabGroup>
-
+<p>
+    <MatDatePicker @bind-Value="@Date1" Locale="ru"></MatDatePicker>
+</p>
 
 @code
 {
-    // int activeTab = 0;
-    //
-    // int ActiveTab
-    // {
-    //     get
-    //     {
-    //         return activeTab;
-    //     }
-    //     set
-    //     {
-    //         activeTab = value;
-    //     }
-    // }
+    DateTime Date1 = DateTime.Now;
 }

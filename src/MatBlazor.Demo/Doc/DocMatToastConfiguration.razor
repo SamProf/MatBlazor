@@ -4,11 +4,11 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatToastConfiguration</h3> } else { <h5 class="mat-h5">MatToastConfiguration</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>Represents the global  instance</p>
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
@@ -27,7 +27,7 @@
 	<tr>
 		<td>HideStepDuration</td>
 		<td>Int32</td>
-		<td>Interval between component repaint during the hiding trantition. Defaults to 100 ms.</td>
+		<td>Interval between component repaint during the hiding transition. Defaults to 100 ms.</td>
 	</tr>
 	<tr>
 		<td>HideTransitionDuration</td>
@@ -72,17 +72,17 @@
 	<tr>
 		<td>ShowCloseButton</td>
 		<td>Boolean</td>
-		<td>States if the close button has to be used for hiding a toast. The button presence disables the default &quot;hide on click&quot; behaviour. Defaults to true.</td>
+		<td>States if the close button has to be used for hiding a toast. The button presence disables the default &quot;hide on click&quot; behavior. Defaults to true.</td>
 	</tr>
 	<tr>
 		<td>ShowProgressBar</td>
 		<td>Boolean</td>
-		<td>States if a progressbar has to be shown during the toast Visible state. Defaults to true.</td>
+		<td>States if a progress bar has to be shown during the toast Visible state. Defaults to true.</td>
 	</tr>
 	<tr>
 		<td>ShowStepDuration</td>
 		<td>Int32</td>
-		<td>Interval between component repaint during the showing trantition. Defaults to 100 ms.</td>
+		<td>Interval between component repaint during the showing transition. Defaults to 100 ms.</td>
 	</tr>
 	<tr>
 		<td>ShowTransitionDuration</td>
@@ -95,3 +95,12 @@
 		<td>How long the toast remain visible without user interaction. Defaults to 5000 ms.</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatToastConfiguration";
+
+}

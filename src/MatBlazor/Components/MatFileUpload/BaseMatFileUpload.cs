@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
+using System;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
@@ -17,6 +15,9 @@ namespace MatBlazor
         public EventCallback<IMatFileUploadEntry[]> OnChange { get; set; }
 
         [Parameter]
+        public bool AllowMultiple { get; set; } = false; 
+
+        [Parameter]
         public string Label { get; set; } = "Drop files here or Browse";
 
         [Parameter]
@@ -25,7 +26,7 @@ namespace MatBlazor
         [Parameter]
         public int MaxMessageLength { get; set; } = 3;
 
-        MatDotNetObjectReference<BaseMatFileUpload> jsHelper;
+        private readonly MatDotNetObjectReference<BaseMatFileUpload> jsHelper;
 
 
         protected long ProgressProgress;

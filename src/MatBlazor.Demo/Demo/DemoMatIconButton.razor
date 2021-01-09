@@ -11,7 +11,7 @@
         <h4 class="mat-subtitle1">Simple use</h4>
         <MatIconButton Icon="favorite" OnClick="@RunOnClick"></MatIconButton>
 
-        <h5 class="mat-subtitle1">With Font-Awsome Icons</h5>
+        <h5 class="mat-subtitle1">With Font-Awesome Icons</h5>
         <MatIconButton>
             <i class="fa fa-github" aria-hidden="true"></i>
         </MatIconButton>
@@ -21,7 +21,13 @@
             <MatIcon>@MatIconNames.Touch_app</MatIcon>
         </MatIconButton>
 
-        <h5 class="mat-subtitle1">With Font-Awsome Icons and Link in a new Window  - Target Defined</h5>
+        <h5 class="mat-subtitle1">With href link</h5>
+        <MatIconButton Link="/Checkbox" Icon="refresh"></MatIconButton>
+
+        <h5 class="mat-subtitle1">With ForceLoad href link</h5>
+        <MatIconButton Link="/Checkbox" ForceLoad="true" Icon="refresh"></MatIconButton>
+
+        <h5 class="mat-subtitle1">With Font-Awesome Icons and Link in a new Window  - Target Defined</h5>
         <MatIconButton Link="https://github.com/BlazorComponents/MatBlazor" Target="_blank">
             <MatIcon>@MatIconNames.Touch_app</MatIcon>
         </MatIconButton>
@@ -30,6 +36,7 @@
         <MatIconButton Link="/TextField" Target="_blank">
             <MatIcon>@MatIconNames.Touch_app</MatIcon>
         </MatIconButton>
+
 
         @code
         {
@@ -50,7 +57,7 @@
         <h4 class=""mat-subtitle1"">Simple use</h4>
         <MatIconButton Icon=""favorite"" OnClick=""@RunOnClick""></MatIconButton>
 
-        <h5 class=""mat-subtitle1"">With Font-Awsome Icons</h5>
+        <h5 class=""mat-subtitle1"">With Font-Awesome Icons</h5>
         <MatIconButton>
             <i class=""fa fa-github"" aria-hidden=""true""></i>
         </MatIconButton>
@@ -60,7 +67,13 @@
             <MatIcon>@MatIconNames.Touch_app</MatIcon>
         </MatIconButton>
 
-        <h5 class=""mat-subtitle1"">With Font-Awsome Icons and Link in a new Window  - Target Defined</h5>
+        <h5 class=""mat-subtitle1"">With href link</h5>
+        <MatIconButton Link=""/Checkbox"" Icon=""refresh""></MatIconButton>
+
+        <h5 class=""mat-subtitle1"">With ForceLoad href link</h5>
+        <MatIconButton Link=""/Checkbox"" ForceLoad=""true"" Icon=""refresh""></MatIconButton>
+
+        <h5 class=""mat-subtitle1"">With Font-Awesome Icons and Link in a new Window  - Target Defined</h5>
         <MatIconButton Link=""https://github.com/BlazorComponents/MatBlazor"" Target=""_blank"">
             <MatIcon>@MatIconNames.Touch_app</MatIcon>
         </MatIconButton>
@@ -69,6 +82,7 @@
         <MatIconButton Link=""/TextField"" Target=""_blank"">
             <MatIcon>@MatIconNames.Touch_app</MatIcon>
         </MatIconButton>
+
 
         @code
         {
@@ -88,8 +102,6 @@
 <h5 class="mat-h5">Toggle Icon Button</h5>
 <DemoContainer>
     <Content>
-        @using Microsoft.AspNetCore.Components
-
         <h5 class="mat-subtitle1">Toggled</h5>
         <MatIconButton Icon="favorite_border" ToggleIcon="favorite">
         </MatIconButton>
@@ -102,6 +114,8 @@
         <MatIconButton Icon="favorite_border" ToggleIcon="favorite" @bind-Toggled="@toggledValue">
         </MatIconButton>
 
+
+
         @code
         {
             bool toggledValue;
@@ -110,8 +124,6 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        @using Microsoft.AspNetCore.Components
-
         <h5 class=""mat-subtitle1"">Toggled</h5>
         <MatIconButton Icon=""favorite_border"" ToggleIcon=""favorite"">
         </MatIconButton>
@@ -123,6 +135,8 @@
         <h5 class=""mat-subtitle1"">Bind Toggled: @toggledValue</h5>
         <MatIconButton Icon=""favorite_border"" ToggleIcon=""favorite"" @bind-Toggled=""@toggledValue"">
         </MatIconButton>
+
+
 
         @code
         {

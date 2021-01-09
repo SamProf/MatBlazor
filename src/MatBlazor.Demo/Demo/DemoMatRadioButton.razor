@@ -218,15 +218,15 @@
 <h5 class="mat-h5">Enum</h5>
 <DemoContainer>
     <Content>
-        <MatRadioGroup @bind-Value="@sex" Items="@(Enum.GetValues(typeof(Sex)).Cast<Sex>())">
+        <MatRadioGroup @bind-Value="@gender" Items="@(Enum.GetValues(typeof(Gender)).Cast<Gender>())">
         </MatRadioGroup>
 
 
         @code
         {
-            Sex sex;
+            Gender gender;
 
-            enum Sex
+            enum Gender
             {
                 None,
                 Male,
@@ -239,15 +239,15 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatRadioGroup @bind-Value=""@sex"" Items=""@(Enum.GetValues(typeof(Sex)).Cast<Sex>())"">
+        <MatRadioGroup @bind-Value=""@gender"" Items=""@(Enum.GetValues(typeof(Gender)).Cast<Gender>())"">
         </MatRadioGroup>
 
 
         @code
         {
-            Sex sex;
+            Gender gender;
 
-            enum Sex
+            enum Gender
             {
                 None,
                 Male,

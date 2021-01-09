@@ -1,7 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System.Threading.Tasks;
 
 namespace MatBlazor
 {
@@ -47,21 +46,18 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<bool> OpenedChanged { get; set; }
 
-
         private DotNetObjectReference<BaseMatDrawer> dotNetObjectRef;
         public BaseMatDrawer()
         {
-            
             ClassMapper
                 .Add("mdc-drawer")
                 .Add("mat-drawer")
                 .If("mdc-drawer--dismissible", () => Mode == MatDrawerMode.Dismissible)
                 .If("mdc-drawer--modal", () => Mode == MatDrawerMode.Modal);
 
-
             this.CallAfterRender(async () =>
             {
-                dotNetObjectRef = dotNetObjectRef ?? CreateDotNetObjectRef(this);
+                dotNetObjectRef ??= CreateDotNetObjectRef(this);
                 await JsInvokeAsync<object>("matBlazor.matDrawer.init", Ref, dotNetObjectRef);
             });
         }

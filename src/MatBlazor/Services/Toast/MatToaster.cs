@@ -18,7 +18,10 @@ namespace MatBlazor
 
         public MatToast Add(string message, MatToastType type, string title, string icon, Action<MatToastOptions> configure)
         {
-            if (string.IsNullOrEmpty(message)) return null;
+            if (string.IsNullOrEmpty(message))
+            {
+                return null;
+            }
 
             message = message.Trim();
             title = string.IsNullOrEmpty(title) ? "" : title.Trim();

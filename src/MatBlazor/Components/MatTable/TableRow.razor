@@ -4,7 +4,7 @@
 @using Microsoft.AspNetCore.Components
 
 <CascadingValue Value="@this">
-    <tr class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @key="ChildContent" @onclick="OnClickHandler" @attributes="Attributes" Id="@Id">
+    <tr class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @onclick="OnClickHandler" @attributes="Attributes" Id="@Id">
         @ChildContent
     </tr>
 </CascadingValue>

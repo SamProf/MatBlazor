@@ -1,0 +1,32 @@
+﻿@namespace MatBlazor
+@using Microsoft.AspNetCore.Components.Forms
+
+
+<MatDialogTitle>@Message</MatDialogTitle>
+<MatDialogContent>
+    <EditForm Model="@this" OnValidSubmit="@HandleValidSubmit">
+        <MatTextField @bind-Value="@Value"></MatTextField>
+    </EditForm>
+</MatDialogContent>
+<MatDialogActions>
+    <MatButton OnClick="@(_ => DialogReference.Close(Value ?? string.Empty))">OK</MatButton>
+    <MatButton OnClick="@(_ => DialogReference.Close(null))">Cancel</MatButton>
+</MatDialogActions>
+
+@code
+{
+    [CascadingParameter]
+    public MatDialogReference DialogReference { get; set; }
+
+    [Parameter]
+    public string Message { get; set; }
+
+    [Parameter]
+    public string Value { get; set; }
+
+
+    private void HandleValidSubmit()
+    {
+        DialogReference.Close(Value ?? string.Empty);
+    }
+}

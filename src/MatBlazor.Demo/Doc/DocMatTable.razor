@@ -4,11 +4,11 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatTable</h3> } else { <h5 class="mat-h5">MatTable</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>Mat Table display a table data.</p>
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
@@ -88,6 +88,11 @@
 		<td>MatTableRow</td>
 		<td>RenderFragment&lt;TableItem&gt;</td>
 		<td></td>
+	</tr>
+	<tr>
+		<td>OnRowDbClick</td>
+		<td>EventCallback&lt;Object&gt;</td>
+		<td>Action to execute on row item</td>
 	</tr>
 	<tr>
 		<td>PageLabel</td>
@@ -205,3 +210,12 @@
 		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatTable";
+
+}

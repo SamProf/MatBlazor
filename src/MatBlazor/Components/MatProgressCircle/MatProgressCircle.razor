@@ -1,0 +1,31 @@
+@namespace MatBlazor
+@using System.Globalization
+@inherits BaseMatProgressCircle
+
+<div role="progressbar" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="@Attributes" Id="@Id">
+    <div class="mdc-circular-progress__determinate-container">
+        <svg class="mdc-circular-progress__determinate-circle-graphic" viewBox="@SvgSize.ViewBox" xmlns="http://www.w3.org/2000/svg">
+            <circle class="mdc-circular-progress__determinate-circle" cx="@SvgSize.CoordinatesX" cy="@SvgSize.CoordinatesY" r="@SvgSize.Radius.ToString(CultureInfo.InvariantCulture)" stroke-dasharray="@SvgSize.StokeDasharray.ToString(CultureInfo.InvariantCulture)" stroke-dashoffset="@SvgSize.StokeDasharray.ToString(CultureInfo.InvariantCulture)" />
+        </svg>
+    </div>
+    <div class="mdc-circular-progress__indeterminate-container">
+        @for (int i = 1; i <= SpinnerLayerCount; i++)
+        {
+            <div class="mdc-circular-progress__spinner-layer @(FourColored ? $"mdc-circular-progress__color-{i}" : string.Empty)">
+                <div class="mdc-circular-progress__circle-clipper mdc-circular-progress__circle-left">
+                    <svg class="mdc-circular-progress__indeterminate-circle-graphic" viewBox="@SvgSize.ViewBox" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="@SvgSize.CoordinatesX" cy="@SvgSize.CoordinatesY" r="@SvgSize.Radius.ToString(CultureInfo.InvariantCulture)" stroke-dasharray="@SvgSize.StokeDasharray.ToString(CultureInfo.InvariantCulture)" stroke-dashoffset="@SvgSize.StokeDashoffset.ToString(CultureInfo.InvariantCulture)" />
+                    </svg>
+                </div><div class="mdc-circular-progress__gap-patch">
+                    <svg class="mdc-circular-progress__indeterminate-circle-graphic" viewBox="@SvgSize.ViewBox" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="@SvgSize.CoordinatesX" cy="@SvgSize.CoordinatesY" r="@SvgSize.Radius.ToString(CultureInfo.InvariantCulture)" stroke-dasharray="@SvgSize.StokeDasharray.ToString(CultureInfo.InvariantCulture)" stroke-dashoffset="@SvgSize.StokeDashoffset.ToString(CultureInfo.InvariantCulture)" />
+                    </svg>
+                </div><div class="mdc-circular-progress__circle-clipper mdc-circular-progress__circle-right">
+                    <svg class="mdc-circular-progress__indeterminate-circle-graphic" viewBox="@SvgSize.ViewBox" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="@SvgSize.CoordinatesX" cy="@SvgSize.CoordinatesY" r="@SvgSize.Radius.ToString(CultureInfo.InvariantCulture)" stroke-dasharray="@SvgSize.StokeDasharray.ToString(CultureInfo.InvariantCulture)" stroke-dashoffset="@SvgSize.StokeDashoffset.ToString(CultureInfo.InvariantCulture)" />
+                    </svg>
+                </div>
+            </div>
+        }
+    </div>
+</div>

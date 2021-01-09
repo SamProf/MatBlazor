@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Components
 @inherits BaseMatDomComponent
 
-<div class="@ClassMapper.AsString()" @ref="Ref"  style="@StyleMapper.AsString()" @onclick="OnClickHandler" @attributes="Attributes" Id="@Id">
+<div class="@ClassMapper.AsString()" @ref="Ref"  style="@StyleMapper.AsString()" @onclick="OnClickHandler" @attributes="Attributes" Id="@Id" title="@Title">
     @ChildContent
     <span class="after material-icon mdc-sub-menu-icon"
           style="@ToggleIconStyle">&#58131;</span>
@@ -15,6 +15,12 @@
 
     [CascadingParameter]
     public BaseMatNavSubMenu NavSubMenu { get; set; }
+
+    /// <summary>
+    /// The title shown.
+    /// </summary>
+    [Parameter]
+    public string Title { get; set; } = null;
 
     // Forces the toggle icon to collapsed state even when parent is expanded
     protected string ToggleIconStyle => NavSubMenu.Expanded ? "" : "transform: none !important";
@@ -29,7 +35,7 @@
         CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matAccordion.initSummary", Ref); });
     }
 
-    protected async void OnClickHandler(MouseEventArgs e)
+    protected void OnClickHandler(MouseEventArgs e)
     {
         this.NavSubMenu.ToggleAsync();
     }

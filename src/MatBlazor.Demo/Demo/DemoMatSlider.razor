@@ -94,15 +94,16 @@
 </DemoContainer>
 
 
-<h5 class="mat-h5">Discrete Slider: @Val3</h5>
+<h5 class="mat-h5">Discrete Slider with Pin: @Val3</h5>
+<p>Pin will round to nearest 3 digit. Pin only works with Discrete.</p>
 <DemoContainer>
     <Content>
-        <MatSlider @bind-Value="@Val3" Discrete="true"></MatSlider>
+        <MatSlider @bind-Value="@Val3" Discrete="true" Pin="true" TValue="int" ValueMin="0" ValueMax="50"></MatSlider>
 
         @code
         {
 
-            public decimal Val3
+            public int Val3
             {
                 get => _val3;
                 set
@@ -112,18 +113,18 @@
                 }
             }
 
-            private decimal _val3 = 0;
+            private int _val3 = 0;
         }
 
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSlider @bind-Value=""@Val3"" Discrete=""true""></MatSlider>
+        <MatSlider @bind-Value=""@Val3"" Discrete=""true"" Pin=""true"" TValue=""int"" ValueMin=""0"" ValueMax=""50""></MatSlider>
 
         @code
         {
 
-            public decimal Val3
+            public int Val3
             {
                 get => _val3;
                 set
@@ -133,60 +134,107 @@
                 }
             }
 
-            private decimal _val3 = 0;
+            private int _val3 = 0;
         }
 
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>
 
-<h5 class="mat-h5">Using a step value</h5>
+<h5 class="mat-h5">Using a step value and Pin</h5>
+<p>Markers only work with Discrete</p>
+<DemoContainer>
+    <Content>
+        <MatSlider @bind-Value="@Val4" Step="5" EnableStep="true" ValueMin="0" ValueMax="100" Markers="true" Pin="true" TValue="int" Discrete="true"></MatSlider>
 
-    <DemoContainer>
-        <Content>
-            <MatSlider @bind-Value="@Val4" Step="5" EnableStep="true" ValueMin="0" ValueMax="100"></MatSlider>
+        @code
+        {
 
-            @code
+            public int Val4
             {
-
-                public decimal Val4
+                get => _val4;
+                set
                 {
-                    get => _val4;
-                    set
-                    {
-                        _val4 = value;
-                        this.StateHasChanged();
-                    }
+                    _val4 = value;
+                    this.StateHasChanged();
                 }
-
-                private decimal _val4 = 0;
             }
 
-        </Content>
-        <SourceContent>
-        	<BlazorFiddle Template="MatBlazor" Code=@(@"
-            <MatSlider @bind-Value=""@Val4"" Step=""5"" EnableStep=""true"" ValueMin=""0"" ValueMax=""100""></MatSlider>
+            private int _val4 = 0;
+        }
 
-            @code
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlider @bind-Value=""@Val4"" Step=""5"" EnableStep=""true"" ValueMin=""0"" ValueMax=""100"" Markers=""true"" Pin=""true"" TValue=""int"" Discrete=""true""></MatSlider>
+
+        @code
+        {
+
+            public int Val4
             {
-
-                public decimal Val4
+                get => _val4;
+                set
                 {
-                    get => _val4;
-                    set
-                    {
-                        _val4 = value;
-                        this.StateHasChanged();
-                    }
+                    _val4 = value;
+                    this.StateHasChanged();
                 }
-
-                private decimal _val4 = 0;
             }
 
-        ")></BlazorFiddle>
-        </SourceContent>
+            private int _val4 = 0;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
 </DemoContainer>
-    
+
+
+<h5 class="mat-h5">Immediate changes: @Val5</h5>
+<p>Changes to the slider will immediately reflect in changes to the value.</p>
+<DemoContainer>
+    <Content>
+        <MatSlider @bind-Value="@Val5" Immediate="true" Discrete="true" Pin="true" TValue="int" ValueMin="0" ValueMax="50"></MatSlider>
+
+        @code
+        {
+
+            public int Val5
+            {
+                get => _val5;
+                set
+                {
+                    _val5 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private int _val5 = 0;
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSlider @bind-Value=""@Val5"" Immediate=""true"" Discrete=""true"" Pin=""true"" TValue=""int"" ValueMin=""0"" ValueMax=""50""></MatSlider>
+
+        @code
+        {
+
+            public int Val5
+            {
+                get => _val5;
+                set
+                {
+                    _val5 = value;
+                    this.StateHasChanged();
+                }
+            }
+
+            private int _val5 = 0;
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
 
 
 <h5 class="mat-h5">Disabled sliders</h5>
@@ -228,6 +276,54 @@
             public void OnValueChanged(decimal val)
             {
                 Console.WriteLine($""OnValueChanged: {val}"");
+            }
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Value update</h5>
+<DemoContainer>
+    <Content>
+        <MatTextField @bind-Value="@Value" Label="Value"></MatTextField>
+        <MatTextField @bind-Value="@ValueMin" Label="ValueMin"></MatTextField>
+        <MatTextField @bind-Value="@ValueMax" Label="ValueMax"></MatTextField>
+        <MatSlider TValue="decimal" Value="@Value" ValueMin="@ValueMin" ValueMax="@ValueMax" ValueChanged="@OnValueChanged2"></MatSlider>
+
+        @code
+        {
+
+            public decimal Value { get; set; } = 50;
+            public decimal ValueMin { get; set; } = 0;
+            public decimal ValueMax { get; set; } = 100;
+
+            public void OnValueChanged2(decimal val)
+            {
+                Value = val;
+            }
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatTextField @bind-Value=""@Value"" Label=""Value""></MatTextField>
+        <MatTextField @bind-Value=""@ValueMin"" Label=""ValueMin""></MatTextField>
+        <MatTextField @bind-Value=""@ValueMax"" Label=""ValueMax""></MatTextField>
+        <MatSlider TValue=""decimal"" Value=""@Value"" ValueMin=""@ValueMin"" ValueMax=""@ValueMax"" ValueChanged=""@OnValueChanged2""></MatSlider>
+
+        @code
+        {
+
+            public decimal Value { get; set; } = 50;
+            public decimal ValueMin { get; set; } = 0;
+            public decimal ValueMax { get; set; } = 100;
+
+            public void OnValueChanged2(decimal val)
+            {
+                Value = val;
             }
 
         }

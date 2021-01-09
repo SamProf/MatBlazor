@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO;
+﻿using Microsoft.AspNetCore.Components;
+using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
-    
+
     /// <summary>
     /// The MatSortHeader and MatSortHeaderRow are used, respectively, to add sorting state and display to tabular data.
     /// </summary>
@@ -26,20 +25,13 @@ namespace MatBlazor
             {
                 if (string.Equals(sortId, SortId))
                 {
-                    switch (direction)
+                    direction = direction switch
                     {
-                        case MatSortDirection.None:
-                            direction = MatSortDirection.Asc;
-                            break;
-                        case MatSortDirection.Asc:
-                            direction = MatSortDirection.Desc;
-                            break;
-                        case MatSortDirection.Desc:
-                            direction = MatSortDirection.None;
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
+                        MatSortDirection.None => MatSortDirection.Asc,
+                        MatSortDirection.Asc => MatSortDirection.Desc,
+                        MatSortDirection.Desc => MatSortDirection.None,
+                        _ => throw new ArgumentOutOfRangeException(),
+                    };
                 }
                 else
                 {
@@ -79,18 +71,13 @@ namespace MatBlazor
                 return null;
             }
 
-            switch (Parent.Direction)
+            return Parent.Direction switch
             {
-                case MatSortDirection.None:
-                    return null;
-
-                case MatSortDirection.Asc:
-                    return MatIconNames.Arrow_downward;
-                case MatSortDirection.Desc:
-                    return MatIconNames.Arrow_upward;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+                MatSortDirection.None => null,
+                MatSortDirection.Asc => MatIconNames.Arrow_downward,
+                MatSortDirection.Desc => MatIconNames.Arrow_upward,
+                _ => throw new ArgumentOutOfRangeException(),
+            };
         }
     }
 }

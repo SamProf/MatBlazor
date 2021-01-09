@@ -1,8 +1,6 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using System.Threading.Tasks;
 
 namespace MatBlazor
 {
@@ -45,11 +43,11 @@ namespace MatBlazor
                 .If("mdc-table-row-selected", () => Selected);
         }
 
-        protected async void OnClickHandler(MouseEventArgs e)
+        protected void OnClickHandler(MouseEventArgs _)
         {
-            if (this.AllowSelection)
+            if (AllowSelection)
             {
-                await this.ToggleSelectedAsync();
+                ToggleSelectedAsync();
             }
         }
     }

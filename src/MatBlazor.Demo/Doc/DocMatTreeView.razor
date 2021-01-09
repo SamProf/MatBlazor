@@ -4,11 +4,11 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatTreeView</h3> } else { <h5 class="mat-h5">MatTreeView</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>Renders the data as a tree.</p>
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
@@ -65,3 +65,12 @@
 		<td>An event raised when the selected node changes</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatTreeView";
+
+}

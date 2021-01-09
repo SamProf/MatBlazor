@@ -36,7 +36,7 @@ namespace MatBlazor
         }
 
 
-        private List<ClassBuilderRule<T>> Rules = new List<ClassBuilderRule<T>>();
+        private readonly List<ClassBuilderRule<T>> Rules = new List<ClassBuilderRule<T>>();
 
         public string GetClasses(T data)
         {

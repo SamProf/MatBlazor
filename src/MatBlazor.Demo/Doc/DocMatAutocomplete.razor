@@ -4,11 +4,11 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatAutocomplete</h3> } else { <h5 class="mat-h5">MatAutocomplete</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>Base class for any input control that optionally supports an .</p>
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
@@ -240,3 +240,12 @@
 		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatAutocomplete";
+
+}

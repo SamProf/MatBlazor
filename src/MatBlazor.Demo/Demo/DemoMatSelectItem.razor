@@ -7,7 +7,7 @@
 <DemoContainer>
     <Content>
         <p>
-            <MatSelectItem @bind-Value="@value1" Items="@vlaue1Items"></MatSelectItem>
+            <MatSelectItem @bind-Value="@value1" Items="@value1Items"></MatSelectItem>
         </p>
         <p>
             Selected value: @value1
@@ -18,7 +18,7 @@
         {
             string value1 = "Grains";
 
-            string[] vlaue1Items = new[]
+            string[] value1Items = new[]
             {
                 "Grains",
                 "Vegetables",
@@ -31,7 +31,7 @@
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
         <p>
-            <MatSelectItem @bind-Value=""@value1"" Items=""@vlaue1Items""></MatSelectItem>
+            <MatSelectItem @bind-Value=""@value1"" Items=""@value1Items""></MatSelectItem>
         </p>
         <p>
             Selected value: @value1
@@ -42,7 +42,7 @@
         {
             string value1 = ""Grains"";
 
-            string[] vlaue1Items = new[]
+            string[] value1Items = new[]
             {
                 ""Grains"",
                 ""Vegetables"",

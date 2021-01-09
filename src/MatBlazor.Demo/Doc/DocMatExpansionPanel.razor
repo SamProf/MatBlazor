@@ -4,11 +4,11 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatExpansionPanel</h3> } else { <h5 class="mat-h5">MatExpansionPanel</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
 <p>MatExpansionPanel provides an expandable details-summary view.</p>
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
@@ -50,6 +50,11 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>LazyRendering</td>
+		<td>Boolean</td>
+		<td>Enables lazy rendering of the expansion panel details.</td>
+	</tr>
+	<tr>
 		<td>RefBack</td>
 		<td>ForwardRef</td>
 		<td></td>
@@ -65,3 +70,12 @@
 		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatExpansionPanel";
+
+}

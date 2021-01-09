@@ -4,13 +4,18 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">MatDataTableContent</h3> } else { <h5 class="mat-h5">MatDataTableContent</h5> }
+@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
 
-<div><table class="article-table mat-elevation-z5">
+<div><table class="article-table mat-elevation-z5 mdc-theme--surface">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
 		<th>Description</th>
+	</tr>
+	<tr>
+		<td style="font-weight: bold;">TItem</td>
+		<td>Generic argument</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>Attributes</td>
@@ -19,7 +24,7 @@
 	</tr>
 	<tr>
 		<td>ChildContent</td>
-		<td>RenderFragment</td>
+		<td>RenderFragment&lt;TItem&gt;</td>
 		<td>Child content of MatDataTableContent</td>
 	</tr>
 	<tr>
@@ -30,6 +35,11 @@
 	<tr>
 		<td>Id</td>
 		<td>String</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Items</td>
+		<td>IEnumerable&lt;TItem&gt;</td>
 		<td></td>
 	</tr>
 	<tr>
@@ -48,3 +58,12 @@
 		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>
+
+
+@code
+{
+
+	[Parameter]
+	public string Header { get; set; } = "MatDataTableContent";
+
+}

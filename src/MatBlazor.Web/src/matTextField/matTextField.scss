@@ -30,26 +30,74 @@ label.mdc-text-field--fullwidth-with-leading-icon:not(.mdc-text-field--textarea)
   padding: 10px 16px 6px 0 !important;
 }
 
-label.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > span.mdc-floating-label{
-  display:inline;
+label.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > span.mdc-floating-label {
+  display: inline;
 }
 
 .mat-floating-label--float-above-outlined {
-  background-color: var(--mdc-theme-surface, #fff) !important;
+  background-color: var(--mdc-theme-surface, transparent) !important;
 }
 
 /* For EditForm validation messages */
 .validation-message {
-  color: red;
+  color: red !important;
+}
+.mdc-text-field--outlined {
+  .mat-text-field-input.mdc-text-field__input {
+    &.invalid, &.valid.modified {
+      border-bottom: none !important;
+    }
+  }
+
+  .mdc-select__selected-text {
+    &.invalid, &.valid.modified {
+      border-bottom: none !important;
+    }
+  }
+}
+
+.mdc-select__selected-text.invalid {
+  border-bottom: none !important;
+}
+
+.invalid + .mdc-notched-outline > {
+  .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-color: red !important;
+  }
+}
+
+.valid.modified + .mdc-notched-outline > {
+  .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-color: green !important;
+  }
+}
+
+.invalid + i + .mdc-notched-outline > {
+  .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-color: red !important;
+  }
+}
+
+.valid.modified + i + .mdc-notched-outline > {
+  .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-color: green !important;
+  }
 }
 
 /* For TextField */
-.mdc-text-field__input.valid.modified {
-  border-bottom: 2px solid #10b510 !important;
-}
+.mat-text-field, .mat-select {
+  &.valid.modified {
+    .mdc-line-ripple::before
+    {
+      border-bottom: 1px solid #10b510 !important;
+    }
+  }
 
-.mdc-text-field__input.invalid {
-  border-bottom: 2px solid red !important;
+  &.invalid {
+    .mdc-line-ripple::before {
+      border-bottom: 1px solid red !important;
+    }
+  }
 }
 
 //.mdc-dialog__content > .mdc-text-field {
@@ -65,26 +113,31 @@ label.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > span.mdc-floati
 
 /* Label color to theme primary color */
 .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
-    color: var(--mdc-theme-primary, #6200ee);
+  color: var(--mdc-theme-primary, #6200ee);
 }
 
-/* For DatePicker */
-.valid.modified > .mdc-text-field__input {
-  border-bottom: 2px solid #10b510 !important;
+/* More specific selector for translating the label to top */
+.mdc-text-field.mdc-text-field--fullwidth .mdc-floating-label.mdc-floating-label--float-above {
+  transform: translateY(-106%) scale(0.75);
 }
 
-.invalid > .mdc-text-field__input {
-  border-bottom: 2px solid red !important;
-}
+///* For DatePicker */
+//.valid.modified > .mdc-text-field__input {
+//  border-bottom: 2px solid #10b510 !important;
+//}
+//
+//.mat-text-field.invalid > .mdc-text-field__input {
+//  border-bottom: 2px solid red !important;
+//}
 
 /* For Select */
-.mat-select {
-  .invalid {
-    border-bottom: 2px solid red !important;
-  }
-
-  .valid.modified {
-    border-bottom: 2px solid #10b510 !important;
-  }
-}
+//.mat-select {
+//  .invalid {
+//    border-bottom: 2px solid red !important;
+//  }
+//
+//  .valid.modified {
+//    border-bottom: 2px solid #10b510 !important;
+//  }
+//}
 

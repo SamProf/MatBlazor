@@ -1,0 +1,12 @@
+﻿@namespace MatBlazor
+@typeparam TRef
+
+@ChildContent(_context)
+
+@code
+{
+    private ForwardRef<TRef> _context = new ForwardRef<TRef>();
+
+    [Parameter]
+    public RenderFragment<ForwardRef<TRef>> ChildContent { get; set; }
+}
