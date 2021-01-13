@@ -9,26 +9,17 @@ namespace MatBlazor
             switch (direction)
             {
                 case MatHiddenDirection.Down:
-                    switch (breakpoint)
+                    return breakpoint switch
                     {
-                        case MatBreakpoint.XS:
-                            return width < (decimal) MatBreakpoint.SM;
-                        case MatBreakpoint.SM:
-                            return width < (decimal) MatBreakpoint.MD;
-                        case MatBreakpoint.MD:
-                            return width < (decimal) MatBreakpoint.LG;
-                        case MatBreakpoint.LG:
-                            return width < (decimal) MatBreakpoint.XL;
-                        case MatBreakpoint.XL:
-                            return true;
-                        default:
-                            throw new ArgumentOutOfRangeException(nameof(breakpoint), breakpoint, null);
-                    }
-
-                    break;
+                        MatBreakpoint.XS => width < (decimal)MatBreakpoint.SM,
+                        MatBreakpoint.SM => width < (decimal)MatBreakpoint.MD,
+                        MatBreakpoint.MD => width < (decimal)MatBreakpoint.LG,
+                        MatBreakpoint.LG => width < (decimal)MatBreakpoint.XL,
+                        MatBreakpoint.XL => true,
+                        _ => throw new ArgumentOutOfRangeException(nameof(breakpoint), breakpoint, null),
+                    };
                 case MatHiddenDirection.Up:
                     return width >= (decimal) breakpoint;
-                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
             }

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MatBlazor.Components.MatAutocompleteList;
+﻿using MatBlazor.Components.MatAutocompleteList;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MatBlazor
 {
@@ -207,8 +206,9 @@ namespace MatBlazor
         {
             if (ev.Key == null ||   // google autofill sends null key
                 ev.Key == "Tab")    // user navigates to next field
+            {
                 return;
-
+            }
             var currentIndex = await ListRef.GetSelectedIndex();
             var wasCurrentIndexChanged = false;
 

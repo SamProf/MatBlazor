@@ -1,9 +1,8 @@
-﻿using System;
-using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
@@ -47,8 +46,11 @@ namespace MatBlazor
 //        [Parameter]
         public string Mode { get; set; } = "single";
 
+        [Parameter]
+        public string Locale { get; set; } = "en";
+
         private DotNetObjectReference<MatDatePickerJsHelper> dotNetObjectRef;
-        private MatDatePickerJsHelper dotNetObject;
+        private readonly MatDatePickerJsHelper dotNetObject;
         protected ElementReference flatpickrInputRef;
 
         protected override bool InputTextReadOnly()
@@ -136,7 +138,8 @@ namespace MatBlazor
                             Minimum = this.EnableTime ? Minimum : Minimum?.Date,
                             Maximum = this.EnableTime ? Maximum : Maximum?.Date,
                             Value = SwitchT.ToDateTimeNull(CurrentValue),
-                        });
+                            Locale = this.Locale
+                        }) ;
                 });
             }
         }

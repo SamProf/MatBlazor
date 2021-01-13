@@ -40,17 +40,17 @@
                 </p>
 
                 <p>
-                    <MatSelect Label="Select" @bind-Value="myModel.Sex">
+                    <MatSelect Label="Select" @bind-Value="myModel.Gender">
                         <MatOptionString Value=""></MatOptionString>
                         <MatOptionString Value="M">M</MatOptionString>
                         <MatOptionString Value="W">W</MatOptionString>
                     </MatSelect>
                 </p>
                 <p>
-                    <MatSelectItem Label="SelectItem" @bind-Value="@myModel.Sex" Items="@SexItems"></MatSelectItem>
+                    <MatSelectItem Label="SelectItem" @bind-Value="@myModel.Gender" Items="@GenderItems"></MatSelectItem>
                 </p>
                 <p>
-                    <MatSelectValue Label="SelectValue" @bind-Value="@myModel.Sex" Items="@SexItems" ValueSelector="@(v => v)"></MatSelectValue>
+                    <MatSelectValue Label="SelectValue" @bind-Value="@myModel.Gender" Items="@GenderItems" ValueSelector="@(v => v)"></MatSelectValue>
                 </p>
 
                 <MatDivider/>
@@ -60,8 +60,13 @@
                                   HelperText="ValidationDisabled" HelperTextPersistent="true"/>
                 </p>
                 <p>
-                    <MatSelectItem Label="SelectItem" Value="@myModel.Sex" Items="@SexItems" ValidationDisabled="true" HelperText="ValidationDisabled"></MatSelectItem>
+                    <MatSelectItem Label="SelectItem" Value="@myModel.Gender" Items="@GenderItems" ValidationDisabled="true" HelperText="ValidationDisabled"></MatSelectItem>
                 </p>
+
+                <p>
+                    <MatAutocompleteList Items="@CarItems" TItem="string" Label="Pick car" @bind-Value="@myModel.Car"></MatAutocompleteList>
+                </p>
+
 
                 <ValidationSummary/>
             </div>
@@ -97,20 +102,20 @@
                     <ValidationMessage For="@(() => myModel.EndDate)"/>
                 </p>
                 <p>
-                    <MatSelect Label="Select" @bind-Value="myModel.Sex">
+                    <MatSelect Label="Select" @bind-Value="myModel.Gender">
                         <MatOptionString Value=""></MatOptionString>
                         <MatOptionString Value="M">M</MatOptionString>
                         <MatOptionString Value="W">W</MatOptionString>
                     </MatSelect>
-                    <ValidationMessage For="@(() => myModel.Sex)"/>
+                    <ValidationMessage For="@(() => myModel.Gender)"/>
                 </p>
                 <p>
-                    <MatSelectItem Label="SelectItem" @bind-Value="@myModel.Sex" Items="@SexItems"></MatSelectItem>
-                    <ValidationMessage For="@(() => myModel.Sex)"/>
+                    <MatSelectItem Label="SelectItem" @bind-Value="@myModel.Gender" Items="@GenderItems"></MatSelectItem>
+                    <ValidationMessage For="@(() => myModel.Gender)"/>
                 </p>
                 <p>
-                    <MatSelectValue Label="SelectValue" @bind-Value="@myModel.Sex" Items="@SexItems" ValueSelector="@(v => v)"></MatSelectValue>
-                    <ValidationMessage For="@(() => myModel.Sex)"/>
+                    <MatSelectValue Label="SelectValue" @bind-Value="@myModel.Gender" Items="@GenderItems" ValueSelector="@(v => v)"></MatSelectValue>
+                    <ValidationMessage For="@(() => myModel.Gender)"/>
                 </p>
 
 
@@ -132,17 +137,29 @@
 @code {
 
 
-    class SexDef
+    class GenderDef
     {
         public string Name { get; set; }
 
-        public SexDef(string name)
+        public GenderDef(string name)
         {
             Name = name;
         }
     }
 
-    string[] SexItems = new[]
+
+    string[] CarItems = new[]
+    {
+        "Volkswagen Golf",
+        "Volkswagen Passat",
+        "Volkswagen Polo",
+        "Ford Focus",
+        "Ford Fiesta",
+        "Ford Fusion",
+        "Ford Mondeo"
+    };
+
+    string[] GenderItems = new[]
     {
         "",
         "M",
@@ -177,7 +194,10 @@
         public string Password { get; set; }
 
         [Required]
-        public string Sex { get; set; }
+        public string Gender { get; set; }
+        
+        [Required]
+        public string Car { get; set; }
 
         [Required]
         [CustomValidation(typeof(LoginModel), nameof(RequiredDateTime))]
@@ -250,17 +270,17 @@
                 </p>
 
                 <p>
-                    <MatSelect Label=""Select"" @bind-Value=""myModel.Sex"">
+                    <MatSelect Label=""Select"" @bind-Value=""myModel.Gender"">
                         <MatOptionString Value=""""></MatOptionString>
                         <MatOptionString Value=""M"">M</MatOptionString>
                         <MatOptionString Value=""W"">W</MatOptionString>
                     </MatSelect>
                 </p>
                 <p>
-                    <MatSelectItem Label=""SelectItem"" @bind-Value=""@myModel.Sex"" Items=""@SexItems""></MatSelectItem>
+                    <MatSelectItem Label=""SelectItem"" @bind-Value=""@myModel.Gender"" Items=""@GenderItems""></MatSelectItem>
                 </p>
                 <p>
-                    <MatSelectValue Label=""SelectValue"" @bind-Value=""@myModel.Sex"" Items=""@SexItems"" ValueSelector=""@(v => v)""></MatSelectValue>
+                    <MatSelectValue Label=""SelectValue"" @bind-Value=""@myModel.Gender"" Items=""@GenderItems"" ValueSelector=""@(v => v)""></MatSelectValue>
                 </p>
 
                 <MatDivider/>
@@ -270,8 +290,13 @@
                                   HelperText=""ValidationDisabled"" HelperTextPersistent=""true""/>
                 </p>
                 <p>
-                    <MatSelectItem Label=""SelectItem"" Value=""@myModel.Sex"" Items=""@SexItems"" ValidationDisabled=""true"" HelperText=""ValidationDisabled""></MatSelectItem>
+                    <MatSelectItem Label=""SelectItem"" Value=""@myModel.Gender"" Items=""@GenderItems"" ValidationDisabled=""true"" HelperText=""ValidationDisabled""></MatSelectItem>
                 </p>
+
+                <p>
+                    <MatAutocompleteList Items=""@CarItems"" TItem=""string"" Label=""Pick car"" @bind-Value=""@myModel.Car""></MatAutocompleteList>
+                </p>
+
 
                 <ValidationSummary/>
             </div>
@@ -307,20 +332,20 @@
                     <ValidationMessage For=""@(() => myModel.EndDate)""/>
                 </p>
                 <p>
-                    <MatSelect Label=""Select"" @bind-Value=""myModel.Sex"">
+                    <MatSelect Label=""Select"" @bind-Value=""myModel.Gender"">
                         <MatOptionString Value=""""></MatOptionString>
                         <MatOptionString Value=""M"">M</MatOptionString>
                         <MatOptionString Value=""W"">W</MatOptionString>
                     </MatSelect>
-                    <ValidationMessage For=""@(() => myModel.Sex)""/>
+                    <ValidationMessage For=""@(() => myModel.Gender)""/>
                 </p>
                 <p>
-                    <MatSelectItem Label=""SelectItem"" @bind-Value=""@myModel.Sex"" Items=""@SexItems""></MatSelectItem>
-                    <ValidationMessage For=""@(() => myModel.Sex)""/>
+                    <MatSelectItem Label=""SelectItem"" @bind-Value=""@myModel.Gender"" Items=""@GenderItems""></MatSelectItem>
+                    <ValidationMessage For=""@(() => myModel.Gender)""/>
                 </p>
                 <p>
-                    <MatSelectValue Label=""SelectValue"" @bind-Value=""@myModel.Sex"" Items=""@SexItems"" ValueSelector=""@(v => v)""></MatSelectValue>
-                    <ValidationMessage For=""@(() => myModel.Sex)""/>
+                    <MatSelectValue Label=""SelectValue"" @bind-Value=""@myModel.Gender"" Items=""@GenderItems"" ValueSelector=""@(v => v)""></MatSelectValue>
+                    <ValidationMessage For=""@(() => myModel.Gender)""/>
                 </p>
 
 
@@ -342,17 +367,29 @@
 @code {
 
 
-    class SexDef
+    class GenderDef
     {
         public string Name { get; set; }
 
-        public SexDef(string name)
+        public GenderDef(string name)
         {
             Name = name;
         }
     }
 
-    string[] SexItems = new[]
+
+    string[] CarItems = new[]
+    {
+        ""Volkswagen Golf"",
+        ""Volkswagen Passat"",
+        ""Volkswagen Polo"",
+        ""Ford Focus"",
+        ""Ford Fiesta"",
+        ""Ford Fusion"",
+        ""Ford Mondeo""
+    };
+
+    string[] GenderItems = new[]
     {
         """",
         ""M"",
@@ -387,7 +424,10 @@
         public string Password { get; set; }
 
         [Required]
-        public string Sex { get; set; }
+        public string Gender { get; set; }
+        
+        [Required]
+        public string Car { get; set; }
 
         [Required]
         [CustomValidation(typeof(LoginModel), nameof(RequiredDateTime))]

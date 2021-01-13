@@ -14,11 +14,11 @@ namespace MatBlazor
         protected bool Rendered { get; private set; }
 
 
-        private Queue<Func<Task>> afterRenderCallQuene = new Queue<Func<Task>>();
+        private readonly Queue<Func<Task>> afterRenderCallQueue = new Queue<Func<Task>>();
 
         protected void CallAfterRender(Func<Task> action)
         {
-            afterRenderCallQuene.Enqueue(action);
+            afterRenderCallQueue.Enqueue(action);
         }
 
 
@@ -31,10 +31,10 @@ namespace MatBlazor
                 await OnFirstAfterRenderAsync();
             }
 
-            if (afterRenderCallQuene.Count > 0)
+            if (afterRenderCallQueue.Count > 0)
             {
-                var actions = afterRenderCallQuene.ToArray();
-                afterRenderCallQuene.Clear();
+                var actions = afterRenderCallQueue.ToArray();
+                afterRenderCallQueue.Clear();
 
                 foreach (var action in actions)
                 {
@@ -64,7 +64,7 @@ namespace MatBlazor
 
         protected bool Disposed { get; private set; }
 
-        protected void InvokeStateHasChanged()
+        public void InvokeStateHasChanged()
         {
             InvokeAsync(() =>
             {
@@ -75,9 +75,8 @@ namespace MatBlazor
                         StateHasChanged();
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    //
                 }
             });
         }
@@ -97,9 +96,6 @@ namespace MatBlazor
                 Console.WriteLine(e);
                 throw;
             }
-
-
-            return default(T);
         }
 
         #region Hack to fix https: //github.com/aspnet/AspNetCore/issues/11159

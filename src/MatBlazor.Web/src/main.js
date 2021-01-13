@@ -19,6 +19,7 @@ import * as matTypography from './matTypography/matTypography';
 import * as matElevation from './matElevation/matElevation';
 import * as matAutocompleteList from './matAutocompleteList/matAutocompleteList';
 import * as matProgressBar from './matProgressBar/matProgressBar';
+import * as matProgressCircle from './matProgressCircle/matProgressCircle';
 import * as matDialog from './matDialog/matDialog';
 import * as matLayoutGrid from './matLayoutGrid/matLayoutGrid';
 import * as matRipple from './matRipple/matRipple';
@@ -57,6 +58,7 @@ window.matBlazor = {
   matTypography,
   matElevation,
   matProgressBar,
+  matProgressCircle,
   matDialog,
   matLayoutGrid,
   matRipple,
@@ -71,7 +73,5 @@ window.matBlazor = {
   matFileUpload,
   matDataTable,
   matVirtualScroll,
-  utils,
+  utils
 };
-
-

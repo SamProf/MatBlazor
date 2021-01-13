@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace MatBlazor
@@ -28,23 +27,13 @@ namespace MatBlazor
         /// List Item is disabled.
         /// </summary>
         [Parameter]
-        public bool Disabled
-        {
-            get => _disabled;
-            set
-            {
-                _disabled = value;
-                
-            }
-        }
-
-        private bool _disabled;
+        public bool Disabled { get; set; }
 
         public BaseMatListItem()
         {
             ClassMapper
                 .Add("mdc-list-item")
-                .If("mdc-list-item--disabled", () => _disabled);
+                .If("mdc-list-item--disabled", () => Disabled);
         }
     }
 }

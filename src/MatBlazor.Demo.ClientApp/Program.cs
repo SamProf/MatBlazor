@@ -1,11 +1,10 @@
-﻿using System;
-using System.Net.Http;
-using MatBlazor.Demo.Models;
-using Microsoft.Extensions.DependencyInjection;
-using System.Threading.Tasks;
+﻿using MatBlazor.Demo.Models;
 using MatBlazor.Demo.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MatBlazor.Demo.ClientApp
 {

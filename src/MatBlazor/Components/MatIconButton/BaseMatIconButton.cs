@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using System.Windows.Input;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MatBlazor
 {
@@ -11,10 +11,7 @@ namespace MatBlazor
     public class BaseMatIconButton : BaseMatDomComponent
     {
         [Inject]
-        public Microsoft.AspNetCore.Components.NavigationManager UriHelper { get; set; }
-
-        private bool _disabled;
-        private bool _toggled = false;
+        public NavigationManager UriHelper { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
@@ -39,11 +36,7 @@ namespace MatBlazor
 
 
         [Parameter]
-        public bool Toggled
-        {
-            get => _toggled;
-            set { _toggled = value; }
-        }
+        public bool Toggled { get; set; } = false;
 
         [Parameter]
         public EventCallback<bool> ToggledChanged { get; set; }
@@ -65,11 +58,7 @@ namespace MatBlazor
         /// Button is disabled.
         /// </summary>
         [Parameter]
-        public bool Disabled
-        {
-            get => _disabled;
-            set { _disabled = value; }
-        }
+        public bool Disabled { get; set; }
 
         public BaseMatIconButton()
         {

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MatBlazor
@@ -14,7 +13,7 @@ namespace MatBlazor
     public partial class MatTreeView<TNode>
         where TNode : class
     {
-        private Dictionary<TNode, bool> _expandedNodes = new Dictionary<TNode, bool>();
+        private readonly Dictionary<TNode, bool> _expandedNodes = new Dictionary<TNode, bool>();
         private IEnumerable<TNode> _rootNodes = null;
 
         /// <summary>
@@ -28,9 +27,13 @@ namespace MatBlazor
             set
             {
                 if (value != null)
+                {
                     _rootNodes = new TNode[] { value };
+                }
                 else
-                    _rootNodes = new TNode[0];
+                {
+                    _rootNodes = new TNode[0]; 
+                }
             }
         }
         /// <summary>
@@ -43,7 +46,10 @@ namespace MatBlazor
             get { return _rootNodes; }
             set
             {
-                if (value == null) throw new ArgumentNullException(nameof(RootNodes));
+                if (value == null)
+                {
+                    throw new ArgumentNullException(nameof(RootNodes));
+                }
                 _rootNodes = value.ToArray();
             }
         }
@@ -170,15 +176,24 @@ namespace MatBlazor
 
         protected override async Task OnParametersSetAsync()
         {
-            if (_rootNodes == null) throw new ArgumentException($"One of the following must be supplied {nameof(RootNode)} or {nameof(RootNodes)} (but NOT BOTH)");
-            if (NodeTemplate == null) throw new ArgumentException($"The parameter {nameof(NodeTemplate)} has not been set");
-            if (GetChildNodesCallback == null) throw new ArgumentException($"The parameter {nameof(GetChildNodesCallback)} has not been set");
+            if (_rootNodes == null)
+            {
+                throw new ArgumentException($"One of the following must be supplied {nameof(RootNode)} or {nameof(RootNodes)} (but NOT BOTH)");
+            }
+            if (NodeTemplate == null)
+            {
+                throw new ArgumentException($"The parameter {nameof(NodeTemplate)} has not been set");
+            }
+            if (GetChildNodesCallback == null)
+            {
+                throw new ArgumentException($"The parameter {nameof(GetChildNodesCallback)} has not been set");
+            }
 
             // ensure everything is expanded up to the selected node
-            List<TNode> pathToSelected = new List<TNode>();
+            var pathToSelected = new List<TNode>();
             BuildPathToSelected(this.RootNodes, pathToSelected);
             //if (pathToSelected.Count > 0) pathToSelected.RemoveAt(0); // don't expand the selected node
-            foreach (TNode pathNode in pathToSelected)
+            foreach (var pathNode in pathToSelected)
             {
                 if (this.IsNodeExpanded(pathNode) == false)
                 {
@@ -204,13 +219,12 @@ namespace MatBlazor
         {
             // if we have a callback then expanded state is managed via that
             if (IsNodeExpandedCallback != null)
+            {
                 return IsNodeExpandedCallback(node);
+            }
 
-            // not call back, so manage the sate ourselves
-            if (this._expandedNodes.TryGetValue(node, out bool state))
-                return state;
-            else
-                return false;
+            // not call back, so manage the state ourselves
+            return _expandedNodes.TryGetValue(node, out bool state) && state;
         }
 
         internal async Task SetExpandedNodeAsync(TNode node, bool expanded)
@@ -229,7 +243,7 @@ namespace MatBlazor
         /// <returns></returns>
         private Task EnsureSelectedNodeIsVisible()
         {
-            List<TNode> pathToSelected = new List<TNode>();
+            var pathToSelected = new List<TNode>();
             if (BuildPathToSelected(this.RootNodes, pathToSelected))
             {
                 foreach (var node in pathToSelected)
@@ -252,9 +266,11 @@ namespace MatBlazor
         private bool BuildPathToSelected(IEnumerable<TNode> nodes, List<TNode> path)
         {
             if (nodes == null)
+            {
                 return false;
+            }
 
-            foreach (TNode node in nodes)
+            foreach (var node in nodes)
             {
                 if (node == this.SelectedNode)
                 {

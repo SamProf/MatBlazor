@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 
 namespace MatBlazor
 {
@@ -45,7 +44,9 @@ namespace MatBlazor
                     _isOpen = value;
                     CallAfterRender(async () => await SetIsOpen(value));
                     if (!_isOpen)
+                    {
                         _timeoutCts?.Cancel(false);
+                    }
                     else if (_isOpen && Timeout >= 0)
                     {
                         if (_timeoutCts != null)
@@ -53,11 +54,13 @@ namespace MatBlazor
                             _timeoutCts.Cancel(false);
                             _timeoutCts.Dispose();
                         }
-                        _timeoutCts=new CancellationTokenSource();
+                        _timeoutCts = new CancellationTokenSource();
                         Task.Delay(Timeout, _timeoutCts.Token).ContinueWith(task =>
                         {
                             if (_timeoutCts.IsCancellationRequested) // <-- we were closed before the timeout, so don't close
+                            {   
                                 return;
+                            }
                             _isOpen = false;
                             SetIsOpen(false);
                         });
@@ -95,7 +98,7 @@ namespace MatBlazor
                 .If("mdc-snackbar--leading", () => Leading);
             CallAfterRender(async () =>
             {
-                _dotNetObjectRef = _dotNetObjectRef ?? CreateDotNetObjectRef(this);
+                _dotNetObjectRef ??= CreateDotNetObjectRef(this);
                 await JsInvokeAsync<object>("matBlazor.matSnackbar.init", Ref, _dotNetObjectRef);
             });
         }

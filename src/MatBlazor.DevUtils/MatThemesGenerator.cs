@@ -4,15 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using JetBrains.dotMemoryUnit.Properties;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using NUnit.Framework;
-using NUnit.Framework.Internal;
 
 namespace MatBlazor.DevUtils
 {
-//    [TestFixture()]
+    //    [TestFixture()]
     public class MatThemesGenerator
     {
 //        [Test]
@@ -35,8 +30,7 @@ namespace MatBlazor.DevUtils
             {
                 Console.WriteLine($"{line.Groups["color"]} {line.Groups["shade"]} {line.Groups["value"]}");
                 var colorName = line.Groups["color"].Value;
-                Dictionary<string, string> c;
-                if (!colors.TryGetValue(colorName, out c))
+                if (!colors.TryGetValue(colorName, out var c))
                 {
                     c = new Dictionary<string, string>();
                     colors.Add(colorName, c);

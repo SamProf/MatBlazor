@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace MatBlazor
+﻿namespace MatBlazor
 {
     public class MatSortChangedEvent
     {

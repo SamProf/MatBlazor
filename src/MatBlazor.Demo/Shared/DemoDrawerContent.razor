@@ -1,7 +1,9 @@
 @using Microsoft.AspNetCore.Components
 @inject NavigationManager Url
 <style>
-    .mdc-drawer { box-shadow: 2px 0px 2px 0px rgba(199, 199, 199, 0.29); }
+    .mdc-drawer {
+        box-shadow: 2px 0px 2px 0px rgba(199, 199, 199, 0.29);
+    }
 </style>
 
 <MatNavMenu Multi="true">
@@ -155,6 +157,12 @@
             },
             new NavItem()
             {
+                Name = "ButtonLink",
+                Url = "ButtonLink",
+                Group = groups.Navigation
+            },
+            new NavItem()
+            {
                 Name = "Dialog",
                 Url = "Dialog",
                 Group = groups.PopupsAndModals
@@ -233,8 +241,14 @@
             },
             new NavItem()
             {
-                Name = "Elevation",
-                Url = "Elevation",
+                Name = "ProgressCircle",
+                Url = "ProgressCircle",
+                Group = groups.ButtonsAndIndicators
+            },
+            new NavItem()
+            {
+                Name = "Paper & Elevation",
+                Url = "Paper",
                 Group = groups.Layout
             },
             new NavItem()
@@ -356,6 +370,20 @@
                 Name = "Virtual Scroll",
                 Url = "VirtualScroll",
                 Group = groups.Layout
+            },
+            
+            new NavItem()
+            {
+                Name = "ForwardRefContext",
+                Url = "ForwardRefContext",
+                Group = groups.Other
+            },
+            
+            new NavItem()
+            {
+                Name = "DialogService",
+                Url = "DialogService",
+                Group = groups.PopupsAndModals
             },
     // new NavItem()
     // {

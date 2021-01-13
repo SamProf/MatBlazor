@@ -67,7 +67,7 @@
                 labels.Add($"Chip {counter++}");
             }
 
-            private async Task OnTrailingIconClick(MatChip chip)
+            private void OnTrailingIconClick(MatChip chip)
             {
                 labels.Remove(chip.Label);
                 chipset?.UnregisterChip(chip); // <-- to avoid memleak
@@ -138,7 +138,7 @@
                 labels.Add($""Chip {counter++}"");
             }
 
-            private async Task OnTrailingIconClick(MatChip chip)
+            private void OnTrailingIconClick(MatChip chip)
             {
                 labels.Remove(chip.Label);
                 chipset?.UnregisterChip(chip); // <-- to avoid memleak

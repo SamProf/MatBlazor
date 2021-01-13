@@ -12,22 +12,43 @@
     <MatAppBarRow>
         <MatAppBarSection>
             <MatIconButton Icon="menu" OnClick="@((e) => MenuButtonClicked())"></MatIconButton>
-            <MatAppBarTitle>MatBlazor - Material Design components for Blazor and Razor Components</MatAppBarTitle>
+            <MatHidden BreakPoint="@MatBreakpoint.XS" Direction="@MatHiddenDirection.Down">
+                <MatAppBarTitle>MatBlazor - Material Design components for Blazor and Razor Components</MatAppBarTitle>
+            </MatHidden>
+            <MatHidden BreakPoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up">
+                <MatAppBarTitle>MatBlazor</MatAppBarTitle>
+            </MatHidden>
         </MatAppBarSection>
         <MatAppBarSection Align="@MatAppBarSectionAlign.End">
-            <MatIconButton @ref="themeButton" Icon="invert_colors" OnClick="@OnClick">
-            </MatIconButton>
-            <MatIconButton Link="http://samprof.com" Target="_blank">
-                <i class="fa fa-user-circle" aria-hidden="true"></i>
-            </MatIconButton>
-            <MatIconButton Link="https://github.com/SamProf/MatBlazor">
-                <i class="fa fa-github" aria-hidden="true"></i>
-            </MatIconButton>
+            <MatHidden BreakPoint="@MatBreakpoint.XS" Direction="@MatHiddenDirection.Down">
+                <MatIconButton @ref="themeButton" Icon="invert_colors" OnClick="@OnClickButton">
+                </MatIconButton>
+                <MatIconButton Link="http://samprof.com" Target="_blank">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                </MatIconButton>
+                <MatIconButton Link="https://github.com/SamProf/MatBlazor" Target="_blank">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </MatIconButton>
+            </MatHidden>
+            <MatHidden BreakPoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up">
+                <MatIconButton Icon="more_vert" OnClick="@OpenSmallMenu" @ref="SmallMenuButton"></MatIconButton>
+                <MatMenu @ref="SmallMenu" style="z-index: 100;">
+                    <MatList>
+                        <MatListItem Href="http://samprof.com" target="_blank">
+                            Samprof.com
+                        </MatListItem>
+                        <MatListItem Href="https://github.com/SamProf/MatBlazor" target="_blank">
+                            Github
+                        </MatListItem>
+                        <MatListItem @ref="ThemeListItem" OnClick="@OnClickListItem">
+                            Select Theme
+                        </MatListItem>
+                    </MatList>
+                </MatMenu>
+            </MatHidden>
             <MatMenu @ref="Menu" style="z-index: 100;">
                 <ThemeColorSelector @bind-Value="@ThemePrimary"></ThemeColorSelector>
             </MatMenu>
-
-
         </MatAppBarSection>
     </MatAppBarRow>
 </MatAppBar>
@@ -69,10 +90,13 @@
 
 </MatSnackbar>
 
+<MatPortalHost></MatPortalHost>
+
 
 @code {
 
     BaseMatIconButton themeButton;
+    BaseMatListItem ThemeListItem;
     BaseMatMenu Menu;
 
 
@@ -99,9 +123,14 @@
         }
     }
 
-    public void OnClick(MouseEventArgs e)
+    public void OnClickButton(MouseEventArgs e)
     {
-        this.Menu.OpenAsync(themeButton.Ref);
+        _ = this.Menu.OpenAsync(themeButton.Ref);
+    }
+
+    public void OnClickListItem(MouseEventArgs e)
+    {
+        _ = this.Menu.OpenAsync(ThemeListItem.Ref);
     }
 
     bool lazySnackbarIsOpen = false;
@@ -124,8 +153,20 @@
     {
         await base.OnInitializedAsync();
 
-        Task.Delay(TimeSpan.FromSeconds(5))
-            .ContinueWith((_) => { this.lazySnackbarIsOpen = true; });
+        Task.Run(async () =>
+        {
+            await Task.Delay(TimeSpan.FromSeconds(5));
+            this.lazySnackbarIsOpen = true;
+            await InvokeAsync(() => { this.StateHasChanged(); });
+        });
+    }
+
+    private BaseMatIconButton SmallMenuButton;
+    private BaseMatMenu SmallMenu;
+
+    public void OpenSmallMenu(MouseEventArgs e)
+    {
+        _ = this.SmallMenu.OpenAsync(SmallMenuButton.Ref);
     }
 
     public void Dispose()

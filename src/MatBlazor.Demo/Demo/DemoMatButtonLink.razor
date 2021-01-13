@@ -1,0 +1,195 @@
+@using Microsoft.AspNetCore.Components
+@inject IJSRuntime JsRuntime
+
+<DocMatButtonLink></DocMatButtonLink>
+
+<h5 class="mat-h5">Example</h5>
+<DemoContainer>
+    <Content>
+        <h4 class="mat-subtitle1">Simple use</h4>
+        <MatButtonLink Icon="favorite" Href="/ButtonLink">Link to this page</MatButtonLink>
+
+        <h4 class="mat-subtitle1">Link with OnClick event handler</h4>
+        <MatButtonLink Icon="favorite" Href="/ButtonLink" OnClick="@RunOnClick">Link with click event</MatButtonLink>
+
+        <h5 class="mat-subtitle1">With Font-Awesome Icons and Link</h5>
+        <MatButtonLink Href="https://github.com/BlazorComponents/MatBlazor">
+            <i class="fa fa-github" aria-hidden="true"></i> &nbsp; Github
+        </MatButtonLink>
+        
+        <h5 class="mat-subtitle1">Link to internal page</h5>
+        <MatButtonLink Href="/Checkbox">Go to Checkbox</MatButtonLink>
+
+        <h5 class="mat-subtitle1">Internal Link with ForceLoad</h5>
+        <MatButtonLink Href="/Checkbox" ForceLoad="true">ForceLoad - Go to Checkbox</MatButtonLink>
+
+        <h5 class="mat-subtitle1">With Font-Awesome Icons and Link in a new Window  - Target Defined</h5>
+        <MatButtonLink Href="https://github.com/BlazorComponents/MatBlazor" Target="_blank">
+            <i class="fa fa-github" aria-hidden="true"></i> &nbsp; Github
+        </MatButtonLink>
+
+        <h5 class="mat-subtitle1">Internal Link in a new Window - Target Defined</h5>
+        <MatButtonLink Href="/TextField" Target="_blank">
+            <i class="fa fa-paragraph" aria-hidden="true"></i> &nbsp; TextField
+        </MatButtonLink>
+
+        @code
+        {
+
+            public void RunOnClick(MouseEventArgs e)
+            {
+                JsRuntime.InvokeAsync<object>("window.alert", "Test");
+            }
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <h4 class=""mat-subtitle1"">Simple use</h4>
+        <MatButtonLink Icon=""favorite"" Href=""/ButtonLink"">Link to this page</MatButtonLink>
+
+        <h4 class=""mat-subtitle1"">Link with OnClick event handler</h4>
+        <MatButtonLink Icon=""favorite"" Href=""/ButtonLink"" OnClick=""@RunOnClick"">Link with click event</MatButtonLink>
+
+        <h5 class=""mat-subtitle1"">With Font-Awesome Icons and Link</h5>
+        <MatButtonLink Href=""https://github.com/BlazorComponents/MatBlazor"">
+            <i class=""fa fa-github"" aria-hidden=""true""></i> &nbsp; Github
+        </MatButtonLink>
+        
+        <h5 class=""mat-subtitle1"">Link to internal page</h5>
+        <MatButtonLink Href=""/Checkbox"">Go to Checkbox</MatButtonLink>
+
+        <h5 class=""mat-subtitle1"">Internal Link with ForceLoad</h5>
+        <MatButtonLink Href=""/Checkbox"" ForceLoad=""true"">ForceLoad - Go to Checkbox</MatButtonLink>
+
+        <h5 class=""mat-subtitle1"">With Font-Awesome Icons and Link in a new Window  - Target Defined</h5>
+        <MatButtonLink Href=""https://github.com/BlazorComponents/MatBlazor"" Target=""_blank"">
+            <i class=""fa fa-github"" aria-hidden=""true""></i> &nbsp; Github
+        </MatButtonLink>
+
+        <h5 class=""mat-subtitle1"">Internal Link in a new Window - Target Defined</h5>
+        <MatButtonLink Href=""/TextField"" Target=""_blank"">
+            <i class=""fa fa-paragraph"" aria-hidden=""true""></i> &nbsp; TextField
+        </MatButtonLink>
+
+        @code
+        {
+
+            public void RunOnClick(MouseEventArgs e)
+            {
+                JsRuntime.InvokeAsync<object>(""window.alert"", ""Test"");
+            }
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Link types</h5>
+<DemoContainer>
+    <Content>
+        <MatButtonLink Href="/ButtonLink" OnClick="@Click">Text @LinkState</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Raised="true">Raised</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Unelevated="true">Unelevated</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Outlined="true">Outlined</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Dense="true">Dense</MatButtonLink>
+
+        @code
+        {
+            string LinkState = "";
+
+            void Click(MouseEventArgs e)
+            {
+                LinkState = "Clicked";
+            }
+
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatButtonLink Href=""/ButtonLink"" OnClick=""@Click"">Text @LinkState</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Raised=""true"">Raised</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Unelevated=""true"">Unelevated</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Outlined=""true"">Outlined</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Dense=""true"">Dense</MatButtonLink>
+
+        @code
+        {
+            string LinkState = """";
+
+            void Click(MouseEventArgs e)
+            {
+                LinkState = ""Clicked"";
+            }
+
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Disabled</h5>
+<DemoContainer>
+    <Content>
+        <MatButtonLink Href="/ButtonLink" Disabled="true">Text</MatButtonLink>
+        <MatButtonLink>Link without Href</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Raised="true" Disabled="true">Raised</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Unelevated="true" Disabled="true">Unelevated</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Outlined="true" Disabled="true">Outlined</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Dense="true" Disabled="true">Dense</MatButtonLink>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatButtonLink Href=""/ButtonLink"" Disabled=""true"">Text</MatButtonLink>
+        <MatButtonLink>Link without Href</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Raised=""true"" Disabled=""true"">Raised</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Unelevated=""true"" Disabled=""true"">Unelevated</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Outlined=""true"" Disabled=""true"">Outlined</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Dense=""true"" Disabled=""true"">Dense</MatButtonLink>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">Icons</h5>
+<DemoContainer>
+    <Content>
+        <MatButtonLink Href="/ButtonLink" Icon="favorite">Text</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Raised="true" Icon="favorite">Raised</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Unelevated="true" Icon="favorite">Unelevated</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Outlined="true" Icon="favorite">Outlined</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Dense="true" Icon="favorite">Dense</MatButtonLink>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatButtonLink Href=""/ButtonLink"" Icon=""favorite"">Text</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Raised=""true"" Icon=""favorite"">Raised</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Unelevated=""true"" Icon=""favorite"">Unelevated</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Outlined=""true"" Icon=""favorite"">Outlined</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Dense=""true"" Icon=""favorite"">Dense</MatButtonLink>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+<h5 class="mat-h5">Trailing Icons</h5>
+<DemoContainer>
+    <Content>
+        <MatButtonLink Href="/ButtonLink" TrailingIcon="favorite">Text</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Raised="true" TrailingIcon="favorite">Raised</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Unelevated="true" TrailingIcon="favorite">Unelevated</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Outlined="true" TrailingIcon="favorite">Outlined</MatButtonLink>
+        <MatButtonLink Href="/ButtonLink" Dense="true" TrailingIcon="favorite">Dense</MatButtonLink>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatButtonLink Href=""/ButtonLink"" TrailingIcon=""favorite"">Text</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Raised=""true"" TrailingIcon=""favorite"">Raised</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Unelevated=""true"" TrailingIcon=""favorite"">Unelevated</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Outlined=""true"" TrailingIcon=""favorite"">Outlined</MatButtonLink>
+        <MatButtonLink Href=""/ButtonLink"" Dense=""true"" TrailingIcon=""favorite"">Dense</MatButtonLink>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>

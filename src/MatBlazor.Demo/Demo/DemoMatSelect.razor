@@ -82,6 +82,47 @@
     </SourceContent>
 </DemoContainer>
 
+
+<MatAnchorContainer Anchor="MatSelectGuid">
+    <MatH5>MatSelect Guid?</MatH5>
+</MatAnchorContainer>
+<DemoContainer>
+    <Content>
+        <MatSelect Label="Pick a Food Group" @bind-Value="@guidValue">
+            <MatOption TValue="Guid?" Value="@(null)"></MatOption>
+            <MatOption TValue="Guid?" Value="@(new Guid("20A82054-F493-4C7B-81A4-4F9A1EDD7C2E"))">Bread, Cereal, Rice, and Pasta</MatOption>
+            <MatOption TValue="Guid?" Value="@(new Guid("4451642D-24F7-418F-8741-BA5089A1CC65"))">Vegetables</MatOption>
+            <MatOption TValue="Guid?" Value="@(new Guid("5717DBBE-C205-4E33-9E07-892A51F64021"))">Fruit</MatOption>
+        </MatSelect>
+
+        <span>@guidValue</span>
+
+        @code
+        {
+            Guid? guidValue = new Guid("20A82054-F493-4C7B-81A4-4F9A1EDD7C2E");
+        }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelect Label=""Pick a Food Group"" @bind-Value=""@guidValue"">
+            <MatOption TValue=""Guid?"" Value=""@(null)""></MatOption>
+            <MatOption TValue=""Guid?"" Value=""@(new Guid(""20A82054-F493-4C7B-81A4-4F9A1EDD7C2E""))"">Bread, Cereal, Rice, and Pasta</MatOption>
+            <MatOption TValue=""Guid?"" Value=""@(new Guid(""4451642D-24F7-418F-8741-BA5089A1CC65""))"">Vegetables</MatOption>
+            <MatOption TValue=""Guid?"" Value=""@(new Guid(""5717DBBE-C205-4E33-9E07-892A51F64021""))"">Fruit</MatOption>
+        </MatSelect>
+
+        <span>@guidValue</span>
+
+        @code
+        {
+            Guid? guidValue = new Guid(""20A82054-F493-4C7B-81A4-4F9A1EDD7C2E"");
+        }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
 <h5 class="mat-h5">Helper Text</h5>
 <DemoContainer>
     <Content>
@@ -212,6 +253,29 @@
             <MatOptionString ></MatOptionString>
             <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString>
             <MatOptionString Value=""vegetables"" Disabled=""true"">Vegetables</MatOptionString>
+            <MatOptionString Value=""fruit"">Fruit</MatOptionString>
+        </MatSelect>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+
+<h5 class="mat-h5">FullWidth</h5>
+<DemoContainer>
+    <Content>
+        <MatSelect Label="Pick a Food Group" FullWidth="true" TValue="string">
+            <MatOptionString></MatOptionString>
+            <MatOptionString Value="grains">Bread, Cereal, Rice, and Pasta</MatOptionString>
+            <MatOptionString Value="vegetables">Vegetables</MatOptionString>
+            <MatOptionString Value="fruit">Fruit</MatOptionString>
+        </MatSelect>
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <MatSelect Label=""Pick a Food Group"" FullWidth=""true"" TValue=""string"">
+            <MatOptionString></MatOptionString>
+            <MatOptionString Value=""grains"">Bread, Cereal, Rice, and Pasta</MatOptionString>
+            <MatOptionString Value=""vegetables"">Vegetables</MatOptionString>
             <MatOptionString Value=""fruit"">Fruit</MatOptionString>
         </MatSelect>
     ")></BlazorFiddle>

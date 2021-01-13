@@ -1,0 +1,24 @@
+﻿@namespace MatBlazor
+
+
+<MatDialogContent>
+    @Message
+</MatDialogContent>
+<MatDialogActions>
+    @foreach (var answer in Answers)
+    {
+        <MatButton @key="@answer" OnClick="@(_ => DialogReference.Close(answer))">@answer</MatButton>
+    }
+</MatDialogActions>
+
+@code
+{
+    [CascadingParameter]
+    public MatDialogReference DialogReference { get; set; }
+
+    [Parameter]
+    public string Message { get; set; }
+
+    [Parameter]
+    public IEnumerable<object> Answers { get; set; }
+}
