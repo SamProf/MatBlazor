@@ -33,8 +33,7 @@ namespace MatBlazor.Demo.ServerApp
                 
             });
 
-
-
+            
             services.AddSingleton<AppModel>();
             services.AddScoped<UserAppModel>();
             services.AddScoped<DemoUserService>();
@@ -48,7 +47,7 @@ namespace MatBlazor.Demo.ServerApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider provider)
         {
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
