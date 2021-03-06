@@ -27,6 +27,7 @@ namespace MatBlazor
                 searchResult = new AutocompleteListSearchResult<TItem>()
                 {
                     SearchText = searchText,
+                    //  deepcode ignore CSharpSelfAssignment: <Property is set for new AutocompleteListSearchResult>
                     Items = Items,
                     ListResult = Items.Select(x => new MatAutocompleteListItem<TItem>()
                     {
