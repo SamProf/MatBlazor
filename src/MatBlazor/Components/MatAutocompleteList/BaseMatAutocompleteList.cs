@@ -27,6 +27,7 @@ namespace MatBlazor
                 searchResult = new AutocompleteListSearchResult<TItem>()
                 {
                     SearchText = searchText,
+                    Items = Items,
                     ListResult = Items.Select(x => new MatAutocompleteListItem<TItem>()
                     {
                         StringValue = ComputeStringValue(x),
