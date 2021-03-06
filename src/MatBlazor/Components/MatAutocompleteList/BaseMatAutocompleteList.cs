@@ -22,7 +22,7 @@ namespace MatBlazor
 
         protected IEnumerable<MatAutocompleteListItem<TItem>> GetFilteredCollection(string searchText)
         {
-            if (searchResult == null || searchResult.SearchText != searchText)
+            if (searchResult == null || searchResult.SearchText != searchText || searchResult.Items != Items)
             {
                 searchResult = new AutocompleteListSearchResult<TItem>()
                 {
