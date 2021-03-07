@@ -144,6 +144,7 @@ functionality in Demo for the component you are editing. Not only will this allo
 
 
 #### MatBlazor 2.9.0 (develop)
+- Supports net5.0;netstandard2.1
 - PR: MatTreeView - new component #788 (Thanks to adameste)
 - PR: Fix MatAutocompleteList re-render list on items update #857 (Thanks to Ogglas)
 - PR: Remove duplicate Id for MatSlideToggle #848 (Thanks to Lucidize)
