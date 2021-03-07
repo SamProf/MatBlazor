@@ -56,5 +56,40 @@ namespace MatBlazor
 
             Options = options;
         }
+
+        public MatToast(string message, string icon, MatToastOptions options)
+        {
+            Message = message;
+            Title = options.Type switch
+            {
+                MatToastType.Danger => "Danger!",
+                MatToastType.Info => "Info!",
+                MatToastType.Link => "Link",
+                MatToastType.Primary => "Announcement!",
+                MatToastType.Success => "Success!",
+                MatToastType.Warning => "Warning!",
+                _ => "Important Notification",
+            };
+            Icon = icon;
+
+            if (string.IsNullOrEmpty(icon))
+            {
+                Icon = options.Type switch
+                {
+                    MatToastType.Danger => "error",
+                    MatToastType.Dark => "error",
+                    MatToastType.Info => "info",
+                    MatToastType.Light => "notification_important",
+                    MatToastType.Link => "link",
+                    MatToastType.Primary => "announcement",
+                    MatToastType.Secondary => "notification_important",
+                    MatToastType.Success => "check_circle",
+                    MatToastType.Warning => "warning",
+                    _ => "notification_important",
+                };
+            }
+
+            Options = options;
+        }
     }
 }

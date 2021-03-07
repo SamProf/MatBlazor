@@ -3,8 +3,7 @@
 @Css
 
 <MatRipple Class="@Class" style="@StyleMapper.AsString()" Id="@Id" Attributes="@Attributes" RefBack="@RefBack">
-    @* @onmouseenter="(()=>MouseEnter())" @onmouseleave="(()=>MouseLeave())"  *@
-    <div class="@ContainerClassMapper.AsString()" style="@AnimationStyle" @onclick="(_=>Clicked(_))">
+    <div class="@ContainerClassMapper.AsString()" style="@AnimationStyle" @onclick="args => Clicked(args)">
         <div class="mat-toast-message">
             @if (ShowProgressBar)
             {

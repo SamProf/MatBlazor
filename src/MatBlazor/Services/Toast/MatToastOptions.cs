@@ -15,7 +15,7 @@ namespace MatBlazor
         /// </summary>
         public MatToastType Type { get; }
 
-        public MatToastOptions(MatToastType type, MatToastConfiguration configuration)
+        public MatToastOptions(MatToastType type, MatToastCommonOptions configuration)
         {
             Type = type;
         
