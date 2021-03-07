@@ -1,31 +1,51 @@
-﻿@namespace  MatBlazor
+﻿@namespace MatBlazor
 @using Microsoft.AspNetCore.Components.Web
 @typeparam TNode
 
-<li>
-    <span class="@GlyphStyle" @onclick="@OnExpandCollapse_Clicked" @onclick:stopPropagation>@TempGlyphName</span>
-    <span @onclick="@OnSelected_Clicked" @onclick:stopPropagation>@Tree.NodeTemplate(this.Node)</span>
-    @if (this.IsSelected)
-    {
-        <span>SELECTED</span>
-    }
-    @if (this.ChildNodes == null)
-    {
-        @*<div>TMP LOADING</div>*@
-    }
-    else if (IsExpanded)
-    {
-        <ul>
-            @foreach (TNode childNode in this.ChildNodes)
+@if (ChildNodes?.Any() == true || loadingNodes)
+{
+    <div class="mat-nested-tree-node" role="treeitem" aria-expanded="@IsExpanded">
+        <li>
+            <MatRipple @onclick="@OnSelected_Clicked">
+                <div class="mat-tree-node @(IsSelected ? "mat-tree-node--selected" : "")" style="@MinHeightStyle">
+                    @if (!loadingNodes)
+                    {
+                        <span class="material-icons mat-tree-node-expander" @onclick:stopPropagation @onclick="@OnExpandCollapse_Clicked"
+                              style="@ToggleIconStyle">
+                            @MatIconNames.Chevron_right
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="material-icons mat-tree-node-loading" @onclick:stopPropagation>
+                            @MatIconNames.Sync
+                        </span>
+                    }
+                    <span>
+                        @Tree.NodeTemplate(this.Node)
+                    </span>
+                </div>
+            </MatRipple>
+            @if (!loadingNodes && IsExpanded)
             {
-                <MatTreeNode @key="@childNode" TNode="TNode"
-                             IsSelected="@Tree.IsNodeSelected(childNode)" Node="@childNode" />
+                <ul>
+                    @foreach (var childNode in ChildNodes)
+                    {
+                        <MatTreeNode @key="@childNode" TNode="TNode"
+                                     IsSelected="@Tree.IsNodeSelected(childNode)" Node="@childNode" />
+                    }
+                </ul>
             }
-        </ul>
-        @*<div>TMP Expanded</div>*@
-    }
-    else
-    {
-        @*<div>TMP Collapsed</div>*@
-    }
-</li>
+        </li>
+    </div>
+}
+else
+{
+    <MatRipple @onclick="@OnSelected_Clicked">
+        <div class="mat-tree-node mat-tree-leaf @(IsSelected ? "mat-tree-node--selected" : "")" role="treeitem" aria-expanded="false" style="@MinHeightStyle">
+            <span>
+                @Tree.NodeTemplate(this.Node)
+            </span>
+        </div>
+    </MatRipple>
+}

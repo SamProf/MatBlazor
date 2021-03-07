@@ -32,7 +32,7 @@ namespace MatBlazor
                 }
                 else
                 {
-                    _rootNodes = new TNode[0]; 
+                    _rootNodes = new TNode[0];
                 }
             }
         }
@@ -53,6 +53,12 @@ namespace MatBlazor
                 _rootNodes = value.ToArray();
             }
         }
+
+        /// <summary>
+        /// Optional, sets the min height of tree view item in pixels. Use zero to always fit to content.
+        /// </summary>
+        [Parameter]
+        public int? MinItemHeight { get; set; }
 
         /// <summary>
         /// The selected item in the tree
@@ -142,7 +148,7 @@ namespace MatBlazor
         public LoadChildNodesDelegate<TNode> LoadChildNodesCallback { get; set; }
         /// <summary>
         /// A function that indicates if the given node is expanded or collapsed.
-        /// (Optional - if null then the expanded/collapsed state is managed by the <see cref="MatTreeView{TNode}"/>)
+        /// (Optional - if null then the expanded/collapsed state is managed by the <see cref="K5MatTreeView{TNode}"/>)
         /// </summary>
         /// <example><![CDATA[
         /// <MatTreeView TNode="MyTreeNode"
@@ -162,6 +168,9 @@ namespace MatBlazor
         /// ]]></example>
         [Parameter]
         public IsNodeExpandedDelegate<TNode> IsNodeExpandedCallback { get; set; }
+
+        [Parameter]
+        public string Class { get; set; }
 
         /// <summary>
         /// An event raised when the expanded state of a node changes
@@ -206,7 +215,7 @@ namespace MatBlazor
         }
 
         protected async override Task OnInitializedAsync()
-        {            
+        {
 
             await base.OnInitializedAsync();
         }
