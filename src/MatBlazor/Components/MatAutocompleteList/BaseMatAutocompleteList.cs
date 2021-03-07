@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MatBlazor
 {
@@ -34,15 +35,15 @@ namespace MatBlazor
                         StringValue = ComputeStringValue(x),
                         Item = x
                     })
-                                       .Where
-                                       (
-                                            x => x != null
-                                                 && (string.IsNullOrEmpty(searchText)
-                                                     || x.StringValue.ToLowerInvariant().Contains(searchText.ToLowerInvariant())
-                                                    )
-                                        )
-                                       .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup)
-                                       .ToList()
+                        .Where
+                        (
+                            x => x != null
+                                 && (string.IsNullOrEmpty(searchText)
+                                     || x.StringValue.ToLowerInvariant().Contains(searchText.ToLowerInvariant())
+                                     )
+                                 )
+                        .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup)
+                        .ToList()
                 };
             }
             return searchResult.ListResult;
@@ -55,12 +56,12 @@ namespace MatBlazor
 
         public bool IsOpened
         {
-            get { return isOpened; }
-            set
+            get => isOpened;
+            private set
             {
                 isOpened = value;
                 OnOpenedChanged.InvokeAsync(value);
-                this.StateHasChanged();
+                StateHasChanged();
             }
         }
 
@@ -88,7 +89,7 @@ namespace MatBlazor
         [Parameter]
         public string StringValue
         {
-            get { return stringValue; }
+            get => stringValue;
             set
             {
                 stringValue = value;
@@ -102,12 +103,12 @@ namespace MatBlazor
         [Parameter]
         public TItem Value
         {
-            get { return _value; }
+            get => _value;
             set
             {
                 if (!EqualValues(value, default))
                 {
-                    var newValue = ComputeStringValue(value);
+                    string newValue = ComputeStringValue(value);
                     if (newValue != StringValue)
                     {
                         StringValue = newValue;
@@ -204,15 +205,15 @@ namespace MatBlazor
             StateHasChanged();
         }
 
-        public async void OnKeyDown(KeyboardEventArgs ev)
+        public async Task OnKeyDown(KeyboardEventArgs ev)
         {
-            if (ev.Key == null ||   // google autofill sends null key
+            if (ev.Key == null ||   // Google auto-fill sends null key
                 ev.Key == "Tab")    // user navigates to next field
             {
                 return;
             }
-            var currentIndex = await ListRef.GetSelectedIndex();
-            var wasCurrentIndexChanged = false;
+            int currentIndex = await ListRef.GetSelectedIndex();
+            bool wasCurrentIndexChanged = false;
 
             if (currentIndex < 0)
             {
@@ -226,15 +227,16 @@ namespace MatBlazor
                 wasCurrentIndexChanged = true;
             }
 
-            if (ev.Key == "ArrowDown")
+            switch (ev.Key)
             {
-                currentIndex++;
-                wasCurrentIndexChanged = true;
-            }
-            else if (ev.Key == "ArrowUp")
-            {
-                currentIndex--;
-                wasCurrentIndexChanged = true;
+                case "ArrowDown":
+                    currentIndex++;
+                    wasCurrentIndexChanged = true;
+                    break;
+                case "ArrowUp":
+                    currentIndex--;
+                    wasCurrentIndexChanged = true;
+                    break;
             }
 
             if (wasCurrentIndexChanged)
