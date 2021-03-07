@@ -159,6 +159,7 @@ functionality in Demo for the component you are editing. Not only will this allo
 - PR: Cleanup console.log's #804 (Thanks to Christian-Oleson)
 - PR: MatSelect - avoid calling OnValueChanged method if it does not change #795 (Thanks to damianog)
 - PR: Enabling PageSize and CurrentPage to be bound to on MatTable #794 (Thanks to naretto)
+- PR: Fix Tooltip left #784 (Thanks to danikf)
 
 
 #### MatBlazor 2.8.0
