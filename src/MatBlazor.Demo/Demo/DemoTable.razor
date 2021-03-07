@@ -11,7 +11,7 @@
             </MatTableHeader>
             <MatTableRow>
                 <td>@context.Name</td>
-                <td>@String.Format("${0:f2}", @context.Price)</td>
+                <td>@string.Format("${0:f2}", @context.Price)</td>
                 <td>@context.Horsepower</td>
             </MatTableRow>
         </MatTable>
@@ -352,8 +352,6 @@
     </SourceContent>
 </DemoContainer>
 
-
-
 <h5 class="mat-h5">Select row, with returning selected item example</h5>
 <DemoContainer>
     <Content>
@@ -577,7 +575,7 @@
                 var person = item as Person;
                 if (person == null)
                 {
-                    _currentSelectedPerson = ""noone"";
+                    _currentSelectedPerson = ""none"";
                     return;
                 }
 
