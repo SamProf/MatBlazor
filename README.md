@@ -144,7 +144,21 @@ functionality in Demo for the component you are editing. Not only will this allo
 
 
 #### MatBlazor 2.9.0 (develop)
-- Update MDC Web to 8.0.0 (In progress) (SamProf)
+- PR: Fix MatAutocompleteList re-render list on items update #857 (Thanks to Ogglas)
+- PR: Remove duplicate Id for MatSlideToggle #848 (Thanks to Lucidize)
+- PR: Delete launchSettings.json #831 (Thanks to stefanloerwald)
+- PR: Specify a GroupName for MatRadioGroup #823 (Thanks to PeteJobi)
+- PR: Double Navigation Fix #823 (Thanks to PeteJobi)
+- PR: Remove MatBlazor.TestApp.ServerApp #809 (Thanks to Christian-Oleson)
+- PR: SurfaceColor for text field component #815 (Thanks to InRedikaWB)
+- PR: Avoid `async void` for UI events #808 (Thanks to Christian-Oleson)
+- PR: MatToast documentation #807 (Thanks to Christian-Oleson)
+- PR: MatToast - Include method overload to call toast without title #806 (Thanks to Christian-Oleson)
+- PR: Cleanup the MatTable Code #805 (Thanks to Christian-Oleson)
+- PR: Cleanup console.log's #804 (Thanks to Christian-Oleson)
+- PR: MatSelect - avoid calling OnValueChanged method if it does not change #795 (Thanks to damianog)
+- PR: Enabling PageSize and CurrentPage to be bound to on MatTable #794 (Thanks to naretto)
+
 
 #### MatBlazor 2.8.0
 - Add new ForwardRefContext component (SamProf)
