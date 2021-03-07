@@ -129,9 +129,9 @@ namespace MatBlazor
                 Command.Execute(CommandParameter);
             }
 
-            if (Href != null && string.IsNullOrEmpty(Target))
+            if (Href != null && string.IsNullOrEmpty(Target) && ForceLoad)
             {
-                UriHelper.NavigateTo(Href, ForceLoad);
+                UriHelper.NavigateTo(Href, true);
             }
         }
     }
