@@ -22,11 +22,13 @@ namespace MatBlazor
 
         protected IEnumerable<MatAutocompleteListItem<TItem>> GetFilteredCollection(string searchText)
         {
-            if (searchResult == null || searchResult.SearchText != searchText)
+            if (searchResult == null || searchResult.SearchText != searchText || searchResult.Items != Items)
             {
                 searchResult = new AutocompleteListSearchResult<TItem>()
                 {
                     SearchText = searchText,
+                    //  deepcode ignore CSharpSelfAssignment: <Property is set for new AutocompleteListSearchResult>
+                    Items = Items,
                     ListResult = Items.Select(x => new MatAutocompleteListItem<TItem>()
                     {
                         StringValue = ComputeStringValue(x),
