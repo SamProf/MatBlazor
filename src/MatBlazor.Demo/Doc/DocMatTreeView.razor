@@ -20,6 +20,11 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>Class</td>
+		<td>String</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>ExpandStateChanged</td>
 		<td>EventCallback&lt;ExpandedStateChangedArgs&lt;TNode&gt;&gt;</td>
 		<td>An event raised when the expanded state of a node changes</td>
@@ -38,6 +43,11 @@
 		<td>LoadChildNodesCallback</td>
 		<td>LoadChildNodesDelegate&lt;TNode&gt;</td>
 		<td>A function to lazy load child nodes. Only required if lazy loading / load on demand<br/>is used.<br/>(Optional - unless  returns null)</td>
+	</tr>
+	<tr>
+		<td>MinItemHeight</td>
+		<td>Nullable&lt;Int32&gt;</td>
+		<td>Optional, sets the min height of tree view item in pixels. Use zero to always fit to content.</td>
 	</tr>
 	<tr>
 		<td>NodeTemplate</td>

@@ -312,7 +312,7 @@
             }
 
 
-            string _toastPosition
+            private string _toastPosition
             {
                 get { return Toaster.Configuration.Position.ToString(); }
                 set { Toaster.Configuration.Position = (MatToastPosition)Enum.Parse(typeof(MatToastPosition), value); }
@@ -356,6 +356,7 @@
                 });
             }
         }
+
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

@@ -57,7 +57,7 @@
             </MatTableHeader>
             <MatTableRow>
                 <td>@context.Name</td>
-                <td>@String.Format(""${0:f2}"", @context.Price)</td>
+                <td>@string.Format(""${0:f2}"", @context.Price)</td>
                 <td>@context.Horsepower</td>
             </MatTableRow>
         </MatTable>
@@ -575,7 +575,7 @@
                 var person = item as Person;
                 if (person == null)
                 {
-                    _currentSelectedPerson = ""none"";
+                    _currentSelectedPerson = ""noone"";
                     return;
                 }
 
