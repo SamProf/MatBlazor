@@ -1,10 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
     <OutputType>Library</OutputType>
     <IsPackable>true</IsPackable>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>9</LangVersion>
     <RazorLangVersion>3.0</RazorLangVersion>
     <Description>Material Design components for Blazor and Razor Components</Description>
     <PackageProjectUrl>https://github.com/SamProf/MatBlazor</PackageProjectUrl>
@@ -20,8 +19,9 @@
     <Authors>Vladimir Samoilenko</Authors>
     <PackageIconUrl>https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/icon.ico</PackageIconUrl>
     <Company>SamProf</Company>
-    <VersionPrefix>2.8.0</VersionPrefix>    
-    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <VersionPrefix>2.9.0</VersionPrefix>    
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>    
+    <TargetFrameworks>net5.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -33,10 +33,17 @@
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.10" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.10" />
+
+  <ItemGroup Condition="$(TargetFramework) == 'netstandard2.1'">
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.0" />
   </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework) == 'net5.0'">
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
+  </ItemGroup> 
+ 
 
   <ItemGroup>
     <Content Update="Components\MatDataTable\MatDataTable.razor">

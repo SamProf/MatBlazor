@@ -1,5 +1,3 @@
-
-
 <DocMatToast></DocMatToast>
 <DocMatToastContainer></DocMatToastContainer>
 
@@ -7,15 +5,12 @@
     <div class="mat-layout-grid-inner-span-12">
         <h2 class="mat-h2">Installation</h2>
 
-        <h3>
-            Dependency injection configuration
-        </h3>
+        <h3>Dependency injection configuration</h3>
         <h5>1. Startup.cs</h5>
-        <p>Add using MatBlazor; and then in the ConfiguresServices method include services.AddMatToaster...</p>
+        <p>Add <i>using MatBlazor;</i> and then in the ConfiguresServices method include services.AddMatToaster...</p>
         <pre class="code">
             <code>
                 using MatBlazor;
-
                 services.AddMatToaster(config =>
                 {
                     config.Position = MatToastPosition.BottomRight;
@@ -27,7 +22,7 @@
                 });
             </code>
         </pre>
-        <h3>MatToasterContainter component</h3>
+        <h3>MatToasterContainer component</h3>
         <h5>2. App.razor</h5>
         <p>
             The toast container must be added to the App.razor component or to another component always loaded in the application like MainLayout.razor.
@@ -53,10 +48,9 @@
                 protected IMatToaster Toaster { get; set; }
             </code>
         </pre>
-        <p>Then call one of the display methods:</p>
+        <p>Then call the display method:</p>
         <pre class="code">
             <code>
-                Toaster.Add("Toast body text");
                 Toaster.Add("Toast body text","Toast title", "code");
             </code>
         </pre>
@@ -168,7 +162,7 @@
             }
 
 
-            string _toastPosition
+            private string _toastPosition
             {
                 get { return Toaster.Configuration.Position.ToString(); }
                 set { Toaster.Configuration.Position = (MatToastPosition)Enum.Parse(typeof(MatToastPosition), value); }
@@ -211,9 +205,7 @@
                     }
                 });
             }
-
         }
-
 
     </Content>
     <SourceContent>
@@ -320,7 +312,7 @@
             }
 
 
-            string _toastPosition
+            private string _toastPosition
             {
                 get { return Toaster.Configuration.Position.ToString(); }
                 set { Toaster.Configuration.Position = (MatToastPosition)Enum.Parse(typeof(MatToastPosition), value); }
@@ -363,9 +355,7 @@
                     }
                 });
             }
-
         }
-
 
     ")></BlazorFiddle>
     </SourceContent>

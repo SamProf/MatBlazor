@@ -11,10 +11,9 @@ namespace MatBlazor
     {
         public const bool CanBeClosedDefault = true;
 
-        private bool _isOpen;
-
         // true is the mdc default
         private bool _canBeClosed = CanBeClosedDefault;
+        private bool _isOpen;
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
@@ -51,14 +50,14 @@ namespace MatBlazor
             get => _canBeClosed;
             set
             {
-                if (CanBeClosed != value)
+                if (CanBeClosed == value) 
+                    return;
+                
+                _canBeClosed = value;
+                CallAfterRender(async () =>
                 {
-                    _canBeClosed = value;
-                    CallAfterRender(async () =>
-                    {
-                        await JsInvokeAsync<object>("matBlazor.matDialog.setCanBeClosed", Ref, value);
-                    });
-                }
+                    await JsInvokeAsync<object>("matBlazor.matDialog.setCanBeClosed", Ref, value);
+                });
             }
         }
 
@@ -79,10 +78,10 @@ namespace MatBlazor
         {
             SurfaceClassMapper
                 .Add("mdc-dialog__surface")
-                .Get(() => this.SurfaceClass);
+                .Get(() => SurfaceClass);
 
             SurfaceStyleMapper
-                .Get(() => this.SurfaceStyle);
+                .Get(() => SurfaceStyle);
 
             ClassMapper.Add("mdc-dialog");
             CallAfterRender(async () =>
@@ -103,7 +102,7 @@ namespace MatBlazor
         {
             _isOpen = false;
             await IsOpenChanged.InvokeAsync(false);
-            this.StateHasChanged();
+            StateHasChanged();
         }
 
         [JSInvokable]
@@ -111,7 +110,7 @@ namespace MatBlazor
         {
             _isOpen = true;
             await IsOpenChanged.InvokeAsync(true);
-            this.StateHasChanged();
+            StateHasChanged();
         }
     }
 }

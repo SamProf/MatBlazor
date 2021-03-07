@@ -8,7 +8,6 @@ namespace MatBlazor
         public List<Func<string>> Items = new List<Func<string>>();
     }
 
-
     public static class BaseMapperExtensions
     {
         public static T Add<T>(this T m, string name) where T : BaseMapper

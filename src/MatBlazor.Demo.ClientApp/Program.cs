@@ -18,6 +18,8 @@ namespace MatBlazor.Demo.ClientApp
             builder.Services.AddTransient(sp => new HttpClient
                 {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
 
+            
+            builder.Services.AddMatBlazor();
             builder.Services.AddSingleton<AppModel>();
             builder.Services.AddScoped<UserAppModel>();
             builder.Services.AddScoped<DemoUserService>();

@@ -8,7 +8,7 @@ namespace MatBlazor
     public class BaseMatButtonLink: BaseMatDomComponent
     {
         [Inject]
-        public Microsoft.AspNetCore.Components.NavigationManager UriHelper { get; set; }
+        public NavigationManager UriHelper { get; set; }
 
         protected async override Task OnFirstAfterRenderAsync()
         {
@@ -21,10 +21,10 @@ namespace MatBlazor
             ClassMapper
                 .Add("mdc-button")
                 .Add("mat-button-link")
-                .If("mdc-button--raised", () => this.Raised)
-                .If("mdc-button--unelevated", () => this.Unelevated)
-                .If("mdc-button--outlined", () => this.Outlined)
-                .If("mdc-button--dense", () => this.Dense);
+                .If("mdc-button--raised", () => Raised)
+                .If("mdc-button--unelevated", () => Unelevated)
+                .If("mdc-button--outlined", () => Outlined)
+                .If("mdc-button--dense", () => Dense);
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace MatBlazor
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        protected async void OnClickHandler(MouseEventArgs ev)
+        protected async Task OnClickHandler(MouseEventArgs ev)
         {
             if (Disabled)
             {
@@ -129,9 +129,9 @@ namespace MatBlazor
                 Command.Execute(CommandParameter);
             }
 
-            if (Href != null && string.IsNullOrEmpty(Target))
+            if (Href != null && string.IsNullOrEmpty(Target) && ForceLoad)
             {
-                UriHelper.NavigateTo(Href, ForceLoad);
+                UriHelper.NavigateTo(Href, true);
             }
         }
     }
