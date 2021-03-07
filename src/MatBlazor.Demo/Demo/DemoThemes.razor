@@ -23,6 +23,11 @@
                                                                                              Theme.Secondary = _;
                                                                                              this.Theme.ThemeHasChanged();
                                                                                          })" OnFocus="@(_ => colorType = ColorType.Secondary)" class="@(colorType == ColorType.Secondary ? "mat-elevation-z10" : null)"></MatStringField>
+                <MatStringField Value="@Theme.Surface"
+                                Label="Surface"
+                                ValueChanged="@(_ => { Theme.Surface = _; this.Theme.ThemeHasChanged(); })"
+                                OnFocus="@(_ => colorType = ColorType.Surface)" class="@(colorType == ColorType.Surface ? "mat-elevation-z10" : null)">
+                </MatStringField>
             </div>
 
             <ThemeColorSelector @bind-Value="@ColorValue"></ThemeColorSelector>
@@ -216,6 +221,8 @@
                     return Theme.Primary;
                 case ColorType.Secondary:
                     return Theme.Secondary;
+                case ColorType.Surface:
+                    return Theme.Surface;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -231,6 +238,9 @@
                 case ColorType.Secondary:
                     Theme.Secondary = value;
                     break;
+                case ColorType.Surface:
+                    Theme.Surface = value;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -242,7 +252,8 @@
     enum ColorType
     {
         Primary,
-        Secondary
+        Secondary,
+        Surface
     }
 
 }
