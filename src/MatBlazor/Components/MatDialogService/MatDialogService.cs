@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.WebSockets;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
 
 namespace MatBlazor
 {
@@ -40,7 +36,7 @@ namespace MatBlazor
 
         public async Task AlertAsync(string message)
         {
-            await this.OpenAsync(typeof(MatDialogAlert), new MatDialogOptions()
+            await OpenAsync(typeof(MatDialogAlert), new MatDialogOptions()
             {
                 Attributes = new Dictionary<string, object>()
                 {
@@ -51,7 +47,7 @@ namespace MatBlazor
 
         public async Task<bool> ConfirmAsync(string message)
         {
-            var res = await this.OpenAsync(typeof(MatDialogConfirm), new MatDialogOptions()
+            var res = await OpenAsync(typeof(MatDialogConfirm), new MatDialogOptions()
             {
                 Attributes = new Dictionary<string, object>()
                 {
@@ -64,7 +60,7 @@ namespace MatBlazor
 
         public async Task<T> AskAsync<T>(string message, IEnumerable<T> answers)
         {
-            var res = await this.OpenAsync(typeof(MatDialogAsk), new MatDialogOptions()
+            var res = await OpenAsync(typeof(MatDialogAsk), new MatDialogOptions()
             {
                 Attributes = new Dictionary<string, object>()
                 {
@@ -78,7 +74,7 @@ namespace MatBlazor
 
         public async Task<string> PromptAsync(string message, string value)
         {
-            var res = await this.OpenAsync(typeof(MatDialogPrompt), new MatDialogOptions()
+            var res = await OpenAsync(typeof(MatDialogPrompt), new MatDialogOptions()
             {
                 Attributes = new Dictionary<string, object>()
                 {
