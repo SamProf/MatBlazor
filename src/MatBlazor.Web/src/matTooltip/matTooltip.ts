@@ -16,6 +16,7 @@ class MatTooltip {
   target;
   ref;
   targetRef;
+  options;
 
 
   constructor(ref, targetRef, targetId, options) {
@@ -60,7 +61,10 @@ class MatTooltip {
   }
 
   calculatePos(position) {
-    var xy = {};
+    var xy = {
+      x: undefined,
+      y: undefined
+    };
     // console.log(this.targetRef);
     // console.log(this.ref);
 
