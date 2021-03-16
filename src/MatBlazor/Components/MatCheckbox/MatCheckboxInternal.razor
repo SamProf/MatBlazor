@@ -2,17 +2,17 @@
 @typeparam TValue
 @inherits BaseMatCheckboxInternal<TValue>
 
-<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="@Attributes">
-    <div class="mdc-checkbox" @ref="ComponentRef" >
+<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref" @attributes="@Attributes">
+    <div class="mdc-checkbox" @ref="@ComponentRef">
         <input @ref="@InputRef"
-               type="checkbox"
-               class="mdc-checkbox__native-control"
-               @onchange="ChangeHandler"
-               checked="@CurrentValue"
-               disabled=@Disabled
-               value="@InputValue"
-               id="@(Id)"
-               @attributes="@GetInputAttributes()"/>
+                type="checkbox"
+                class="mdc-checkbox__native-control"
+                @onchange="ChangeHandler"
+                checked="@CurrentValue"
+                disabled="@Disabled"
+                value="@InputValue"
+                id="@(Id)"
+                @attributes="@GetInputAttributes()"/>
 
         <div class="mdc-checkbox__background">
             <svg class="mdc-checkbox__checkmark"
@@ -23,6 +23,7 @@
             </svg>
             <div class="mdc-checkbox__mixedmark"></div>
         </div>
+        <div class="mdc-checkbox__ripple"></div>
     </div>
 
     @if (Label != null || ChildContent != null)
