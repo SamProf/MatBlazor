@@ -11,6 +11,10 @@ namespace MatBlazor
     public class BaseMatRadioButtonInternal<TValue> : BaseMatDomComponent
     {
 
+        //todo: Why RadioButton not inherit from some MatInputElement components?
+        [Parameter] public string InputId { get; set; } = MatId.NewId("mat-input-id-"); 
+        
+
         protected MatBlazorSwitchT<TValue> SwitchT = MatBlazorSwitchT<TValue>.Get();
 
 
