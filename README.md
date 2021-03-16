@@ -143,7 +143,11 @@ functionality in Demo for the component you are editing. Not only will this allo
 
 
 
-#### MatBlazor 2.9.0 (develop)
+#### MatBlazor 3.0.0 (develop)
+- Update all components to MDC Web 10
+- InputId parameter for all InputElement components used for html input elements, Id parameters used for host element (breaking change)  
+
+#### MatBlazor 2.9.0-develop
 - Supports net5.0;netstandard2.1
 - PR: MatTreeView - new component #788 (Thanks to adameste)
 - PR: Fix MatAutocompleteList re-render list on items update #857 (Thanks to Ogglas)
