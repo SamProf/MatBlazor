@@ -143,7 +143,7 @@ namespace MatBlazor
                 .If("mdc-text-field--with-trailing-icon", () => this.Icon != null && this.IconTrailing)
                 .If("mdc-text-field--box", () => !this.FullWidth && this.Box)
                 .If("mdc-text-field--dense", () => Dense)
-                .If("mdc-text-field--outlined", () => !this.FullWidth && this.Outlined)
+                .If("mdc-text-field--outlined", () => this.Outlined)
                 .If("mdc-text-field--disabled", () => this.Disabled)
                 .If("mat-text-field--fullwidth", () => this.FullWidth)
                 .If("mdc-text-field--fullwidth-with-leading-icon",
