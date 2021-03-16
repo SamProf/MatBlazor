@@ -1,1 +1,3 @@
-@import "~@material/slider";
+@use "~@material/slider/slider";
+
+@include slider.core-styles;

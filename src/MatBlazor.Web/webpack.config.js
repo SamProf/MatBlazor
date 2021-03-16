@@ -3,6 +3,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 
 module.exports = {
+  mode: 'production',
+  performance: {
+    maxEntrypointSize: 1024*1024,
+    maxAssetSize: 1024*1024,
+  },
   entry: {
     'matBlazor': [
       './src/main.js',
@@ -43,6 +48,6 @@ module.exports = {
   ],
   output: {
     filename: 'matBlazor.js',
-    path: path.resolve(__dirname, '../../MatBlazor/wwwroot/dist')
+    path: path.resolve(__dirname, '../MatBlazor/wwwroot/dist')
   }
 };

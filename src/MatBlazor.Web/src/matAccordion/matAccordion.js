@@ -1,4 +1,4 @@
-import {MDCRipple} from '@material/ripple/component';
+import {MDCRipple} from '@material/ripple';
 
 export function init(ref) {
 
