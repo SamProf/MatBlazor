@@ -1,7 +1,7 @@
-@import "~@material/list/mdc-list";
-@import "~@material/menu-surface/mdc-menu-surface";
-@import "~@material/menu/mdc-menu";
-@import "~@material/select/mdc-select";
+@use "~@material/list/mdc-list";
+@use "~@material/menu-surface/mdc-menu-surface";
+@use "~@material/menu/mdc-menu";
+@use "~@material/select/styles";
 
 .mat-select {
   select {
@@ -19,5 +19,5 @@
 }
 
 .mdc-select:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label {
-    color: var(--mdc-theme-primary);
+  color: var(--mdc-theme-primary);
 }

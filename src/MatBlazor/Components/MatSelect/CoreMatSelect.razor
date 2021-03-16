@@ -30,16 +30,20 @@
                     <span class="mdc-floating-label">@Label</span>
                 }
             }
+            
+            
+            
+            <span class="mdc-select__selected-text-container @FieldClass">
+                <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+            </span>
 
-
-            <span class="mdc-select__selected-text @FieldClass"></span>
 
             @if (!HideDropDownIcon)
             {
                 <span class="mdc-select__dropdown-icon">
                     <svg
                         class="mdc-select__dropdown-icon-graphic"
-                        viewBox="7 10 10 5">
+                        viewBox="7 10 10 5" focusable="false">
                         <polygon
                             class="mdc-select__dropdown-icon-inactive"
                             stroke="none"
@@ -67,7 +71,7 @@
             }
         </div>
 
-        <div class="mdc-select__menu mdc-menu mdc-menu-surface" style="@(FullWidth ? "width: 100%;" : "")">
+        <div class="mdc-select__menu mdc-menu mdc-menu-surface dc-menu-surface--fullwidth" style="@(FullWidth ? "width: 100%;" : "")">
             <ul class="mdc-list">
                 @GetChildContent()
             </ul>
