@@ -1,4 +1,15 @@
-@import "@material/textfield/mdc-text-field";
+@use "~@material/floating-label/mdc-floating-label";
+@use "~@material/line-ripple/mdc-line-ripple";
+@use "~@material/notched-outline/mdc-notched-outline";
+@use "~@material/textfield";
+
+@include textfield.core-styles;
+
+
+.mat-text-field--fullwidth
+{
+  width: 100%;
+}
 
 .mat-text-field-icon-container {
   position: absolute;

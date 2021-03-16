@@ -100,6 +100,12 @@ namespace MatBlazor
             return this.OnKeyDown;
         }
 
+        protected override void OnValueChanged(TValue oldValue, TValue newValue)
+        {
+            base.OnValueChanged(oldValue, newValue);
+            CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matTextField.layout", Ref); });
+        }
+
 
         /// <summary>
         /// Css class of input element
@@ -139,7 +145,7 @@ namespace MatBlazor
                 .If("mdc-text-field--dense", () => Dense)
                 .If("mdc-text-field--outlined", () => !this.FullWidth && this.Outlined)
                 .If("mdc-text-field--disabled", () => this.Disabled)
-                .If("mdc-text-field--fullwidth", () => this.FullWidth)
+                .If("mat-text-field--fullwidth", () => this.FullWidth)
                 .If("mdc-text-field--fullwidth-with-leading-icon",
                     () => this.FullWidth && this.Icon != null && !this.IconTrailing)
                 .If("mdc-text-field--fullwidth-with-trailing-icon",
