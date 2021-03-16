@@ -6,7 +6,7 @@ namespace MatBlazor
     public abstract class BaseMatDomComponent : BaseMatComponent
     {
         [Parameter]
-        public string Id { get; set; } = IdGeneratorHelper.Generate("matBlazor_id_");
+        public string Id { get; set; } = MatId.NewId("mat-id-");
 
         /// <summary>
         /// Gets or sets a collection of additional attributes that will be applied to the created element.

@@ -5,7 +5,7 @@ namespace MatBlazor
 {
     public class MatTheme
     {
-        internal string Id { get; private set; } = IdGeneratorHelper.Generate("matBlazor_theme_");
+        internal string Id { get; private set; } = MatId.NewId("mat-theme-");
 
         /// <summary>
         /// The theme primary color

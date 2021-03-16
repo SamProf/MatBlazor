@@ -134,7 +134,7 @@ namespace MatBlazor
         [Parameter]
         public MatToastType Type { get; set; }
 
-        private readonly string _animationId = IdGeneratorHelper.Generate("mat_toaster_animation_");
+        private readonly string _animationId = MatId.NewId("mat-toaster-animation-");
 
         private MatToastTransitionState TransitionState { get; set; }
 

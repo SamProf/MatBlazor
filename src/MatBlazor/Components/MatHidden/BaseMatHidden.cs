@@ -9,7 +9,7 @@ namespace MatBlazor
     /// </summary>
     public class BaseMatHidden : BaseMatComponent
     {
-        private readonly string Id = IdGeneratorHelper.Generate("");
+        private readonly string Id = MatId.NewId();
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
