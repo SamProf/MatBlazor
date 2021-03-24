@@ -34,17 +34,9 @@ namespace MatBlazor.Demo.ServerApp
             });
 
 
-
-            services.AddSingleton<AppModel>();
-            services.AddScoped<UserAppModel>();
+            services.AddDocApp(new AppModel(typeof(Pages.Index).Assembly, DemoNavModel.Default()));
             services.AddScoped<DemoUserService>();
-            services.AddMatToaster(config =>
-            {
-                //example MatToaster customizations
-                config.PreventDuplicates = false;
-                config.NewestOnTop = true;
-                config.ShowCloseButton = true;
-            });
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,19 @@
+﻿@inherits MatBlazor.Demo.Components.BaseDocComponent
+
+@if (!Secondary)
+{<h3 class="mat-h3">@Header</h3> }
+else
+{ <h5 class="mat-h5">@Header</h5>}
+
+@((MarkupString)DocComponentType.GetTypeDocu(ComponentType))
+
+@code{
+    [Parameter]
+    public Type ComponentType { get; set; }
+
+    [Parameter]
+    public Type DocComponentType { get; set; }
+
+    private string Header => this.ComponentType.Name;
+
+}

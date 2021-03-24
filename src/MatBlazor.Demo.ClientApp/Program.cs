@@ -1,5 +1,6 @@
 ﻿using MatBlazor.Demo.Models;
 using MatBlazor.Demo.Services;
+using MatBlazor.Doc;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -13,23 +14,15 @@ namespace MatBlazor.Demo.ClientApp
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("app");
+            builder.RootComponents.Add<MatBlazor.Doc.DocApp>("app");
 
             builder.Services.AddTransient(sp => new HttpClient
                 {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
 
             
-            builder.Services.AddMatBlazor();
-            builder.Services.AddSingleton<AppModel>();
-            builder.Services.AddScoped<UserAppModel>();
+            builder.Services.AddDocApp(new AppModel(typeof(Pages.Index).Assembly, DemoNavModel.Default()));
             builder.Services.AddScoped<DemoUserService>();
-            builder.Services.AddMatToaster(config =>
-            {
-                //example MatToaster customizations
-                config.PreventDuplicates = false;
-                config.NewestOnTop = true;
-                config.ShowCloseButton = true;
-            });
+           
 
             await builder
                 .Build()

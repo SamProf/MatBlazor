@@ -1,48 +1,24 @@
-<DocMatAutocomplete></DocMatAutocomplete>
+@*<DocMatAutocomplete></DocMatAutocomplete>*@
 
+<AutoDocContainer ComponentType="@(typeof(MatAutocomplete<,>))" DocComponentType="@this.GetType()"/>
 
 <MatH3>This component is in progress, use MatAutocompleteList instead!</MatH3>
 
 
-<h5 class="mat-h5">Example</h5>
-<DemoContainer>
-    <Content>
-        <MatAutocomplete Items="@options" Label="Pick one" @bind-Value="@value"></MatAutocomplete>
-
-        @code
+<AutoDemoContainer DocInfo="@this.GetDocInfo(1)">
+    <MatAutocomplete Items="@options" Label="Pick one" @bind-Value="@value"></MatAutocomplete>
+    @code
         {
 
-            string value;
+        string value;
 
-            string[] options = new[]
-            {
+        string[] options = new[]
+        {
                 "One",
                 "Two",
                 "Three"
             };
 
-        }
-
-    </Content>
-    <SourceContent>
-    	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatAutocomplete Items=""@options"" Label=""Pick one"" @bind-Value=""@value""></MatAutocomplete>
-
-        @code
-        {
-
-            string value;
-
-            string[] options = new[]
-            {
-                ""One"",
-                ""Two"",
-                ""Three""
-            };
-
-        }
-
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
+    }
+</AutoDemoContainer>
 

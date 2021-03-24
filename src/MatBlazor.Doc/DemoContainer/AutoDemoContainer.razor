@@ -1,0 +1,20 @@
+﻿
+<h5 class="mat-h5">Example</h5>
+<DemoContainer>
+    <Content>
+        @ChildContent
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(this.DocInfo.Code)></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+@code{
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public DocInfo DocInfo { get; set; }
+
+}

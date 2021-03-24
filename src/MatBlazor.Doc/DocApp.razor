@@ -1,9 +1,10 @@
-﻿<MatThemeProvider Theme="@theme">
+﻿@inject AppModel AppModel
+<MatThemeProvider Theme="@theme">
     <MatToastContainer />
 
-    <Router AppAssembly=typeof(MatBlazor.Demo.Pages.Index).Assembly>
+    <Router AppAssembly=@this.AppModel.AppAssembly AdditionalAssemblies="new[] { typeof(AppModel).Assembly }">
         <Found Context="routeData">
-            <RouteView RouteData="routeData" DefaultLayout="typeof(MatBlazor.Demo.Shared.MainLayout)" />
+            <RouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)" />
         </Found>
         <NotFound>
             <h1>Page not found</h1>
@@ -22,17 +23,5 @@
         Background = "#fafafa",
         Surface = "#ffffff"
     };
-
-    private string _test1;
-
-    [Parameter]
-    public string Test1
-    {
-        get => _test1;
-        set
-        {
-            _test1 = value;
-        }
-    }
 
 }

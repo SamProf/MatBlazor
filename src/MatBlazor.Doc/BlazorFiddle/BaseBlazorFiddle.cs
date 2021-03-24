@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace MatBlazor.Demo.BlazorFiddle
+namespace MatBlazor.Doc.BlazorFiddle
 {
     public class BaseBlazorFiddle : BaseMatDomComponent
     {
