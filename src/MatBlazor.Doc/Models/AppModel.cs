@@ -1,45 +1,20 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components;
+using System;
+using System.Linq;
 using System.Reflection;
 
 namespace MatBlazor.Demo.Models
 {
-    public class NavItem
-    {
-        public NavGroup Group;
-        public string Name;
-        public string Url;
-        public int Order;
-    }
-
-    public class NavGroup
-    {
-        public string Name;
-        public int Order;
-
-        public NavGroup(string name, int order = int.MaxValue)
-        {
-            Name = name;
-            Order = order;
-        }
-    }
-
-    public class NavModel
-    {
-        public NavGroupModel[] NavGroups { get; set; }
-    }
-    public class NavGroupModel
-    {
-        public NavGroup Group;
-        public NavItem[] Items;
-    }
 
     public class AppModel
     {
         private readonly object syncObj = new object();
         private int userCount = 0;
 
-        public Assembly AppAssembly { get; }
+        public Assembly AppAssembly => DocAppIndexComponentType.Assembly;
+        public Type DocAppIndexComponentType { get; }
         public NavModel NavModel { get; }
+        public bool ShowAds { get; }
 
         public event EventHandler<int> UserCountChanged;
 
@@ -51,10 +26,38 @@ namespace MatBlazor.Demo.Models
             }
         }
 
-        public AppModel(Assembly appAssembly,NavModel navModel)
+        public AppModel(Type docAppIndexComponentType,NavModel navModel, bool showAds = true)
         {
-            AppAssembly = appAssembly;
+            DocAppIndexComponentType = docAppIndexComponentType;
             NavModel = navModel;
+            ShowAds = showAds;
+            if (navModel.NavGroups == null)
+                navModel.NavGroups = GenerateNavModel(docAppIndexComponentType);
+        }
+
+        private static NavGroupModel[] GenerateNavModel(Type docAppIndexComponentType)
+        {
+            var navGroupModels = docAppIndexComponentType.Assembly.GetTypes()
+                .Where(t => t!= docAppIndexComponentType && typeof(ComponentBase).IsAssignableFrom(t))
+                .Select(t => (Type: t, Route: t.GetCustomAttribute<RouteAttribute>(), DisplayInfo: t.GetCustomAttribute<RouteDisplayAttribute>()))
+                .Where(x => x.Route != null)
+                .GroupBy(x => x.DisplayInfo?.Group)
+                .Select(group =>
+                {
+                    var navGroup = new NavGroup(group.Key);
+                    var navGroupItems = group.Select(
+                        i => new NavItem
+                        {
+                            Order = i.DisplayInfo?.Priority ?? 0,
+                            Group = navGroup,
+                            Name = i.DisplayInfo?.Text ?? i.Route.Template.Trim('/'),
+                            Url = i.Route.Template
+                        }).ToArray();
+
+                    var navGroupModel = new NavGroupModel() { Group = navGroup, Items = navGroupItems };
+                    return navGroupModel;
+                }).ToArray();
+            return navGroupModels;
         }
 
 

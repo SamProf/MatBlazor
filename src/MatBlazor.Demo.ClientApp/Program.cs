@@ -1,6 +1,7 @@
 ﻿using MatBlazor.Demo.Models;
 using MatBlazor.Demo.Services;
 using MatBlazor.Doc;
+using MatBlazor.Doc.Demo;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -15,18 +16,17 @@ namespace MatBlazor.Demo.ClientApp
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<MatBlazor.Doc.DocApp>("app");
-
-            builder.Services.AddTransient(sp => new HttpClient
+            var services = builder.Services;
+            services.AddTransient(sp => new HttpClient
                 {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
 
-            
-            builder.Services.AddDocApp(new AppModel(typeof(Pages.Index).Assembly, DemoNavModel.Default()));
-            builder.Services.AddScoped<DemoUserService>();
+            services.AddDocApp(new AppModel(typeof(DocDemoIndex), new NavModel("My Library - Documentation"), false));
+
+            //builder.Services.AddDocApp(new AppModel(typeof(Pages.Index), DemoNavModel.Default()));
+            services.AddScoped<DemoUserService>();
            
 
-            await builder
-                .Build()
-                .RunAsync();
+            await builder.Build().RunAsync();
         }
     }
 }

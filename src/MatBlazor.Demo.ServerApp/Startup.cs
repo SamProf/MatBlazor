@@ -1,5 +1,6 @@
 using MatBlazor.Demo.Models;
 using MatBlazor.Demo.Services;
+using MatBlazor.Doc.Demo;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -33,8 +34,9 @@ namespace MatBlazor.Demo.ServerApp
                 
             });
 
+            services.AddDocApp(new AppModel(typeof(DocDemoIndex),new NavModel("My Library - Documentation"),false));
 
-            services.AddDocApp(new AppModel(typeof(Pages.Index).Assembly, DemoNavModel.Default()));
+            //services.AddDocApp(new AppModel(typeof(Pages.Index).Assembly, DemoNavModel.Default()));
             services.AddScoped<DemoUserService>();
            
         }

@@ -1,0 +1,49 @@
+@page "/"
+
+@using System.Diagnostics
+@implements IDisposable
+
+<style>
+    .blazor-fiddle { overflow-wrap: break-word; }
+
+    .index-row-item { padding: 24px; }
+
+</style>
+
+
+<div class="mat-layout-grid">
+    <div class="mat-layout-grid-inner">
+
+        <div class="mat-layout-grid-cell-span-12">
+            <h1 class="mat-h1"><img src="https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/logo.png" style="max-height: 100px;"/> MatBlazor</h1>
+            <h4 class="mat-h4">Material Design components for Blazor (@(GetVersion()))</h4>
+        </div>
+
+
+    </div>
+</div>
+
+
+@code
+{
+
+    public void Dispose()
+    {
+        Console.WriteLine("My Dispose 2");
+    }
+
+
+    string GetVersion()
+    {
+        var assembly = typeof(BaseMatComponent).Assembly;
+        try
+        {
+            return FileVersionInfo.GetVersionInfo(assembly.Location).ProductVersion;
+        }
+        catch (Exception e)
+        {
+            return assembly.GetName().Version.ToString(2);
+        }
+    }
+
+}

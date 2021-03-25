@@ -15,13 +15,13 @@ namespace MatBlazor.Doc.DemoContainer
     }
     public static class TypeExtensions
     {
-        public static string GetTypeDocu(this Type docComponentType, Type typeToDocument)
-        {
-            var generator = new MatDocumenationGenerator(typeToDocument.Assembly);
-            var allDocs = generator.GenerateDynamically(docComponentType.Assembly);
-            var finalDoc = allDocs.Single(x => x.ComponentType == typeToDocument).HtmlDoc;
-            return finalDoc;
-        }
+        //public static string GetTypeDocu(this Type docComponentType, Type typeToDocument)
+        //{
+        //    var generator = new AssemblyDocumentationGenerator(typeToDocument.Assembly);
+        //    var allDocs = generator.GenerateDynamically(docComponentType.Assembly);
+        //    var finalDoc = allDocs.Single(x => x.Type == typeToDocument).Documentation;
+        //    return finalDoc;
+        //}
         public static DocInfo GetDocInfo(this ComponentBase component, int number)
         {
             var componentType = component.GetType();

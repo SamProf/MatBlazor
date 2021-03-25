@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Components
 @inject IJSRuntime JsRuntime
-
+@inject AppModel Model 
 
 @if (Header != null)
 {
@@ -16,6 +16,8 @@
             @SourceContent
         </div>
     </div>
+    @if (Model.ShowAds)
+    {
     <div style="overflow: hidden; padding-top: 5px;">
         <ins class="adsbygoogle"
              style="display:block; text-align:center;"
@@ -25,6 +27,7 @@
              data-ad-slot="7908819923">
         </ins>
     </div>
+    }
 </div>
 
 
@@ -49,7 +52,7 @@
     protected override void OnAfterRender(bool firstRender)
     {
         base.OnAfterRender(firstRender);
-        if (firstRender)
+        if (firstRender && this.Model.ShowAds)
         {
             JsRuntime.InvokeAsync<object>("matBlazorDemo.initAd");
         }

@@ -1,0 +1,24 @@
+﻿@page "/Autocomplete";
+@attribute [RouteDisplay("My AutoComplete", "MyGroup")]
+<AutoDocContainer ComponentType="@(typeof(MatAutocomplete<,>))" DocComponentType="@this.GetType()" />
+
+<MatH3>This component is in progress, use MatAutocompleteList instead!</MatH3>
+
+
+<AutoDemoContainer DocInfo="@this.GetDocInfo(1)">
+    <MatAutocomplete Items="@options" Label="Pick one" @bind-Value="@value"></MatAutocomplete>
+    @code
+        {
+
+        string value;
+
+        string[] options = new[]
+        {
+                "One",
+                "Two",
+                "Three"
+            };
+
+    }
+</AutoDemoContainer>
+

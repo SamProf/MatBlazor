@@ -342,8 +342,8 @@ namespace MatBlazor.Demo.Services
         };
 
 
-            var model = new NavModel
-            {
+            var model = new NavModel("MatBlazor - Material Design components for Blazor and Razor Components")
+            { 
                 NavGroups = navItems
                 .GroupBy(i => i.Group)
                 .OrderBy(i => i.Key.Order)
