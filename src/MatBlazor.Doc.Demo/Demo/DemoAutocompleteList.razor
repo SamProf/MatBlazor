@@ -3,9 +3,10 @@
 
 <XmlDocContainer ComponentType="@(typeof(MatAutocompleteList<>))" DocComponentType="@this.GetType()" />
 
+<h5 class="mat-h5">Examples</h5>
 
-<h5 class="mat-h5">Example</h5>
-<RazorDocContainer DocInfo="@this.GetDocInfo(1)">
+
+<RazorDocContainer DocInfo="@this.GetDocInfo("Default")">
     <MatAutocompleteList Items="@options" TItem="string" Label="Pick one"></MatAutocompleteList>
 
     @code
@@ -21,60 +22,48 @@
     }
 </RazorDocContainer>
 
-<h5 class="mat-h5">Icon</h5>
-<RazorDocContainer DocInfo="@this.GetDocInfo(2)">
+<RazorDocContainer DocInfo="@this.GetDocInfo("Icon")">
     <MatAutocompleteList Items="@options" Icon="thumb_up_alt" TItem="string" Label="Pick one"></MatAutocompleteList>
 </RazorDocContainer>
 
+<RazorDocContainer DocInfo="@this.GetDocInfo("Clear Button")">
+    <MatAutocompleteList Items="@options" Value="@options[0]" ShowClearButton="true" Icon="thumb_up_alt" TItem="string" Label="Pick one"></MatAutocompleteList>
+</RazorDocContainer>
 
-<h5 class="mat-h5">Clear Button</h5>
-<DemoContainer>
-    <Content>
-        <MatAutocompleteList Items="@options" Value="@options[0]" ShowClearButton="true" Icon="thumb_up_alt" TItem="string" Label="Pick one"></MatAutocompleteList>
-    </Content>
-    <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatAutocompleteList Items=""@options"" Value=""@options[0]"" ShowClearButton=""true"" Icon=""thumb_up_alt"" TItem=""string"" Label=""Pick one""></MatAutocompleteList>
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
+<RazorDocContainer DocInfo="@this.GetDocInfo("ItemTemplate")">
+    <p>
+        <MatAutocompleteList Items="@options2" TItem="Car" Label="Select car" CustomStringSelector="@(i => i.Name)" @bind-Value="@value">
+            <ItemTemplate>
+                <div style="display: flex; flex-direction: row; width: 100%;">
+                    <div style="flex: 1;">@context.Name</div>
+                    <div style="width: 150px;">@context.Price$</div>
+                </div>
+            </ItemTemplate>
+        </MatAutocompleteList>
+    </p>
+    <p>
+        Selected value: @(value?.Name)
+    </p>
 
-<h5 class="mat-h5">ItemTemplate</h5>
-<DemoContainer>
-    <Content>
-        <p>
-            <MatAutocompleteList Items="@options2" TItem="Car" Label="Select car" CustomStringSelector="@(i => i.Name)" @bind-Value="@value">
-                <ItemTemplate>
-                    <div style="display: flex; flex-direction: row; width: 100%;">
-                        <div style="flex: 1;">@context.Name</div>
-                        <div style="width: 150px;">@context.Price$</div>
-                    </div>
-                </ItemTemplate>
-            </MatAutocompleteList>
-        </p>
-        <p>
-            Selected value: @(value?.Name)
-        </p>
-
-        @code
+    @code
         {
 
-            public class Car
-            {
-                public string Name { get; set; }
-                public double Price { get; set; }
+        public class Car
+        {
+            public string Name { get; set; }
+            public double Price { get; set; }
 
-                public Car(string name, double price)
-                {
-                    Name = name;
-                    Price = price;
-                }
+            public Car(string name, double price)
+            {
+                Name = name;
+                Price = price;
             }
+        }
 
-            Car value = null;
+        Car value = null;
 
-            Car[] options2 = new[]
-            {
+        Car[] options2 = new[]
+        {
                 new Car("Volkswagen Golf", 10000),
                 new Car("Volkswagen Passat", 11000),
                 new Car("Volkswagen Polo", 12000),
@@ -84,136 +73,41 @@
                 new Car("Ford Mondeo", 16000),
             };
 
-        }
+    }
+</RazorDocContainer>
 
-    </Content>
-    <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-        <p>
-            <MatAutocompleteList Items=""@options2"" TItem=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"" @bind-Value=""@value"">
-                <ItemTemplate>
-                    <div style=""display: flex; flex-direction: row; width: 100%;"">
-                        <div style=""flex: 1;"">@context.Name</div>
-                        <div style=""width: 150px;"">@context.Price$</div>
-                    </div>
-                </ItemTemplate>
-            </MatAutocompleteList>
-        </p>
-        <p>
-            Selected value: @(value?.Name)
-        </p>
+<RazorDocContainer DocInfo="@this.GetDocInfo("With Full Width")">
+    <MatAutocompleteList Items="@options2" FullWidth="true" TItem="Car" Label="Select car" CustomStringSelector="@(i => i.Name)">
+        <ItemTemplate>
+            <div style="display: flex; flex-direction: row; width: 100%;">
+                <div style="flex: 1;">@context.Name</div>
+                <div style="width: 150px;">@context.Price$</div>
+            </div>
+        </ItemTemplate>
+    </MatAutocompleteList>
+</RazorDocContainer>
 
-        @code
+<RazorDocContainer DocInfo="@this.GetDocInfo("In an edit form with a Data Annotation Validator")">
+    <EditForm Model="@model" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <MatAutocompleteList Items="@model.Options" Icon="thumb_up_alt" TItem="string" @bind-Value="@model.SelectedOption" Label="Pick one(Required)" ShowClearButton="true"></MatAutocompleteList>
+        <MatButton>Submit</MatButton>
+    </EditForm>
+    @code
         {
-
-            public class Car
-            {
-                public string Name { get; set; }
-                public double Price { get; set; }
-
-                public Car(string name, double price)
-                {
-                    Name = name;
-                    Price = price;
-                }
-            }
-
-            Car value = null;
-
-            Car[] options2 = new[]
-            {
-                new Car(""Volkswagen Golf"", 10000),
-                new Car(""Volkswagen Passat"", 11000),
-                new Car(""Volkswagen Polo"", 12000),
-                new Car(""Ford Focus"", 13000),
-                new Car(""Ford Fiesta"", 14000),
-                new Car(""Ford Fusion"", 15000),
-                new Car(""Ford Mondeo"", 16000),
-            };
-
-        }
-
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
-
-
-<h5 class="mat-h5">With Full Width</h5>
-<DemoContainer>
-    <Content>
-        <MatAutocompleteList Items="@options2" FullWidth="true" TItem="Car" Label="Select car" CustomStringSelector="@(i => i.Name)">
-            <ItemTemplate>
-                <div style="display: flex; flex-direction: row; width: 100%;">
-                    <div style="flex: 1;">@context.Name</div>
-                    <div style="width: 150px;">@context.Price$</div>
-                </div>
-            </ItemTemplate>
-        </MatAutocompleteList>
-    </Content>
-    <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatAutocompleteList Items=""@options2"" FullWidth=""true"" TItem=""Car"" Label=""Select car"" CustomStringSelector=""@(i => i.Name)"">
-            <ItemTemplate>
-                <div style=""display: flex; flex-direction: row; width: 100%;"">
-                    <div style=""flex: 1;"">@context.Name</div>
-                    <div style=""width: 150px;"">@context.Price$</div>
-                </div>
-            </ItemTemplate>
-        </MatAutocompleteList>
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
-
-<h5 class="mat-h5">In an edit form with a Data Annotation Validator</h5>
-<DemoContainer>
-    <Content>
-        <EditForm Model="@model" OnValidSubmit="HandleValidSubmit">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
-            <MatAutocompleteList Items="@model.Options" Icon="thumb_up_alt" TItem="string" @bind-Value="@model.SelectedOption" Label="Pick one(Required)" ShowClearButton="true"></MatAutocompleteList>
-            <MatButton>Submit</MatButton>
-        </EditForm>
-        @code
+        class AutocompleteContextModel
         {
-            class AutocompleteContextModel
-            {
-                public List<string> Options { get; set; } = new List<string>() { "A test option", "Another test option", "One more option" };
+            public List<string> Options { get; set; } = new List<string>() { "A test option", "Another test option", "One more option" };
 
-                [System.ComponentModel.DataAnnotations.Required]
-                public string SelectedOption { get; set; }
-            }
-            AutocompleteContextModel model = new AutocompleteContextModel();
-
-            void HandleValidSubmit()
-            {
-                Console.WriteLine("On Valid Submit");
-            }
+            [System.ComponentModel.DataAnnotations.Required]
+            public string SelectedOption { get; set; }
         }
-    </Content>
-    <SourceContent>
-        <BlazorFiddle Template="MatBlazor" Code=@(@"
-        <EditForm Model=""@model"" OnValidSubmit=""HandleValidSubmit"">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
-            <MatAutocompleteList Items=""@model.Options"" Icon=""thumb_up_alt"" TItem=""string"" @bind-Value=""@model.SelectedOption"" Label=""Pick one(Required)"" ShowClearButton=""true""></MatAutocompleteList>
-            <MatButton>Submit</MatButton>
-        </EditForm>
-        @code
+        AutocompleteContextModel model = new AutocompleteContextModel();
+
+        void HandleValidSubmit()
         {
-            class AutocompleteContextModel
-            {
-                public List<string> Options { get; set; } = new List<string>() { ""A test option"", ""Another test option"", ""One more option"" };
-
-                [System.ComponentModel.DataAnnotations.Required]
-                public string SelectedOption { get; set; }
-            }
-            AutocompleteContextModel model = new AutocompleteContextModel();
-
-            void HandleValidSubmit()
-            {
-                Console.WriteLine(""On Valid Submit"");
-            }
+            Console.WriteLine("On Valid Submit");
         }
-    ")></BlazorFiddle>
-    </SourceContent>
-</DemoContainer>
+    }
+</RazorDocContainer>

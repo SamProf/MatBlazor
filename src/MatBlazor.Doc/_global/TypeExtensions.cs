@@ -12,6 +12,7 @@ namespace MatBlazor.Doc.DemoContainer
     public record DocInfo
     {
         public string Code { get; set; }
+        public string SectionText { get; internal set; }
     }
     public static class TypeExtensions
     {
@@ -22,7 +23,7 @@ namespace MatBlazor.Doc.DemoContainer
         //    var finalDoc = allDocs.Single(x => x.Type == typeToDocument).Documentation;
         //    return finalDoc;
         //}
-        public static DocInfo GetDocInfo(this ComponentBase component, int number)
+        public static DocInfo GetDocInfo(this ComponentBase component, string uniqueSectionText)
         {
             var componentType = component.GetType();
             var resourceName = componentType.Assembly.GetManifestResourceNames().Single(
@@ -34,7 +35,7 @@ namespace MatBlazor.Doc.DemoContainer
             while (true)
             {
                 var line = reader.ReadLine();
-                if (line.Contains($"{nameof(GetDocInfo)}({number}"))
+                if (line.Contains($"{nameof(GetDocInfo)}(\"{uniqueSectionText}\""))
                 {
                     start = true;
                 }
@@ -47,7 +48,7 @@ namespace MatBlazor.Doc.DemoContainer
                     code += line + Environment.NewLine;
                 }
             }
-            return new DocInfo() { Code = code };
+            return new DocInfo() { Code = code, SectionText = uniqueSectionText };
         }
     }
 }
