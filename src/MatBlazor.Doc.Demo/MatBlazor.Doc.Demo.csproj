@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <IsPackable>true</IsPackable>
+    <TargetFrameworks>net5.0;netstandard2.1</TargetFrameworks>
+  </PropertyGroup>
+
+  <Choose>
+    <When Condition="$(TargetFramework) == 'netstandard2.1'">
+      <PropertyGroup>
+        <LangVersion>9</LangVersion>
+        <RazorLangVersion>3.0</RazorLangVersion>
+        <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.0" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MatBlazor.Doc\MatBlazor.Doc.csproj" />
+    <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\MatBlazor\bin\Debug\net5.0\MatBlazor.xml" Link="Resources\MatBlazor.xml" />
+  </ItemGroup>
+
+  <Target Name="EmbedDemoRazorComponents" BeforeTargets="BeforeBuild">
+    <ItemGroup>
+      <EmbeddedResource Include="Demo\*.razor" LinkBase="DemoEmbedded" />
+    </ItemGroup>
+  </Target>
+</Project>

@@ -22,6 +22,16 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:62766/"
+    },
+    "MatBlazor.Demo.ClientApp_new": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "USE_NEW": "true"
+      },
+      "applicationUrl": "http://localhost:62766/"
     }
+
   }
 }

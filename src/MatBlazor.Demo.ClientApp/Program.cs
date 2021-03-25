@@ -1,5 +1,8 @@
 ﻿using MatBlazor.Demo.Models;
 using MatBlazor.Demo.Services;
+using MatBlazor.Demo.Pages;
+using MatBlazor.Doc;
+using MatBlazor.Doc.Demo;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -13,27 +16,27 @@ namespace MatBlazor.Demo.ClientApp
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("app");
-
-            builder.Services.AddTransient(sp => new HttpClient
+            builder.RootComponents.Add<MatBlazor.Doc.DocApp>("app");
+            var services = builder.Services;
+            services.AddTransient(sp => new HttpClient
                 {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
 
-            
-            builder.Services.AddMatBlazor();
-            builder.Services.AddSingleton<AppModel>();
-            builder.Services.AddScoped<UserAppModel>();
-            builder.Services.AddScoped<DemoUserService>();
-            builder.Services.AddMatToaster(config =>
-            {
-                //example MatToaster customizations
-                config.PreventDuplicates = false;
-                config.NewestOnTop = true;
-                config.ShowCloseButton = true;
-            });
 
-            await builder
-                .Build()
-                .RunAsync();
+            var useNew = Environment.GetEnvironmentVariable("USE_NEW") == "true";
+            if (useNew)
+            {
+                services.AddDocApp(new AppModel(typeof(DocDemoIndex), new NavModel("My Library - Documentation"), false));
+            }
+            else
+            {
+                services.AddDocApp(new AppModel(typeof(MatBlazorDocIndex), DemoNavModel.Default()));
+            }
+
+            //builder.Services.AddDocApp(new AppModel(typeof(Pages.Index), DemoNavModel.Default()));
+            services.AddScoped<DemoUserService>();
+           
+
+            await builder.Build().RunAsync();
         }
     }
 }
