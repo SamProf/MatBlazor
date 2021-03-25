@@ -20,7 +20,16 @@ namespace MatBlazor.Demo.ClientApp
             services.AddTransient(sp => new HttpClient
                 {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
 
-            services.AddDocApp(new AppModel(typeof(DocDemoIndex), new NavModel("My Library - Documentation"), false));
+
+            var showFullDocu = true;
+            if (showFullDocu)
+            {
+                services.AddDocApp(new AppModel(typeof(Index), DemoNavModel.Default()));
+            }
+            else
+            {
+                services.AddDocApp(new AppModel(typeof(DocDemoIndex), new NavModel("My Library - Documentation"), false));
+            }
 
             //builder.Services.AddDocApp(new AppModel(typeof(Pages.Index), DemoNavModel.Default()));
             services.AddScoped<DemoUserService>();

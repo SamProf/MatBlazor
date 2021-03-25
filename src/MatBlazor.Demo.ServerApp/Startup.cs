@@ -34,9 +34,16 @@ namespace MatBlazor.Demo.ServerApp
                 
             });
 
-            services.AddDocApp(new AppModel(typeof(DocDemoIndex),new NavModel("My Library - Documentation"),false));
+            var showFullDocu = true;
+            if (showFullDocu)
+            {
+                services.AddDocApp(new AppModel(typeof(Index), DemoNavModel.Default()));
+            }
+            else
+            {
+                services.AddDocApp(new AppModel(typeof(DocDemoIndex), new NavModel("My Library - Documentation"), false));
+            }
 
-            //services.AddDocApp(new AppModel(typeof(Pages.Index).Assembly, DemoNavModel.Default()));
             services.AddScoped<DemoUserService>();
            
         }
