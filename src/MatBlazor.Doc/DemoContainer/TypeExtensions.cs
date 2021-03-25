@@ -40,7 +40,7 @@ namespace MatBlazor.Doc.DemoContainer
                 }
                 else if (start)
                 {
-                    if (line.Contains($"</{nameof(AutoDemoContainer)}"))
+                    if (line.Contains($"</{nameof(RazorDocContainer)}"))
                     {
                         break;
                     }

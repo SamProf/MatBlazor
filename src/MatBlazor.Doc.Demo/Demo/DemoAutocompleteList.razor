@@ -1,11 +1,11 @@
 @page "/MatAutocompleteList"
 @attribute [RouteDisplay(null, "Basics")]
 
-<AutoDocContainer ComponentType="@(typeof(MatAutocompleteList<>))" DocComponentType="@this.GetType()" />
+<XmlDocContainer ComponentType="@(typeof(MatAutocompleteList<>))" DocComponentType="@this.GetType()" />
 
 
 <h5 class="mat-h5">Example</h5>
-<AutoDemoContainer DocInfo="@this.GetDocInfo(1)">
+<RazorDocContainer DocInfo="@this.GetDocInfo(1)">
     <MatAutocompleteList Items="@options" TItem="string" Label="Pick one"></MatAutocompleteList>
 
     @code
@@ -19,12 +19,12 @@
             };
 
     }
-</AutoDemoContainer>
+</RazorDocContainer>
 
 <h5 class="mat-h5">Icon</h5>
-<AutoDemoContainer DocInfo="@this.GetDocInfo(2)">
+<RazorDocContainer DocInfo="@this.GetDocInfo(2)">
     <MatAutocompleteList Items="@options" Icon="thumb_up_alt" TItem="string" Label="Pick one"></MatAutocompleteList>
-</AutoDemoContainer>
+</RazorDocContainer>
 
 
 <h5 class="mat-h5">Clear Button</h5>
