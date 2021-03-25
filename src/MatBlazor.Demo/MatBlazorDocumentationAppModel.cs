@@ -7,9 +7,11 @@ namespace MatBlazor.Demo
 {
     public class MatBlazorDocumentationAppModel : AppModel
     {
-        public MatBlazorDocumentationAppModel() : base(typeof(MatBlazorDocIndex), GetNavModel(), true, FilterType)
+        public MatBlazorDocumentationAppModel() : base(
+            typeof(IndexPage), GetNavModel(), true, FilterType)
         {
         }
+
         private static bool FilterType(Type componentType)
         {
 
@@ -50,8 +52,8 @@ namespace MatBlazor.Demo
 
             var model = new NavModel(
                 "MatBlazor - Material Design components for Blazor and Razor Components",
-                ("http://samprof.com", "Samprof.com", "user-circle"),
-                ("https://github.com/SamProf/MatBlazor", "Github", "github"));
+                ("http://samprof.com", "Samprof.com", "fa fa-user-circle"),
+                ("https://github.com/SamProf/MatBlazor", "Github", "fa fa-github"));
             model.NavGroups = groupModels;
             return model;
         }

@@ -26,7 +26,7 @@
                 @foreach(var navBarLink in this.AppModel.NavModel.NavBarLinks)
                 {
                     <MatIconButton Link="@navBarLink.Url" Target="_blank">
-                        <i class="fa fa-@navBarLink.Icon" aria-hidden="true"></i>
+                        <i class="@navBarLink.FontAwesomeIconId" aria-hidden="true"></i>
                     </MatIconButton>
                 }
                @* <MatIconButton Link="http://samprof.com" Target="_blank">

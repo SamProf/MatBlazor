@@ -10,7 +10,7 @@ namespace MatBlazor.Doc.Demo
     public class DocFrameAppModel : AppModel
     {
         public DocFrameAppModel()
-            : base(typeof(DocDemoIndex), new NavModel("My Library - Documentation"), false)
+            : base(typeof(IndexPage), new NavModel("My Library - Documentation"), false)
         {
         }
     }

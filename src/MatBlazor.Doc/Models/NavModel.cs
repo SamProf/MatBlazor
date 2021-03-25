@@ -8,10 +8,10 @@
         {
             Url = url;
             Text = text;
-            Icon = icon;
+            FontAwesomeIconId = icon;
         }
 
-        public string Icon { get;  }
+        public string FontAwesomeIconId { get;  }
 
         public static implicit operator NavBarLinkModel((string url, string text, string icon) x)
         {
