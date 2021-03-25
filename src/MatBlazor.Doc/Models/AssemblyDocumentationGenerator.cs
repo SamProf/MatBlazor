@@ -17,8 +17,8 @@ namespace MatBlazor.DevUtils.Core
 
         public Lazy<XDocument> XmlDocumentation { get; }
 
-        public AssemblyDocumentationGenerator(Assembly assembly, string outputPath)
-        : this(assembly)
+        public AssemblyDocumentationGenerator(Assembly assembly,  string outputPath, Func<Type,bool> filter = null)
+        : this(assembly,filter)
         {
             OutputPath = outputPath;
             this.XmlDocumentation = new Lazy<XDocument>(
@@ -40,8 +40,8 @@ namespace MatBlazor.DevUtils.Core
                 });
         }
 
-        public AssemblyDocumentationGenerator(Assembly assembly, Assembly docFileContainer)
-            : this(assembly)
+        public AssemblyDocumentationGenerator(Assembly assembly, Assembly docFileContainer, Func<Type,bool> filter = null)
+            : this(assembly,filter)
         {
             this.XmlDocumentation = new Lazy<XDocument>(() =>
             {
@@ -52,10 +52,12 @@ namespace MatBlazor.DevUtils.Core
             });
         }
         public Lazy<TypeDocumentation[]> TypeDocumentations { get; }
+        public Func<Type, bool> Filter { get; }
 
-        private AssemblyDocumentationGenerator(Assembly assembly)
+        private AssemblyDocumentationGenerator(Assembly assembly,Func<Type,bool> filter = null)
         {
             this.Assembly = assembly;
+            Filter = filter;
             this.TypeDocumentations = new(() => this.GetTypeDocumentationContainers().ToArray());
         }
 
@@ -95,25 +97,10 @@ namespace MatBlazor.DevUtils.Core
         {
             foreach (var type in Assembly.ExportedTypes)
             {
-                //                if (!type.IsSubclassOf(typeof(ComponentBase)))
-                //                {
-                //                    continue;
-                //                }
-
-
-                if (type.Name.StartsWith("Base") || type.Name.EndsWith("Internal") || type.Name.EndsWith("Internal`1"))
+                if (this.Filter?.Invoke(type) ?? true)
                 {
-                    continue;
+                    yield return new TypeDocumentation(this, type);
                 }
-
-
-                if (type == typeof(MatSelectItem<>))
-                {
-
-                }
-
-
-                yield return new TypeDocumentation(this, type);
             }
             
 

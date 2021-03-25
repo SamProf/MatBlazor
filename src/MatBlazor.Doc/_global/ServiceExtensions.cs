@@ -22,7 +22,7 @@ using System.Threading.Tasks;
          var generatorCache = new ConcurrentDictionary<string, AssemblyDocumentationGenerator>();
 
         services.AddSingleton(_ => new Func<Assembly, AssemblyDocumentationGenerator>(a => generatorCache.GetOrAdd(
-            a.FullName, aa => new AssemblyDocumentationGenerator(a, appModel.AppAssembly))));
+            a.FullName, aa => new AssemblyDocumentationGenerator(a, appModel.AppAssembly,appModel.ApiTypeFilter))));
 
         services.AddScoped<UserAppModel>();
             services.AddMatToaster(config =>

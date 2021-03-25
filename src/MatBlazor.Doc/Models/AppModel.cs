@@ -15,6 +15,7 @@ namespace MatBlazor.Demo.Models
         public Type DocAppIndexComponentType { get; }
         public NavModel NavModel { get; }
         public bool ShowAds { get; }
+        public Func<Type, bool> ApiTypeFilter { get; }
 
         public event EventHandler<int> UserCountChanged;
 
@@ -25,12 +26,13 @@ namespace MatBlazor.Demo.Models
                 return userCount;
             }
         }
-
-        public AppModel(Type docAppIndexComponentType,NavModel navModel, bool showAds = true)
+        
+        public AppModel(Type docAppIndexComponentType,NavModel navModel, bool showAds = true, Func<Type,bool> apiTypeFilter = null)
         {
             DocAppIndexComponentType = docAppIndexComponentType;
             NavModel = navModel;
             ShowAds = showAds;
+            ApiTypeFilter = apiTypeFilter;
             if (navModel.NavGroups == null)
                 navModel.NavGroups = GenerateNavModel(docAppIndexComponentType);
         }

@@ -1,16 +1,33 @@
 ﻿using MatBlazor.Demo.Models;
+using MatBlazor.Demo.Pages;
+using System;
 using System.Linq;
 
 namespace MatBlazor.Demo.Services
 {
-    public class DemoNavModel
+    public class MatBlazorDocumentationAppModel :AppModel
     {
-        public static NavModel Default()
+        public MatBlazorDocumentationAppModel():base(typeof(MatBlazorDocIndex), GetNavModel(), true, FilterType)
         {
-            return GetDefaultNavModel();
+        }
+        private static bool FilterType(Type componentType)
+        {
+
+            if (componentType.Name.StartsWith("Base") || componentType.Name.EndsWith("Internal") || componentType.Name.EndsWith("Internal`1"))
+            {
+                return false;
+            }
+
+
+            if (componentType == typeof(MatSelectItem<>))
+            {
+
+            }
+
+            return true;
 
         }
-        private static NavModel GetDefaultNavModel()
+        private static NavModel GetNavModel()
         {
             var groups = new
             {

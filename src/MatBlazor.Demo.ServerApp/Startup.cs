@@ -35,18 +35,14 @@ namespace MatBlazor.Demo.ServerApp
                 
             });
 
-            var useNew = Environment.GetEnvironmentVariable("USE_NEW") =="true";
-            if (useNew)
-            {
-                services.AddDocApp(new AppModel(typeof(DocDemoIndex), new NavModel("My Library - Documentation"), false));
-            }
-            else
-            {
-                services.AddDocApp(new AppModel(typeof(MatBlazorDocIndex), DemoNavModel.Default()));
-            }
+            var useDocFrameModel = Environment.GetEnvironmentVariable("USE_DOC_APPFRAME_DEMO") == "true";
+            AppModel appModel = useDocFrameModel ?
+                new DocFrameAppModel() :
+                new MatBlazorDocumentationAppModel();
 
-            services.AddScoped<DemoUserService>();
-           
+            services.AddDocApp(appModel);
+
+            services.AddScoped<DemoUserService>();           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

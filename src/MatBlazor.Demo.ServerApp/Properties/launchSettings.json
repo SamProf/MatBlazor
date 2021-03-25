@@ -29,7 +29,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "USE_NEW": "true"
+        "USE_DOC_APPFRAME_DEMO": "true"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
     }

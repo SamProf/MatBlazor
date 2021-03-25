@@ -37,7 +37,7 @@
 
   <Target Name="EmbedDemoRazorComponents" BeforeTargets="BeforeBuild">
     <ItemGroup>
-      <EmbeddedResource Include="Demo\*.razor" LinkBase="DemoEmbedded" />
+      <EmbeddedResource Include="Pages\**\*.razor" LinkBase="Resources" />
     </ItemGroup>
   </Target>
 </Project>
