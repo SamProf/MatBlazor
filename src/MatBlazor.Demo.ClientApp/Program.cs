@@ -22,14 +22,14 @@ namespace MatBlazor.Demo.ClientApp
                 {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
 
 
-            var showFullDocu = true;
-            if (showFullDocu)
+            var useNew = Environment.GetEnvironmentVariable("USE_NEW") == "true";
+            if (useNew)
             {
-                services.AddDocApp(new AppModel(typeof(MatBlazorDocIndex), DemoNavModel.Default()));
+                services.AddDocApp(new AppModel(typeof(DocDemoIndex), new NavModel("My Library - Documentation"), false));
             }
             else
             {
-                services.AddDocApp(new AppModel(typeof(DocDemoIndex), new NavModel("My Library - Documentation"), false));
+                services.AddDocApp(new AppModel(typeof(MatBlazorDocIndex), DemoNavModel.Default()));
             }
 
             //builder.Services.AddDocApp(new AppModel(typeof(Pages.Index), DemoNavModel.Default()));
