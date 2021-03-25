@@ -1,5 +1,6 @@
 ﻿using MatBlazor.Demo.Models;
 using MatBlazor.Demo.Services;
+using MatBlazor.Demo.Pages;
 using MatBlazor.Doc;
 using MatBlazor.Doc.Demo;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -24,7 +25,7 @@ namespace MatBlazor.Demo.ClientApp
             var showFullDocu = true;
             if (showFullDocu)
             {
-                services.AddDocApp(new AppModel(typeof(Index), DemoNavModel.Default()));
+                services.AddDocApp(new AppModel(typeof(MatBlazorDocIndex), DemoNavModel.Default()));
             }
             else
             {
