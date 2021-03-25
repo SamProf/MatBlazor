@@ -23,23 +23,35 @@
             <MatHidden BreakPoint="@MatBreakpoint.XS" Direction="@MatHiddenDirection.Down">
                 <MatIconButton @ref="themeButton" Icon="invert_colors" OnClick="@OnClickButton">
                 </MatIconButton>
-                <MatIconButton Link="http://samprof.com" Target="_blank">
+                @foreach(var navBarLink in this.AppModel.NavModel.NavBarLinks)
+                {
+                    <MatIconButton Link="@navBarLink.Url" Target="_blank">
+                        <i class="fa fa-@navBarLink.Icon" aria-hidden="true"></i>
+                    </MatIconButton>
+                }
+               @* <MatIconButton Link="http://samprof.com" Target="_blank">
                     <i class="fa fa-user-circle" aria-hidden="true"></i>
                 </MatIconButton>
                 <MatIconButton Link="https://github.com/SamProf/MatBlazor" Target="_blank">
                     <i class="fa fa-github" aria-hidden="true"></i>
-                </MatIconButton>
+                </MatIconButton>*@
             </MatHidden>
             <MatHidden BreakPoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up">
                 <MatIconButton Icon="more_vert" OnClick="@OpenSmallMenu" @ref="SmallMenuButton"></MatIconButton>
                 <MatMenu @ref="SmallMenu" style="z-index: 100;">
                     <MatList>
-                        <MatListItem Href="http://samprof.com" target="_blank">
+                          @foreach(var navBarLink in this.AppModel.NavModel.NavBarLinks)
+                        {
+                            <MatListItem Href="@navBarLink.Url" Target="_blank">
+                                @navBarLink.Text
+                            </MatListItem>
+                        }
+                      @*  <MatListItem Href="http://samprof.com" target="_blank">
                             Samprof.com
                         </MatListItem>
                         <MatListItem Href="https://github.com/SamProf/MatBlazor" target="_blank">
                             Github
-                        </MatListItem>
+                        </MatListItem>*@
                         <MatListItem @ref="ThemeListItem" OnClick="@OnClickListItem">
                             Select Theme
                         </MatListItem>
