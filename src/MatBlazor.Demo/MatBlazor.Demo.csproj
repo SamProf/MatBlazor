@@ -9,8 +9,6 @@
     <TargetFrameworks>net5.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
 
-
-
   <ItemGroup Condition="$(TargetFramework) == 'netstandard2.1'">
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.0" />
@@ -21,20 +19,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
   </ItemGroup>
 
-
   <ItemGroup>
     <ProjectReference Include="..\MatBlazor.Doc\MatBlazor.Doc.csproj" />
     <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="..\MatBlazor\bin\Debug\net5.0\MatBlazor.xml" Link="Resources\MatBlazor.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Doc" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Demo\*.razor" LinkBase="DemoEmbedded" />
   </ItemGroup>
 </Project>
