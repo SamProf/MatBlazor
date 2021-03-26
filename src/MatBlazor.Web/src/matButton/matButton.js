@@ -9,3 +9,7 @@ export class MatButton extends MDCRipple {
 export function init(ref) {
   var button = new MatButton(ref);
 }
+
+window.blazorOpen = (args) => {
+  window.open(args);
+};
