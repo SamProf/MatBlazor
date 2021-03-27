@@ -1,0 +1,50 @@
+﻿@namespace MatBlazor
+@typeparam TItem
+@inherits BaseMatDomComponent
+
+@if(BlazorVirtualizeSupported)
+{
+    <div class="@(ClassMapper.AsString())" style="@StyleMapper.AsString()" @ref="@Ref">
+       <div class="mat-virtual-scroll-content">
+             <div style="height:500px;overflow-y:scroll">
+                @BlazorVirtualize
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <MatVirtualScroll ItemHeight="@ItemHeight" Items="@Items" Disabled="@MatVirtualScrollDisabled" ItemTemplate="@ItemTemplate" ></MatVirtualScroll>
+}
+
+@code {
+    [Parameter]
+    public RenderFragment<TItem> ItemTemplate { get; set; }
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public ICollection<TItem> Items { get; set; }
+
+    [Parameter]
+    public int ItemHeight { get; set; }
+
+    private bool MatVirtualScrollDisabled => this.BlazorVirtualizeSupported || this.Disabled;
+
+    #if NET5_0_OR_GREATER
+    private bool BlazorVirtualizeSupported { get; } = true;
+
+    private RenderFragment BlazorVirtualize=>
+      @<Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize  Items="@Items" ItemSize="@this.ItemHeight">
+        <div style="height: @(ItemHeight)px;" class="mat-virtual-scroll-item">
+           @ItemTemplate(context)
+        </div>
+     </Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize>;
+
+    #else
+     private bool BlazorVirtualizeSupported { get; } = false;
+     private RenderFragment BlazorVirtualize{get;} = @<div></div>;
+        
+    #endif
+}

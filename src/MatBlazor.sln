@@ -18,11 +18,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatBlazor.Doc", "MatBlazor.Doc\MatBlazor.Doc.csproj", "{0BB2EFAB-B9F4-4AD4-9A10-79950563CC55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.Doc", "MatBlazor.Doc\MatBlazor.Doc.csproj", "{0BB2EFAB-B9F4-4AD4-9A10-79950563CC55}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{4235E2B8-7CCD-4586-9838-A2243CEED9AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatBlazor.Doc.Demo", "MatBlazor.Doc.Demo\MatBlazor.Doc.Demo.csproj", "{33622210-F730-4D9B-99D0-114B0F8B7B04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatBlazor.Doc.Demo", "MatBlazor.Doc.Demo\MatBlazor.Doc.Demo.csproj", "{33622210-F730-4D9B-99D0-114B0F8B7B04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -42,7 +42,7 @@ namespace MatBlazor.Demo.Models
             var navGroupModels = docAppIndexComponentType.Assembly.GetTypes()
                 .Where(t => t!= docAppIndexComponentType && typeof(ComponentBase).IsAssignableFrom(t))
                 .Select(t => (Type: t, Route: t.GetCustomAttribute<RouteAttribute>(), DisplayInfo: t.GetCustomAttribute<RouteDisplayAttribute>()))
-                .Where(x => x.Route != null)
+                .Where(x => x.Route != null && (x.DisplayInfo?.Visible ?? true))
                 .GroupBy(x => x.DisplayInfo?.Group)
                 .Select(group =>
                 {
