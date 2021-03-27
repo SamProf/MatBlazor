@@ -45,8 +45,8 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components" Version="*" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="*" />
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
       </ItemGroup>
     </Otherwise>
   </Choose>
