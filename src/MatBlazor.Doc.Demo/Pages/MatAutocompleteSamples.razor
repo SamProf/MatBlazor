@@ -1,5 +1,5 @@
 ﻿@page "/Autocomplete";
-@attribute [RouteDisplay("My AutoComplete", "MyGroup", int.MaxValue,false)]
+@attribute [RouteDisplay( "MyGroup","My AutoComplete", false)]
 <XmlDocContainer ComponentType="@(typeof(MatAutocomplete<,>))" DocComponentType="@this.GetType()" />
 
 <MatH3>This component is in progress, use MatAutocompleteList instead!</MatH3>

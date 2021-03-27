@@ -1,6 +1,6 @@
 ﻿@page "/MatBlazorVirtualScroll";
-@*@attribute [RouteDisplay("My AutoComplete", "MyGroup")]
-*@
+@attribute [RouteDisplay("Layout")]
+
 <XmlDocContainer ComponentType="@(typeof(MatBlazorVirtualScroll<>))" DocComponentType="@this.GetType()" />
 
 <RazorDocContainer DocInfo="@this.GetDocInfo("Basic Example")">
@@ -17,9 +17,29 @@
         public ICollection<string> items = Enumerable.Range(0, 333000).Select(i => i.ToString()).ToArray();
     }
 </RazorDocContainer>
+<RazorDocContainer DocInfo="@this.GetDocInfo("Complex Item Virtualization")">
+    <h4>Complex Item scroll with @complexItems.Count() items</h4>
+   
+    <MatBlazorVirtualScroll style="height: 500px;" Items="@complexItems" ItemHeight="50">
+        <ItemTemplate>
+            <MatDatePicker @bind-Value="@context.Value"></MatDatePicker>
+        </ItemTemplate>
+    </MatBlazorVirtualScroll>
+
+    @code
+    {
+        private class ValueContainer<T>
+        {
+            public T Value { get; set; }
+        }
+
+        private ICollection<ValueContainer<DateTime>> complexItems = Enumerable.Range(0, 333000).Select(i => new ValueContainer<DateTime> { Value = DateTime.Today - TimeSpan.FromDays(i) }).ToArray();
+    }
+</RazorDocContainer>
+
 
 <RazorDocContainer DocInfo="@this.GetDocInfo("Disabled Virtual Scroll")">
-    <MatBlazorVirtualScroll style="height: 500px;" Items="@items2" ItemHeight="50" Disabled="true">
+    <MatBlazorVirtualScroll style="height: 500px;" Items="@notVirtualizedItems" ItemHeight="50" Disabled="true">
         <ItemTemplate>
             <div>@context</div>
         </ItemTemplate>
@@ -27,6 +47,6 @@
 
     @code
     {
-        public ICollection<string> items2 = Enumerable.Range(0, 200).Select(i => i.ToString()).ToArray();
+        public ICollection<string> notVirtualizedItems = Enumerable.Range(0, 200).Select(i => i.ToString()).ToArray();
     }
 </RazorDocContainer>

@@ -14,7 +14,7 @@
 }
 else
 {
-    <MatVirtualScroll ItemHeight="@ItemHeight" Items="@Items" Disabled="@MatVirtualScrollDisabled" ItemTemplate="@ItemTemplate" ></MatVirtualScroll>
+    <MatVirtualScroll class="@(ClassMapper.AsString())" style="@StyleMapper.AsString()" ItemHeight="@ItemHeight" Items="@Items" Disabled="@MatVirtualScrollDisabled" ItemTemplate="@ItemTemplate" ></MatVirtualScroll>
 }
 
 @code {

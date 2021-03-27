@@ -4,7 +4,7 @@ namespace MatBlazor.Demo.Models
 {
     public class RouteDisplayAttribute :Attribute
     {
-        public RouteDisplayAttribute(string text, string group = null, int  priority = int.MaxValue, bool visible = true)
+        public RouteDisplayAttribute(string group = null, string text = null, bool visible = true,int priority = int.MaxValue)
         {
             Text = text;
             Group = group;

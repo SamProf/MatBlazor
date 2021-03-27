@@ -2,8 +2,8 @@
 {
     public class MatVirtualScrollView
     {
-        public int ClientHeight { get; set; }
+        public double ClientHeight { get; set; }
 
-        public int ScrollTop { get; set; }
+        public double ScrollTop { get; set; }
     }
 }
