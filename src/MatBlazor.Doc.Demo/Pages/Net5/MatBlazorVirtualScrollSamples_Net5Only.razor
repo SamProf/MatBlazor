@@ -1,0 +1,37 @@
+﻿@page "/MatBlazorVirtualScroll_Net5";
+@attribute [RouteDisplay("Layout", "MatBlazorVirtualScroll (>.NET5.0)")]
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+
+<XmlDocContainer ComponentType="@(typeof(MatBlazorVirtualScroll<>))" DocComponentType="@this.GetType()" />
+
+<RazorDocContainer DocInfo="@this.GetDocInfo("Placeholder Example")">
+    <h4>Lazy loaded Virtualize with @TotalCount items</h4>
+
+    <MatBlazorVirtualScroll style="height: 500px;" ItemsProvider="@LoadDates" ItemHeight="50" >
+        <ItemTemplate>
+            <MatDatePicker @bind-Value="@context.Value"></MatDatePicker>
+        </ItemTemplate>
+        <PlaceholderTemplate>
+            <MatProgressCircle Indeterminate="true" Size="MatProgressCircleSize.Small" />
+        </PlaceholderTemplate>
+    </MatBlazorVirtualScroll>
+
+    @code
+    {
+        private class ValueContainer<T>
+        {
+            public T Value { get;  set; }
+
+        }
+
+        private int TotalCount { get; } = 33300;
+        private async ValueTask<ItemsProviderResult<ValueContainer<DateTime>>> LoadDates(
+            ItemsProviderRequest request)
+        {
+            await Task.Delay(1000);
+            var dates = Enumerable.Range(request.StartIndex, request.Count).Select(
+                i => new ValueContainer<DateTime> { Value = DateTime.Today - TimeSpan.FromDays(i) });
+            return new ItemsProviderResult<ValueContainer<DateTime>>(dates, TotalCount);
+        }
+    }
+</RazorDocContainer>

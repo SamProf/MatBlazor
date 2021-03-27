@@ -5,12 +5,16 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-
+public static class DotnetExtensions
+{
+    public static float ToMajorMinorFloat(this Version version) => float.Parse($"{version.Major}.{version.Minor}", CultureInfo.InvariantCulture);
+}
     public static class ServiceExtensions
     {
         public static void AddDocApp(this IServiceCollection services, AppModel appModel)

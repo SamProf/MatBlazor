@@ -35,16 +35,53 @@ else
     #if NET5_0_OR_GREATER
     private bool BlazorVirtualizeSupported { get; } = true;
 
-    private RenderFragment BlazorVirtualize=>
-      @<Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize  Items="@Items" ItemSize="@this.ItemHeight">
-        <div style="height: @(ItemHeight)px;" class="mat-virtual-scroll-item">
-           @ItemTemplate(context)
-        </div>
-     </Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize>;
+    private RenderFragment BlazorVirtualize
+    {
+        get
+        {
+            if(this.ItemsProvider == null)
+            {
+            return 
+                    @<Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize  Items="@Items" ItemSize="@this.ItemHeight">
+                        <div style="height: @(ItemHeight)px;" class="mat-virtual-scroll-item">
+                            @ItemTemplate(context)
+                        </div>
+                    </Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize>;
+            }
+            else
+            {
+                return 
+                    @<Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize  ItemsProvider="@ItemsProvider" ItemSize="@this.ItemHeight">
+                        <ItemContent>
+                            <div style="height: @(ItemHeight)px;" class="mat-virtual-scroll-item">
+                                @ItemTemplate(context)
+                            </div>
+                        </ItemContent>
+                        <Placeholder>
+                            <div style="height: @(ItemHeight)px;" class="mat-virtual-scroll-item">
+                                @PlaceholderTemplate
+                            </div>
+                        </Placeholder>
+                    </Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize>;
+            }
+        }
+    }
+    
+
+     [Parameter]
+     public Microsoft.AspNetCore.Components.Web.Virtualization.ItemsProviderDelegate<TItem> ItemsProvider {  get;  set; }
+      [Parameter]
+     public RenderFragment PlaceholderTemplate{ get; set; } = @<MatProgressCircle Indeterminate="true" Size="MatProgressCircleSize.Small" />;
+
+    //   @<Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize  Items="@Items" ItemSize="@this.ItemHeight">
+    //       @itemTemplate(context)
+    //   </Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize>;
 
     #else
      private bool BlazorVirtualizeSupported { get; } = false;
-     private RenderFragment BlazorVirtualize{get;} = @<div></div>;
+     private RenderFragment BlazorVirtualize{get;} = 
+    
+    @<div></div>;
         
     #endif
 }

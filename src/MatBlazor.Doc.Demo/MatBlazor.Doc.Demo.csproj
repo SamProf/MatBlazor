@@ -38,6 +38,7 @@
   <Target Name="EmbedDemoRazorComponents" BeforeTargets="BeforeBuild">
     <ItemGroup>
       <EmbeddedResource Include="Pages\**\*.razor" LinkBase="Resources" />
+      <Content Condition="$(TargetFramework) == 'netstandard2.1'" Remove="Pages\Net5\**\*.razor"/>
     </ItemGroup>
   </Target>
 </Project>
