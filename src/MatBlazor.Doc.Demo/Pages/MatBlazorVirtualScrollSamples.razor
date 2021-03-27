@@ -19,14 +19,14 @@
 </RazorDocContainer>
 
 <RazorDocContainer DocInfo="@this.GetDocInfo("Disabled Virtual Scroll")">
-        <MatBlazorVirtualScroll style="height: 500px;" ItemType="string" Items="@items2" ItemHeight="50" Disabled="true">
-            <ItemTemplate>
-                <div>@context</div>
-            </ItemTemplate>
-        </MatBlazorVirtualScroll>
+    <MatBlazorVirtualScroll style="height: 500px;" Items="@items2" ItemHeight="50" Disabled="true">
+        <ItemTemplate>
+            <div>@context</div>
+        </ItemTemplate>
+    </MatBlazorVirtualScroll>
 
-        @code
-        {
-            public ICollection<string> items2 = Enumerable.Range(0, 200).Select(i => i.ToString()).ToArray();
-        }
+    @code
+    {
+        public ICollection<string> items2 = Enumerable.Range(0, 200).Select(i => i.ToString()).ToArray();
+    }
 </RazorDocContainer>

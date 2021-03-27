@@ -25,30 +25,30 @@ namespace MatBlazor.Doc.DemoContainer
         //    return finalDoc;
         //}
 
-        private static ConcurrentDictionary<Type, DocInfo> Cache { get; } = new ConcurrentDictionary<Type, DocInfo>();
+        private static ConcurrentDictionary<(Type Type, string Section), DocInfo> Cache { get; } = new();
         public static DocInfo GetDocInfo(this ComponentBase component, string uniqueSectionText)
         {
             var componentType = component.GetType();
-            return Cache.GetOrAdd(componentType, t =>
+            return Cache.GetOrAdd((componentType, uniqueSectionText), x =>
              {
-                 var resourceName = t.Assembly.GetManifestResourceNames().SingleOrDefault(
-                   n => n.EndsWith($".{t.Name}.razor"));
+                 var resourceName = x.Type.Assembly.GetManifestResourceNames().SingleOrDefault(
+                   n => n.EndsWith($".{x.Type.Name}.razor"));
                  if (resourceName == null)
                  {
                      throw new ApplicationException(
                          $"The embedded resource for the documentation razor page " +
-                         $"'{t.Name}' wasn't found. Make sure that the razor files " +
+                         $"'{x.Type.Name}' wasn't found. Make sure that the razor files " +
                          $"are embedded as resource by applying an item group in the project " +
                          $"file similar to <EmbeddedResoure Include=\"Pages\\**.*.razor\" LinkBase=\"Resources\" /> ");
                  }
-                 using var stream = t.Assembly.GetManifestResourceStream(resourceName);
+                 using var stream = x.Type.Assembly.GetManifestResourceStream(resourceName);
                  using var reader = new StreamReader(stream);
                  var code = string.Empty;
                  bool start = false;
                  while (true)
                  {
                      var line = reader.ReadLine();
-                     if (line.Contains($"{nameof(GetDocInfo)}(\"{uniqueSectionText}\""))
+                     if (line.Contains($"{nameof(GetDocInfo)}(\"{x.Section}\""))
                      {
                          start = true;
                      }
@@ -61,7 +61,7 @@ namespace MatBlazor.Doc.DemoContainer
                          code += line + Environment.NewLine;
                      }
                  }
-                 return new DocInfo() { Code = code, SectionText = uniqueSectionText };
+                 return new DocInfo() { Code = code, SectionText = x.Section };
              });
         }
     }
