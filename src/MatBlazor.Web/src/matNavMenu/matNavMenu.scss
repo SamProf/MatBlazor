@@ -34,6 +34,11 @@
     top: 25%;
 }
 
+.mdc-list-item--selected::before {
+    background-color: var(--mdc-theme-primary, #6200ee);
+    opacity: 0.1;
+}
+
 .mdc-expansion-panel--selected .mat-expansion-panel__summary::before{
     background-color: var(--mdc-theme-primary, #6200ee);
     opacity: 0.04;
