@@ -5,7 +5,6 @@ import {MDCChipSetFoundation} from '@material/chips/chip-set/foundation';
 //
 // }
 
-
 export function init(ref, component) {
   ref.matBlazorRef = new MDCChipSetFoundation(ref);
 }

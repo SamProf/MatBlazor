@@ -24,6 +24,7 @@ namespace MatBlazor
 
 
         private string LoadErrorMessage = null;
+        private bool loadingNodes = true;
 
         private bool IsExpanded
         {
@@ -42,77 +43,26 @@ namespace MatBlazor
             }
         }
 
-        // TODO NOTE : this works fine when OpenIconic is available
-        private string GlyphStyle
-        {
-            get
-            {
-                var childItems = this.ChildNodes;
-                if (childItems == null)                                 // Loading
-                {
-                    return "oi oi-reload spinner";
-                }
-                else if (!string.IsNullOrWhiteSpace(LoadErrorMessage))  // Error
-                {
-                    return "oi oi-warning";
-                }
-                else if (!childItems.Any())                             // TODO no children - may need spacer
-                {
-                    return "oi empty";
-                }
-                else if (this.IsExpanded)                               // expanded
-                {
-                    return "oi oi-caret-bottom";
-                }
-                else                                                    // collapsed
-                {
-                    return "oi oi-caret-right";
-                }
-            }
-        }
-        // TODO clugde as OpenIconic not installed - and not sure of your thinking on resources s
-        private string TempGlyphName
-        {
-            get
-            {
-                var childItems = this.ChildNodes;
-                if (childItems == null)                                 // Loading
-                {
-                    return "Loading";
-                }
-                else if (!string.IsNullOrWhiteSpace(LoadErrorMessage))  // Error
-                {
-                    return "Error";
-                }
-                else if (!childItems.Any())                             // TODO no children - may need spacer
-                {
-                    return "Leaf";
-                }
-                else if (this.IsExpanded)                               // expanded
-                {
-                    return "Expanded";
-                }
-                else                                                    // collapsed
-                {
-                    return "Collapsed";
-                }
-            }
-        }
 
         protected override async Task OnInitializedAsync()
         {
             var childItems = this.ChildNodes;
-            if (childItems == null)
+            if (childItems == null && this.Tree.LoadChildNodesCallback != null)
             {
                 try
                 {
                     LoadErrorMessage = null;
-                    childItems = await this.Tree.LoadChildNodesCallback(this.Node);
+                    await this.Tree.LoadChildNodesCallback(this.Node);
+                    loadingNodes = false;
                 }
                 catch (Exception ex)
                 {
                     LoadErrorMessage = ex.Message;
                 }
+            }
+            else
+            {
+                loadingNodes = false;
             }
             await base.OnInitializedAsync();
             return;
@@ -135,6 +85,10 @@ namespace MatBlazor
         {
             return this.Tree.SetSelectedNodeAsync(this.Node);
         }
+
+        private string MinHeightStyle => Tree.MinItemHeight.HasValue ? $"min-height: {Tree.MinItemHeight}px;" : "";
+
+        protected string ToggleIconStyle => IsExpanded ? "" : "transform: none !important";
     }
 }
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member

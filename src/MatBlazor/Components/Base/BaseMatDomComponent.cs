@@ -39,8 +39,8 @@ namespace MatBlazor
         protected BaseMatDomComponent()
         {
             ClassMapper
-                .Get(() => this.Class)
-                .Get(() => this.Theme?.GetClass());
+                .Get(() => Class)
+                .Get(() => Theme?.GetClass());
             
             StyleMapper.Get(() => Style);
         }

@@ -92,7 +92,7 @@ namespace MatBlazor
         /// <summary>
         ///  OnClickHandler parameter.
         /// </summary>
-        protected async void OnClickHandler(MouseEventArgs e)
+        protected async Task OnClickHandler(MouseEventArgs e)
         {
             if (Disabled)
             {
@@ -101,7 +101,7 @@ namespace MatBlazor
 
             if (AllowSelection)
             {
-                await this.ToggleSelectedAsync();
+                await ToggleSelectedAsync();
             }
 
             if (Href != null)
@@ -110,20 +110,20 @@ namespace MatBlazor
                 {
                     // Do nothing here as it is a target for an anchor tag
                 }
-                else
+                else if(ForceLoad)
                 {
-                    UriHelper.NavigateTo(Href, ForceLoad);
+                    UriHelper.NavigateTo(Href, true);
                 }
 
             }
             else
             {
-                await OnClick.InvokeAsync(e);
                 if (Command?.CanExecute(CommandParameter) ?? false)
                 {
                     Command.Execute(CommandParameter);
                 }
             }
+            await OnClick.InvokeAsync(e);
         }
     }
 }

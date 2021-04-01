@@ -101,6 +101,49 @@
     </SourceContent>
 </DemoContainer>
 
+<h5 class="mat-h5">Custom group name</h5>
+<DemoContainer>
+    <Content>
+        <h5 Class="mat-subtitle1">You can specify a group name for multiple MatRadioGroups.</h5>
+
+        <MatRadioGroup GroupName="gender" @bind-Value="@GenVal" TValue="string">
+            <MatRadioButton Value="@string.Empty" TValue="string">Default</MatRadioButton>
+            <MatRadioButton Value="@("f")" Label="Female" TValue="string"></MatRadioButton>
+            <MatRadioButton Value="@("m")" TValue="string">Male</MatRadioButton>
+        </MatRadioGroup>
+
+        <h5 Class="mat-subtitle1">This is useful when the MatRadioButtons can't all be children of the same MatRadioGroup. The below radio button is grouped with the ones above.</h5>
+
+        <MatRadioGroup GroupName="gender" @bind-Value="@GenVal" TValue="string">
+            <MatRadioButton Value="@("n")" TValue="string">Non-binary</MatRadioButton>
+        </MatRadioGroup>
+
+        @code
+        { protected string GenVal; }
+
+    </Content>
+    <SourceContent>
+    	<BlazorFiddle Template="MatBlazor" Code=@(@"
+        <h5 Class=""mat-subtitle1"">You can specify a group name for multiple MatRadioGroups.</h5>
+
+        <MatRadioGroup GroupName=""gender"" @bind-Value=""@GenVal"" TValue=""string"">
+            <MatRadioButton Value=""@string.Empty"" TValue=""string"">Default</MatRadioButton>
+            <MatRadioButton Value=""@(""f"")"" Label=""Female"" TValue=""string""></MatRadioButton>
+            <MatRadioButton Value=""@(""m"")"" TValue=""string"">Male</MatRadioButton>
+        </MatRadioGroup>
+
+        <h5 Class=""mat-subtitle1"">This is useful when the MatRadioButtons can't all be children of the same MatRadioGroup. The below radio button is grouped with the ones above.</h5>
+
+        <MatRadioGroup GroupName=""gender"" @bind-Value=""@GenVal"" TValue=""string"">
+            <MatRadioButton Value=""@(""n"")"" TValue=""string"">Non-binary</MatRadioButton>
+        </MatRadioGroup>
+
+        @code
+        { protected string GenVal; }
+
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
 
 <h5 class="mat-h5">Custom Class</h5>
 <DemoContainer>

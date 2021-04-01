@@ -40,6 +40,16 @@
 		<td>Specifies one or more classnames for an DOM element.</td>
 	</tr>
 	<tr>
+		<td>CurrentPage</td>
+		<td>Int32</td>
+		<td>The current page, starting from one.</td>
+	</tr>
+	<tr>
+		<td>CurrentPageChanged</td>
+		<td>Action&lt;Int32&gt;</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>DebounceMilliseconds</td>
 		<td>Int32</td>
 		<td>Specifies the delay duration between user input on the Search Term Field. Default 800</td>
@@ -82,12 +92,12 @@
 	<tr>
 		<td>MatTableHeader</td>
 		<td>RenderFragment</td>
-		<td></td>
+		<td>The table header</td>
 	</tr>
 	<tr>
 		<td>MatTableRow</td>
 		<td>RenderFragment&lt;TableItem&gt;</td>
-		<td></td>
+		<td>Renders the list of items within the table</td>
 	</tr>
 	<tr>
 		<td>OnRowDbClick</td>
@@ -113,6 +123,11 @@
 		<td>PageSize</td>
 		<td>Int32</td>
 		<td>The number of rows per page.</td>
+	</tr>
+	<tr>
+		<td>PageSizeChanged</td>
+		<td>Action&lt;Int32&gt;</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>PageSizeParamName</td>
@@ -202,7 +217,7 @@
 	<tr>
 		<td>UseSortHeaderRow</td>
 		<td>Boolean</td>
-		<td></td>
+		<td>Allows the header row to be sorted</td>
 	</tr>
 	<tr>
 		<td>Ref</td>

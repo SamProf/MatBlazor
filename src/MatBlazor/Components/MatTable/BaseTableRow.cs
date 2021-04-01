@@ -29,10 +29,10 @@ namespace MatBlazor
 
         public async Task ToggleSelectedAsync()
         {
-            this.Selected = !this.Selected;
-            await SelectedChanged.InvokeAsync(this.Selected);
-            await this.Table.ToggleSelectedAsync(this);
-            this.StateHasChanged();            
+            Selected = !Selected;
+            await SelectedChanged.InvokeAsync(Selected);
+            await Table.ToggleSelectedAsync(this);
+            StateHasChanged();            
         }
 
         public BaseTableRow()
@@ -43,11 +43,11 @@ namespace MatBlazor
                 .If("mdc-table-row-selected", () => Selected);
         }
 
-        protected void OnClickHandler(MouseEventArgs _)
+        protected async Task OnClickHandler(MouseEventArgs _)
         {
             if (AllowSelection)
             {
-                ToggleSelectedAsync();
+                await ToggleSelectedAsync();
             }
         }
     }

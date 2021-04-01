@@ -1,0 +1,55 @@
+.mat-tree {
+    display: block;
+}
+
+.mat-nested-tree-node {
+    border-bottom-width: 0px;
+}
+
+.mat-nested-tree-node > li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+.mat-tree-node {
+    display: flex;
+    align-items: center;
+    word-wrap: break-word;
+    min-height: 46px;
+    cursor: pointer;
+}
+
+.mat-tree > ul {
+    padding-left:0px;
+}
+
+.mat-tree-leaf {
+    padding-left: 36px;
+}
+
+.mat-tree-node--selected {
+    background: rgba(0,0,0,.12);
+}
+
+.mat-tree-node-expander {
+    transform: rotate(90deg);
+    transition: transform .2s, color .2s;
+    padding: 0 6px 0 6px;
+    user-select: none;
+}
+
+.mat-tree-node-loading {
+	padding: 0 6px 0 6px;
+    user-select: none;
+	animation: rotation 1s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-359deg);
+  }
+}
