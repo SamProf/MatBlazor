@@ -36,6 +36,11 @@
   }
 }
 
+.mdc-text-field--with-trailing-icon .mat-text-field-actions-container {
+  margin-right: 9px;
+  padding-right: 22px;
+}
+
 .mat-numeric-up-down-field {
   .mat-text-field-actions-container {
     display: flex;
