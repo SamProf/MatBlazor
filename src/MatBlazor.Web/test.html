@@ -36,122 +36,22 @@
 
 
 
-<div class="mdc-data-table" id="ref">
-    <table class="mdc-data-table__table" aria-label="Dessert calories">
-        <thead>
-        <tr class="mdc-data-table__header-row">
-            <th
-                    class="mdc-data-table__header-cell mdc-data-table__header-cell--with-sort"
-                    role="columnheader"
-                    scope="col"
-                    aria-sort="none"
-                    data-column-id="dessert"
-            >
-                <div class="mdc-data-table__header-cell-wrapper">
-                    <div class="mdc-data-table__header-cell-label">
-                        Dessert
-                    </div>
-                    <button class="mdc-icon-button material-icons mdc-data-table__sort-icon-button"
-                            aria-label="Sort by dessert" aria-describedby="dessert-status-label">arrow_upward</button>
-                    <div class="mdc-data-table__sort-status-label" aria-hidden="true" id="dessert-status-label">
-                    </div>
-                </div>
-            </th>
-            <th
-                    class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric mdc-data-table__header-cell--with-sort mdc-data-table__header-cell--sorted"
-                    role="columnheader"
-                    scope="col"
-                    aria-sort="ascending"
-                    data-column-id="carbs"
-            >
-                <div class="mdc-data-table__header-cell-wrapper">
-                    <button class="mdc-icon-button material-icons mdc-data-table__sort-icon-button"
-                            aria-label="Sort by carbs" aria-describedby="carbs-status-label">arrow_upward</button>
-                    <div class="mdc-data-table__header-cell-label">
-                        Carbs (g)
-                    </div>
-                    <div class="mdc-data-table__sort-status-label" aria-hidden="true" id="carbs-status-label"></div>
-                </div>
-            </th>
-            <th
-                    class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric mdc-data-table__header-cell--with-sort"
-                    role="columnheader"
-                    scope="col"
-                    aria-sort="none"
-                    data-column-id="protein"
-            >
-                <div class="mdc-data-table__header-cell-wrapper">
-                    <button class="mdc-icon-button material-icons mdc-data-table__sort-icon-button"
-                            aria-label="Sort by protein" aria-describedby="protein-status-label">arrow_upward</button>
-                    <div class="mdc-data-table__header-cell-label">
-                        Protein (g)
-                    </div>
-                    <div class="mdc-data-table__sort-status-label" aria-hidden="true" id="protein-status-label"></div>
-                </div>
-            </th>
-            <th
-                    class="mdc-data-table__header-cell"
-                    role="columnheader"
-                    scope="col"
-                    data-column-id="comments"
-            >
-                Comments
-            </th>
-        </tr>
-        </thead>
-        <tbody class="mdc-data-table__content">
-        <tr class="mdc-data-table__row">
-            <td class="mdc-data-table__cell">Frozen yogurt</td>
-            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                24
-            </td>
-            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                4.0
-            </td>
-            <td class="mdc-data-table__cell">Super tasty</td>
-        </tr>
-        <tr class="mdc-data-table__row">
-            <td class="mdc-data-table__cell">Frozen yogurt</td>
-            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                24
-            </td>
-            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                4.0
-            </td>
-            <td class="mdc-data-table__cell">Super tasty</td>
-        </tr>
-        <tr class="mdc-data-table__row">
-            <td class="mdc-data-table__cell">Frozen yogurt</td>
-            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                24
-            </td>
-            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                4.0
-            </td>
-            <td class="mdc-data-table__cell">Super tasty</td>
-        </tr>
-        <tr class="mdc-data-table__row">
-            <td class="mdc-data-table__cell">Frozen yogurt</td>
-            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                70
-            </td>
-            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                4.0
-            </td>
-            <td class="mdc-data-table__cell">Super tasty</td>
-        </tr>
-        <tr class="mdc-data-table__row">
-            <td class="mdc-data-table__cell">Frozen yogurt</td>
-            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                80
-            </td>
-            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                4.0
-            </td>
-            <td class="mdc-data-table__cell">Super tasty</td>
-        </tr>
-        </tbody>
-    </table>
+<div class="mat-theme-177 mat-slider mdc-slider" style="" id="ref">
+    <input class="mdc-slider__input" type="range" min="0" max="100" value="50" />
+    <div class="mdc-slider__track">
+        <div class="mdc-slider__track--inactive"></div>
+        <div class="mdc-slider__track--active">
+            <div class="mdc-slider__track--active_fill"></div>
+        </div>
+
+
+
+
+    </div>
+
+    <div class="mdc-slider__thumb">
+        <div class="mdc-slider__thumb-knob"></div>
+    </div>
 </div>
 
 
@@ -165,8 +65,7 @@
 
 
    var ref = document.getElementById('ref');
-  var c = new mdc.dataTable.MDCDataTable(ref);
-
+  var c = new mdc.slider.MDCSlider(ref);
 
 </script>
 

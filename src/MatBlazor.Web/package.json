@@ -5,8 +5,8 @@
   "scripts": {
     "audit": "npm audit",
     "audit-fix": "npm audit fix",
-    "start": "webpack --watch --progress",
-    "build": "webpack"
+    "start": "webpack --watch --progress --mode=development",
+    "build": "webpack --mode=production"
   },
   "keywords": [
     "matblazor",

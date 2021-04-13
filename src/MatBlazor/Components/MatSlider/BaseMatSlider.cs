@@ -29,7 +29,8 @@ namespace MatBlazor
                 .Add("mat-slider")
                 .Add("mdc-slider")
                 .If("mdc-slider--discrete", () => Discrete)
-                .If("mdc-slider--display-markers", () => Discrete && Markers);
+                .If("mdc-slider--tick-marks", () => Discrete && Markers)
+                .If("mdc-slider--disabled", () => Disabled);
             CallAfterRender(async () =>
             {
                 await JsInvokeAsync<object>("matBlazor.matSlider.init", Ref, jsHelper.Reference, Immediate);
@@ -149,9 +150,6 @@ namespace MatBlazor
                 step = value;
             }
         }
-
-        [Parameter]
-        public bool EnableStep { get; set; }
 
         [Parameter]
         public bool Disabled { get; set; }

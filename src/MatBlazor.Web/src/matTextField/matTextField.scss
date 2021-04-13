@@ -6,8 +6,7 @@
 @include textfield.core-styles;
 
 
-.mat-text-field--fullwidth
-{
+.mat-text-field--fullwidth {
   width: 100%;
 }
 
@@ -54,6 +53,7 @@ label.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > span.mdc-floati
 .validation-message {
   color: red !important;
 }
+
 .mdc-text-field--outlined {
   .mat-text-field-input.mdc-text-field__input {
     &.invalid, &.valid.modified {
@@ -99,8 +99,7 @@ label.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > span.mdc-floati
 /* For TextField */
 .mat-text-field, .mat-select {
   &.valid.modified {
-    .mdc-line-ripple::before
-    {
+    .mdc-line-ripple::before {
       border-bottom: 1px solid #10b510 !important;
     }
   }
