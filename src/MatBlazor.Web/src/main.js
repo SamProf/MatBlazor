@@ -6,7 +6,7 @@ import * as matNumericUpDownField from './matNumericUpDownField/matNumericUpDown
 import * as matRadioButton from './matRadioButton/matRadioButton';
 import * as matSelect from './matSelect/matSelect';
 import * as matSlider from './matSlider/matSlider';
-import * as matSlideToggle from './matSlideToggle/matSlideToggle';
+import * as matSwitch from './matSwitch/matSwitch';
 import * as matCard from './matCard/matCard';
 import * as matChip from './matChip/matChip';
 import * as matChipSet from './matChipSet/matChipSet';
@@ -46,7 +46,7 @@ window.matBlazor = {
   matRadioButton,
   matSelect,
   matSlider,
-  matSlideToggle,
+  matSwitch,
   matCard,
   matChip,
   matChipSet,

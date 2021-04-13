@@ -747,12 +747,6 @@
             When set to true, any change to the slider immediately changes the value.
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatSlideToggle`1">
-            <summary>
-            Material Design SlideToggle for Blazor. Component for on/off control that can be toggled via clicking or dragging.
-            </summary>
-            <typeparam name="TValue">bool, bool?</typeparam>
-        </member>
         <member name="T:MatBlazor.BaseMatSnackbar">
             <summary>
             Snackbars provide brief messages about app processes at the bottom of the screen.
@@ -790,6 +784,13 @@
             <summary>
             The MatSortHeader and MatSortHeaderRow are used, respectively, to add sorting state and display to tabular data.
             </summary>
+        </member>
+        <member name="T:MatBlazor.BaseMatSwitch`1">
+            <summary>
+            Material Design MatSwitch for Blazor. Component for on/off control that can be toggled via clicking or dragging.
+            (Ex MatSlideToggle)
+            </summary>
+            <typeparam name="TValue">bool, bool?</typeparam>
         </member>
         <member name="T:MatBlazor.BaseMatTabBar">
             <summary>

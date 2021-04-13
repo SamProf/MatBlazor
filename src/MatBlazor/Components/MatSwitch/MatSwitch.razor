@@ -1,0 +1,16 @@
+﻿@namespace MatBlazor
+@typeparam TValue
+@inherits BaseMatSwitch<TValue>
+
+<div class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="@Ref"  @attributes="@Attributes" id="@Id">
+    <div class="mdc-switch__track"></div>
+    <div class="mdc-switch__thumb-underlay">
+        <div class="mdc-switch__thumb">
+            <input type="checkbox" id="@InputId" class="mdc-switch__native-control" role="switch" checked="@Checked" @onchange="OnChangedHandler" disabled="@Disabled" @ref="@InputRef" @attributes="@InputAttributes"/>
+        </div>
+    </div>
+</div>
+@if (Label != null)
+{
+    <label for="@InputId">@Label</label>
+}

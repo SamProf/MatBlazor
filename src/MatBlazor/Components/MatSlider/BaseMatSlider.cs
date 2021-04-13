@@ -9,7 +9,7 @@ namespace MatBlazor
     /// Material Design Slider for Blazor. Sliders let users select from a range of values by moving the slider thumb.
     /// </summary>
     /// <typeparam name="TValue">sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?</typeparam>
-    public class BaseMatSlider<TValue> : BaseMatInputComponent<TValue>
+    public class BaseMatSlider<TValue> : BaseMatInputElementComponent<TValue>
     {
         private TValue valueMin;
         private TValue valueMax;

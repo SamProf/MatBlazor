@@ -147,6 +147,7 @@ functionality in Demo for the component you are editing. Not only will this allo
 - Update all components to MDC Web 10
 - InputId parameter for all InputElement components used for html input elements, Id parameters used for host element (breaking change)
 - Remove unused EnableStep parameter from MatSlider
+- MatSlideToggle renamed to MatSwitch (breaking change)
 
 #### MatBlazor 2.9.0-develop
 - Supports net5.0;netstandard2.1

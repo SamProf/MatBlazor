@@ -166,7 +166,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSlider @bind-Value=""@Val4"" Step=""5"" EnableStep=""true"" ValueMin=""0"" ValueMax=""100"" Markers=""true"" Pin=""true"" TValue=""int"" Discrete=""true""></MatSlider>
+        <MatSlider @bind-Value=""@Val4"" Step=""5"" ValueMin=""0"" ValueMax=""100"" Markers=""true"" Pin=""true"" TValue=""int"" Discrete=""true""></MatSlider>
 
         @code
         {
@@ -244,7 +244,7 @@
     </Content>
     <SourceContent>
     	<BlazorFiddle Template="MatBlazor" Code=@(@"
-        <MatSlider Disabled=""true"" Value=""55""></MatSlider>
+        <MatSlider TValue=""int"" Disabled=""true"" Value=""55""></MatSlider>
     ")></BlazorFiddle>
     </SourceContent>
 </DemoContainer>

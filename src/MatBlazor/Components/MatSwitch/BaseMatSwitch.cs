@@ -3,14 +3,15 @@
 namespace MatBlazor
 {
     /// <summary>
-    /// Material Design SlideToggle for Blazor. Component for on/off control that can be toggled via clicking or dragging.
+    /// Material Design MatSwitch for Blazor. Component for on/off control that can be toggled via clicking or dragging.
+    /// (Ex MatSlideToggle)
     /// </summary>
     /// <typeparam name="TValue">bool, bool?</typeparam>
-    public class BaseMatSlideToggle<TValue> : BaseMatInputElementComponent<TValue>
+    public class BaseMatSwitch<TValue> : BaseMatInputElementComponent<TValue>
     {
         protected bool Checked => SwitchT.ToBool(CurrentValue);
 
-        public BaseMatSlideToggle()
+        public BaseMatSwitch()
         {
             ClassMapper
                 .Add("mat-switch")
@@ -19,7 +20,7 @@ namespace MatBlazor
                 .If("mdc-switch--checked", () => Checked);
             CallAfterRender(async () =>
             {
-                await JsInvokeAsync<object>("matBlazor.matSlideToggle.init", Ref);
+                await JsInvokeAsync<object>("matBlazor.matSwitch.init", Ref);
             });
         }
 
@@ -36,3 +37,4 @@ namespace MatBlazor
         public bool Disabled { get; set; }
     }
 }
+

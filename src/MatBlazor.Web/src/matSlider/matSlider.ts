@@ -22,24 +22,20 @@ function onChange(instance: MatSliderInstance) {
 
 
 export function init(ref: HTMLElement, jsHelper, immediate) {
-    try {
-        var inputRef : HTMLInputElement = <HTMLInputElement>ref.getElementsByClassName("mdc-slider__input")[0];
-        inputRef.setAttribute('value', inputRef.value);
-        var instance = setMatBlazorInstance<MatSliderInstance>(ref, {
-            component: new MDCSlider(ref),
-            jsHelper: jsHelper,
-        });
+
+    var inputRef: HTMLInputElement = <HTMLInputElement>ref.getElementsByClassName("mdc-slider__input")[0];
+    inputRef.setAttribute('value', inputRef.value);
+    var instance = setMatBlazorInstance<MatSliderInstance>(ref, {
+        component: new MDCSlider(ref),
+        jsHelper: jsHelper,
+    });
 
 
-        instance.component.listen('MDCSlider:change', () => onChange(instance));
-        if (immediate) {
-            instance.component.listen('MDCSlider:input', () => onChange(instance));
-        }
+    instance.component.listen('MDCSlider:change', () => onChange(instance));
+    if (immediate) {
+        instance.component.listen('MDCSlider:input', () => onChange(instance));
     }
-    catch (e)
-    {
-        log('MatSlider.error', ref, e);
-    }
+
 }
 
 
