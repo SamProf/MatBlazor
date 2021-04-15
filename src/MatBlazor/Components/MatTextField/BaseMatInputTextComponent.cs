@@ -150,7 +150,8 @@ namespace MatBlazor
                     () => this.FullWidth && this.Icon != null && !this.IconTrailing)
                 .If("mdc-text-field--fullwidth-with-trailing-icon",
                     () => this.FullWidth && this.Icon != null && this.IconTrailing)
-                .If("mdc-text-field--textarea", () => this.TextArea);
+                .If("mdc-text-field--textarea", () => this.TextArea)
+                .If("mdc-text-field--no-label", () => Label == null);
 
             bool TextOrPlaceHolderVisible()
             {

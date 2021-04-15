@@ -123,21 +123,23 @@ label.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) > span.mdc-floati
 //}
 
 /* Label color to theme primary color */
-.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
-  color: var(--mdc-theme-primary, #6200ee);
-}
-
-.mdc-text-field {
-  background-color: var(--mdc-theme-surface, #fff);
-}
-
-.mdc-text-field--filled {
-  background-color: var(--mdc-theme-surface, #fff);
-}
-
-.mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  background-color: var(--mdc-theme-surface, #fff);
-}
+//.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+//  color: var(--mdc-theme-primary, #6200ee);
+//}
+//
+//
+//
+//.mdc-text-field {
+//  background-color: var(--mdc-theme-surface, #fff);
+//}
+//
+//.mdc-text-field--filled {
+//  background-color: var(--mdc-theme-surface, #fff);
+//}
+//
+//.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+//  background-color: var(--mdc-theme-surface, #fff);
+//}
 
 /* More specific selector for translating the label to top */
 .mdc-text-field.mdc-text-field--fullwidth .mdc-floating-label.mdc-floating-label--float-above {

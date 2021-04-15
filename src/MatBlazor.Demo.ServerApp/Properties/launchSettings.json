@@ -19,7 +19,7 @@
     "MatBlazor.Demo.ServerApp": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "Slider",
+      "launchUrl": "TextField",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

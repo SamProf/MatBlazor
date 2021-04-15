@@ -36,24 +36,12 @@
 
 
 
-<div class="mat-theme-177 mat-slider mdc-slider" style="" id="ref">
-    <input class="mdc-slider__input" type="range" min="0" max="100" value="50" />
-    <div class="mdc-slider__track">
-        <div class="mdc-slider__track--inactive"></div>
-        <div class="mdc-slider__track--active">
-            <div class="mdc-slider__track--active_fill"></div>
-        </div>
-
-
-
-
-    </div>
-
-    <div class="mdc-slider__thumb">
-        <div class="mdc-slider__thumb-knob"></div>
-    </div>
-</div>
-
+<label class="mdc-text-field mdc-text-field--filled" id="ref">
+    <span class="mdc-text-field__ripple"></span>
+    <span class="mdc-floating-label" id="my-label-id">Hint text</span>
+    <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+    <span class="mdc-line-ripple"></span>
+</label>
 
 
 
@@ -65,7 +53,7 @@
 
 
    var ref = document.getElementById('ref');
-  var c = new mdc.slider.MDCSlider(ref);
+  var c = new mdc.textField.MDCTextField(ref);
 
 </script>
 

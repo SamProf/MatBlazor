@@ -2,13 +2,8 @@
 @typeparam T
 @inherits BaseMatInputTextComponent<T>
 
-<label class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" Id="@Id">
-
-    @if (!Outlined)
-    {
-        <span class="mdc-text-field__ripple"></span>
-    }
-    else
+<label class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" Id="@Id" @attributes="@Attributes">
+    @if (Outlined)
     {
         <div class="mdc-notched-outline">
             <span class="mdc-notched-outline__leading"></span>
@@ -21,6 +16,14 @@
             <div class="mdc-notched-outline__trailing"></div>
         </div>
     }
+    else
+    {
+        <span class="mdc-text-field__ripple"></span>
+        @if (Label != null)
+        {
+            <span class="@LabelClassMapper.AsString()" for="@InputId">@Label</span>
+        }
+    }
 
     @if (Icon != null && !IconTrailing)
     {
@@ -30,12 +33,12 @@
     @if (TextArea)
     {
         <span class="mdc-text-field__resizer">
-            <textarea style="@InputStyle" @ref="InputRef"  placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.AsString()" id="@InputId" @bind="@CurrentValueAsString" aria-label="@Label" oninput="@OnInput" @onkeydown="@OnKeyDownEvent()" onkeyup=@OnKeyUp onfocusout="@OnFocusOutEvent.Value" onkeypress="@OnKeyPress" onfocus="@OnFocusEvent.Value" disabled=@Disabled readonly="@InputTextReadOnly()" @attributes="Attributes" />
+            <textarea style="@InputStyle" @ref="InputRef"  placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.AsString()" id="@InputId" @bind="@CurrentValueAsString" aria-label="@Label" oninput="@OnInput" @onkeydown="@OnKeyDownEvent()" onkeyup=@OnKeyUp onfocusout="@OnFocusOutEvent.Value" onkeypress="@OnKeyPress" onfocus="@OnFocusEvent.Value" disabled=@Disabled readonly="@InputTextReadOnly()" @attributes="@InputAttributes" />
         </span>
     }
     else
     {
-        <input style="@InputStyle" @ref="InputRef" type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.AsString()" id="@InputId" @bind="@CurrentValueAsString" aria-label="@Label" oninput="@OnInput" @onkeydown="@OnKeyDownEvent()" onkeyup=@OnKeyUp onfocusout=@OnFocusOutEvent.Value onkeypress="@OnKeyPress" onfocus="@OnFocusEvent.Value" disabled=@Disabled readonly="@InputTextReadOnly()" @attributes="Attributes"/>
+        <input style="@InputStyle" @ref="InputRef" type="@Type" placeholder="@PlaceHolder" required=@Required class="@InputClassMapper.AsString()" id="@InputId" @bind="@CurrentValueAsString" aria-label="@Label" oninput="@OnInput" @onkeydown="@OnKeyDownEvent()" onkeyup=@OnKeyUp onfocusout=@OnFocusOutEvent.Value onkeypress="@OnKeyPress" onfocus="@OnFocusEvent.Value" disabled=@Disabled readonly="@InputTextReadOnly()" @attributes="@InputAttributes"/>
     }
 
 
@@ -46,10 +49,6 @@
 
     @if (!Outlined)
     {
-        if (Label != null)
-        {
-            <span class="@LabelClassMapper.AsString()" for="@InputId">@Label</span>
-        }
         <span class="mdc-line-ripple"></span>
     }
 

@@ -1,13 +1,13 @@
 import {MDCTextField} from '@material/textfield';
 import {getMatBlazorInstance, setMatBlazorInstance} from "../utils/base";
 
-export interface MatTextFieldDescriptor {
+export interface MatTextFieldInstance {
     ref;
     componentRef: MDCTextField;
 }
 
 export function init(ref) {
-    setMatBlazorInstance<MatTextFieldDescriptor>(ref, {
+    setMatBlazorInstance<MatTextFieldInstance>(ref, {
         ref: ref,
         componentRef: new MDCTextField(ref)
     });
@@ -15,6 +15,6 @@ export function init(ref) {
 
 
 export function layout(ref) {
-    getMatBlazorInstance<MatTextFieldDescriptor>(ref).componentRef.layout();
+    getMatBlazorInstance<MatTextFieldInstance>(ref).componentRef.layout();
 }
 
