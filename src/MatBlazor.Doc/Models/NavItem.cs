@@ -5,6 +5,6 @@
         public NavGroup Group;
         public string Name;
         public string Url;
-        public int Order;
+        public float Order;
     }
 }

@@ -47,6 +47,7 @@ namespace MatBlazor.Demo.Models
                 .Select(group =>
                 {
                     var navGroup = new NavGroup(group.Key);
+                    navGroup.Order = group.Min(x => x.DisplayInfo.GroupPriority);
                     var navGroupItems = group.Select(
                         i => new NavItem
                         {
@@ -54,11 +55,12 @@ namespace MatBlazor.Demo.Models
                             Group = navGroup,
                             Name = i.DisplayInfo?.Text ?? i.Route.Template.Trim('/'),
                             Url = i.Route.Template
-                        }).ToArray();
+                        })
+                        .OrderBy(x=>x.Order).ThenBy(x=>x.Name).ToArray();
 
                     var navGroupModel = new NavGroupModel() { Group = navGroup, Items = navGroupItems };
                     return navGroupModel;
-                }).ToArray();
+                }).OrderBy(x=>x.Group.Order).ThenBy(x=>x.Group.Name).ToArray();
             return navGroupModels;
         }
 

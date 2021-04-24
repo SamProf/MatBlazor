@@ -3,9 +3,9 @@
     public class NavGroup
     {
         public string Name;
-        public int Order;
+        public float Order;
 
-        public NavGroup(string name, int order = int.MaxValue)
+        public NavGroup(string name, float order = float.MaxValue)
         {
             Name = name;
             Order = order;

@@ -4,11 +4,12 @@ namespace MatBlazor.Demo.Models
 {
     public class RouteDisplayAttribute :Attribute
     {
-        public RouteDisplayAttribute(string group = null, string text = null, bool visible = true,int priority = int.MaxValue)
+        public RouteDisplayAttribute(string group = null, string text = null, bool visible = true, float priority = float.MaxValue, float groupPriority = float.MaxValue)
         {
             Text = text;
             Group = group;
             Priority = priority;
+            GroupPriority = groupPriority;
             Visible = visible;
         }
 
@@ -16,7 +17,9 @@ namespace MatBlazor.Demo.Models
 
         public string Group { get;  }
 
-        public int Priority { get; }
+        public float Priority { get; }
+
+        public float GroupPriority { get; }
         public bool Visible { get; }
     }
 }
