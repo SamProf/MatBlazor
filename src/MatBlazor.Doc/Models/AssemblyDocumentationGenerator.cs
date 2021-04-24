@@ -285,15 +285,15 @@ namespace MatBlazor.DevUtils.Core
                         nameof(BaseMatDomComponent.Ref)
                     };
 
-
+            var isBlazorComponent = type.IsSubclassOf(typeof(ComponentBase));
             var parameters = type
                 .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
                 .Where(prop =>
-                    (type.IsSubclassOf(typeof(ComponentBase)) &&
-                     prop.GetCustomAttributes(typeof(ParameterAttribute)).Any())
+                    isBlazorComponent &&
+                    prop.GetCustomAttributes(typeof(ParameterAttribute)).Any()
                     ||
-                    (!type.IsSubclassOf(typeof(ComponentBase)) &&
-                     prop.DeclaringType.Assembly == this.AssemblyDocumentation.Assembly)
+                    !isBlazorComponent &&
+                    prop.DeclaringType.Assembly == this.AssemblyDocumentation.Assembly
                 )
                 .OrderBy(i => i.Name)
                 .Union(
