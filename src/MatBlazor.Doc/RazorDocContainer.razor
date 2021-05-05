@@ -16,4 +16,15 @@
     [Parameter]
     public DocInfo DocInfo { get; set; }
 
+    [Parameter]
+    public Func<ValueTask> OnFirstRenderedAsync { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && OnFirstRenderedAsync != null)
+        {
+            await OnFirstRenderedAsync();
+        }
+    }
+
 }
