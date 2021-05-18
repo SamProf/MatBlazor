@@ -341,13 +341,15 @@
 
                 ItemList = PageSize <= 0 ? filteredCollection : filteredCollection.Skip(RecordsFrom).Take(PageSize);
             }
-            else
+            else if (Items != null)
             {
                 ItemList = PageSize <= 0 ? Items : Items.Skip(RecordsFrom).Take(PageSize);
                 RecordsTo = (RecordsFrom + PageSize < Items.Count()) ? RecordsFrom + PageSize : Items.Count();
                 TotalPages = Math.Max(1, (int)Math.Ceiling(Items.Count() / (decimal)PageSize));
                 EndPage = TotalPages;
             }
+            else { } // Do nothing
+
             SetPageSize(PageDirection.Next);
             StateHasChanged();
         }
