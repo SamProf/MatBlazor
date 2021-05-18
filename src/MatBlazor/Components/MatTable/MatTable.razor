@@ -141,7 +141,7 @@
 
         var lastComma = tempPlaceholder.LastIndexOf(",");
 
-        if (lastComma != -1)
+        if (lastComma != -1 && SearchTermFieldPlaceHolder == null)
         {
             SearchTermFieldPlaceHolder = tempPlaceholder.Remove(lastComma, 1).Insert(lastComma, " and");
         }
