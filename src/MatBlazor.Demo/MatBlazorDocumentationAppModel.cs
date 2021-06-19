@@ -8,7 +8,7 @@ namespace MatBlazor.Demo
     public class MatBlazorDocumentationAppModel : AppModel
     {
         public MatBlazorDocumentationAppModel() : base(
-            typeof(IndexPage), GetNavModel(), true, FilterType)
+            typeof(IndexPage), GetNavModel(), true,true,null, FilterType)
         {
         }
 

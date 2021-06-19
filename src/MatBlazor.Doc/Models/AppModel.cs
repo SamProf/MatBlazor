@@ -2,6 +2,8 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
+using Microsoft.JSInterop;
 
 namespace MatBlazor.Demo.Models
 {
@@ -15,6 +17,9 @@ namespace MatBlazor.Demo.Models
         public Type DocAppIndexComponentType { get; }
         public NavModel NavModel { get; }
         public bool ShowAds { get; }
+        public bool ShowRatingSnackBar { get; }
+        public Func<IServiceProvider,Task> PreRenderingInitializationAsync { get; }
+
         public Func<Type, bool> ApiTypeFilter { get; }
 
         public event EventHandler<int> UserCountChanged;
@@ -27,11 +32,13 @@ namespace MatBlazor.Demo.Models
             }
         }
         
-        public AppModel(Type docAppIndexComponentType,NavModel navModel, bool showAds = true, Func<Type,bool> apiTypeFilter = null)
+        public AppModel(Type docAppIndexComponentType,NavModel navModel, bool showAds = true, bool showRatingSnackBar = true, Func<IServiceProvider,Task> preRenderingInitializationAsync = null, Func<Type,bool> apiTypeFilter = null)
         {
             DocAppIndexComponentType = docAppIndexComponentType;
             NavModel = navModel;
             ShowAds = showAds;
+            ShowRatingSnackBar = showRatingSnackBar;
+            PreRenderingInitializationAsync = preRenderingInitializationAsync;
             ApiTypeFilter = apiTypeFilter;
             if (navModel.NavGroups == null)
                 navModel.NavGroups = GenerateNavModel(docAppIndexComponentType);
