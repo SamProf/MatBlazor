@@ -27,6 +27,7 @@ export function open(ref, flatpickrInputRef, cmp, options) {
     maxDate: options.maximum,
     defaultDate: options.value,
     locale: options.locale,
+    noCalendar: options.noCalendar,
     onChange: function (value) {
       // console.log("onChange", value)
       cmp.invokeMethodAsync('MatDatePickerOnChangeHandler', value);

@@ -14,9 +14,12 @@
             builder.AddContent(0, base.BuildRenderTreeChildContent());
             if (!DisableCalendar)
             {
+                var icon = MatIconNames.Calendar_today;
+                if (NoCalendar && EnableTime)
+                    icon = MatIconNames.Access_time;
                 builder.AddContent(1, @<div class="mat-text-field-actions-container">
                                           <input @ref="flatpickrInputRef" style="display: none;"/>
-                                          <MatIconButton Icon="@MatIconNames.Calendar_today" OnClick="OnClickIconHandler"></MatIconButton>
+                                          <MatIconButton Icon="@icon" OnClick="OnClickIconHandler"></MatIconButton>
                                       </div>);
             }
         };
