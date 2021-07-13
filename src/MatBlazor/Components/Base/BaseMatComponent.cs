@@ -94,6 +94,7 @@ namespace MatBlazor
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                Console.WriteLine("Code: " + code);
                 throw;
             }
         }
@@ -113,5 +114,7 @@ namespace MatBlazor
         }
 
         #endregion
+
+        public static Func<bool> IsPageAboutToBeReloaded { get; set; }
     }
 }

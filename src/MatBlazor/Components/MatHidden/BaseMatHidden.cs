@@ -80,7 +80,7 @@ namespace MatBlazor
         {
             base.Dispose();
             DisposeDotNetObjectRef(dotNetObjectRef);
-            if (isInitialized)
+            if (isInitialized && BaseMatComponent.IsPageAboutToBeReloaded?.Invoke() != true)
             {
                 InvokeAsync(async () =>
                 {
