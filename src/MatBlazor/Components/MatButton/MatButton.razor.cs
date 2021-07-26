@@ -142,6 +142,7 @@ namespace MatBlazor
 
         protected async Task OnClickHandler(MouseEventArgs ev)
         {
+            if (Disabled) return;
             if (Link != null)
             {
                 if (!string.IsNullOrEmpty(Target))
