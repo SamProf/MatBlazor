@@ -49,7 +49,7 @@ namespace MatBlazor
                 {
                     try
                     {
-                        await Js.InvokeVoidAsync("matBlazor.matSlider.updateValue", Ref, newValue);
+                        await Js.InvokeVoidAsync("matBlazor.matSlider.updateValue", BaseMatComponent.RuntimeCancellationToken, Ref, newValue);
                     }
                     catch (Exception e)
                     {
@@ -78,7 +78,7 @@ namespace MatBlazor
                     {
                         try
                         {
-                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMin", Ref, value);
+                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMin", BaseMatComponent.RuntimeCancellationToken, Ref, value);
                         }
                         catch (Exception e)
                         {
@@ -102,7 +102,7 @@ namespace MatBlazor
                     {
                         try
                         {
-                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMax", Ref, value);
+                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMax", BaseMatComponent.RuntimeCancellationToken, Ref, value);
                         }
                         catch (Exception e)
                         {
@@ -138,7 +138,7 @@ namespace MatBlazor
                     {
                         try
                         {
-                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateStep", Ref, value);
+                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateStep", BaseMatComponent.RuntimeCancellationToken, Ref, value);
                         }
                         catch (Exception e)
                         {

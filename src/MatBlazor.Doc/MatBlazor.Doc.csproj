@@ -6,7 +6,7 @@
     <LangVersion>9</LangVersion>
     <RazorLangVersion>3.0</RazorLangVersion>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <TargetFrameworks>net5.0;netstandard2.1</TargetFrameworks>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <Choose>
@@ -34,8 +34,7 @@
 
   
   <Target Name="DeployBlazorFiddleScript" BeforeTargets="BeforeBuild">
-    <DownloadFile SourceUrl="https://blazorfiddle.com/scripts/blazorFiddle.js" 
-                  DestinationFolder="wwwroot" SkipUnchangedFiles="true"/>
+    <DownloadFile SourceUrl="https://blazorfiddle.com/scripts/blazorFiddle.js" DestinationFolder="wwwroot" SkipUnchangedFiles="true" />
   </Target>
 
 </Project>

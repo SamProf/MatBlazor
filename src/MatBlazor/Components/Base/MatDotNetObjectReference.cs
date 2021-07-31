@@ -31,10 +31,13 @@ namespace MatBlazor
 
         public void Dispose()
         {
-            _reference?.Dispose();
-            if (_disposeValue)
+            if (!BaseMatComponent.RuntimeCancellationToken.IsCancellationRequested)
             {
-                (Value as IDisposable)?.Dispose();
+                _reference?.Dispose();
+                if (_disposeValue)
+                {
+                    (Value as IDisposable)?.Dispose();
+                }
             }
         }
     }
