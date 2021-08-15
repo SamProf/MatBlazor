@@ -110,7 +110,7 @@ If you think that this project helped you or your company in any way, you can co
 - [Maurizio Verde](https://github.com/MaurizioVerde)
 - Adam Salvo
 - Dorana
-- Yevhen Shmakov
+- [Eugene Shmakov](https://github.com/enginexon)
 - Jacobus Terhorst
 - Xiao Song
 - Martin Friesenbichler
