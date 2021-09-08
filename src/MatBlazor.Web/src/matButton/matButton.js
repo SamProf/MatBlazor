@@ -1,11 +1,12 @@
 import {MDCRipple} from '@material/ripple';
 
-export class MatButton extends MDCRipple {
-  constructor(ref) {
-    super(ref);
-  }
-}
+// export class MatButton extends MDCRipple {
+//   constructor(ref) {
+//     super(ref);
+//   }
+// }
 
 export function init(ref) {
-  var button = new MatButton(ref);
+  debugger;
+  var button = new MDCRipple(ref);
 }

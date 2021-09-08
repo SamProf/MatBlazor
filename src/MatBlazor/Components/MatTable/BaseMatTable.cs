@@ -140,7 +140,7 @@ namespace MatBlazor
         public string ApiUrl { get; set; }
 
         /// <summary>
-        /// Specifies the Paging visibility
+        /// Specifies the Paging visibility - does not disable paging
         /// </summary>
         [Parameter]
         public bool ShowPaging { get; set; } = true;

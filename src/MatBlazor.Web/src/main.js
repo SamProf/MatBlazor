@@ -36,7 +36,6 @@ import * as matFileUpload from './matFileUpload/matFileUpload';
 import * as matDataTable from './matTable/matDataTable';
 import * as matVirtualScroll from './matVirtualScroll/matVirtualScroll';
 
-
 window.matBlazor = {
   matAutocompleteList,
   matButton,

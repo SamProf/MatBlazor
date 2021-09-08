@@ -18,6 +18,7 @@ namespace MatBlazor
         public MatAppBar()
         {
             ClassMapper
+                .Add("mat-top-app-bar")
                 .Add("mdc-top-app-bar")
                 .If("mdc-top-app-bar--short", () => Short)
                 .If("mdc-top-app-bar--fixed", () => Fixed);
