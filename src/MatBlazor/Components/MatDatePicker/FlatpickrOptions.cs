@@ -30,5 +30,7 @@ namespace MatBlazor
         public DateTime? Value { get; set; }
 
         public string Locale { get; set; } = "en";
+
+        public bool NoCalendar { get; set; } = false;
     }
 }
