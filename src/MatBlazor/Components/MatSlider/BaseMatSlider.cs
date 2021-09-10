@@ -21,8 +21,8 @@ namespace MatBlazor
         {
             jsHelper = new MatDotNetObjectReference<MatSliderJsHelper>(new MatSliderJsHelper());
             jsHelper.Value.OnChangeEvent += Value_OnChangeEvent;
-            ValueMin = SwitchT.GetMinimum();
-            ValueMax = SwitchT.GetMaximum();
+            Min = SwitchT.GetMinimum();
+            Max = SwitchT.GetMaximum();
             Step = SwitchT.GetStep();
 
             ClassMapper
@@ -67,7 +67,7 @@ namespace MatBlazor
 
 
         [Parameter]
-        public TValue ValueMin
+        public TValue Min
         {
             get => valueMin;
             set
@@ -91,7 +91,7 @@ namespace MatBlazor
         }
 
         [Parameter]
-        public TValue ValueMax
+        public TValue Max
         {
             get => valueMax;
             set
@@ -168,8 +168,8 @@ namespace MatBlazor
             {
                 try
                 {
-                    decimal.TryParse(ValueMin.ToString(), out var min);
-                    decimal.TryParse(ValueMax.ToString(), out var max);
+                    decimal.TryParse(Min.ToString(), out var min);
+                    decimal.TryParse(Max.ToString(), out var max);
                     if (!decimal.TryParse(Step.ToString(), out var step))
                     {
                         step = 1;
