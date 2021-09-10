@@ -18,12 +18,12 @@ namespace MatBlazor
 
         protected void Increase()
         {
-            CurrentValue = SwitchT.Increase(CurrentValue, Step, Maximum);
+            CurrentValue = SwitchT.Increase(CurrentValue, Step, Max);
         }
 
         protected void Decrease()
         {
-            CurrentValue = SwitchT.Decrease(CurrentValue, Step, Minimum);
+            CurrentValue = SwitchT.Decrease(CurrentValue, Step, Min);
         }
 
         protected override TValue CurrentValue
@@ -37,10 +37,10 @@ namespace MatBlazor
 
 
         [Parameter]
-        public TValue Maximum { get; set; }
+        public TValue Max { get; set; }
 
         [Parameter]
-        public TValue Minimum { get; set; }
+        public TValue Min { get; set; }
 
         [Parameter]
         public int DecimalPlaces { get; set; } = 0;
@@ -77,8 +77,8 @@ namespace MatBlazor
                         Decrease();
                     }
                 });
-            Maximum = SwitchT.GetMaximum();
-            Minimum = SwitchT.GetMinimum();
+            Max = SwitchT.GetMaximum();
+            Min = SwitchT.GetMinimum();
 
             ClassMapper.Add("mat-numeric-up-down-field");
             ClassMapper.Add("mat-text-field-with-actions-container");
@@ -148,8 +148,8 @@ namespace MatBlazor
             if (result != null) // Snap to Min/Max
             {
                 var comparer = Comparer<TValue>.Default;
-                if (Maximum != null && comparer.Compare(result, Maximum) > 0) result = Maximum;
-                if (Minimum != null && comparer.Compare(result, Minimum) < 0) result = Minimum;
+                if (Max != null && comparer.Compare(result, Max) > 0) result = Max;
+                if (Min != null && comparer.Compare(result, Min) < 0) result = Min;
             }
 
             return success;
