@@ -853,7 +853,7 @@
         </member>
         <member name="P:MatBlazor.BaseMatTable.ShowPaging">
             <summary>
-            Specifies the Paging visibility
+            Specifies the Paging visibility - does not disable paging.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatTable.ShowFooter">
