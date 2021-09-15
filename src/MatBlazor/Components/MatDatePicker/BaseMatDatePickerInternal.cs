@@ -48,7 +48,8 @@ namespace MatBlazor
         [Parameter]
         public string Locale { get; set; } = "en";
 
-        protected bool NoCalendar { get; set; } = false;
+        [Parameter]
+        public bool NoCalendar { get; set; } = false;
 
         private DotNetObjectReference<MatDatePickerJsHelper> dotNetObjectRef;
         private readonly MatDatePickerJsHelper dotNetObject;
