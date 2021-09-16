@@ -164,7 +164,7 @@
             if (PageSize <= 0)
                 PageSize = 5;
         }
-        
+
         StartPage = 1;
         CurrentPage = StartPage;
 
@@ -283,14 +283,14 @@
         var doc = JsonDocument.Parse(pagedData);
         var root = doc.RootElement;
         string itemsString = root.GetProperty(PagingDataPropertyName).GetRawText();
-        
+
         var opt = new JsonSerializerOptions()
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
         };
-        
+
         var items = JsonSerializer.Deserialize<List<TableItem>>(itemsString, opt);
-        
+
         Items = items;
         int count = root.GetProperty(PagingRecordsCountPropertyName).GetInt32();
         RecordsFrom = (CurrentPage - 1) * PageSize;
@@ -348,7 +348,10 @@
                 TotalPages = Math.Max(1, (int)Math.Ceiling(Items.Count() / (decimal)PageSize));
                 EndPage = TotalPages;
             }
-            else { } // Do nothing
+            else
+            {
+                ItemList = null;
+            } // Do nothing
 
             SetPageSize(PageDirection.Next);
             StateHasChanged();
