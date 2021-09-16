@@ -81,21 +81,7 @@ namespace MatBlazor
             get => valueMin;
             set
             {
-                if (!EqualityComparer<TValue>.Default.Equals(valueMin, value) && Rendered)
-                {
-                    InvokeAsync(async () =>
-                    {
-                        try
-                        {
-                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMin", Ref, value);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
-                    });
-                }
-                valueMin = value;
+                valueMin = SetValueMin(value);
             }
         }
         private TValue SetValueMin(TValue value)
