@@ -65,6 +65,15 @@ namespace MatBlazor
             jsHelper.Dispose();
         }
 
+        [Parameter]
+        public TValue ValueMin
+        {
+            get => valueMin;
+            set
+            {
+                valueMin = SetValueMin(value);
+            }
+        }
 
         [Parameter]
         public TValue Min
@@ -88,6 +97,24 @@ namespace MatBlazor
                 }
                 valueMin = value;
             }
+        }
+        private TValue SetValueMin(TValue value)
+        {
+            if (!EqualityComparer<TValue>.Default.Equals(valueMin, value) && Rendered)
+            {
+                InvokeAsync(async () =>
+                {
+                    try
+                    {
+                        await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMin", Ref, value);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                });
+            }
+            return value;
         }
 
         [Parameter]
