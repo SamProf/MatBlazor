@@ -104,27 +104,40 @@ namespace MatBlazor
         }
 
         [Parameter]
+        public TValue ValueMax
+        {
+            get => valueMax;
+            set
+            {
+                valueMax = SetValueMax(value);
+            }
+        }
+        [Parameter]
         public TValue Max
         {
             get => valueMax;
             set
             {
-                if (!EqualityComparer<TValue>.Default.Equals(valueMax, value) && Rendered)
-                {
-                    InvokeAsync(async () =>
-                    {
-                        try
-                        {
-                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMax", Ref, value);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
-                    });
-                }
-                valueMax = value;
+                valueMax = SetValueMax(value);
             }
+        }
+        private TValue SetValueMax(TValue value)
+        {
+            if (!EqualityComparer<TValue>.Default.Equals(valueMax, value) && Rendered)
+            {
+                InvokeAsync(async () =>
+                {
+                    try
+                    {
+                        await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMax", Ref, value);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                });
+            }
+            return value;
         }
 
         [Parameter]
