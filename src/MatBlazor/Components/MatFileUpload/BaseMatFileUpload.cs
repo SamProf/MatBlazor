@@ -26,6 +26,10 @@ namespace MatBlazor
         [Parameter]
         public int MaxMessageLength { get; set; } = 3;
 
+        /// <summary>
+        /// HTML input accept attribute.
+        /// </summary>
+
         [Parameter]
         public string Accept { get; set; }
 
