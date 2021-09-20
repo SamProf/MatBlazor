@@ -26,6 +26,9 @@ namespace MatBlazor
         [Parameter]
         public int MaxMessageLength { get; set; } = 3;
 
+        [Parameter]
+        public string Accept { get; set; }
+
         private readonly MatDotNetObjectReference<BaseMatFileUpload> jsHelper;
 
 
