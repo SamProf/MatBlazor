@@ -148,7 +148,7 @@ namespace MatBlazor
                 {
                     try
                     {
-                        await JsInvokeAsync<object>("blazorOpen", new object[2] { Link, Target });
+                        await JsInvokeAsync<object>("matBlazor.matButton.openLink", new object[2] { Link, Target });
                     }
                     catch (TaskCanceledException ex)
                     {

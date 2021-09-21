@@ -10,6 +10,6 @@ export function init(ref) {
   var button = new MatButton(ref);
 }
 
-window.blazorOpen = (args) => {
-  window.open(args);
-};
+export function openLink(args) {
+    window.open(args);
+}
