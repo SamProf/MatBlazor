@@ -74,8 +74,8 @@ namespace MatBlazor
             return Parent.Direction switch
             {
                 MatSortDirection.None => null,
-                MatSortDirection.Asc => MatIconNames.Arrow_downward,
-                MatSortDirection.Desc => MatIconNames.Arrow_upward,
+                MatSortDirection.Asc => MatIconNames.Arrow_upward,
+                MatSortDirection.Desc => MatIconNames.Arrow_downward,
                 _ => throw new ArgumentOutOfRangeException(),
             };
         }
