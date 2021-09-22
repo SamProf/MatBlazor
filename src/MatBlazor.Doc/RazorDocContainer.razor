@@ -1,0 +1,30 @@
+﻿<h5 class="mat-h5">@this.DocInfo.SectionText</h5>
+<DemoContainer>
+    <Content>
+        @ChildContent
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(this.DocInfo.Code)></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
+
+@code{
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public DocInfo DocInfo { get; set; }
+
+    [Parameter]
+    public Func<ValueTask> OnFirstRenderedAsync { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && OnFirstRenderedAsync != null)
+        {
+            await OnFirstRenderedAsync();
+        }
+    }
+
+}

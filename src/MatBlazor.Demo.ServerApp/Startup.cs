@@ -1,5 +1,7 @@
 using MatBlazor.Demo.Models;
 using MatBlazor.Demo.Services;
+using MatBlazor.Doc.Demo;
+using MatBlazor.Demo.Pages;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -33,18 +35,14 @@ namespace MatBlazor.Demo.ServerApp
                 
             });
 
+            var useDocFrameModel = Environment.GetEnvironmentVariable("USE_DOC_APPFRAME_DEMO") == "true";
+            AppModel appModel = useDocFrameModel ?
+                new DocFrameAppModel() :
+                new MatBlazorDocumentationAppModel();
 
+            services.AddDocApp(appModel);
 
-            services.AddSingleton<AppModel>();
-            services.AddScoped<UserAppModel>();
-            services.AddScoped<DemoUserService>();
-            services.AddMatToaster(config =>
-            {
-                //example MatToaster customizations
-                config.PreventDuplicates = false;
-                config.NewestOnTop = true;
-                config.ShowCloseButton = true;
-            });
+            services.AddScoped<DemoUserService>();           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -2,6 +2,7 @@
 using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MatBlazor
@@ -89,11 +90,12 @@ namespace MatBlazor
         {
             try
             {
-                return await Js.InvokeAsync<T>(code, args);
+                return await Js.InvokeAsync<T>(code, BaseMatComponent.RuntimeCancellationToken, args);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                Console.WriteLine("Code: " + code);
                 throw;
             }
         }
@@ -109,9 +111,14 @@ namespace MatBlazor
 
         protected void DisposeDotNetObjectRef<T>(DotNetObjectReference<T> value) where T : class
         {
-            value?.Dispose();
+            if (!RuntimeCancellationToken.IsCancellationRequested)
+            {
+                value?.Dispose();
+            }
         }
 
         #endregion
+
+        public static CancellationToken RuntimeCancellationToken { get; set; }
     }
 }

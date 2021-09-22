@@ -1,5 +1,6 @@
 ﻿namespace MatBlazor.Demo.Services
 {
+
     public class DemoUserService
     {
         public int activeTabIndex = 0;

@@ -6,14 +6,17 @@
 @inject AppModel AppModel
 @inject UserAppModel UserAppModel
 @inject IJSRuntime Js
+@inject IServiceProvider ServiceProvider
 
+@if(this.IsInitialized)
+{
 <MatAnchorUtils></MatAnchorUtils>
 <MatAppBar Style="z-index: 100;" Class="mat">
     <MatAppBarRow>
         <MatAppBarSection>
             <MatIconButton Icon="menu" OnClick="@((e) => MenuButtonClicked())"></MatIconButton>
             <MatHidden BreakPoint="@MatBreakpoint.XS" Direction="@MatHiddenDirection.Down">
-                <MatAppBarTitle>MatBlazor - Material Design components for Blazor and Razor Components</MatAppBarTitle>
+                <MatAppBarTitle>@AppModel.NavModel.Title</MatAppBarTitle>
             </MatHidden>
             <MatHidden BreakPoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up">
                 <MatAppBarTitle>MatBlazor</MatAppBarTitle>
@@ -23,23 +26,35 @@
             <MatHidden BreakPoint="@MatBreakpoint.XS" Direction="@MatHiddenDirection.Down">
                 <MatIconButton @ref="themeButton" Icon="invert_colors" OnClick="@OnClickButton">
                 </MatIconButton>
-                <MatIconButton Link="http://samprof.com" Target="_blank">
+                @foreach(var navBarLink in this.AppModel.NavModel.NavBarLinks)
+                {
+                    <MatIconButton Link="@navBarLink.Url" Target="_blank">
+                        <i class="@navBarLink.FontAwesomeIconId" aria-hidden="true"></i>
+                    </MatIconButton>
+                }
+               @* <MatIconButton Link="http://samprof.com" Target="_blank">
                     <i class="fa fa-user-circle" aria-hidden="true"></i>
                 </MatIconButton>
                 <MatIconButton Link="https://github.com/SamProf/MatBlazor" Target="_blank">
                     <i class="fa fa-github" aria-hidden="true"></i>
-                </MatIconButton>
+                </MatIconButton>*@
             </MatHidden>
             <MatHidden BreakPoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up">
                 <MatIconButton Icon="more_vert" OnClick="@OpenSmallMenu" @ref="SmallMenuButton"></MatIconButton>
                 <MatMenu @ref="SmallMenu" style="z-index: 100;">
                     <MatList>
-                        <MatListItem Href="http://samprof.com" target="_blank">
+                          @foreach(var navBarLink in this.AppModel.NavModel.NavBarLinks)
+                        {
+                            <MatListItem Href="@navBarLink.Url" Target="_blank">
+                                @navBarLink.Text
+                            </MatListItem>
+                        }
+                      @*  <MatListItem Href="http://samprof.com" target="_blank">
                             Samprof.com
                         </MatListItem>
                         <MatListItem Href="https://github.com/SamProf/MatBlazor" target="_blank">
                             Github
-                        </MatListItem>
+                        </MatListItem>*@
                         <MatListItem @ref="ThemeListItem" OnClick="@OnClickListItem">
                             Select Theme
                         </MatListItem>
@@ -91,7 +106,11 @@
 </MatSnackbar>
 
 <MatPortalHost></MatPortalHost>
-
+}
+else
+{
+    <p>Loading...</p>
+}
 
 @code {
 
@@ -114,6 +133,8 @@
         }
     }
 
+
+    private bool IsInitialized {get; set; }
 
     protected void ModelDrawerHiddenChanged(bool hidden)
     {
@@ -146,6 +167,15 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        if (firstRender)
+        {
+            if (!this.IsInitialized &&  this.AppModel.PreRenderingInitializationAsync != null)
+            {
+                this.IsInitialized = true;
+                await this.AppModel.PreRenderingInitializationAsync(this.ServiceProvider);
+                this.StateHasChanged();
+            }
+        }
         await base.OnAfterRenderAsync(firstRender);
     }
 
@@ -153,12 +183,17 @@
     {
         await base.OnInitializedAsync();
 
-        Task.Run(async () =>
+        this.IsInitialized |= this.AppModel.PreRenderingInitializationAsync == null ;
+     
+        if (this.AppModel.ShowRatingSnackBar)
         {
-            await Task.Delay(TimeSpan.FromSeconds(5));
-            this.lazySnackbarIsOpen = true;
-            await InvokeAsync(() => { this.StateHasChanged(); });
-        });
+            Task.Run(async () =>
+            {
+                await Task.Delay(TimeSpan.FromSeconds(5));
+                this.lazySnackbarIsOpen = true;
+                await InvokeAsync(() => { this.StateHasChanged(); });
+            });
+        }
     }
 
     private BaseMatIconButton SmallMenuButton;

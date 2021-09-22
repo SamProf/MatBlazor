@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <IsPackable>true</IsPackable>
+    <LangVersion>9</LangVersion>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <Choose>
+    <When Condition="$(TargetFramework) == 'netstandard2.1'">
+      <PropertyGroup>
+        <RazorLangVersion>3.0</RazorLangVersion>
+        <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.0" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
+  </ItemGroup>
+
+  
+  <Target Name="DeployBlazorFiddleScript" BeforeTargets="BeforeBuild">
+    <DownloadFile SourceUrl="https://blazorfiddle.com/scripts/blazorFiddle.js" DestinationFolder="wwwroot" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

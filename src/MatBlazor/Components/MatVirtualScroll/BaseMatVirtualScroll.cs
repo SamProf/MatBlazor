@@ -90,7 +90,7 @@ namespace MatBlazor
             this.ScrollViewResult = new MatVirtualScrollViewResult
             {
                 Height = Items.Count() * ItemHeight,
-                SkipItems = scrollView.ScrollTop / this.ItemHeight
+                SkipItems = (int)(scrollView.ScrollTop / this.ItemHeight)
             };
             this.ScrollViewResult.TakeItems =
                 (int) Math.Ceiling((double) (scrollView.ScrollTop + scrollView.ClientHeight) / (double) ItemHeight) -

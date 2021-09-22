@@ -1,0 +1,113 @@
+@page "/MatAutocompleteList"
+@attribute [RouteDisplay("Form Controls")]
+
+<XmlDocContainer ComponentType="@(typeof(MatAutocompleteList<>))" DocComponentType="@this.GetType()" />
+
+<h5 class="mat-h5">Examples</h5>
+
+
+<RazorDocContainer DocInfo="@this.GetDocInfo("Default")">
+    <MatAutocompleteList Items="@options" TItem="string" Label="Pick one"></MatAutocompleteList>
+
+    @code
+        {
+
+        string[] options = new[]
+        {
+                "One",
+                "Two",
+                "Three"
+            };
+
+    }
+</RazorDocContainer>
+
+<RazorDocContainer DocInfo="@this.GetDocInfo("Icon")">
+    <MatAutocompleteList Items="@options" Icon="thumb_up_alt" TItem="string" Label="Pick one"></MatAutocompleteList>
+</RazorDocContainer>
+
+<RazorDocContainer DocInfo="@this.GetDocInfo("Clear Button")">
+    <MatAutocompleteList Items="@options" Value="@options[0]" ShowClearButton="true" Icon="thumb_up_alt" TItem="string" Label="Pick one"></MatAutocompleteList>
+</RazorDocContainer>
+
+<RazorDocContainer DocInfo="@this.GetDocInfo("ItemTemplate")">
+    <p>
+        <MatAutocompleteList Items="@options2" TItem="Car" Label="Select car" CustomStringSelector="@(i => i.Name)" @bind-Value="@value">
+            <ItemTemplate>
+                <div style="display: flex; flex-direction: row; width: 100%;">
+                    <div style="flex: 1;">@context.Name</div>
+                    <div style="width: 150px;">@context.Price$</div>
+                </div>
+            </ItemTemplate>
+        </MatAutocompleteList>
+    </p>
+    <p>
+        Selected value: @(value?.Name)
+    </p>
+
+    @code
+        {
+
+        public class Car
+        {
+            public string Name { get; set; }
+            public double Price { get; set; }
+
+            public Car(string name, double price)
+            {
+                Name = name;
+                Price = price;
+            }
+        }
+
+        Car value = null;
+
+        Car[] options2 = new[]
+        {
+                new Car("Volkswagen Golf", 10000),
+                new Car("Volkswagen Passat", 11000),
+                new Car("Volkswagen Polo", 12000),
+                new Car("Ford Focus", 13000),
+                new Car("Ford Fiesta", 14000),
+                new Car("Ford Fusion", 15000),
+                new Car("Ford Mondeo", 16000),
+            };
+
+    }
+</RazorDocContainer>
+
+<RazorDocContainer DocInfo="@this.GetDocInfo("With Full Width")">
+    <MatAutocompleteList Items="@options2" FullWidth="true" TItem="Car" Label="Select car" CustomStringSelector="@(i => i.Name)">
+        <ItemTemplate>
+            <div style="display: flex; flex-direction: row; width: 100%;">
+                <div style="flex: 1;">@context.Name</div>
+                <div style="width: 150px;">@context.Price$</div>
+            </div>
+        </ItemTemplate>
+    </MatAutocompleteList>
+</RazorDocContainer>
+
+<RazorDocContainer DocInfo="@this.GetDocInfo("In an edit form with a Data Annotation Validator")">
+    <EditForm Model="@model" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <MatAutocompleteList Items="@model.Options" Icon="thumb_up_alt" TItem="string" @bind-Value="@model.SelectedOption" Label="Pick one(Required)" ShowClearButton="true"></MatAutocompleteList>
+        <MatButton>Submit</MatButton>
+    </EditForm>
+    @code
+        {
+        class AutocompleteContextModel
+        {
+            public List<string> Options { get; set; } = new List<string>() { "A test option", "Another test option", "One more option" };
+
+            [System.ComponentModel.DataAnnotations.Required]
+            public string SelectedOption { get; set; }
+        }
+        AutocompleteContextModel model = new AutocompleteContextModel();
+
+        void HandleValidSubmit()
+        {
+            Console.WriteLine("On Valid Submit");
+        }
+    }
+</RazorDocContainer>

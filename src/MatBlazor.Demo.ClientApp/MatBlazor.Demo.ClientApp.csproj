@@ -17,6 +17,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\MatBlazor.Demo\MatBlazor.Demo.csproj" />
+        <ProjectReference Include="..\MatBlazor.Doc.Demo\MatBlazor.Doc.Demo.csproj" />
         <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
     </ItemGroup>
 

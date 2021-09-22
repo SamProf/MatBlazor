@@ -4,29 +4,30 @@
     <OutputType>Library</OutputType>
     <IsPackable>true</IsPackable>
     <LangVersion>9</LangVersion>
-    <RazorLangVersion>3.0</RazorLangVersion>
-    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <TargetFrameworks>net5.0;netstandard2.1</TargetFrameworks>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-
-
-  <ItemGroup Condition="$(TargetFramework) == 'netstandard2.1'">
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.0" />
-  </ItemGroup>
-
-  <ItemGroup Condition="$(TargetFramework) == 'net5.0'">
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
-  </ItemGroup>
-
+  <Choose>
+    <When Condition="$(TargetFramework) == 'netstandard2.1'">
+      <PropertyGroup>
+        <RazorLangVersion>3.0</RazorLangVersion>
+        <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.0" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
 
   <ItemGroup>
+    <ProjectReference Include="..\MatBlazor.Doc\MatBlazor.Doc.csproj" />
     <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Doc" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,21 @@
+﻿@inherits MatBlazor.Demo.Components.BaseDocComponent
+@inject Func<System.Reflection.Assembly, MatBlazor.DevUtils.Core.AssemblyDocumentationGenerator> DocGeneratorFactory
+@if (!Secondary)
+{<h3 class="mat-h3">@Header</h3> }
+else
+{ <h5 class="mat-h5">@Header</h5>}
+
+@((MarkupString)this.TypeDocumentation.Documentation.Value)
+
+@code{
+    [Parameter]
+    public Type ComponentType { get; set; }
+
+    [Parameter]
+    public Type DocComponentType { get; set; }
+
+    private MatBlazor.DevUtils.Core.TypeDocumentation TypeDocumentation => DocGeneratorFactory(ComponentType.Assembly).GetDocumentationFor(ComponentType);
+
+    private string Header => TypeDocumentation.TypeName.Value;
+
+}

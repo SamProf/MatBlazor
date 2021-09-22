@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <OutputType>Exe</OutputType>
     <StartupObject>MatBlazor.DevUtils.Program</StartupObject>
   </PropertyGroup>
@@ -19,7 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MatBlazor.Demo\MatBlazor.Demo.csproj" />
     <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,31 @@
+@using Microsoft.AspNetCore.Components
+@inject NavigationManager Url
+@inject NavModel NavModel
+<style>
+    .mdc-drawer {
+        box-shadow: 2px 0px 2px 0px rgba(199, 199, 199, 0.29);
+    }
+</style>
+
+<MatNavMenu Multi="true">
+    <MatNavItem Href="@Url.ToAbsoluteUri("").AbsoluteUri" NavLinkMatch="NavLinkMatch.All"><MatIcon Icon="home"></MatIcon>&nbsp; Home</MatNavItem>
+
+    @foreach (var groupModel in NavModel.NavGroups)
+    {
+        <MatNavSubMenu Expanded="true">
+            <MatNavSubMenuHeader>
+                <MatNavItem AllowSelection="false">@groupModel.Group.Name</MatNavItem>
+            </MatNavSubMenuHeader>
+            <MatNavSubMenuList>
+                @foreach (var navItem in groupModel.Items)
+                {
+                    <MatNavItem Href="@Url.ToAbsoluteUri(navItem.Url).AbsoluteUri">
+                        @navItem.Name
+                    </MatNavItem>
+                }
+            </MatNavSubMenuList>
+        </MatNavSubMenu>
+    }
+
+
+</MatNavMenu>

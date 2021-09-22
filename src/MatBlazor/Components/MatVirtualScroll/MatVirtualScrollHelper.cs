@@ -35,7 +35,7 @@ namespace MatBlazor
                 
                 if (_view != null)
                 {
-                    skipItems = Math.Max(0, _view.ScrollTop - (topSticky ? 0 : topHeight)) / itemHeight;
+                    skipItems = (int)Math.Max(0, _view.ScrollTop - (topSticky ? 0 : topHeight)) / itemHeight;
                     takeItems =
                         (int) Math.Ceiling(
                             (double) (_view.ScrollTop + _view.ClientHeight - topHeight) / (double) itemHeight) - skipItems +
