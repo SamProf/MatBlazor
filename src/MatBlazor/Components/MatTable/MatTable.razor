@@ -15,6 +15,7 @@
 }
 <CascadingValue Value="@this">
     <table class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" @ref="Ref" @attributes="Attributes" Id="@Id">
+        @MatColGroup
         <thead>
             @if (UseSortHeaderRow)
             {
@@ -28,6 +29,7 @@
         <tbody>
             @if (ItemList != null)
             {
+                @CallRowGenerating()
                 @foreach (var item in ItemList)
                 {
                     <TableRow Class="@RowClass"
@@ -119,6 +121,10 @@
     [Parameter]
     public RenderFragment<TableItem> MatTableRow { get; set; }
 
+    [Parameter]
+    public RenderFragment MatColGroup { get; set; }
+
+
     /// <summary>
     /// Not Functioning
     /// </summary>
@@ -132,6 +138,9 @@
     public IEnumerable<TableItem> Items { get; set; }
 
     protected IEnumerable<TableItem> ItemList { get; set; }
+
+    [Parameter]
+    public Action OnRowsGenerating { get; set; }
 
     private string[] FilteredColumns => FilterByColumnName?.Split(";") ?? Array.Empty<string>();
 
@@ -164,7 +173,7 @@
             if (PageSize <= 0)
                 PageSize = 5;
         }
-        
+
         StartPage = 1;
         CurrentPage = StartPage;
 
@@ -467,4 +476,9 @@
         return filteredCollection;
     }
 
+    string CallRowGenerating()
+    {
+        OnRowsGenerating?.Invoke();
+        return "";
+    }
 }
