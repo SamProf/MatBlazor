@@ -3,10 +3,10 @@
 
 <div @ref="@Ref" @attributes="@Attributes" class="@ClassMapper.AsString()" style="@StyleMapper.AsString()" id="@Id">
     @if (AllowMultiple == true){
-        <input type="file" @ref="@InputRef" multiple />
+        <input type="file" @attributes="@InputAttributes" @ref="@InputRef" multiple accept="@Accept"/>
     }
     else {
-        <input type="file" @ref="@InputRef" />
+        <input type="file" @attributes="@InputAttributes" @ref="@InputRef" accept="@Accept"/>
     }
     <div class="mat-file-upload-content">
         <span>@Label</span>
