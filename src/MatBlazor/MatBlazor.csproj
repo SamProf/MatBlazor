@@ -27,6 +27,9 @@
   <PropertyGroup>
     <DocumentationFile>MatBlazor.xml</DocumentationFile>
     <DefineConstants>TRACE;_PREVIEW</DefineConstants>
+    <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
   </PropertyGroup>
 
   <ItemGroup>
