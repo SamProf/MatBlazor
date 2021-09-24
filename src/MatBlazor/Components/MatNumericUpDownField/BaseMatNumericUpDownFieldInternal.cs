@@ -11,11 +11,6 @@ namespace MatBlazor
     /// <typeparam name="TValue">sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?</typeparam>
     public class BaseMatNumericUpDownFieldInternal<TValue> : MatInputTextComponent<TValue>
     {
-        protected override EventCallback<KeyboardEventArgs> OnKeyDownEvent()
-        {
-            return OnKeyDownEvent2;
-        }
-
         protected void Increase()
         {
             CurrentValue = SwitchT.Increase(CurrentValue, Step, Maximum);
@@ -62,26 +57,27 @@ namespace MatBlazor
             return base.InputTextReadOnly() || !AllowInput;
         }
 
-        private readonly EventCallback<KeyboardEventArgs> OnKeyDownEvent2;
         public BaseMatNumericUpDownFieldInternal()
         {
-            OnKeyDownEvent2 = EventCallback.Factory.Create<KeyboardEventArgs>(this, async (e) =>
-                {
-                    await OnKeyDown.InvokeAsync(e);
-                    if (e.Key == "ArrowUp")
-                    {
-                        Increase();
-                    }
-                    else if (e.Key == "ArrowDown")
-                    {
-                        Decrease();
-                    }
-                });
+            OnKeyDownEvent.Event += this.OnKeyDownEvent_Event;
+
             Maximum = SwitchT.GetMaximum();
             Minimum = SwitchT.GetMinimum();
 
             ClassMapper.Add("mat-numeric-up-down-field");
             ClassMapper.Add("mat-text-field-with-actions-container");
+        }
+
+        private void OnKeyDownEvent_Event(object sender, KeyboardEventArgs e)
+        {
+            if (e.Key == "ArrowUp")
+            {
+                Increase();
+            }
+            else if (e.Key == "ArrowDown")
+            {
+                Decrease();
+            }
         }
 
         private readonly TValue ZeroValue = MatTypeConverter.ChangeType<TValue>(0);

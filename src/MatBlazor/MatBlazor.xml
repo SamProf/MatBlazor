@@ -211,20 +211,69 @@
             </summary>
             <param name="e"></param>
         </member>
-        <member name="P:MatBlazor.BaseMatAutocomplete`2.ItemValueSelector">
+        <member name="T:MatBlazor.BaseMatAutocomplete`1">
             <summary>
-            This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.
+            The autocomplete is a normal text input enhanced by a panel of suggested options.
+            </summary>
+            <typeparam name="TItem">Type of items.</typeparam>
+        </member>
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.NumberOfElementsInPopup">
+            <summary>
+            Gets or sets the maximum number of elements displayed in the dropdown list.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatAutocomplete`2.NumberOfElementsInPopup">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.SelectedItem">
             <summary>
-            Maximum number of elements displayed in the popup
+            Gets or sets the selected item from the dropdown list.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatAutocomplete`2.ItemTemplate">
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.SelectedItemChanged">
             <summary>
-            ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
+            ValueChanged is fired when the value is selected(by clicking on an element in the popup)
             </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.ItemTemplate">
+            <summary>
+            Gets or sets the template used to render the elements in the popup, if no template is given then the string value of the objects is displayed.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.CustomStringSelector">
+            <summary>
+            Gets or sets the function used to select the string part from the item, used both for filtering and displaying if no <seealse cref="P:MatBlazor.BaseMatAutocomplete`1.ItemTemplate" /> is given.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.Items">
+            <summary>
+            Gets or sets the items source which will be filtered and displayed in the dropdown list.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.OnOpenedChanged">
+            <summary>
+            Gets or sets the event callback which is invoked when the dialog is opened or closed. The parameter will be "true" if the dialog was opened, "false" otherwise.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.ShowClearButton">
+            <summary>
+            Gets or sets the visibility of the clear button. The default value is "false". If the clear button is displayed and pressed, the text and selected value will be cleared.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.BaseMatAutocomplete`1.ItemsSource">
+            <summary>
+            Gets or sets the items source for autocomplete items. If provided, <seealso cref="P:MatBlazor.BaseMatAutocomplete`1.Items"/> is ignored and everytime the user is typing something, this source will be used to populate the items in the dropdown list.
+            </summary>
+        </member>
+        <member name="M:MatBlazor.BaseMatAutocomplete`1.ClearText(System.EventArgs)">
+            <summary>
+            Clears current value of the autocomplete text
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:MatBlazor.IAutocompleteItemsSource`1.GetFilteredItemsAsync(System.String)">
+            <summary>
+            Returns the items to be populated in the dropdown list based on a search after the search text.
+            </summary>
+            <param name="searchText">The search text which is provided by the user in the input component.</param>
+            <returns></returns>
         </member>
         <member name="P:MatBlazor.BaseMatButtonLink.OnClick">
             <summary>

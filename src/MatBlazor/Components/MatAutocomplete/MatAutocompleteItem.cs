@@ -1,8 +1,8 @@
 ﻿namespace MatBlazor
 {
-    public class MatAutocompleteItem<TValue, TItem>
+    public class MatAutocompleteItem<TItem>
     {
         public TItem Item { get; set; }
-        public TValue Value { get; set; }
+        public string Value { get; set; }
     }
 }

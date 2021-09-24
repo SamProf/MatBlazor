@@ -27,12 +27,15 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<KeyboardEventArgs> OnKeyDown { get; set; }
 
+        protected MatEventCallback<KeyboardEventArgs> OnKeyDownEvent;
+
         [Parameter]
         public EventCallback<KeyboardEventArgs> OnKeyUp { get; set; }
 
         [Parameter]
         public EventCallback<ChangeEventArgs> OnInput { get; set; }
 
+        protected MatEventCallback<ChangeEventArgs> OnInputEvent;
 
         [Parameter]
         public string Label { get; set; }
@@ -95,12 +98,6 @@ namespace MatBlazor
         public string Type { get; set; } = "text";
 
 
-        protected virtual EventCallback<KeyboardEventArgs> OnKeyDownEvent()
-        {
-            return this.OnKeyDown;
-        }
-
-
         /// <summary>
         /// Css class of input element
         /// </summary>
@@ -126,6 +123,8 @@ namespace MatBlazor
         {
             OnFocusEvent = new MatEventCallback<FocusEventArgs>(this, () => OnFocus);
             OnFocusOutEvent = new MatEventCallback<FocusEventArgs>(this, () => OnFocusOut);
+            OnInputEvent = new MatEventCallback<ChangeEventArgs>(this, () => OnInput);
+            OnKeyDownEvent = new MatEventCallback<KeyboardEventArgs>(this, () => OnKeyDown);
 
             ClassMapper
                 .Add("mat-text-field")

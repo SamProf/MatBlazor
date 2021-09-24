@@ -4,12 +4,12 @@
     display: inline-block;
 }
 
-.mat-autocomplete-list-wrapper-fullwidth
+.mat-autocomplete-list-wrapper-fullwidth, .mat-autocomplete-fullwidth
 {
     width:100%;
 }
 
-.mat-autocomplete-list-clearbutton
+.mat-autocomplete-list-clearbutton, .mat-autocomplete-clearbutton
 {
     position: absolute;
     right: 5px;
@@ -17,7 +17,7 @@
     text-align: center;
 }
 
-.mat-autocomplete-list-popup
+.mat-autocomplete-list-popup, .mat-autocomplete-dropdown
 {
     width: 100%;
     border-style: solid;
