@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,6 +12,8 @@ namespace MatBlazor
     /// <typeparam name="TValue">sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?</typeparam>
     public class BaseMatNumericUpDownFieldInternal<TValue> : MatInputTextComponent<TValue>
     {
+        private TValue minimum;
+        private TValue maximum;
         protected override EventCallback<KeyboardEventArgs> OnKeyDownEvent()
         {
             return OnKeyDownEvent2;
@@ -18,12 +21,12 @@ namespace MatBlazor
 
         protected void Increase()
         {
-            CurrentValue = SwitchT.Increase(CurrentValue, Step, Maximum);
+            CurrentValue = SwitchT.Increase(CurrentValue, Step, Max);
         }
 
         protected void Decrease()
         {
-            CurrentValue = SwitchT.Decrease(CurrentValue, Step, Minimum);
+            CurrentValue = SwitchT.Decrease(CurrentValue, Step, Min);
         }
 
         protected override TValue CurrentValue
@@ -35,12 +38,46 @@ namespace MatBlazor
         [Parameter]
         public bool AllowInput { get; set; } = true;
 
+        [Parameter]
+        public TValue Min
+        {
+            get => minimum;
+            set
+            {
+                minimum = value;
+            }
+        }
 
         [Parameter]
-        public TValue Maximum { get; set; }
+        [Obsolete("Use parameter Min")]
+        public TValue Minimum
+        {
+            get => minimum;
+            set
+            {
+                minimum = value;
+            }
+        }
+        [Parameter]
+        public TValue Max
+        {
+            get => maximum;
+            set
+            {
+                maximum = value;
+            }
+        }
 
         [Parameter]
-        public TValue Minimum { get; set; }
+        [Obsolete("Use parameter Max")]
+        public TValue Maximum
+        {
+            get => maximum;
+            set
+            {
+               maximum = value;
+            }
+        }
 
         [Parameter]
         public int DecimalPlaces { get; set; } = 0;
@@ -77,8 +114,8 @@ namespace MatBlazor
                         Decrease();
                     }
                 });
-            Maximum = SwitchT.GetMaximum();
-            Minimum = SwitchT.GetMinimum();
+            Max = SwitchT.GetMaximum();
+            Min = SwitchT.GetMinimum();
 
             ClassMapper.Add("mat-numeric-up-down-field");
             ClassMapper.Add("mat-text-field-with-actions-container");
@@ -148,8 +185,8 @@ namespace MatBlazor
             if (result != null) // Snap to Min/Max
             {
                 var comparer = Comparer<TValue>.Default;
-                if (Maximum != null && comparer.Compare(result, Maximum) > 0) result = Maximum;
-                if (Minimum != null && comparer.Compare(result, Minimum) < 0) result = Minimum;
+                if (Max != null && comparer.Compare(result, Max) > 0) result = Max;
+                if (Min != null && comparer.Compare(result, Min) < 0) result = Min;
             }
 
             return success;

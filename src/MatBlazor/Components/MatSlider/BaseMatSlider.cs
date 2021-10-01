@@ -21,8 +21,8 @@ namespace MatBlazor
         {
             jsHelper = new MatDotNetObjectReference<MatSliderJsHelper>(new MatSliderJsHelper());
             jsHelper.Value.OnChangeEvent += Value_OnChangeEvent;
-            ValueMin = SwitchT.GetMinimum();
-            ValueMax = SwitchT.GetMaximum();
+            Min = SwitchT.GetMinimum();
+            Max = SwitchT.GetMaximum();
             Step = SwitchT.GetStep();
 
             ClassMapper
@@ -65,53 +65,81 @@ namespace MatBlazor
             jsHelper.Dispose();
         }
 
-
         [Parameter]
+        [Obsolete("Use parameter Min")]
         public TValue ValueMin
         {
             get => valueMin;
             set
             {
-                if (!EqualityComparer<TValue>.Default.Equals(valueMin, value) && Rendered)
-                {
-                    InvokeAsync(async () =>
-                    {
-                        try
-                        {
-                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMin", Ref, value);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
-                    });
-                }
-                valueMin = value;
+                valueMin = SetValueMin(value);
             }
         }
 
         [Parameter]
+        public TValue Min
+        {
+            get => valueMin;
+            set
+            {
+                valueMin = SetValueMin(value);
+            }
+        }
+        private TValue SetValueMin(TValue value)
+        {
+            if (!EqualityComparer<TValue>.Default.Equals(valueMin, value) && Rendered)
+            {
+                InvokeAsync(async () =>
+                {
+                    try
+                    {
+                        await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMin", Ref, value);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                });
+            }
+            return value;
+        }
+
+        [Parameter]
+        [Obsolete("Use parameter Max")]
         public TValue ValueMax
         {
             get => valueMax;
             set
             {
-                if (!EqualityComparer<TValue>.Default.Equals(valueMax, value) && Rendered)
-                {
-                    InvokeAsync(async () =>
-                    {
-                        try
-                        {
-                            await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMax", Ref, value);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
-                    });
-                }
-                valueMax = value;
+                valueMax = SetValueMax(value);
             }
+        }
+        [Parameter]
+        public TValue Max
+        {
+            get => valueMax;
+            set
+            {
+                valueMax = SetValueMax(value);
+            }
+        }
+        private TValue SetValueMax(TValue value)
+        {
+            if (!EqualityComparer<TValue>.Default.Equals(valueMax, value) && Rendered)
+            {
+                InvokeAsync(async () =>
+                {
+                    try
+                    {
+                        await Js.InvokeVoidAsync("matBlazor.matSlider.updateValueMax", Ref, value);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                });
+            }
+            return value;
         }
 
         [Parameter]
@@ -168,8 +196,8 @@ namespace MatBlazor
             {
                 try
                 {
-                    decimal.TryParse(ValueMin.ToString(), out var min);
-                    decimal.TryParse(ValueMax.ToString(), out var max);
+                    decimal.TryParse(Min.ToString(), out var min);
+                    decimal.TryParse(Max.ToString(), out var max);
                     if (!decimal.TryParse(Step.ToString(), out var step))
                     {
                         step = 1;
