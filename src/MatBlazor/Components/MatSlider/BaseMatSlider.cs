@@ -66,7 +66,7 @@ namespace MatBlazor
         }
 
         [Parameter]
-        [Obsolete]
+        [Obsolete("Use parameter Min")]
         public TValue ValueMin
         {
             get => valueMin;
@@ -105,7 +105,7 @@ namespace MatBlazor
         }
 
         [Parameter]
-        [Obsolete]
+        [Obsolete("Use parameter Max")]
         public TValue ValueMax
         {
             get => valueMax;
