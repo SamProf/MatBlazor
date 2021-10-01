@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,6 +12,8 @@ namespace MatBlazor
     /// <typeparam name="TValue">sbyte, byte, short, ushort, int, uint, long, ulong, char, float, double, decimal, decimal?</typeparam>
     public class BaseMatNumericUpDownFieldInternal<TValue> : MatInputTextComponent<TValue>
     {
+        private TValue minimum;
+        private TValue maximum;
         protected override EventCallback<KeyboardEventArgs> OnKeyDownEvent()
         {
             return OnKeyDownEvent2;
@@ -35,12 +38,46 @@ namespace MatBlazor
         [Parameter]
         public bool AllowInput { get; set; } = true;
 
+        [Parameter]
+        public TValue Min
+        {
+            get => minimum;
+            set
+            {
+                minimum = value;
+            }
+        }
 
         [Parameter]
-        public TValue Max { get; set; }
+        [Obsolete]
+        public TValue Minimum
+        {
+            get => minimum;
+            set
+            {
+                minimum = value;
+            }
+        }
+        [Parameter]
+        public TValue Max
+        {
+            get => maximum;
+            set
+            {
+                maximum = value;
+            }
+        }
 
         [Parameter]
-        public TValue Min { get; set; }
+        [Obsolete]
+        public TValue Maximum
+        {
+            get => maximum;
+            set
+            {
+               maximum = value;
+            }
+        }
 
         [Parameter]
         public int DecimalPlaces { get; set; } = 0;
