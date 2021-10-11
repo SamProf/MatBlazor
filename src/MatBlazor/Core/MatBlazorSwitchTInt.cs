@@ -54,7 +54,8 @@ namespace MatBlazor
 
         public override int ParseFromString(string v, string format)
         {
-            return int.Parse(v, NumberStyles.Any);
+            if (int.TryParse(v, NumberStyles.Any, CultureInfo.InvariantCulture, out var num)) return num;
+            return 0;
         }
 
         public override int FromDateTimeNull(DateTime? v)
