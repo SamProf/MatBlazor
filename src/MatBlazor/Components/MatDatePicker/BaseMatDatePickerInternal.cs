@@ -67,6 +67,7 @@ namespace MatBlazor
                 OnChangeAction = (value) =>
                 {
                     var v = value.FirstOrDefault();
+                    if (v != null) v = v.Value.ToLocalTime();
                     CurrentValue = SwitchT.FromDateTimeNull(v);
                     InvokeStateHasChanged();
                 },
