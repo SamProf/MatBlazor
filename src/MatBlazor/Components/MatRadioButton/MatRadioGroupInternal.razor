@@ -8,13 +8,13 @@
     {
         foreach (var item in Items)
         {
-            if (ItemTemplate != null)
+            if (ItemTemplate == null)
             {
-                @ItemTemplate(item)
+                <MatRadioButton T="T" Value="@item">@item</MatRadioButton>
             }
             else
             {
-                <MatRadioButton T="T" Value="@item">@item</MatRadioButton>
+                @ItemTemplate(item)
             }
         }
     }
