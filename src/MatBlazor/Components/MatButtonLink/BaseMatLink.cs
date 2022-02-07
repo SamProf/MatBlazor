@@ -13,7 +13,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await JsInvokeAsync<object>("matBlazor.matButton.init", Ref);
+            await JsInvokeVoidAsync("matBlazor.matButton.init", Ref);
         }
 
         public BaseMatButtonLink()

@@ -123,7 +123,7 @@ namespace MatBlazor
                 {
                     dotNetObjectRef ??= CreateDotNetObjectRef(dotNetObject);
 
-                    await JsInvokeAsync<object>("matBlazor.matDatePicker.open", Ref, flatpickrInputRef, dotNetObjectRef,
+                    await JsInvokeVoidAsync("matBlazor.matDatePicker.open", Ref, flatpickrInputRef, dotNetObjectRef,
                         new FlatpickrOptions
                         {
                             EnableTime = this.EnableTime,

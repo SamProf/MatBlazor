@@ -100,7 +100,7 @@ namespace MatBlazor
         {
             await base.OnFirstAfterRenderAsync();
             _dotNetObjectRef ??= CreateDotNetObjectRef(this); // needed to call into this object from Javascript
-            await JsInvokeAsync<object>("matBlazor.matChip.init", Ref, _dotNetObjectRef);
+            await JsInvokeVoidAsync("matBlazor.matChip.init", Ref, _dotNetObjectRef);
             if (_isSelected && ChipSet != null)
             {
                 await ChipSet.HandleChipSelected(this);

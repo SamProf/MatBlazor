@@ -20,7 +20,7 @@ namespace MatBlazor
 
             CallAfterRender(async () =>
             {
-                await JsInvokeAsync<object>("matBlazor.matCheckbox.init", Ref, ComponentRef);
+                await JsInvokeVoidAsync("matBlazor.matCheckbox.init", Ref, ComponentRef);
             });
         }
 
@@ -49,7 +49,7 @@ namespace MatBlazor
             }
             CallAfterRender(async () =>
             {
-                await JsInvokeAsync<object>("matBlazor.matCheckbox.setIndeterminate", Ref, CurrentValue == null);
+                await JsInvokeVoidAsync("matBlazor.matCheckbox.setIndeterminate", Ref, CurrentValue == null);
             });
         }
 

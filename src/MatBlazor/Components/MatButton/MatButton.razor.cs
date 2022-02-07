@@ -20,7 +20,7 @@ namespace MatBlazor
             await base.OnFirstAfterRenderAsync();
             try
             {
-                await JsInvokeAsync<object>("matBlazor.matButton.init", Ref);
+                await JsInvokeVoidAsync("matBlazor.matButton.init", Ref);
             }
             catch (Exception) { } // Disposed
         }
@@ -153,7 +153,7 @@ namespace MatBlazor
                 {
                     try
                     {
-                        await JsInvokeAsync<object>("open", Link, Target);
+                        await JsInvokeVoidAsync("open", Link, Target);
                     }
                     catch (TaskCanceledException ex)
                     {

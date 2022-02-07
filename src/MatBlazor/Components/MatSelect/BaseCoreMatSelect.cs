@@ -40,7 +40,7 @@ namespace MatBlazor
             CallAfterRender(async () =>
             {
                 jsHelperReference ??= DotNetObjectReference.Create(jsHelper);
-                await JsInvokeAsync<object>("matBlazor.matSelect.init", Ref, jsHelperReference,
+                await JsInvokeVoidAsync("matBlazor.matSelect.init", Ref, jsHelperReference,
                     switchTK.FormatValueAsString(GetKeyFromValue(CurrentValue), null), new MatSelectInitOptions()
                     {
                         FullWidth = FullWidth,
@@ -71,7 +71,7 @@ namespace MatBlazor
             {
                 CallAfterRender(async () =>
                 {
-                    await JsInvokeAsync<object>("matBlazor.matSelect.setValue", Ref, switchTK.FormatValueAsString(GetKeyFromValue(newValue), null));
+                    await JsInvokeVoidAsync("matBlazor.matSelect.setValue", Ref, switchTK.FormatValueAsString(GetKeyFromValue(newValue), null));
                 });
             }
         }

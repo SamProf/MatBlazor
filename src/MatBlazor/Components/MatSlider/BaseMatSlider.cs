@@ -32,7 +32,7 @@ namespace MatBlazor
                 .If("mdc-slider--display-markers", () => Discrete && Markers);
             CallAfterRender(async () =>
             {
-                await JsInvokeAsync<object>("matBlazor.matSlider.init", Ref, jsHelper.Reference, Immediate);
+                await JsInvokeVoidAsync("matBlazor.matSlider.init", Ref, jsHelper.Reference, Immediate);
             });
         }
 

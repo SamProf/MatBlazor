@@ -165,7 +165,7 @@ namespace MatBlazor
                 // .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(CurrentValueAsString))
                 .If("mat-hide-clearbutton", () => this.HideClearButton);
 
-            CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matTextField.init", Ref); });
+            CallAfterRender(async () => { await JsInvokeVoidAsync("matBlazor.matTextField.init", Ref); });
         }
     }
 }
