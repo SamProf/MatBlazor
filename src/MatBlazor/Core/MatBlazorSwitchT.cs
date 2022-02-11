@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MatBlazor.Core;
+using System;
 
 
 namespace MatBlazor
@@ -68,6 +69,7 @@ namespace MatBlazor
 
         public static MatBlazorSwitchT<T> Get()
         {
+            if (typeof(T).IsEnum) return new MatBlazorSwitchEnum<T>();
             return Ts.Get<MatBlazorSwitchT<T>>();
         }
     }
