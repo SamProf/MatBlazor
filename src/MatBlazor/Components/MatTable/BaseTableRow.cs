@@ -45,7 +45,7 @@ namespace MatBlazor
 
         protected async Task OnClickHandler(MouseEventArgs _)
         {
-            if (AllowSelection)
+            if (AllowSelection && !Selected)
             {
                 await ToggleSelectedAsync();
             }
