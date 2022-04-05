@@ -8,11 +8,11 @@ namespace MatBlazor
     /// <summary>
     /// Mat Table display a table data.
     /// </summary>
-    public class BaseMatTable : BaseMatDomComponent
+    public class BaseMatTable<TItem> : BaseMatDomComponent
     {
         private string _searchTermFieldPlaceHolder = null;
         private string _searchTermFieldLabel = null;
-        public BaseTableRow Current { get; private set; }
+        public BaseTableRow<TItem> Current { get; private set; }
         #region Private Fields
 
         protected int TotalPages { get; set; }
@@ -69,7 +69,7 @@ namespace MatBlazor
         #endregion
 
         [Parameter]
-        public Action<object> SelectionChanged { get; set; }
+        public Action<TItem> SelectionChanged { get; set; }
 
         /// <summary>
         /// Specifies a custom class for the MatTableHeader row
@@ -214,10 +214,10 @@ namespace MatBlazor
         /// Action to execute on row item
         /// </summary>
         [Parameter]
-        public EventCallback<object> OnRowDbClick { get; set; }
+        public EventCallback<TItem> OnRowDbClick { get; set; }
 
         #region Helpers
-        public async Task ToggleSelectedAsync(BaseTableRow row)
+        public async Task ToggleSelectedAsync(BaseTableRow<TItem> row)
         {
             if (row.Selected)
             {
@@ -232,7 +232,7 @@ namespace MatBlazor
             }
             else
             {
-                SelectionChanged?.Invoke(null);
+                SelectionChanged?.Invoke(default);
             }
         }
 
@@ -305,7 +305,7 @@ namespace MatBlazor
 
         #region events
 
-        protected void OnRowDbClickHandler(object item)
+        protected void OnRowDbClickHandler(TItem item)
         {
             if (OnRowDbClick.HasDelegate)
             {

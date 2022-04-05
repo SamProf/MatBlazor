@@ -1,5 +1,5 @@
 ﻿@namespace MatBlazor
-@inherits BaseMatTable
+@inherits BaseMatTable<TableItem>
 @typeparam TableItem
 @inject System.Net.Http.HttpClient Http
 
@@ -30,7 +30,7 @@
             {
                 @foreach (var item in ItemList)
                 {
-                    <TableRow Class="@RowClass"
+                    <TableRow Class="@RowClass" 
                               @key="item"
                               AllowSelection="@AllowSelection"
                               @ondblclick="() => OnRowDbClickHandler(item)"
