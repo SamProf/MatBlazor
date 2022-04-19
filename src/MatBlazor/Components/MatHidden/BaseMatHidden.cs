@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System;
 using System.Threading.Tasks;
 
 namespace MatBlazor
@@ -84,7 +85,19 @@ namespace MatBlazor
             {
                 InvokeAsync(async () =>
                 {
-                    await JsInvokeAsync<object>("matBlazor.matHidden.destroy", Id);
+                    try
+                    {
+                        await JsInvokeAsync<object>("matBlazor.matHidden.destroy", Id);
+                    }
+                    catch(Exception ex)
+                    {
+                        // we could restrict it to the new exception name, but actually we are in the dispose
+                        // so lets catch everything.
+                        //if(ex.GetType().Name != "JSDisconnectedException")
+                        //{
+                        //    throw;
+                        //}
+                    }
                 });
 
             }
