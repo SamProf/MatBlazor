@@ -69,7 +69,8 @@ namespace MatBlazor
 
         public static MatBlazorSwitchT<T> Get()
         {
-            if (typeof(T).IsEnum) return new MatBlazorSwitchEnum<T>();
+            var type = Nullable.GetUnderlyingType(typeof(T));
+            if (typeof(T).IsEnum || (type != null && type.IsEnum)) return new MatBlazorSwitchEnum<T>();
             return Ts.Get<MatBlazorSwitchT<T>>();
         }
     }

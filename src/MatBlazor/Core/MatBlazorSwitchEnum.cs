@@ -15,6 +15,7 @@ namespace MatBlazor.Core
 
         public override string FormatValueAsString(T v, string format)
         {
+            if (v == null) return null;
             return v.ToString();
         }
 
@@ -55,7 +56,11 @@ namespace MatBlazor.Core
 
         public override T ParseFromString(string v, string format)
         {
-            return (T)Enum.Parse(typeof(T), v);
+            if (string.IsNullOrWhiteSpace(v))
+                return default;
+            var type = Nullable.GetUnderlyingType(typeof(T));
+            type ??= typeof(T);
+            return (T)Enum.Parse(type, v);
         }
 
         public override T Round(T v, int dp)
