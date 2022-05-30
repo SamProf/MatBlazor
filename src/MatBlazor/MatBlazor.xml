@@ -63,6 +63,12 @@
             Gets or sets the current value of the input.
             </summary>
         </member>
+        <member name="M:MatBlazor.BaseMatInputComponent`1.ClearValidationErrors">
+            <summary>
+            Clears validation errors
+            Used when value is set programatically, removing parse errors
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatInputComponent`1.FieldClass">
             <summary>
             Gets a string that indicates the status of the field being edited. This will include

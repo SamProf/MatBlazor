@@ -109,7 +109,6 @@ namespace MatBlazor
                     return false;
                 }
             }
-
             return true;
         }
 

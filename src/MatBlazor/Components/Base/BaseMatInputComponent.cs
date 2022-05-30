@@ -52,6 +52,7 @@ namespace MatBlazor
             }
         }
 
+
         [Obsolete("Please use OnValueChanged(oldValue, newValue)")]
         protected virtual void OnValueChanged(bool changed)
         {
@@ -96,9 +97,18 @@ namespace MatBlazor
                 {
                     _value = value;
                     ValueChanged.InvokeAsync(value);
+                    ClearValidationErrors();
                     EditContext?.NotifyFieldChanged(FieldIdentifier);
                 }
             }
+        }
+        /// <summary>
+        /// Clears validation errors
+        /// Used when value is set programatically, removing parse errors
+        /// </summary>
+        protected virtual void ClearValidationErrors()
+        {
+
         }
 
 
