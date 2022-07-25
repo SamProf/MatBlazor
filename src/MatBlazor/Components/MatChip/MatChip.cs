@@ -56,7 +56,7 @@ namespace MatBlazor
                 this.StateHasChanged();
                 if (ChipSet != null && _isSelected)
                 {
-                    ChipSet.HandleChipSelected(this);
+                    _ = ChipSet.HandleChipSelected(this);
                 }
                 IsSelectedChanged.InvokeAsync(_isSelected);
             }

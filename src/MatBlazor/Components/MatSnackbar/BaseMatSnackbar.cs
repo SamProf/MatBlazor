@@ -62,7 +62,7 @@ namespace MatBlazor
                                 return;
                             }
                             _isOpen = false;
-                            SetIsOpen(false);
+                            _ = SetIsOpen(false);
                         });
                     }
                 }

@@ -53,7 +53,6 @@ namespace MatBlazor
         }
 
 
-        [Obsolete("Please use OnValueChanged(oldValue, newValue)")]
         protected virtual void OnValueChanged(bool changed)
         {
         }

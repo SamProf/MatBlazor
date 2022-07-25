@@ -35,8 +35,8 @@
         CallAfterRender(async () => { await JsInvokeVoidAsync("matBlazor.matAccordion.initSummary", Ref); });
     }
 
-    protected void OnClickHandler(MouseEventArgs e)
+    protected async Task OnClickHandler(MouseEventArgs e)
     {
-        this.NavSubMenu.ToggleAsync();
+        await this.NavSubMenu.ToggleAsync();
     }
 }
