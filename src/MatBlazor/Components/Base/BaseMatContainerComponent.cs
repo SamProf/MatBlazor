@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.CompilerServices;
 using Microsoft.AspNetCore.Components.Rendering;
 using System.Collections.Generic;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public abstract class BaseMatContainerComponent : BaseMatDomComponent
     {

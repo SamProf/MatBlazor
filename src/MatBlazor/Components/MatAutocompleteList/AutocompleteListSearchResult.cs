@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MatBlazor.Components.MatAutocompleteList
+namespace ITMS.External.MatBlazor.Components.MatAutocompleteList
 {
     internal class AutocompleteListSearchResult<TItem>
     {

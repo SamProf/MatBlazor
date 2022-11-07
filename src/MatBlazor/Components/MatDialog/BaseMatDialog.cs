@@ -2,7 +2,7 @@
 using Microsoft.JSInterop;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// The Material tooltip provides a text label that is displayed when the user hovers an element.

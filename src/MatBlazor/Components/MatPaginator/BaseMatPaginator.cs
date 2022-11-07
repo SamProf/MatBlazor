@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class BaseMatPaginator : BaseMatDomComponent, IBaseMatPaginator
     {
@@ -90,7 +90,7 @@ namespace MatBlazor
                 {
                     page = ((PageIndex * PageSize) / pageSize);
                 }
-                catch (OverflowException e)
+                catch 
                 {
                 }
             }
@@ -120,7 +120,7 @@ namespace MatBlazor
                     }
                 }
             }
-            catch (Exception e)
+            catch 
             {
             }
 

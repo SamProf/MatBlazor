@@ -1,4 +1,4 @@
-﻿using MatBlazor.Components.MatAutocompleteList;
+﻿using ITMS.External.MatBlazor.Components.MatAutocompleteList;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// The autocomplete is a normal text input enhanced by a panel of suggested options.
@@ -15,17 +15,17 @@ namespace MatBlazor
     public class BaseMatAutocompleteList<TItem> : BaseMatDomComponent
     {
         protected const int DefaultsElementsInPopup = 10;
-        private bool isOpened;
-        private string stringValue;
+        private bool _isOpened;
+        private string _stringValue;
         private TItem _value;
-        private AutocompleteListSearchResult<TItem> searchResult;
+        private AutocompleteListSearchResult<TItem> _searchResult;
         public MatList ListRef;
 
         protected IEnumerable<MatAutocompleteListItem<TItem>> GetFilteredCollection(string searchText)
         {
-            if (searchResult == null || searchResult.SearchText != searchText || searchResult.Items != Items)
+            if (_searchResult == null || _searchResult.SearchText != searchText || _searchResult.Items != Items)
             {
-                searchResult = new AutocompleteListSearchResult<TItem>()
+                _searchResult = new AutocompleteListSearchResult<TItem>()
                 {
                     SearchText = searchText,
                     //  deepcode ignore CSharpSelfAssignment: <Property is set for new AutocompleteListSearchResult>
@@ -46,7 +46,7 @@ namespace MatBlazor
                         .ToList()
                 };
             }
-            return searchResult.ListResult;
+            return _searchResult.ListResult;
         }
 
         protected bool IsShowingClearButton
@@ -56,10 +56,10 @@ namespace MatBlazor
 
         public bool IsOpened
         {
-            get => isOpened;
+            get => _isOpened;
             private set
             {
-                isOpened = value;
+                _isOpened = value;
                 OnOpenedChanged.InvokeAsync(value);
                 StateHasChanged();
             }
@@ -89,10 +89,10 @@ namespace MatBlazor
         [Parameter]
         public string StringValue
         {
-            get => stringValue;
+            get => _stringValue;
             set
             {
-                stringValue = value;
+                _stringValue = value;
                 OnTextChanged.InvokeAsync(value);
             }
         }
@@ -221,9 +221,9 @@ namespace MatBlazor
                 wasCurrentIndexChanged = true;
             }
 
-            if (searchResult != null && searchResult.ListResult.Count > 0 && currentIndex > searchResult.ListResult.Count)
+            if (_searchResult != null && _searchResult.ListResult.Count > 0 && currentIndex > _searchResult.ListResult.Count)
             {
-                currentIndex = searchResult.ListResult.Count - 1;
+                currentIndex = _searchResult.ListResult.Count - 1;
                 wasCurrentIndexChanged = true;
             }
 
@@ -244,9 +244,9 @@ namespace MatBlazor
                 await ListRef.SetSelectedIndex(currentIndex);
             }
 
-            if (ev.Key == "Enter" && searchResult != null && currentIndex >= 0 && currentIndex < searchResult.ListResult.Count)
+            if (ev.Key == "Enter" && _searchResult != null && currentIndex >= 0 && currentIndex < _searchResult.ListResult.Count)
             {
-                ItemSelected(searchResult.ListResult[currentIndex].Item);
+                ItemSelected(_searchResult.ListResult[currentIndex].Item);
             }
         }
 
@@ -267,7 +267,7 @@ namespace MatBlazor
             StateHasChanged();
         }
 
-        protected ClassMapper WrapperClassMapper = new ClassMapper();
+        protected ClassMapper WrapperClassMapper = new();
 
         public BaseMatAutocompleteList()
         {

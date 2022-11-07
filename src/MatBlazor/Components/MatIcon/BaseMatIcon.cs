@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Makes it easier to use vector-based icons in your app.

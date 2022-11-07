@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Renders the data as a tree.
@@ -13,7 +13,7 @@ namespace MatBlazor
     public partial class MatTreeView<TNode>
         where TNode : class
     {
-        private readonly Dictionary<TNode, bool> _expandedNodes = new Dictionary<TNode, bool>();
+        private readonly Dictionary<TNode, bool> _expandedNodes = new();
         private IEnumerable<TNode> _rootNodes = null;
 
         /// <summary>
@@ -148,7 +148,6 @@ namespace MatBlazor
         public LoadChildNodesDelegate<TNode> LoadChildNodesCallback { get; set; }
         /// <summary>
         /// A function that indicates if the given node is expanded or collapsed.
-        /// (Optional - if null then the expanded/collapsed state is managed by the <see cref="K5MatTreeView{TNode}"/>)
         /// </summary>
         /// <example><![CDATA[
         /// <MatTreeView TNode="MyTreeNode"

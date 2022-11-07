@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 // Missing XML comment for publicly visible type or member
 // Not used directly so no need to for comments
 #pragma warning disable CS1591 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public partial class MatTreeNode<TNode>
         where TNode : class

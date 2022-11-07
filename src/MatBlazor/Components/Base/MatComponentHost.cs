@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.Rendering;
 using System;
 using System.Collections.Generic;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class MatComponentHost : ComponentBase
     {

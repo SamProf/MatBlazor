@@ -4,7 +4,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Buttons communicate an action a user can take.

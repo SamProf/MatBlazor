@@ -1,4 +1,4 @@
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Material Design Text Field for Blazor. Text fields allow users to input, edit, and select text.

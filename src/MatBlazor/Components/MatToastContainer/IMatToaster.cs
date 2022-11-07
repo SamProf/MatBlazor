@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <inheritdoc />
     /// <summary>

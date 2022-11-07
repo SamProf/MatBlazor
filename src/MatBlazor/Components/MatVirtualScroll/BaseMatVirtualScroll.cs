@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// The VirtualScroll for Blazor displays large lists of elements performantly by only rendering the items that fit on-screen.

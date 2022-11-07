@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// The options from https://flatpickr.js.org/options/

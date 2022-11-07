@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class MatTheme
     {

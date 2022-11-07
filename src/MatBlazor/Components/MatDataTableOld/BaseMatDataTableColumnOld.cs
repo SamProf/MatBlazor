@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class BaseMatDataTableColumnOld<TItem> : ComponentBase
     {

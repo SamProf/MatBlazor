@@ -2,7 +2,7 @@
 using Microsoft.JSInterop;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Chips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.
@@ -56,7 +56,7 @@ namespace MatBlazor
                 this.StateHasChanged();
                 if (ChipSet != null && _isSelected)
                 {
-                    ChipSet.HandleChipSelected(this);
+                    ChipSet.HandleChipSelected(this).GetAwaiter().GetResult();
                 }
                 IsSelectedChanged.InvokeAsync(_isSelected);
             }

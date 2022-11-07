@@ -1,4 +1,5 @@
-﻿using MatBlazor.Demo.Models;
+﻿using ITMS.External.MatBlazor;
+using MatBlazor.Demo.Models;
 using MatBlazor.Demo.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;

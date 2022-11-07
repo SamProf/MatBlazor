@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using System;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Circular Progress indicator displays the length of a process or express an unspecified wait time.

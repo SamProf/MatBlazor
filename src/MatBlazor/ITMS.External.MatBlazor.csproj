@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <IsPackable>true</IsPackable>
-    <LangVersion>9</LangVersion>
+    
     <RazorLangVersion>3.0</RazorLangVersion>
     <Description>Material Design components for Blazor and Razor Components</Description>
     <PackageProjectUrl>https://github.com/SamProf/MatBlazor</PackageProjectUrl>
@@ -20,8 +20,8 @@
     <PackageIconUrl>https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/icon.ico</PackageIconUrl>
     <Company>SamProf</Company>
     <VersionPrefix>2.9.0</VersionPrefix>    
-    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>    
-    <TargetFrameworks>net5.0;netstandard2.1</TargetFrameworks>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	  <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -42,6 +42,13 @@
   <ItemGroup Condition="$(TargetFramework) == 'net5.0'">
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Forms" Version="6.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.10" />
+    <PackageReference Include="Microsoft.JSInterop" Version="6.0.10" />
   </ItemGroup> 
  
 

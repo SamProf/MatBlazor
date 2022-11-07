@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components.Forms;
 using System;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public abstract class BaseMatInputTextElementComponent<T> : BaseMatInputElementComponent<T>
     {

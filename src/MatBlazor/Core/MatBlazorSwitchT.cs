@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public abstract class MatBlazorSwitchT<T>
     {

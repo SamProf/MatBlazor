@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public static class MatServiceCollectionExtension
     {

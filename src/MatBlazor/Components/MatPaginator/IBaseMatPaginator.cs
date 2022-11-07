@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public interface IBaseMatPaginator
     {

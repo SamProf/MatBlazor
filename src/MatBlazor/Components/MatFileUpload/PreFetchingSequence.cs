@@ -2,7 +2,7 @@
 // using System.Collections.Generic;
 // using System.Threading;
 //
-// namespace MatBlazor
+// namespace ITMS.External.MatBlazor
 // {
 //     internal class PreFetchingSequence<T>
 //     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     partial class MatAnchorContainer : BaseMatDomComponent
     {

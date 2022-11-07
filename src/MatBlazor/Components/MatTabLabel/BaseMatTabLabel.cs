@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class BaseMatTabLabel : BaseMatDomComponent, IDisposable
     {
@@ -37,7 +37,7 @@ namespace MatBlazor
         public override void Dispose()
         {
             disposed = true;
-            Parent.TabDisposed(this);
+            Parent.TabDisposed(this).GetAwaiter().GetResult();
         }
 
         public bool IsActive

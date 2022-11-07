@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components.Web;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Nav Item is a menu item in the Nav Menu. Inherits from Mat List Item.

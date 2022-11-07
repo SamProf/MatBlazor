@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class BaseMatSelectValue<TValue, TItem> : CoreMatSelectValue<TValue, TItem>
     {

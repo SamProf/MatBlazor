@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class MatViewChildren<TSelect> : ComponentBase where TSelect : IComponent
     {

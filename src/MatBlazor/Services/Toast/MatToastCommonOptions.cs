@@ -1,4 +1,4 @@
-﻿namespace MatBlazor
+﻿namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// The common options for MatToaster

@@ -1,4 +1,4 @@
-@namespace MatBlazor
+@namespace ITMS.External.MatBlazor
 @using Microsoft.AspNetCore.Components
 @inherits BaseMatDomComponent
 
@@ -37,6 +37,6 @@
 
     protected void OnClickHandler(MouseEventArgs e)
     {
-        this.NavSubMenu.ToggleAsync();
+        this.NavSubMenu.ToggleAsync().GetAwaiter().GetResult();
     }
 }

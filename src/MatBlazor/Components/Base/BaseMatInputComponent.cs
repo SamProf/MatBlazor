@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Base class for any input control that optionally supports an <see cref="EditContext"/>.
@@ -52,7 +52,7 @@ namespace MatBlazor
             }
         }
 
-        [Obsolete("Please use OnValueChanged(oldValue, newValue)")]
+        
         protected virtual void OnValueChanged(bool changed)
         {
         }

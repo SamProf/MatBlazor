@@ -3,7 +3,7 @@ using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Material Design Slider for Blazor. Sliders let users select from a range of values by moving the slider thumb.

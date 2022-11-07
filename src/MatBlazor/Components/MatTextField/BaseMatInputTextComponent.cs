@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public abstract class BaseMatInputTextComponent<TValue> : BaseMatInputTextElementComponent<TValue>
     {

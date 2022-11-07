@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     // TODO: When ReadAsync is called, don't just fetch the segment of data that's being requested.
     // That will be very slow, as you may be doing a separate round-trip for each 1KB or so of data.

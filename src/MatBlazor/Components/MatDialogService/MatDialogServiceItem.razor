@@ -1,4 +1,4 @@
-﻿@namespace MatBlazor
+﻿@namespace ITMS.External.MatBlazor
 
 <CascadingValue Value="DialogReference">
     <MatDialog CanBeClosed="@(DialogReference.Options?.CanBeClosed ?? BaseMatDialog.CanBeClosedDefault)" IsOpen="@DialogReference.IsOpen" SurfaceClass="@DialogReference.Options?.SurfaceClass" SurfaceStyle="@DialogReference.Options?.SurfaceStyle" IsOpenChanged="@(b => OnIsOpenChanged(b))">

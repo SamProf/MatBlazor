@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Defines interface for a container component that

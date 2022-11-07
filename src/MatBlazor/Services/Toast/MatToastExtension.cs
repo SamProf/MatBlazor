@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public static class MatToastExtension
     {

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     [DataContract]
     public class MatSelectInitOptions

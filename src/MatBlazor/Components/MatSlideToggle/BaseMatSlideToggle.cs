@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Material Design SlideToggle for Blazor. Component for on/off control that can be toggled via clicking or dragging.

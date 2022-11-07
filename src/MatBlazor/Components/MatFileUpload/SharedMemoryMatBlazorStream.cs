@@ -6,7 +6,7 @@
 // using Microsoft.AspNetCore.Components;
 // using Microsoft.JSInterop;
 //
-// namespace MatBlazor
+// namespace ITMS.External.MatBlazor
 // {
 //     // This is used on WebAssembly
 //     internal class SharedMemoryMatBlazorStream : BaseMatBlazorStream

@@ -3,7 +3,7 @@ using Microsoft.JSInterop;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Snackbars provide brief messages about app processes at the bottom of the screen.
@@ -62,7 +62,7 @@ namespace MatBlazor
                                 return;
                             }
                             _isOpen = false;
-                            SetIsOpen(false);
+                            SetIsOpen(false).GetAwaiter().GetResult();
                         });
                     }
                 }

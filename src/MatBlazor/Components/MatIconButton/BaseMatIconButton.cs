@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.Web;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Icons are appropriate for buttons that allow a user to take actions or make a selection, such as adding or removing a star to an item.

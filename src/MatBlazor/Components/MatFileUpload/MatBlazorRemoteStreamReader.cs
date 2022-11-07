@@ -6,7 +6,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     internal class MatBlazorRemoteStreamReader : BaseMatBlazorStreamReader
     {

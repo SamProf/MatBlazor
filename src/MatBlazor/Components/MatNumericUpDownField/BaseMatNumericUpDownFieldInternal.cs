@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.Web;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Material Design NumericUpDown for Blazor, text fields allow users to input, edit, and select text.

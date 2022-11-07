@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.Web;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class BaseMatButtonLink: BaseMatDomComponent
     {

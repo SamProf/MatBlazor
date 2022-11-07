@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class MatBlazorSwitchTSByte : MatBlazorSwitchT<sbyte>
     {
@@ -14,7 +14,7 @@ namespace MatBlazor
                     var v2 = (sbyte) (v + step);
                     return v2 <= max ? v2 : max;
                 }
-                catch (OverflowException e)
+                catch (OverflowException )
                 {
                     return max;
                 }
@@ -30,7 +30,7 @@ namespace MatBlazor
                     var v2 = (sbyte) (v - step);
                     return v2 >= min ? v2 : min;
                 }
-                catch (OverflowException e)
+                catch (OverflowException )
                 {
                     return min;
                 }

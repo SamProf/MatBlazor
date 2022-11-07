@@ -1,7 +1,7 @@
 ﻿using Microsoft.JSInterop;
 using System;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class MatSelectJsHelper
     {

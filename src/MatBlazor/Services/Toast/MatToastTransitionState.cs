@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class MatToastTransitionState
     {

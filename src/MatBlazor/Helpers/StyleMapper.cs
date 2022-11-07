@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class StyleMapper : BaseMapper
     {

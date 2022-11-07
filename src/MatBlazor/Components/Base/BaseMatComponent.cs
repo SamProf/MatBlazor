@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public abstract class BaseMatComponent : ComponentBase, IBaseMatComponent, IDisposable
     {

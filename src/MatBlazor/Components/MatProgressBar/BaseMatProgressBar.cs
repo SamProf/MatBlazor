@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     /// <summary>
     /// Progress indicators display the length of a process or express an unspecified wait time.

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class ClassBuilderRuleGet<T> : ClassBuilderRule<T>
     {

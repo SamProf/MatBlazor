@@ -1,6 +1,6 @@
 ﻿using Microsoft.JSInterop;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class MatVirtualScrollJsHelper
     {

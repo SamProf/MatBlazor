@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MatBlazor
+namespace ITMS.External.MatBlazor
 {
     public class MatToaster : IMatToaster
     {
