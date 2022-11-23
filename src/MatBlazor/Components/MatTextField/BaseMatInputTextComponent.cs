@@ -58,6 +58,9 @@ namespace MatBlazor
         [Parameter]
         public bool Disabled { get; set; }
 
+        [Parameter]
+        public string BindEvent { get; set; } = "onchange";
+
         /// <summary>
         /// When true, it specifies that an input field is read-only.
         /// </summary>
