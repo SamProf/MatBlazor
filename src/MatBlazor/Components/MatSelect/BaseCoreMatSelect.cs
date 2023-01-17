@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace MatBlazor
 {
@@ -14,7 +16,9 @@ namespace MatBlazor
         private DotNetObjectReference<MatSelectJsHelper> jsHelperReference;
 
         internal MatBlazorSwitchT<TKey> switchTK = MatBlazorSwitchT<TKey>.Get();
-        
+        private bool _disabled;
+        private bool _initialized;
+
         public BaseCoreMatSelect()
         {
             jsHelper = new MatSelectJsHelper();
@@ -37,15 +41,18 @@ namespace MatBlazor
                 .If("mdc-text-field-helper-text--validation-msg", () => HelperTextValidation);
 
 
-            CallAfterRender(async () =>
-            {
-                jsHelperReference ??= DotNetObjectReference.Create(jsHelper);
-                await JsInvokeVoidAsync("matBlazor.matSelect.init", Ref, jsHelperReference,
-                    switchTK.FormatValueAsString(GetKeyFromValue(CurrentValue), null), new MatSelectInitOptions()
-                    {
-                        FullWidth = FullWidth,
-                    });
-            });
+            CallAfterRender(InitializeJs);
+        }
+
+        private async Task InitializeJs()
+        {
+            jsHelperReference ??= DotNetObjectReference.Create(jsHelper);
+            await JsInvokeVoidAsync("matBlazor.matSelect.init", Ref, jsHelperReference,
+                switchTK.FormatValueAsString(GetKeyFromValue(CurrentValue), null), new MatSelectInitOptions()
+                {
+                    FullWidth = FullWidth,
+                });
+            _initialized = true;
         }
 
         private void JsHelper_SetValueEvent(object sender, string value)
@@ -56,7 +63,7 @@ namespace MatBlazor
 
         protected void OnChangeEventHandler(ChangeEventArgs e)
         {
-            SetValueEvent((string) e.Value);
+            SetValueEvent((string)e.Value);
         }
 
 
@@ -88,8 +95,8 @@ namespace MatBlazor
 
         protected ClassMapper HelperTextClassMapper { get; } = new ClassMapper();
 
-//        [Parameter]
-//        public RenderFragment ChildContent { get; set; }
+        //        [Parameter]
+        //        public RenderFragment ChildContent { get; set; }
 
 
         protected virtual RenderFragment GetChildContent()
@@ -112,7 +119,24 @@ namespace MatBlazor
         public bool Outlined { get; set; }
 
         [Parameter]
-        public bool Disabled { get; set; }
+        public bool Disabled
+        {
+            get => _disabled; set
+            {
+                if (_disabled!= value)
+                {
+                    _disabled=value;
+                    if (_initialized)
+                    {
+                        _ = Task.Run(async () =>
+                        {
+                            await InvokeAsync(StateHasChanged).ConfigureAwait(false);
+                            await InitializeJs().ConfigureAwait(false);
+                        });
+                    }
+                }
+            }
+        }
 
         [Parameter]
         public string Label { get; set; }
@@ -138,7 +162,7 @@ namespace MatBlazor
         [Parameter]
         public EventCallback<MouseEventArgs> IconOnClick { get; set; }
 
-      
+
 
         public MatBlazorSwitchT<TKey> SwitchTypeKey => switchTK;
     }
