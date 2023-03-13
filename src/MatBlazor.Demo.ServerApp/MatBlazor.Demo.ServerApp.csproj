@@ -3,7 +3,8 @@
   <PropertyGroup>
     <LangVersion>9</LangVersion>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
+    <TargetFramework>net6.0</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +12,9 @@
     <Compile Remove="wwwroot\**" />
     <Content Remove="Shared\**" />
     <Content Remove="wwwroot\**" />
+    <Content Include="..\.dockerignore">
+      <Link>.dockerignore</Link>
+    </Content>
     <EmbeddedResource Remove="Shared\**" />
     <EmbeddedResource Remove="wwwroot\**" />
     <None Remove="Shared\**" />
