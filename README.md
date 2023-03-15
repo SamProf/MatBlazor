@@ -30,7 +30,7 @@ Don't know what Blazor is? Read [here](https://github.com/aspnet/Blazor)
 
 Complete all Blazor dependencies.
 
-- .NET Core 3.1
+- .NET Core 6.0
 - Visual Studio 2019 with the ASP.NET and web development workload selected.
 - Requires access to internet for CSS download
 
