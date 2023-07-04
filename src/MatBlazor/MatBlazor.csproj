@@ -3,6 +3,8 @@
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 		<IsPackable>true</IsPackable>
+		<LangVersion>9</LangVersion>
+		<RazorLangVersion>3.0</RazorLangVersion>
 		<Description>Material Design components for Blazor and Razor Components</Description>
 		<PackageProjectUrl>https://github.com/SamProf/MatBlazor</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/SamProf/MatBlazor</RepositoryUrl>
@@ -18,6 +20,7 @@
 		<PackageIconUrl>https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/icon.ico</PackageIconUrl>
 		<Company>SamProf</Company>
 		<VersionPrefix>2.9.0</VersionPrefix>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 	</PropertyGroup>
 
@@ -29,20 +32,48 @@
 		<EnableNETAnalyzers>False</EnableNETAnalyzers>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
+		<Deterministic>True</Deterministic>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
+		<Deterministic>True</Deterministic>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.1|AnyCPU'">
+		<Deterministic>True</Deterministic>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.1|AnyCPU'">
+		<Deterministic>True</Deterministic>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<None Include="..\.editorconfig" Link=".editorconfig" />
 	</ItemGroup>
 
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' ">
-		<PackageReference Include="Microsoft.AspNetCore.Components" Version="7.0.8" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.8" />
-		<PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.8" />
-	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
+	<ItemGroup Condition="$(TargetFramework) == 'net6.0'">
 		<PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.19" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.19" />
-		<PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.19" />
 	</ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework) == 'net7.0'">
+		<PackageReference Include="Microsoft.AspNetCore.Components" Version="7.0.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.8" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<Content Update="Components\MatDataTable\MatDataTable.razor">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</Content>
+		<Content Update="Components\MatDataTable\MatDataTableContent.razor">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</Content>
+		<Content Update="Components\MatDataTable\MatDataTableColumn.razor">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</Content>
+	</ItemGroup>
+
 
 </Project>
