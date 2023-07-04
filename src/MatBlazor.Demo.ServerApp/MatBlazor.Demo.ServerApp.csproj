@@ -1,25 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <LangVersion>9</LangVersion>
-    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
-  </PropertyGroup>
+	<PropertyGroup>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Shared\**" />
-    <Compile Remove="wwwroot\**" />
-    <Content Remove="Shared\**" />
-    <Content Remove="wwwroot\**" />
-    <EmbeddedResource Remove="Shared\**" />
-    <EmbeddedResource Remove="wwwroot\**" />
-    <None Remove="Shared\**" />
-    <None Remove="wwwroot\**" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="..\MatBlazor.Demo\MatBlazor.Demo.csproj" />
-    <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Shared\**" />
+		<Compile Remove="wwwroot\**" />
+		<Content Remove="Shared\**" />
+		<Content Remove="wwwroot\**" />
+		<EmbeddedResource Remove="Shared\**" />
+		<EmbeddedResource Remove="wwwroot\**" />
+		<None Remove="Shared\**" />
+		<None Remove="wwwroot\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\MatBlazor.Demo\MatBlazor.Demo.csproj" />
+		<ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
+	</ItemGroup>
 
 </Project>
