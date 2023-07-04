@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,6 +26,16 @@ namespace MatBlazor
 
         [Parameter]
         public int MaxMessageLength { get; set; } = 3;
+
+        /// <summary>
+        /// HTML input accept attribute.
+        /// </summary>
+
+        [Parameter]
+        public string Accept { get; set; }
+
+        [Parameter]
+        public Dictionary<string, object> InputAttributes { get; set; }
 
         private readonly MatDotNetObjectReference<BaseMatFileUpload> jsHelper;
 

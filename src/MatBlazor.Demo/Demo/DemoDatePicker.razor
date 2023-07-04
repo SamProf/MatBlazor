@@ -20,9 +20,9 @@
                               })">
             Empty
         </MatButton>
-
-        <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : "")</span>
-
+        <p>
+            <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : "")</span>
+        </p>
         @code
         {
             public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
@@ -47,8 +47,9 @@
             Empty
         </MatButton>
 
-        <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : """")</span>
-
+        <p>
+            <span>@(Date1.HasValue ? Date1.Value.ToLocalTime().ToString() : """")</span>
+        </p>
         @code
         {
             public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
@@ -249,6 +250,33 @@
     </SourceContent>
 </DemoContainer>
 
+<AnchorHeader Text="Time (MatTimePicker)" />
+<DemoContainer>
+    <Content>
+        <p>
+            <MatTimePicker Label="Time" @bind-Value="@Time1"></MatTimePicker>
+        </p>
+        <p>
+            <MatTimePicker Label="Time 24hours" @bind-Value="@Time1" Enable24hours="true"></MatTimePicker>
+        </p>
+        <p><span>@(Time1.ToLocalTime().ToLongTimeString())</span></p>
+        @code
+        {
+            public DateTime Time1 { get; set; } = DateTime.Now;
+        }
+    </Content>
+    <SourceContent>
+        <BlazorFiddle Template="MatBlazor" Code=@(@"
+        <p>
+            <MatTimePicker Label=""Time"" @bind-Value=""@Time1""></MatTimePicker>
+        </p>
+        <p>
+            <MatTimePicker Label=""Time 24hours"" @bind-Value=""@Time1"" Enable24hours=""true""></MatTimePicker>
+        </p>
+        <p><span>@(Time1.ToLocalTime().ToLongTimeString())</span></p>
+    ")></BlazorFiddle>
+    </SourceContent>
+</DemoContainer>
 
 <AnchorHeader Text="Wrong TimeZone?" />
 <p>

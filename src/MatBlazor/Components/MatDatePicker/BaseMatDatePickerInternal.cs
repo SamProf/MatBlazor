@@ -48,6 +48,9 @@ namespace MatBlazor
         [Parameter]
         public string Locale { get; set; } = "en";
 
+        [Parameter]
+        public bool NoCalendar { get; set; } = false;
+
         private DotNetObjectReference<MatDatePickerJsHelper> dotNetObjectRef;
         private readonly MatDatePickerJsHelper dotNetObject;
         protected ElementReference flatpickrInputRef;
@@ -136,7 +139,8 @@ namespace MatBlazor
                             Minimum = this.EnableTime ? Minimum : Minimum?.Date,
                             Maximum = this.EnableTime ? Maximum : Maximum?.Date,
                             Value = this.SwitchT.ToDateTimeNull(CurrentValue),
-                            Locale = this.Locale
+                            Locale = this.Locale,
+                            NoCalendar = this.NoCalendar
                         }) ;
                 });
             }

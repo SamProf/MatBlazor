@@ -493,6 +493,11 @@
             A floating action button represents the primary action in an application.
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatFileUpload.Accept">
+            <summary>
+            HTML input accept attribute.
+            </summary>
+        </member>
         <member name="T:MatBlazor.BaseMatHidden">
             <summary>
             Quickly and responsively toggle the visibility value of components and more with our hidden utilities.
@@ -859,7 +864,7 @@
         </member>
         <member name="P:MatBlazor.BaseMatTable`1.ShowPaging">
             <summary>
-            Specifies the Paging visibility
+            Specifies the Paging visibility - does not disable paging.
             </summary>
         </member>
         <member name="P:MatBlazor.BaseMatTable`1.ShowFooter">

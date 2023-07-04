@@ -153,7 +153,7 @@ namespace MatBlazor
                 {
                     try
                     {
-                        await JsInvokeVoidAsync("open", Link, Target);
+                        await JsInvokeVoidAsync("matBlazor.matButton.openLink", new object[2] { Link, Target });
                     }
                     catch (TaskCanceledException ex)
                     {
