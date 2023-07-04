@@ -3,7 +3,7 @@
   <PropertyGroup>
     <LangVersion>9</LangVersion>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>

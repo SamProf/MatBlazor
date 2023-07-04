@@ -3,7 +3,7 @@
     <PropertyGroup>
         <LangVersion>9</LangVersion>
         <RazorLangVersion>3.0</RazorLangVersion>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
     </PropertyGroup>
     
