@@ -16,7 +16,7 @@ namespace MatBlazor
         {
             base.OnInitialized();
             ClassMapper.Add("mat-expansion-panel__summary").Add("mdc-ripple-surface");
-            CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matAccordion.initSummary", Ref); });
+            CallAfterRender(async () => { await JsInvokeVoidAsync("matBlazor.matAccordion.initSummary", Ref); });
         }
 
         protected async Task OnClickHandler(MouseEventArgs e)

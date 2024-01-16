@@ -15,7 +15,7 @@
             }
             @if (Toast.Options.ShowCloseButton)
             {
-                <MatIconButton Icon="@Toast.Options.CloseIcon" Class="mat-toast-close-button" OnMouseDown="@CloseIconClicked"></MatIconButton>
+                <MatIconButton Icon="@Toast.Options.CloseIcon" Class="mat-toast-close-button" OnClick="@CloseIconClicked" OnClickStopPropagation=true ></MatIconButton>
             }
             @if (!string.IsNullOrEmpty(Message))
             {

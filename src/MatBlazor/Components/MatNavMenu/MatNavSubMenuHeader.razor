@@ -32,11 +32,11 @@
                    .Add("mdc-ripple-surface")
                    .Add("mdc-nav-sub-menu-header")
                    .Add("mdc-list--non-interactive");
-        CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matAccordion.initSummary", Ref); });
+        CallAfterRender(async () => { await JsInvokeVoidAsync("matBlazor.matAccordion.initSummary", Ref); });
     }
 
-    protected void OnClickHandler(MouseEventArgs e)
+    protected async Task OnClickHandler(MouseEventArgs e)
     {
-        this.NavSubMenu.ToggleAsync();
+        await this.NavSubMenu.ToggleAsync();
     }
 }

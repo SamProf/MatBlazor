@@ -44,7 +44,7 @@ namespace MatBlazor
         {
             if (_selectedIndex != index)
             {
-                await JsInvokeAsync<object>("matBlazor.matList.setSelectedIndex", this.Ref, index);
+                await JsInvokeVoidAsync("matBlazor.matList.setSelectedIndex", this.Ref, index);
                 _selectedIndex = index;
             }
         }
@@ -52,7 +52,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await JsInvokeAsync<object>("matBlazor.matList.init", this.Ref, new MatListJsOptions()
+            await JsInvokeVoidAsync("matBlazor.matList.init", this.Ref, new MatListJsOptions()
             {
                 SingleSelection = SingleSelection
             });

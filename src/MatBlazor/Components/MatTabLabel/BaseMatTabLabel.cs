@@ -37,7 +37,7 @@ namespace MatBlazor
         public override void Dispose()
         {
             disposed = true;
-            Parent.TabDisposed(this);
+            _ = Parent.TabDisposed(this);
         }
 
         public bool IsActive

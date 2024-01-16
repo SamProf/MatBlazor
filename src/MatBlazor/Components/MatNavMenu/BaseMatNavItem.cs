@@ -99,7 +99,7 @@ namespace MatBlazor
                 return;
             }
 
-            if (AllowSelection)
+            if (AllowSelection && !e.CtrlKey && !e.ShiftKey)
             {
                 await ToggleSelectedAsync();
             }

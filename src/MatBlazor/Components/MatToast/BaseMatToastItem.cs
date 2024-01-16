@@ -49,11 +49,10 @@ namespace MatBlazor
 
         public void Clicked(bool fromCloseIcon)
         {
-            Toast.Options.Onclick?.Invoke(Toast);
 
-            if (!fromCloseIcon && Toast.Options.ShowCloseButton) 
-                return;
-            
+            if (!fromCloseIcon)
+                Toast.Options.Onclick?.Invoke(Toast);
+
             UserHasInteracted = true;
             TransitionTo(MatToastState.Hiding);
         }
@@ -78,30 +77,30 @@ namespace MatBlazor
                 switch (p.Name)
                 {
                     case nameof(Toast):
-                    {
-                        if (Toast != null)
                         {
-                            Toast.OnUpdate -= ToastUpdated;
-                        }
-
-                        Toast = (MatToast) p.Value;
-                        Toast.OnUpdate += ToastUpdated;
-                        EnsureInitialized();
-
-                        Css = builder =>
-                        {
-                            string transitionClass = TransitionClass;
-                            if (string.IsNullOrEmpty(transitionClass))
+                            if (Toast != null)
                             {
-                                return;
+                                Toast.OnUpdate -= ToastUpdated;
                             }
 
-                            builder.OpenElement(1, "style");
-                            builder.AddContent(2, transitionClass);
-                            builder.CloseElement();
-                        };
-                        break;
-                    }
+                            Toast = (MatToast)p.Value;
+                            Toast.OnUpdate += ToastUpdated;
+                            EnsureInitialized();
+
+                            Css = builder =>
+                            {
+                                string transitionClass = TransitionClass;
+                                if (string.IsNullOrEmpty(transitionClass))
+                                {
+                                    return;
+                                }
+
+                                builder.OpenElement(1, "style");
+                                builder.AddContent(2, transitionClass);
+                                builder.CloseElement();
+                            };
+                            break;
+                        }
                 }
             }
 

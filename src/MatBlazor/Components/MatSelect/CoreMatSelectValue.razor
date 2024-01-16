@@ -10,24 +10,44 @@
     protected override RenderFragment GetChildContent()
     {
         return
-            @<MatContentWrapper>
-                @if (Items != null)
+    @<MatContentWrapper>
+        @if (Items != null)
+            {
+                if (!Virtualize)
                 {
+
                     for (int i = 0; i < Items.Count; i++)
                     {
                         var item = Items[i];
                         <MatOption Value="@i">
                             @if (ItemTemplate == null)
-                            {
-                                @item
-                            }
-                            else
-                            {
-                                @ItemTemplate(item)                                
-                            }
-                        </MatOption>
+                {
+                    @item
+                }
+                else
+                {
+                    @ItemTemplate(item)
+                }
+            </MatOption>
                     }
                 }
-            </MatContentWrapper>;
+                else
+                {
+                    <Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize Items="Items.Select((item, idx) => (item, idx)).ToList()" Context="item">
+                        <MatOption Value="@item.idx">
+                            @if (ItemTemplate == null)
+                    {
+                        @item.item
+                    }
+                    else
+                    {
+                        @ItemTemplate(item.item)
+                    }
+                </MatOption>
+            </Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize>
+
+                }
+            }
+        </MatContentWrapper>;
     }
 }

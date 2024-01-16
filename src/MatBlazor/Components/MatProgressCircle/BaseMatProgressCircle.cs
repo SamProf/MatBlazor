@@ -62,7 +62,7 @@ namespace MatBlazor
                 if (Math.Abs(value - _progress) > double.Epsilon)
                 {
                     _progress = value;
-                    CallAfterRender(async () => await JsInvokeAsync<object>("matBlazor.matProgressCircle.setProgress", Ref, value));
+                    CallAfterRender(async () => await JsInvokeVoidAsync("matBlazor.matProgressCircle.setProgress", Ref, value));
                 }
             }
         }
@@ -90,7 +90,7 @@ namespace MatBlazor
                 .If("mdc-circular-progress--determinate", () => !this.Indeterminate)
                 .If("mdc-circular-progress--closed", () => this.Closed);
 
-            CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matProgressCircle.init", Ref); });
+            CallAfterRender(async () => { await JsInvokeVoidAsync("matBlazor.matProgressCircle.init", Ref); });
         }
 
         protected override void OnParametersSet()

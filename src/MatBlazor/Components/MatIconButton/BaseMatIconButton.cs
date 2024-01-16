@@ -97,7 +97,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await JsInvokeAsync<object>("matBlazor.matIconButton.init", Ref);
+            await JsInvokeVoidAsync("matBlazor.matIconButton.init", Ref);
         }
 
         protected async Task OnClickHandler(MouseEventArgs ev)
@@ -109,7 +109,7 @@ namespace MatBlazor
             {
                 if (!string.IsNullOrEmpty(Target))
                 {
-                    await JsInvokeAsync<object>("open", Link, Target);
+                    await JsInvokeVoidAsync("open", Link, Target);
                 }
                 else
                 {

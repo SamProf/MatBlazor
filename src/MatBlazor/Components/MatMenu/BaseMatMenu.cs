@@ -21,36 +21,36 @@ namespace MatBlazor
         public ForwardRef TargetForwardRef { get; set; }
         public async Task SetAnchorElementAsync(ElementReference anchorElement)
         {
-            await JsInvokeAsync<object>("matBlazor.matMenu.setAnchorElement", Ref, anchorElement);
+            await JsInvokeVoidAsync("matBlazor.matMenu.setAnchorElement", Ref, anchorElement);
         }
 
         public async Task OpenAsync(ElementReference anchorElement)
         {
-            await JsInvokeAsync<object>("matBlazor.matMenu.setAnchorElement", Ref, anchorElement);
-            await JsInvokeAsync<object>("matBlazor.matMenu.open", Ref);
+            await JsInvokeVoidAsync("matBlazor.matMenu.setAnchorElement", Ref, anchorElement);
+            await JsInvokeVoidAsync("matBlazor.matMenu.open", Ref);
         }
 
         public async Task CloseAsync()
         {
-            await JsInvokeAsync<object>("matBlazor.matMenu.close", Ref);
+            await JsInvokeVoidAsync("matBlazor.matMenu.close", Ref);
         }
 
         public async Task OpenAsync()
         {
             
-            await JsInvokeAsync<object>("matBlazor.matMenu.setAnchorElement", Ref, TargetForwardRef.Current);
-            await JsInvokeAsync<object>("matBlazor.matMenu.open", Ref);
+            await JsInvokeVoidAsync("matBlazor.matMenu.setAnchorElement", Ref, TargetForwardRef.Current);
+            await JsInvokeVoidAsync("matBlazor.matMenu.open", Ref);
         }
         public async Task SetState(bool open)
         {
-            await JsInvokeAsync<object>("matBlazor.matMenu.setAnchorElement", Ref, TargetForwardRef.Current);
-            await JsInvokeAsync<object>("matBlazor.matMenu.setState", Ref, open);
+            await JsInvokeVoidAsync("matBlazor.matMenu.setAnchorElement", Ref, TargetForwardRef.Current);
+            await JsInvokeVoidAsync("matBlazor.matMenu.setState", Ref, open);
         }
 
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await JsInvokeAsync<object>("matBlazor.matMenu.init", Ref);
+            await JsInvokeVoidAsync("matBlazor.matMenu.init", Ref);
         }
     }
 }

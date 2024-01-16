@@ -1,5 +1,5 @@
 ﻿@namespace MatBlazor
-@inherits BaseMatTable
+@inherits BaseMatTable<TableItem>
 @typeparam TableItem
 @inject System.Net.Http.HttpClient Http
 
@@ -30,7 +30,7 @@
             {
                 @foreach (var item in ItemList)
                 {
-                    <TableRow Class="@RowClass"
+                    <TableRow Class="@RowClass" 
                               @key="item"
                               AllowSelection="@AllowSelection"
                               @ondblclick="() => OnRowDbClickHandler(item)"
@@ -141,7 +141,7 @@
 
         var lastComma = tempPlaceholder.LastIndexOf(",");
 
-        if (lastComma != -1)
+        if (lastComma != -1 && SearchTermFieldPlaceHolder == null)
         {
             SearchTermFieldPlaceHolder = tempPlaceholder.Remove(lastComma, 1).Insert(lastComma, " and");
         }
@@ -164,7 +164,7 @@
             if (PageSize <= 0)
                 PageSize = 5;
         }
-        
+
         StartPage = 1;
         CurrentPage = StartPage;
 
@@ -283,14 +283,14 @@
         var doc = JsonDocument.Parse(pagedData);
         var root = doc.RootElement;
         string itemsString = root.GetProperty(PagingDataPropertyName).GetRawText();
-        
+
         var opt = new JsonSerializerOptions()
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
         };
-        
+
         var items = JsonSerializer.Deserialize<List<TableItem>>(itemsString, opt);
-        
+
         Items = items;
         int count = root.GetProperty(PagingRecordsCountPropertyName).GetInt32();
         RecordsFrom = (CurrentPage - 1) * PageSize;
@@ -341,15 +341,17 @@
 
                 ItemList = PageSize <= 0 ? filteredCollection : filteredCollection.Skip(RecordsFrom).Take(PageSize);
             }
-            else
+            else if (Items != null)
             {
                 ItemList = PageSize <= 0 ? Items : Items.Skip(RecordsFrom).Take(PageSize);
                 RecordsTo = (RecordsFrom + PageSize < Items.Count()) ? RecordsFrom + PageSize : Items.Count();
                 TotalPages = Math.Max(1, (int)Math.Ceiling(Items.Count() / (decimal)PageSize));
                 EndPage = TotalPages;
             }
+            else { } // Do nothing
+
             SetPageSize(PageDirection.Next);
-            StateHasChanged();
+            _ = InvokeAsync(StateHasChanged);
         }
         catch (Exception ex)
         {

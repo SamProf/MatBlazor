@@ -86,7 +86,7 @@ namespace MatBlazor
         public BaseMatTabBar()
         {
             ClassMapper.Add("mdc-tab-bar");
-//            this.CallAfterRender(async () => { await this.JsInvokeAsync<object>("matBlazor.matTabBar.init", Ref); });
+//            this.CallAfterRender(async () => { await this.JsInvokeVoidAsync("matBlazor.matTabBar.init", Ref); });
         }
     }
 }

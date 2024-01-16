@@ -63,7 +63,7 @@ namespace MatBlazor
             CallAfterRender(async () =>
             {
                 dotNetObjectRef ??= CreateDotNetObjectRef(this);
-                await JsInvokeAsync<object>("matBlazor.matHidden.init", Id, dotNetObjectRef);
+                await JsInvokeVoidAsync("matBlazor.matHidden.init", Id, dotNetObjectRef);
                 isInitialized = true;
                 await UpdateVisible();
             });
@@ -84,7 +84,7 @@ namespace MatBlazor
             {
                 InvokeAsync(async () =>
                 {
-                    await JsInvokeAsync<object>("matBlazor.matHidden.destroy", Id);
+                    await JsInvokeVoidAsync("matBlazor.matHidden.destroy", Id);
                 });
 
             }

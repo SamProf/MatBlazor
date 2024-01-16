@@ -34,7 +34,7 @@ namespace MatBlazor
 
                     this.CallAfterRender(async () =>
                     {
-                        await this.JsInvokeAsync<object>("matBlazor.matDrawer.setOpened", Ref, _opened);
+                        await this.JsInvokeVoidAsync("matBlazor.matDrawer.setOpened", Ref, _opened);
                     });
 
                     OpenedChanged.InvokeAsync(value);
@@ -58,7 +58,7 @@ namespace MatBlazor
             this.CallAfterRender(async () =>
             {
                 dotNetObjectRef ??= CreateDotNetObjectRef(this);
-                await JsInvokeAsync<object>("matBlazor.matDrawer.init", Ref, dotNetObjectRef);
+                await JsInvokeVoidAsync("matBlazor.matDrawer.init", Ref, dotNetObjectRef);
             });
         }
 

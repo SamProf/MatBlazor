@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System;
 using System.Threading.Tasks;
 
 namespace MatBlazor
@@ -19,7 +20,7 @@ namespace MatBlazor
 
             CallAfterRender(async () =>
             {
-                await JsInvokeAsync<object>("matBlazor.matCheckbox.init", Ref, ComponentRef);
+                await JsInvokeVoidAsync("matBlazor.matCheckbox.init", Ref, ComponentRef);
             });
         }
 
@@ -48,13 +49,26 @@ namespace MatBlazor
             }
             CallAfterRender(async () =>
             {
-                await JsInvokeAsync<object>("matBlazor.matCheckbox.setIndeterminate", Ref, CurrentValue == null);
+                await JsInvokeVoidAsync("matBlazor.matCheckbox.setIndeterminate", Ref, CurrentValue == null);
             });
         }
 
         protected void ChangeHandler(ChangeEventArgs e)
         {
-            CurrentValue = SwitchT.FromBoolNull((bool) e.Value, Indeterminate);
+            var newValue = (bool)e.Value;
+            if (Indeterminate)
+            {
+                CurrentValue = CurrentValue switch
+                {
+                    true => SwitchT.FromBoolNull(false, Indeterminate),
+                    false => SwitchT.FromBoolNull(null, Indeterminate),
+                    _ => SwitchT.FromBoolNull(true, Indeterminate)
+                };
+            }
+            else
+            {
+                CurrentValue = SwitchT.FromBoolNull(newValue, Indeterminate);
+            }
         }
     }
 }

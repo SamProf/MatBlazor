@@ -19,7 +19,7 @@ namespace MatBlazor
                 .If("mdc-switch--checked", () => Checked);
             CallAfterRender(async () =>
             {
-                await JsInvokeAsync<object>("matBlazor.matSlideToggle.init", Ref);
+                await JsInvokeVoidAsync("matBlazor.matSlideToggle.init", Ref);
             });
         }
 

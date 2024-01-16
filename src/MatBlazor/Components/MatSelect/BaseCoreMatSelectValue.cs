@@ -14,6 +14,9 @@ namespace MatBlazor
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
+        [Parameter]
+        public bool Virtualize { get; set; }
+
         protected override RenderFragment GetChildContent()
         {
             return ChildContent;
