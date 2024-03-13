@@ -30,8 +30,8 @@ Don't know what Blazor is? Read [here](https://github.com/aspnet/Blazor)
 
 Complete all Blazor dependencies.
 
-- .NET Core 3.1
-- Visual Studio 2019 with the ASP.NET and web development workload selected.
+- .NET 6.0
+- Visual Studio 2022 with the ASP.NET and web development workload selected.
 - Requires access to internet for CSS download
 
 ## Installation 
@@ -143,7 +143,10 @@ functionality in Demo for the component you are editing. Not only will this allo
 
 
 
-#### MatBlazor 2.9.0 (develop)
+#### MatBlazor 2.10.0
+- Supports .NET 6.0
+
+#### MatBlazor 2.9.0
 - Supports net5.0;netstandard2.1
 - PR: MatTreeView - new component #788 (Thanks to adameste)
 - PR: Fix MatAutocompleteList re-render list on items update #857 (Thanks to Ogglas)
