@@ -15,12 +15,25 @@ module.exports = {
     ]
   },
   optimization: {
-    minimize: !debugMode
+    minimize: !debugMode,
+    minimizer: [
+      new UglifyJsPlugin({
+        parallel: true,
+        uglifyOptions: {
+          compress: {
+            drop_debugger: !debugMode
+          },
+          mangle: debugMode,
+          output: {
+            comments: debugMode,
+            beautify: debugMode
+          }
+        }
+      })
+    ]
   },
   output: {
-    filename: "matBlazor.js",
-    // path: path.resolve(__dirname, '../dist'),
-    path: path.resolve(__dirname, '../../MatBlazor/wwwroot/dist'),
+    filename: "../../MatBlazor/wwwroot/dist/matBlazor.js"
   },
 
 
@@ -72,21 +85,7 @@ module.exports = {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'matBlazor.css',
-      path: path.resolve(__dirname, '../../MatBlazor/wwwroot/dist')
-    }),
-    new UglifyJsPlugin({
-      parallel: true,
-      uglifyOptions: {
-        compress: {
-          drop_debugger: !debugMode
-        },
-        mangle: debugMode,
-        output: {
-          comments: debugMode,
-          beautify: debugMode
-        }
-      }
+      filename: '../../MatBlazor/wwwroot/dist/matBlazor.css'
     }),
   ],
 };
