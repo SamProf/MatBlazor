@@ -1,7 +1,7 @@
 @import "@material/button/mdc-button";
 
 .mat-button__icon--trailing {
-  margin: 0 -4px 0 4px !important;
+    margin: 0 -4px 0 4px !important;
 }
 
 .mat-button-link {
@@ -13,16 +13,86 @@
 }
 
 .mat-button-link:not([href]) {
-    color: rgba(0,0,0,.38) !important;
+    color: rgba(0, 0, 0, .38) !important;
     cursor: default;
     pointer-events: none;
     background-color: transparent;
 }
 
 .mat-button-link.mdc-button--raised:not([href]) {
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0,0,0,.12);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, .12);
 }
 
-.mat-button-link.mdc-button--raised:not([href]), .mat-button-link.mdc-button--unelevated:not([href]) {
-    background-color: rgba(0,0,0,.12);
+.mat-button-link.mdc-button--raised:not([href]),
+.mat-button-link.mdc-button--unelevated:not([href]) {
+    background-color: rgba(0, 0, 0, .12);
+}
+
+.mdc-button--primary.mdc-button--outlined {
+    border-color: var(--mdc-theme-primary);
+}
+
+.mdc-button--secondary.mdc-button {
+    color: var(--mdc-theme-secondary);
+}
+
+.mdc-button--secondary.mdc-button--raised {
+    background-color: var(--mdc-theme-secondary);
+    color: var(--mdc-theme-on-secondary) !important;
+}
+
+.mdc-button--secondary.mdc-button--outlined {
+    border-color: var(--mdc-theme-secondary);
+}
+
+.mdc-button--success.mdc-button {
+    color: var(--success);
+}
+
+.mdc-button--success.mdc-button--raised {
+    background-color: var(--success);
+    color: var(--mdc-theme-text-primary-on-dark) !important;
+}
+
+.mdc-button--success.mdc-button--outlined {
+    border-color: var(--success);
+}
+
+.mdc-button--danger.mdc-button {
+    color: var(--danger);
+}
+
+.mdc-button--danger.mdc-button--raised {
+    background-color: var(--danger);
+    color: var(--mdc-theme-text-primary-on-dark) !important;
+}
+
+.mdc-button--danger.mdc-button--outlined {
+    border-color: var(--danger);
+}
+
+.mdc-button--warning.mdc-button {
+    color: var(--warning);
+}
+
+.mdc-button--warning.mdc-button--raised {
+    background-color: var(--warning);
+    color: var(--mdc-theme-text-primary-on-dark) !important;
+}
+
+.mdc-button--warning.mdc-button--outlined {
+    border-color: var(--warning);
+}
+
+.mdc-button--info.mdc-button {
+    color: var(--info);
+}
+
+.mdc-button--info.mdc-button--raised {
+    background-color: var(--info);
+    color: var(--mdc-theme-text-primary-on-dark) !important;
+}
+
+.mdc-button--info.mdc-button--outlined {
+    border-color: var(--info);
 }

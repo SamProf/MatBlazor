@@ -384,6 +384,11 @@
             Text label of Button.
             </summary>
         </member>
+        <member name="P:MatBlazor.MatButton.Color">
+            <summary>
+            Button color
+            </summary>
+        </member>
         <member name="P:MatBlazor.MatButton.ChildContent">
             <summary>
             Inline label of Button.

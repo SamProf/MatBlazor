@@ -32,7 +32,14 @@ namespace MatBlazor
                 .If("mdc-button--raised", () => Raised)
                 .If("mdc-button--unelevated", () => Unelevated)
                 .If("mdc-button--outlined", () => Outlined)
-                .If("mdc-button--dense", () => this.Dense);
+                .If("mdc-button--dense", () => this.Dense)
+                .If("mdc-button--primary", () => Color == MatComponentColor.Primary)
+                .If("mdc-button--secondary", () => Color == MatComponentColor.Secondary)
+                .If("mdc-button--success", () => Color == MatComponentColor.Success)
+                .If("mdc-button--warning", () => Color == MatComponentColor.Warning)
+                .If("mdc-button--danger", () => Color == MatComponentColor.Danger)
+                .If("mdc-button--info", () => Color == MatComponentColor.Info);
+
         }
 
         /// <summary>
@@ -137,6 +144,11 @@ namespace MatBlazor
         [Parameter]
         public string Label { get; set; }
 
+        /// <summary>
+        /// Button color
+        /// </summary>
+        [Parameter]
+        public MatComponentColor Color { get; set; }
 
         /// <summary>
         /// Inline label of Button.
