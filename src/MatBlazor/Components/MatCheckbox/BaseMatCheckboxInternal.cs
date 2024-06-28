@@ -16,7 +16,13 @@ namespace MatBlazor
         {
             ClassMapper
                 .Add("mat-checkbox")
-                .Add("mdc-form-field");
+                .Add("mdc-form-field")
+                .If("mdc-checkbox--primary", () => Color == MatComponentColor.Primary)
+                .If("mdc-checkbox--secondary", () => Color == MatComponentColor.Secondary)
+                .If("mdc-checkbox--success", () => Color == MatComponentColor.Success)
+                .If("mdc-checkbox--warning", () => Color == MatComponentColor.Warning)
+                .If("mdc-checkbox--danger", () => Color == MatComponentColor.Danger)
+                .If("mdc-checkbox--info", () => Color == MatComponentColor.Info);
 
             CallAfterRender(async () =>
             {
@@ -39,6 +45,9 @@ namespace MatBlazor
 
         [Parameter]
         public string InputValue { get; set; }
+
+        [Parameter]
+        public MatComponentColor Color { get; set; }
 
         protected override async Task OnParametersSetAsync()
         {
