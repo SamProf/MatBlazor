@@ -96,3 +96,9 @@
 .mdc-button--info.mdc-button--outlined {
     border-color: var(--info);
 }
+
+.mdc-button--dense {
+    height: 28px !important;
+    padding: 0 8px !important;
+    letter-spacing: 0.04em;
+}
