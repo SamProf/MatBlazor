@@ -35,7 +35,7 @@
             <span class="mdc-notched-outline__leading"></span>
             @if (Label != null)
             {
-                <span class="mdc-notched-outline__notch">
+                <span class="@(Dense ? "mdc-notched-outline__notch notched-outline-dense-fix" : "mdc-notched-outline__notch")">
                     <span class="@LabelClassMapper.AsString()" for="@Id">@Label</span>
                 </span>
             }
