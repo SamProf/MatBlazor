@@ -60,10 +60,23 @@ namespace MatBlazor
         [Parameter]
         public bool Disabled { get; set; }
 
+        [Parameter]
+        public MatComponentColor Color { get; set; } = MatComponentColor.Default;
+
+        [Parameter]
+        public bool MatchButtonSize { get; set; }
+
         public BaseMatIconButton()
         {
             ClassMapper
-                .Add("mdc-icon-button");
+                .Add("mdc-icon-button")
+                .If("mdc-icon-button-match-size", () => MatchButtonSize)
+                .If("mdc-text-primary", () => Color == MatComponentColor.Primary)
+                .If("mdc-text-secondary", () => Color == MatComponentColor.Secondary)
+                .If("mdc-text-success", () => Color == MatComponentColor.Success)
+                .If("mdc-text-danger", () => Color == MatComponentColor.Danger)
+                .If("mdc-text-warning", () => Color == MatComponentColor.Warning)
+                .If("mdc-text-info", () => Color == MatComponentColor.Info);
         }
 
         /// <summary>

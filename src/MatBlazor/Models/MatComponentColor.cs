@@ -13,6 +13,7 @@ namespace MatBlazor
         Success,
         Warning,
         Danger,
-        Info
+        Info,
+        Default
     }
 }
