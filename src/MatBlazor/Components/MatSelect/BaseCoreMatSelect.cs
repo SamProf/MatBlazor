@@ -30,7 +30,8 @@ namespace MatBlazor
                 .If("mdc-select--filled", () => !Outlined)
                 .If("mdc-select--outlined", () => Outlined)
                 .If("mdc-select--disabled", () => Disabled)
-                .If("mdc-select--with-leading-icon", () => Icon != null);
+                .If("mdc-select--with-leading-icon", () => Icon != null)
+                .If("select-dense-alt", () => Dense);
 
             StyleMapper
                 .If("width: 100%", () => FullWidth);
@@ -158,6 +159,9 @@ namespace MatBlazor
 
         [Parameter]
         public bool FullWidth { get; set; }
+
+        [Parameter]
+        public bool Dense { get; set; }
 
         [Parameter]
         public EventCallback<MouseEventArgs> IconOnClick { get; set; }
