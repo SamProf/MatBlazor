@@ -67,7 +67,7 @@
     color: var(--mdc-theme-text-primary-on-dark) !important;
 }
 
-.mdc-button--danger.mdc-button--outline:not(button[disabled=""]) {
+.mdc-button--danger.mdc-button--outlined:not(button[disabled=""]) {
     border-color: var(--danger);
 }
 
