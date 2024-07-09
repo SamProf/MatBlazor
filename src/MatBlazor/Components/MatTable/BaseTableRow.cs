@@ -7,10 +7,10 @@ namespace MatBlazor
     /// <summary>
     /// Mat Table Row display a table row   
     /// </summary>
-    public class BaseTableRow : BaseMatDomComponent
+    public class BaseTableRow<TItem> : BaseMatDomComponent
     {
         [CascadingParameter]
-        public BaseMatTable Table { get; set; }
+        public BaseMatTable<TItem> Table { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
@@ -22,7 +22,7 @@ namespace MatBlazor
         public bool AllowSelection { get; set; }
 
         [Parameter]
-        public object RowItem { get; set; }
+        public TItem RowItem { get; set; }
 
         [Parameter]
         public EventCallback<bool> SelectedChanged { get; set; }
@@ -45,7 +45,7 @@ namespace MatBlazor
 
         protected async Task OnClickHandler(MouseEventArgs _)
         {
-            if (AllowSelection)
+            if (AllowSelection && !Selected)
             {
                 await ToggleSelectedAsync();
             }

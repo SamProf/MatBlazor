@@ -148,7 +148,7 @@ namespace MatBlazor
         public LoadChildNodesDelegate<TNode> LoadChildNodesCallback { get; set; }
         /// <summary>
         /// A function that indicates if the given node is expanded or collapsed.
-        /// (Optional - if null then the expanded/collapsed state is managed by the <see cref="K5MatTreeView{TNode}"/>)
+        /// (Optional - if null then the expanded/collapsed state is managed by the <see cref="MatTreeView{TNode}"/>)
         /// </summary>
         /// <example><![CDATA[
         /// <MatTreeView TNode="MyTreeNode"

@@ -62,7 +62,7 @@ namespace MatBlazor
                                 return;
                             }
                             _isOpen = false;
-                            SetIsOpen(false);
+                            _ = SetIsOpen(false);
                         });
                     }
                 }
@@ -71,7 +71,7 @@ namespace MatBlazor
 
         private async Task SetIsOpen(bool value)
         {
-            await JsInvokeAsync<object>("matBlazor.matSnackbar.setIsOpen", Ref, value);
+            await JsInvokeVoidAsync("matBlazor.matSnackbar.setIsOpen", Ref, value);
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace MatBlazor
             CallAfterRender(async () =>
             {
                 _dotNetObjectRef ??= CreateDotNetObjectRef(this);
-                await JsInvokeAsync<object>("matBlazor.matSnackbar.init", Ref, _dotNetObjectRef);
+                await JsInvokeVoidAsync("matBlazor.matSnackbar.init", Ref, _dotNetObjectRef);
             });
         }
 

@@ -45,6 +45,8 @@
     "@material/theme": "7.0.0",
     "@material/top-app-bar": "7.0.0",
     "@material/typography": "7.0.0",
+	"@types/body-parser": "ts3.7",
+	"@types/node": "ts3.7",
     "babel-polyfill": "^6.26.0",
     "flatpickr": "^4.6.3",
     "install": "^0.13.0",

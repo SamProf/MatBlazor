@@ -14,7 +14,7 @@ namespace MatBlazor
                     var v2 = (int) (v + step);
                     return v2 <= max ? v2 : max;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     return max;
                 }
@@ -30,7 +30,7 @@ namespace MatBlazor
                     var v2 = (int) (v - step);
                     return v2 >= min ? v2 : min;
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     return min;
                 }
@@ -54,7 +54,8 @@ namespace MatBlazor
 
         public override int ParseFromString(string v, string format)
         {
-            return int.Parse(v, NumberStyles.Any);
+            if (int.TryParse(v, NumberStyles.Any, CultureInfo.InvariantCulture, out var num)) return num;
+            return 0;
         }
 
         public override int FromDateTimeNull(DateTime? v)

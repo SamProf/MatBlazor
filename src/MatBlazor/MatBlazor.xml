@@ -63,6 +63,12 @@
             Gets or sets the current value of the input.
             </summary>
         </member>
+        <member name="M:MatBlazor.BaseMatInputComponent`1.ClearValidationErrors">
+            <summary>
+            Clears validation errors
+            Used when value is set programatically, removing parse errors
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatInputComponent`1.FieldClass">
             <summary>
             Gets a string that indicates the status of the field being edited. This will include
@@ -376,6 +382,11 @@
         <member name="P:MatBlazor.MatButton.Label">
             <summary>
             Text label of Button.
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatButton.Color">
+            <summary>
+            Button color
             </summary>
         </member>
         <member name="P:MatBlazor.MatButton.ChildContent">
@@ -801,92 +812,92 @@
             WARNING: In Development progress
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseMatTable">
+        <member name="T:MatBlazor.BaseMatTable`1">
             <summary>
             Mat Table display a table data.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.HeaderRowClass">
+        <member name="P:MatBlazor.BaseMatTable`1.HeaderRowClass">
             <summary>
             Specifies a custom class for the MatTableHeader row
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.RowClass">
+        <member name="P:MatBlazor.BaseMatTable`1.RowClass">
             <summary>
             Specifies a custom class for the MatTableRow
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.AllowSelection">
+        <member name="P:MatBlazor.BaseMatTable`1.AllowSelection">
             <summary>
             Specifies weather you can select a single row.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.RequestApiOnlyOnce">
+        <member name="P:MatBlazor.BaseMatTable`1.RequestApiOnlyOnce">
             <summary>
             Specifies whether to Request the API only once.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.DebounceMilliseconds">
+        <member name="P:MatBlazor.BaseMatTable`1.DebounceMilliseconds">
             <summary>
             Specifies the delay duration between user input on the Search Term Field. Default 800
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.FilterByColumnName">
+        <member name="P:MatBlazor.BaseMatTable`1.FilterByColumnName">
             <summary>
             Specifies which column is used for the filter / search term. If this is populated the Search Textbox will be visible.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.SearchTermFieldLabel">
+        <member name="P:MatBlazor.BaseMatTable`1.SearchTermFieldLabel">
             <summary>
             Specifies the Label for the Filter / Search Term  Textbox
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.SearchTermFieldPlaceHolder">
+        <member name="P:MatBlazor.BaseMatTable`1.SearchTermFieldPlaceHolder">
             <summary>
             Specifies the Placeholder for the Filter / Search Term  Textbox
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.LoadInitialData">
+        <member name="P:MatBlazor.BaseMatTable`1.LoadInitialData">
             <summary>
             Specifies where to Load the Initial Table Data
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.ApiUrl">
+        <member name="P:MatBlazor.BaseMatTable`1.ApiUrl">
             <summary>
             Specifies the API Url form for the table data
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.ShowPaging">
+        <member name="P:MatBlazor.BaseMatTable`1.ShowPaging">
             <summary>
             Specifies the Paging visibility - does not disable paging.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.ShowFooter">
+        <member name="P:MatBlazor.BaseMatTable`1.ShowFooter">
             <summary>
             Specifies the Table Footer visibility.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.Striped">
+        <member name="P:MatBlazor.BaseMatTable`1.Striped">
             <summary>
             Determines if table has alternating color rows.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.PageSize">
+        <member name="P:MatBlazor.BaseMatTable`1.PageSize">
             <summary>
             The number of rows per page.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.CurrentPage">
+        <member name="P:MatBlazor.BaseMatTable`1.CurrentPage">
             <summary>
             The current page, starting from one.
             </summary>
         </member>
-        <member name="P:MatBlazor.BaseMatTable.OnRowDbClick">
+        <member name="P:MatBlazor.BaseMatTable`1.OnRowDbClick">
             <summary>
             Action to execute on row item
             </summary>
         </member>
-        <member name="T:MatBlazor.BaseTableRow">
+        <member name="T:MatBlazor.BaseTableRow`1">
             <summary>
             Mat Table Row display a table row   
             </summary>
@@ -1133,7 +1144,7 @@
         <member name="P:MatBlazor.MatTreeView`1.IsNodeExpandedCallback">
             <summary>
             A function that indicates if the given node is expanded or collapsed.
-            (Optional - if null then the expanded/collapsed state is managed by the <see cref="!:K5MatTreeView&lt;TNode&gt;"/>)
+            (Optional - if null then the expanded/collapsed state is managed by the <see cref="T:MatBlazor.MatTreeView`1"/>)
             </summary>
             <example><![CDATA[
             <MatTreeView TNode="MyTreeNode"

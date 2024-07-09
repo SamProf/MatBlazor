@@ -58,6 +58,9 @@ namespace MatBlazor
         [Parameter]
         public bool Disabled { get; set; }
 
+        [Parameter]
+        public string BindEvent { get; set; } = "onchange";
+
         /// <summary>
         /// When true, it specifies that an input field is read-only.
         /// </summary>
@@ -165,7 +168,7 @@ namespace MatBlazor
                 // .If("_mdc-text-field--upgraded", () => !string.IsNullOrEmpty(CurrentValueAsString))
                 .If("mat-hide-clearbutton", () => this.HideClearButton);
 
-            CallAfterRender(async () => { await JsInvokeAsync<object>("matBlazor.matTextField.init", Ref); });
+            CallAfterRender(async () => { await JsInvokeVoidAsync("matBlazor.matTextField.init", Ref); });
         }
     }
 }

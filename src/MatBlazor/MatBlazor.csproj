@@ -1,61 +1,71 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <IsPackable>true</IsPackable>
-    <LangVersion>9</LangVersion>
-    <RazorLangVersion>3.0</RazorLangVersion>
-    <Description>Material Design components for Blazor and Razor Components</Description>
-    <PackageProjectUrl>https://github.com/SamProf/MatBlazor</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/SamProf/MatBlazor</RepositoryUrl>
-    <PackageTags>blazor,mat,material, design, razor, components</PackageTags>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <RepositoryType>git</RepositoryType>
-    <PackageLicenseUrl></PackageLicenseUrl>
-    <Copyright>Vladimir Samoilenko</Copyright>
-    <PackageReleaseNotes></PackageReleaseNotes>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Authors>Vladimir Samoilenko</Authors>
-    <PackageIconUrl>https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/icon.ico</PackageIconUrl>
-    <Company>SamProf</Company>
-    <VersionPrefix>2.9.0</VersionPrefix>    
-    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>    
-    <TargetFrameworks>net5.0;netstandard2.1</TargetFrameworks>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<IsPackable>true</IsPackable>
+		<Description>Material Design components for Blazor and Razor Components</Description>
+		<PackageProjectUrl>https://github.com/SamProf/MatBlazor</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/SamProf/MatBlazor</RepositoryUrl>
+		<PackageTags>blazor,mat,material, design, razor, components</PackageTags>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseUrl></PackageLicenseUrl>
+		<Copyright>Vladimir Samoilenko</Copyright>
+		<PackageReleaseNotes></PackageReleaseNotes>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Authors>Vladimir Samoilenko</Authors>
+		<PackageIconUrl>https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/icon.ico</PackageIconUrl>
+		<Company>SamProf</Company>
+		<VersionPrefix>3.0.0</VersionPrefix>
+		<TargetFramework>net8.0</TargetFramework>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <DocumentationFile>MatBlazor.xml</DocumentationFile>
-    <DefineConstants>TRACE;_PREVIEW</DefineConstants>
-  </PropertyGroup>
+	<PropertyGroup>
+		<DocumentationFile>MatBlazor.xml</DocumentationFile>
+		<DefineConstants>TRACE;_PREVIEW</DefineConstants>
+		<RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
+		<RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+		<EnableNETAnalyzers>False</EnableNETAnalyzers>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
+		<Deterministic>True</Deterministic>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
+		<Deterministic>True</Deterministic>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.1|AnyCPU'">
+		<Deterministic>True</Deterministic>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.1|AnyCPU'">
+		<Deterministic>True</Deterministic>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\.editorconfig" Link=".editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.1" />
+	  <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.1" />
+	</ItemGroup>
 
 
-  <ItemGroup Condition="$(TargetFramework) == 'netstandard2.1'">
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.0" />
-  </ItemGroup>
-
-  <ItemGroup Condition="$(TargetFramework) == 'net5.0'">
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
-  </ItemGroup> 
- 
-
-  <ItemGroup>
-    <Content Update="Components\MatDataTable\MatDataTable.razor">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-    </Content>
-    <Content Update="Components\MatDataTable\MatDataTableContent.razor">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-    </Content>
-    <Content Update="Components\MatDataTable\MatDataTableColumn.razor">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-    </Content>
-  </ItemGroup>
+	<ItemGroup>
+		<Content Update="Components\MatDataTable\MatDataTable.razor">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</Content>
+		<Content Update="Components\MatDataTable\MatDataTableContent.razor">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</Content>
+		<Content Update="Components\MatDataTable\MatDataTableColumn.razor">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		</Content>
+	</ItemGroup>
 
 
 </Project>

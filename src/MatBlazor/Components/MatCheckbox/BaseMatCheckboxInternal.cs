@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System;
 using System.Threading.Tasks;
 
 namespace MatBlazor
@@ -15,11 +16,17 @@ namespace MatBlazor
         {
             ClassMapper
                 .Add("mat-checkbox")
-                .Add("mdc-form-field");
+                .Add("mdc-form-field")
+                .If("mdc-checkbox--primary", () => Color == MatComponentColor.Primary)
+                .If("mdc-checkbox--secondary", () => Color == MatComponentColor.Secondary)
+                .If("mdc-checkbox--success", () => Color == MatComponentColor.Success)
+                .If("mdc-checkbox--warning", () => Color == MatComponentColor.Warning)
+                .If("mdc-checkbox--danger", () => Color == MatComponentColor.Danger)
+                .If("mdc-checkbox--info", () => Color == MatComponentColor.Info);
 
             CallAfterRender(async () =>
             {
-                await JsInvokeAsync<object>("matBlazor.matCheckbox.init", Ref, ComponentRef);
+                await JsInvokeVoidAsync("matBlazor.matCheckbox.init", Ref, ComponentRef);
             });
         }
 
@@ -39,6 +46,9 @@ namespace MatBlazor
         [Parameter]
         public string InputValue { get; set; }
 
+        [Parameter]
+        public MatComponentColor Color { get; set; }
+
         protected override async Task OnParametersSetAsync()
         {
             await base.OnParametersSetAsync();
@@ -48,13 +58,26 @@ namespace MatBlazor
             }
             CallAfterRender(async () =>
             {
-                await JsInvokeAsync<object>("matBlazor.matCheckbox.setIndeterminate", Ref, CurrentValue == null);
+                await JsInvokeVoidAsync("matBlazor.matCheckbox.setIndeterminate", Ref, CurrentValue == null);
             });
         }
 
         protected void ChangeHandler(ChangeEventArgs e)
         {
-            CurrentValue = SwitchT.FromBoolNull((bool) e.Value, Indeterminate);
+            var newValue = (bool)e.Value;
+            if (Indeterminate)
+            {
+                CurrentValue = CurrentValue switch
+                {
+                    true => SwitchT.FromBoolNull(false, Indeterminate),
+                    false => SwitchT.FromBoolNull(null, Indeterminate),
+                    _ => SwitchT.FromBoolNull(true, Indeterminate)
+                };
+            }
+            else
+            {
+                CurrentValue = SwitchT.FromBoolNull(newValue, Indeterminate);
+            }
         }
     }
 }

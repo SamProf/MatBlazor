@@ -1,2 +1,18 @@
 @import "@material/form-field/mdc-form-field";
 @import "@material/checkbox/mdc-checkbox";
+
+.mdc-checkbox--primary {
+    --mdc-theme-secondary: var(--mdc-theme-primary) !important;
+}
+
+.mdc-checkbox--danger {
+    --mdc-theme-secondary: var(--mdc-theme-danger) !important;
+}
+
+.mdc-checkbox--warning {
+    --mdc-theme-secondary: var(--mdc-theme-warning) !important;
+}
+
+.mdc-checkbox--info {
+    --mdc-theme-secondary: var(--mdc-theme-info) !important;
+}

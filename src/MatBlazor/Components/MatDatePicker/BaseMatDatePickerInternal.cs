@@ -70,6 +70,7 @@ namespace MatBlazor
                 OnChangeAction = (value) =>
                 {
                     var v = value.FirstOrDefault();
+                    if (v != null) v = v.Value.ToLocalTime();
                     CurrentValue = SwitchT.FromDateTimeNull(v);
                     InvokeStateHasChanged();
                 },
@@ -111,7 +112,6 @@ namespace MatBlazor
                     return false;
                 }
             }
-
             return true;
         }
 
@@ -125,7 +125,7 @@ namespace MatBlazor
                 {
                     dotNetObjectRef ??= CreateDotNetObjectRef(dotNetObject);
 
-                    await JsInvokeAsync<object>("matBlazor.matDatePicker.open", Ref, flatpickrInputRef, dotNetObjectRef,
+                    await JsInvokeVoidAsync("matBlazor.matDatePicker.open", Ref, flatpickrInputRef, dotNetObjectRef,
                         new FlatpickrOptions
                         {
                             EnableTime = this.EnableTime,

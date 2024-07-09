@@ -8,3 +8,27 @@
   left: 0;
   top: 0;
 }
+
+.mdc-text-primary {
+  color: var(--mdc-theme-primary) !important;
+}
+
+.mdc-text-secondary {
+  color: var(--mdc-theme-secondary) !important;
+}
+
+.mdc-text-success {
+  color: var(--success) !important;
+}
+
+.mdc-text-warning {
+  color: var(--warning) !important;
+}
+
+.mdc-text-danger {
+  color: var(--danger) !important;
+}
+
+.mdc-text-info {
+  color: var(--info) !important;
+}

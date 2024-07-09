@@ -18,7 +18,7 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await JsInvokeAsync<object>("matBlazor.matChipSet.init", Ref);
+            await JsInvokeVoidAsync("matBlazor.matChipSet.init", Ref);
         }
 
         [Parameter]

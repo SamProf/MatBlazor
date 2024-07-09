@@ -14,6 +14,9 @@ namespace MatBlazor
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
+        [Parameter]
+        public string Tooltip { get; set; }
+
         public BaseMatIcon()
         {
             ClassMapper.Add("material-icons");

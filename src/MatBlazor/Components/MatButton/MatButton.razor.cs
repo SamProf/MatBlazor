@@ -18,7 +18,11 @@ namespace MatBlazor
         protected async override Task OnFirstAfterRenderAsync()
         {
             await base.OnFirstAfterRenderAsync();
-            await JsInvokeAsync<object>("matBlazor.matButton.init", Ref);
+            try
+            {
+                await JsInvokeVoidAsync("matBlazor.matButton.init", Ref);
+            }
+            catch (Exception) { } // Disposed
         }
 
         public MatButton()
@@ -28,7 +32,14 @@ namespace MatBlazor
                 .If("mdc-button--raised", () => Raised)
                 .If("mdc-button--unelevated", () => Unelevated)
                 .If("mdc-button--outlined", () => Outlined)
-                .If("mdc-button--dense", () => this.Dense);
+                .If("mdc-button--dense", () => this.Dense)
+                .If("mdc-button--primary", () => Color == MatComponentColor.Primary)
+                .If("mdc-button--secondary", () => Color == MatComponentColor.Secondary)
+                .If("mdc-button--success", () => Color == MatComponentColor.Success)
+                .If("mdc-button--warning", () => Color == MatComponentColor.Warning)
+                .If("mdc-button--danger", () => Color == MatComponentColor.Danger)
+                .If("mdc-button--info", () => Color == MatComponentColor.Info);
+
         }
 
         /// <summary>
@@ -133,6 +144,11 @@ namespace MatBlazor
         [Parameter]
         public string Label { get; set; }
 
+        /// <summary>
+        /// Button color
+        /// </summary>
+        [Parameter]
+        public MatComponentColor Color { get; set; }
 
         /// <summary>
         /// Inline label of Button.
@@ -142,13 +158,14 @@ namespace MatBlazor
 
         protected async Task OnClickHandler(MouseEventArgs ev)
         {
+            if (Disabled) return;
             if (Link != null)
             {
                 if (!string.IsNullOrEmpty(Target))
                 {
                     try
                     {
-                        await JsInvokeAsync<object>("matBlazor.matButton.openLink", new object[2] { Link, Target });
+                        await JsInvokeVoidAsync("open", Link, Target);
                     }
                     catch (TaskCanceledException ex)
                     {
