@@ -1,8 +1,9 @@
-FROM node
+FROM node:12.22.12-bullseye-slim
 WORKDIR src
 COPY package.json .
 COPY .babelrc .
 COPY .eslintrc.js .
 RUN npm install
 COPY . .
+RUN npm rebuild
 RUN npm run build
