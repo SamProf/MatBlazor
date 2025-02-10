@@ -1,56 +1,55 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class BaseMatTabLabel : BaseMatDomComponent, IDisposable
 {
-    public class BaseMatTabLabel : BaseMatDomComponent, IDisposable
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+
+    [CascadingParameter]
+    protected BaseMatTabBar Parent { get; set; }
+
+    [CascadingParameter]
+    public BaseMatTab Tab { get; set; }
+
+    public BaseMatTabLabel()
     {
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
+        ClassMapper
+            .Add("mat-tab-label")
+            .Add("mdc-tab")
+            .If("mdc-tab--active", () => IsActive);
+    }
 
-
-        [CascadingParameter]
-        protected BaseMatTabBar Parent { get; set; }
-
-        [CascadingParameter]
-        public BaseMatTab Tab { get; set; }
-
-        public BaseMatTabLabel()
+    protected override void OnInitialized()
+    {
+        Parent.Tabs.Add(this);
+        if (Parent.Active == null)
         {
-            ClassMapper
-                .Add("mat-tab-label")
-                .Add("mdc-tab")
-                .If("mdc-tab--active", () => IsActive);
+            Parent.Active = this;
         }
+    }
 
-        protected override void OnInitialized()
+    private bool disposed = false;
+
+    public override void Dispose()
+    {
+        disposed = true;
+        Parent.TabDisposed(this);
+    }
+
+    public bool IsActive
+    {
+        get { return Parent.Active == this; }
+    }
+
+    public void Activate()
+    {
+        if (!disposed)
         {
-            Parent.Tabs.Add(this);
-            if (Parent.Active == null)
-            {
-                Parent.Active = this;
-            }
-        }
-
-        private bool disposed = false;
-
-        public override void Dispose()
-        {
-            disposed = true;
-            Parent.TabDisposed(this);
-        }
-
-        public bool IsActive
-        {
-            get { return Parent.Active == this; }
-        }
-
-        public void Activate()
-        {
-            if (!disposed)
-            {
-                Parent.Active = this;
-            }
+            Parent.Active = this;
         }
     }
 }

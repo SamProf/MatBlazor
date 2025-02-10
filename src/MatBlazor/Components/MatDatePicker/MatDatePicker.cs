@@ -1,6 +1,5 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public class MatDatePicker<TValue> : MatDatePickerInternal<TValue>
 {
-    public class MatDatePicker<TValue> : MatDatePickerInternal<TValue>
-    {
-    }
 }

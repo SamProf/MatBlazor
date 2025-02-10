@@ -6,280 +6,279 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+/// <summary>
+/// The autocomplete is a normal text input enhanced by a panel of suggested options.
+/// </summary>
+/// <typeparam name="TItem">Type of element type.</typeparam>
+public class BaseMatAutocompleteList<TItem> : BaseMatDomComponent
 {
-    /// <summary>
-    /// The autocomplete is a normal text input enhanced by a panel of suggested options.
-    /// </summary>
-    /// <typeparam name="TItem">Type of element type.</typeparam>
-    public class BaseMatAutocompleteList<TItem> : BaseMatDomComponent
+    protected const int DefaultsElementsInPopup = 10;
+    private bool isOpened;
+    private string _stringValue;
+    private TItem _value;
+    private AutocompleteListSearchResult<TItem> searchResult;
+    public MatList ListRef;
+
+    protected IEnumerable<MatAutocompleteListItem<TItem>> GetFilteredCollection(string searchText)
     {
-        protected const int DefaultsElementsInPopup = 10;
-        private bool isOpened;
-        private string stringValue;
-        private TItem _value;
-        private AutocompleteListSearchResult<TItem> searchResult;
-        public MatList ListRef;
-
-        protected IEnumerable<MatAutocompleteListItem<TItem>> GetFilteredCollection(string searchText)
+        if (searchResult == null || searchResult.SearchText != searchText || searchResult.Items != Items)
         {
-            if (searchResult == null || searchResult.SearchText != searchText || searchResult.Items != Items)
+            searchResult = new AutocompleteListSearchResult<TItem>()
             {
-                searchResult = new AutocompleteListSearchResult<TItem>()
+                SearchText = searchText,
+                //  deepcode ignore CSharpSelfAssignment: <Property is set for new AutocompleteListSearchResult>
+                Items = Items,
+                ListResult = Items.Select(x => new MatAutocompleteListItem<TItem>()
                 {
-                    SearchText = searchText,
-                    //  deepcode ignore CSharpSelfAssignment: <Property is set for new AutocompleteListSearchResult>
-                    Items = Items,
-                    ListResult = Items.Select(x => new MatAutocompleteListItem<TItem>()
-                    {
-                        StringValue = ComputeStringValue(x),
-                        Item = x
-                    })
-                        .Where
-                        (
-                            x => x != null
-                                 && (string.IsNullOrEmpty(searchText)
-                                     || x.StringValue.ToLowerInvariant().Contains(searchText.ToLowerInvariant())
-                                     )
+                    StringValue = ComputeStringValue(x),
+                    Item = x
+                })
+                    .Where
+                    (
+                        x => x != null
+                             && (string.IsNullOrEmpty(searchText)
+                                 || x.StringValue.ToLowerInvariant().Contains(searchText.ToLowerInvariant())
                                  )
-                        .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup)
-                        .ToList()
-                };
-            }
-            return searchResult.ListResult;
+                             )
+                    .Take(NumberOfElementsInPopup ?? DefaultsElementsInPopup)
+                    .ToList()
+            };
         }
+        return searchResult.ListResult;
+    }
 
-        protected bool IsShowingClearButton
+    protected bool IsShowingClearButton
+    {
+        get => ShowClearButton && !string.IsNullOrEmpty(this.StringValue);
+    }
+
+    public bool IsOpened
+    {
+        get => isOpened;
+        private set
         {
-            get => ShowClearButton && !string.IsNullOrEmpty(this.StringValue);
-        }
-
-        public bool IsOpened
-        {
-            get => isOpened;
-            private set
-            {
-                isOpened = value;
-                OnOpenedChanged.InvokeAsync(value);
-                StateHasChanged();
-            }
-        }
-
-        /// <summary>
-        /// Maximum number of elements displayed in the popup
-        /// </summary>
-        [Parameter]
-        public int? NumberOfElementsInPopup { get; set; }
-
-        /// <summary>
-        /// The label of the TextField
-        /// </summary>
-        [Parameter]
-        public string Label { get; set; }
-
-        /// <summary>
-        /// The Icon displayed as the leading icon for the TextField
-        /// </summary>
-        [Parameter]
-        public string Icon { get; set; }
-
-        /// <summary>
-        /// The StringValue displayed in the TextField
-        /// </summary>
-        [Parameter]
-        public string StringValue
-        {
-            get => stringValue;
-            set
-            {
-                stringValue = value;
-                OnTextChanged.InvokeAsync(value);
-            }
-        }
-
-        /// <summary>
-        /// The value to be used to pre-select an item from the list
-        /// </summary>
-        [Parameter]
-        public TItem Value
-        {
-            get => _value;
-            set
-            {
-                if (!EqualValues(value, default))
-                {
-                    string newValue = ComputeStringValue(value);
-                    if (newValue != StringValue)
-                    {
-                        StringValue = newValue;
-                    }
-                }
-
-                if (EqualValues(value, _value))
-                {
-                    return;
-                }
-
-                _value = value;
-                ValueChanged.InvokeAsync(_value);
-            }
-        }
-
-        private static bool EqualValues(TItem a1, TItem a2)
-        {
-            return EqualityComparer<TItem>.Default.Equals(a1, a2);
-        }
-
-        /// <summary>
-        /// ValueChanged is fired when the value is selected(by clicking on an element in the popup)
-        /// </summary>
-        [Parameter]
-        public EventCallback<TItem> ValueChanged { get; set; }
-
-        /// <summary>
-        /// ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
-        /// </summary>
-        [Parameter]
-        public RenderFragment<TItem> ItemTemplate { get; set; }
-
-        /// <summary>
-        /// This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.
-        /// </summary>
-        [Parameter]
-        public Func<TItem, string> CustomStringSelector { get; set; }
-
-        /// <summary>
-        /// The collection which should be rendered and filtered
-        /// </summary>
-        [Parameter]
-        public IEnumerable<TItem> Items { get; set; }
-
-        /// <summary>
-        /// If this parameter is true then the style of the textbox is outlined see `MatTextfield`
-        /// </summary>
-        [Parameter]
-        public bool Outlined { get; set; }
-
-        /// <summary>
-        /// OnOpenedChanged is fired when the popup dialog is opened or close and the parameter indicates whenever is it open, the default value is false
-        /// </summary>
-        [Parameter]
-        public EventCallback<bool> OnOpenedChanged { get; set; }
-
-        /// <summary>
-        /// OnTextChanged is fired when the string value is changed(when an input occurs in the textfield or when an item is selected)
-        /// </summary>
-        [Parameter]
-        public EventCallback<string> OnTextChanged { get; set; }
-
-        /// <summary>
-        /// This value indicates if the clear button(using a trailing icon) should be displayed, which can clear the entire text and the selected value), the default value is false
-        /// </summary>
-        [Parameter]
-        public bool ShowClearButton { get; set; }
-
-        /// <summary>
-        /// This value indicates if the textfield and the dialog will be or not displayed in the full screen, the default value is false
-        /// </summary>
-        [Parameter]
-        public bool FullWidth { get; set; }
-
-        protected void OpenPopup()
-        {
-            IsOpened = true;
-        }
-
-        protected void ClosePopup()
-        {
-            if (StringValue != ComputeStringValue(Value))
-            {
-                _value = default;
-                ValueChanged.InvokeAsync(_value);
-            }
-            IsOpened = false;
-        }
-
-        public void OnValueChanged(ChangeEventArgs ev)
-        {
-            StringValue = (string)ev.Value;
+            isOpened = value;
+            OnOpenedChanged.InvokeAsync(value);
             StateHasChanged();
         }
+    }
 
-        public async Task OnKeyDown(KeyboardEventArgs ev)
+    /// <summary>
+    /// Maximum number of elements displayed in the popup
+    /// </summary>
+    [Parameter]
+    public int? NumberOfElementsInPopup { get; set; }
+
+    /// <summary>
+    /// The label of the TextField
+    /// </summary>
+    [Parameter]
+    public string Label { get; set; }
+
+    /// <summary>
+    /// The Icon displayed as the leading icon for the TextField
+    /// </summary>
+    [Parameter]
+    public string Icon { get; set; }
+
+    /// <summary>
+    /// The StringValue displayed in the TextField
+    /// </summary>
+    [Parameter]
+    public string StringValue
+    {
+        get => _stringValue;
+        set
         {
-            if (ev.Key == null ||   // Google auto-fill sends null key
-                ev.Key == "Tab")    // user navigates to next field
+            _stringValue = value;
+            OnTextChanged.InvokeAsync(value);
+        }
+    }
+
+    /// <summary>
+    /// The value to be used to pre-select an item from the list
+    /// </summary>
+    [Parameter]
+    public TItem Value
+    {
+        get => _value;
+        set
+        {
+            if (!EqualValues(value, default))
+            {
+                string newValue = ComputeStringValue(value);
+                if (newValue != StringValue)
+                {
+                    StringValue = newValue;
+                }
+            }
+
+            if (EqualValues(value, _value))
             {
                 return;
             }
-            int currentIndex = await ListRef.GetSelectedIndex();
-            bool wasCurrentIndexChanged = false;
 
-            if (currentIndex < 0)
-            {
-                currentIndex = 0;
+            _value = value;
+            ValueChanged.InvokeAsync(_value);
+        }
+    }
+
+    private static bool EqualValues(TItem a1, TItem a2)
+    {
+        return EqualityComparer<TItem>.Default.Equals(a1, a2);
+    }
+
+    /// <summary>
+    /// ValueChanged is fired when the value is selected(by clicking on an element in the popup)
+    /// </summary>
+    [Parameter]
+    public EventCallback<TItem> ValueChanged { get; set; }
+
+    /// <summary>
+    /// ItemTemplate is used to render the elements in the popup if no template is given then the string value of the objects is displayed..
+    /// </summary>
+    [Parameter]
+    public RenderFragment<TItem> ItemTemplate { get; set; }
+
+    /// <summary>
+    /// This function is used to select the string part from the item, used both for filtering and displaying if no ItemTemplate is defined.
+    /// </summary>
+    [Parameter]
+    public Func<TItem, string> CustomStringSelector { get; set; }
+
+    /// <summary>
+    /// The collection which should be rendered and filtered
+    /// </summary>
+    [Parameter]
+    public IEnumerable<TItem> Items { get; set; }
+
+    /// <summary>
+    /// If this parameter is true then the style of the textbox is outlined see `MatTextfield`
+    /// </summary>
+    [Parameter]
+    public bool Outlined { get; set; }
+
+    /// <summary>
+    /// OnOpenedChanged is fired when the popup dialog is opened or close and the parameter indicates whenever is it open, the default value is false
+    /// </summary>
+    [Parameter]
+    public EventCallback<bool> OnOpenedChanged { get; set; }
+
+    /// <summary>
+    /// OnTextChanged is fired when the string value is changed(when an input occurs in the textfield or when an item is selected)
+    /// </summary>
+    [Parameter]
+    public EventCallback<string> OnTextChanged { get; set; }
+
+    /// <summary>
+    /// This value indicates if the clear button(using a trailing icon) should be displayed, which can clear the entire text and the selected value), the default value is false
+    /// </summary>
+    [Parameter]
+    public bool ShowClearButton { get; set; }
+
+    /// <summary>
+    /// This value indicates if the textfield and the dialog will be or not displayed in the full screen, the default value is false
+    /// </summary>
+    [Parameter]
+    public bool FullWidth { get; set; }
+
+    protected void OpenPopup()
+    {
+        IsOpened = true;
+    }
+
+    protected void ClosePopup()
+    {
+        if (StringValue != ComputeStringValue(Value))
+        {
+            _value = default;
+            ValueChanged.InvokeAsync(_value);
+        }
+        IsOpened = false;
+    }
+
+    public void OnValueChanged(ChangeEventArgs ev)
+    {
+        StringValue = (string)ev.Value;
+        StateHasChanged();
+    }
+
+    public async Task OnKeyDown(KeyboardEventArgs ev)
+    {
+        if (ev.Key == null ||   // Google auto-fill sends null key
+            ev.Key == "Tab")    // user navigates to next field
+        {
+            return;
+        }
+        int currentIndex = await ListRef.GetSelectedIndex();
+        bool wasCurrentIndexChanged = false;
+
+        if (currentIndex < 0)
+        {
+            currentIndex = 0;
+            wasCurrentIndexChanged = true;
+        }
+
+        if (searchResult != null && searchResult.ListResult.Count > 0 && currentIndex > searchResult.ListResult.Count)
+        {
+            currentIndex = searchResult.ListResult.Count - 1;
+            wasCurrentIndexChanged = true;
+        }
+
+        switch (ev.Key)
+        {
+            case "ArrowDown":
+                currentIndex++;
                 wasCurrentIndexChanged = true;
-            }
-
-            if (searchResult != null && searchResult.ListResult.Count > 0 && currentIndex > searchResult.ListResult.Count)
-            {
-                currentIndex = searchResult.ListResult.Count - 1;
+                break;
+            case "ArrowUp":
+                currentIndex--;
                 wasCurrentIndexChanged = true;
-            }
-
-            switch (ev.Key)
-            {
-                case "ArrowDown":
-                    currentIndex++;
-                    wasCurrentIndexChanged = true;
-                    break;
-                case "ArrowUp":
-                    currentIndex--;
-                    wasCurrentIndexChanged = true;
-                    break;
-            }
-
-            if (wasCurrentIndexChanged)
-            {
-                await ListRef.SetSelectedIndex(currentIndex);
-            }
-
-            if (ev.Key == "Enter" && searchResult != null && currentIndex >= 0 && currentIndex < searchResult.ListResult.Count)
-            {
-                ItemSelected(searchResult.ListResult[currentIndex].Item);
-            }
+                break;
         }
 
-        public void ItemSelected(TItem selectedObject)
+        if (wasCurrentIndexChanged)
         {
-            Value = selectedObject;
-            StateHasChanged();
+            await ListRef.SetSelectedIndex(currentIndex);
         }
 
-        /// <summary>
-        /// Clears current value of the autocomplete text
-        /// </summary>
-        /// <param name="e"></param>
-        public void ClearText(EventArgs e)
+        if (ev.Key == "Enter" && searchResult != null && currentIndex >= 0 && currentIndex < searchResult.ListResult.Count)
         {
-            Value = default;
-            StringValue = string.Empty;
-            StateHasChanged();
+            ItemSelected(searchResult.ListResult[currentIndex].Item);
         }
+    }
 
-        protected ClassMapper WrapperClassMapper = new ClassMapper();
+    public void ItemSelected(TItem selectedObject)
+    {
+        Value = selectedObject;
+        StateHasChanged();
+    }
 
-        public BaseMatAutocompleteList()
-        {
-            WrapperClassMapper
-                .Add("mat-autocomplete-list")
-                .Add("mat-autocomplete-list-wrapper")
-                .If("mat-autocomplete-list-wrapper-fullwidth", () => FullWidth);
-        }
+    /// <summary>
+    /// Clears current value of the autocomplete text
+    /// </summary>
+    /// <param name="e"></param>
+    public void ClearText(EventArgs e)
+    {
+        Value = default;
+        StringValue = string.Empty;
+        StateHasChanged();
+    }
 
-        private string ComputeStringValue(TItem obj)
-        {
-            return CustomStringSelector?.Invoke(obj) ?? obj?.ToString();
-        }
+    protected ClassMapper WrapperClassMapper = new ClassMapper();
+
+    public BaseMatAutocompleteList()
+    {
+        WrapperClassMapper
+            .Add("mat-autocomplete-list")
+            .Add("mat-autocomplete-list-wrapper")
+            .If("mat-autocomplete-list-wrapper-fullwidth", () => FullWidth);
+    }
+
+    private string ComputeStringValue(TItem obj)
+    {
+        return CustomStringSelector?.Invoke(obj) ?? obj?.ToString();
     }
 }

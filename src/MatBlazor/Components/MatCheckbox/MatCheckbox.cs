@@ -1,6 +1,5 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public class MatCheckbox<TValue> : MatCheckboxInternal<TValue>
 {
-    public class MatCheckbox<TValue> : MatCheckboxInternal<TValue>
-    {
-    }
 }

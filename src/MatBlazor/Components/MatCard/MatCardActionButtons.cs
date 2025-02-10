@@ -1,10 +1,9 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public class MatCardActionButtons : BaseMatContainerComponent
 {
-    public class MatCardActionButtons : BaseMatContainerComponent
+    public MatCardActionButtons()
     {
-        public MatCardActionButtons()
-        {
-            ClassMapper.Add("mdc-card__action-buttons");
-        }
+        ClassMapper.Add("mdc-card__action-buttons");
     }
 }

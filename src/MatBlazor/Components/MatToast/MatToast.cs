@@ -1,95 +1,94 @@
 ﻿using System;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+/// <inheritdoc />
+/// <summary>
+/// Represents an instance of a Toast
+/// It handles the user interactions and orchestrates the state transitions
+/// </summary>
+public class MatToast
 {
-    /// <inheritdoc />
-    /// <summary>
-    /// Represents an instance of a Toast
-    /// It handles the user interactions and orchestrates the state transitions
-    /// </summary>
-    public class MatToast
+    public MatToastOptions Options { get; }
+
+    public string Title { get; }
+
+    public string Message { get; }
+
+    public string Icon { get; set; }
+
+    public event Action<MatToast> OnClose;
+    public event Action OnUpdate;
+
+
+    public void InvokeOnUpdate()
     {
-        public MatToastOptions Options { get; }
+        OnUpdate?.Invoke();
+    }
 
-        public string Title { get; }
+    public void InvokeOnClose()
+    {
+        OnClose?.Invoke(this);
+    }
 
-        public string Message { get; }
+    public MatToast(string message, string title, string icon, MatToastOptions options)
+    {
+        Message = message;
+        Title = title;
+        Icon = icon;
 
-        public string Icon { get; set; }
-
-        public event Action<MatToast> OnClose;
-        public event Action OnUpdate;
-
-
-        public void InvokeOnUpdate()
+        if (string.IsNullOrEmpty(icon))
         {
-            OnUpdate?.Invoke();
-        }
-
-        public void InvokeOnClose()
-        {
-            OnClose?.Invoke(this);
-        }
-
-        public MatToast(string message, string title, string icon, MatToastOptions options)
-        {
-            Message = message;
-            Title = title;
-            Icon = icon;
-
-            if (string.IsNullOrEmpty(icon))
+            Icon = options.Type switch
             {
-                Icon = options.Type switch
-                {
-                    MatToastType.Danger => "error",
-                    MatToastType.Dark => "error",
-                    MatToastType.Info => "info",
-                    MatToastType.Light => "notification_important",
-                    MatToastType.Link => "link",
-                    MatToastType.Primary => "announcement",
-                    MatToastType.Secondary => "notification_important",
-                    MatToastType.Success => "check_circle",
-                    MatToastType.Warning => "warning",
-                    _ => "notification_important",
-                };
-            }
-
-            Options = options;
-        }
-
-        public MatToast(string message, string icon, MatToastOptions options)
-        {
-            Message = message;
-            Title = options.Type switch
-            {
-                MatToastType.Danger => "Danger!",
-                MatToastType.Info => "Info!",
-                MatToastType.Link => "Link",
-                MatToastType.Primary => "Announcement!",
-                MatToastType.Success => "Success!",
-                MatToastType.Warning => "Warning!",
-                _ => "Important Notification",
+                MatToastType.Danger => "error",
+                MatToastType.Dark => "error",
+                MatToastType.Info => "info",
+                MatToastType.Light => "notification_important",
+                MatToastType.Link => "link",
+                MatToastType.Primary => "announcement",
+                MatToastType.Secondary => "notification_important",
+                MatToastType.Success => "check_circle",
+                MatToastType.Warning => "warning",
+                _ => "notification_important",
             };
-            Icon = icon;
-
-            if (string.IsNullOrEmpty(icon))
-            {
-                Icon = options.Type switch
-                {
-                    MatToastType.Danger => "error",
-                    MatToastType.Dark => "error",
-                    MatToastType.Info => "info",
-                    MatToastType.Light => "notification_important",
-                    MatToastType.Link => "link",
-                    MatToastType.Primary => "announcement",
-                    MatToastType.Secondary => "notification_important",
-                    MatToastType.Success => "check_circle",
-                    MatToastType.Warning => "warning",
-                    _ => "notification_important",
-                };
-            }
-
-            Options = options;
         }
+
+        Options = options;
+    }
+
+    public MatToast(string message, string icon, MatToastOptions options)
+    {
+        Message = message;
+        Title = options.Type switch
+        {
+            MatToastType.Danger => "Danger!",
+            MatToastType.Info => "Info!",
+            MatToastType.Link => "Link",
+            MatToastType.Primary => "Announcement!",
+            MatToastType.Success => "Success!",
+            MatToastType.Warning => "Warning!",
+            _ => "Important Notification",
+        };
+        Icon = icon;
+
+        if (string.IsNullOrEmpty(icon))
+        {
+            Icon = options.Type switch
+            {
+                MatToastType.Danger => "error",
+                MatToastType.Dark => "error",
+                MatToastType.Info => "info",
+                MatToastType.Light => "notification_important",
+                MatToastType.Link => "link",
+                MatToastType.Primary => "announcement",
+                MatToastType.Secondary => "notification_important",
+                MatToastType.Success => "check_circle",
+                MatToastType.Warning => "warning",
+                _ => "notification_important",
+            };
+        }
+
+        Options = options;
     }
 }

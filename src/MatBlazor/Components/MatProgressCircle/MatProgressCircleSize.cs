@@ -1,9 +1,8 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum MatProgressCircleSize
 {
-    public enum MatProgressCircleSize
-    {
-        Small,
-        Medium,
-        Large
-    }
+    Small,
+    Medium,
+    Large
 }

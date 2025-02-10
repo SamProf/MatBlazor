@@ -1,11 +1,10 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum MatPaginatorAction
 {
-    public enum MatPaginatorAction
-    {
-        Default,
-        First,
-        Previous,
-        Next,
-        Last
-    }
+    Default,
+    First,
+    Previous,
+    Next,
+    Last
 }

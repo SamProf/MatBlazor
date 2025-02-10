@@ -1,10 +1,9 @@
-﻿namespace MatBlazor
-{
-    public class MatPaginatorPageEvent
-    {
-        public int PageIndex { get; set; }
-        public int PageSize { get; set; }
+﻿namespace MatBlazor;
 
-        public int Length { get; set; }
-    }
+public class MatPaginatorPageEvent
+{
+    public int PageIndex { get; set; }
+    public int PageSize { get; set; }
+
+    public int Length { get; set; }
 }

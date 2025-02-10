@@ -1,10 +1,9 @@
-﻿namespace MatBlazor.DevUtils
+﻿namespace MatBlazor.DevUtils;
+
+public class Program
 {
-    public class Program
+    public static  void Main()
     {
-        public static  void Main()
-        {
-            new DemoContentGenerator().Run();
-        }
+        new DemoContentGenerator().Run();
     }
 }

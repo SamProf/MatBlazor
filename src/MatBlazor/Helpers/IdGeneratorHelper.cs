@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public static class IdGeneratorHelper
 {
-    public static class IdGeneratorHelper
+    public static string Generate(string prefix)
     {
-        public static string Generate(string prefix)
-        {
-            return prefix + Guid.NewGuid();
-        }
+        return prefix + Guid.NewGuid();
     }
 }

@@ -1,15 +1,14 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum MatToastType
 {
-    public enum MatToastType
-    {
-        Danger,
-        Dark,
-        Info,
-        Light,
-        Link,
-        Primary,
-        Secondary,
-        Success,
-        Warning
-    }
+    Danger,
+    Dark,
+    Info,
+    Light,
+    Link,
+    Primary,
+    Secondary,
+    Success,
+    Warning
 }

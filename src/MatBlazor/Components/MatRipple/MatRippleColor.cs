@@ -1,9 +1,8 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum MatRippleColor
 {
-    public enum MatRippleColor
-    {
-        Default,
-        Primary,
-        Secondary,
-    }
+    Default,
+    Primary,
+    Secondary,
 }

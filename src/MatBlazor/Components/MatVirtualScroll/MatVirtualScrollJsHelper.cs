@@ -1,25 +1,24 @@
 ﻿using Microsoft.JSInterop;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class MatVirtualScrollJsHelper
 {
-    public class MatVirtualScrollJsHelper
+    private readonly IMatVirtualScroll _host;
+
+    public MatVirtualScrollJsHelper(IMatVirtualScroll host)
     {
-        private readonly IMatVirtualScroll _host;
-
-        public MatVirtualScrollJsHelper(IMatVirtualScroll host)
-        {
-            _host = host;
-        }
-
-        [JSInvokable]
-        public void VirtualScrollingSetView(MatVirtualScrollView view)
-        {
-            _host.VirtualScrollingSetView(view);
-        }
+        _host = host;
     }
 
-    public interface IMatVirtualScroll
+    [JSInvokable]
+    public void VirtualScrollingSetView(MatVirtualScrollView view)
     {
-        void VirtualScrollingSetView(MatVirtualScrollView view);
+        _host.VirtualScrollingSetView(view);
     }
+}
+
+public interface IMatVirtualScroll
+{
+    void VirtualScrollingSetView(MatVirtualScrollView view);
 }

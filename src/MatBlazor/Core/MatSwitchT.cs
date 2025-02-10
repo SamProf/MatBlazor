@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class MatSwitchT
 {
-    public class MatSwitchT
+    private readonly Dictionary<Type, object> dictionary = new Dictionary<Type, object>();
+
+
+    public MatSwitchT Case<T>(T action)
     {
-        private readonly Dictionary<Type, object> dictionary = new Dictionary<Type, object>();
+        dictionary[typeof(T)] = action;
+        return this;
+    }
 
-
-        public MatSwitchT Case<T>(T action)
+    public T Get<T>()
+    {
+        if (dictionary.TryGetValue(typeof(T), out var result))
         {
-            dictionary[typeof(T)] = action;
-            return this;
+            return (T) result;
         }
 
-        public T Get<T>()
-        {
-            if (dictionary.TryGetValue(typeof(T), out var result))
-            {
-                return (T) result;
-            }
-
-            return (T)(object)null;
-        }
+        return (T)(object)null;
     }
 }

@@ -1,39 +1,38 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class MatToastOptions : MatToastCommonOptions
 {
-    public class MatToastOptions : MatToastCommonOptions
+    /// <summary>
+    /// The async <see cref="Func{MatToast,Task}"/> to be called on user click
+    /// </summary>
+    public Func<MatToast, Task> Onclick { get; set; }
+
+    /// <summary>
+    /// The <see cref="Type"/>
+    /// </summary>
+    public MatToastType Type { get; }
+
+    public MatToastOptions(MatToastType type, MatToastCommonOptions configuration)
     {
-        /// <summary>
-        /// The async <see cref="Func{MatToast,Task}"/> to be called on user click
-        /// </summary>
-        public Func<MatToast, Task> Onclick { get; set; }
+        Type = type;
+    
+        Class = configuration.Class;
+        MaximumOpacity = configuration.MaximumOpacity;
 
-        /// <summary>
-        /// The <see cref="Type"/>
-        /// </summary>
-        public MatToastType Type { get; }
+        ShowTransitionDuration = configuration.ShowTransitionDuration;
 
-        public MatToastOptions(MatToastType type, MatToastCommonOptions configuration)
-        {
-            Type = type;
-        
-            Class = configuration.Class;
-            MaximumOpacity = configuration.MaximumOpacity;
+        VisibleStateDuration = configuration.VisibleStateDuration;
 
-            ShowTransitionDuration = configuration.ShowTransitionDuration;
+        HideTransitionDuration = configuration.HideTransitionDuration;
 
-            VisibleStateDuration = configuration.VisibleStateDuration;
+        ShowProgressBar = configuration.ShowProgressBar;
 
-            HideTransitionDuration = configuration.HideTransitionDuration;
+        ShowCloseButton = configuration.ShowCloseButton;
+        CloseIcon = configuration.CloseIcon;
 
-            ShowProgressBar = configuration.ShowProgressBar;
-
-            ShowCloseButton = configuration.ShowCloseButton;
-            CloseIcon = configuration.CloseIcon;
-
-            RequireInteraction = configuration.RequireInteraction;
-        }
+        RequireInteraction = configuration.RequireInteraction;
     }
 }

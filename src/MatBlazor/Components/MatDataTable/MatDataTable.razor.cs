@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public partial class MatDataTable
 {
-    public partial class MatDataTable
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+
+    public MatDataTable()
     {
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
-
-
-        public MatDataTable()
-        {
-            ClassMapper.Add("mdc-data-table");
-        }
+        ClassMapper.Add("mdc-data-table");
     }
 }

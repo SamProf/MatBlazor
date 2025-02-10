@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
     <PropertyGroup>
-        <LangVersion>9</LangVersion>
         <RazorLangVersion>3.0</RazorLangVersion>
         <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
         <TargetFramework>net6.0</TargetFramework>

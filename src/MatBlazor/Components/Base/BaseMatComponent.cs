@@ -4,114 +4,111 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public abstract class BaseMatComponent : ComponentBase, IBaseMatComponent, IDisposable
 {
-    public abstract class BaseMatComponent : ComponentBase, IBaseMatComponent, IDisposable
+    [Parameter]
+    public ForwardRef RefBack { get; set; }
+
+    protected bool Rendered { get; private set; }
+
+    private readonly Queue<Func<Task>> _afterRenderCallQueue = new Queue<Func<Task>>();
+
+    protected void CallAfterRender(Func<Task> action)
     {
-        [Parameter]
-        public ForwardRef RefBack { get; set; }
+        _afterRenderCallQueue.Enqueue(action);
+    }
 
-        protected bool Rendered { get; private set; }
-
-
-        private readonly Queue<Func<Task>> afterRenderCallQueue = new Queue<Func<Task>>();
-
-        protected void CallAfterRender(Func<Task> action)
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        Rendered = true;
+        await base.OnAfterRenderAsync(firstRender);
+        if (firstRender)
         {
-            afterRenderCallQueue.Enqueue(action);
+            await OnFirstAfterRenderAsync();
         }
 
-
-        protected async override Task OnAfterRenderAsync(bool firstRender)
+        if (_afterRenderCallQueue.Count > 0)
         {
-            Rendered = true;
-            await base.OnAfterRenderAsync(firstRender);
-            if (firstRender)
-            {
-                await OnFirstAfterRenderAsync();
-            }
+            var actions = _afterRenderCallQueue.ToArray();
+            _afterRenderCallQueue.Clear();
 
-            if (afterRenderCallQueue.Count > 0)
+            foreach (var action in actions)
             {
-                var actions = afterRenderCallQueue.ToArray();
-                afterRenderCallQueue.Clear();
-
-                foreach (var action in actions)
+                if (Disposed)
                 {
-                    if (Disposed)
-                    {
-                        return;
-                    }
-
-                    await action();
+                    return;
                 }
+
+                await action();
             }
         }
+    }
 
-        protected virtual Task OnFirstAfterRenderAsync()
-        {
-            return Task.CompletedTask;
-        }
+    protected virtual Task OnFirstAfterRenderAsync()
+    {
+        return Task.CompletedTask;
+    }
 
-        protected BaseMatComponent()
-        {
-        }
+    protected BaseMatComponent()
+    {
+    }
 
-        public virtual void Dispose()
-        {
-            Disposed = true;
-        }
+    public virtual void Dispose()
+    {
+        Disposed = true;
+    }
 
-        protected bool Disposed { get; private set; }
+    protected bool Disposed { get; private set; }
 
-        public void InvokeStateHasChanged()
-        {
-            InvokeAsync(() =>
-            {
-                try
-                {
-                    if (!Disposed)
-                    {
-                        StateHasChanged();
-                    }
-                }
-                catch (Exception)
-                {
-                }
-            });
-        }
-
-
-        [Inject]
-        protected IJSRuntime Js { get; set; }
-
-        protected async Task<T> JsInvokeAsync<T>(string code, params object[] args)
+    public void InvokeStateHasChanged()
+    {
+        InvokeAsync(() =>
         {
             try
             {
-                return await Js.InvokeAsync<T>(code, args);
+                if (!Disposed)
+                {
+                    StateHasChanged();
+                }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e);
-                throw;
             }
-        }
-
-        #region Hack to fix https: //github.com/aspnet/AspNetCore/issues/11159
-
-        public static object CreateDotNetObjectRefSyncObj = new object();
-
-        protected DotNetObjectReference<T> CreateDotNetObjectRef<T>(T value) where T : class
-        {
-            return DotNetObjectReference.Create(value);
-        }
-
-        protected void DisposeDotNetObjectRef<T>(DotNetObjectReference<T> value) where T : class
-        {
-            value?.Dispose();
-        }
-
-        #endregion
+        });
     }
+
+
+    [Inject]
+    protected IJSRuntime Js { get; set; }
+
+    protected async Task<T> JsInvokeAsync<T>(string code, params object[] args)
+    {
+        try
+        {
+            return await Js.InvokeAsync<T>(code, args);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    #region Hack to fix https: //github.com/aspnet/AspNetCore/issues/11159
+
+    public static object CreateDotNetObjectRefSyncObj = new object();
+
+    protected DotNetObjectReference<T> CreateDotNetObjectRef<T>(T value) where T : class
+    {
+        return DotNetObjectReference.Create(value);
+    }
+
+    protected void DisposeDotNetObjectRef<T>(DotNetObjectReference<T> value) where T : class
+    {
+        value?.Dispose();
+    }
+
+    #endregion
 }

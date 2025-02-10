@@ -1,6 +1,5 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public interface IBaseMatComponent
 {
-    public interface IBaseMatComponent
-    {
-    }
 }

@@ -1,6 +1,5 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public class MatOptionString : MatOption<string>
 {
-    public class MatOptionString : MatOption<string>
-    {
-    }
 }

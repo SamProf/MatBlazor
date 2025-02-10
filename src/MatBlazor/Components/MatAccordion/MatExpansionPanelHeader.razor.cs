@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+partial class MatExpansionPanelHeader
 {
-    partial class MatExpansionPanelHeader
-    {
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
-    }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
 }

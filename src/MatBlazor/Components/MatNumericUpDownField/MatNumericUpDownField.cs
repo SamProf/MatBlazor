@@ -1,6 +1,5 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public class MatNumericUpDownField<TValue> : MatNumericUpDownFieldInternal<TValue>
 {
-    public class MatNumericUpDownField<TValue> : MatNumericUpDownFieldInternal<TValue>
-    {
-    }
 }

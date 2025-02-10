@@ -1,75 +1,74 @@
 ﻿using System;
 using System.Globalization;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class MatBlazorSwitchTDateTime : MatBlazorSwitchT<DateTime>
 {
-    public class MatBlazorSwitchTDateTime : MatBlazorSwitchT<DateTime>
+    public override DateTime Increase(DateTime v, DateTime step, DateTime max)
     {
-        public override DateTime Increase(DateTime v, DateTime step, DateTime max)
+        throw new NotImplementedException();
+    }
+
+    public override DateTime Decrease(DateTime v, DateTime step, DateTime min)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override DateTime Round(DateTime v, int dp)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override DateTime GetMinimum() => DateTime.MinValue;
+
+    public override DateTime GetMaximum() => DateTime.MaxValue;
+
+    public override DateTime GetStep() => throw new NotImplementedException();
+
+    public override string FormatValueAsString(DateTime v, string format)
+    {
+        if (v == DateTime.MinValue)
         {
-            throw new NotImplementedException();
+            return string.Empty;
         }
 
-        public override DateTime Decrease(DateTime v, DateTime step, DateTime min)
+        return v.ToLocalTime().ToString(format);
+    }
+
+    public override DateTime ParseFromString(string v, string format)
+    {
+        if (string.IsNullOrEmpty(v))
         {
-            throw new NotImplementedException();
+            return DateTime.MinValue;
         }
 
-        public override DateTime Round(DateTime v, int dp)
+        if (DateTime.TryParseExact(v, format, CultureInfo.CurrentCulture, DateTimeStyles.AssumeLocal,
+            out var result))
         {
-            throw new NotImplementedException();
+            return result;
         }
 
-        public override DateTime GetMinimum() => DateTime.MinValue;
+        return DateTime.Parse(v, CultureInfo.CurrentCulture, DateTimeStyles.AssumeLocal);
+    }
 
-        public override DateTime GetMaximum() => DateTime.MaxValue;
+    public override DateTime FromDateTimeNull(DateTime? v)
+    {
+        return v ?? DateTime.MinValue;
+    }
 
-        public override DateTime GetStep() => throw new NotImplementedException();
+    public override DateTime? ToDateTimeNull(DateTime v)
+    {
+        return v != DateTime.MinValue ? v : (DateTime?)null;
+    }
 
-        public override string FormatValueAsString(DateTime v, string format)
-        {
-            if (v == DateTime.MinValue)
-            {
-                return string.Empty;
-            }
+    public override DateTime FromBoolNull(bool? v, bool indeterminate)
+    {
+        throw new NotImplementedException();
+    }
 
-            return v.ToLocalTime().ToString(format);
-        }
-
-        public override DateTime ParseFromString(string v, string format)
-        {
-            if (string.IsNullOrEmpty(v))
-            {
-                return DateTime.MinValue;
-            }
-
-            if (DateTime.TryParseExact(v, format, CultureInfo.CurrentCulture, DateTimeStyles.AssumeLocal,
-                out var result))
-            {
-                return result;
-            }
-
-            return DateTime.Parse(v, CultureInfo.CurrentCulture, DateTimeStyles.AssumeLocal);
-        }
-
-        public override DateTime FromDateTimeNull(DateTime? v)
-        {
-            return v ?? DateTime.MinValue;
-        }
-
-        public override DateTime? ToDateTimeNull(DateTime v)
-        {
-            return v != DateTime.MinValue ? v : (DateTime?)null;
-        }
-
-        public override DateTime FromBoolNull(bool? v, bool indeterminate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override DateTime FromDecimal(decimal v)
-        {
-            throw new NotImplementedException();
-        }
+    public override DateTime FromDecimal(decimal v)
+    {
+        throw new NotImplementedException();
     }
 }

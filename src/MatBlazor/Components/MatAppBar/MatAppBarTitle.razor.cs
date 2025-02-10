@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+partial class MatAppBarTitle
 {
-    partial class MatAppBarTitle
-    {
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
-    }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
 }

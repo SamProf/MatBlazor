@@ -1,6 +1,5 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public class MatRadioButton<TValue> : MatRadioButtonInternal<TValue>
 {
-    public class MatRadioButton<TValue> : MatRadioButtonInternal<TValue>
-    {
-    }
 }

@@ -1,11 +1,10 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum MatToastState
 {
-    public enum MatToastState
-    {
-        Init,
-        Showing,
-        Hiding,
-        Visible,
-        MouseOver
-    }
+    Init,
+    Showing,
+    Hiding,
+    Visible,
+    MouseOver
 }

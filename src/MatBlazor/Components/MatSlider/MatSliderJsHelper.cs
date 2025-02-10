@@ -1,20 +1,19 @@
 ﻿using Microsoft.JSInterop;
 using System;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class MatSliderJsHelper
 {
-    public class MatSliderJsHelper
+    public MatSliderJsHelper()
     {
-        public MatSliderJsHelper()
-        {
-        }
+    }
 
-        public event EventHandler<decimal> OnChangeEvent;
+    public event EventHandler<decimal> OnChangeEvent;
 
-        [JSInvokable]
-        public void OnChangeHandler(decimal value)
-        {
-            OnChangeEvent?.Invoke(this, value);
-        }
+    [JSInvokable]
+    public void OnChangeHandler(decimal value)
+    {
+        OnChangeEvent?.Invoke(this, value);
     }
 }

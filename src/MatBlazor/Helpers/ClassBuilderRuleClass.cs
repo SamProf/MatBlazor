@@ -1,18 +1,17 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public class ClassBuilderRuleClass<T> : ClassBuilderRule<T>
 {
-    public class ClassBuilderRuleClass<T> : ClassBuilderRule<T>
+    public string ClassName { get; set; }
+
+
+    public ClassBuilderRuleClass(string className)
     {
-        public string ClassName { get; set; }
+        ClassName = className;
+    }
 
-
-        public ClassBuilderRuleClass(string className)
-        {
-            ClassName = className;
-        }
-
-        public override string GetClass(T data)
-        {
-            return ClassName;
-        }
+    public override string GetClass(T data)
+    {
+        return ClassName;
     }
 }

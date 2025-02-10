@@ -1,7 +1,6 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public interface IMatVirtualScrollHelperTarget
 {
-    public interface IMatVirtualScrollHelperTarget
-    {
-        void StateHasChangedFromVirtualScrollHelper();
-    }
+    void StateHasChangedFromVirtualScrollHelper();
 }

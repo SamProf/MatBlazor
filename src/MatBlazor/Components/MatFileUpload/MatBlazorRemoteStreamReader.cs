@@ -6,83 +6,82 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+internal class MatBlazorRemoteStreamReader : BaseMatBlazorStreamReader
 {
-    internal class MatBlazorRemoteStreamReader : BaseMatBlazorStreamReader
+    private readonly int _messageSize;
+    private readonly int _messageLength;
+
+
+    public MatBlazorRemoteStreamReader(IJSRuntime jsRuntime, ElementReference reference, MatFileUploadEntry entry,
+        int messageSize, int messageLength, BaseMatFileUpload component)
+        : base(jsRuntime, reference, entry, component)
     {
-        private readonly int _messageSize;
-        private readonly int _messageLength;
+        _messageSize = messageSize;
+        _messageLength = messageLength;
+    }
 
 
-        public MatBlazorRemoteStreamReader(IJSRuntime jsRuntime, ElementReference reference, MatFileUploadEntry entry,
-            int messageSize, int messageLength, BaseMatFileUpload component)
-            : base(jsRuntime, reference, entry, component)
+
+   
+    
+    public Task WriteToStreamAsync(Stream stream, CancellationToken cancellationToken)
+    {
+      
+        return Task.Run(async () =>
         {
-            _messageSize = messageSize;
-            _messageLength = messageLength;
-        }
+            await _component.UpdateProgressAsync(0, 0, _entry.Size);
+            var position = 0;
+            long qPosition = 0;
 
-
-
-       
-        
-        public Task WriteToStreamAsync(Stream stream, CancellationToken cancellationToken)
-        {
-          
-            return Task.Run(async () =>
+            try
             {
-                await _component.UpdateProgressAsync(0, 0, _entry.Size);
-                var position = 0;
-                long qPosition = 0;
+                var q = new Queue<ValueTask<string>>();
 
-                try
+                while (position < _entry.Size)
                 {
-                    var q = new Queue<ValueTask<string>>();
-
-                    while (position < _entry.Size)
+                    cancellationToken.ThrowIfCancellationRequested();
+                    while (q.Count < _messageLength && qPosition < _entry.Size)
                     {
                         cancellationToken.ThrowIfCancellationRequested();
-                        while (q.Count < _messageLength && qPosition < _entry.Size)
-                        {
-                            cancellationToken.ThrowIfCancellationRequested();
-                            var taskPosition = qPosition;
-                            var taskSize = Math.Min(_messageSize, (_entry.Size - qPosition));
-                            // Log2("Request "+taskPosition);
-                            var task = _jsRuntime.InvokeAsync<string>("matBlazor.matFileUpload.readDataAsync", 
-                                cancellationToken,
-                                _reference,
-                                _entry.Id, taskPosition, taskSize);
-                            q.Enqueue(task);
-                            qPosition += taskSize;
-                            await _component.UpdateProgressAsync(0, taskSize, 0);
-                        }
-
-                        cancellationToken.ThrowIfCancellationRequested();
-
-                        if (q.Count == 0)
-                        {
-                            continue;
-                        }
-
-                        
-                        var task2 = q.Dequeue();
-
-
-                        ThreadPool.GetAvailableThreads(out var q1, out var q2);
-                        // Log2("Wait " + position+ " " + q1 +" " + q2);
-                        var base64 = await task2.ConfigureAwait(true);
-                        // Log2("Response " + position);Progress
-                        var buffer2 = Convert.FromBase64String(base64);
-                        await stream.WriteAsync(buffer2, cancellationToken);
-                       position += buffer2.Length;
-                        await _component.UpdateProgressAsync(buffer2.Length, 0, 0);
+                        var taskPosition = qPosition;
+                        var taskSize = Math.Min(_messageSize, (_entry.Size - qPosition));
+                        // Log2("Request "+taskPosition);
+                        var task = _jsRuntime.InvokeAsync<string>("matBlazor.matFileUpload.readDataAsync", 
+                            cancellationToken,
+                            _reference,
+                            _entry.Id, taskPosition, taskSize);
+                        q.Enqueue(task);
+                        qPosition += taskSize;
+                        await _component.UpdateProgressAsync(0, taskSize, 0);
                     }
+
+                    cancellationToken.ThrowIfCancellationRequested();
+
+                    if (q.Count == 0)
+                    {
+                        continue;
+                    }
+
+                    
+                    var task2 = q.Dequeue();
+
+
+                    ThreadPool.GetAvailableThreads(out var q1, out var q2);
+                    // Log2("Wait " + position+ " " + q1 +" " + q2);
+                    var base64 = await task2.ConfigureAwait(true);
+                    // Log2("Response " + position);Progress
+                    var buffer2 = Convert.FromBase64String(base64);
+                    await stream.WriteAsync(buffer2, cancellationToken);
+                   position += buffer2.Length;
+                    await _component.UpdateProgressAsync(buffer2.Length, 0, 0);
                 }
-                finally
-                {
-                    await _component.UpdateProgressAsync(-position, -qPosition, -_entry.Size);
-                }
-            });
-        }
+            }
+            finally
+            {
+                await _component.UpdateProgressAsync(-position, -qPosition, -_entry.Size);
+            }
+        });
     }
 }

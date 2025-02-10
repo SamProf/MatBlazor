@@ -1,8 +1,6 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public class MatToastClasses
 {
-    public class MatToastClasses
-    {
-        
-        public const string CloseIcon = "cancel";
-    }
+    public const string CloseIcon = "cancel";
 }

@@ -1,9 +1,8 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+/// <summary>
+/// 
+/// </summary>
+partial class MatAppBarAdjust
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    partial class MatAppBarAdjust
-    {
-    }
 }

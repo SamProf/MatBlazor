@@ -1,25 +1,24 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class BaseMatSelect<TValue> : CoreMatSelect<TValue, TValue>
 {
-    public class BaseMatSelect<TValue> : CoreMatSelect<TValue, TValue>
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    protected override RenderFragment GetChildContent()
     {
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
+        return ChildContent;
+    }
 
-        protected override RenderFragment GetChildContent()
-        {
-            return ChildContent;
-        }
+    protected override TValue GetKeyFromValue(TValue value)
+    {
+        return value;
+    }
 
-        protected override TValue GetKeyFromValue(TValue value)
-        {
-            return value;
-        }
-
-        protected override TValue GetValueFromKey(TValue key)
-        {
-            return key;
-        }
+    protected override TValue GetValueFromKey(TValue key)
+    {
+        return key;
     }
 }

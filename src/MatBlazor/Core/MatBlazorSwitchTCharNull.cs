@@ -1,84 +1,83 @@
 ﻿using System;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class MatBlazorSwitchTCharNull : MatBlazorSwitchT<char?>
 {
-    public class MatBlazorSwitchTCharNull : MatBlazorSwitchT<char?>
+    public override char? Increase(char? v, char? step, char? max)
     {
-        public override char? Increase(char? v, char? step, char? max)
+        checked
         {
-            checked
+            try
             {
-                try
-                {
-                    var v2 = (v.HasValue || step.HasValue) ? (char?) ((v ?? 0) + (step ?? 0)) : null;
-                    return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
-                }
-                catch (OverflowException e)
-                {
-                    return max;
-                }
+                var v2 = (v.HasValue || step.HasValue) ? (char?) ((v ?? 0) + (step ?? 0)) : null;
+                return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
+            }
+            catch (OverflowException e)
+            {
+                return max;
             }
         }
+    }
 
-        public override char? Decrease(char? v, char? step, char? min)
+    public override char? Decrease(char? v, char? step, char? min)
+    {
+        checked
         {
-            checked
+            try
             {
-                try
-                {
-                    var v2 = (v.HasValue || step.HasValue) ? (char?) ((v ?? 0) - (step ?? 0)) : null;
-                    return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
-                }
-                catch (OverflowException e)
-                {
-                    return min;
-                }
+                var v2 = (v.HasValue || step.HasValue) ? (char?) ((v ?? 0) - (step ?? 0)) : null;
+                return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
+            }
+            catch (OverflowException e)
+            {
+                return min;
             }
         }
+    }
 
-        public override char? Round(char? v, int dp)
+    public override char? Round(char? v, int dp)
+    {
+        return v;
+    }
+
+    public override char? GetMinimum() => char.MinValue;
+    public override char? GetMaximum() => char.MaxValue;
+
+    public override char? GetStep() => (char?)1;
+
+    public override string FormatValueAsString(char? v, string format)
+    {
+        return v?.ToString();
+    }
+
+    public override char? ParseFromString(string v, string format)
+    {
+        if (string.IsNullOrEmpty(v))
         {
-            return v;
+            return null;
         }
 
-        public override char? GetMinimum() => char.MinValue;
-        public override char? GetMaximum() => char.MaxValue;
+        return char.Parse(v);
+    }
 
-        public override char? GetStep() => (char?)1;
+    public override char? FromDateTimeNull(DateTime? v)
+    {
+        throw new NotImplementedException();
+    }
 
-        public override string FormatValueAsString(char? v, string format)
-        {
-            return v?.ToString();
-        }
+    public override DateTime? ToDateTimeNull(char? v)
+    {
+        throw new NotImplementedException();
+    }
 
-        public override char? ParseFromString(string v, string format)
-        {
-            if (string.IsNullOrEmpty(v))
-            {
-                return null;
-            }
+    public override char? FromBoolNull(bool? v, bool indeterminate)
+    {
+        throw new NotImplementedException();
+    }
 
-            return char.Parse(v);
-        }
-
-        public override char? FromDateTimeNull(DateTime? v)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override DateTime? ToDateTimeNull(char? v)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override char? FromBoolNull(bool? v, bool indeterminate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override char? FromDecimal(decimal v)
-        {
-            return (char)v;
-        }
+    public override char? FromDecimal(decimal v)
+    {
+        return (char)v;
     }
 }

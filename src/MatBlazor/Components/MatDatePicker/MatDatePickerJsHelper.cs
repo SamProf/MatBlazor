@@ -1,16 +1,15 @@
 ﻿using Microsoft.JSInterop;
 using System;
 
-namespace MatBlazor
-{
-    public class MatDatePickerJsHelper
-    {
-        [JSInvokable]
-        public void MatDatePickerOnChangeHandler(DateTime?[] value)
-        {
-            OnChangeAction?.Invoke(value);
-        }
+namespace MatBlazor;
 
-        public Action<DateTime?[]> OnChangeAction;
+public class MatDatePickerJsHelper
+{
+    [JSInvokable]
+    public void MatDatePickerOnChangeHandler(DateTime?[] value)
+    {
+        OnChangeAction?.Invoke(value);
     }
+
+    public Action<DateTime?[]> OnChangeAction;
 }

@@ -1,6 +1,5 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public class MatOption<TValue> : BaseMatOption<TValue>
 {
-    public class MatOption<TValue> : BaseMatOption<TValue>
-    {
-    }
 }

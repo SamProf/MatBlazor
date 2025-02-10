@@ -1,6 +1,5 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public class MatStringField : MatTextField<string>
 {
-    public class MatStringField : MatTextField<string>
-    {
-    }
 }

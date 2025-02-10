@@ -1,11 +1,10 @@
 ﻿using System.Runtime.Serialization;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+[DataContract]
+public class MatSelectInitOptions
 {
-    [DataContract]
-    public class MatSelectInitOptions
-    {
-        [DataMember]
-        public bool FullWidth { get; set; }
-    }
+    [DataMember]
+    public bool FullWidth { get; set; }
 }

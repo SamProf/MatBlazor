@@ -1,8 +1,7 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum MatHiddenDirection
 {
-    public enum MatHiddenDirection
-    {
-        Down,
-        Up,
-    }
+    Down,
+    Up,
 }

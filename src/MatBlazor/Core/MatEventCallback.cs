@@ -1,57 +1,56 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class MatEventCallback<T>
 {
-    public class MatEventCallback<T>
+    private bool isInitialized = false;
+    private bool isIntercept = false;
+    private readonly IHandleEvent _receiver;
+    private readonly Func<EventCallback<T>> _sourceEventCallbackFunc;
+    private EventCallback<T> interceptEventCallback;
+    public event EventHandler<T> Event;
+
+
+    private void Init()
     {
-        private bool isInitialized = false;
-        private bool isIntercept = false;
-        private readonly IHandleEvent _receiver;
-        private readonly Func<EventCallback<T>> _sourceEventCallbackFunc;
-        private EventCallback<T> interceptEventCallback;
-        public event EventHandler<T> Event;
-
-
-        private void Init()
+        if (isInitialized)
         {
-            if (isInitialized)
-            {
-                return;
-            }
-
-            isInitialized = true;
-
-            if (Event != null)
-            {
-                isIntercept = true;
-                interceptEventCallback = EventCallback.Factory.Create<T>(_receiver, async (e) =>
-                {
-                    Event?.Invoke(_receiver, e);
-                    await _sourceEventCallbackFunc.Invoke().InvokeAsync(e);
-                });
-            }
+            return;
         }
 
+        isInitialized = true;
 
-        public EventCallback<T> Value
+        if (Event != null)
         {
-            get
+            isIntercept = true;
+            interceptEventCallback = EventCallback.Factory.Create<T>(_receiver, async (e) =>
             {
-                Init();
-                if (isIntercept)
-                {
-                    return interceptEventCallback;
-                }
-
-                return _sourceEventCallbackFunc();
-            }
+                Event?.Invoke(_receiver, e);
+                await _sourceEventCallbackFunc.Invoke().InvokeAsync(e);
+            });
         }
+    }
 
-        public MatEventCallback(IHandleEvent receiver, Func<EventCallback<T>> sourceEventCallbackFunc)
+
+    public EventCallback<T> Value
+    {
+        get
         {
-            _receiver = receiver;
-            _sourceEventCallbackFunc = sourceEventCallbackFunc;
+            Init();
+            if (isIntercept)
+            {
+                return interceptEventCallback;
+            }
+
+            return _sourceEventCallbackFunc();
         }
+    }
+
+    public MatEventCallback(IHandleEvent receiver, Func<EventCallback<T>> sourceEventCallbackFunc)
+    {
+        _receiver = receiver;
+        _sourceEventCallbackFunc = sourceEventCallbackFunc;
     }
 }

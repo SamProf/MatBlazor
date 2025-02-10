@@ -1,26 +1,25 @@
 ﻿using System;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class ClassBuilderRuleIf<T> : ClassBuilderRule<T>
 {
-    public class ClassBuilderRuleIf<T> : ClassBuilderRule<T>
+    public string ClassName { get; set; }
+    public Func<T, bool> Func { get; set; }
+
+    public ClassBuilderRuleIf(string className, Func<T, bool> func)
     {
-        public string ClassName { get; set; }
-        public Func<T, bool> Func { get; set; }
+        ClassName = className;
+        Func = func;
+    }
 
-        public ClassBuilderRuleIf(string className, Func<T, bool> func)
+    public override string GetClass(T data)
+    {
+        if (Func(data))
         {
-            ClassName = className;
-            Func = func;
+            return ClassName;
         }
 
-        public override string GetClass(T data)
-        {
-            if (Func(data))
-            {
-                return ClassName;
-            }
-
-            return null;
-        }
+        return null;
     }
 }

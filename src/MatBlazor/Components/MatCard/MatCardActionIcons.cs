@@ -1,10 +1,9 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public class MatCardActionIcons : BaseMatContainerComponent
 {
-    public class MatCardActionIcons : BaseMatContainerComponent
+    public MatCardActionIcons()
     {
-        public MatCardActionIcons()
-        {
-            ClassMapper.Add("mdc-card__action-icons");
-        }
+        ClassMapper.Add("mdc-card__action-icons");
     }
 }

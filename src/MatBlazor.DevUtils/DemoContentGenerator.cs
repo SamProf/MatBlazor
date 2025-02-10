@@ -5,131 +5,130 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Xml;
 
-namespace MatBlazor.DevUtils
+namespace MatBlazor.DevUtils;
+
+[TestFixture]
+public class DemoContentGenerator
 {
-    [TestFixture]
-    public class DemoContentGenerator
+
+
+    public void Run()
     {
+        this.GenerateDocumentation();
+        this.GenerateNews();
+        this.GenerateSponsors();
+        this.Generate();
+    }
 
 
-        public void Run()
+    [Test]
+    public void GenerateDocumentation()
+    {
+        var config = Config.GetConfig();
+        var gen = new MatDocumenationGenerator(typeof(BaseMatDomComponent).Assembly,
+            Path.Combine(config.Path, "MatBlazor.Demo", "Doc"));
         {
-            this.GenerateDocumentation();
-            this.GenerateNews();
-            this.GenerateSponsors();
-            this.Generate();
         }
+        ;
+        gen.Generate();
+    }
 
 
-        [Test]
-        public void GenerateDocumentation()
+    [Test]
+    public void GenerateNews()
+    {
+        var gen = new MDInfoGenerator()
         {
-            var config = Config.GetConfig();
-            var gen = new MatDocumenationGenerator(typeof(BaseMatDomComponent).Assembly,
-                Path.Combine(config.Path, "MatBlazor.Demo", "Doc"));
-            {
-            }
-            ;
-            gen.Generate();
-        }
+            Header = "News",
+            TargetFile = "News.razor"
+        };
+        gen.Generate();
+    }
 
 
-        [Test]
-        public void GenerateNews()
+    [Test]
+    public void GenerateSponsors()
+    {
+        var gen = new MDInfoGenerator()
         {
-            var gen = new MDInfoGenerator()
-            {
-                Header = "News",
-                TargetFile = "News.razor"
-            };
-            gen.Generate();
-        }
+            Header = "Sponsors & Backers",
+            TargetFile = "Sponsors.razor"
+        };
+        gen.Generate();
+    }
 
 
-        [Test]
-        public void GenerateSponsors()
+    [Test]
+    public void Generate()
+    {
+        string filterFileName = null;
+
+
+        var countAll = 0;
+        var countChanged = 0;
+
+
+        var config = Config.GetConfig();
+        var dirInfo = new DirectoryInfo(config.Path);
+        Console.WriteLine(dirInfo.FullName);
+
+        var files = dirInfo.GetFiles(config.FileMask, SearchOption.AllDirectories);
+
+        var demoContainerTag = config.DemoContainerTag;
+        var contentTag = config.ContentTag;
+        var sourceContentTag = config.SourceContentTag;
+
+        var regex = new Regex(
+            $@"<{demoContainerTag}(?<Attrs>[+\S\s]*?)>(?<Tabs>[\s]+)<{contentTag}>(?<Content>[\s\S]*?)</{contentTag}>[\s\S]*?</{demoContainerTag}>");
+
+
+        foreach (var fileInfo in files)
         {
-            var gen = new MDInfoGenerator()
+            if (filterFileName != null)
             {
-                Header = "Sponsors & Backers",
-                TargetFile = "Sponsors.razor"
-            };
-            gen.Generate();
-        }
-
-
-        [Test]
-        public void Generate()
-        {
-            string filterFileName = null;
-
-
-            var countAll = 0;
-            var countChanged = 0;
-
-
-            var config = Config.GetConfig();
-            var dirInfo = new DirectoryInfo(config.Path);
-            Console.WriteLine(dirInfo.FullName);
-
-            var files = dirInfo.GetFiles(config.FileMask, SearchOption.AllDirectories);
-
-            var demoContainerTag = config.DemoContainerTag;
-            var contentTag = config.ContentTag;
-            var sourceContentTag = config.SourceContentTag;
-
-            var regex = new Regex(
-                $@"<{demoContainerTag}(?<Attrs>[+\S\s]*?)>(?<Tabs>[\s]+)<{contentTag}>(?<Content>[\s\S]*?)</{contentTag}>[\s\S]*?</{demoContainerTag}>");
-
-
-            foreach (var fileInfo in files)
-            {
-                if (filterFileName != null)
+                if (!string.Equals(fileInfo.Name, filterFileName, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    if (!string.Equals(fileInfo.Name, filterFileName, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        continue;
-                    }
+                    continue;
                 }
+            }
 
-                countAll++;
+            countAll++;
 //                Console.WriteLine(fileInfo.FullName);
 
-                var content = File.ReadAllText(fileInfo.FullName);
-                var content2 = regex.Replace(content, (m) =>
+            var content = File.ReadAllText(fileInfo.FullName);
+            var content2 = regex.Replace(content, (m) =>
+            {
+                var doc = new XmlDocument();
+                doc.LoadXml($"<demoContainerTag{m.Groups["Attrs"]}></demoContainerTag>");
+                var sourceContent = m.Groups["Content"].Value;
+
+                if (doc.DocumentElement.Attributes != null && doc.DocumentElement.Attributes["SourcePath"] != null)
                 {
-                    var doc = new XmlDocument();
-                    doc.LoadXml($"<demoContainerTag{m.Groups["Attrs"]}></demoContainerTag>");
-                    var sourceContent = m.Groups["Content"].Value;
-
-                    if (doc.DocumentElement.Attributes != null && doc.DocumentElement.Attributes["SourcePath"] != null)
-                    {
-                        var sourcePath = new Uri(new Uri(fileInfo.FullName),
-                            doc.DocumentElement.Attributes["SourcePath"].Value).LocalPath;
-                        sourceContent = System.IO.File.ReadAllText(sourcePath);
-                    }
-
-                    return
-                        $"<{demoContainerTag}{m.Groups["Attrs"]}>{m.Groups["Tabs"]}<{contentTag}>{m.Groups["Content"]}</{contentTag}>{m.Groups["Tabs"]}<{sourceContentTag}>{m.Groups["Tabs"]}\t{PrepareSourceCode(sourceContent)}{m.Groups["Tabs"]}</{sourceContentTag}>\r\n</{demoContainerTag}>";
-                });
-
-
-                if (content2 != content)
-                {
-                    File.WriteAllText(fileInfo.FullName, content2);
-                    Console.WriteLine(fileInfo.FullName);
-                    countChanged++;
+                    var sourcePath = new Uri(new Uri(fileInfo.FullName),
+                        doc.DocumentElement.Attributes["SourcePath"].Value).LocalPath;
+                    sourceContent = System.IO.File.ReadAllText(sourcePath);
                 }
+
+                return
+                    $"<{demoContainerTag}{m.Groups["Attrs"]}>{m.Groups["Tabs"]}<{contentTag}>{m.Groups["Content"]}</{contentTag}>{m.Groups["Tabs"]}<{sourceContentTag}>{m.Groups["Tabs"]}\t{PrepareSourceCode(sourceContent)}{m.Groups["Tabs"]}</{sourceContentTag}>\r\n</{demoContainerTag}>";
+            });
+
+
+            if (content2 != content)
+            {
+                File.WriteAllText(fileInfo.FullName, content2);
+                Console.WriteLine(fileInfo.FullName);
+                countChanged++;
             }
-
-            Console.WriteLine($"All: {countAll}");
-            Console.WriteLine($"Changed: {countChanged}");
         }
 
+        Console.WriteLine($"All: {countAll}");
+        Console.WriteLine($"Changed: {countChanged}");
+    }
 
-        private string PrepareSourceCode(string s)
-        {
-            return $@"<BlazorFiddle Template=""MatBlazor"" Code=@(@""{s.Replace("\"", "\"\"")}"")></BlazorFiddle>";
-        }
+
+    private string PrepareSourceCode(string s)
+    {
+        return $@"<BlazorFiddle Template=""MatBlazor"" Code=@(@""{s.Replace("\"", "\"\"")}"")></BlazorFiddle>";
     }
 }

@@ -2,72 +2,71 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+/// <summary>
+/// Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
+/// </summary>
+/// <typeparam name="TValue">any</typeparam>
+public class BaseMatRadioButtonInternal<TValue> : BaseMatDomComponent
 {
-    /// <summary>
-    /// Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.
-    /// </summary>
-    /// <typeparam name="TValue">any</typeparam>
-    public class BaseMatRadioButtonInternal<TValue> : BaseMatDomComponent
+
+    protected MatBlazorSwitchT<TValue> SwitchT = MatBlazorSwitchT<TValue>.Get();
+
+
+    [CascadingParameter()]
+    protected BaseMatRadioGroupInternal<TValue> Group { get; set; }
+    
+    [Parameter()]
+    public RenderFragment ChildContent{ get; set; }
+
+    protected ElementReference FormFieldRef;
+
+    protected bool Checked
     {
+        get => EqualityComparer<TValue>.Default.Equals(Group.Value, Value);
+    }
 
-        protected MatBlazorSwitchT<TValue> SwitchT = MatBlazorSwitchT<TValue>.Get();
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public TValue Value { get; set; }
 
 
-        [CascadingParameter()]
-        protected BaseMatRadioGroupInternal<TValue> Group { get; set; }
-        
-        [Parameter()]
-        public RenderFragment ChildContent{ get; set; }
-
-        protected ElementReference FormFieldRef;
-
-        protected bool Checked
+    protected string ValueAsString
+    {
+        get
         {
-            get => EqualityComparer<TValue>.Default.Equals(Group.Value, Value);
-        }
-
-
-        [Parameter]
-        public bool Disabled { get; set; }
-
-        [Parameter]
-        public TValue Value { get; set; }
-
-
-        protected string ValueAsString
-        {
-            get
+            if (SwitchT == null)
             {
-                if (SwitchT == null)
-                {
-                    return Id.ToString();
-                }
-
-                return SwitchT.FormatValueAsString(Value, null);
+                return Id.ToString();
             }
-        }
 
-        [Parameter]
-        public string Label { get; set; }
-
-        protected void OnChangeHandler(ChangeEventArgs e)
-        {
-            Group.SetCurrentValue(this.Value);
-            //Checked = (bool)e.Value;
+            return SwitchT.FormatValueAsString(Value, null);
         }
+    }
 
-        protected async override Task OnFirstAfterRenderAsync()
-        {
-            await base.OnFirstAfterRenderAsync();
-            await JsInvokeAsync<object>("matBlazor.matRadioButton.init", Ref, FormFieldRef);
-        }
+    [Parameter]
+    public string Label { get; set; }
 
-        public BaseMatRadioButtonInternal()
-        {
-            ClassMapper
-                .Add("mdc-radio")
-                .If("mdc-radio--disabled", () => Disabled);
-        }
+    protected void OnChangeHandler(ChangeEventArgs e)
+    {
+        Group.SetCurrentValue(this.Value);
+        //Checked = (bool)e.Value;
+    }
+
+    protected async override Task OnFirstAfterRenderAsync()
+    {
+        await base.OnFirstAfterRenderAsync();
+        await JsInvokeAsync<object>("matBlazor.matRadioButton.init", Ref, FormFieldRef);
+    }
+
+    public BaseMatRadioButtonInternal()
+    {
+        ClassMapper
+            .Add("mdc-radio")
+            .If("mdc-radio--disabled", () => Disabled);
     }
 }

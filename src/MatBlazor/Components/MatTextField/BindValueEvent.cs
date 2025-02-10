@@ -1,8 +1,7 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum BindValueEvent
 {
-    public enum BindValueEvent
-    {
-        Input,
-        
-    }
+    Input,
+    
 }

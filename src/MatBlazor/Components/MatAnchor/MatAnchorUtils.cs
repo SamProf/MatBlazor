@@ -4,55 +4,54 @@ using Microsoft.JSInterop;
 using System;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class MatAnchorUtils : ComponentBase, IDisposable
 {
-    public class MatAnchorUtils : ComponentBase, IDisposable
+    [Inject]
+    protected NavigationManager NavigationManager { get; set; }
+
+    [Inject]
+    protected IJSRuntime JSRuntime { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    string Anchor { get; set; }
+
+    bool ForceScroll { get; set; }
+
+    protected override void OnInitialized()
     {
-        [Inject]
-        protected NavigationManager NavigationManager { get; set; }
+        base.OnInitialized();
 
-        [Inject]
-        protected IJSRuntime JSRuntime { get; set; }
+        NavigationManager.LocationChanged += OnLocationChanged;
+    }
 
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
-
-        string Anchor { get; set; }
-
-        bool ForceScroll { get; set; }
-
-        protected override void OnInitialized()
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
         {
-            base.OnInitialized();
-
-            NavigationManager.LocationChanged += OnLocationChanged;
+            ScrollToAnchor(forceScroll: true);
         }
+        return base.OnAfterRenderAsync(firstRender);
+    }
 
-        protected override Task OnAfterRenderAsync(bool firstRender)
+    void OnLocationChanged(object sender, LocationChangedEventArgs args)
+    {
+        ScrollToAnchor(NavigationManager.ToAbsoluteUri(args.Location).Fragment);
+    }
+
+    void ScrollToAnchor(string anchor = "", bool forceScroll = false)
+    {
+        if (!string.IsNullOrEmpty(anchor) || forceScroll)
         {
-            if (firstRender)
-            {
-                ScrollToAnchor(forceScroll: true);
-            }
-            return base.OnAfterRenderAsync(firstRender);
+            JSRuntime.InvokeAsync<string>("matBlazor.matAnchor.scrollToAnchor", anchor);
         }
+    }
 
-        void OnLocationChanged(object sender, LocationChangedEventArgs args)
-        {
-            ScrollToAnchor(NavigationManager.ToAbsoluteUri(args.Location).Fragment);
-        }
-
-        void ScrollToAnchor(string anchor = "", bool forceScroll = false)
-        {
-            if (!string.IsNullOrEmpty(anchor) || forceScroll)
-            {
-                JSRuntime.InvokeAsync<string>("matBlazor.matAnchor.scrollToAnchor", anchor);
-            }
-        }
-
-        void IDisposable.Dispose()
-        {
-            NavigationManager.LocationChanged -= OnLocationChanged;
-        }
+    void IDisposable.Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
     }
 }

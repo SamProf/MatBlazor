@@ -1,8 +1,7 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum MatAppBarSectionAlign
 {
-    public enum MatAppBarSectionAlign
-    {
-        Start,
-        End
-    }
+    Start,
+    End
 }

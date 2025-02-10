@@ -1,11 +1,10 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum MatBreakpoint
 {
-    public enum MatBreakpoint
-    {
-        XS = 0,
-        SM = 600,
-        MD = 960,
-        LG = 1280,
-        XL = 1920,
-    }
+    XS = 0,
+    SM = 600,
+    MD = 960,
+    LG = 1280,
+    XL = 1920,
 }

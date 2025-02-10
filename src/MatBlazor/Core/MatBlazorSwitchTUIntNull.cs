@@ -1,85 +1,84 @@
 ﻿using System;
 using System.Globalization;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class MatBlazorSwitchTUIntNull : MatBlazorSwitchT<uint?>
 {
-    public class MatBlazorSwitchTUIntNull : MatBlazorSwitchT<uint?>
+    public override uint? Increase(uint? v, uint? step, uint? max)
     {
-        public override uint? Increase(uint? v, uint? step, uint? max)
+        checked
         {
-            checked
+            try
             {
-                try
-                {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (uint?) null;
-                    return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
-                }
-                catch (OverflowException e)
-                {
-                    return max;
-                }
+                var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) + (step ?? 0)) : (uint?) null;
+                return (max.HasValue && v2.HasValue) ? (v2.Value <= max.Value ? v2.Value : max.Value) : v2;
+            }
+            catch (OverflowException e)
+            {
+                return max;
             }
         }
+    }
 
-        public override uint? Decrease(uint? v, uint? step, uint? min)
+    public override uint? Decrease(uint? v, uint? step, uint? min)
+    {
+        checked
         {
-            checked
+            try
             {
-                try
-                {
-                    var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (uint?) null;
-                    return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
-                }
-                catch (OverflowException e)
-                {
-                    return min;
-                }
+                var v2 = (v.HasValue || step.HasValue) ? ((v ?? 0) - (step ?? 0)) : (uint?) null;
+                return (min.HasValue && v2.HasValue) ? (v2.Value >= min.Value ? v2.Value : min.Value) : v2;
+            }
+            catch (OverflowException e)
+            {
+                return min;
             }
         }
+    }
 
-        public override uint? Round(uint? v, int dp)
+    public override uint? Round(uint? v, int dp)
+    {
+        return v;
+    }
+
+    public override uint? GetMinimum() => uint.MinValue;
+    public override uint? GetMaximum() => uint.MaxValue;
+
+    public override uint? GetStep() => 1;
+
+    public override string FormatValueAsString(uint? v, string format)
+    {
+        return v?.ToString(format);
+    }
+
+    public override uint? ParseFromString(string v, string format)
+    {
+        if (string.IsNullOrEmpty(v))
         {
-            return v;
+            return null;
         }
 
-        public override uint? GetMinimum() => uint.MinValue;
-        public override uint? GetMaximum() => uint.MaxValue;
+        return uint.Parse(v, NumberStyles.Any);
+    }
 
-        public override uint? GetStep() => 1;
+    public override uint? FromDateTimeNull(DateTime? v)
+    {
+        throw new NotImplementedException();
+    }
 
-        public override string FormatValueAsString(uint? v, string format)
-        {
-            return v?.ToString(format);
-        }
+    public override DateTime? ToDateTimeNull(uint? v)
+    {
+        throw new NotImplementedException();
+    }
 
-        public override uint? ParseFromString(string v, string format)
-        {
-            if (string.IsNullOrEmpty(v))
-            {
-                return null;
-            }
+    public override uint? FromBoolNull(bool? v, bool indeterminate)
+    {
+        throw new NotImplementedException();
+    }
 
-            return uint.Parse(v, NumberStyles.Any);
-        }
-
-        public override uint? FromDateTimeNull(DateTime? v)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override DateTime? ToDateTimeNull(uint? v)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override uint? FromBoolNull(bool? v, bool indeterminate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override uint? FromDecimal(decimal v)
-        {
-            return (uint) v;
-        }
+    public override uint? FromDecimal(decimal v)
+    {
+        return (uint) v;
     }
 }

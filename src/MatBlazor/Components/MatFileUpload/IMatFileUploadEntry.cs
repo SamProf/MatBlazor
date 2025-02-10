@@ -2,17 +2,16 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public interface IMatFileUploadEntry
 {
-    public interface IMatFileUploadEntry
-    {
-        DateTime LastModified { get; }
+    DateTime LastModified { get; }
 
-        string Name { get; }
+    string Name { get; }
 
-        long Size { get; }
+    long Size { get; }
 
-        string Type { get; }
-        Task WriteToStreamAsync(Stream stream);
-    }
+    string Type { get; }
+    Task WriteToStreamAsync(Stream stream);
 }

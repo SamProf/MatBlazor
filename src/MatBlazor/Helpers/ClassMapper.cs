@@ -1,18 +1,17 @@
 ﻿using System.Linq;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+public class ClassMapper : BaseMapper
 {
-    public class ClassMapper : BaseMapper
+    public string AsString()
     {
-        public string AsString()
-        {
-            return string.Join(" ", Items.Select(i => i()).Where(i => i != null));
-        }
+        return string.Join(" ", Items.Select(i => i()).Where(i => i != null));
+    }
 
 
-        public override string ToString()
-        {
-            return AsString();
-        }
+    public override string ToString()
+    {
+        return AsString();
     }
 }

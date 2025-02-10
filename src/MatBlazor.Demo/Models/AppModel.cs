@@ -1,35 +1,34 @@
 ﻿using System;
 
-namespace MatBlazor.Demo.Models
+namespace MatBlazor.Demo.Models;
+
+public class AppModel
 {
-    public class AppModel
+    private readonly object syncObj = new object();
+    private int _userCount = 0;
+
+    public event EventHandler<int> UserCountChanged;
+
+    public int GetUserCount()
     {
-        private readonly object syncObj = new object();
-        private int userCount = 0;
-
-        public event EventHandler<int> UserCountChanged;
-
-        public int GetUserCount()
+        lock (syncObj)
         {
-            lock (syncObj)
-            {
-                return userCount;
-            }
+            return _userCount;
         }
+    }
 
 
-        public void AddUserCount(int value)
+    public void AddUserCount(int value)
+    {
+        lock (syncObj)
         {
-            lock (syncObj)
-            {
-                userCount += value;
-                OnUserCountChanged(userCount);
-            }
+            _userCount += value;
+            OnUserCountChanged(_userCount);
         }
+    }
 
-        protected virtual void OnUserCountChanged(int e)
-        {
-            UserCountChanged?.Invoke(this, e);
-        }
+    protected virtual void OnUserCountChanged(int e)
+    {
+        UserCountChanged?.Invoke(this, e);
     }
 }

@@ -1,8 +1,7 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum MatDrawerMode
 {
-    public enum MatDrawerMode
-    {
-        Dismissible,
-        Modal,
-    }
+    Dismissible,
+    Modal,
 }

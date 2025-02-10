@@ -1,9 +1,8 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum MatSortDirection
 {
-    public enum MatSortDirection
-    {
-        None,
-        Asc,
-        Desc
-    }
+    None,
+    Asc,
+    Desc
 }

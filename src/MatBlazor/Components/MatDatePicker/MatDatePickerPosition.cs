@@ -1,9 +1,8 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum MatDatePickerPosition
 {
-    public enum MatDatePickerPosition
-    {
-        Auto,
-        Above,
-        Below
-    }
+    Auto,
+    Above,
+    Below
 }

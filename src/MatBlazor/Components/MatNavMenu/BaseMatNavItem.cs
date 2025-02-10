@@ -4,126 +4,125 @@ using Microsoft.AspNetCore.Components.Web;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MatBlazor
+namespace MatBlazor;
+
+/// <summary>
+/// Nav Item is a menu item in the Nav Menu. Inherits from Mat List Item.
+/// </summary>
+public class BaseMatNavItem : BaseMatListItem
 {
+    [Inject]
+    public NavigationManager UriHelper { get; set; }
+
+    [CascadingParameter]
+    public BaseMatNavMenu MatNavMenu { get; set; }
+
+    [CascadingParameter]
+    public BaseMatNavSubMenu MatNavSubMenu { get; set; }
+
     /// <summary>
-    /// Nav Item is a menu item in the Nav Menu. Inherits from Mat List Item.
+    ///  Command executed when the user clicks on an element.
     /// </summary>
-    public class BaseMatNavItem : BaseMatListItem
+    [Parameter]
+    public ICommand Command { get; set; }
+
+    /// <summary>
+    /// Force browser to redirect outside component router-space.
+    /// </summary>
+    [Parameter]
+    public bool ForceLoad { get; set; }
+
+    /// <summary>
+    ///  Command parameter.
+    /// </summary>
+    [Parameter]
+    public object CommandParameter { get; set; }
+
+    [Parameter]
+    public bool Selected { get; set; }
+
+    /// <summary>
+    /// *Not yet functional - Target of Href when clicked.
+    /// </summary>
+    [Parameter]
+    public string Target { get; set; } = null;
+
+    /// <summary>
+    /// The title shown.
+    /// </summary>
+    [Parameter]
+    public string Title { get; set; } = null;
+
+    /// <summary>
+    ///  NavLinkMatch parameter used to determine the active state of the Nav Item.
+    /// </summary>
+    [Parameter]
+    public NavLinkMatch NavLinkMatch { get; set; } = NavLinkMatch.Prefix;
+
+    /// <summary>
+    /// Specifies weather you the Nav Item can be selected / active.
+    /// </summary>
+    [Parameter]
+    public bool AllowSelection { get; set; } = true;
+
+    [Parameter]
+    public EventCallback<bool> SelectedChanged { get; set; }
+
+    public async Task ToggleSelectedAsync()
     {
-        [Inject]
-        public NavigationManager UriHelper { get; set; }
+        this.Selected = !this.Selected;
 
-        [CascadingParameter]
-        public BaseMatNavMenu MatNavMenu { get; set; }
+        await SelectedChanged.InvokeAsync(this.Selected);
 
-        [CascadingParameter]
-        public BaseMatNavSubMenu MatNavSubMenu { get; set; }
-
-        /// <summary>
-        ///  Command executed when the user clicks on an element.
-        /// </summary>
-        [Parameter]
-        public ICommand Command { get; set; }
-
-        /// <summary>
-        /// Force browser to redirect outside component router-space.
-        /// </summary>
-        [Parameter]
-        public bool ForceLoad { get; set; }
-
-        /// <summary>
-        ///  Command parameter.
-        /// </summary>
-        [Parameter]
-        public object CommandParameter { get; set; }
-
-        [Parameter]
-        public bool Selected { get; set; }
-
-        /// <summary>
-        /// *Not yet functional - Target of Href when clicked.
-        /// </summary>
-        [Parameter]
-        public string Target { get; set; } = null;
-
-        /// <summary>
-        /// The title shown.
-        /// </summary>
-        [Parameter]
-        public string Title { get; set; } = null;
-
-        /// <summary>
-        ///  NavLinkMatch parameter used to determine the active state of the Nav Item.
-        /// </summary>
-        [Parameter]
-        public NavLinkMatch NavLinkMatch { get; set; } = NavLinkMatch.Prefix;
-
-        /// <summary>
-        /// Specifies weather you the Nav Item can be selected / active.
-        /// </summary>
-        [Parameter]
-        public bool AllowSelection { get; set; } = true;
-
-        [Parameter]
-        public EventCallback<bool> SelectedChanged { get; set; }
-
-        public async Task ToggleSelectedAsync()
+        if (MatNavMenu != null)
         {
-            this.Selected = !this.Selected;
-
-            await SelectedChanged.InvokeAsync(this.Selected);
-
-            if (MatNavMenu != null)
-            {
-                await this.MatNavMenu.ToggleSelectedAsync(this, MatNavSubMenu);
-            }
-
-            this.StateHasChanged();
+            await this.MatNavMenu.ToggleSelectedAsync(this, MatNavSubMenu);
         }
 
-        public BaseMatNavItem()
+        this.StateHasChanged();
+    }
+
+    public BaseMatNavItem()
+    {
+        ClassMapper
+            .Add("mdc-nav-item")
+            .If("mdc-list-item--selected", () => (Selected && AllowSelection));
+    }
+
+    /// <summary>
+    ///  OnClickHandler parameter.
+    /// </summary>
+    protected async Task OnClickHandler(MouseEventArgs e)
+    {
+        if (Disabled)
         {
-            ClassMapper
-                .Add("mdc-nav-item")
-                .If("mdc-list-item--selected", () => (Selected && AllowSelection));
+            return;
         }
 
-        /// <summary>
-        ///  OnClickHandler parameter.
-        /// </summary>
-        protected async Task OnClickHandler(MouseEventArgs e)
+        if (AllowSelection)
         {
-            if (Disabled)
-            {
-                return;
-            }
-
-            if (AllowSelection)
-            {
-                await ToggleSelectedAsync();
-            }
-
-            if (Href != null)
-            {
-                if (!string.IsNullOrEmpty(Target))
-                {
-                    // Do nothing here as it is a target for an anchor tag
-                }
-                else if(ForceLoad)
-                {
-                    UriHelper.NavigateTo(Href, true);
-                }
-
-            }
-            else
-            {
-                if (Command?.CanExecute(CommandParameter) ?? false)
-                {
-                    Command.Execute(CommandParameter);
-                }
-            }
-            await OnClick.InvokeAsync(e);
+            await ToggleSelectedAsync();
         }
+
+        if (Href != null)
+        {
+            if (!string.IsNullOrEmpty(Target))
+            {
+                // Do nothing here as it is a target for an anchor tag
+            }
+            else if(ForceLoad)
+            {
+                UriHelper.NavigateTo(Href, true);
+            }
+
+        }
+        else
+        {
+            if (Command?.CanExecute(CommandParameter) ?? false)
+            {
+                Command.Execute(CommandParameter);
+            }
+        }
+        await OnClick.InvokeAsync(e);
     }
 }

@@ -1,6 +1,5 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public class MatRadioGroup<TValue> : MatRadioGroupInternal<TValue>
 {
-    public class MatRadioGroup<TValue> : MatRadioGroupInternal<TValue>
-    {
-    }
 }

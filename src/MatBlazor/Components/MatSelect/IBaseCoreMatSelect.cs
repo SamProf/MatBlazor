@@ -1,7 +1,6 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public interface IBaseCoreMatSelect<TValue>
 {
-    public interface IBaseCoreMatSelect<TValue>
-    {
-        MatBlazorSwitchT<TValue> SwitchTypeKey { get; } 
-    }
+    MatBlazorSwitchT<TValue> SwitchTypeKey { get; } 
 }

@@ -1,9 +1,8 @@
-﻿namespace MatBlazor
+﻿namespace MatBlazor;
+
+public enum MatNumericUpDownFieldType
 {
-    public enum MatNumericUpDownFieldType
-    {
-        Numeric,
-        Currency,
-        Percent
-    }
+    Numeric,
+    Currency,
+    Percent
 }
