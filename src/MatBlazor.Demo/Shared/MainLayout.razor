@@ -23,19 +23,19 @@
             <MatHidden BreakPoint="@MatBreakpoint.XS" Direction="@MatHiddenDirection.Down">
                 <MatIconButton @ref="themeButton" Icon="invert_colors" OnClick="@OnClickButton">
                 </MatIconButton>
-                <MatIconButton Link="http://samprof.com" Target="_blank">
-                    <i class="fa fa-user-circle" aria-hidden="true"></i>
-                </MatIconButton>
                 <MatIconButton Link="https://github.com/SamProf/MatBlazor" Target="_blank">
                     <i class="fa fa-github" aria-hidden="true"></i>
                 </MatIconButton>
+                <a href="https://www.samprof.com" target="_blank" style="white-space: nowrap;" class="brand-link">
+                    By SamProf
+                </a>
             </MatHidden>
             <MatHidden BreakPoint="@MatBreakpoint.SM" Direction="@MatHiddenDirection.Up">
                 <MatIconButton Icon="more_vert" OnClick="@OpenSmallMenu" @ref="SmallMenuButton"></MatIconButton>
                 <MatMenu @ref="SmallMenu" style="z-index: 100;">
                     <MatList>
-                        <MatListItem Href="http://samprof.com" target="_blank">
-                            Samprof.com
+                        <MatListItem Href="https://www.samprof.com" target="_blank">
+                            SamProf
                         </MatListItem>
                         <MatListItem Href="https://github.com/SamProf/MatBlazor" target="_blank">
                             Github

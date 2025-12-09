@@ -168,3 +168,43 @@
     right: 0.75rem;
     top: 0.5rem;
 }
+
+
+.brand-link {
+    white-space: nowrap;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+
+    padding: 4px 10px;
+    border-radius: 999px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(3px);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease,
+            color 0.2s ease,
+            box-shadow 0.2s ease,
+            transform 0.1s ease;
+}
+
+.brand-link:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
+    color: #fff;
+}
+
+.brand-link:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
