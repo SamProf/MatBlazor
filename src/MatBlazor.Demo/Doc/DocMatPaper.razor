@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
+<DemoDocContainer Header="@Header" Secondary="@Secondary">
 
 <p>Basic component where the physical properties of paper are translated to the screen.<br/>Used for creating sections and giving more focus to some parts of the application.</p>
 
@@ -65,6 +65,7 @@
 		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>
+</DemoDocContainer>
 
 
 @code

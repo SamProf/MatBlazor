@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
+<DemoDocContainer Header="@Header" Secondary="@Secondary">
 
 <p>Callback used to Lazy Load child nodes</p>
 
@@ -20,6 +20,7 @@
 		<td>The node type</td>
 	</tr>
 </table></div>
+</DemoDocContainer>
 
 
 @code

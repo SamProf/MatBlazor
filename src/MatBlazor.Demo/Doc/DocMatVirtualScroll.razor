@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
+<DemoDocContainer Header="@Header" Secondary="@Secondary">
 
 <p>The VirtualScroll for Blazor displays large lists of elements performantly by only rendering the items that fit on-screen.<br/>Loading hundreds of elements can be slow in any browser; virtual scrolling enables a performant way to simulate all items being rendered by making the height of the container element the same as the height of total number of elements to be rendered, and then only rendering the items in view.</p>
 
@@ -75,6 +75,7 @@
 		<td>Returned ElementRef reference for DOM element.</td>
 	</tr>
 </table></div>
+</DemoDocContainer>
 
 
 @code

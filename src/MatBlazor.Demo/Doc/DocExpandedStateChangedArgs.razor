@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
+<DemoDocContainer Header="@Header" Secondary="@Secondary">
 
 <p>Event arguments passed when a node expanded state changes</p>
 
@@ -30,6 +30,7 @@
 		<td>The node that&#39;s expanded state has changed</td>
 	</tr>
 </table></div>
+</DemoDocContainer>
 
 
 @code

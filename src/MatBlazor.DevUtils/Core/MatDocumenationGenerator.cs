@@ -64,7 +64,7 @@ namespace MatBlazor.DevUtils.Core
                     sb.AppendLine();
                     //@if (Secondary) { <h3 class="mat-h3">MatProgressBar</h3> } else { <h3 class="mat-h3">MatProgressBar</h3> }
                     sb.AppendLine(
-                        $"@if (!Secondary) {{<h3 class=\"mat-h3\">@Header</h3> }} else {{ <h5 class=\"mat-h5\">@Header</h5> }}");
+                        $"<DemoDocContainer Header=\"@Header\" Secondary=\"@Secondary\">");
                     sb.AppendLine();
                     var typeXml = FindDocXml(xml, type);
                     if (typeXml != null)
@@ -143,6 +143,7 @@ namespace MatBlazor.DevUtils.Core
                     }
 
                     sb.AppendLine($"</table></div>");
+                    sb.AppendLine($"</DemoDocContainer>");
 
 
                     sb.AppendLine("");

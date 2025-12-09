@@ -4,7 +4,7 @@
 @* ALL MANUAL CHANGES WILL BE REMOVED! *@
 
 
-@if (!Secondary) {<h3 class="mat-h3">@Header</h3> } else { <h5 class="mat-h5">@Header</h5> }
+<DemoDocContainer Header="@Header" Secondary="@Secondary">
 
 <p>Represents the global  instance</p>
 
@@ -95,6 +95,7 @@
 		<td>How long the toast remain visible without user interaction. Defaults to 5000 ms.</td>
 	</tr>
 </table></div>
+</DemoDocContainer>
 
 
 @code

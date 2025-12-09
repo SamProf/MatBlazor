@@ -1,0 +1,23 @@
+﻿@if (!Secondary)
+{
+    <h3 class="mat-h3">@Header</h3>
+}
+else
+{
+    <h5 class="mat-h5">@Header</h5>
+}
+
+@ChildContent
+
+@code {
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public bool Secondary { get; set; }
+
+    [Parameter]
+    public string Header { get; set; }
+
+}
