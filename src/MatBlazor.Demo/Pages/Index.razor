@@ -4,9 +4,13 @@
 @implements IDisposable
 
 <style>
-    .blazor-fiddle { overflow-wrap: break-word; }
+    .blazor-fiddle {
+        overflow-wrap: break-word;
+    }
 
-    .index-row-item { padding: 24px; }
+    .index-row-item {
+        padding: 24px;
+    }
 
 </style>
 
@@ -17,7 +21,7 @@
         <div class="mat-layout-grid-cell-span-12">
             <h1 class="mat-h1"><img src="https://raw.githubusercontent.com/SamProf/MatBlazor/master/content/logo.png" style="max-height: 100px;"/> MatBlazor</h1>
             <h4 class="mat-h4">Material Design components for Blazor (@(GetVersion()))</h4>
-            
+
             <div>
                 <a href="https://www.nuget.org/packages/MatBlazor/" target="_blank">
                     <img src="https://img.shields.io/nuget/v/MatBlazor.svg"/>
@@ -140,6 +144,17 @@
 
 @code
 {
+    [Inject]
+    IJSRuntime JsRuntime { get; set; }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        if (firstRender)
+        {
+            JsRuntime.InvokeAsync<object>("matBlazorDemo.initAd");
+        }
+    }
 
     public void Dispose()
     {
