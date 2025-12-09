@@ -26,4 +26,12 @@
     <ProjectReference Include="..\MatBlazor\MatBlazor.csproj" />
   </ItemGroup>
 
+  <!-- Ensure ads.txt in host wwwroot is published to the site root -->
+  <ItemGroup>
+    <Content Include="wwwroot\ads.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
