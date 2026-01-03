@@ -11,7 +11,7 @@
 [![Patreon](https://img.shields.io/badge/Patreon-donation-blue)](https://www.patreon.com/SamProf)
 
 MatBlazor comprises a range of components which implement common interaction patterns according to the Material Design specification.
-
+📌 MatBlazor is no longer actively maintained. I’ve written a short post explaining the project’s story, impact, and current status: [Read the post](https://www.samprof.com/posts/matblazor---material-design-components-for-blazor).
 
 ## Demo and Documentation
 - [MatBlazor.com - Documentation and demo website](https://www.matblazor.com)
