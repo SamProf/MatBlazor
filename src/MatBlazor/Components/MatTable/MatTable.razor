@@ -42,7 +42,9 @@
         </tbody>
         @if (@ShowFooter)
         {
-            <tfoot class="mdc-table-footer-row"></tfoot>
+            <tfoot>
+                <tr class="mdc-table-footer-row @(FooterRowClass)">@MatTableFooter</tr>
+            </tfoot>
         }
     </table>
 </CascadingValue>
@@ -106,6 +108,12 @@
     /// </summary>
     [Parameter]
     public RenderFragment MatTableHeader { get; set; }
+
+    /// <summary>
+    /// The table footer
+    /// </summary>
+    [Parameter]
+    public RenderFragment MatTableFooter { get; set; }
 
     /// <summary>
     /// Allows the header row to be sorted

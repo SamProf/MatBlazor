@@ -806,6 +806,11 @@
             Specifies a custom class for the MatTableHeader row
             </summary>
         </member>
+        <member name="P:MatBlazor.BaseMatTable.FooterRowClass">
+            <summary>
+            Specifies a custom class for the MatTableFooter row
+            </summary>
+        </member>
         <member name="P:MatBlazor.BaseMatTable.RowClass">
             <summary>
             Specifies a custom class for the MatTableRow
@@ -1348,6 +1353,11 @@
         <member name="P:MatBlazor.MatTable`1.MatTableHeader">
             <summary>
             The table header
+            </summary>
+        </member>
+        <member name="P:MatBlazor.MatTable`1.MatTableFooter">
+            <summary>
+            The table footer
             </summary>
         </member>
         <member name="P:MatBlazor.MatTable`1.UseSortHeaderRow">

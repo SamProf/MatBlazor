@@ -78,6 +78,12 @@ namespace MatBlazor
         public string HeaderRowClass { get; set; }
 
         /// <summary>
+        /// Specifies a custom class for the MatTableFooter row
+        /// </summary>
+        [Parameter]
+        public string FooterRowClass { get; set; }
+
+        /// <summary>
         /// Specifies a custom class for the MatTableRow
         /// </summary>
         [Parameter]
