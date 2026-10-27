@@ -46,7 +46,7 @@
     "@material/top-app-bar": "7.0.0",
     "@material/typography": "7.0.0",
     "babel-polyfill": "^6.26.0",
-    "flatpickr": "^4.6.3",
+    "flatpickr": "npm:flatpickr-ce@^4.7.0",
     "install": "^0.13.0",
     "npm": "^6.14.2",
     "uglifyjs-webpack-plugin": "^2.2.0"
